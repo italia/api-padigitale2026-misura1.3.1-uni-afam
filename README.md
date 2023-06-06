@@ -1,4 +1,4 @@
-# api-padigitale2026-misura1.3.1-universita
+# API di PAdigitale2026 - Misura 1.3.1 - Avvisi per le università
 Specifiche API relative alla misura 1.3.1 per l'avviso dedicato alle Università di PAdigitale2026.
 
 Per informazioni:
