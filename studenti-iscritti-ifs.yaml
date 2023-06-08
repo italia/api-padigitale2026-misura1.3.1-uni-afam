@@ -72,7 +72,47 @@ paths:
   /studenti/iscritti:
     get:
       summary: Studenti iscritti presso IFS
-      parameters: []
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Method
+          description: Specifica il metodo HTTP utilizzato per la richiesta.
+        - schema:
+            type: string
+          in: header
+          name: Path
+          description: Specifica il percorso o l'endpoint dell'API a cui viene indirizzata la richiesta.
+        - schema:
+            type: string
+          in: header
+          name: Scheme
+          description: 'Specifica lo schema o il protocollo utilizzato per la comunicazione tra il client e il server, come HTTP o HTTPS.'
+        - schema:
+            type: string
+          in: header
+          name: Accept-Encoding
+          description: 'Utilizzato per indicare al server le opzioni di compressione supportate dal client, come gzip o deflate.'
+        - schema:
+            type: string
+          in: header
+          name: Accept-Language
+          description: 'Utilizzato per indicare al server la lingua preferita per la risposta, in modo che possa restituire la risposta nella lingua corretta, se disponibile.'
+        - schema:
+            type: string
+          in: header
+          name: Origin
+          description: 'Utilizzato in contesti di sicurezza per indicare l''origine della richiesta, ad esempio durante le richieste CORS (Cross-Origin Resource Sharing).'
+        - schema:
+            type: string
+          in: header
+          name: User-Agent
+          description: 'Utilizzato per identificare il client che sta effettuando la richiesta, ad esempio il browser e la versione utilizzata.'
+        - schema:
+            type: string
+          in: header
+          name: X-Request-Id
+          description: utilizzato per assegnare un identificatore univoco a una specifica richiesta HTTP.
       responses:
         '200':
           description: Richiesta eseguita con successo
@@ -81,7 +121,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/StudentiIscritti'
               examples:
-                Example 1:
+                Risposta con lista studenti valorizzata:
                   value:
                     denominazione_ifs: Istituto Tecnologie Avanzate
                     studenti:
@@ -93,10 +133,42 @@ paths:
                         anpr_id: ANPR4567D
                         nome_proprio: Luca
                         cognome: Verdi
-                Example 2:
+                Risposta con lista studenti vuota:
                   value:
                     denominazione_ifs: Istituto Tecnologie Avanzate
                     studenti: []
+          headers:
+            Content-Length:
+              schema:
+                type: string
+              description: 'utilizzato per indicare la dimensione del corpo della risposta, consentendo al client di gestire correttamente la ricezione dei dati.'
+            Cache-Control:
+              schema:
+                type: string
+              description: 'utilizzato per indicare al client o ai server intermedi come gestire la memorizzazione nella cache della risposta, ad esempio "no-cache" per impedire la memorizzazione nella cache.'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+              description: utilizzato per consentire a determinati origini di accedere alle risorse tramite richieste cross-origin.
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                format: int64
+              description: specifica il numero massimo di richieste consentite entro un determinato periodo di tempo (solitamente misurato in secondi).
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                format: int64
+              description: utilizzato per indicare il numero di richieste API rimanenti all'interno del periodo di tempo specificato dal server.
+            X-RateLimit-Reset:
+              schema:
+                type: string
+                format: date-time
+              description: utilizzato per indicare il momento in cui il limite delle richieste API verrà ripristinato.
+            X-Request-Id:
+              schema:
+                type: string
+              description: utilizzato per assegnare un identificatore univoco a una specifica richiesta HTTP.
         '500':
           description: Errore interno del server
       description: Restituisce la lista degli studenti iscritti presso l'IFS
