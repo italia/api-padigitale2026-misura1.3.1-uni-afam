@@ -32,7 +32,7 @@ info:
 
     ```json
     {
-      "denominazione_ifs": "Istituto Tecnologie Avanzate",
+      "institute_name": "Istituto Tecnologie Avanzate",
       "studenti": [
         {
           "taxCode": "RSSMRA80A01F205D",
@@ -118,7 +118,7 @@ paths:
               examples:
                 Risposta con lista studenti valorizzata:
                   value:
-                    denominazione_ifs: Istituto Tecnologie Avanzate
+                    institute_name: Istituto Tecnologie Avanzate
                     studenti:
                       - taxCode: RSSMRA80A01F205D
                         personID: AB123456C
@@ -130,12 +130,13 @@ paths:
                         familyName: Verdi
                 Risposta con lista studenti vuota:
                   value:
-                    denominazione_ifs: Istituto Tecnologie Avanzate
+                    institute_name: Istituto Tecnologie Avanzate
                     studenti: []
           headers:
             Content-Length:
               schema:
-                type: string
+                type: integer
+                format: int64
               description: 'utilizzato per indicare la dimensione del corpo della risposta, consentendo al client di gestire correttamente la ricezione dei dati.'
             Cache-Control:
               schema:
@@ -162,6 +163,35 @@ paths:
               description: utilizzato per indicare il momento in cui il limite delle richieste API verrà ripristinato.
         '500':
           description: Errore interno del server
+          headers:
+            Content-Length:
+              schema:
+                type: integer
+                format: int64
+              description: 'utilizzato per indicare la dimensione del corpo della risposta, consentendo al client di gestire correttamente la ricezione dei dati.'
+            Cache-Control:
+              schema:
+                type: string
+              description: 'utilizzato per indicare al client o ai server intermedi come gestire la memorizzazione nella cache della risposta, ad esempio "no-cache" per impedire la memorizzazione nella cache.'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+              description: utilizzato per consentire a determinati origini di accedere alle risorse tramite richieste cross-origin.
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                format: int64
+              description: specifica il numero massimo di richieste consentite entro un determinato periodo di tempo (solitamente misurato in secondi).
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                format: int64
+              description: utilizzato per indicare il numero di richieste API rimanenti all'interno del periodo di tempo specificato dal server.
+            X-RateLimit-Reset:
+              schema:
+                type: string
+                format: date-time
+              description: utilizzato per indicare il momento in cui il limite delle richieste API verrà ripristinato.
       description: Restituisce la lista degli studenti iscritti presso l'IFS
       operationId: studenti-iscritti
       tags:
@@ -173,7 +203,7 @@ components:
       type: object
       x-examples:
         Example 1:
-          denominazione_ifs: Nome istituto
+          institute_name: Istituto Tecnologie Avanzate
           studenti:
             - taxCode: '1234567890'
               personID: ANPR123
@@ -187,7 +217,7 @@ components:
         id: 582aaf1b98185
       description: Studenti iscritti a quell'istituto
       properties:
-        denominazione_ifs:
+        institute_name:
           type: string
           description: Denominazione dell’istituto
           readOnly: true
