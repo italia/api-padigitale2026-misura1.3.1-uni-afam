@@ -35,16 +35,16 @@ info:
       "denominazione_ifs": "Istituto Tecnologie Avanzate",
       "studenti": [
         {
-          "codice_fiscale": "RSSMRA80A01F205D",
-          "anpr_id": "AB123456C",
-          "nome_proprio": "Mario",
-          "cognome": "Rossi"
+          "taxCode": "RSSMRA80A01F205D",
+          "personID": "AB123456C",
+          "givenName": "Mario",
+          "familyName": "Rossi"
         },
         {
-          "codice_fiscale": "VRDLCU90A01H501L",
-          "anpr_id": "ANPR4567D",
-          "nome_proprio": "Luca",
-          "cognome": "Verdi"
+          "taxCode": "VRDLCU90A01H501L",
+          "personID": "ANPR4567D",
+          "givenName": "Luca",
+          "familyName": "Verdi"
         }
       ]
     }
@@ -108,11 +108,6 @@ paths:
           in: header
           name: User-Agent
           description: 'Utilizzato per identificare il client che sta effettuando la richiesta, ad esempio il browser e la versione utilizzata.'
-        - schema:
-            type: string
-          in: header
-          name: X-Request-Id
-          description: utilizzato per assegnare un identificatore univoco a una specifica richiesta HTTP.
       responses:
         '200':
           description: Richiesta eseguita con successo
@@ -125,14 +120,14 @@ paths:
                   value:
                     denominazione_ifs: Istituto Tecnologie Avanzate
                     studenti:
-                      - codice_fiscale: RSSMRA80A01F205D
-                        anpr_id: AB123456C
-                        nome_proprio: Mario
-                        cognome: Rossi
-                      - codice_fiscale: VRDLCU90A01H501L
-                        anpr_id: ANPR4567D
-                        nome_proprio: Luca
-                        cognome: Verdi
+                      - taxCode: RSSMRA80A01F205D
+                        personID: AB123456C
+                        givenName: Mario
+                        familyName: Rossi
+                      - taxCode: VRDLCU90A01H501L
+                        personID: ANPR4567D
+                        givenName: Luca
+                        familyName: Verdi
                 Risposta con lista studenti vuota:
                   value:
                     denominazione_ifs: Istituto Tecnologie Avanzate
@@ -165,10 +160,6 @@ paths:
                 type: string
                 format: date-time
               description: utilizzato per indicare il momento in cui il limite delle richieste API verrà ripristinato.
-            X-Request-Id:
-              schema:
-                type: string
-              description: utilizzato per assegnare un identificatore univoco a una specifica richiesta HTTP.
         '500':
           description: Errore interno del server
       description: Restituisce la lista degli studenti iscritti presso l'IFS
@@ -184,14 +175,14 @@ components:
         Example 1:
           denominazione_ifs: Nome istituto
           studenti:
-            - codice_fiscale: '1234567890'
-              anpr_id: ANPR123
-              nome_proprio: Mario
-              cognome: Rossi
-            - codice_fiscale: '0987654321'
-              anpr_id: ANPR456
-              nome_proprio: Luca
-              cognome: Verdi
+            - taxCode: '1234567890'
+              personID: ANPR123
+              givenName: Mario
+              familyName: Rossi
+            - taxCode: '0987654321'
+              personID: ANPR456
+              givenName: Luca
+              familyName: Verdi
       x-stoplight:
         id: 582aaf1b98185
       description: Studenti iscritti a quell'istituto
@@ -206,7 +197,7 @@ components:
           items:
             type: object
             properties:
-              codice_fiscale:
+              taxCode:
                 type: string
                 description: 'Codice Fiscale Studente '
                 example: RSSMRA80A01F205D
@@ -214,7 +205,7 @@ components:
                 minLength: 16
                 maxLength: 16
                 readOnly: true
-              anpr_id:
+              personID:
                 type: string
                 description: Identificativo ANPR
                 maxLength: 9
@@ -222,13 +213,13 @@ components:
                 pattern: '^[A-Z0-9]{8}[A-Z]$'
                 example: AB123456C
                 readOnly: true
-              nome_proprio:
+              givenName:
                 type: string
                 description: 'Nome Studente '
                 example: Mario
                 pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
                 readOnly: true
-              cognome:
+              familyName:
                 type: string
                 description: Cognome Studente
                 example: Rossi
