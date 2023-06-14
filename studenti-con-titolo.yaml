@@ -3,7 +3,7 @@ x-stoplight:
   id: 0f56e32f16f60
 info:
   title: API riferimento ANIS
-  x-summary: Questo servizio ritorna l'elenco degli iscritti a un ifs.
+  x-summary: Questo servizio ritorna l'elenco degli iscritti  a un ifs con almeno un titolo.
   version: 1.0.0
   description: |
     ### Documentazione
@@ -20,12 +20,12 @@ info:
     **Endpoint:**   GET  /status
 
 
-    # Studenti iscritti presso l'IFS
-    Questa API restituisce un elenco di studenti iscritti presso un determinato IFS (Istituto di Formazione Superiore). 
-    L'elenco è collegato ai Codici Fiscali (CF) o agli identificativi ANPR reperibili da ANPR tramite il CF 
-    o altre fonti fornite dall'IFS.
+    # Studenti che hanno conseguito almeno un titolo
 
-    **Endpoint:**   GET  /studenti/iscritti
+    Questa API fornisce un elenco di studenti che hanno conseguito almeno un titolo. L'elenco è collegato ai rispettivi Codici Fiscali (CF) o identificativi ANPR. 
+    I titoli possono includere lauree, diplomi, certificati o altri riconoscimenti accademici ottenuti dagli studenti presso l'IFS.
+
+    **Endpoint:**   GET  /studenti/conseguito-titoli
 
     **Esempio di risposta:**
 
@@ -68,9 +68,11 @@ paths:
           description: il servizio è in esecuzione correttamente.
         '500':
           description: il servizio non è in esecuzione.
-  /studenti/iscritti:
+  /studenti/conseguito-titoli:
     get:
-      summary: Studenti iscritti presso IFS
+      summary: Studenti che hanno conseguito almeno un titolo
+      tags:
+        - STUDENTI-CON-TITOLO
       parameters:
         - schema:
             type: string
@@ -115,19 +117,20 @@ paths:
               schema:
                 $ref: '#/components/schemas/StudentiIscritti'
               examples:
-                Risposta con lista studenti valorizzata:
+                Example 1:
                   value:
-                    instituteName: Istituto Tecnologie Avanzate
-                    students:
-                      - taxCode: RSSMRA80A01F205D
-                        personID: AB123456C
-                        givenName: Mario
-                        familyName: Rossi
-                      - taxCode: VRDLCU90A01H501L
-                        personID: ANPR4567D
-                        givenName: Luca
-                        familyName: Verdi
-                Risposta con lista studenti vuota:
+                    value:
+                      instituteName: Istituto Tecnologie Avanzate
+                      students:
+                        - taxCode: RSSMRA80A01F205D
+                          personID: AB123456C
+                          givenName: Mario
+                          familyName: Rossi
+                        - taxCode: VRDLCU90A01H501L
+                          personID: ANPR4567D
+                          givenName: Luca
+                          familyName: Verdi
+                Example 2:
                   value:
                     instituteName: Istituto Tecnologie Avanzate
                     students: []
@@ -161,7 +164,7 @@ paths:
                 format: date-time
               description: utilizzato per indicare il momento in cui il limite delle richieste API verrà ripristinato.
         '500':
-          description: Errore interno del server
+          description: Internal Server Error
           headers:
             Content-Length:
               schema:
@@ -191,10 +194,8 @@ paths:
                 type: string
                 format: date-time
               description: utilizzato per indicare il momento in cui il limite delle richieste API verrà ripristinato.
-      description: Restituisce la lista degli studenti iscritti presso l'IFS
-      operationId: studenti-iscritti
-      tags:
-        - STUDENTI-ISCRITTI
+      operationId: studenti-con-titoli
+      description: Restituisce la lista degli studenti che hanno conseguito almeno un titolo.
     parameters: []
 components:
   schemas:
@@ -262,4 +263,4 @@ servers:
 tags:
   - name: API-ANIS
   - name: HEALTH-CHECK
-  - name: STUDENTI-ISCRITTI
+  - name: STUDENTI-CON-TITOLO
