@@ -36,12 +36,16 @@ info:
       "personID": "AB123456C",
       "givenName": "Mario",
       "familyName": "Rossi",
+      "birthDate": "1990-05-17",
+      "birthPlace": "Roma",
       "registrationDetail": {
+        "instituteCode": "IFS00123",
         "instituteName": "Istituto Tecnologie Avanzate",
         "courseType": "Corso di laurea",
         "courseName": "Ingegneria",
         "classCode": "123",
         "className": "Ingegneria informatica",
+        "registrationYear": "2022/2023",
         "academicYear": "2022/2023",
         "courseYear": "1° anno"
       }
@@ -93,12 +97,16 @@ paths:
                     personID: AB123456C
                     givenName: Mario
                     familyName: Rossi
+                    birthDate: '1990-05-17'
+                    birthPlace: Roma
                     registrationDetail:
+                      instituteCode: IFS00123
                       instituteName: Istituto Tecnologie Avanzate
                       courseType: Corso di laurea
                       courseName: Ingegneria
                       classCode: '123'
                       className: Ingegneria informatica
+                      registrationYear: 2022/2023
                       academicYear: 2022/2023
                       courseYear: 1° anno
           headers:
@@ -240,12 +248,16 @@ components:
           personID: AB123456C
           givenName: Mario
           familyName: Rossi
+          birthDate: '1990-05-17'
+          birthPlace: Roma
           registrationDetail:
+            instituteCode: IFS00123
             instituteName: Istituto Tecnologie Avanzate
             courseType: Corso di laurea
             courseName: Ingegneria
             classCode: '123'
             className: Ingegneria informatica
+            registrationYear: 2022/2023
             academicYear: 2022/2023
             courseYear: 1° anno
       description: Dettaglio iscrizione studente
@@ -278,10 +290,26 @@ components:
           pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''''-]+$'
           example: Rossi
           readOnly: true
+        birthDate:
+          type: string
+          format: date
+          example: '1990-05-17'
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          description: Data di nascita dello studente
+          readOnly: true
+        birthPlace:
+          type: string
+          example: Rome
+          description: Luogo di nascita dello studente
+          readOnly: true
         registrationDetail:
           type: object
           description: Dettaglio iscrizione studente
           properties:
+            instituteCode:
+              type: string
+              description: 'Codice identificativo dell’istituto'
+              readOnly: true
             instituteName:
               type: string
               description: Denominazione dell’istituto
@@ -309,15 +337,20 @@ components:
               description: Denominazione della classe di laurea
               example: 'Informatica, Meccanica, Elettronica, Civile'
               readOnly: true
+            registrationYear:
+              type: string
+              description: Anno accademico di immatricolazione dello studente
             academicYear:
               type: string
               description: Ultimo anno accademico in cui lo studente risulta iscritto al corso
-              example: 'I anno, II anno'
+              example: 2022/2023
+              pattern: '^\d{4}/\d{4}$'
               readOnly: true
             courseYear:
               type: string
               description: Ultimo anno in cui lo studente risulta iscritto al corso
-              example: 'I anno, II anno'
+              example: 3° anno
+              pattern: ^\d+° anno$
               readOnly: true
   requestBodies: {}
   responses: {}

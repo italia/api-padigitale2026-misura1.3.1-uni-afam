@@ -34,22 +34,23 @@ info:
 
     ```json
     {
-      "instituteName": "Università degli Studi di Roma "La Sapienza"",
+      "instituteCode": "IFSRM1",
+      "instituteName": "Università degli Studi di Roma 'La Sapienza'",
       "courses": [
         {
-          "courseType": "Laurea",
+          "courseType": "Corso di laurea",
           "courseName": "Ingegneria",
           "classCode": "L-8",
           "className": "Informatica"
         },
         {
-          "courseType": "Laurea magistrale",
+          "courseType": "Corso di laurea magistrale",
           "courseName": "Ingegneria",
           "classCode": "L-32",
           "className": "Intelligenza artificiale"
         }
       ]
-    }}
+    }
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -132,7 +133,8 @@ paths:
               examples:
                 Example 1:
                   value:
-                    instituteName: Università degli Studi di Roma "La Sapienza"
+                    instituteCode: IFSRM1
+                    instituteName: Università degli Studi di Roma 'La Sapienza'
                     courses:
                       - courseType: Corso di laurea
                         courseName: Ingegneria
@@ -210,7 +212,8 @@ components:
       type: object
       x-examples:
         Example 1:
-          instituteName: Università degli Studi di Roma "La Sapienza"
+          instituteCode: IFSRM1
+          instituteName: Università degli Studi di Roma 'La Sapienza'
           courses:
             - courseType: Corso di laurea
               courseName: Ingegneria
@@ -222,6 +225,10 @@ components:
               className: Intelligenza artificiale
       description: Corsi erogati in un IFS
       properties:
+        instituteCode:
+          type: string
+          description: Codice identificativo dell’istituto
+          readOnly: true
         instituteName:
           type: string
           description: Nome dell'istituto

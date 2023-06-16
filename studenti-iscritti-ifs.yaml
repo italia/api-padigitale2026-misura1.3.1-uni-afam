@@ -31,19 +31,24 @@ info:
 
     ```json
     {
+      "instituteCode": "IFS00123",
       "instituteName": "Istituto Tecnologie Avanzate",
       "students": [
         {
           "taxCode": "RSSMRA80A01F205D",
           "personID": "AB123456C",
           "givenName": "Mario",
-          "familyName": "Rossi"
+          "familyName": "Rossi",
+          "birthDate": "1990-05-17",
+          "birthPlace": "Roma"
         },
         {
           "taxCode": "VRDLCU90A01H501L",
           "personID": "ANPR4567D",
           "givenName": "Luca",
-          "familyName": "Verdi"
+          "familyName": "Verdi",
+          "birthDate": "1995-03-25",
+          "birthPlace": "Milano"
         }
       ]
     }
@@ -117,18 +122,24 @@ paths:
               examples:
                 Risposta con lista studenti valorizzata:
                   value:
+                    instituteCode: IFS00123
                     instituteName: Istituto Tecnologie Avanzate
                     students:
                       - taxCode: RSSMRA80A01F205D
                         personID: AB123456C
                         givenName: Mario
                         familyName: Rossi
+                        birthDate: '1990-05-17'
+                        birthPlace: Roma
                       - taxCode: VRDLCU90A01H501L
                         personID: ANPR4567D
                         givenName: Luca
                         familyName: Verdi
+                        birthDate: '1995-03-25'
+                        birthPlace: Milano
                 Risposta con lista studenti vuota:
                   value:
+                    instituteCode: IFS00123
                     instituteName: Istituto Tecnologie Avanzate
                     students: []
           headers:
@@ -202,20 +213,29 @@ components:
       type: object
       x-examples:
         Example 1:
+          instituteCode: IFS00123
           instituteName: Istituto Tecnologie Avanzate
           students:
             - taxCode: RSSMRA80A01F205D
               personID: AB123456C
               givenName: Mario
               familyName: Rossi
+              birthDate: '1990-05-17'
+              birthPlace: Roma
             - taxCode: VRDLCU90A01H501L
               personID: ANPR4567D
               givenName: Luca
               familyName: Verdi
+              birthDate: '1995-03-25'
+              birthPlace: Milano
       x-stoplight:
         id: 582aaf1b98185
       description: Studenti iscritti a quell'istituto
       properties:
+        instituteCode:
+          type: string
+          description: Codice identificativo dell’istituto
+          readOnly: true
         instituteName:
           type: string
           description: Denominazione dell’istituto
@@ -253,6 +273,18 @@ components:
                 description: Cognome Studente
                 example: Rossi
                 pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
+                readOnly: true
+              birthDate:
+                type: string
+                format: date
+                example: '1990-05-17'
+                pattern: '^\d{4}-\d{2}-\d{2}$'
+                description: Data di nascita dello studente
+                readOnly: true
+              birthPlace:
+                type: string
+                example: Rome
+                description: Luogo di nascita dello studente
                 readOnly: true
   requestBodies: {}
   responses: {}
