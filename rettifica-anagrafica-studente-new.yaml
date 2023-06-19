@@ -83,7 +83,7 @@ info:
           "newValue": "1° anno"
         }
       ],
-      "correctionReqText": "Testo con la richiesta di rettifica",
+      "rectificationReqText": "Testo con la richiesta di rettifica",
       "openNotes": "Note aperte dello studente/ex studente"
     }
 
@@ -406,7 +406,7 @@ paths:
                     - fieldName: courseYear
                       oldValue: 3° anno
                       newValue: 1° anno
-                  correctionReqText: Testo con la richiesta di rettifica
+                  rectificationReqText: Testo con la richiesta di rettifica
                   openNotes: Note aperte dello studente/ex studente
           application/xml:
             schema:
@@ -474,7 +474,7 @@ components:
             - fieldName: courseYear
               oldValue: 3° anno
               newValue: 1° anno
-          correctionReqText: Testo con la richiesta di rettifica
+          rectificationReqText: Testo con la richiesta di rettifica
           openNotes: Note aperte dello studente/ex studente
       properties:
         fieldsToEdit:
