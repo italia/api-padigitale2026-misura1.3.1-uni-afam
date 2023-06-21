@@ -60,7 +60,7 @@ paths:
           description: il servizio è in esecuzione correttamente.
         '500':
           description: il servizio non è in esecuzione.
-  '/corsi/{courseName}/iscritti':
+  '/corsi/{courseName}/statistiche-iscritti':
     parameters:
       - schema:
           type: string
