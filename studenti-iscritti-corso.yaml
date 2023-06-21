@@ -20,11 +20,50 @@ info:
     **Endpoint:**   GET  /status
 
 
-    # Studenti iscritti a uno specifico corso di studi
+    # Numero di studenti iscritti a un IFS
+    Questa API consente di ottenere il numero di studenti iscritti ad un IFS.
+
+    **Endpoint:**   GET  /stats/iscritti
+
+    **Esempio di risposta:**
+
+    ```json
+    {
+      "instituteName": "Università degli Studi di Milano",
+      "numberRegistered": 12000
+    }
+
+    # Numero di studenti iscritti a un IFS suddivisi per fasce ISEE
+    Questa API consente di ottenere il numero di studenti iscritti ad un IFS suddivisi per fasce ISEE.
+
+    **Endpoint:**   GET  /stats/iscritti-per-isee
+
+    **Esempio di risposta:**
+
+    ```json
+    {
+      "instituteName": "Università degli Studi di Milano",
+      "numberRegistered": 12000
+      "fasce-isee":
+      {
+          "<1000" : 0,
+          "2000" : 2,
+          "3000" : 6,
+          "4000" : 7,
+          ....
+          "48000" : 5,
+          "49000" : 3,
+          "50000" : 5,
+          ">50000" : 11,
+          "undef" : 210
+      }
+    }
+
+    # Numero di studenti iscritti a uno specifico corso di studi
     Questa API consente di ottenere il numero di studenti iscritti a un Corso di Studi specifico di un IFS. 
     Restituisce i dati relativi al corso e il conteggio degli studenti iscritti.
 
-    **Endpoint:**   GET  /corsi/{courseName}/iscritti
+    **Endpoint:**   GET  /stats/corsi/{courseName}/iscritti
 
     **Params:**    `{courseName}`: Nome del corso di studi.
 
@@ -39,6 +78,7 @@ info:
       "className": "Civile e Ambientale",
       "numberRegistered": 1200
     }
+    
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
