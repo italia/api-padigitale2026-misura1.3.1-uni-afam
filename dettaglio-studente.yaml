@@ -1,0 +1,363 @@
+openapi: 3.0.0
+x-stoplight:
+  id: 0f56e32f16f60
+info:
+  title: API riferimento ANIS
+  x-summary: Questo servizio ritorna il dettaglio di iscrizione di uno studente.
+  version: 1.0.0
+  description: |
+    ### Documentazione
+
+    ## API riferimento ANIS
+    La seguente documentazione API fornisce un riferimento per l'integrazione e 
+    l'accesso ai dati ANIS (ANagrafe degli Studenti) relativi alle università. 
+    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati ANIS.
+
+    # API Health Check
+    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
+    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
+
+    **Endpoint:**  GET  /status
+
+
+    # Studente iscritto con dettaglio iscrizione
+    Questa API restituisce i dettagli di iscrizione di uno studente specifico, basandosi sul suo Codice Fiscale (CF) 
+    o sull'identificativo ANPR.
+
+    **Endpoint:**   GET  /studenti/{taxCode}
+
+    **Params:**    `{taxCode}`: Il Codice Fiscale (CF) dello studente.
+
+    **Esempio di risposta:**
+
+    ```json
+    {
+      "taxCode": "RSSMRA80A01F205D",
+      "personID": "AB123456C",
+      "givenName": "Mario",
+      "familyName": "Rossi",
+      "birthDate": "1990-05-17",
+      "birthPlace": "Roma",
+      "registrationDetail": {
+        "instituteCode": "IFS00123",
+        "instituteName": "Istituto Tecnologie Avanzate",
+        "courseType": "Corso di laurea",
+        "courseName": "Ingegneria",
+        "classCode": "123",
+        "className": "Ingegneria informatica",
+        "registrationYear": "2022/2023",
+        "academicYear": "2022/2023",
+        "courseYear": "1° anno"
+      }
+    }
+  contact:
+    name: helpdesk
+    email: helpdesk@gmail.com
+  x-api-id: 00000000-0000-0000-0000-000000000000
+  termsOfService: 'http://swagger.io/terms/'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  /status:
+    get:
+      summary: Health Check
+      operationId: check-status
+      description: Verificare lo stato di salute del sistema
+      tags:
+        - HEALTH-CHECK
+      responses:
+        '204':
+          description: il servizio è in esecuzione correttamente.
+        '500':
+          description: il servizio non è in esecuzione.
+  '/studenti/{taxCode}':
+    parameters:
+      - schema:
+          type: string
+        name: taxCode
+        in: path
+        required: true
+        description: Codice Fiscale o Identificativo ANPR
+    get:
+      summary: Dettaglio iscrizione studente
+      tags:
+        - DETTAGLIO-STUDENTE
+      responses:
+        '200':
+          description: Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DettaglioStudente'
+              examples:
+                Example 1:
+                  value:
+                    taxCode: RSSMRA80A01F205D
+                    personID: AB123456C
+                    givenName: Mario
+                    familyName: Rossi
+                    birthDate: '1990-05-17'
+                    birthPlace: Roma
+                    registrationDetail:
+                      instituteCode: IFS00123
+                      instituteName: Istituto Tecnologie Avanzate
+                      courseType: Corso di laurea
+                      courseName: Ingegneria
+                      classCode: '123'
+                      className: Ingegneria informatica
+                      registrationYear: 2022/2023
+                      academicYear: 2022/2023
+                      courseYear: 1° anno
+          headers:
+            Content-Length:
+              schema:
+                type: integer
+                format: int64
+              description: 'utilizzato per indicare la dimensione del corpo della risposta, consentendo al client di gestire correttamente la ricezione dei dati.'
+            Cache-Control:
+              schema:
+                type: string
+              description: 'utilizzato per indicare al client o ai server intermedi come gestire la memorizzazione nella cache della risposta, ad esempio "no-cache" per impedire la memorizzazione nella cache.'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+              description: utilizzato per consentire a determinati origini di accedere alle risorse tramite richieste cross-origin.
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                format: int64
+              description: specifica il numero massimo di richieste consentite entro un determinato periodo di tempo (solitamente misurato in secondi).
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                format: int64
+              description: utilizzato per indicare il numero di richieste API rimanenti all'interno del periodo di tempo specificato dal server.
+            X-RateLimit-Reset:
+              schema:
+                type: string
+                format: date-time
+              description: utilizzato per indicare il momento in cui il limite delle richieste API verrà ripristinato.
+        '404':
+          description: Studente non trovato
+          headers:
+            Content-Length:
+              schema:
+                type: integer
+                format: int64
+              description: 'utilizzato per indicare la dimensione del corpo della risposta, consentendo al client di gestire correttamente la ricezione dei dati.'
+            Cache-Control:
+              schema:
+                type: string
+              description: 'utilizzato per indicare al client o ai server intermedi come gestire la memorizzazione nella cache della risposta, ad esempio "no-cache" per impedire la memorizzazione nella cache.'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+              description: utilizzato per consentire a determinati origini di accedere alle risorse tramite richieste cross-origin.
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                format: int64
+              description: specifica il numero massimo di richieste consentite entro un determinato periodo di tempo (solitamente misurato in secondi).
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                format: int64
+              description: utilizzato per indicare il numero di richieste API rimanenti all'interno del periodo di tempo specificato dal server.
+            X-RateLimit-Reset:
+              schema:
+                type: string
+                format: date-time
+              description: utilizzato per indicare il momento in cui il limite delle richieste API verrà ripristinato.
+        '500':
+          description: Errore interno del server
+          headers:
+            Content-Length:
+              schema:
+                type: integer
+                format: int64
+              description: 'utilizzato per indicare la dimensione del corpo della risposta, consentendo al client di gestire correttamente la ricezione dei dati.'
+            Cache-Control:
+              schema:
+                type: string
+              description: 'utilizzato per indicare al client o ai server intermedi come gestire la memorizzazione nella cache della risposta, ad esempio "no-cache" per impedire la memorizzazione nella cache.'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+              description: utilizzato per consentire a determinati origini di accedere alle risorse tramite richieste cross-origin.
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                format: int64
+              description: specifica il numero massimo di richieste consentite entro un determinato periodo di tempo (solitamente misurato in secondi).
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                format: int64
+              description: utilizzato per indicare il numero di richieste API rimanenti all'interno del periodo di tempo specificato dal server.
+            X-RateLimit-Reset:
+              schema:
+                type: string
+                format: date-time
+              description: utilizzato per indicare il momento in cui il limite delle richieste API verrà ripristinato.
+      operationId: dettaglio-studente
+      description: 'Restituisce i dettagli di iscrizione di uno studente in base al suo codice_fiscale/identificativo ANPR '
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Method
+          description: Specifica il metodo HTTP utilizzato per la richiesta.
+        - schema:
+            type: string
+          in: header
+          name: Path
+          description: Specifica il percorso o l'endpoint dell'API a cui viene indirizzata la richiesta.
+        - schema:
+            type: string
+          in: header
+          name: Scheme
+          description: 'Specifica lo schema o il protocollo utilizzato per la comunicazione tra il client e il server, come HTTP o HTTPS.'
+        - schema:
+            type: string
+          in: header
+          name: Accept-Encoding
+          description: 'Utilizzato per indicare al server le opzioni di compressione supportate dal client, come gzip o deflate.'
+        - schema:
+            type: string
+          in: header
+          name: Accept-Language
+          description: 'Utilizzato per indicare al server la lingua preferita per la risposta, in modo che possa restituire la risposta nella lingua corretta, se disponibile.'
+        - schema:
+            type: string
+          in: header
+          name: Origin
+          description: 'Utilizzato in contesti di sicurezza per indicare l''origine della richiesta, ad esempio durante le richieste CORS (Cross-Origin Resource Sharing).'
+        - schema:
+            type: string
+          in: header
+          name: User-Agent
+          description: 'Utilizzato per identificare il client che sta effettuando la richiesta, ad esempio il browser e la versione utilizzata.'
+components:
+  schemas:
+    DettaglioStudente:
+      type: object
+      x-examples:
+        Example 1:
+          taxCode: RSSMRA80A01F205D
+          personID: AB123456C
+          givenName: Mario
+          familyName: Rossi
+          birthDate: '1990-05-17'
+          birthPlace: Roma
+          registrationDetail:
+            instituteCode: IFS00123
+            instituteName: Istituto Tecnologie Avanzate
+            courseType: Corso di laurea
+            courseName: Ingegneria
+            classCode: '123'
+            className: Ingegneria informatica
+            registrationYear: 2022/2023
+            academicYear: 2022/2023
+            courseYear: 1° anno
+      description: Dettaglio iscrizione studente
+      properties:
+        taxCode:
+          type: string
+          example: RSSMRA80A01F205D
+          minLength: 16
+          maxLength: 16
+          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          description: Codice Fiscale Studente
+          readOnly: true
+        personID:
+          type: string
+          description: Identificativo ANPR
+          minLength: 9
+          maxLength: 9
+          pattern: '^[A-Z0-9]{8}[A-Z]$'
+          example: AB123456C
+          readOnly: true
+        givenName:
+          type: string
+          description: Nome Studente
+          pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''''-]+$'
+          example: Mario
+          readOnly: true
+        familyName:
+          type: string
+          description: Cognome Studente
+          pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''''-]+$'
+          example: Rossi
+          readOnly: true
+        birthDate:
+          type: string
+          format: date
+          example: '1990-05-17'
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          description: Data di nascita dello studente
+          readOnly: true
+        birthPlace:
+          type: string
+          example: Rome
+          description: Luogo di nascita dello studente
+          readOnly: true
+        registrationDetail:
+          type: object
+          description: Dettaglio iscrizione studente
+          properties:
+            instituteCode:
+              type: string
+              description: 'Codice identificativo dell’istituto'
+              readOnly: true
+            instituteName:
+              type: string
+              description: Denominazione dell’istituto
+              readOnly: true
+            courseType:
+              type: string
+              description: Tipologia del corso di studio
+              example: 'laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale'
+              readOnly: true
+            courseName:
+              type: string
+              description: Denominazione corso
+              example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
+              readOnly: true
+            classCode:
+              type: string
+              description: Codice identificativo della classe di laurea
+              pattern: '^[A-Za-z0-9-]+$'
+              minLength: 1
+              maxLength: 10
+              example: DCPL03
+              readOnly: true
+            className:
+              type: string
+              description: Denominazione della classe di laurea
+              example: 'Informatica, Meccanica, Elettronica, Civile'
+              readOnly: true
+            registrationYear:
+              type: string
+              description: Anno accademico di immatricolazione dello studente
+            academicYear:
+              type: string
+              description: Ultimo anno accademico in cui lo studente risulta iscritto al corso
+              example: 2022/2023
+              pattern: '^\d{4}/\d{4}$'
+              readOnly: true
+            courseYear:
+              type: string
+              description: Ultimo anno in cui lo studente risulta iscritto al corso
+              example: 3° anno
+              pattern: ^\d+° anno$
+              readOnly: true
+  requestBodies: {}
+  responses: {}
+servers:
+  - url: 'https://localhost:8080/api'
+    description: localhost
+tags:
+  - name: API-ANIS
+  - name: HEALTH-CHECK
+  - name: DETTAGLIO-STUDENTE
