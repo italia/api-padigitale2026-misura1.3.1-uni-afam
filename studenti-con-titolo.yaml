@@ -10,7 +10,7 @@ info:
 
     ## API riferimento ANIS
     La seguente documentazione API fornisce un riferimento per l'integrazione e 
-    l'accesso ai dati ANIS (ANagrafe degli Studenti) relativi alle università. 
+    l'accesso ai dati ANIS (Anagrafe Nazionale dell'Istruzione Superiore) relativi alle università. 
     Queste API consentono l'erogazione di servizi (e-service) che operano sui dati ANIS.
 
     # API Health Check

@@ -7,23 +7,27 @@ info:
   version: 1.0.0
   description: |
     ### Documentazione
-
-    ## API riferimento ANIS
     La seguente documentazione API fornisce un riferimento per l'integrazione e 
-    l'accesso ai dati ANIS (Anagrafe Nazionale dell'Istruzione Superiore) relativi alle università. 
-    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati ANIS.
+    l'accesso ai dati ANIS (ANagrafe degli Studenti) relativi alle università. 
+    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati ANIS. 
+    
+    ## (DENIS: MIGLIOREREI LA DESCRIZIONE RICHIAMANDO ANIS SOLO COME ESEMPIO)
+
 
     # API Health Check
+    ## (DENIS: API Check la metterei in ultimo)
     Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
     È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
+
 
     **Endpoint:**   GET  /status
 
 
     # Studenti iscritti presso l'IFS
     Questa API restituisce un elenco di studenti iscritti presso un determinato IFS (Istituto di Formazione Superiore). 
-    L'elenco è collegato ai Codici Fiscali (CF) o agli identificativi ANPR reperibili da ANPR tramite il CF 
-    o altre fonti fornite dall'IFS.
+    L'elenco è composto di Codici Fiscali (CF) ed identificativi ANPR.
+   
+    ## (DENIS: PERCHE' NON SI PUO' FILTRARE PER ANNO O SULLA BASE DI ALTRI PARAMETRI PRESENTI NELLA RISPOSTA DEL DETTAGLIO, OSSIA IL FASCICOLO DELLO STUDENTE?)
 
     **Endpoint:**   GET  /studenti/iscritti
 
@@ -292,6 +296,7 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: API-ANIS
-  - name: HEALTH-CHECK
+  - name: API-ANIS - (Denis Perchè si specifica ANIS?)
   - name: STUDENTI-ISCRITTI
+  - name: HEALTH-CHECK
+
