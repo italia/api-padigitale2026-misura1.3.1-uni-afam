@@ -8,23 +8,22 @@ info:
   description: |
     ### Documentazione
 
-    ## API riferimento ANIS
-    La seguente documentazione API fornisce un riferimento per l'integrazione e 
-    l'accesso ai dati ANIS (ANagrafe degli Studenti) relativi alle università. 
-    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati ANIS.
+    ## Denis: il cappello della documentazione andrebbe riscritto senza fare riferimento ad ANIS o solo come esempio
+    ## Denis: di seguito metterei in evidenza le api di business come prima api e non quello di status
 
-    # API Health Check
+    ## API Health Check
     Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
     È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
 
     **Endpoint:**  GET  /status
 
 
-    # Studente iscritto con dettaglio iscrizione
-    Questa API restituisce i dettagli di iscrizione di uno studente specifico, basandosi sul suo Codice Fiscale (CF) 
-    o sull'identificativo ANPR.
+    ## Studente iscritto con dettaglio iscrizione
+    Questa API restituisce la lista delle iscrizioni di uno studente
+    # (DENIS: Da capire se mettere un filtro per anno ed è da aggiornare come una lista di iscrizioni e non come una singola iscrizione)
 
     **Endpoint:**   GET  /studenti/{taxCode}
+    # (DENIS: si potrebbe accedere anche per IDANPR?)
 
     **Params:**    `{taxCode}`: Il Codice Fiscale (CF) dello studente.
 
@@ -38,14 +37,15 @@ info:
       "familyName": "Rossi",
       "birthDate": "1990-05-17",
       "birthPlace": "Roma",
-      "registrationDetail": {
+      "enrolmentsList": {
         "instituteCode": "IFS00123",
         "instituteName": "Istituto Tecnologie Avanzate",
         "courseType": "Corso di laurea",
+        "courseCode": "Codice del corso",
         "courseName": "Ingegneria",
         "classCode": "123",
         "className": "Ingegneria informatica",
-        "registrationYear": "2022/2023",
+        "enrolmentYear": "2020/2021",
         "academicYear": "2022/2023",
         "courseYear": "1° anno"
       }
@@ -82,7 +82,7 @@ paths:
     get:
       summary: Dettaglio iscrizione studente
       tags:
-        - DETTAGLIO-STUDENTE
+        - STUDENT_ENROLMENTS
       responses:
         '200':
           description: Richiesta eseguita con successo
@@ -99,14 +99,15 @@ paths:
                     familyName: Rossi
                     birthDate: '1990-05-17'
                     birthPlace: Roma
-                    registrationDetail:
+                    # Denis: da aggiornare come una lista
+                    enrolmentsList:
                       instituteCode: IFS00123
                       instituteName: Istituto Tecnologie Avanzate
                       courseType: Corso di laurea
                       courseName: Ingegneria
                       classCode: '123'
                       className: Ingegneria informatica
-                      registrationYear: 2022/2023
+                      enrolmentYear: 2022/2023
                       academicYear: 2022/2023
                       courseYear: 1° anno
           headers:
@@ -200,7 +201,7 @@ paths:
                 type: string
                 format: date-time
               description: utilizzato per indicare il momento in cui il limite delle richieste API verrà ripristinato.
-      operationId: dettaglio-studente
+      operationId: enrolments of student
       description: 'Restituisce i dettagli di iscrizione di uno studente in base al suo codice_fiscale/identificativo ANPR '
       parameters:
         - schema:
@@ -250,10 +251,11 @@ components:
           familyName: Rossi
           birthDate: '1990-05-17'
           birthPlace: Roma
-          registrationDetail:
+          enrolmentsList:
             instituteCode: IFS00123
             instituteName: Istituto Tecnologie Avanzate
             courseType: Corso di laurea
+            courseCode: '333'
             courseName: Ingegneria
             classCode: '123'
             className: Ingegneria informatica
@@ -302,7 +304,8 @@ components:
           example: Rome
           description: Luogo di nascita dello studente
           readOnly: true
-        registrationDetail:
+        # DENIS: Sarebbe da adeguare ad una lista  
+        enrolmentsList:
           type: object
           description: Dettaglio iscrizione studente
           properties:
@@ -318,6 +321,10 @@ components:
               type: string
               description: Tipologia del corso di studio
               example: 'laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale'
+              readOnly: true
+            courseCode:
+              type: string
+              description: Codice del corso
               readOnly: true
             courseName:
               type: string
@@ -340,7 +347,7 @@ components:
             registrationYear:
               type: string
               description: Anno accademico di immatricolazione dello studente
-            academicYear:
+            enrolmentYear:Year:
               type: string
               description: Ultimo anno accademico in cui lo studente risulta iscritto al corso
               example: 2022/2023
@@ -358,6 +365,5 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: API-ANIS
   - name: HEALTH-CHECK
-  - name: DETTAGLIO-STUDENTE
+  - name: STUDENT_ENROLMENTS
