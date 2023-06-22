@@ -8,6 +8,8 @@ info:
   description: |
     ### Documentazione
 
+    ## Denis: il cappello della documentazione andrebbe riscritto senza fare riferimento ad ANIS o solo come esempio
+    ## Denis: di seguito metterei in evidenza le api di business come prima api e non quello di status
 
     ## API Health Check
     Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
