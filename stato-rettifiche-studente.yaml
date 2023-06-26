@@ -12,6 +12,7 @@ info:
     La seguente documentazione API fornisce un riferimento per l'integrazione e 
     l'accesso ai dati ANIS (Anagrafe Nazionale dell'Istruzione Superiore) relativi alle università. 
     Queste API consentono l'erogazione di servizi (e-service) che operano sui dati ANIS.
+    # (DENIS: Da rivedere la descrizione)
 
     # API Health Check
     Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
@@ -21,12 +22,18 @@ info:
 
     # Elenco rettifiche anagrafica studente 
     Questa API fornisce l'elenco di tutte le richieste di rettifica anagrafica che sono state fatte per uno specifico studente. Dato il codice fiscale o identificativo ANPR.
-    Ogni elemento di questo elenco riporterà l'identificativo e alcune informazioni relative alla singola rettifica.
+    Ogni elemento di questo elenco riporterà l'identificativo e le informazioni della rettifica incluso il suo stateHistory:
+    (Aperta: inviata ma non ancora presa in carico, 
+     In lavorazione: presa in carico,
+     Evasa: richiesta accolta,
+     Respinta: richiesta respinta dal comune)
+
 
     **Endpoint:**   GET  /rettifiche-anagrafica/
 
     **Params:**    `{taxCode}`: Il Codice Fiscale (CF) dello studente.
 
+    * (DENIS: da aggiornare gli esempi seguenti)
     **Esempio body richiesta:**
     ```json
     {
@@ -35,51 +42,53 @@ info:
           "rectificationId": "2A9BCD3E4F567890",
           "state": "Presa in carico",
           "date": "2023-02-12",
-          "rectificationReqText": "Modifica dati personali",
-          "openNotes": "Note operte"
+          "request": "Modifica dati personali",
+          "note": "Nota aperta"
         },
         {
           "rectificationId": "3B3ACD3E4L123450",
           "state": "In lavorazione",
           "date": "2023-03-18",
-          "rectificationReqText": "Modifica dati personali",
-          "openNotes": "Note operte"
+          "request": "Modifica dati personali",
+          "note": "Nota aperta"
         },
         {
           "rectificationId": "4B6AEF3E4F248101",
           "state": "Accettata",
           "date": "2023-05-02",
-          "rectificationReqText": "Modifica dati personali",
-          "openNotes": "Note operte"
+          "request": "Modifica dati personali",
+          "note": "Note aperta"
         },
         {
           "rectificationId": "5B1ACD3E4L123450",
           "state": "Rifiutata",
           "date": "2023-06-23",
-          "rectificationReqText": "Modifica dati personali",
-          "openNotes": "Note operte"
+          "request": "Modifica dati personali",
+          "note": "Note aperta"
         }
       ]
     }
 
 
     # Dettaglio rettifica anagrafica
-    Questa API consente di recuperare il dettaglio di una specifica rettifica anagrafica. In particolare, nella risposta, oltre all'identificativo della rettifica, è riportato lo stato attuale, la cronologia di stati, i campi che sono stati modificati con i valori precedenti e successivi, le note.
+    * Questa API consente di recuperare il dettaglio di una specifica richiesta  di rettifica anagrafica. 
+    * In particolare, nella risposta, oltre all'identificativo della rettifica, è riportato lo stato attuale, la cronologia di stati, i campi che sono stati modificati con i valori precedenti e successivi, le note.
 
-    **Endpoint:**   GET  /rettifica-anagrafica/{rectificationId}
 
-    **Params:**    `{rectificationId}`: L'identificativo della richiesta di rettifica anagrafica.
+    **Endpoint:**   GET  /rettifica-anagrafica/{requestId}
+
+    **Params:**    `{requestId}`: L'identificativo della richiesta di rettifica anagrafica.
 
     **Esempio di risposta:**
     ```json
     {
-      "rectificationId": "2A9BCD3E4F567890",
+      "requestId": "2A9BCD3E4F567890",
       "state": "Accettata",
-      "fieldEdited": [
+      "attributes": [
         {
-          "fieldName": "courseType",
-          "oldValue": "Laurea",
-          "newValue": "Laurea Magistrale"
+          "attribute": "courseType",
+          "current": "Laurea",
+          "suggested": "Laurea Magistrale"
         },
         {
           "fieldName": "academicYear",
@@ -104,8 +113,8 @@ info:
           "description": "Descrizione del passaggio di stato"
         }
       ],
-      "rectificationReqText": "Testo con la richiesta di rettifica",
-      "openNotes": "Note aperte dello studente/ex studente"
+      "request": "Testo con la richiesta di rettifica",
+      "note": "Note aperte dello studente/ex studente"
     }
   contact:
     name: helpdesk
@@ -212,6 +221,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ElencoRettifiche'
+              # (DENIS: da aggiornare gli esempi sulla base delle nuove proposte)
               examples:
                 Example 1:
                   value:
@@ -243,11 +253,11 @@ paths:
           description: Errore interno del server
       operationId: rettifiche-anagrafica-studente
       description: 'Permette di recuperare, tramite il codice fiscale, l''elenco delle richieste di rettifica anagrafica di uno specifico studente.'
-  '/rettifica-anagrafica/{rectificationId}':
+  '/rettifica-anagrafica/{requestId}':
     parameters:
       - schema:
           type: string
-        name: rectificationId
+        name: requestId
         in: path
         required: true
         description: Identificativo della rettifica
@@ -349,8 +359,8 @@ paths:
                       - state: Presa in carico
                         date: '2023-02-25'
                         description: Descrizione del passaggio di stato
-                    rectificationReqText: Testo con la richiesta di rettifica
-                    openNotes: Note aperte dello studente/ex studente
+                    request: Testo con la richiesta di rettifica
+                    note: Note aperte dello studente/ex studente
         '500':
           description: Errore interno del server
           headers:
@@ -389,8 +399,9 @@ components:
     ElencoRettifiche:
       type: object
       x-examples:
+        # DENIS: Da aggiornare sulla base delle proposte
         Example 1:
-          rectificationList:
+          requestList:
             - rectificationId: 2A9BCD3E4F567890
               state: Presa in carico
               date: '2023-02-12'
@@ -413,13 +424,13 @@ components:
               openNotes: Note operte
       description: Elenco delle rettifiche anagrafiche di uno studente
       properties:
-        rectificationList:
+        requestList:
           type: array
           description: Elenco delle rettifiche anagrafiche di uno studente
           items:
             type: object
             properties:
-              rectificationId:
+              requestId:
                 type: string
                 description: Identificativo delle rettifica
                 readOnly: true
@@ -432,24 +443,25 @@ components:
                 format: date
                 description: Data ultima transizione rettifica
                 readOnly: true
-              rectificationReqText:
+              request:
                 type: string
                 description: Testo con la richiesta di rettifica
                 readOnly: true
-              openNotes:
+              note:
                 type: string
                 description: Note aperte dello studente/ex studente
                 readOnly: true
+    # DENIS: Sarebbe da aggiornare l'esempio sulla base dei suggerimenti
     DettaglioRettifica:
       type: object
       x-examples:
         Example 1:
           rectificationId: 2A9BCD3E4F567890
           state: Accettata
-          fieldEdited:
-            - fieldName: courseType
-              oldValue: Laurea
-              newValue: Laurea Magistrale
+          attributes:
+            - attribute: courseType
+              currentValue: Laurea
+              suggestedValue : Laurea Magistrale
             - fieldName: academicYear
               oldValue: 2021/2022
               newValue: 2022/2023
@@ -463,11 +475,11 @@ components:
             - state: Presa in carico
               date: '2023-02-25'
               description: Descrizione del passaggio di stato
-          rectificationReqText: Testo con la richiesta di rettifica
-          openNotes: Note aperte dello studente/ex studente
+          request: Testo con la richiesta di rettifica
+          note: Note aperte dello studente/ex studente
       description: Dettaglio di una rettifica anagrafica studente
       properties:
-        rectificationId:
+        requestId:
           type: string
           description: 'Identificativo della rettifica '
           readOnly: true
@@ -475,21 +487,21 @@ components:
           type: string
           description: stato attuale della rettifica
           readOnly: true
-        fieldEdited:
+        attributes:
           type: array
           description: campi e valori da modificare
           items:
             type: object
             properties:
-              fieldName:
+              attribute:
                 type: string
                 description: nome del campo anagrafica
                 readOnly: true
-              oldValue:
+              currentValue:
                 type: string
                 description: vecchio valore del campo
                 readOnly: true
-              newValue:
+              suggestedValue:
                 type: string
                 description: nuovo valore del campo
                 readOnly: true
@@ -503,6 +515,7 @@ components:
                 type: string
                 description: valore dello stato
                 readOnly: true
+                # Manca il pattern?
               date:
                 type: string
                 format: date
@@ -512,11 +525,11 @@ components:
                 type: string
                 description: descrizione del passaggio di stato
                 readOnly: true
-        rectificationReqText:
+        request:
           type: string
           description: Testo con la richiesta di rettifica
           readOnly: true
-        openNotes:
+        note:
           type: string
           description: Note aperte dello studente/ex studente
           readOnly: true
@@ -526,7 +539,6 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: API-ANIS
   - name: HEALTH-CHECK
   - name: RETTIFICHE-ANAGRAFICA-STUDENTE
   - name: DETTAGLIO-RETTIFICA-ANAGRAFICA

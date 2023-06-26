@@ -12,6 +12,7 @@ info:
     La seguente documentazione API fornisce un riferimento per l'integrazione e 
     l'accesso ai dati ANIS (Anagrafe Nazionale dell'Istruzione Superiore) relativi alle università. 
     Queste API consentono l'erogazione di servizi (e-service) che operano sui dati ANIS.
+    # (Denis) Da rivedere la descrizione con il GdL
 
     # API Health Check
     Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
@@ -20,10 +21,11 @@ info:
     **Endpoint:**   GET  /status
 
     # Elenco campi anagrafica 
-    Questa API fornisce l'elenco di tutti i campi modificabili in un'anagrafica studente. 
-    Ogni elemento di questo elenco riporterà nome, descrizione, tipo e pattern del campo anagrafica.
+    Questa API fornisce l'elenco di tutti gli attributi modificabili nell'anagrafica/fascicolo dello studente.
+    Ogni elemento di questo elenco riporterà nome, descrizione, tipo e pattern di validazione sintattica dell'attributo.
+    # (DENIS: quale termine utilizziamo anagrafica oppure fasciolo?)
 
-    **Endpoint:**   GET  /campi-anagrafica
+    **Endpoint:**   GET  /attributi-anagrafica
 
     **Esempio body richiesta:**
     ```json
@@ -52,13 +54,15 @@ info:
 
 
     # Rettifica anagrafica studente
-    Questa API consente di aggiornare i dati anagrafici di uno studente nel sistema ANIS. Utilizzando questo servizio, è possibile apportare modifiche ai dati relativi ai titoli e all'iscrizione di uno studente.
+    Questa API consente di richiedere la rettifica dei dati dell'anagrafica dello studente all'Istituto di Formazione superiore
+    Utilizzando questo servizio è possibile richiedere la rettifica dei dati relativi alle iscrizioni e ai titoli conseguiti dallo studente.
 
     **Endpoint:**   PATCH  /rettifica-anagrafica/{taxCode}
 
     **Params:**    `{taxCode}`: Il Codice Fiscale (CF) dello studente.
 
     **Esempio body richiesta:**
+    * (DENIS: Aggiornare sulla base della revisione dei metadati)
     ```json
     {
       "fieldsToEdit": [
@@ -116,9 +120,9 @@ paths:
           description: il servizio non è in esecuzione.
   /campi-anagrafica:
     get:
-      summary: Elenco campi anagrafica studente
+      summary: Elenco attributi anagrafica studente
       tags:
-        - CAMPI-ANAGRAFICA
+        - ATTRIBUTI-ANAGRAFICA
       parameters:
         - schema:
             type: string
@@ -190,7 +194,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CampiAnagrafica'
+                $ref: '#/components/schemas/AttributiAnagrafica'
               examples:
                 Example 1:
                   value:
@@ -422,9 +426,10 @@ paths:
         description: Codice Fiscale Studente
 components:
   schemas:
-    CampiAnagrafica:
+    AttributiAnagrafica:
       type: object
       x-examples:
+      # (DENIS: Sarebbe da rivedere questo esempio con uno reale)
         Example 1:
           fields:
             - fieldName: instituteName
@@ -447,39 +452,43 @@ components:
             properties:
               fieldName:
                 type: string
-                description: Nome del campo anagrafica
+                description: Nome dell'attributo anagrafica studente
               fieldDescription:
                 type: string
-                description: Descrizione del campo anagrafica
+                description: Descrizione dell'attributo anagrafica studente
               fieldType:
                 type: string
-                description: Tipo del campo anagrafica
+                description: Tipo dell'attributo anagrafica studente
               fieldPattern:
                 type: string
-                description: Pattern del campo anagrafica
+                description: Pattern dei validazione dell'attributo anagrafica studente
     RettificaAnagraficaReq:
       type: object
       x-examples:
         Example 1:
           fieldsToEdit:
-            - fieldName: instituteName
+            - attributeName: instituteName
               oldValue: Università degli studi di Milano
               newValue: Università degli studi di Roma 'La Sapienza'
-            - fieldName: courseType
+            - attributeName: courseType
               oldValue: Laurea
               newValue: Laurea Magistrale
-            - fieldName: academicYear
+            - attributeName: academicYear
               oldValue: 2021/2022
               newValue: 2022/2023
-            - fieldName: courseYear
+            - attributeName: courseYear
               oldValue: 3° anno
               newValue: 1° anno
-          rectificationReqText: Testo con la richiesta di rettifica
-          openNotes: Note aperte dello studente/ex studente
+          request: Testo con la richiesta di rettifica
+          note: Note aperte dello studente/ex studente
       properties:
-        fieldsToEdit:
+        idRequest:
+          type: string
+          description: Identificativo richiesta
+          readOnly: true
+        attributes:
           type: array
-          description: Elenco dei campi da modificare
+          description: Elenco degli attributi da modificare
           items:
             type: object
             properties:
@@ -494,35 +503,24 @@ components:
                 type: string
                 description: Nuovo valore da attribuire al campo
                 readOnly: true
-        rectificationReqText:
+        request:
           type: string
           description: Testo con la richiesta di rettifica
           readOnly: true
-        openNotes:
+        note:
           type: string
           description: Note aperte dello studente/ex studente
           readOnly: true
+    # DENIS Sarebbe da riprogettare la risposta se l'ID viene generato dal fruitore
     RettificaAnagraficaRes:
       type: object
-      x-examples:
-        Example 1:
-          rectificationId: 2A9BCD3E4F567890
-      description: Risposta avvenuta rettifica anagrafica studente
-      properties:
-        rectificationId:
-          type: string
-          description: 'Identificativo della rettifica anagrafica effettuata '
-          example: 2A9BCD3E4F567890
-          minLength: 16
-          maxLength: 16
-          readOnly: true
+
   requestBodies: {}
   responses: {}
 servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: API-ANIS
   - name: HEALTH-CHECK
   - name: RETTIFICA-ANAGRAFICA
-  - name: CAMPI-ANAGRAFICA
+  - name: ATTRIBUTI-ANAGRAFICA
