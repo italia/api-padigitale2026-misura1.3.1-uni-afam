@@ -331,6 +331,10 @@ components:
               description: Denominazione corso
               example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
               readOnly: true
+            courseValidityYear:
+              type: string
+              description: Anno di validità del corso
+              readOnly: true
             classCode:
               type: string
               description: Codice identificativo della classe di laurea
