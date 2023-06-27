@@ -2,21 +2,16 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: API riferimento ANIS
+  title: API Università
   x-summary: Questo servizio ritorna il dettaglio di iscrizione di uno studente.
   version: 1.0.0
   description: |
     ### Documentazione
 
-    ## Denis: il cappello della documentazione andrebbe riscritto senza fare riferimento ad ANIS o solo come esempio
-    ## Denis: di seguito metterei in evidenza le api di business come prima api e non quello di status
-
-    ## API Health Check
-    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
-    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
-
-    **Endpoint:**  GET  /status
-
+    ## API Università
+    La seguente documentazione API fornisce un riferimento per l'integrazione e l'accesso ai dati relativi alle università italiane. 
+    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati universitari, offrendo informazioni riguardanti le facoltà, i corsi di studio, i programmi accademici e altre informazioni correlate. 
+    Questo sistema di integrazione permette di accedere ai dati in modo efficiente e aggiornato, facilitando lo sviluppo di applicazioni e servizi che riguardano il contesto universitario.
 
     ## Studente iscritto con dettaglio iscrizione
     Questa API restituisce la lista delle iscrizioni di uno studente
@@ -50,6 +45,12 @@ info:
         "courseYear": "1° anno"
       }
     }
+
+    # Verifica stato delle API (Health Check)
+    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
+    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
+
+    **Endpoint:**  GET  /status
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -59,18 +60,6 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
-  /status:
-    get:
-      summary: Health Check
-      operationId: check-status
-      description: Verificare lo stato di salute del sistema
-      tags:
-        - HEALTH-CHECK
-      responses:
-        '204':
-          description: il servizio è in esecuzione correttamente.
-        '500':
-          description: il servizio non è in esecuzione.
   '/studenti/{taxCode}':
     parameters:
       - schema:
@@ -82,7 +71,7 @@ paths:
     get:
       summary: Dettaglio iscrizione studente
       tags:
-        - STUDENT_ENROLMENTS
+        - STUDENT-ENROLMENTS
       responses:
         '200':
           description: Richiesta eseguita con successo
@@ -99,7 +88,6 @@ paths:
                     familyName: Rossi
                     birthDate: '1990-05-17'
                     birthPlace: Roma
-                    # Denis: da aggiornare come una lista
                     enrolmentsList:
                       instituteCode: IFS00123
                       instituteName: Istituto Tecnologie Avanzate
@@ -201,7 +189,7 @@ paths:
                 type: string
                 format: date-time
               description: utilizzato per indicare il momento in cui il limite delle richieste API verrà ripristinato.
-      operationId: enrolments of student
+      operationId: enrolments-of-student
       description: 'Restituisce i dettagli di iscrizione di uno studente in base al suo codice_fiscale/identificativo ANPR '
       parameters:
         - schema:
@@ -239,6 +227,18 @@ paths:
           in: header
           name: User-Agent
           description: 'Utilizzato per identificare il client che sta effettuando la richiesta, ad esempio il browser e la versione utilizzata.'
+  /status:
+    get:
+      summary: Verifica stato delle API (Health Check)
+      operationId: check-status
+      description: Verificare lo stato di salute del sistema
+      tags:
+        - HEALTH-CHECK
+      responses:
+        '204':
+          description: il servizio è in esecuzione correttamente.
+        '500':
+          description: il servizio non è in esecuzione.
 components:
   schemas:
     DettaglioStudente:
@@ -304,14 +304,13 @@ components:
           example: Rome
           description: Luogo di nascita dello studente
           readOnly: true
-        # DENIS: Sarebbe da adeguare ad una lista  
         enrolmentsList:
           type: object
           description: Dettaglio iscrizione studente
           properties:
             instituteCode:
               type: string
-              description: 'Codice identificativo dell’istituto'
+              description: Codice identificativo dell’istituto
               readOnly: true
             instituteName:
               type: string
@@ -347,7 +346,7 @@ components:
             registrationYear:
               type: string
               description: Anno accademico di immatricolazione dello studente
-            enrolmentYear:Year:
+            'enrolmentYear:Year':
               type: string
               description: Ultimo anno accademico in cui lo studente risulta iscritto al corso
               example: 2022/2023
@@ -365,5 +364,6 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
+  - name: API-UNIVERSITÀ
   - name: HEALTH-CHECK
-  - name: STUDENT_ENROLMENTS
+  - name: STUDENT-ENROLMENTS

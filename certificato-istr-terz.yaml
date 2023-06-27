@@ -2,23 +2,16 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: API riferimento ANIS
+  title: API Università
   x-summary: Certificato Diploma di istruzione terziaria.
   version: 1.0.0
   description: |
     ### Documentazione
 
-    ## API riferimento ANIS
-    La seguente documentazione API fornisce un riferimento per l'integrazione e 
-    l'accesso ai dati ANIS (Anagrafe degli Studenti) relativi alle università. 
-    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati ANIS.
-
-    # API Health Check
-    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
-    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
-
-    **Endpoint:**   GET  /status
-
+    ## API Università
+    La seguente documentazione API fornisce un riferimento per l'integrazione e l'accesso ai dati relativi alle università italiane. 
+    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati universitari, offrendo informazioni riguardanti le facoltà, i corsi di studio, i programmi accademici e altre informazioni correlate. 
+    Questo sistema di integrazione permette di accedere ai dati in modo efficiente e aggiornato, facilitando lo sviluppo di applicazioni e servizi che riguardano il contesto universitario.
 
     # Certificato Diploma di istruzione terziaria
     Questa API permette di reperire informazioni dettagliate sulla prova del diploma di istruzione terziaria, 
@@ -49,6 +42,12 @@ info:
         }
       ]
     }
+
+    # Verifica stato delle API (Health Check)
+    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
+    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
+
+    **Endpoint:**   GET  /status
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -58,18 +57,6 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
-  /status:
-    get:
-      summary: Health Check
-      operationId: check-status
-      description: Verificare lo stato di salute del sistema
-      tags:
-        - HEALTH-CHECK
-      responses:
-        '204':
-          description: il servizio è in esecuzione correttamente.
-        '500':
-          description: il servizio non è in esecuzione.
   '/certificati/istruzione-terziaria/{taxCode}':
     get:
       summary: Certificato Diploma di istruzione terziaria
@@ -232,6 +219,18 @@ paths:
         in: path
         description: Codice fiscale dello studente o identificativo ANPR
         required: true
+  /status:
+    get:
+      summary: Verifica stato delle API (Health Check)
+      operationId: check-status
+      description: Verificare lo stato di salute del sistema
+      tags:
+        - HEALTH-CHECK
+      responses:
+        '204':
+          description: il servizio è in esecuzione correttamente.
+        '500':
+          description: il servizio non è in esecuzione.
 components:
   schemas:
     CertificatoIstrTerz:
@@ -296,6 +295,7 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: API-ANIS
-  - name: HEALTH-CHECK
+  - name: API-UNIVERSITÀ
   - name: CERTIFICATO-ISTRUZIONE-TERZIARIA
+  - name: HEALTH-CHECK
+

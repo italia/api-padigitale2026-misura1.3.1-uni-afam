@@ -2,23 +2,16 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: API riferimento ANIS
+  title: API Università
   x-summary: Questo servizio ritorna l'elenco degli studenti che hanno conseguito il titolo con una determinata votazione minima.
   version: 1.0.0
   description: |
     ### Documentazione
 
-    ## API riferimento ANIS
-    La seguente documentazione API fornisce un riferimento per l'integrazione e 
-    l'accesso ai dati ANIS (Anagrafe Nazionale dell'Istruzione Superiore) relativi alle università. 
-    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati ANIS.
-
-    # API Health Check
-    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
-    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
-
-    **Endpoint:**    GET  /statusß
-
+    ## API Università
+    La seguente documentazione API fornisce un riferimento per l'integrazione e l'accesso ai dati relativi alle università italiane. 
+    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati universitari, offrendo informazioni riguardanti le facoltà, i corsi di studio, i programmi accademici e altre informazioni correlate. 
+    Questo sistema di integrazione permette di accedere ai dati in modo efficiente e aggiornato, facilitando lo sviluppo di applicazioni e servizi che riguardano il contesto universitario.
 
     # Studenti che hanno conseguito il titolo con votazione maggiore di x
     Questa API consente di ottenere il numero di studenti che hanno conseguito un titolo con votazione maggiore di un determinato valore. Restituisce i dati relativi al corso e il conteggio degli studenti che soddisfano il criterio di avere una votazione superiore a quella inserita per il titolo conseguito.
@@ -39,6 +32,12 @@ info:
       "referenceVote": "95/110",
       "numberOfStudents": 150
     }
+
+    # Verifica stato delle API (Health Check)
+    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
+    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
+
+    **Endpoint:**   GET  /status
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -48,18 +47,6 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
-  /status:
-    get:
-      summary: Health Check
-      operationId: check-status
-      description: Verificare lo stato di salute del sistema
-      tags:
-        - HEALTH-CHECK
-      responses:
-        '204':
-          description: il servizio è in esecuzione correttamente.
-        '500':
-          description: il servizio non è in esecuzione.
   '/titoli/{titleName}/voto-maggiore/{vote}':
     parameters:
       - schema:
@@ -222,6 +209,18 @@ paths:
           in: header
           name: User-Agent
           description: 'Utilizzato per identificare il client che sta effettuando la richiesta, ad esempio il browser e la versione utilizzata.'
+  /status:
+    get:
+      summary: Verifica stato delle API (Health Check)
+      operationId: check-status
+      description: Verificare lo stato di salute del sistema
+      tags:
+        - HEALTH-CHECK
+      responses:
+        '204':
+          description: il servizio è in esecuzione correttamente.
+        '500':
+          description: il servizio non è in esecuzione.
 components:
   schemas:
     StudentiTitolo:
@@ -265,6 +264,6 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: API-ANIS
+  - name: API-UNIVERSITÀ
   - name: HEALTH-CHECK
   - name: TITOLO-VOTO
