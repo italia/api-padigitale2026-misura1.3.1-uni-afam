@@ -32,12 +32,12 @@ info:
       "listOfCourseAttended": [
         {
           "nameOfCourse": "Analisi Matematica",
-          "dateOfAttendance": "2022-09-01 - 2023-01-10",
+          "dateOfAttendance": "2022-09-01/2023-01-10",
           "gradeAchieved": "28/30"
         },
         {
           "nameOfCourse": "Fisica",
-          "dateOfAttendance": "2022-09-01 - 2023-01-10",
+          "dateOfAttendance": "2022-09-01/2023-01-10",
           "gradeAchieved": "27/30"
         }
       ]
@@ -97,10 +97,10 @@ paths:
                     nameOfStudyProgramme: Ingegneria Informatica
                     listOfCourseAttended:
                       - nameOfCourse: Analisi Matematica
-                        dateOfAttendance: 2022-09-01 - 2023-01-10
+                        dateOfAttendance: 2022-09-01/2023-01-10
                         gradeAchieved: 28/30
                       - nameOfCourse: Fisica
-                        dateOfAttendance: 2022-09-01 - 2023-01-10
+                        dateOfAttendance: 2022-09-01/2023-01-10
                         gradeAchieved: 27/30
           headers:
             Content-Length:
@@ -150,12 +150,12 @@ paths:
             X-RateLimit-Limit:
               schema:
                 type: integer
-                format: int64
+                format: int32
               description: specifica il numero massimo di richieste consentite entro un determinato periodo di tempo (solitamente misurato in secondi).
             X-RateLimit-Remaining:
               schema:
                 type: integer
-                format: int64
+                format: int32
               description: utilizzato per indicare il numero di richieste API rimanenti all'interno del periodo di tempo specificato dal server.
             X-RateLimit-Reset:
               schema:
@@ -230,10 +230,10 @@ components:
           nameOfStudyProgramme: Ingegneria Informatica
           listOfCourseAttended:
             - nameOfCourse: Analisi Matematica
-              dateOfAttendance: 2022-09-01 - 2023-01-10
+              dateOfAttendance: 2022-09-01/2023-01-10
               gradeAchieved: 28/30
             - nameOfCourse: Fisica
-              dateOfAttendance: 2022-09-01 - 2023-01-10
+              dateOfAttendance: 2022-09-01/2023-01-10
               gradeAchieved: 27/30
       properties:
         givenName:
@@ -266,14 +266,18 @@ components:
                 readOnly: true
               dateOfAttendance:
                 type: string
-                example: 2021-10-01 - 2022-02-15
+                description: Time interval of the date of attendance in ISO8601 format.
+                example: 2021-10-01/2022-02-15
                 description: Data di partecipazione al corso
-                pattern: '^\d{4}-\d{2}-\d{2}\s-\s\d{4}-\d{2}-\d{2}$'
+                pattern: '^\d{4}-\d{2}-\d{2}/\d{4}-\d{2}-\d{2}$'
                 readOnly: true
               gradeAchieved:
                 type: string
                 pattern: ^(\d+L?)/\d+$
-                description: Voto ottenuto al corso (rapporto tra voto/votoMax)
+                description: |-
+                  Voto ottenuto al corso (rapporto tra voto/votoMax).
+
+                  Mettere tra gli esempi la serializzazione della lode (e.g., 110L/100).
                 readOnly: true
       description: Certificazione diploma istruzione terziaria
   requestBodies: {}
