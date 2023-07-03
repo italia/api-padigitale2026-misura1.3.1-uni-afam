@@ -64,21 +64,6 @@ paths:
         - schema:
             type: string
           in: header
-          name: Method
-          description: Specifica il metodo HTTP utilizzato per la richiesta.
-        - schema:
-            type: string
-          in: header
-          name: Path
-          description: Specifica il percorso o l'endpoint dell'API a cui viene indirizzata la richiesta.
-        - schema:
-            type: string
-          in: header
-          name: Scheme
-          description: 'Specifica lo schema o il protocollo utilizzato per la comunicazione tra il client e il server, come HTTP o HTTPS.'
-        - schema:
-            type: string
-          in: header
           name: Accept-Encoding
           description: 'Utilizzato per indicare al server le opzioni di compressione supportate dal client, come gzip o deflate.'
         - schema:
@@ -134,12 +119,12 @@ paths:
             X-RateLimit-Limit:
               schema:
                 type: integer
-                format: int64
+                format: int32
               description: specifica il numero massimo di richieste consentite entro un determinato periodo di tempo (solitamente misurato in secondi).
             X-RateLimit-Remaining:
               schema:
                 type: integer
-                format: int64
+                format: int32
               description: utilizzato per indicare il numero di richieste API rimanenti all'interno del periodo di tempo specificato dal server.
             X-RateLimit-Reset:
               schema:
@@ -174,8 +159,10 @@ paths:
               description: utilizzato per indicare il numero di richieste API rimanenti all'interno del periodo di tempo specificato dal server.
             X-RateLimit-Reset:
               schema:
-                type: string
-                format: date-time
+                format: int32
+                maximum: 186400
+                minimum: 0
+                type: integer
               description: utilizzato per indicare il momento in cui il limite delle richieste API verrà ripristinato.
         '500':
           description: Errore interno del server
