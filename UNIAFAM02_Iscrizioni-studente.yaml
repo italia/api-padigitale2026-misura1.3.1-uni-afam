@@ -1,0 +1,314 @@
+openapi: 3.0.0
+x-stoplight:
+  id: 0f56e32f16f60
+info:
+  title: API Università
+  x-summary: Questo servizio ritorna il dettaglio delle iscrizioni di uno studente.
+  version: 1.0.0
+  description: |
+    ### Documentazione
+
+    ## API Università
+    La seguente documentazione API fornisce un riferimento per l'integrazione e l'accesso ai dati relativi alle università italiane. 
+    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati universitari, offrendo informazioni riguardanti le facoltà, i corsi di studio, i programmi accademici e altre informazioni correlate. 
+    Questo sistema di integrazione permette di accedere ai dati in modo efficiente e aggiornato, facilitando lo sviluppo di applicazioni e servizi che riguardano il contesto universitario.
+
+    ## Dettaglio delle iscrizioni
+    Questa API fornisce informazioni dettagliate riguardanti lo storico delle iscrizioni di uno studente, inclusi i dati personali e le informazioni sugli istituti di formazione e i corsi a cui lo studente è stato iscritto.
+
+    # Verifica stato delle API (Health Check)
+    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
+    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
+  contact:
+    name: helpdesk
+    email: helpdesk@gmail.com
+  x-api-id: 00000000-0000-0000-0000-000000000000
+  termsOfService: 'http://swagger.io/terms/'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  '/studenti/{taxCode}/iscrizioni':
+    parameters:
+      - schema:
+          type: string
+        name: taxCode
+        in: path
+        required: true
+        description: Codice Fiscale
+    get:
+      summary: Dettaglio iscrizioni studente
+      tags:
+        - STUDENT-ENROLMENTS
+      responses:
+        '200':
+          description: Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DettaglioIscrizioniStudente'
+              examples:
+                Example 1:
+                  value:
+                    personalData:
+                      taxCode: RSSMRA80A01F205D
+                      personID: AB123456C
+                      givenName: Mario
+                      familyName: Rossi
+                      birthDate: '1990-05-17'
+                      birthPlace: Roma
+                    enrolments:
+                      - _id: 908d3e72b51a6f0034e2a11c
+                        instituteCode: IFSRM1
+                        instituteName: Università degli Studi di Roma 'La Sapienza'
+                        courseType: Corso di laurea
+                        courseCode: INF101
+                        courseName: Ingegneria
+                        classCode: L-8
+                        className: Ingegneria informatica
+                        registrationYear: 2019/2020
+                        enrolmentYear: 2021/2022
+                        courseYear: 3° anno
+                      - _id: c79b1a8e2d16000003aaf5c2
+                        instituteCode: IFNAP1
+                        instituteName: Università Federico II di Napoli
+                        courseType: Corso di laurea magistrale
+                        courseCode: INF200
+                        courseName: Ingegneria informatica
+                        classCode: LM-32
+                        className: Ingegneria informatica
+                        registrationYear: 2022/2023
+                        enrolmentYear: 2022/2023
+                        courseYear: 1° anno
+                Example 2:
+                  value:
+                    personalData:
+                      taxCode: RSSMRA80A01F205D
+                      personID: AB123456C
+                      givenName: Mario
+                      familyName: Rossi
+                      birthDate: '1990-05-17'
+                      birthPlace: Roma
+                    enrolments: []
+        '404':
+          description: Studente non trovato
+        '500':
+          description: Errore interno del server
+      operationId: enrolments-of-student
+      description: 'Restituisce i dettagli delle iscrizioni di uno studente in base al suo codice_fiscale '
+      parameters: []
+  /status:
+    get:
+      summary: Verifica stato delle API (Health Check)
+      operationId: check-status
+      description: Verificare lo stato di salute del sistema
+      tags:
+        - HEALTH-CHECK
+      responses:
+        '204':
+          description: il servizio è in esecuzione correttamente.
+        '500':
+          description: il servizio non è in esecuzione.
+components:
+  schemas:
+    DettaglioIscrizioniStudente:
+      type: object
+      x-examples:
+        Example 1:
+          personalData:
+            taxCode: RSSMRA80A01F205D
+            personID: AB123456C
+            givenName: Mario
+            familyName: Rossi
+            birthDate: '1990-05-17'
+            birthPlace: Roma
+          enrolments:
+            - _id: 908d3e72b51a6f0034e2a11c
+              instituteCode: IFSRM1
+              instituteName: Università degli Studi di Roma 'La Sapienza'
+              courseType: Corso di laurea
+              courseCode: INF101
+              courseName: Ingegneria
+              classCode: L-8
+              className: Ingegneria informatica
+              registrationYear: 2019/2020
+              enrolmentYear: 2021/2022
+              courseYear: 3° anno
+            - _id: c79b1a8e2d16000003aaf5c2
+              instituteCode: IFNAP1
+              instituteName: Università Federico II di Napoli
+              courseType: Corso di laurea magistrale
+              courseCode: INF200
+              courseName: Ingegneria informatica
+              classCode: LM-32
+              className: Ingegneria informatica
+              registrationYear: 2022/2023
+              enrolmentYear: 2022/2023
+              courseYear: 1° anno
+      description: Dettaglio iscrizioni studente
+      x-stoplight:
+        id: 22de4be4ac251
+      properties:
+        personalData:
+          $ref: '#/components/schemas/DatiPersonaliStudente'
+        enrolments:
+          type: array
+          description: Elenco iscrizioni studente
+          items:
+            $ref: '#/components/schemas/Iscrizione'
+      required:
+        - personalData
+        - enrolments
+    Iscrizione:
+      type: object
+      x-examples:
+        Example 1:
+          _id: 908d3e72b51a6f0034e2a11c
+          instituteCode: IFSRM1
+          instituteName: Università degli Studi di Roma 'La Sapienza'
+          courseType: Corso di laurea
+          courseCode: INF101
+          courseName: Ingegneria
+          classCode: L-8
+          className: Ingegneria informatica
+          registrationYear: 2019/2020
+          enrolmentYear: 2021/2022
+          courseYear: 3° anno
+      description: Informazioni dettagliate sull'iscrizione
+      properties:
+        _id:
+          type: string
+          description: id dell'iscrizione dello studente
+          readOnly: true
+        instituteCode:
+          type: string
+          description: Codice identificativo dell’istituto
+          readOnly: true
+        instituteName:
+          type: string
+          description: Denominazione dell’istituto
+          readOnly: true
+        courseType:
+          type: string
+          description: Tipologia del corso di studio
+          example: 'laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale'
+          readOnly: true
+        courseCode:
+          type: string
+          description: Codice del corso
+          pattern: '^[A-Z\d]{2,4}\d{2,4}$'
+          readOnly: true
+        courseName:
+          type: string
+          description: Denominazione corso
+          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
+          readOnly: true
+        classCode:
+          type: string
+          description: Codice identificativo della classe di laurea
+          pattern: '^[A-Z]+-\d{1,2}$'
+          minLength: 1
+          maxLength: 10
+          example: L-8
+          readOnly: true
+        className:
+          type: string
+          description: Denominazione della classe di laurea
+          example: 'Informatica, Meccanica, Elettronica, Civile'
+          readOnly: true
+        registrationYear:
+          type: string
+          description: Anno accademico di immatricolazione dello studente
+          pattern: '^\d{4}/\d{4}$'
+        enrolmentYear:
+          type: string
+          description: Ultimo anno accademico in cui lo studente risulta iscritto al corso
+          example: 2022/2023
+          pattern: '^\d{4}/\d{4}$'
+          readOnly: true
+        courseYear:
+          type: string
+          description: Ultimo anno in cui lo studente risulta iscritto al corso
+          example: 3° anno
+          pattern: ^\d+° anno$
+          readOnly: true
+      required:
+        - _id
+        - instituteCode
+        - instituteName
+        - courseType
+        - courseCode
+        - courseName
+        - classCode
+        - className
+        - registrationYear
+        - enrolmentYear
+        - courseYear
+    DatiPersonaliStudente:
+      type: object
+      x-examples:
+        Example 1:
+          taxCode: RSSMRA80A01F205D
+          personID: AB123456C
+          givenName: Mario
+          familyName: Rossi
+          birthDate: '1990-05-17'
+          birthPlace: Roma
+      description: Dati personali dello studente
+      properties:
+        taxCode:
+          type: string
+          description: 'Codice Fiscale Studente '
+          example: RSSMRA80A01F205D
+          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          minLength: 16
+          maxLength: 16
+          readOnly: true
+        personID:
+          type: string
+          description: Identificativo ANPR
+          maxLength: 9
+          minLength: 9
+          pattern: '^[A-Z0-9]{8}[A-Z]$'
+          example: AB123456C
+          readOnly: true
+        givenName:
+          type: string
+          description: 'Nome Studente '
+          example: Mario
+          pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
+          readOnly: true
+        familyName:
+          type: string
+          description: Cognome Studente
+          example: Rossi
+          pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
+          readOnly: true
+        birthDate:
+          type: string
+          format: date
+          example: '1990-05-17'
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          description: Data di nascita dello studente
+          readOnly: true
+        birthPlace:
+          type: string
+          example: Rome
+          description: Luogo di nascita dello studente
+          readOnly: true
+      required:
+        - taxCode
+        - personID
+        - givenName
+        - familyName
+        - birthDate
+        - birthPlace
+  requestBodies: {}
+  responses: {}
+servers:
+  - url: 'https://localhost:8080/api'
+    description: localhost
+tags:
+  - name: API-UNIVERSITÀ
+  - name: HEALTH-CHECK
+  - name: STUDENT-ENROLMENTS

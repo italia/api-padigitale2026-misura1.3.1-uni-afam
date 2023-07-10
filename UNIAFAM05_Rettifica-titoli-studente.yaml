@@ -1,0 +1,674 @@
+openapi: 3.0.0
+x-stoplight:
+  id: 0f56e32f16f60
+info:
+  title: API Università
+  x-summary: Questo servizio permette di aggiornare i dati relativi ai titoli conseguiti da uno studente.
+  version: 1.0.0
+  description: |
+    ### Documentazione
+
+    ## API Università
+    La seguente documentazione API fornisce un riferimento per l'integrazione e l'accesso ai dati relativi alle università italiane. 
+    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati universitari, offrendo informazioni riguardanti le facoltà, i corsi di studio, i programmi accademici e altre informazioni correlate. 
+    Questo sistema di integrazione permette di accedere ai dati in modo efficiente e aggiornato, facilitando lo sviluppo di applicazioni e servizi che riguardano il contesto universitario.
+
+
+    # Rettifica titoli studente
+    Questa API consente di creare una richiesta di rettifica per aggiornare i dati relativi ai titoli di uno studente.
+
+    # Elenco rettifiche titoli studente 
+    Questa API fornisce l'elenco di tutte le richieste di rettifica titoli che sono state fatte per uno specifico studente, dato il codice fiscale.
+    Ogni elemento di questo elenco riporterà l'identificativo e alcune informazioni relative alla singola rettifica.
+
+    # Dettaglio rettifica titolo
+    Questa API consente di recuperare il dettaglio di una specifica rettifica titolo. In particolare, nella risposta, oltre all'identificativo della rettifica, è riportato lo stato attuale, la cronologia di stati, i campi che sono stati modificati con i valori precedenti e successivi, le note.
+
+    # Verifica stato delle API (Health Check)
+    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
+    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
+  contact:
+    name: helpdesk
+    email: helpdesk@gmail.com
+  x-api-id: 00000000-0000-0000-0000-000000000000
+  termsOfService: 'http://swagger.io/terms/'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  /rettifiche-titoli:
+    post:
+      summary: Rettifica titoli studente
+      operationId: rettifica-titolo-studente
+      tags:
+        - RETTIFICA-TITOLO
+      parameters: []
+      responses:
+        '200':
+          description: Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RispostaRettifica'
+              examples:
+                Example 1:
+                  value:
+                    rectificationId: 6d183bc572f6b200015a4167
+        '404':
+          description: Studente non trovato
+        '500':
+          description: Errore interno del server
+      description: Permette di creare una richiesta di rettifica dei dati relativi ai titoli di uno studente.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RichiestaRettifica'
+            examples:
+              Example 1:
+                value:
+                  taxCode: RSSMRA80A01F205D
+                  titleToEdit:
+                    titleId: 201c59d6a7b800e917c63a1f
+                    fieldsToEdit:
+                      - fieldName: instituteName
+                        oldValue: Università degli studi di Milano
+                        newValue: Università degli studi di Roma 'La Sapienza'
+                      - fieldName: academicQualificationDate
+                        oldValue: '2022-07-01'
+                        newValue: '2022-10-03'
+                      - fieldName: academicQualificationVote
+                        oldValue: '110'
+                        newValue: '107'
+                      - fieldName: classCode
+                        oldValue: LM-8
+                        newValue: LM-32
+                  rectificationReqText: Testo con la richiesta di rettifica
+                  openNotes: Note aperte dello studente/ex studente
+              Example 2:
+                value:
+                  taxCode: RSSMRA80A01F205D
+                  titleToEnter:
+                    instituteCode: IFSRM1
+                    instituteName: Università degli Studi di Roma 'La Sapienza'
+                    titleName: Dottore magistrale
+                    courseType: Laurea magistrale
+                    courseCode: INF200
+                    courseName: Ingegneria
+                    classCode: LM-32
+                    className: Ingegneria informatica
+                    academicQualificationDate: '2022-07-01'
+                    academicQualificationVote: '110'
+                    courseMaximumGrade: 110L
+                  rectificationReqText: Testo con la richiesta di rettifica
+                  openNotes: Note aperte dello studente/ex studente
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ''
+    parameters: []
+  '/rettifiche-titoli/{taxCode}':
+    parameters:
+      - schema:
+          type: string
+        name: taxCode
+        in: path
+        required: true
+        description: Codice Fiscale studente
+    get:
+      summary: Elenco rettifiche titoli studente
+      tags:
+        - RETTIFICHE-TITOLI-STUDENTE
+      parameters: []
+      responses:
+        '200':
+          description: Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  rectifications:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Rettifica'
+              examples:
+                Example 1:
+                  value:
+                    rectifications:
+                      - rectificationId: 6d183bc572f6b200015a4167
+                        titleId: 908d3e72b51a6f0034e2a11c
+                        state: Presa in carico
+                        date: '2023-02-12'
+                        rectificationReqText: Modifica dati titolo
+                        openNotes: Note operte
+                      - rectificationId: a8c4910e76b5200001d4f268
+                        titleId: 245e6c91b7a82000314fd9a0
+                        state: In lavorazione
+                        date: '2023-03-18'
+                        rectificationReqText: Modifica dati titolo
+                        openNotes: Note operte
+                      - rectificationId: d5f8a7e910c6b2000153a410
+                        titleId: 7b93401e2c68b10001ca278f
+                        state: Accettata
+                        date: '2023-05-02'
+                        rectificationReqText: Modifica dati titolo
+                        openNotes: Note operte
+                      - rectificationId: e0a712c6f9b9200001d5f834
+                        titleId: c50e9a71b26f21000167a83d
+                        state: Rifiutata
+                        date: '2023-06-23'
+                        rectificationReqText: Modifica dati titolo
+                        openNotes: Note operte
+                Example 2:
+                  value:
+                    rectifications: []
+        '404':
+          description: Studente non trovato
+        '500':
+          description: Errore interno del server
+      operationId: rettifiche-titoli-studente
+      description: 'Permette di recuperare, tramite il codice fiscale, l''elenco delle richieste di rettifica titolo di uno specifico studente.'
+  '/rettifiche-titoli/{rectificationId}/dettaglio':
+    parameters:
+      - schema:
+          type: string
+        name: rectificationId
+        in: path
+        required: true
+        description: Identificativo della rettifica
+    get:
+      summary: Dettaglio rettifica titolo studente
+      tags:
+        - DETTAGLIO-RETTIFICA-TITOLO
+      parameters: []
+      responses:
+        '200':
+          description: Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DettaglioRettifica'
+              examples:
+                Example 1:
+                  value:
+                    rectificationId: 6d183bc572f6b200015a4167
+                    titleId: 908d3e72b51a6f0034e2a11c
+                    state: Accettata
+                    titleToEdit:
+                      titleId: 201c59d6a7b800e917c63a1f
+                      fieldsToEdit:
+                        - fieldName: instituteName
+                          oldValue: Università degli studi di Milano
+                          newValue: Università degli studi di Roma 'La Sapienza'
+                        - fieldName: academicQualificationDate
+                          oldValue: '2022-07-01'
+                          newValue: '2022-10-03'
+                        - fieldName: academicQualificationVote
+                          oldValue: '110'
+                          newValue: '107'
+                        - fieldName: classCode
+                          oldValue: LM-8
+                          newValue: LM-32
+                    stateHistory:
+                      - state: Accettata
+                        date: '2023-06-10'
+                        description: Descrizione del passaggio di stato
+                      - state: In lavorazione
+                        date: '2023-03-05'
+                        description: Descrizione del passaggio di stato
+                      - state: Presa in carico
+                        date: '2023-02-25'
+                        description: Descrizione del passaggio di stato
+                    rectificationReqText: Testo con la richiesta di rettifica
+                    openNotes: Note aperte dello studente/ex studente
+                Example 2:
+                  value:
+                    rectificationId: 6d183bc572f6b200015a4167
+                    titleId: 908d3e72b51a6f0034e2a11c
+                    state: Accettata
+                    titleToEnter:
+                      instituteCode: IFSRM1
+                      instituteName: Università degli Studi di Roma 'La Sapienza'
+                      titleName: Dottore magistrale
+                      courseType: Laurea magistrale
+                      courseCode: INF200
+                      courseName: Ingegneria
+                      classCode: LM-32
+                      className: Ingegneria informatica
+                      academicQualificationDate: '2022-07-01'
+                      academicQualificationVote: '110'
+                      courseMaximumGrade: 110L
+                    stateHistory:
+                      - state: Accettata
+                        date: '2023-06-10'
+                        description: Descrizione del passaggio di stato
+                      - state: In lavorazione
+                        date: '2023-03-05'
+                        description: Descrizione del passaggio di stato
+                      - state: Presa in carico
+                        date: '2023-02-25'
+                        description: Descrizione del passaggio di stato
+                    rectificationReqText: Testo con la richiesta di rettifica
+                    openNotes: Note aperte dello studente/ex studente
+        '404':
+          description: Rettifica titolo non trovata
+        '500':
+          description: Errore interno del server
+      operationId: dettaglio-rettifica-titolo-studente
+      description: Permette di recuperare il dettaglio di una richiesta di rettifica titolo tramite il suo identificativo.
+  /status:
+    get:
+      summary: Verifica stato delle API (Health Check)
+      operationId: check-status
+      description: Verificare lo stato di salute del sistema
+      tags:
+        - HEALTH-CHECK
+      responses:
+        '204':
+          description: il servizio è in esecuzione correttamente.
+        '500':
+          description: il servizio non è in esecuzione.
+components:
+  schemas:
+    RichiestaRettifica:
+      type: object
+      x-examples:
+        Example 1:
+          taxCode: RSSMRA80A01F205D
+          titleToEdit:
+            titleId: 201c59d6a7b800e917c63a1f
+            fieldsToEdit:
+              - fieldName: instituteName
+                oldValue: Università degli studi di Milano
+                newValue: Università degli studi di Roma 'La Sapienza'
+              - fieldName: academicQualificationDate
+                oldValue: '2022-07-01'
+                newValue: '2022-10-03'
+              - fieldName: academicQualificationVote
+                oldValue: '110'
+                newValue: '107'
+              - fieldName: classCode
+                oldValue: LM-8
+                newValue: LM-32
+          rectificationReqText: Testo con la richiesta di rettifica
+          openNotes: Note aperte dello studente/ex studente
+        Example 2:
+          taxCode: RSSMRA80A01F205D
+          titleToEnter:
+            instituteCode: IFSRM1
+            instituteName: Università degli Studi di Roma 'La Sapienza'
+            titleName: Dottore magistrale
+            courseType: Laurea magistrale
+            courseCode: INF200
+            courseName: Ingegneria
+            classCode: LM-32
+            className: Ingegneria informatica
+            academicQualificationDate: '2022-07-01'
+            academicQualificationVote: '110'
+            courseMaximumGrade: 110L
+          rectificationReqText: Testo con la richiesta di rettifica
+          openNotes: Note aperte dello studente/ex studente
+      x-stoplight:
+        id: b40e2be27c423
+      description: Richiesta creazione rettifica titolo studente
+      properties:
+        taxCode:
+          type: string
+          description: Codice fiscale studente
+          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          example: RSSMRA80A01F205D
+          minLength: 16
+          maxLength: 16
+          readOnly: true
+        titleToEdit:
+          $ref: '#/components/schemas/ModificaTitolo'
+        titleToEnter:
+          $ref: '#/components/schemas/Titolo'
+        rectificationReqText:
+          type: string
+          description: Testo con la richiesta di rettifica
+          readOnly: true
+        openNotes:
+          type: string
+          description: Note aperte dello studente/ex studente
+          readOnly: true
+      required:
+        - taxCode
+        - rectificationReqText
+        - openNotes
+    ModificaCampi:
+      type: object
+      x-examples:
+        Example 1:
+          fieldName: instituteName
+          oldValue: Università degli studi di Milano
+          newValue: Università degli studi di Roma 'La Sapienza'
+      description: Contiene il nome del campo da modificare con valore vecchio e valore nuovo
+      properties:
+        fieldName:
+          type: string
+          description: Nome del campo da modificare
+          readOnly: true
+        oldValue:
+          type: string
+          description: Valore attuale del campo
+        newValue:
+          type: string
+          description: Nuovo valore da attribuire al campo
+          readOnly: true
+      required:
+        - fieldName
+        - oldValue
+        - newValue
+    ModificaTitolo:
+      title: ModificaTitolo
+      x-stoplight:
+        id: cx3v0va134mhh
+      type: object
+      description: Conditiene l'id del titolo e l'elenco di tutti i campi da modificare
+      properties:
+        titleId:
+          type: string
+          description: id del titolo da modificare
+          readOnly: true
+        fieldsToEdit:
+          type: array
+          description: Elenco dei campi da modificare
+          items:
+            $ref: '#/components/schemas/ModificaCampi'
+      required:
+        - titleId
+        - fieldsToEdit
+      x-examples:
+        Example 1:
+          titleId: 201c59d6a7b800e917c63a1f
+          fieldsToEdit:
+            - fieldName: instituteName
+              oldValue: Università degli studi di Milano
+              newValue: Università degli studi di Roma 'La Sapienza'
+            - fieldName: academicQualificationDate
+              oldValue: '2022-07-01'
+              newValue: '2022-10-03'
+            - fieldName: academicQualificationVote
+              oldValue: '110'
+              newValue: '107'
+            - fieldName: classCode
+              oldValue: LM-8
+              newValue: LM-32
+    Titolo:
+      type: object
+      x-examples:
+        Example 1:
+          instituteCode: IFSRM1
+          instituteName: Università degli Studi di Roma 'La Sapienza'
+          titleName: Dottore magistrale
+          courseType: Laurea magistrale
+          courseCode: INF200
+          courseName: Ingegneria
+          classCode: LM-32
+          className: Ingegneria informatica
+          academicQualificationDate: '2022-07-01'
+          academicQualificationVote: '110'
+          courseMaximumGrade: 110L
+      description: Dettaglio titolo
+      properties:
+        instituteCode:
+          type: string
+          description: Codice identificativo dell’istituto
+          readOnly: true
+        instituteName:
+          type: string
+          description: Nome dell'istituto
+          readOnly: true
+        titleName:
+          type: string
+          description: Denominazione del titolo di studio
+          readOnly: true
+        courseType:
+          type: string
+          description: Tipo di corso di studio
+          example: 'laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale'
+          readOnly: true
+        courseCode:
+          type: string
+          description: Codice corso
+          readOnly: true
+        courseName:
+          type: string
+          description: Denominazione del corso di studio
+          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
+          readOnly: true
+        classCode:
+          type: string
+          description: Codice della classe di studio
+          pattern: '^[A-Za-z0-9-]+$'
+          example: L-8
+          readOnly: true
+        className:
+          type: string
+          description: Denominazione della classe di studio
+          example: 'Informatica, Meccanica, Elettronica, Civile'
+          readOnly: true
+        academicQualificationDate:
+          type: string
+          description: Data di conseguimento del titolo di studio
+          pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'
+          example: '2023-05-15'
+          format: date
+          readOnly: true
+        academicQualificationVote:
+          type: string
+          description: 'Voto ottenuto al conseguimento del titolo di studio '
+          pattern: ^(\d+)L?|-$
+          example: 110L
+          readOnly: true
+        courseMaximumGrade:
+          type: string
+          example: '110'
+          pattern: '^\d{1,3}L?|-$'
+          description: Voto massimo del corso
+          readOnly: true
+      required:
+        - instituteCode
+        - instituteName
+        - titleName
+        - courseType
+        - courseCode
+        - courseName
+        - classCode
+        - className
+        - academicQualificationDate
+        - academicQualificationVote
+        - courseMaximumGrade
+    RispostaRettifica:
+      type: object
+      x-examples:
+        Example 1:
+          rectificationId: 6d183bc572f6b200015a4167
+      description: Risposta di avvenuta creazione richiesta rettifica studente
+      x-stoplight:
+        id: 6be27a42c1852
+      properties:
+        rectificationId:
+          type: string
+          description: 'Identificativo della rettifica effettuata '
+          example: 2A9BCD3E4F567890
+          minLength: 16
+          maxLength: 24
+          readOnly: true
+      required:
+        - rectificationId
+    Rettifica:
+      type: object
+      x-examples:
+        Example 1:
+          rectificationId: 6d183bc572f6b200015a4167
+          titleId: 201c59d6a7b800e917c63a1f
+          state: Presa in carico
+          date: '2023-02-12'
+          rectificationReqText: Modifica dati titolo
+          openNotes: Note operte
+      description: Rettifica titolo
+      properties:
+        rectificationId:
+          type: string
+          description: Identificativo delle rettifica
+          readOnly: true
+        titleId:
+          type: string
+          description: id del titolo rettificato
+          nullable: true
+          readOnly: true
+        state:
+          type: string
+          description: Stato attuale della rettifica
+          readOnly: true
+        date:
+          type: string
+          format: date
+          description: Data ultima transizione rettifica
+          readOnly: true
+        rectificationReqText:
+          type: string
+          description: Testo con la richiesta di rettifica
+          readOnly: true
+        openNotes:
+          type: string
+          description: Note aperte dello studente/ex studente
+          readOnly: true
+      required:
+        - rectificationId
+        - state
+        - date
+        - rectificationReqText
+        - openNotes
+    DettaglioRettifica:
+      type: object
+      x-examples:
+        Example 1:
+          rectificationId: 6d183bc572f6b200015a4167
+          titleId: 908d3e72b51a6f0034e2a11c
+          state: Accettata
+          titleToEdit:
+            titleId: 201c59d6a7b800e917c63a1f
+            fieldsToEdit:
+              - fieldName: instituteName
+                oldValue: Università degli studi di Milano
+                newValue: Università degli studi di Roma 'La Sapienza'
+              - fieldName: academicQualificationDate
+                oldValue: '2022-07-01'
+                newValue: '2022-10-03'
+              - fieldName: academicQualificationVote
+                oldValue: '110'
+                newValue: '107'
+              - fieldName: classCode
+                oldValue: LM-8
+                newValue: LM-32
+          stateHistory:
+            - state: Accettata
+              date: '2023-06-10'
+              description: Descrizione del passaggio di stato
+            - state: In lavorazione
+              date: '2023-03-05'
+              description: Descrizione del passaggio di stato
+            - state: Presa in carico
+              date: '2023-02-25'
+              description: Descrizione del passaggio di stato
+          rectificationReqText: Testo con la richiesta di rettifica
+          openNotes: Note aperte dello studente/ex studente
+        Example 2:
+          rectificationId: 6d183bc572f6b200015a4167
+          titleId: 908d3e72b51a6f0034e2a11c
+          state: Accettata
+          titleToEnter:
+            instituteCode: IFSRM1
+            instituteName: Università degli Studi di Roma 'La Sapienza'
+            titleName: Dottore magistrale
+            courseType: Laurea magistrale
+            courseCode: INF200
+            courseName: Ingegneria
+            classCode: LM-32
+            className: Ingegneria informatica
+            academicQualificationDate: '2022-07-01'
+            academicQualificationVote: '110'
+            courseMaximumGrade: 110L
+          stateHistory:
+            - state: Accettata
+              date: '2023-06-10'
+              description: Descrizione del passaggio di stato
+            - state: In lavorazione
+              date: '2023-03-05'
+              description: Descrizione del passaggio di stato
+            - state: Presa in carico
+              date: '2023-02-25'
+              description: Descrizione del passaggio di stato
+          rectificationReqText: Testo con la richiesta di rettifica
+          openNotes: Note aperte dello studente/ex studente
+      description: Dettaglio di una rettifica titolo studente
+      properties:
+        rectificationId:
+          type: string
+          description: 'Identificativo della rettifica '
+          readOnly: true
+        state:
+          type: string
+          description: stato attuale della rettifica
+          readOnly: true
+        titleToEdit:
+          $ref: '#/components/schemas/ModificaTitolo'
+        titleToEnter:
+          $ref: '#/components/schemas/Titolo'
+        stateHistory:
+          type: array
+          description: Cronologia delle transizioni di stato
+          items:
+            $ref: '#/components/schemas/State'
+        rectificationReqText:
+          type: string
+          description: Testo con la richiesta di rettifica
+          readOnly: true
+        openNotes:
+          type: string
+          description: Note aperte dello studente/ex studente
+          readOnly: true
+      required:
+        - rectificationId
+        - state
+        - stateHistory
+        - rectificationReqText
+        - openNotes
+    State:
+      type: object
+      properties:
+        state:
+          type: string
+          description: valore dello stato
+          readOnly: true
+        date:
+          type: string
+          format: date
+          description: data corrispondente alla transizione di stato
+          readOnly: true
+        description:
+          type: string
+          description: descrizione del passaggio di stato
+          readOnly: true
+      x-examples:
+        Example 1:
+          state: Accettata
+          date: '2023-06-10'
+          description: Descrizione del passaggio di stato
+      description: Stato della Rettifica
+  requestBodies: {}
+  responses: {}
+servers:
+  - url: 'https://localhost:8080/api'
+    description: localhost
+tags:
+  - name: API-UNIVERSITÀ
+  - name: HEALTH-CHECK
+  - name: RETTIFICA-TITOLO
+  - name: RETTIFICHE-TITOLI-STUDENTE
+  - name: DETTAGLIO-RETTIFICA-TITOLO

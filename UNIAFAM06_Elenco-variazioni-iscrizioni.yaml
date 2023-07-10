@@ -1,0 +1,144 @@
+openapi: 3.0.0
+x-stoplight:
+  id: 0f56e32f16f60
+info:
+  title: API Università
+  x-summary: Questo servizio ritorna l'elenco di studenti i quali hanno avuto variazioni alle iscrizioni in un certo intervallo di tempo.
+  version: 1.0.0
+  description: |
+    ### Documentazione
+
+    ## API Università
+    La seguente documentazione API fornisce un riferimento per l'integrazione e l'accesso ai dati relativi alle università italiane. 
+    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati universitari, offrendo informazioni riguardanti le facoltà, i corsi di studio, i programmi accademici e altre informazioni correlate. 
+    Questo sistema di integrazione permette di accedere ai dati in modo efficiente e aggiornato, facilitando lo sviluppo di applicazioni e servizi che riguardano il contesto universitario.
+
+    # Elenco variazioni iscrizioni
+    Questa API consente di ottenere l'elenco di codici fiscali degli studenti che hanno avuto variazioni alle iscrizioni in un certo intervallo di tempo.
+
+    # Verifica stato delle API (Health Check)
+    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
+    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
+  contact:
+    name: helpdesk
+    email: helpdesk@gmail.com
+  x-api-id: 00000000-0000-0000-0000-000000000000
+  termsOfService: 'http://swagger.io/terms/'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  /variazioni-iscrizioni:
+    get:
+      summary: Variazioni iscrizioni
+      tags:
+        - VARIAZIONI-ISCRIZIONI
+      responses:
+        '200':
+          description: Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  students:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Studente'
+                required:
+                  - students
+              examples:
+                Example 1:
+                  value:
+                    students:
+                      - fullName: Mario Rossi
+                        taxCode: RSSMRA80A01H501B
+                        personID: 1A3B5C7D9
+                      - fullName: Giulia Bianchi
+                        taxCode: BNCGLI85C44D612Y
+                        personID: X5Y7Z9A2C
+                      - fullName: Luca Verdi
+                        taxCode: VRDLCA90H23E789Z
+                        personID: M8N2P6QR4
+                Example 2:
+                  value:
+                    students: []
+        '500':
+          description: Errore interno del server
+      operationId: variazioni-iscrizioni
+      description: restituisc l'elenco di codici fiscali degli studenti che hanno avuto variazioni alle iscrizioni in un certo intervallo di tempo.
+      parameters:
+        - schema:
+            type: string
+            format: date
+            example: '2022-04-10'
+          in: query
+          name: t0
+          required: true
+          description: data di inizio dell'intervallo da considerare
+        - schema:
+            type: string
+            format: date
+            example: '2023-07-06'
+          in: query
+          name: t1
+          allowEmptyValue: true
+          description: 'data di fine dell''intervallo da considerare (se non valorizzato vale la data del giorno) '
+  /status:
+    get:
+      summary: Verifica stato delle API (Health Check)
+      operationId: check-status
+      description: Verificare lo stato di salute del sistema
+      tags:
+        - HEALTH-CHECK
+      responses:
+        '204':
+          description: il servizio è in esecuzione correttamente.
+        '500':
+          description: il servizio non è in esecuzione.
+components:
+  schemas:
+    Studente:
+      title: Studente
+      x-stoplight:
+        id: h5iin6mdxsvx1
+      type: object
+      description: Dati identificativi di uno studente
+      x-examples:
+        Example 1:
+          fullName: Mario Rossi
+          taxCode: RSSMRA80A01H501B
+          personID: 1A3B5C7D9
+      properties:
+        fullName:
+          type: string
+          description: Nome completo dello studente
+          readOnly: true
+        taxCode:
+          type: string
+          description: Codice fiscale dello studente
+          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          example: RSSMRA80A01H501B
+          minLength: 16
+          maxLength: 16
+          readOnly: true
+        personID:
+          type: string
+          description: 'Identificativo ANPR '
+          minLength: 9
+          maxLength: 9
+          pattern: '^[A-Z0-9]{9}$'
+          readOnly: true
+      required:
+        - fullName
+        - taxCode
+        - personID
+  requestBodies: {}
+  responses: {}
+servers:
+  - url: 'https://localhost:8080/api'
+    description: localhost
+tags:
+  - name: API-UNIVERSITÀ
+  - name: VARIAZIONI-ISCRIZIONI
+  - name: HEALTH-CHECK
