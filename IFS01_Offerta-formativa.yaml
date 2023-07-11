@@ -2,43 +2,32 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: API Università
+  title: IFS01 - Offerta formativa
   x-summary: Questo servizio ritorna l'offerta formativa di un ifs.
   version: 1.0.0
   description: |
-    ### Documentazione
-
-    ## API Università
-    La seguente documentazione API fornisce un riferimento per l'integrazione e l'accesso ai dati relativi alle università italiane. 
-    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati universitari, offrendo informazioni riguardanti le facoltà, i corsi di studio, i programmi accademici e altre informazioni correlate. 
-    Questo sistema di integrazione permette di accedere ai dati in modo efficiente e aggiornato, facilitando lo sviluppo di applicazioni e servizi che riguardano il contesto universitario.
-
-    # Offerta formativa IFS
-    Questa API consente di ottenere l'elenco dei corsi erogati da un Istituto di Formazione Superiore (IFS). I dati restituiti includono informazioni sui singoli corsi offerti.
-
-    # Verifica stato delle API (Health Check)
-    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
-    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
+    Consente di ottenere l'elenco dei corsi erogati da un Istituto di Formazione Superiore (IFS). I dati restituiti includono informazioni sui singoli corsi offerti.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
   x-api-id: 00000000-0000-0000-0000-000000000000
-  termsOfService: 'http://swagger.io/terms/'
+  termsOfService: http://swagger.io/terms/
   license:
     name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
 paths:
-  '/offerta-formativa/{aa}':
+  /offerta-formativa/{aa}:
+    
     get:
       summary: Offerta formativa di un IFS
       tags:
-        - CORSI-ISTITUTO
+        - offerta formativa
       parameters:
         - schema:
             type: string
           in: query
           name: courseType
-          description: 'Tipologia del corso di studio '
+          description: Tipologia del corso di studio
         - schema:
             type: string
           in: query
@@ -48,7 +37,7 @@ paths:
             type: string
           in: query
           name: faculty
-          description: 'Facoltà '
+          description: Facoltà
       responses:
         '200':
           description: Richiesta eseguita con successo
@@ -91,12 +80,12 @@ paths:
       operationId: offerta-formativa
       description: |-
         Restituisce l'elenco di tutti i corsi attivi ed offerti da un Istituto di Formazione Superiore in uno specifico anno accademico.
-        Se valorizzati i QueryParams (courseType, classCode, faculty) l'elenco verrà filtrato in base a quei valori.
+        Se valorizzati i QueryParams (courseType, classCode, faculty) l'elenco verrà filtrato in base a tali valori.
     parameters:
       - schema:
           type: string
           example: 2022-2023
-          pattern: '^\d{4}-\d{4}$'
+          pattern: ^\d{4}-\d{4}$
         name: aa
         in: path
         required: true
@@ -107,7 +96,7 @@ paths:
       operationId: check-status
       description: Verificare lo stato di salute del sistema
       tags:
-        - HEALTH-CHECK
+        - health-check
       responses:
         '204':
           description: il servizio è in esecuzione correttamente.
@@ -193,23 +182,23 @@ components:
         courseType:
           type: string
           description: Tipo di corso di studio
-          example: 'laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale'
+          example: laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale
           readOnly: true
         courseName:
           type: string
           description: Denominazione del corso di studio
-          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
+          example: ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design
           readOnly: true
         classCode:
           type: string
           description: Codice della classe di studio
-          pattern: '^[A-Z]+-\d{1,2}$'
+          pattern: ^[A-Z]+-\d{1,2}$
           example: L-8
           readOnly: true
         className:
           type: string
           description: Denominazione della classe di studio
-          example: 'Informatica, Meccanica, Elettronica, Civile'
+          example: Informatica, Meccanica, Elettronica, Civile
           readOnly: true
       required:
         - _id
@@ -221,9 +210,9 @@ components:
   requestBodies: {}
   responses: {}
 servers:
-  - url: 'https://localhost:8080/api'
+  - url: https://localhost:8080/api
     description: localhost
 tags:
-  - name: API-UNIVERSITÀ
-  - name: CORSI-ISTITUTO
-  - name: HEALTH-CHECK
+  - name: offerta formativa
+  - name: health-check
+
