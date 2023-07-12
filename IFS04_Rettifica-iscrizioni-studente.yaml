@@ -13,6 +13,9 @@ info:
     Queste API consentono l'erogazione di servizi (e-service) che operano sui dati universitari, offrendo informazioni riguardanti le facoltà, i corsi di studio, i programmi accademici e altre informazioni correlate. 
     Questo sistema di integrazione permette di accedere ai dati in modo efficiente e aggiornato, facilitando lo sviluppo di applicazioni e servizi che riguardano il contesto universitario.
 
+    # Elenco campi modificabili in una iscrizione
+    Questa API consente di recuperare tutti i campi utilizzabili per la rettifica delle iscrizioni.
+
     # Rettifica iscrizione studente
     Questa API consente di creare una richiesta di rettifica per aggiornare i dati relativi alle iscrizioni di uno studente.
 
@@ -35,6 +38,76 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
+  /rettifiche-iscrizioni/campi:
+    get:
+      summary: Elenco campi modificabili in una iscrizione
+      tags:
+        - CAMPI-RETTIFICA-ISCRIZIONE
+      parameters: []
+      responses:
+        '200':
+          description: Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    description: Elenco dei campi modificabili
+                    items:
+                      $ref: '#/components/schemas/CampoRettifica'
+                required:
+                  - fields
+              examples:
+                Example 1:
+                  value:
+                    fields:
+                      - fieldName: instituteCode
+                        fieldDescription: Codice dell'istituto
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: instituteName
+                        fieldDescription: Nome dell'istituto
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: courseCode
+                        fieldDescription: Codice del corso
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: courseName
+                        fieldDescription: Nome del corso
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: courseType
+                        fieldDescription: Tipologia del corso di studio
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: classCode
+                        fieldDescription: Codice della classe
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: className
+                        fieldDescription: Nome della classe
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: registrationYear
+                        fieldDescription: Anno accademico di immatricolazione dello studente
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: enrolmentYear
+                        fieldDescription: Ultimo anno accademico in cui lo studente risulta iscritto al corso
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: courseYear
+                        fieldDescription: Ultimo anno in cui lo studente risulta iscritto al corso
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+        '500':
+          description: Errore interno del server
+      operationId: campi-rettifica-iscrizione
+      description: Restituisce l'elenco dei campi modificabili in una iscrizione
+    parameters: []
   /rettifiche-iscrizioni:
     post:
       summary: Rettifica iscrizione studente
@@ -269,6 +342,38 @@ paths:
           description: il servizio non è in esecuzione.
 components:
   schemas:
+    CampoRettifica:
+      type: object
+      x-examples:
+        Example 1:
+          fieldName: instituteName
+          fieldDescription: Nome dell'istituto
+          fieldType: string
+          fieldPattern: '^[A-Za-z ]+$'
+      properties:
+        fieldName:
+          type: string
+          description: Nome del campo
+          readOnly: true
+        fieldDescription:
+          type: string
+          description: Descrizione del campo
+          readOnly: true
+        fieldType:
+          type: string
+          description: Tipo del campo
+          readOnly: true
+        fieldPattern:
+          type: string
+          description: Pattern del campo
+          readOnly: true
+      required:
+        - fieldName
+        - fieldDescription
+        - fieldType
+      description: Dettaglio campo rettifica
+      x-stoplight:
+        id: 705c3b968ec92
     RichiestaRettifica:
       type: object
       x-examples:
@@ -334,7 +439,7 @@ components:
         - taxCode
         - rectificationReqText
         - openNotes
-    ModificaCampi:
+    ModificaCampo:
       type: object
       x-examples:
         Example 1:
@@ -358,6 +463,8 @@ components:
         - fieldName
         - oldValue
         - newValue
+      x-stoplight:
+        id: 752f77d2e91a7
     ModificaIscrizione:
       title: ModificaIscrizione
       x-stoplight:
@@ -373,7 +480,7 @@ components:
           type: array
           description: Elenco dei campi da modificare
           items:
-            $ref: '#/components/schemas/ModificaCampi'
+            $ref: '#/components/schemas/ModificaCampo'
       required:
         - enrollmentId
         - fieldsToEdit
@@ -659,6 +766,7 @@ servers:
 tags:
   - name: API-UNIVERSITÀ
   - name: HEALTH-CHECK
+  - name: CAMPI-RETTIFICA-ISCRIZIONE
   - name: RETTIFICA-ISCRIZIONE
   - name: RETTIFICHE-ISCRIZIONI-STUDENTE
   - name: DETTAGLIO-RETTIFICA-ISCRIZIONE
