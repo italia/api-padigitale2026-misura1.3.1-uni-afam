@@ -38,43 +38,129 @@ paths:
           in: query
           name: faculty
           description: Facoltà
+        - schema:
+            type: integer
+            format: int32
+            default: 1
+            minimum: 1
+          in: query
+          name: page
+          description: Numero della pagina che si vuole visualizzare
+          required: true
+        - schema:
+            type: integer
+            format: int32
+            default: 15
+            minimum: 1
+          in: query
+          name: limit
+          description: Numero massimo di elementi per pagina
+          required: true
       responses:
         '200':
           description: Richiesta eseguita con successo
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OffertaFormativa'
+                type: object
+                x-examples:
+                  Example 1:
+                    totElem: 150
+                    totPages: 10
+                    currentPage: 1
+                    perPage: 15
+                    data:
+                      instituteCode: IFSRM1
+                      instituteName: Università degli Studi di Roma 'La Sapienza'
+                      courses:
+                        - _id: 8f5e36a720b30180001e2b4c
+                          faculty: Ingegneria
+                          courseType: Corso di laurea
+                          courseName: Ingegneria Informatica
+                          classCode: L-8
+                          className: Ingegneria dell'informazione
+                        - _id: d3b8a6c501f1268000129e7f
+                          faculty: Ingegneria
+                          courseType: Corso di laurea magistrale
+                          courseName: Ingegneria Informatica
+                          classCode: LM-32
+                          className: Intelligenza artificiale
+                        - _id: 1754e9c6bda01080001ad678
+                          faculty: Economia
+                          courseType: Corso di laurea
+                          courseName: Economia e Commercio
+                          classCode: L-18
+                          className: Scienze Economiche
+                        - _id: 60a27b659c62180001c7d79e
+                          faculty: Giurisprudenza
+                          courseType: Corso di laurea
+                          courseName: Giurisprudenza
+                          classCode: L-14
+                          className: Scienze Giuridiche
+                properties:
+                  totElem:
+                    type: integer
+                    description: totale degli elementi disponibili
+                    format: int32
+                    readOnly: true
+                  totPages:
+                    type: integer
+                    description: totale delle pagine disponibili
+                    format: int32
+                    readOnly: true
+                  currentPage:
+                    type: integer
+                    description: numero della pagina corrente restituita
+                    format: int32
+                    readOnly: true
+                  perPage:
+                    type: integer
+                    description: numero di elementi presenti nella pagina
+                    format: int32
+                    readOnly: true
+                  data:
+                    $ref: '#/components/schemas/OffertaFormativa'
+                required:
+                  - totElem
+                  - totPages
+                  - currentPage
+                  - perPage
+                  - data
               examples:
                 Example 1:
                   value:
-                    instituteCode: IFSRM1
-                    instituteName: Università degli Studi di Roma 'La Sapienza'
-                    courses:
-                      - _id: 8f5e36a720b30180001e2b4c
-                        faculty: Ingegneria
-                        courseType: Corso di laurea
-                        courseName: Ingegneria Informatica
-                        classCode: L-8
-                        className: Ingegneria dell'informazione
-                      - _id: d3b8a6c501f1268000129e7f
-                        faculty: Ingegneria
-                        courseType: Corso di laurea magistrale
-                        courseName: Ingegneria Informatica
-                        classCode: LM-32
-                        className: Intelligenza artificiale
-                      - _id: 1754e9c6bda01080001ad678
-                        faculty: Economia
-                        courseType: Corso di laurea
-                        courseName: Economia e Commercio
-                        classCode: L-18
-                        className: Scienze Economiche
-                      - _id: 60a27b659c62180001c7d79e
-                        faculty: Giurisprudenza
-                        courseType: Corso di laurea
-                        courseName: Giurisprudenza
-                        classCode: L-14
-                        className: Scienze Giuridiche
+                    totElem: 4
+                    totPages: 1
+                    currentPage: 1
+                    perPage: 15
+                    data:
+                      instituteCode: IFSRM1
+                      instituteName: Università degli Studi di Roma 'La Sapienza'
+                      courses:
+                        - _id: 8f5e36a720b30180001e2b4c
+                          faculty: Ingegneria
+                          courseType: Corso di laurea
+                          courseName: Ingegneria Informatica
+                          classCode: L-8
+                          className: Ingegneria dell'informazione
+                        - _id: d3b8a6c501f1268000129e7f
+                          faculty: Ingegneria
+                          courseType: Corso di laurea magistrale
+                          courseName: Ingegneria Informatica
+                          classCode: LM-32
+                          className: Intelligenza artificiale
+                        - _id: 1754e9c6bda01080001ad678
+                          faculty: Economia
+                          courseType: Corso di laurea
+                          courseName: Economia e Commercio
+                          classCode: L-18
+                          className: Scienze Economiche
+                        - _id: 60a27b659c62180001c7d79e
+                          faculty: Giurisprudenza
+                          courseType: Corso di laurea
+                          courseName: Giurisprudenza
+                          classCode: L-14
+                          className: Scienze Giuridiche
         '500':
           description: Errore interno del server
       operationId: offerta-formativa

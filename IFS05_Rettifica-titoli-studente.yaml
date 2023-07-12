@@ -13,6 +13,8 @@ info:
     Queste API consentono l'erogazione di servizi (e-service) che operano sui dati universitari, offrendo informazioni riguardanti le facoltà, i corsi di studio, i programmi accademici e altre informazioni correlate. 
     Questo sistema di integrazione permette di accedere ai dati in modo efficiente e aggiornato, facilitando lo sviluppo di applicazioni e servizi che riguardano il contesto universitario.
 
+    # Elenco campi modificabili in un titolo
+    Questa API consente di recuperare tutti i campi utilizzabili per la rettifica dei titoli.
 
     # Rettifica titoli studente
     Questa API consente di creare una richiesta di rettifica per aggiornare i dati relativi ai titoli di uno studente.
@@ -36,6 +38,80 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
+  /rettifiche-titoli/campi:
+    get:
+      summary: Elenco campi modificabili in un titolo
+      tags:
+        - CAMPI-RETTIFICA-TITOLO
+      parameters: []
+      responses:
+        '200':
+          description: Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    description: Elenco dei campi modificabili
+                    items:
+                      $ref: '#/components/schemas/CampoRettifica'
+                required:
+                  - fields
+              examples:
+                Example 1:
+                  value:
+                    fields:
+                      - fieldName: instituteCode
+                        fieldDescription: Codice dell'istituto
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: instituteName
+                        fieldDescription: Nome dell'istituto
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: titleName
+                        fieldDescription: Nome titolo accademico
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: courseCode
+                        fieldDescription: Codice del corso
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: courseName
+                        fieldDescription: Nome del corso
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: courseType
+                        fieldDescription: Tipologia del corso di studio
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: classCode
+                        fieldDescription: Codice della classe
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: className
+                        fieldDescription: Nome della classe
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: academicQualificationDate
+                        fieldDescription: Data di conseguimento del titolo accademico
+                        fieldType: date
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: academicQualificationVote
+                        fieldDescription: Voto al conseguimento del titolo accademico
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+                      - fieldName: courseMaximumGrade
+                        fieldDescription: Voto massimo ottenibile nel corso
+                        fieldType: string
+                        fieldPattern: '^[A-Za-z ]+$'
+        '500':
+          description: Errore interno del server
+      operationId: campi-rettifica-titolo
+      description: Restituisce l'elenco dei campi modificabili in un titolo
+    parameters: []
   /rettifiche-titoli:
     post:
       summary: Rettifica titoli studente
@@ -272,6 +348,38 @@ paths:
           description: il servizio non è in esecuzione.
 components:
   schemas:
+    CampoRettifica:
+      type: object
+      x-examples:
+        Example 1:
+          fieldName: instituteName
+          fieldDescription: Nome dell'istituto
+          fieldType: string
+          fieldPattern: '^[A-Za-z ]+$'
+      properties:
+        fieldName:
+          type: string
+          description: Nome del campo
+          readOnly: true
+        fieldDescription:
+          type: string
+          description: Descrizione del campo
+          readOnly: true
+        fieldType:
+          type: string
+          description: Tipo del campo
+          readOnly: true
+        fieldPattern:
+          type: string
+          description: Pattern del campo
+          readOnly: true
+      required:
+        - fieldName
+        - fieldDescription
+        - fieldType
+      description: Dettaglio campo rettifica
+      x-stoplight:
+        id: 705c3b968ec92
     RichiestaRettifica:
       type: object
       x-examples:
@@ -338,7 +446,7 @@ components:
         - taxCode
         - rectificationReqText
         - openNotes
-    ModificaCampi:
+    ModificaCampo:
       type: object
       x-examples:
         Example 1:
@@ -362,6 +470,8 @@ components:
         - fieldName
         - oldValue
         - newValue
+      x-stoplight:
+        id: 752f77d2e91a7
     ModificaTitolo:
       title: ModificaTitolo
       x-stoplight:
@@ -377,7 +487,7 @@ components:
           type: array
           description: Elenco dei campi da modificare
           items:
-            $ref: '#/components/schemas/ModificaCampi'
+            $ref: '#/components/schemas/ModificaCampo'
       required:
         - titleId
         - fieldsToEdit
@@ -669,6 +779,7 @@ servers:
 tags:
   - name: API-UNIVERSITÀ
   - name: HEALTH-CHECK
+  - name: CAMPI-RETTIFICA-TITOLO
   - name: RETTIFICA-TITOLO
   - name: RETTIFICHE-TITOLI-STUDENTE
   - name: DETTAGLIO-RETTIFICA-TITOLO

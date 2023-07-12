@@ -40,29 +40,87 @@ paths:
             application/json:
               schema:
                 type: object
+                x-examples:
+                  Example 1:
+                    totElem: 3
+                    totPages: 1
+                    currentPage: 1
+                    perPage: 15
+                    data:
+                      students:
+                        - fullName: Mario Rossi
+                          taxCode: RSSMRA80A01H501B
+                          personID: 1A3B5C7D9
+                        - fullName: Giulia Bianchi
+                          taxCode: BNCGLI85C44D612Y
+                          personID: X5Y7Z9A2C
+                        - fullName: Luca Verdi
+                          taxCode: VRDLCA90H23E789Z
+                          personID: M8N2P6QR4
                 properties:
-                  students:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Studente'
+                  totElem:
+                    type: integer
+                    description: totale degli elementi disponibili
+                    format: int32
+                    readOnly: true
+                  totPages:
+                    type: integer
+                    description: totale delle pagine disponibili
+                    format: int32
+                    readOnly: true
+                  currentPage:
+                    type: integer
+                    description: numero della pagina corrente restituita
+                    format: int32
+                    readOnly: true
+                  perPage:
+                    type: integer
+                    description: numero di elementi presenti nella pagina
+                    format: int32
+                    readOnly: true
+                  data:
+                    type: object
+                    description: dati effettivi della pagina corrente
+                    required:
+                      - students
+                    properties:
+                      students:
+                        type: array
+                        description: Elenco di studenti che hanno avuto variazioni nelle iscrizioni
+                        items:
+                          $ref: '#/components/schemas/Studente'
                 required:
-                  - students
+                  - totElem
+                  - totPages
+                  - currentPage
+                  - perPage
+                  - data
               examples:
                 Example 1:
                   value:
-                    students:
-                      - fullName: Mario Rossi
-                        taxCode: RSSMRA80A01H501B
-                        personID: 1A3B5C7D9
-                      - fullName: Giulia Bianchi
-                        taxCode: BNCGLI85C44D612Y
-                        personID: X5Y7Z9A2C
-                      - fullName: Luca Verdi
-                        taxCode: VRDLCA90H23E789Z
-                        personID: M8N2P6QR4
+                    totElem: 3
+                    totPages: 1
+                    currentPage: 1
+                    perPage: 15
+                    data:
+                      students:
+                        - fullName: Mario Rossi
+                          taxCode: RSSMRA80A01H501B
+                          personID: 1A3B5C7D9
+                        - fullName: Giulia Bianchi
+                          taxCode: BNCGLI85C44D612Y
+                          personID: X5Y7Z9A2C
+                        - fullName: Luca Verdi
+                          taxCode: VRDLCA90H23E789Z
+                          personID: M8N2P6QR4
                 Example 2:
                   value:
-                    students: []
+                    totElem: 0
+                    totPages: 1
+                    currentPage: 1
+                    perPage: 15
+                    data:
+                      students: []
         '500':
           description: Errore interno del server
       operationId: variazioni-iscrizioni
@@ -84,6 +142,24 @@ paths:
           name: t1
           allowEmptyValue: true
           description: 'data di fine dell''intervallo da considerare (se non valorizzato vale la data del giorno) '
+        - schema:
+            type: integer
+            format: int32
+            default: 1
+            minimum: 1
+          in: query
+          name: page
+          description: Numero della pagina che si vuole visualizzare
+          required: true
+        - schema:
+            type: integer
+            format: int32
+            default: 15
+            minimum: 1
+          in: query
+          name: limit
+          description: Numero massimo di elementi per pagina
+          required: true  
   /status:
     get:
       summary: Verifica stato delle API (Health Check)
