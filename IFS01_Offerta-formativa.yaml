@@ -6,7 +6,7 @@ info:
   x-summary: Questo servizio ritorna l'offerta formativa di un ifs.
   version: 1.0.0
   description: |
-    Consente di ottenere l'elenco dei corsi erogati da un Istituto di Formazione Superiore (IFS). I dati restituiti includono informazioni sui singoli corsi offerti.
+    Consente di ottenere l'elenco dei corsi erogati da un'università o AFAM pubblica. I dati restituiti includono informazioni sui singoli corsi offerti.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
