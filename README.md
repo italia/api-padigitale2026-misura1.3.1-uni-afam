@@ -19,7 +19,7 @@ La tabella sottostante (Tabella 1) riporta il dettaglio del titolo e descrizione
     <td>Acquisizione dei dati di dettaglio delle iscrizioni di uno studente/ex-studente in formato transfrontaliero. </td>
     </tr>
   <tr>
-    <td>Acquisizione dei dati di dettaglio delle iscrizioni e degli esami sostenuti con voto (transcript) di uno studente/ex-studente in formato transfrontaliero. </td>
+    <td>Acquisizione degli esami sostenuti con voto (transcript) di uno studente/ex-studente in formato transfrontaliero. </td>
   </tr>
   </tr>
     <tr>
