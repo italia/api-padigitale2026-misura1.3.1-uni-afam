@@ -36,7 +36,7 @@ La tabella sottostante (Tabella 1) riporta il dettaglio del titolo e descrizione
   <tr>
     <td>IFS04</td>
     <td>Rettifica iscrizioni studente</td>
-    <td>Permette di richiedere la rettifica dei dati di un’iscrizione o una iscrizione mancante per uno studente/ex-studente.  
+    <td>Permette di richiedere la rettifica dei dati di un’iscrizione o una iscrizione mancante o in eccesso per uno studente/ex-studente.  
 
 Funzionalità ulteriori: 
 <ul>
