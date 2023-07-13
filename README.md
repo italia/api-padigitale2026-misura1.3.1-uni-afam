@@ -34,48 +34,42 @@ La tabella sottostante (Tabella 1) riporta il dettaglio del titolo e descrizione
   </tr>
   </tr>
   <tr>
-    <td>IFS04</td>
-    <td>Rettifica iscrizioni studente</td>
-    <td>Permette di richiedere la rettifica dei dati di un’iscrizione o una iscrizione mancante o in eccesso per uno studente/ex-studente.  
-
-Funzionalità ulteriori: 
-<ul>
-  <li>Lista degli attributi modificabili</li>
-  <li>Possibilità di monitorare lo stato della richiesta di rettifica</li>
-</ul>
+    <td rowspan=2>IFS04</td>
+    <td rowspan=2>Rettifica iscrizioni studente</td>
+    <td>Richiede la rettifica dei dati di un’iscrizione o una iscrizione mancante o in eccesso per uno studente/ex-studente.  
+  </tr>
+  <tr>
+    <td>Monitora lo stato della richiesta di rettifica dell'iscrizione</td>
+  </tr>
 </td>
   </tr>
-    <tr>
-    <td>IFS05</td>
-    <td>Rettifica titoli studente</td>
-    <td>Vuole richiedere la rettifica dei dati di un titolo conseguito o mancante di uno studente/ex-studente.  
-
-Funzionalità ulteriori: 
-<ul>
-  <li>Lista degli attributi modificabili</li>
-  <li>Possibilità di monitorare lo stato della richiesta di rettifica</li>
-</ul>
-</td>
+  <tr>
+    <td rowspan=2>IFS05</td>
+    <td rowspan=2>Rettifica titoli studente</td>
+    <td>Richede la rettifica dei dati di un titolo conseguito o mancante di uno studente/ex-studente.  
+  </tr>
+  <tr>
+  <td>Monitora lo stato della richiesta di rettifica del titolo</td>
   </tr>
 <tr>
   <td>IFS06</td>
   <td>Elenco Variazioni Iscrizioni</td>
-  <td>Acquisizione della lista degli studenti che hanno subito un cambio di stato alla relativa iscrizione tra un istante t0 e uno t1 (ad es. t0 = 1 gennaio 2019 e t1 = 31 dicembre 2019 per richiedere i dati relativi all'anno solare 2019)</td>
+  <td>Acquisisce lista degli studenti che hanno subito un cambio di stato alla relativa iscrizione tra un istante t0 e uno t1 (ad es. t0 = 1 gennaio 2019 e t1 = 31 dicembre 2019 per richiedere i dati relativi all'anno solare 2019)</td>
 </tr> 
 <tr>
   <td>IFS07</td>
   <td>Elenco variazione titoli</td>
-  <td>Acquisizione della lista degli studenti che hanno subito un cambio di stato ai relativi titoli conseguiti tra un istante t0 e uno t1 (ad es. t0 = 1 gennaio 2019 e t1 = 31 dicembre 2019 per richiedere i dati relativi all'anno solare 2019)</td>
+  <td>Acquisisce la lista degli studenti che hanno subito un cambio di stato ai relativi titoli conseguiti tra un istante t0 e uno t1 (ad es. t0 = 1 gennaio 2019 e t1 = 31 dicembre 2019 per richiedere i dati relativi all'anno solare 2019)</td>
 </tr>
 <tr>
   <td>IFS08</td>
   <td>Iscritti per fasce ISEE</td>
-  <td>Acquisizione del numero di studenti per fasce ISEE in un anno accademico, per facoltà e per intero Istituto</td>
+  <td>Acquisisce il numero di studenti per fasce ISEE in un anno accademico<td>
 </tr>
 <tr>
   <td>IFS09</td>
   <td>Iscritti a un corso per anno</td>
-  <td>Acquisizione del numero di studenti iscritti a una facoltà o ad un corso specifico per anno accademico</td>
+  <td>Acquisisce il numero di studenti iscritti a uno specifico corso per anno accademico</td>
 </tr>
 </table>
 
