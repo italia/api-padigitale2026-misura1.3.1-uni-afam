@@ -2,23 +2,11 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: API Università
-  x-summary: Questo servizio ritorna il dettaglio delle iscrizioni di uno studente.
+  title: IFS02 - Iscrizioni studente
+  x-summary: Dettaglio iscrizioni studente.
   version: 1.0.0
   description: |
-    ### Documentazione
-
-    ## API Università
-    La seguente documentazione API fornisce un riferimento per l'integrazione e l'accesso ai dati relativi alle università italiane. 
-    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati universitari, offrendo informazioni riguardanti le facoltà, i corsi di studio, i programmi accademici e altre informazioni correlate. 
-    Questo sistema di integrazione permette di accedere ai dati in modo efficiente e aggiornato, facilitando lo sviluppo di applicazioni e servizi che riguardano il contesto universitario.
-
-    ## Dettaglio delle iscrizioni
-    Questa API fornisce informazioni dettagliate riguardanti lo storico delle iscrizioni di uno studente, inclusi i dati personali e le informazioni sugli istituti di formazione e i corsi a cui lo studente è stato iscritto.
-
-    # Verifica stato delle API (Health Check)
-    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
-    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
+   Fornisce informazioni dettagliate riguardanti lo storico delle iscrizioni di un/a studente, inclusi i dati personali e le informazioni sugli istituti di formazione e i corsi a cui la persona è stata iscritta.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -39,7 +27,7 @@ paths:
     get:
       summary: Dettaglio iscrizioni studente
       tags:
-        - STUDENT-ENROLMENTS
+        - iscrizioni studente
       responses:
         '200':
           description: Richiesta eseguita con successo
@@ -91,11 +79,11 @@ paths:
                       birthPlace: Roma
                     enrolments: []
         '404':
-          description: Studente non trovato
+          description: Studente non in archivio
         '500':
           description: Errore interno del server
       operationId: enrolments-of-student
-      description: 'Restituisce i dettagli delle iscrizioni di uno studente in base al suo codice_fiscale '
+      description: 'Restituisce i dettagli delle iscrizioni di un/a studente in base al suo codice_fiscale '
       parameters: []
   /status:
     get:
@@ -103,7 +91,7 @@ paths:
       operationId: check-status
       description: Verificare lo stato di salute del sistema
       tags:
-        - HEALTH-CHECK
+        - health-check
       responses:
         '204':
           description: il servizio è in esecuzione correttamente.
@@ -309,6 +297,5 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: API-UNIVERSITÀ
-  - name: HEALTH-CHECK
-  - name: STUDENT-ENROLMENTS
+  - name: iscrizioni studente
+  - name: health-check
