@@ -3,10 +3,10 @@ x-stoplight:
   id: 0f56e32f16f60
 info:
   title: IFS01 - Offerta formativa
-  x-summary: Questo servizio ritorna l'offerta formativa di un ifs.
+  x-summary: Offerta formativa di un'Università/AFAM
   version: 1.0.0
   description: |
-    Consente di ottenere l'elenco dei corsi erogati da un'università o AFAM pubblica. I dati restituiti includono informazioni sui singoli corsi offerti.
+    Ottiene l'elenco dei corsi erogati da un'università o AFAM pubblica. I dati restituiti includono informazioni sui singoli corsi offerti.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -19,7 +19,7 @@ paths:
   /offerta-formativa/{aa}:
     
     get:
-      summary: Offerta formativa di un IFS
+      summary: Offerta formativa di un'Università/AFAM
       tags:
         - offerta formativa
       parameters:
@@ -165,7 +165,7 @@ paths:
           description: Errore interno del server
       operationId: offerta-formativa
       description: |-
-        Restituisce l'elenco di tutti i corsi attivi ed offerti da un Istituto di Formazione Superiore in uno specifico anno accademico.
+        Restituisce l'elenco di tutti i corsi attivi ed offerti da un'Università/AFAM in uno specifico anno accademico.
         Se valorizzati i QueryParams (courseType, classCode, faculty) l'elenco verrà filtrato in base a tali valori.
     parameters:
       - schema:
@@ -221,7 +221,7 @@ components:
               courseName: Giurisprudenza
               classCode: L-14
               className: Scienze Giuridiche
-      description: Corsi erogati in un IFS
+      description: Corsi erogati in un'Università/AFAM
       x-stoplight:
         id: 3d1cadb8732af
       properties:
@@ -259,7 +259,7 @@ components:
       properties:
         _id:
           type: string
-          description: id del corso erogato dall'IFS
+          description: id del corso erogato dall'Università/AFAM
           readOnly: true
         faculty:
           type: string
