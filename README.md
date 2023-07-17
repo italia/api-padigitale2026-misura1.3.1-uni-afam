@@ -14,23 +14,23 @@ La tabella sottostante (Tabella 1) riporta il dettaglio del titolo e descrizione
   <tr>
     <td rowspan=3>IFS02</td>
     <td rowspan=3>Iscrizioni studente</td>
-    <td>Acquisizione dei dati di dettaglio delle iscrizioni di uno studente/ex-studente in formato nazionale.</td>
+    <td>Acquisisce i dati di dettaglio delle iscrizioni di uno studente/ex-studente in formato nazionale.</td>
     <tr>
-    <td>Acquisizione dei dati di dettaglio delle iscrizioni di uno studente/ex-studente in formato transfrontaliero. </td>
+    <td>Acquisisce i dati di dettaglio delle iscrizioni di uno studente/ex-studente in formato transfrontaliero. </td>
     </tr>
   <tr>
-    <td>Acquisizione degli esami sostenuti con voto (transcript) di uno studente/ex-studente in formato transfrontaliero. </td>
+    <td>Acquisisce gli esami sostenuti con voto (transcript) di uno studente/ex-studente in formato transfrontaliero. </td>
   </tr>
   </tr>
     <tr>
     <td rowspan=3>IFS03</td>
     <td rowspan=3>Titoli studente</td>
-    <td>Acquisizione dei titoli conseguiti nell'istituto da uno studente/ex-studente in formato nazionale.</td>
+    <td>Acquisisce i titoli conseguiti nell'istituto da uno studente/ex-studente in formato nazionale.</td>
     <tr>
-    <td>Acquisizione del Diploma Supplement semplificato (senza voti degli esami) in formato transfrontaliero.</td>
+    <td>Acquisisce il diploma supplement semplificato (senza voti degli esami) in formato transfrontaliero.</td>
     </tr>
   <tr>
-    <td>Acquisizione del Diploma Supplement in formato transfrontaliero.</td>
+    <td>Acquisisce il diploma supplement in formato transfrontaliero.</td>
   </tr>
   </tr>
   <tr>
@@ -46,7 +46,7 @@ La tabella sottostante (Tabella 1) riporta il dettaglio del titolo e descrizione
   <tr>
     <td rowspan=2>IFS05</td>
     <td rowspan=2>Rettifica titoli studente</td>
-    <td>Richede la rettifica dei dati di un titolo conseguito o mancante di uno studente/ex-studente.  
+    <td>Richiede la rettifica dei dati di un titolo conseguito o mancante di uno studente/ex-studente.  
   </tr>
   <tr>
   <td>Monitora lo stato della richiesta di rettifica del titolo</td>
