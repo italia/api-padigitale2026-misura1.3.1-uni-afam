@@ -6,7 +6,7 @@ info:
   x-summary: Dettaglio iscrizioni studente.
   version: 1.0.0
   description: |
-   Fornisce informazioni dettagliate riguardanti lo storico delle iscrizioni di un/a studente, inclusi i dati personali e le informazioni sugli istituti di formazione e i corsi a cui la persona è stata iscritta.
+   Fornisce informazioni di dettaglio riguardanti le iscrizioni di uno studente all'università o AFAM pubblico.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -79,11 +79,11 @@ paths:
                       birthPlace: Roma
                     enrolments: []
         '404':
-          description: Studente non in archivio
+          description: Non sono state trovate iscrizioni per lo studente in questo istituto
         '500':
           description: Errore interno del server
       operationId: enrolments-of-student
-      description: 'Restituisce i dettagli delle iscrizioni di un/a studente in base al suo codice_fiscale '
+      description: 'Restituisce i dettagli delle iscrizioni di uno studente'
       parameters: []
   /status:
     get:
