@@ -2,11 +2,11 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: IFS03 - Titoli studente
-  x-summary: Questo servizio ritorna l'elenco dei titoli conseguiti da uno/a studente.
+  title: IFS03 - Recupero titoli
+  x-summary: Questo servizio ritorna l'elenco dei titoli conseguiti da una studentessa o uno studente.
   version: 1.0.0
   description: |
-    Restituisce l'elenco dei titoli conseguiti da uno/a studente
+    Restituisce l'elenco dei titoli conseguiti da una studentessa o uno studente
   contact:
     name: helpdesk
     email: helpdesk@mail.edu.it
@@ -25,7 +25,7 @@ paths:
         required: true
         description: 'Codice Fiscale '
     get:
-      summary: Titoli conseguiti dallo/a studente
+      summary: Titoli conseguiti dalla studentessa o dallo studente
       tags:
         - titoli studente
       parameters: []
@@ -82,11 +82,11 @@ paths:
                       birthPlace: Roma
                     academicQualifications: []
         '404':
-          description: Non sono stati trovati titoli conseguiti per lo/a studente
+          description: Non sono stati trovati titoli conseguiti per la studentessa o lo studente
         '500':
           description: Errore interno del server
       operationId: titoli-studente
-      description: Restituisce la lista dei titoli conseguiti da uno/a studente
+      description: Restituisce la lista dei titoli conseguiti da una studentessa o uno studente
   /status:
     get:
       summary: Verifica stato delle API (Health Check)
@@ -137,14 +137,14 @@ components:
               academicQualificationDate: '2022-07-01'
               academicQualificationVote: '-'
               courseMaximumGrade: '-'
-      description: Anagrafica ed elenco titoli conseguiti da uno/a studente
+      description: Anagrafica ed elenco titoli conseguiti da una studentessa o uno studente
       x-stoplight:
         id: 15d3067a4c448
       properties:
         personalData:
-          $ref: '#/components/schemas/Studente'
+          $ref: '#/components/schemas/DatiPersonali'
         academicQualifications:
-          description: Elenco dei titoli conseguiti dallo/a studente
+          description: Elenco dei titoli conseguiti dalla studentessa o dallo studente
           type: array
           items:
             $ref: '#/components/schemas/Titolo'
@@ -171,7 +171,7 @@ components:
       properties:
         _id:
           type: string
-          description: id del titolo di studio dello/a studente
+          description: id del titolo di studio
         instituteCode:
           type: string
           description: Codice identificativo dell'istituto
@@ -241,7 +241,7 @@ components:
         - academicQualificationDate
         - academicQualificationVote
         - courseMaximumGrade
-    Studente:
+    DatiPersonali:
       type: object
       x-examples:
         Example 1:
@@ -251,11 +251,11 @@ components:
           familyName: Rossi
           birthDate: '1990-05-17'
           birthPlace: Roma
-      description: Dati personali studente
+      description: Dati personali della studentessa o dello studente
       properties:
         taxCode:
           type: string
-          description: Codice Fiscale Studente
+          description: Codice Fiscale
           example: RSSMRA80A01F205D
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
           minLength: 16
@@ -271,13 +271,13 @@ components:
           readOnly: true
         givenName:
           type: string
-          description: Nome Studente
+          description: Nome
           example: Mario
           pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
           readOnly: true
         familyName:
           type: string
-          description: Cognome Studente
+          description: Cognome
           example: Rossi
           pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
           readOnly: true
@@ -286,12 +286,12 @@ components:
           format: date
           example: '1990-05-17'
           pattern: '^\d{4}-\d{2}-\d{2}$'
-          description: Data di nascita studente
+          description: Data di nascita
           readOnly: true
         birthPlace:
           type: string
           example: Rome
-          description: Luogo di nascita studente
+          description: Luogo di nascita
           readOnly: true
       required:
         - taxCode
@@ -306,5 +306,5 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: titoli studente
+  - name: titoli
   - name: health-check
