@@ -6,7 +6,7 @@ info:
   x-summary: Questo servizio ritorna l'elenco dei titoli conseguiti da uno/a studente.
   version: 1.0.0
   description: |
-    Restituisce un elenco dei titoli conseguiti da uno/a studente in relazione al suo Codice Fiscale (CF).
+    Restituisce l'elenco dei titoli conseguiti da uno/a studente
   contact:
     name: helpdesk
     email: helpdesk@mail.edu.it
@@ -35,7 +35,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DettaglioTitoliStudente'
+                $ref: '#/components/schemas/TitoliConseguiti'
               examples:
                 Example 1:
                   value:
@@ -82,16 +82,16 @@ paths:
                       birthPlace: Roma
                     academicQualifications: []
         '404':
-          description: Studente non trovato/a
+          description: Non sono stati trovati titoli conseguiti per lo/a studente
         '500':
           description: Errore interno del server
       operationId: titoli-studente
-      description: Restituisce la lista dei titoli conseguiti da uno/a studente in base al suo codice_fiscale
+      description: Restituisce la lista dei titoli conseguiti da uno/a studente
   /status:
     get:
       summary: Verifica stato delle API (Health Check)
       operationId: check-status
-      description: Verificare lo stato di salute del sistema
+      description: Verifica lo stato di salute del sistema
       tags:
         - health-check
       responses:
@@ -101,7 +101,7 @@ paths:
           description: il servizio non è in esecuzione.
 components:
   schemas:
-    DettaglioTitoliStudente:
+    TitoliConseguiti:
       type: object
       x-examples:
         Example 1:
@@ -137,12 +137,12 @@ components:
               academicQualificationDate: '2022-07-01'
               academicQualificationVote: '-'
               courseMaximumGrade: '-'
-      description: Anagrafica ed Elenco Titoli conseguiti da uno/a studente
+      description: Anagrafica ed elenco titoli conseguiti da uno/a studente
       x-stoplight:
         id: 15d3067a4c448
       properties:
         personalData:
-          $ref: '#/components/schemas/DatiPersonaliStudente'
+          $ref: '#/components/schemas/Studente'
         academicQualifications:
           description: Elenco dei titoli conseguiti dallo/a studente
           type: array
@@ -241,7 +241,7 @@ components:
         - academicQualificationDate
         - academicQualificationVote
         - courseMaximumGrade
-    DatiPersonaliStudente:
+    Studente:
       type: object
       x-examples:
         Example 1:
