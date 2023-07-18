@@ -6,7 +6,7 @@ info:
   x-summary: Dettaglio iscrizioni studente.
   version: 1.0.0
   description: |
-   Fornisce informazioni di dettaglio riguardanti le iscrizioni di uno studente all'università o AFAM pubblico.
+   Fornisce informazioni di dettaglio riguardanti le iscrizioni di uno/a studente all'università o AFAM pubblico.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -79,11 +79,11 @@ paths:
                       birthPlace: Roma
                     enrolments: []
         '404':
-          description: Non sono state trovate iscrizioni per lo studente in questo istituto
+          description: Non sono state trovate iscrizioni per lo/a studente in questo istituto
         '500':
           description: Errore interno del server
       operationId: enrolments-of-student
-      description: 'Restituisce i dettagli delle iscrizioni di uno studente'
+      description: Restituisce i dettagli delle iscrizioni di uno/a studente
       parameters: []
   /status:
     get:
@@ -206,17 +206,17 @@ components:
           readOnly: true
         registrationYear:
           type: string
-          description: Anno accademico di immatricolazione dello studente
+          description: Anno accademico di immatricolazione dello/a studente
           pattern: '^\d{4}/\d{4}$'
         enrolmentYear:
           type: string
-          description: Ultimo anno accademico in cui lo studente risulta iscritto al corso
+          description: Ultimo anno accademico in cui lo/a studente risulta iscritto/a al corso
           example: 2022/2023
           pattern: '^\d{4}/\d{4}$'
           readOnly: true
         courseYear:
           type: string
-          description: Ultimo anno in cui lo studente risulta iscritto al corso
+          description: Ultimo anno in cui lo/a studente risulta iscritto/a al corso
           example: 3° anno
           pattern: ^\d+° anno$
           readOnly: true
@@ -242,11 +242,11 @@ components:
           familyName: Rossi
           birthDate: '1990-05-17'
           birthPlace: Roma
-      description: Dati personali dello studente
+      description: Dati personali dello/a studente
       properties:
         taxCode:
           type: string
-          description: 'Codice Fiscale Studente '
+          description: Codice Fiscale Studente
           example: RSSMRA80A01F205D
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
           minLength: 16
@@ -277,12 +277,12 @@ components:
           format: date
           example: '1990-05-17'
           pattern: '^\d{4}-\d{2}-\d{2}$'
-          description: Data di nascita dello studente
+          description: Data di nascita dello/a studente
           readOnly: true
         birthPlace:
           type: string
           example: Rome
-          description: Luogo di nascita dello studente
+          description: Luogo di nascita dello/a studente
           readOnly: true
       required:
         - taxCode
