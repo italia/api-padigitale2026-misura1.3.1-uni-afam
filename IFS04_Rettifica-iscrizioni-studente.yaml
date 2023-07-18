@@ -3,11 +3,10 @@ x-stoplight:
   id: 0f56e32f16f60
 info:
   title: IFS04 - Rettifica iscrizioni studente
-  x-summary: Aggiorna i dati relativi alle iscrizioni di uno studente.
+  x-summary:  Richiede la rettifica dei dati di un’iscrizione o una iscrizione mancante o in eccesso per uno/una studente/ex-studente.
   version: 1.0.0
   description: |
-        Consente di recuperare tutti i campi utilizzabili per la rettifica delle iscrizioni e di creare una richiesta 
-        di rettifica per aggiornare i dati relativi alle iscrizioni di uno/a studente, di cui poi seguire l'evoluzione.
+        Richiede la rettifica dei dati di un’iscrizione o una iscrizione mancante o in eccesso per uno/una studente/ex-studente.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
