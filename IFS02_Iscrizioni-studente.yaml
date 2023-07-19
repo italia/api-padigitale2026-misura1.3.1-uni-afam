@@ -2,23 +2,11 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: API Università
-  x-summary: Questo servizio ritorna il dettaglio delle iscrizioni di uno studente.
+  title: IFS02 - Recupero dettaglio iscrizioni
+  x-summary: Dettaglio iscrizioni di una studentessa o uno studente
   version: 1.0.0
   description: |
-    ### Documentazione
-
-    ## API Università
-    La seguente documentazione API fornisce un riferimento per l'integrazione e l'accesso ai dati relativi alle università italiane. 
-    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati universitari, offrendo informazioni riguardanti le facoltà, i corsi di studio, i programmi accademici e altre informazioni correlate. 
-    Questo sistema di integrazione permette di accedere ai dati in modo efficiente e aggiornato, facilitando lo sviluppo di applicazioni e servizi che riguardano il contesto universitario.
-
-    ## Dettaglio delle iscrizioni
-    Questa API fornisce informazioni dettagliate riguardanti lo storico delle iscrizioni di uno studente, inclusi i dati personali e le informazioni sugli istituti di formazione e i corsi a cui lo studente è stato iscritto.
-
-    # Verifica stato delle API (Health Check)
-    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
-    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
+   Fornisce informazioni di dettaglio riguardanti le iscrizioni di una studentessa o uno studente all'università o AFAM pubblico.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -37,16 +25,16 @@ paths:
         required: true
         description: Codice Fiscale
     get:
-      summary: Dettaglio iscrizioni studente
+      summary: Recupero iscrizioni di una studentessa o di uno studente
       tags:
-        - STUDENT-ENROLMENTS
+        - iscrizioni
       responses:
         '200':
           description: Richiesta eseguita con successo
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DettaglioIscrizioniStudente'
+                $ref: '#/components/schemas/DettaglioIscrizioni'
               examples:
                 Example 1:
                   value:
@@ -91,11 +79,11 @@ paths:
                       birthPlace: Roma
                     enrolments: []
         '404':
-          description: Studente non trovato
+          description: Non sono state trovate iscrizioni per la studentessa o lo studente in questo istituto
         '500':
           description: Errore interno del server
       operationId: enrolments-of-student
-      description: 'Restituisce i dettagli delle iscrizioni di uno studente in base al suo codice_fiscale '
+      description: Restituisce i dettagli delle iscrizioni di una studentessa o di uno studente
       parameters: []
   /status:
     get:
@@ -103,7 +91,7 @@ paths:
       operationId: check-status
       description: Verificare lo stato di salute del sistema
       tags:
-        - HEALTH-CHECK
+        - health-check
       responses:
         '204':
           description: il servizio è in esecuzione correttamente.
@@ -111,7 +99,7 @@ paths:
           description: il servizio non è in esecuzione.
 components:
   schemas:
-    DettaglioIscrizioniStudente:
+    DettaglioIscrizioni:
       type: object
       x-examples:
         Example 1:
@@ -145,15 +133,15 @@ components:
               registrationYear: 2022/2023
               enrolmentYear: 2022/2023
               courseYear: 1° anno
-      description: Dettaglio iscrizioni studente
+      description: Dettaglio iscrizioni di una studentessa o di uno studente
       x-stoplight:
         id: 22de4be4ac251
       properties:
         personalData:
-          $ref: '#/components/schemas/DatiPersonaliStudente'
+          $ref: '#/components/schemas/DatiPersonali'
         enrolments:
           type: array
-          description: Elenco iscrizioni studente
+          description: Elenco iscrizioni di una studentessa o di uno studente
           items:
             $ref: '#/components/schemas/Iscrizione'
       required:
@@ -178,7 +166,7 @@ components:
       properties:
         _id:
           type: string
-          description: id dell'iscrizione dello studente
+          description: id dell'iscrizione della studentessa o dello studente
           readOnly: true
         instituteCode:
           type: string
@@ -218,17 +206,17 @@ components:
           readOnly: true
         registrationYear:
           type: string
-          description: Anno accademico di immatricolazione dello studente
+          description: Anno accademico di immatricolazione della studentessa o dello studente
           pattern: '^\d{4}/\d{4}$'
         enrolmentYear:
           type: string
-          description: Ultimo anno accademico in cui lo studente risulta iscritto al corso
+          description: Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente
           example: 2022/2023
           pattern: '^\d{4}/\d{4}$'
           readOnly: true
         courseYear:
           type: string
-          description: Ultimo anno in cui lo studente risulta iscritto al corso
+          description: Ultimo anno in cui risulta l'iscrizione al corso della studentessa o dello studente
           example: 3° anno
           pattern: ^\d+° anno$
           readOnly: true
@@ -244,7 +232,7 @@ components:
         - registrationYear
         - enrolmentYear
         - courseYear
-    DatiPersonaliStudente:
+    DatiPersonali:
       type: object
       x-examples:
         Example 1:
@@ -254,11 +242,11 @@ components:
           familyName: Rossi
           birthDate: '1990-05-17'
           birthPlace: Roma
-      description: Dati personali dello studente
+      description: Dati personali della studentessa o dello studente
       properties:
         taxCode:
           type: string
-          description: 'Codice Fiscale Studente '
+          description: Codice Fiscale
           example: RSSMRA80A01F205D
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
           minLength: 16
@@ -274,13 +262,13 @@ components:
           readOnly: true
         givenName:
           type: string
-          description: 'Nome Studente '
+          description: Nome
           example: Mario
           pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
           readOnly: true
         familyName:
           type: string
-          description: Cognome Studente
+          description: Cognome
           example: Rossi
           pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
           readOnly: true
@@ -289,12 +277,12 @@ components:
           format: date
           example: '1990-05-17'
           pattern: '^\d{4}-\d{2}-\d{2}$'
-          description: Data di nascita dello studente
+          description: Data di nascita
           readOnly: true
         birthPlace:
           type: string
           example: Rome
-          description: Luogo di nascita dello studente
+          description: Luogo di nascita
           readOnly: true
       required:
         - taxCode
@@ -309,6 +297,5 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: API-UNIVERSITÀ
-  - name: HEALTH-CHECK
-  - name: STUDENT-ENROLMENTS
+  - name: iscrizioni
+  - name: health-check
