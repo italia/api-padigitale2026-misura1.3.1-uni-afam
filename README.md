@@ -13,19 +13,19 @@ La tabella sottostante (Tabella 1) riporta il dettaglio del titolo e descrizione
   </tr>
   <tr>
     <td rowspan=3>IFS02</td>
-    <td rowspan=3>Iscrizioni studente</td>
-    <td>Acquisisce i dati di dettaglio delle iscrizioni di uno studente/ex-studente in formato nazionale.</td>
+    <td rowspan=3>Iscrizioni</td>
+    <td>Acquisisce i dati di dettaglio delle iscrizioni di una studentessa o di uno studente in formato nazionale.</td>
     <tr>
-    <td>Acquisisce i dati di dettaglio delle iscrizioni di uno studente/ex-studente in formato transfrontaliero. </td>
+    <td>Acquisisce i dati di dettaglio delle iscrizioni di una studentessa o di uno studente in formato transfrontaliero. </td>
     </tr>
   <tr>
-    <td>Acquisisce gli esami sostenuti con voto (transcript) di uno studente/ex-studente in formato transfrontaliero. </td>
+    <td>Acquisisce gli esami sostenuti con voto (transcript) di una studentessa o di uno studente in formato transfrontaliero. </td>
   </tr>
   </tr>
     <tr>
     <td rowspan=3>IFS03</td>
-    <td rowspan=3>Titoli studente</td>
-    <td>Acquisisce i titoli conseguiti nell'istituto da uno studente/ex-studente in formato nazionale.</td>
+    <td rowspan=3>Titoli</td>
+    <td>Acquisisce i titoli conseguiti nell'istituto da una studentessa o uno studente in formato nazionale.</td>
     <tr>
     <td>Acquisisce il diploma supplement semplificato (senza voti degli esami) in formato transfrontaliero.</td>
     </tr>
@@ -35,41 +35,41 @@ La tabella sottostante (Tabella 1) riporta il dettaglio del titolo e descrizione
   </tr>
   <tr>
     <td rowspan=2>IFS04</td>
-    <td rowspan=2>Rettifica iscrizioni studente</td>
-    <td>Richiede la rettifica dei dati di un’iscrizione o una iscrizione mancante o in eccesso per uno studente/ex-studente.  
+    <td rowspan=2>Rettifica iscrizioni</td>
+    <td>Richiede la rettifica dei dati di un’iscrizione o una iscrizione mancante o in eccesso per una studentessa o uno studente.  
   </tr>
   <tr>
-    <td>Monitora lo stato della richiesta di rettifica dell'iscrizione</td>
+    <td>Monitora lo stato della richiesta di rettifica delle iscrizioni</td>
   </tr>
 </td>
   </tr>
   <tr>
     <td rowspan=2>IFS05</td>
-    <td rowspan=2>Rettifica titoli studente</td>
-    <td>Richiede la rettifica dei dati di un titolo conseguito o mancante di uno studente/ex-studente.  
+    <td rowspan=2>Rettifica titoli</td>
+    <td>Richiede la rettifica dei dati di un titolo conseguito o mancante di una studentessa o uno studente.  
   </tr>
   <tr>
-  <td>Monitora lo stato della richiesta di rettifica del titolo</td>
+  <td>Monitora lo stato della richiesta di rettifica dei titoli</td>
   </tr>
 <tr>
   <td>IFS06</td>
   <td>Elenco Variazioni Iscrizioni</td>
-  <td>Acquisisce lista degli studenti che hanno subito un cambio di stato alla relativa iscrizione tra un istante t0 e uno t1 (ad es. t0 = 1 gennaio 2019 e t1 = 31 dicembre 2019 per richiedere i dati relativi all'anno solare 2019)</td>
+  <td>Acquisisce lista delle studentesse e degli studenti che hanno subito un cambio di stato alla relativa iscrizione tra un istante t0 e uno t1 compresi (ad es. t0 = 1 gennaio 2019 e t1 = 31 dicembre 2019 per richiedere i dati relativi all'anno solare 2019)</td>
 </tr> 
 <tr>
   <td>IFS07</td>
   <td>Elenco variazione titoli</td>
-  <td>Acquisisce la lista degli studenti che hanno subito un cambio di stato ai relativi titoli conseguiti tra un istante t0 e uno t1 (ad es. t0 = 1 gennaio 2019 e t1 = 31 dicembre 2019 per richiedere i dati relativi all'anno solare 2019)</td>
+  <td>Acquisisce la lista delle studentesse e degli studenti che hanno subito un cambio di stato ai relativi titoli conseguiti tra un istante t0 e uno t1 compresi (ad es. t0 = 1 gennaio 2019 e t1 = 31 dicembre 2019 per richiedere i dati relativi all'anno solare 2019)</td>
 </tr>
 <tr>
   <td>IFS08</td>
   <td>Iscritti per fasce ISEE</td>
-  <td>Acquisisce il numero di studenti per fasce ISEE in un anno accademico<td>
+  <td>Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accademico<td>
 </tr>
 <tr>
   <td>IFS09</td>
   <td>Iscritti a un corso per anno</td>
-  <td>Acquisisce il numero di studenti iscritti a uno specifico corso per anno accademico</td>
+  <td>Acquisisce il numero di studentesse e studenti iscritti a uno specifico corso per anno accademico</td>
 </tr>
 </table>
 
@@ -85,7 +85,7 @@ Come indicato nella tabella sottostante (Tabella 2), gli Atenei e AFAM pubblici 
 |4       | 20.000 < iscritti <= 40.000 |9 (IFS01 – IFS09) |
 |5       |> 40.000 | 9 (IFS01 – IFS09) |
 
-Tabella 2 – Fasce di Università in base al numero di studenti iscritti ed API da erogare per ogni fascia. 
+Tabella 2 – Fasce di Università in base al numero di studentesse e studenti iscritti ed API da erogare per ogni fascia. 
 
 
 Per maggiori informazioni:
