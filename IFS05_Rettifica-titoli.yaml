@@ -2,33 +2,11 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: API Università
-  x-summary: Questo servizio permette di aggiornare i dati relativi ai titoli conseguiti da uno studente.
+  title: IFS05 - Rettifica titoli
+  x-summary: Richiede la rettifica dei titoli conseguiti per una studentessa o uno studente che stia frequentando o abbia frequentato.
   version: 1.0.0
   description: |
-    ### Documentazione
-
-    ## API Università
-    La seguente documentazione API fornisce un riferimento per l'integrazione e l'accesso ai dati relativi alle università italiane. 
-    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati universitari, offrendo informazioni riguardanti le facoltà, i corsi di studio, i programmi accademici e altre informazioni correlate. 
-    Questo sistema di integrazione permette di accedere ai dati in modo efficiente e aggiornato, facilitando lo sviluppo di applicazioni e servizi che riguardano il contesto universitario.
-
-    # Elenco campi modificabili in un titolo
-    Questa API consente di recuperare tutti i campi utilizzabili per la rettifica dei titoli.
-
-    # Rettifica titoli studente
-    Questa API consente di creare una richiesta di rettifica per aggiornare i dati relativi ai titoli di uno studente.
-
-    # Elenco rettifiche titoli studente 
-    Questa API fornisce l'elenco di tutte le richieste di rettifica titoli che sono state fatte per uno specifico studente, dato il codice fiscale.
-    Ogni elemento di questo elenco riporterà l'identificativo e alcune informazioni relative alla singola rettifica.
-
-    # Dettaglio rettifica titolo
-    Questa API consente di recuperare il dettaglio di una specifica rettifica titolo. In particolare, nella risposta, oltre all'identificativo della rettifica, è riportato lo stato attuale, la cronologia di stati, i campi che sono stati modificati con i valori precedenti e successivi, le note.
-
-    # Verifica stato delle API (Health Check)
-    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
-    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
+    Richiede la rettifica dei dati relativi ai titoli di una studentessa o di uno studente.cuzione correttamente.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -42,7 +20,7 @@ paths:
     get:
       summary: Elenco campi modificabili in un titolo
       tags:
-        - CAMPI-RETTIFICA-TITOLO
+        - campi rettifica titolo
       parameters: []
       responses:
         '200':
@@ -114,10 +92,10 @@ paths:
     parameters: []
   /rettifiche-titoli:
     post:
-      summary: Rettifica titoli studente
-      operationId: rettifica-titolo-studente
+      summary: Rettifica titoli
+      operationId: rettifica-titolo
       tags:
-        - RETTIFICA-TITOLO
+        - rettifica titolo
       parameters: []
       responses:
         '200':
@@ -134,7 +112,7 @@ paths:
           description: Studente non trovato
         '500':
           description: Errore interno del server
-      description: Permette di creare una richiesta di rettifica dei dati relativi ai titoli di uno studente.
+      description: Permette di creare una richiesta di rettifica dei dati relativi ai titoli di una studentessa o uno studente.
       requestBody:
         content:
           application/json:
@@ -160,7 +138,7 @@ paths:
                         oldValue: LM-8
                         newValue: LM-32
                   rectificationReqText: Testo con la richiesta di rettifica
-                  openNotes: Note aperte dello studente/ex studente
+                  openNotes: Note aperte della studentessa o dello studente
               Example 2:
                 value:
                   taxCode: RSSMRA80A01F205D
@@ -177,7 +155,7 @@ paths:
                     academicQualificationVote: '110'
                     courseMaximumGrade: 110L
                   rectificationReqText: Testo con la richiesta di rettifica
-                  openNotes: Note aperte dello studente/ex studente
+                  openNotes: Note aperte della studentessa o dello studente
           application/xml:
             schema:
               type: object
@@ -191,11 +169,11 @@ paths:
         name: taxCode
         in: path
         required: true
-        description: Codice Fiscale studente
+        description: Codice Fiscale
     get:
-      summary: Elenco rettifiche titoli studente
+      summary: Elenco rettifiche titoli
       tags:
-        - RETTIFICHE-TITOLI-STUDENTE
+        - rettifiche titoli
       parameters: []
       responses:
         '200':
@@ -218,34 +196,34 @@ paths:
                         state: Presa in carico
                         date: '2023-02-12'
                         rectificationReqText: Modifica dati titolo
-                        openNotes: Note operte
+                        openNotes: Note aperte
                       - rectificationId: a8c4910e76b5200001d4f268
                         titleId: 245e6c91b7a82000314fd9a0
                         state: In lavorazione
                         date: '2023-03-18'
                         rectificationReqText: Modifica dati titolo
-                        openNotes: Note operte
+                        openNotes: Note aperte
                       - rectificationId: d5f8a7e910c6b2000153a410
                         titleId: 7b93401e2c68b10001ca278f
                         state: Accettata
                         date: '2023-05-02'
                         rectificationReqText: Modifica dati titolo
-                        openNotes: Note operte
+                        openNotes: Note aperte
                       - rectificationId: e0a712c6f9b9200001d5f834
                         titleId: c50e9a71b26f21000167a83d
                         state: Rifiutata
                         date: '2023-06-23'
                         rectificationReqText: Modifica dati titolo
-                        openNotes: Note operte
+                        openNotes: Note aperte
                 Example 2:
                   value:
                     rectifications: []
         '404':
-          description: Studente non trovato
+          description: Impossibile trovare la studentessa o lo studente
         '500':
           description: Errore interno del server
       operationId: rettifiche-titoli-studente
-      description: 'Permette di recuperare, tramite il codice fiscale, l''elenco delle richieste di rettifica titolo di uno specifico studente.'
+      description: 'Permette di recuperare, tramite il codice fiscale, l''elenco delle richieste di rettifica titolo di una specifica studentessa o studente.'
   '/rettifiche-titoli/{rectificationId}/dettaglio':
     parameters:
       - schema:
@@ -255,9 +233,9 @@ paths:
         required: true
         description: Identificativo della rettifica
     get:
-      summary: Dettaglio rettifica titolo studente
+      summary: Dettaglio rettifica titolo
       tags:
-        - DETTAGLIO-RETTIFICA-TITOLO
+        - dettaglio rettifica titolo
       parameters: []
       responses:
         '200':
@@ -298,7 +276,7 @@ paths:
                         date: '2023-02-25'
                         description: Descrizione del passaggio di stato
                     rectificationReqText: Testo con la richiesta di rettifica
-                    openNotes: Note aperte dello studente/ex studente
+                    openNotes: Note aperte della studentessa o dello studente
                 Example 2:
                   value:
                     rectificationId: 6d183bc572f6b200015a4167
@@ -327,12 +305,12 @@ paths:
                         date: '2023-02-25'
                         description: Descrizione del passaggio di stato
                     rectificationReqText: Testo con la richiesta di rettifica
-                    openNotes: Note aperte dello studente/ex studente
+                    openNotes: Note aperte della studentessa o dello studente
         '404':
           description: Rettifica titolo non trovata
         '500':
           description: Errore interno del server
-      operationId: dettaglio-rettifica-titolo-studente
+      operationId: dettaglio-rettifica-titolo
       description: Permette di recuperare il dettaglio di una richiesta di rettifica titolo tramite il suo identificativo.
   /status:
     get:
@@ -340,7 +318,7 @@ paths:
       operationId: check-status
       description: Verificare lo stato di salute del sistema
       tags:
-        - HEALTH-CHECK
+        - health-check
       responses:
         '204':
           description: il servizio è in esecuzione correttamente.
@@ -401,7 +379,7 @@ components:
                 oldValue: LM-8
                 newValue: LM-32
           rectificationReqText: Testo con la richiesta di rettifica
-          openNotes: Note aperte dello studente/ex studente
+          openNotes: Note aperte della studentessa o dello studente
         Example 2:
           taxCode: RSSMRA80A01F205D
           titleToEnter:
@@ -417,14 +395,14 @@ components:
             academicQualificationVote: '110'
             courseMaximumGrade: 110L
           rectificationReqText: Testo con la richiesta di rettifica
-          openNotes: Note aperte dello studente/ex studente
+          openNotes: Note aperte della studentessa o dello studente
       x-stoplight:
         id: b40e2be27c423
-      description: Richiesta creazione rettifica titolo studente
+      description: Richiesta creazione rettifica titolo
       properties:
         taxCode:
           type: string
-          description: Codice fiscale studente
+          description: Codice fiscale
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
           example: RSSMRA80A01F205D
           minLength: 16
@@ -440,7 +418,7 @@ components:
           readOnly: true
         openNotes:
           type: string
-          description: Note aperte dello studente/ex studente
+          description: Note aperte della studentessa o dello studente
           readOnly: true
       required:
         - taxCode
@@ -570,7 +548,7 @@ components:
           readOnly: true
         academicQualificationVote:
           type: string
-          description: 'Voto ottenuto al conseguimento del titolo di studio '
+          description: Voto ottenuto al conseguimento del titolo di studio
           pattern: ^(\d+)L?|-$
           example: 110L
           readOnly: true
@@ -597,7 +575,7 @@ components:
       x-examples:
         Example 1:
           rectificationId: 6d183bc572f6b200015a4167
-      description: Risposta di avvenuta creazione richiesta rettifica studente
+      description: Risposta di avvenuta creazione richiesta rettifica studentessa o studente
       x-stoplight:
         id: 6be27a42c1852
       properties:
@@ -624,7 +602,7 @@ components:
       properties:
         rectificationId:
           type: string
-          description: Identificativo delle rettifica
+          description: Identificativo della rettifica
           readOnly: true
         titleId:
           type: string
@@ -646,7 +624,7 @@ components:
           readOnly: true
         openNotes:
           type: string
-          description: Note aperte dello studente/ex studente
+          description: Note aperte della studentessa o dello studente
           readOnly: true
       required:
         - rectificationId
@@ -741,7 +719,7 @@ components:
           readOnly: true
         openNotes:
           type: string
-          description: Note aperte dello studente/ex studente
+          description: Note aperte della studentessa o dello studente
           readOnly: true
       required:
         - rectificationId
@@ -777,9 +755,7 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: API-UNIVERSITÀ
-  - name: HEALTH-CHECK
-  - name: CAMPI-RETTIFICA-TITOLO
-  - name: RETTIFICA-TITOLO
-  - name: RETTIFICHE-TITOLI-STUDENTE
-  - name: DETTAGLIO-RETTIFICA-TITOLO
+  - name: campi rettifica titolo
+  - name: rettifica titolo
+  - name: rettifiche titoli
+  - name: dettaglio rettifica titolo
