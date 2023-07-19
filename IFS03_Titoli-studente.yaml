@@ -2,26 +2,14 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: API Università
-  x-summary: Questo servizio ritorna l'elenco dei titoli conseguiti da uno studente.
+  title: IFS03 - Recupero titoli
+  x-summary: Questo servizio ritorna l'elenco dei titoli conseguiti da una studentessa o uno studente.
   version: 1.0.0
   description: |
-    ### Documentazione
-
-    ## API Università
-    La seguente documentazione API fornisce un riferimento per l'integrazione e l'accesso ai dati relativi alle università italiane. 
-    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati universitari, offrendo informazioni riguardanti le facoltà, i corsi di studio, i programmi accademici e altre informazioni correlate. 
-    Questo sistema di integrazione permette di accedere ai dati in modo efficiente e aggiornato, facilitando lo sviluppo di applicazioni e servizi che riguardano il contesto universitario.
-
-    # Elenco dei titoli conseguiti da uno studente
-    Questa API restituisce un elenco dei titoli conseguiti da uno specifico studente in relazione al suo Codice Fiscale (CF).
-
-    # Verifica stato delle API (Health Check)
-    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
-    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
+    Restituisce l'elenco dei titoli conseguiti da una studentessa o uno studente
   contact:
     name: helpdesk
-    email: helpdesk@gmail.com
+    email: helpdesk@mail.edu.it
   x-api-id: 00000000-0000-0000-0000-000000000000
   termsOfService: 'http://swagger.io/terms/'
   license:
@@ -37,9 +25,9 @@ paths:
         required: true
         description: 'Codice Fiscale '
     get:
-      summary: Titoli conseguiti da uno studente
+      summary: Titoli conseguiti dalla studentessa o dallo studente
       tags:
-        - TITOLI-STUDENTE
+        - titoli studente
       parameters: []
       responses:
         '200':
@@ -47,7 +35,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DettaglioTitoliStudente'
+                $ref: '#/components/schemas/TitoliConseguiti'
               examples:
                 Example 1:
                   value:
@@ -94,18 +82,18 @@ paths:
                       birthPlace: Roma
                     academicQualifications: []
         '404':
-          description: Studente non trovato
+          description: Non sono stati trovati titoli conseguiti per la studentessa o lo studente
         '500':
           description: Errore interno del server
       operationId: titoli-studente
-      description: Restituisce la lista dei titoli conseguiti da uno studente in base al suo codice_fiscale
+      description: Restituisce la lista dei titoli conseguiti da una studentessa o uno studente
   /status:
     get:
       summary: Verifica stato delle API (Health Check)
       operationId: check-status
-      description: Verificare lo stato di salute del sistema
+      description: Verifica lo stato di salute del sistema
       tags:
-        - HEALTH-CHECK
+        - health-check
       responses:
         '204':
           description: il servizio è in esecuzione correttamente.
@@ -113,7 +101,7 @@ paths:
           description: il servizio non è in esecuzione.
 components:
   schemas:
-    DettaglioTitoliStudente:
+    TitoliConseguiti:
       type: object
       x-examples:
         Example 1:
@@ -149,14 +137,14 @@ components:
               academicQualificationDate: '2022-07-01'
               academicQualificationVote: '-'
               courseMaximumGrade: '-'
-      description: Anagrafica ed Elenco Titoli conseguiti da uno studente
+      description: Anagrafica ed elenco titoli conseguiti da una studentessa o uno studente
       x-stoplight:
         id: 15d3067a4c448
       properties:
         personalData:
-          $ref: '#/components/schemas/DatiPersonaliStudente'
+          $ref: '#/components/schemas/DatiPersonali'
         academicQualifications:
-          description: Elenco dei titoli conseguiti dallo studente
+          description: Elenco dei titoli conseguiti dalla studentessa o dallo studente
           type: array
           items:
             $ref: '#/components/schemas/Titolo'
@@ -183,10 +171,10 @@ components:
       properties:
         _id:
           type: string
-          description: id del titolo di studio dello studente
+          description: id del titolo di studio
         instituteCode:
           type: string
-          description: Codice identificativo dell’istituto
+          description: Codice identificativo dell'istituto
           readOnly: true
         instituteName:
           type: string
@@ -199,7 +187,7 @@ components:
         courseType:
           type: string
           description: Tipo di corso di studio
-          example: 'laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale'
+          example: laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale
           readOnly: true
         courseCode:
           type: string
@@ -208,7 +196,7 @@ components:
         courseName:
           type: string
           description: Denominazione del corso di studio
-          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
+          example: ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design
           readOnly: true
         classCode:
           type: string
@@ -219,7 +207,7 @@ components:
         className:
           type: string
           description: Denominazione della classe di studio
-          example: 'Informatica, Meccanica, Elettronica, Civile'
+          example: Informatica, Meccanica, Elettronica, Civile
           readOnly: true
         academicQualificationDate:
           type: string
@@ -230,7 +218,7 @@ components:
           readOnly: true
         academicQualificationVote:
           type: string
-          description: 'Voto ottenuto al conseguimento del titolo di studio '
+          description: Voto ottenuto al conseguimento del titolo di studio
           pattern: ^(\d+)L?|-$
           example: 110L
           readOnly: true
@@ -253,7 +241,7 @@ components:
         - academicQualificationDate
         - academicQualificationVote
         - courseMaximumGrade
-    DatiPersonaliStudente:
+    DatiPersonali:
       type: object
       x-examples:
         Example 1:
@@ -263,11 +251,11 @@ components:
           familyName: Rossi
           birthDate: '1990-05-17'
           birthPlace: Roma
-      description: Dati personali dello studente
+      description: Dati personali della studentessa o dello studente
       properties:
         taxCode:
           type: string
-          description: 'Codice Fiscale Studente '
+          description: Codice Fiscale
           example: RSSMRA80A01F205D
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
           minLength: 16
@@ -283,13 +271,13 @@ components:
           readOnly: true
         givenName:
           type: string
-          description: 'Nome Studente '
+          description: Nome
           example: Mario
           pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
           readOnly: true
         familyName:
           type: string
-          description: Cognome Studente
+          description: Cognome
           example: Rossi
           pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
           readOnly: true
@@ -298,12 +286,12 @@ components:
           format: date
           example: '1990-05-17'
           pattern: '^\d{4}-\d{2}-\d{2}$'
-          description: Data di nascita dello studente
+          description: Data di nascita
           readOnly: true
         birthPlace:
           type: string
           example: Rome
-          description: Luogo di nascita dello studente
+          description: Luogo di nascita
           readOnly: true
       required:
         - taxCode
@@ -318,6 +306,5 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: API-UNIVERSITÀ
-  - name: HEALTH-CHECK
-  - name: TITOLI-STUDENTE
+  - name: titoli
+  - name: health-check
