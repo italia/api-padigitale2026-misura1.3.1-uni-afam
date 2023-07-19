@@ -54,7 +54,7 @@ La tabella sottostante (Tabella 1) riporta il dettaglio del titolo e descrizione
 <tr>
   <td>IFS06</td>
   <td>Elenco Variazioni Iscrizioni</td>
-  <td>Acquisisce lista delle studentesse e degli studenti che hanno subito un cambio di stato alla relativa iscrizione tra un istante t0 e uno t1 compresi (ad es. t0 = 1 gennaio 2019 e t1 = 31 dicembre 2019 per richiedere i dati relativi all'anno solare 2019)</td>
+  <td>Acquisisce la lista delle studentesse e degli studenti che hanno subito un cambio di stato alla relativa iscrizione tra un istante t0 e uno t1 compresi (ad es. t0 = 1 gennaio 2019 e t1 = 31 dicembre 2019 per richiedere i dati relativi all'anno solare 2019)</td>
 </tr> 
 <tr>
   <td>IFS07</td>
