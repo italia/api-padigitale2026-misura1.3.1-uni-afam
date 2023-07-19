@@ -2,33 +2,11 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: API Università
-  x-summary: Questo servizio permette di aggiornare i dati relativi alle iscrizioni di uno studente.
+  title: IFS04 - Rettifica iscrizioni
+  x-summary:  Richiede la rettifica dei dati di un’iscrizione o una iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
   version: 1.0.0
   description: |
-    ### Documentazione
-
-    ## API Università
-    La seguente documentazione API fornisce un riferimento per l'integrazione e l'accesso ai dati relativi alle università italiane. 
-    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati universitari, offrendo informazioni riguardanti le facoltà, i corsi di studio, i programmi accademici e altre informazioni correlate. 
-    Questo sistema di integrazione permette di accedere ai dati in modo efficiente e aggiornato, facilitando lo sviluppo di applicazioni e servizi che riguardano il contesto universitario.
-
-    # Elenco campi modificabili in una iscrizione
-    Questa API consente di recuperare tutti i campi utilizzabili per la rettifica delle iscrizioni.
-
-    # Rettifica iscrizione studente
-    Questa API consente di creare una richiesta di rettifica per aggiornare i dati relativi alle iscrizioni di uno studente.
-
-    # Elenco rettifiche iscrizioni studente 
-    Questa API fornisce l'elenco di tutte le richieste di rettifica iscrizioni che sono state fatte per uno specifico studente, dato il codice fiscale.
-    Ogni elemento di questo elenco riporterà l'identificativo e alcune informazioni relative alla singola rettifica.
-
-    # Dettaglio rettifica iscrizione
-    Questa API consente di recuperare il dettaglio di una specifica rettifica iscrizione. In particolare, nella risposta, oltre all'identificativo della rettifica, è riportato lo stato attuale, la cronologia di stati, i campi che sono stati modificati con i valori precedenti e successivi, le note.
-
-    # Verifica stato delle API (Health Check)
-    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
-    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
+        Richiede la rettifica dei dati di un’iscrizione o una iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -42,7 +20,7 @@ paths:
     get:
       summary: Elenco campi modificabili in una iscrizione
       tags:
-        - CAMPI-RETTIFICA-ISCRIZIONE
+        - campi rettifica iscrizione
       parameters: []
       responses:
         '200':
@@ -92,15 +70,15 @@ paths:
                         fieldType: string
                         fieldPattern: '^[A-Za-z ]+$'
                       - fieldName: registrationYear
-                        fieldDescription: Anno accademico di immatricolazione dello studente
+                        fieldDescription: Anno accademico di immatricolazione
                         fieldType: string
                         fieldPattern: '^[A-Za-z ]+$'
                       - fieldName: enrolmentYear
-                        fieldDescription: Ultimo anno accademico in cui lo studente risulta iscritto al corso
+                        fieldDescription: Ultimo anno accademico in cui risulta l'iscrizione al corso per la studentessa o lo studente
                         fieldType: string
                         fieldPattern: '^[A-Za-z ]+$'
                       - fieldName: courseYear
-                        fieldDescription: Ultimo anno in cui lo studente risulta iscritto al corso
+                        fieldDescription: Ultimo anno in cui risulta l'iscrizione al corso per la studentessa o lo studente
                         fieldType: string
                         fieldPattern: '^[A-Za-z ]+$'
         '500':
@@ -113,7 +91,7 @@ paths:
       summary: Rettifica iscrizione studente
       operationId: rettifica-iscrizione-studente
       tags:
-        - RETTIFICA-ISCRIZIONE
+        - rettifica iscrizione
       parameters: []
       responses:
         '200':
@@ -130,7 +108,7 @@ paths:
           description: Studente non trovato
         '500':
           description: Errore interno del server
-      description: Permette di creare una richiesta di rettifica dei dati relativi alle iscrizioni di uno studente.
+      description: Permette di creare una richiesta di rettifica dei dati relativi alle iscrizioni di una studentessa o uno studente.
       requestBody:
         content:
           application/json:
@@ -156,7 +134,7 @@ paths:
                         oldValue: 2° anno
                         newValue: 3° anno
                   rectificationReqText: Testo con la richiesta di rettifica
-                  openNotes: Note aperte dello studente/ex studente
+                  openNotes: Note aperte studentessa o studente
               Example 2:
                 value:
                   taxCode: RSSMRA80A01F205D
@@ -172,7 +150,7 @@ paths:
                     enrolmentYear: 2021/2022
                     courseYear: 3° anno
                   rectificationReqText: Testo con la richiesta di rettifica
-                  openNotes: Note aperte dello studente/ex studente
+                  openNotes: Note aperte studentessa o studente
           application/xml:
             schema:
               type: object
@@ -186,11 +164,11 @@ paths:
         name: taxCode
         in: path
         required: true
-        description: Codice Fiscale studente
+        description: Codice Fiscale
     get:
-      summary: Elenco rettifiche iscrizioni studente
+      summary: Elenco rettifiche iscrizioni
       tags:
-        - RETTIFICHE-ISCRIZIONI-STUDENTE
+        - rettifiche iscrizioni
       parameters: []
       responses:
         '200':
@@ -236,11 +214,11 @@ paths:
                   value:
                     rectifications: []
         '404':
-          description: Studente non trovato
+          description: Non è stato possibile trovare la studentessa o lo studente nell'archivio
         '500':
           description: Errore interno del server
       operationId: rettifiche-iscrizioni-studente
-      description: 'Permette di recuperare, tramite il codice fiscale, l''elenco delle richieste di rettifica iscrizione di uno specifico studente.'
+      description: 'Permette di recuperare, tramite il codice fiscale, l''elenco delle richieste di rettifica iscrizione di una studentessa o uno studente specifici.'
   '/rettifiche-iscrizioni/{rectificationId}/dettaglio':
     parameters:
       - schema:
@@ -250,9 +228,9 @@ paths:
         required: true
         description: Identificativo della rettifica
     get:
-      summary: Dettaglio rettifica iscrizione studente
+      summary: Dettaglio rettifica iscrizione studentessa o studente
       tags:
-        - DETTAGLIO-RETTIFICA-ISCRIZIONE
+        - dettaglio rettifica iscrizione
       parameters: []
       responses:
         '200':
@@ -293,7 +271,7 @@ paths:
                         date: '2023-02-25'
                         description: Descrizione del passaggio di stato
                     rectificationReqText: Testo con la richiesta di rettifica
-                    openNotes: Note aperte dello studente/ex studente
+                    openNotes: Note aperte studentessa o studente
                 Example 2:
                   value:
                     rectificationId: 6d183bc572f6b200015a4167
@@ -321,12 +299,12 @@ paths:
                         date: '2023-02-25'
                         description: Descrizione del passaggio di stato
                     rectificationReqText: Testo con la richiesta di rettifica
-                    openNotes: Note aperte dello studente/ex studente
+                    openNotes: Note aperte studentessa o studente
         '404':
           description: Rettifica iscrizione non trovata
         '500':
           description: Errore interno del server
-      operationId: dettaglio-rettifica-iscrizione-studente
+      operationId: dettaglio-rettifica-iscrizione
       description: Permette di recuperare il dettaglio di una richiesta di rettifica iscrizione tramite il suo identificativo.
   /status:
     get:
@@ -334,7 +312,7 @@ paths:
       operationId: check-status
       description: Verificare lo stato di salute del sistema
       tags:
-        - HEALTH-CHECK
+        - health-check
       responses:
         '204':
           description: il servizio è in esecuzione correttamente.
@@ -410,14 +388,14 @@ components:
             enrolmentYear: 2021/2022
             courseYear: 3° anno
           rectificationReqText: Testo con la richiesta di rettifica
-          openNotes: Note aperte dello studente/ex studente
+          openNotes: Note aperte studentessa o studente studente
       x-stoplight:
         id: b40e2be27c423
-      description: Richiesta creazione rettifica iscrizione studente
+      description: Richiesta creazione rettifica iscrizione di una studentessa o uno studente
       properties:
         taxCode:
           type: string
-          description: Codice fiscale studente
+          description: Codice fiscale
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
           example: RSSMRA80A01F205D
           minLength: 16
@@ -433,7 +411,7 @@ components:
           readOnly: true
         openNotes:
           type: string
-          description: Note aperte dello studente/ex studente
+          description: Note aperte studentessa o studente
           readOnly: true
       required:
         - taxCode
@@ -470,7 +448,7 @@ components:
       x-stoplight:
         id: cx3v0va134mhh
       type: object
-      description: Conditiene l'id dell'iscrizione  e l'elenco di tutti i campi da modificare
+      description: Contiene l'id dell'iscrizione e l'elenco di tutti i campi da modificare
       properties:
         enrollmentId:
           type: string
@@ -528,7 +506,7 @@ components:
         courseType:
           type: string
           description: Tipologia del corso di studio
-          example: 'laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale'
+          example: laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale
           readOnly: true
         courseCode:
           type: string
@@ -538,7 +516,7 @@ components:
         courseName:
           type: string
           description: Denominazione corso
-          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
+          example: ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design
           readOnly: true
         classCode:
           type: string
@@ -551,21 +529,21 @@ components:
         className:
           type: string
           description: Denominazione della classe di laurea
-          example: 'Informatica, Meccanica, Elettronica, Civile'
+          example: Informatica, Meccanica, Elettronica, Civile
           readOnly: true
         registrationYear:
           type: string
-          description: Anno accademico di immatricolazione dello studente
+          description: Anno accademico di immatricolazione della studentessa o dello studente
           pattern: '^\d{4}/\d{4}$'
         enrolmentYear:
           type: string
-          description: Ultimo anno accademico in cui lo studente risulta iscritto al corso
+          description: Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente
           example: 2022/2023
           pattern: '^\d{4}/\d{4}$'
           readOnly: true
         courseYear:
           type: string
-          description: Ultimo anno in cui lo studente risulta iscritto al corso
+          description: Ultimo anno in cui risulta l'iscrizione della studentessa o dello studente
           example: 3° anno
           pattern: ^\d+° anno$
           readOnly: true
@@ -585,13 +563,13 @@ components:
       x-examples:
         Example 1:
           rectificationId: 6d183bc572f6b200015a4167
-      description: Risposta di avvenuta creazione richiesta rettifica studente
+      description: Risposta di avvenuta creazione richiesta rettifica
       x-stoplight:
         id: 6be27a42c1852
       properties:
         rectificationId:
           type: string
-          description: 'Identificativo della rettifica effettuata '
+          description: Identificativo della rettifica effettuata
           example: 2A9BCD3E4F567890
           minLength: 16
           maxLength: 24
@@ -612,7 +590,7 @@ components:
       properties:
         rectificationId:
           type: string
-          description: Identificativo delle rettifica
+          description: Identificativo della rettifica
           readOnly: true
         enrollmentId:
           type: string
@@ -634,7 +612,7 @@ components:
           readOnly: true
         openNotes:
           type: string
-          description: Note aperte dello studente/ex studente
+          description: Note aperte studentessa o studente
           readOnly: true
       required:
         - rectificationId
@@ -671,7 +649,7 @@ components:
               date: '2023-02-25'
               description: Descrizione del passaggio di stato
           rectificationReqText: Testo con la richiesta di rettifica
-          openNotes: Note aperte dello studente/ex studente
+          openNotes: Note aperte studentessa o studente
         Example 2:
           rectificationId: 6d183bc572f6b200015a4167
           enrollmentId: 908d3e72b51a6f0034e2a11c
@@ -702,12 +680,12 @@ components:
               date: '2023-02-25'
               description: Descrizione del passaggio di stato
           rectificationReqText: Testo con la richiesta di rettifica
-          openNotes: Note aperte dello studente/ex studente
-      description: Dettaglio di una rettifica iscrizione studente
+          openNotes: Note aperte dello studentessa o studente
+      description: Dettaglio di una rettifica iscrizione per una studentessa o uno studente
       properties:
         rectificationId:
           type: string
-          description: 'Identificativo della rettifica '
+          description: Identificativo della rettifica
           readOnly: true
         state:
           type: string
@@ -728,7 +706,7 @@ components:
           readOnly: true
         openNotes:
           type: string
-          description: Note aperte dello studente/ex studente
+          description: Note aperte studente/ex studente
           readOnly: true
       required:
         - rectificationId
@@ -763,10 +741,4 @@ components:
 servers:
   - url: 'https://localhost:8080/api'
     description: localhost
-tags:
-  - name: API-UNIVERSITÀ
-  - name: HEALTH-CHECK
-  - name: CAMPI-RETTIFICA-ISCRIZIONE
-  - name: RETTIFICA-ISCRIZIONE
-  - name: RETTIFICHE-ISCRIZIONI-STUDENTE
-  - name: DETTAGLIO-RETTIFICA-ISCRIZIONE
+
