@@ -6,7 +6,7 @@ info:
   x-summary: Richiede la rettifica dei titoli conseguiti da una studentessa o uno studente.
   version: 1.0.0
   description: |
-    Richiede la rettifica dei dati relativi ai titoli di una studentessa o di uno studente.cuzione correttamente.
+    Richiede la rettifica dei dati relativi ai titoli conseguiti da una studentessa o da uno studente.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
