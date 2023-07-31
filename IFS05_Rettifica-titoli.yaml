@@ -15,6 +15,7 @@ info:
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+security: [{}]
 paths:
   /rettifiche-titoli/campi:
     get:
@@ -28,10 +29,13 @@ paths:
           content:
             application/json:
               schema:
+                additionalProperties: false
                 type: object
                 properties:
                   fields:
                     type: array
+                    minItems: 0
+                    maxItems: 100                    
                     description: Elenco dei campi modificabili
                     items:
                       $ref: '#/components/schemas/CampoRettifica'
@@ -95,7 +99,9 @@ paths:
       summary: Rettifica titoli
       operationId: rettifica-titolo
       tags:
-        - rettifica titolo
+         - rettifica titolo
+      security:
+        - bearerAuth: []        
       parameters: []
       responses:
         '200':
@@ -158,6 +164,7 @@ paths:
                   openNotes: Nota della studentessa o dello studente
           application/xml:
             schema:
+              additionalProperties: false
               type: object
               properties: {}
         description: ''
@@ -181,6 +188,7 @@ paths:
           content:
             application/json:
               schema:
+                additionalProperties: false
                 type: object
                 properties:
                   rectifications:
@@ -327,6 +335,7 @@ paths:
 components:
   schemas:
     CampoRettifica:
+      additionalProperties: false
       type: object
       x-examples:
         Example 1:
@@ -360,6 +369,7 @@ components:
         id: 705c3b968ec92
     RichiestaRettifica:
       type: object
+      additionalProperties: false
       x-examples:
         Example 1:
           taxCode: RSSMRA80A01F205D
@@ -426,6 +436,7 @@ components:
         - openNotes
     ModificaCampo:
       type: object
+      additionalProperties: false
       x-examples:
         Example 1:
           fieldName: instituteName
@@ -455,6 +466,7 @@ components:
       x-stoplight:
         id: cx3v0va134mhh
       type: object
+      additionalProperties: false
       description: Conditiene l'id del titolo e l'elenco di tutti i campi da modificare
       properties:
         titleId:
@@ -487,6 +499,7 @@ components:
               newValue: LM-32
     Titolo:
       type: object
+      additionalProperties: false
       x-examples:
         Example 1:
           instituteCode: IFSRM1
@@ -572,6 +585,7 @@ components:
         - courseMaximumGrade
     RispostaRettifica:
       type: object
+      additionalProperties: false
       x-examples:
         Example 1:
           rectificationId: 6d183bc572f6b200015a4167
@@ -729,6 +743,7 @@ components:
         - openNotes
     State:
       type: object
+      additionalProperties: false
       properties:
         state:
           type: string
@@ -751,6 +766,11 @@ components:
       description: Stato della Rettifica
   requestBodies: {}
   responses: {}
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: PASETO
 servers:
   - url: 'https://localhost:8080/api'
     description: localhost
