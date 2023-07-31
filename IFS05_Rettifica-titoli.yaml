@@ -208,7 +208,7 @@ paths:
                         state: Accettata
                         date: '2023-05-02'
                         rectificationReqText: Modifica dati titolo
-                        openNotes: Note aperte
+                        openNotes: Nota
                       - rectificationId: e0a712c6f9b9200001d5f834
                         titleId: c50e9a71b26f21000167a83d
                         state: Rifiutata
