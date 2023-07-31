@@ -155,7 +155,7 @@ paths:
                     academicQualificationVote: '110'
                     courseMaximumGrade: 110L
                   rectificationReqText: Testo con la richiesta di rettifica
-                  openNotes: Note aperte della studentessa o dello studente
+                  openNotes: Nota della studentessa o dello studente
           application/xml:
             schema:
               type: object
