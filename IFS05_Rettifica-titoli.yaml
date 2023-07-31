@@ -138,7 +138,7 @@ paths:
                         oldValue: LM-8
                         newValue: LM-32
                   rectificationReqText: Testo con la richiesta di rettifica
-                  openNotes: Note aperte della studentessa o dello studente
+                  openNotes: Nota della studentessa o dello studente
               Example 2:
                 value:
                   taxCode: RSSMRA80A01F205D
