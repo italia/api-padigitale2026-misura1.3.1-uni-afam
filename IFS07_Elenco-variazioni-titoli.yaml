@@ -2,23 +2,11 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: API Università
-  x-summary: Questo servizio ritorna l'elenco di studenti i quali hanno avuto variazioni ai titoli conseguiti in un certo intervallo di tempo.
+  title: IFS07 - Elenco variazioni titoli
+  x-summary: Acquisisce la lista delle studentesse e degli studenti che hanno subito un cambio di stato ai relativi titoli conseguiti tra un istante t0 e uno t1 compresi (ad es. t0 = 1 gennaio 2019 e t1 = 31 dicembre 2019 per richiedere i dati relativi all'anno solare 2019)
   version: 1.0.0
   description: |
-    ### Documentazione
-
-    ## API Università
-    La seguente documentazione API fornisce un riferimento per l'integrazione e l'accesso ai dati relativi alle università italiane. 
-    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati universitari, offrendo informazioni riguardanti le facoltà, i corsi di studio, i programmi accademici e altre informazioni correlate. 
-    Questo sistema di integrazione permette di accedere ai dati in modo efficiente e aggiornato, facilitando lo sviluppo di applicazioni e servizi che riguardano il contesto universitario.
-
-    # Elenco variazioni titoli
-    Questa API consente di ottenere l'elenco di codici fiscali degli studenti che hanno avuto variazioni ai titoli conseguiti in un certo intervallo di tempo.
-
-    # Verifica stato delle API (Health Check)
-    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
-    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
+    Ottiene l'elenco di codici fiscali delle studentesse e degli studenti che hanno avuto variazioni ai titoli conseguiti in un certo intervallo di tempo.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -32,7 +20,7 @@ paths:
     get:
       summary: Variazioni titoli
       tags:
-        - VARIAZIONI-TITOLI
+        - variazioni titoli
       responses:
         '200':
           description: Richiesta eseguita con successo
@@ -69,7 +57,7 @@ paths:
                     properties:
                       students:
                         type: array
-                        description: Elenco di studenti che hanno avuto variazioni nelle iscrizioni
+                        description: Elenco di studentesse e studenti che hanno avuto variazioni nelle iscrizioni
                         items:
                           $ref: '#/components/schemas/Studente'
                 required:
@@ -107,7 +95,7 @@ paths:
         '500':
           description: Errore interno del server
       operationId: variazioni-titoli
-      description: restituisc l'elenco di codici fiscali degli studenti che hanno avuto variazioni ai titoli conseguiti in un certo intervallo di tempo.
+      description: restituisc l'elenco di codici fiscali delle studentesse e degli studenti che hanno avuto variazioni ai titoli conseguiti in un certo intervallo di tempo.
       parameters:
         - schema:
             type: string
@@ -124,7 +112,7 @@ paths:
           in: query
           name: t1
           allowEmptyValue: true
-          description: 'data di fine dell''intervallo da considerare (se non valorizzato vale la data del giorno) '
+          description: data di fine dell''intervallo da considerare (se non valorizzato vale la data del giorno)
         - schema:
             type: integer
             format: int32
@@ -149,7 +137,7 @@ paths:
       operationId: check-status
       description: Verificare lo stato di salute del sistema
       tags:
-        - HEALTH-CHECK
+        - health-check
       responses:
         '204':
           description: il servizio è in esecuzione correttamente.
@@ -162,7 +150,7 @@ components:
       x-stoplight:
         id: h5iin6mdxsvx1
       type: object
-      description: Dati identificativi di uno studente
+      description: Dati identificativi di una studentessa o di uno studente
       x-examples:
         Example 1:
           fullName: Mario Rossi
@@ -171,11 +159,11 @@ components:
       properties:
         fullName:
           type: string
-          description: Nome completo dello studente
+          description: Nome completo
           readOnly: true
         taxCode:
           type: string
-          description: Codice fiscale dello studente
+          description: Codice fiscale
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
           example: RSSMRA80A01H501B
           minLength: 16
@@ -183,7 +171,7 @@ components:
           readOnly: true
         personID:
           type: string
-          description: 'Identificativo ANPR '
+          description: Identificativo ANPR
           minLength: 9
           maxLength: 9
           pattern: '^[A-Z0-9]{9}$'
@@ -198,6 +186,5 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: API-UNIVERSITÀ
-  - name: VARIAZIONI-TITOLI
-  - name: HEALTH-CHECK
+  - name: variazioni titoli
+  - name: health-check
