@@ -395,7 +395,7 @@ components:
             academicQualificationVote: '110'
             courseMaximumGrade: 110L
           rectificationReqText: Testo con la richiesta di rettifica
-          openNotes: Note aperte della studentessa o dello studente
+          openNotes: Note della studentessa o dello studente
       x-stoplight:
         id: b40e2be27c423
       description: Richiesta creazione rettifica titolo
