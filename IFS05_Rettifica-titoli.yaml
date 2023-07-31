@@ -379,7 +379,7 @@ components:
                 oldValue: LM-8
                 newValue: LM-32
           rectificationReqText: Testo con la richiesta di rettifica
-          openNotes: Note aperte della studentessa o dello studente
+          openNotes: Note della studentessa o dello studente
         Example 2:
           taxCode: RSSMRA80A01F205D
           titleToEnter:
