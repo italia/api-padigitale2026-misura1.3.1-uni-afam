@@ -196,7 +196,7 @@ paths:
                         state: Presa in carico
                         date: '2023-02-12'
                         rectificationReqText: Modifica dati titolo
-                        openNotes: Note aperte
+                        openNotes: Nota
                       - rectificationId: a8c4910e76b5200001d4f268
                         titleId: 245e6c91b7a82000314fd9a0
                         state: In lavorazione
