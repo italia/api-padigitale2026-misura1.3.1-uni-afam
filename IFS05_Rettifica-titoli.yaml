@@ -305,7 +305,7 @@ paths:
                         date: '2023-02-25'
                         description: Descrizione del passaggio di stato
                     rectificationReqText: Testo con la richiesta di rettifica
-                    openNotes: Note aperte della studentessa o dello studente
+                    openNotes: Nota della studentessa o dello studente
         '404':
           description: Rettifica titolo non trovata
         '500':
