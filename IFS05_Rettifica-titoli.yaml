@@ -418,7 +418,7 @@ components:
           readOnly: true
         openNotes:
           type: string
-          description: Note aperte della studentessa o dello studente
+          description: Nota della studentessa o dello studente
           readOnly: true
       required:
         - taxCode
