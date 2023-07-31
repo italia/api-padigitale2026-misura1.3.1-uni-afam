@@ -3,7 +3,7 @@ x-stoplight:
   id: 0f56e32f16f60
 info:
   title: IFS05 - Rettifica titoli
-  x-summary: Richiede la rettifica dei titoli conseguiti per una studentessa o uno studente che stia frequentando o abbia frequentato.
+  x-summary: Richiede la rettifica dei titoli conseguiti da una studentessa o uno studente.
   version: 1.0.0
   description: |
     Richiede la rettifica dei dati relativi ai titoli di una studentessa o di uno studente.cuzione correttamente.
