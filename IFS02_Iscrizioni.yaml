@@ -20,6 +20,9 @@ paths:
     parameters:
       - schema:
           type: string
+          maxLength: 16
+          minLength: 16
+          pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
         name: taxCode
         in: path
         required: true
@@ -28,6 +31,7 @@ paths:
       summary: Recupero iscrizioni di una studentessa o di uno studente
       tags:
         - iscrizioni
+      security: [{}]
       responses:
         '200':
           description: Richiesta eseguita con successo
@@ -88,6 +92,7 @@ paths:
   /status:
     get:
       summary: Verifica stato delle API (Health Check)
+      security: [{}]
       operationId: check-status
       description: Verificare lo stato di salute del sistema
       tags:
@@ -98,8 +103,40 @@ paths:
         '500':
           description: il servizio non è in esecuzione.
 components:
+  headers:
+    Retry-After:
+      description: |-
+        Retry contacting the endpoint *at least* after seconds.
+        See https://tools.ietf.org/html/rfc7231#section-7.1.3
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer
+    X-RateLimit-Limit:
+      description: The number of allowed requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Remaining:
+      description: The number of remaining requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Reset:
+      description: The number of seconds left in the current period
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer
   schemas:
     DettaglioIscrizioni:
+      additionalProperties: false
       type: object
       x-examples:
         Example 1:
@@ -141,6 +178,8 @@ components:
           $ref: '#/components/schemas/DatiPersonali'
         enrolments:
           type: array
+          maxItems: 256
+          minItems: 0
           description: Elenco iscrizioni di una studentessa o di uno studente
           items:
             $ref: '#/components/schemas/Iscrizione'
@@ -149,6 +188,7 @@ components:
         - enrolments
     Iscrizione:
       type: object
+      additionalProperties: false
       x-examples:
         Example 1:
           _id: 908d3e72b51a6f0034e2a11c
@@ -167,59 +207,82 @@ components:
         _id:
           type: string
           description: id dell'iscrizione della studentessa o dello studente
+          example: '127112'
           readOnly: true
+          minLength: 1
+          maxLength: 256
         instituteCode:
           type: string
           description: Codice identificativo dell’istituto
+          example: 'UFS1025'
           readOnly: true
+          minLength: 1
+          maxLength: 256
         instituteName:
           type: string
           description: Denominazione dell’istituto
+          example: 'Università degli studi di Milano'
           readOnly: true
+          minLength: 1
+          maxLength: 256
         courseType:
           type: string
           description: Tipologia del corso di studio
           example: 'laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale'
           readOnly: true
+          minLength: 1
+          maxLength: 256
         courseCode:
           type: string
           description: Codice del corso
           pattern: '^[A-Z\d]{2,4}\d{2,4}$'
           readOnly: true
+          minLength: 4
+          maxLength: 8
         courseName:
           type: string
           description: Denominazione corso
           example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
           readOnly: true
+          minLength: 1
+          maxLength: 256
         classCode:
           type: string
           description: Codice identificativo della classe di laurea
           pattern: '^[A-Z]+-\d{1,2}$'
-          minLength: 1
-          maxLength: 10
           example: L-8
           readOnly: true
+          minLength: 1
+          maxLength: 10
         className:
           type: string
           description: Denominazione della classe di laurea
           example: 'Informatica, Meccanica, Elettronica, Civile'
           readOnly: true
+          minLength: 1
+          maxLength: 256
         registrationYear:
           type: string
           description: Anno accademico di immatricolazione della studentessa o dello studente
           pattern: '^\d{4}/\d{4}$'
+          minLength: 9
+          maxLength: 9
         enrolmentYear:
           type: string
           description: Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente
           example: 2022/2023
           pattern: '^\d{4}/\d{4}$'
           readOnly: true
+          minLength: 9
+          maxLength: 9
         courseYear:
           type: string
           description: Ultimo anno in cui risulta l'iscrizione al corso della studentessa o dello studente
           example: 3° anno
           pattern: ^\d+° anno$
           readOnly: true
+          minLength: 1
+          maxLength: 9
       required:
         - _id
         - instituteCode
@@ -234,6 +297,7 @@ components:
         - courseYear
     DatiPersonali:
       type: object
+      additionalProperties: false
       x-examples:
         Example 1:
           taxCode: RSSMRA80A01F205D
@@ -266,12 +330,16 @@ components:
           example: Mario
           pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
           readOnly: true
+          minLength: 1
+          maxLength: 256
         familyName:
           type: string
           description: Cognome
           example: Rossi
           pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
           readOnly: true
+          minLength: 1
+          maxLength: 256
         birthDate:
           type: string
           format: date
@@ -284,6 +352,8 @@ components:
           example: Rome
           description: Luogo di nascita
           readOnly: true
+          minLength: 1
+          maxLength: 256
       required:
         - taxCode
         - personID

@@ -33,6 +33,7 @@ paths:
       summary: Iscritti
       tags:
         - STUDENTI-ISCRITTI
+      security: [{}] 
       responses:
         '200':
           description: Richiesta eseguita con successo
@@ -40,30 +41,40 @@ paths:
             application/json:
               schema:
                 type: object
+                additionalProperties: false
                 properties:
                   instituteName:
                     type: string
                     description: Nome dell'istituto di formazione superiore
                     readOnly: true
+                    minLength: 1
+                    maxLength: 256                       
                   facultyName:
                     type: string
                     description: Nome della facoltà
                     readOnly: true
+                    minLength: 1
+                    maxLength: 256                       
                   courseName:
                     type: string
                     description: Nome del Corso di studi
                     readOnly: true
+                    minLength: 1
+                    maxLength: 256                       
                   academicYear:
                     type: string
                     example: 2022-2023
                     pattern: '^\d{4}-\d{4}$'
                     description: Anno accademico
                     readOnly: true
+                    minLength: 9
+                    maxLength: 9                       
                   numberRegistered:
                     type: integer
                     description: 'Numero di iscritti all''IFS, facoltà o corso '
                     format: int32
                     minimum: 0
+                    maximum: 500000
                     readOnly: true
                 required:
                   - instituteName
@@ -88,11 +99,15 @@ paths:
       parameters:
         - schema:
             type: string
+            minLength: 1
+            maxLength: 256               
           in: query
           name: facultyName
           description: Nome della facoltà
         - schema:
             type: string
+            minLength: 1
+            maxLength: 256               
           in: query
           name: courseName
           description: Nome del corso di studi
@@ -100,6 +115,8 @@ paths:
             type: string
             pattern: '^\d{4}-\d{4}$'
             example: 2022-2023
+            minLength: 9
+            maxLength: 9               
           in: query
           name: academicYear
           description: 'Anno accademico '
@@ -110,12 +127,44 @@ paths:
       description: Verificare lo stato di salute del sistema
       tags:
         - HEALTH-CHECK
+      security: [{}]       
       responses:
         '204':
           description: il servizio è in esecuzione correttamente.
         '500':
           description: il servizio non è in esecuzione.
 components:
+  headers:
+    Retry-After:
+      description: |-
+        Retry contacting the endpoint *at least* after seconds.
+        See https://tools.ietf.org/html/rfc7231#section-7.1.3
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer
+    X-RateLimit-Limit:
+      description: The number of allowed requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Remaining:
+      description: The number of remaining requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Reset:
+      description: The number of seconds left in the current period
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer  
   schemas: {}
   requestBodies: {}
   responses: {}

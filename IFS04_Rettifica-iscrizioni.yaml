@@ -15,6 +15,7 @@ info:
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+security: [{}]
 paths:
   /rettifiche-iscrizioni/campi:
     get:
@@ -22,16 +23,20 @@ paths:
       tags:
         - campi rettifica iscrizione
       parameters: []
+      security: [{}]
       responses:
         '200':
           description: Richiesta eseguita con successo
           content:
             application/json:
               schema:
+                additionalProperties: false
                 type: object
                 properties:
                   fields:
                     type: array
+                    maxItems: 256
+                    minItems: 0
                     description: Elenco dei campi modificabili
                     items:
                       $ref: '#/components/schemas/CampoRettifica'
@@ -92,6 +97,8 @@ paths:
       operationId: rettifica-iscrizione-studente
       tags:
         - rettifica iscrizione
+      security:
+        - bearerAuth: []
       parameters: []
       responses:
         '200':
@@ -154,6 +161,7 @@ paths:
           application/xml:
             schema:
               type: object
+              additionalProperties: false
               properties: {}
         description: ''
     parameters: []
@@ -161,6 +169,8 @@ paths:
     parameters:
       - schema:
           type: string
+          minLength: 1
+          maxLength: 256          
         name: taxCode
         in: path
         required: true
@@ -170,16 +180,20 @@ paths:
       tags:
         - rettifiche iscrizioni
       parameters: []
+      security: [{}]
       responses:
         '200':
           description: Richiesta eseguita con successo
           content:
             application/json:
               schema:
+                additionalProperties: false
                 type: object
                 properties:
                   rectifications:
                     type: array
+                    maxItems: 256
+                    minItems: 0
                     items:
                       $ref: '#/components/schemas/Rettifica'
               examples:
@@ -223,6 +237,8 @@ paths:
     parameters:
       - schema:
           type: string
+          minLength: 1
+          maxLength: 256          
         name: rectificationId
         in: path
         required: true
@@ -232,6 +248,7 @@ paths:
       tags:
         - dettaglio rettifica iscrizione
       parameters: []
+      security: [{}]
       responses:
         '200':
           description: Richiesta eseguita con successo
@@ -243,7 +260,6 @@ paths:
                 Example 1:
                   value:
                     rectificationId: 6d183bc572f6b200015a4167
-                    enrollmentId: 908d3e72b51a6f0034e2a11c
                     state: Accettata
                     enrollmentToEdit:
                       enrollmentId: 908d3e72b51a6f0034e2a11c
@@ -275,7 +291,6 @@ paths:
                 Example 2:
                   value:
                     rectificationId: 6d183bc572f6b200015a4167
-                    enrollmentId: 908d3e72b51a6f0034e2a11c
                     state: Accettata
                     enrollmentToEnter:
                       instituteCode: IFSRM1
@@ -313,15 +328,48 @@ paths:
       description: Verificare lo stato di salute del sistema
       tags:
         - health-check
+      security: [{}]
       responses:
         '204':
           description: il servizio è in esecuzione correttamente.
         '500':
           description: il servizio non è in esecuzione.
 components:
+  headers:
+    Retry-After:
+      description: |-
+        Retry contacting the endpoint *at least* after seconds.
+        See https://tools.ietf.org/html/rfc7231#section-7.1.3
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer
+    X-RateLimit-Limit:
+      description: The number of allowed requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Remaining:
+      description: The number of remaining requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Reset:
+      description: The number of seconds left in the current period
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer
   schemas:
     CampoRettifica:
       type: object
+      additionalProperties: false
       x-examples:
         Example 1:
           fieldName: instituteName
@@ -333,18 +381,26 @@ components:
           type: string
           description: Nome del campo
           readOnly: true
+          minLength: 1
+          maxLength: 256          
         fieldDescription:
           type: string
           description: Descrizione del campo
           readOnly: true
+          minLength: 1
+          maxLength: 256          
         fieldType:
           type: string
           description: Tipo del campo
           readOnly: true
+          minLength: 1
+          maxLength: 256          
         fieldPattern:
           type: string
           description: Pattern del campo
           readOnly: true
+          minLength: 1
+          maxLength: 256          
       required:
         - fieldName
         - fieldDescription
@@ -354,6 +410,7 @@ components:
         id: 705c3b968ec92
     RichiestaRettifica:
       type: object
+      additionalProperties: false      
       x-examples:
         Example 1:
           taxCode: RSSMRA80A01F205D
@@ -409,16 +466,21 @@ components:
           type: string
           description: Testo con la richiesta di rettifica
           readOnly: true
+          minLength: 1
+          maxLength: 1000000           
         openNotes:
           type: string
           description: Note aperte studentessa o studente
           readOnly: true
+          minLength: 1
+          maxLength: 1000000           
       required:
         - taxCode
         - rectificationReqText
         - openNotes
     ModificaCampo:
       type: object
+      additionalProperties: false      
       x-examples:
         Example 1:
           fieldName: instituteName
@@ -430,13 +492,19 @@ components:
           type: string
           description: Nome del campo da modificare
           readOnly: true
+          minLength: 1
+          maxLength: 256             
         oldValue:
           type: string
           description: Valore attuale del campo
+          minLength: 1
+          maxLength: 256             
         newValue:
           type: string
           description: Nuovo valore da attribuire al campo
           readOnly: true
+          minLength: 1
+          maxLength: 256             
       required:
         - fieldName
         - oldValue
@@ -446,17 +514,22 @@ components:
     ModificaIscrizione:
       title: ModificaIscrizione
       x-stoplight:
-        id: cx3v0va134mhh
+        id: cx3v0va134mhh  
       type: object
+      additionalProperties: false      
       description: Contiene l'id dell'iscrizione e l'elenco di tutti i campi da modificare
       properties:
         enrollmentId:
           type: string
           description: id dell'iscrizione da modificare
           readOnly: true
+          minLength: 1
+          maxLength: 256            
         fieldsToEdit:
           type: array
           description: Elenco dei campi da modificare
+          maxItems: 256
+          minItems: 0          
           items:
             $ref: '#/components/schemas/ModificaCampo'
       required:
@@ -480,6 +553,7 @@ components:
               newValue: 3° anno
     Iscrizione:
       type: object
+      additionalProperties: false      
       x-examples:
         Example 1:
           _id: 908d3e72b51a6f0034e2a11c
@@ -499,25 +573,35 @@ components:
           type: string
           description: Codice identificativo dell’istituto
           readOnly: true
+          minLength: 1
+          maxLength: 256           
         instituteName:
           type: string
           description: Denominazione dell’istituto
           readOnly: true
+          minLength: 1
+          maxLength: 256           
         courseType:
           type: string
           description: Tipologia del corso di studio
           example: laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale
           readOnly: true
+          minLength: 1
+          maxLength: 256                
         courseCode:
           type: string
           description: Codice del corso
           pattern: '^[A-Z\d]{2,4}\d{2,4}$'
           readOnly: true
+          minLength: 4
+          maxLength: 8              
         courseName:
           type: string
           description: Denominazione corso
           example: ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design
           readOnly: true
+          minLength: 1
+          maxLength: 256          
         classCode:
           type: string
           description: Codice identificativo della classe di laurea
@@ -531,22 +615,30 @@ components:
           description: Denominazione della classe di laurea
           example: Informatica, Meccanica, Elettronica, Civile
           readOnly: true
+          minLength: 1
+          maxLength: 256          
         registrationYear:
           type: string
           description: Anno accademico di immatricolazione della studentessa o dello studente
           pattern: '^\d{4}/\d{4}$'
+          minLength: 9
+          maxLength: 9          
         enrolmentYear:
           type: string
           description: Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente
           example: 2022/2023
           pattern: '^\d{4}/\d{4}$'
           readOnly: true
+          minLength: 9
+          maxLength: 9
         courseYear:
           type: string
           description: Ultimo anno in cui risulta l'iscrizione della studentessa o dello studente
           example: 3° anno
           pattern: ^\d+° anno$
           readOnly: true
+          minLength: 7
+          maxLength: 8
       required:
         - instituteCode
         - instituteName
@@ -559,6 +651,7 @@ components:
         - enrolmentYear
         - courseYear
     RispostaRettifica:
+      additionalProperties: false
       type: object
       x-examples:
         Example 1:
@@ -577,6 +670,7 @@ components:
       required:
         - rectificationId
     Rettifica:
+      additionalProperties: false
       type: object
       x-examples:
         Example 1:
@@ -592,28 +686,40 @@ components:
           type: string
           description: Identificativo della rettifica
           readOnly: true
+          minLength: 1
+          maxLength: 256            
         enrollmentId:
           type: string
           description: id dell'iscrizione rettificata
           nullable: true
-          readOnly: true
+          readOnly: true    
+          minLength: 0
+          maxLength: 256                   
         state:
           type: string
           description: Stato attuale della rettifica
           readOnly: true
+          minLength: 1
+          maxLength: 256            
         date:
           type: string
           format: date
           description: Data ultima transizione rettifica
           readOnly: true
+          minLength: 10
+          maxLength: 10  
         rectificationReqText:
           type: string
           description: Testo con la richiesta di rettifica
           readOnly: true
+          minLength: 1
+          maxLength: 256            
         openNotes:
           type: string
           description: Note aperte studentessa o studente
           readOnly: true
+          minLength: 1
+          maxLength: 256            
       required:
         - rectificationId
         - state
@@ -621,6 +727,7 @@ components:
         - rectificationReqText
         - openNotes
     DettaglioRettifica:
+      additionalProperties: false
       type: object
       x-examples:
         Example 1:
@@ -687,16 +794,22 @@ components:
           type: string
           description: Identificativo della rettifica
           readOnly: true
+          minLength: 1
+          maxLength: 256          
         state:
           type: string
           description: stato attuale della rettifica
           readOnly: true
+          minLength: 1
+          maxLength: 256          
         enrollmentToEdit:
           $ref: '#/components/schemas/ModificaIscrizione'
         enrollmentToEnter:
           $ref: '#/components/schemas/Iscrizione'
         stateHistory:
           type: array
+          maxItems: 256
+          minItems: 0          
           description: Cronologia delle transizioni di stato
           items:
             $ref: '#/components/schemas/State'
@@ -704,10 +817,14 @@ components:
           type: string
           description: Testo con la richiesta di rettifica
           readOnly: true
+          minLength: 1
+          maxLength: 256              
         openNotes:
           type: string
           description: Note aperte studente/ex studente
           readOnly: true
+          minLength: 1
+          maxLength: 256             
       required:
         - rectificationId
         - state
@@ -715,21 +832,28 @@ components:
         - rectificationReqText
         - openNotes
     State:
+      additionalProperties: false
       type: object
       properties:
         state:
           type: string
           description: valore dello stato
           readOnly: true
+          minLength: 1
+          maxLength: 256          
         date:
           type: string
           format: date
           description: data corrispondente alla transizione di stato
           readOnly: true
+          minLength: 10
+          maxLength: 10          
         description:
           type: string
           description: descrizione del passaggio di stato
           readOnly: true
+          minLength: 1
+          maxLength: 256
       x-examples:
         Example 1:
           state: Accettata
@@ -738,7 +862,17 @@ components:
       description: Stato della Rettifica
   requestBodies: {}
   responses: {}
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: PASETO  
 servers:
   - url: 'https://localhost:8080/api'
     description: localhost
-
+tags:
+  - name: campi rettifica iscrizione
+  - name: rettifica iscrizione
+  - name: rettifiche iscrizioni
+  - name: dettaglio rettifica iscrizione
+  - name: health-check
