@@ -2,23 +2,11 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: API Università
-  x-summary: Questo servizio ritorna l'elenco degli iscritti a un IFS divisi per fasce ISEE.
+  title: IFS08 - Iscritti per fasce ISEE
+  x-summary: Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accademico
   version: 1.0.0
   description: |
-    ### Documentazione
-
-    ## API Università
-    La seguente documentazione API fornisce un riferimento per l'integrazione e l'accesso ai dati relativi alle università italiane. 
-    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati universitari, offrendo informazioni riguardanti le facoltà, i corsi di studio, i programmi accademici e altre informazioni correlate. 
-    Questo sistema di integrazione permette di accedere ai dati in modo efficiente e aggiornato, facilitando lo sviluppo di applicazioni e servizi che riguardano il contesto universitario.
-
-    # Numero di studenti iscritti a un IFS suddivisi per fasce ISEE
-    Questa API consente di ottenere il numero di studenti iscritti ad un IFS suddivisi per fasce ISEE. Inoltre è possibile filtrare i risultati in base alla facoltà, corso di studi e anno accademico.
-
-    # Verifica stato delle API (Health Check)
-    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
-    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
+    Questa API consente di ottenere il numero di studentesse e di studenti iscritti suddivisi per fasce ISEE.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -32,7 +20,7 @@ paths:
     get:
       summary: Iscritti per fasce ISEE
       tags:
-        - FASCE-ISEE
+        - fasce isee
       security: [{}]   
       responses:
         '200':
@@ -70,14 +58,14 @@ paths:
                     maxLength: 9                    
                   numberRegistered:
                     type: integer
-                    description: 'Numero di iscritti all''IFS, facoltà o corso '
+                    description: Numero di iscritti
                     format: int32
                     minimum: 0
                     maximum: 500000
                     readOnly: true
                   iseeBands:
                     type: array
-                    description: Elenco di fasce Isee con il numero di studenti per fascia
+                    description: Elenco di fasce ISEE con il numero di studentesse e di studenti per fascia
                     minItems: 0
                     maxItems: 500000                   
                     items:
@@ -160,15 +148,8 @@ paths:
         '500':
           description: Errore interno del server
       operationId: iscritti-per-isee
-      description: 'Restituisce l''elenco di fasce ISEE con il numero di studenti iscritti per fascia. Valorizzando i queryParams opzionali (facultyName, courseName e academicYear) è possibile filtrare i risultati. Non valorizzandoli il risultato ottenuto si riferirà all''IFS per intero.'
+      description: Restituisce l''elenco di fasce ISEE con il numero di studentesse e di studenti iscritti per fascia. Valorizzando i queryParams opzionali (courseName e academicYear) è possibile filtrare i risultati. Non valorizzandoli il risultato ottenuto si riferirà all''IFS per intero.
       parameters:
-        - schema:
-            type: string
-            minLength: 1
-            maxLength: 256
-          in: query
-          name: facultyName
-          description: Nome della facoltà
         - schema:
             type: string
             minLength: 1
@@ -191,7 +172,7 @@ paths:
       operationId: check-status
       description: Verificare lo stato di salute del sistema
       tags:
-        - HEALTH-CHECK
+        - health-check
       security: [{}]
       responses:
         '204':
@@ -258,7 +239,7 @@ components:
         maxValue:
           type: integer
           format: int32
-          description: 'Valore massimo dell''ISEE per la fascia corrispondente. Se la fascia non ha un valore massimo definito, viene impostato su "null"'
+          description: Valore massimo dell''ISEE per la fascia corrispondente. Se la fascia non ha un valore massimo definito, viene impostato su "null"
           minimum: 0
           maximum: 1000000000          
           nullable: true
@@ -266,7 +247,7 @@ components:
         numberInRange:
           type: integer
           format: int32
-          description: Numero di studenti con ISEE compreso nell'intervallo minValue e maxValue
+          description: Numero di studentesse e di studenti con ISEE compreso nell'intervallo minValue e maxValue
           minimum: 0
           maximum: 500000
           exclusiveMinimum: false
@@ -282,6 +263,5 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: API-UNIVERSITÀ
-  - name: HEALTH-CHECK
-  - name: FASCE-ISEE
+  - name: health-check
+  - name: fasce isee

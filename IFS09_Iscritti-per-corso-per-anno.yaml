@@ -2,23 +2,11 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: API Università
-  x-summary: Questo servizio ritorna l'elenco degli iscritti a un IFS.
+  title: IFS09 - Iscritti a un corso per anno
+  x-summary: Acquisisce il numero di studentesse e studenti iscritti a uno specifico corso per anno accademico
   version: 1.0.0
   description: |
-    ### Documentazione
-
-    ## API Università
-    La seguente documentazione API fornisce un riferimento per l'integrazione e l'accesso ai dati relativi alle università italiane. 
-    Queste API consentono l'erogazione di servizi (e-service) che operano sui dati universitari, offrendo informazioni riguardanti le facoltà, i corsi di studio, i programmi accademici e altre informazioni correlate. 
-    Questo sistema di integrazione permette di accedere ai dati in modo efficiente e aggiornato, facilitando lo sviluppo di applicazioni e servizi che riguardano il contesto universitario.
-
-    # Numero di studenti iscritti a un IFS.
-    Questa API consente di ottenere il numero di studenti iscritti ad un IFS. Inoltre è possibile filtrare i risultati in base alla facoltà, corso di studi e anno accademico.
-
-    # Verifica stato delle API (Health Check)
-    Questa API fornisce un modo semplice per verificare lo stato di salute del sistema. 
-    È un endpoint di base che può essere utilizzato per controllare se il servizio è in esecuzione correttamente.
+    Ottiene il numero di studentesse e di studenti iscritti ad un IFS.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -32,7 +20,7 @@ paths:
     get:
       summary: Iscritti
       tags:
-        - STUDENTI-ISCRITTI
+        - iscritti
       security: [{}] 
       responses:
         '200':
@@ -45,13 +33,7 @@ paths:
                 properties:
                   instituteName:
                     type: string
-                    description: Nome dell'istituto di formazione superiore
-                    readOnly: true
-                    minLength: 1
-                    maxLength: 256                       
-                  facultyName:
-                    type: string
-                    description: Nome della facoltà
+                    description: Nome dell'istituto
                     readOnly: true
                     minLength: 1
                     maxLength: 256                       
@@ -82,8 +64,6 @@ paths:
               examples:
                 Example 1:
                   value:
-                    instituteName: Università degli Studi di Roma 'La Sapienza'
-                    facultyName: Ingegneria
                     courseName: Ingegneria Informatica
                     academicYear: 2022-2023
                     numberRegistered: 48
@@ -95,15 +75,8 @@ paths:
         '500':
           description: Errore interno del server
       operationId: iscritti-per-isee
-      description: 'Restituisce il numero di studenti iscritti a un IFS. Valorizzando i queryParams opzionali (facultyName, courseName e academicYear) è possibile filtrare i risultati. Non valorizzandoli il risultato ottenuto si riferirà all''IFS per intero.'
+      description: 'Restituisce il numero di studentesse e di studenti iscritti. Valorizzando i queryParams opzionali (courseName e academicYear) è possibile filtrare i risultati. Non valorizzandoli il risultato ottenuto si riferirà all''IFS per intero.'
       parameters:
-        - schema:
-            type: string
-            minLength: 1
-            maxLength: 256               
-          in: query
-          name: facultyName
-          description: Nome della facoltà
         - schema:
             type: string
             minLength: 1
@@ -126,7 +99,7 @@ paths:
       operationId: check-status
       description: Verificare lo stato di salute del sistema
       tags:
-        - HEALTH-CHECK
+        - health-check
       security: [{}]       
       responses:
         '204':
@@ -172,6 +145,5 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: API-UNIVERSITÀ
-  - name: HEALTH-CHECK
-  - name: STUDENTI-ISCRITTI
+  - name: health-check
+  - name: iscritti
