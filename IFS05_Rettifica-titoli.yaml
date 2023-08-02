@@ -474,13 +474,13 @@ components:
           description: Testo con la richiesta di rettifica
           readOnly: true
           minLength: 1
-          maxLength: 256          
+          maxLength: 5000          
         openNotes:
           type: string
           description: Nota della studentessa o dello studente
           readOnly: true
           minLength: 1
-          maxLength: 256          
+          maxLength: 5000          
       required:
         - taxCode
         - rectificationReqText
@@ -725,13 +725,13 @@ components:
           description: Testo con la richiesta di rettifica
           readOnly: true
           minLength: 1
-          maxLength: 256              
+          maxLength: 5000              
         openNotes:
           type: string
           description: Nota della studentessa o dello studente
           readOnly: true
           minLength: 1
-          maxLength: 256              
+          maxLength: 5000              
       required:
         - rectificationId
         - state
