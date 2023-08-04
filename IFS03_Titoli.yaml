@@ -1,0 +1,17 @@
+openapi: 3.0.0
+info:
+  title: IFS03 - Titoli
+  version: 1.0.0
+  description: |
+    Vuole acquisire i titoli conseguiti nell'istituto da una studentessa o uno studente nel formato nazionale (ANIS), 
+    ed anche i diploma supplement semplificati e completi in formato SDG.
+paths:
+  '/studenti/{taxCode}/titoli':
+    get:
+      description: Richiede la lista dei titoli di una studentessa o di uno studente
+  '/studenti/{taxCode}/titoli/diplomi-supplement-semplificato':
+    get:
+      description: Richiede la lista dei diploma supplement semplificati in formato SDG
+  '/studenti/{taxCode}/titoli/diplomi-supplement':
+    get:
+      description: Richiede la lista dei diploma supplement in formato SDG

@@ -1,0 +1,13 @@
+openapi: 3.0.0
+info:
+  title: IFS01 - Offerta formativa
+  version: 1.0.0
+  description: |
+    Vuole acquisire i dati dei corsi attivi ed offerti da un Istituto in un dato anno accademico
+paths:
+  '/offerta-formativa/{annoAccademico}':
+    get:
+      description: Richiede la lista di corsi offerti dall'Istituto in un anno accademico.
+  '/offerta-formativa/corsi/{codiceCorso}':
+    get:
+      description: Richiede il dettaglio di un corso

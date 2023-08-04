@@ -1,0 +1,17 @@
+openapi: 3.0.0
+info:
+  title: IFS02 - Iscrizioni
+  version: 1.0.0
+  description: |
+    Vuole acquisire i dati di dettaglio delle iscrizioni di una studentessa o di uno studente in formato ANIS e SDG, 
+    ed anche i dati di dettaglio dei corsi frequentati dallo studente in formato SDG.
+paths:
+  '/studenti/{taxCode}/iscrizioni/anis':
+    get:
+      description: Richiede la lista delle iscrizioni di una studentessa o di uno studente in formato ANIS
+  '/studenti/{taxCode}/iscrizioni/sdg':
+    get:
+      description: Richiede la lista delle iscrizioni di una studentessa o di uno studente in formato SDG.
+  '/studenti/{taxCode}/esami':
+    get:
+      description: Richiede la lista degli esami sostenuti dallo studente in formato SDG.
