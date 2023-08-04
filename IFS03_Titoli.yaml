@@ -20,14 +20,18 @@ paths:
     parameters:
       - schema:
           type: string
+          maxLength: 16
+          minLength: 16
+          pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
         name: taxCode
         in: path
         required: true
-        description: 'Codice Fiscale '
+        description: 'Codice Fiscale'
     get:
       summary: Titoli conseguiti dalla studentessa o dallo studente
       tags:
         - titoli studente
+      security: [{}]
       parameters: []
       responses:
         '200':
@@ -90,6 +94,7 @@ paths:
   /status:
     get:
       summary: Verifica stato delle API (Health Check)
+      security: [{}]
       operationId: check-status
       description: Verifica lo stato di salute del sistema
       tags:
@@ -100,9 +105,41 @@ paths:
         '500':
           description: il servizio non è in esecuzione.
 components:
+  headers:
+    Retry-After:
+      description: |-
+        Retry contacting the endpoint *at least* after seconds.
+        See https://tools.ietf.org/html/rfc7231#section-7.1.3
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer
+    X-RateLimit-Limit:
+      description: The number of allowed requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Remaining:
+      description: The number of remaining requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Reset:
+      description: The number of seconds left in the current period
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer
   schemas:
     TitoliConseguiti:
       type: object
+      additionalProperties: false
       x-examples:
         Example 1:
           personalData:
@@ -146,6 +183,8 @@ components:
         academicQualifications:
           description: Elenco dei titoli conseguiti dalla studentessa o dallo studente
           type: array
+          maxItems: 256
+          minItems: 0
           items:
             $ref: '#/components/schemas/Titolo'
       required:
@@ -153,6 +192,7 @@ components:
         - academicQualifications
     Titolo:
       type: object
+      additionalProperties: false
       x-examples:
         Example 1:
           _id: 201c59d6a7b800e917c63a1f
@@ -172,43 +212,62 @@ components:
         _id:
           type: string
           description: id del titolo di studio
+          minLength: 1
+          maxLength: 256
         instituteCode:
           type: string
           description: Codice identificativo dell'istituto
           readOnly: true
+          minLength: 1
+          maxLength: 10
         instituteName:
           type: string
           description: Nome dell'istituto
           readOnly: true
+          minLength: 1
+          maxLength: 256
         titleName:
           type: string
           description: Denominazione del titolo di studio
           readOnly: true
+          minLength: 1
+          maxLength: 256
         courseType:
           type: string
           description: Tipo di corso di studio
           example: laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale
           readOnly: true
+          minLength: 1
+          maxLength: 256
         courseCode:
           type: string
-          description: Codice corso
+          description: Codice del corso
+          pattern: '^[A-Z\d]{2,4}\d{2,4}$'
           readOnly: true
+          minLength: 4
+          maxLength: 9
         courseName:
           type: string
-          description: Denominazione del corso di studio
-          example: ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design
+          description: Denominazione corso
+          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
           readOnly: true
+          minLength: 1
+          maxLength: 256
         classCode:
           type: string
-          description: Codice della classe di studio
+          description: Codice identificativo della classe di laurea
           pattern: '^[A-Za-z0-9-]+$'
           example: L-8
           readOnly: true
+          minLength: 1
+          maxLength: 256
         className:
           type: string
-          description: Denominazione della classe di studio
-          example: Informatica, Meccanica, Elettronica, Civile
+          description: Denominazione della classe di laurea
+          example: 'Informatica, Meccanica, Elettronica, Civile'
           readOnly: true
+          minLength: 1
+          maxLength: 256
         academicQualificationDate:
           type: string
           description: Data di conseguimento del titolo di studio
@@ -220,12 +279,16 @@ components:
           type: string
           description: Voto ottenuto al conseguimento del titolo di studio
           pattern: ^(\d+)L?|-$
+          minLength: 1
+          maxLength: 4          
           example: 110L
           readOnly: true
         courseMaximumGrade:
           type: string
           example: '110'
           pattern: '^\d{1,3}L?|-$'
+          minLength: 1
+          maxLength: 4     
           description: Voto massimo del corso
           readOnly: true
       required:
@@ -243,6 +306,7 @@ components:
         - courseMaximumGrade
     DatiPersonali:
       type: object
+      additionalProperties: false
       x-examples:
         Example 1:
           taxCode: RSSMRA80A01F205D
@@ -275,12 +339,16 @@ components:
           example: Mario
           pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
           readOnly: true
+          minLength: 1
+          maxLength: 256
         familyName:
           type: string
           description: Cognome
           example: Rossi
           pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
           readOnly: true
+          minLength: 1
+          maxLength: 256
         birthDate:
           type: string
           format: date
@@ -293,6 +361,8 @@ components:
           example: Rome
           description: Luogo di nascita
           readOnly: true
+          minLength: 1
+          maxLength: 256
       required:
         - taxCode
         - personID
@@ -306,5 +376,5 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: titoli
+  - name: titoli studente
   - name: health-check

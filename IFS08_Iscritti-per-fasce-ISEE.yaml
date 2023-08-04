@@ -21,6 +21,7 @@ paths:
       summary: Iscritti per fasce ISEE
       tags:
         - fasce isee
+      security: [{}]   
       responses:
         '200':
           description: Richiesta eseguita con successo
@@ -28,33 +29,45 @@ paths:
             application/json:
               schema:
                 type: object
+                additionalProperties: false
                 properties:
                   instituteName:
                     type: string
                     description: Nome dell'istituto di formazione superiore
                     readOnly: true
+                    minLength: 1
+                    maxLength: 256              
                   facultyName:
                     type: string
                     description: Nome della facoltà
                     readOnly: true
+                    minLength: 1
+                    maxLength: 256                    
                   courseName:
                     type: string
                     description: Nome del Corso di studi
                     readOnly: true
+                    minLength: 1
+                    maxLength: 256                    
                   academicYear:
                     type: string
                     example: 2022-2023
                     pattern: '^\d{4}-\d{4}$'
                     readOnly: true
+                    minLength: 9
+                    maxLength: 9                    
                   numberRegistered:
                     type: integer
                     description: Numero di iscritti
                     format: int32
                     minimum: 0
+                    maximum: 500000
                     readOnly: true
                   iseeBands:
                     type: array
                     description: Elenco di fasce ISEE con il numero di studentesse e di studenti per fascia
+                    minItems: 0
+                    maxItems: 500000                   
                     items:
                       $ref: '#/components/schemas/FasciaISEE'
                 required:
@@ -139,12 +152,16 @@ paths:
       parameters:
         - schema:
             type: string
+            minLength: 1
+            maxLength: 256            
           in: query
           name: courseName
           description: Nome del corso di studi
         - schema:
             type: string
             pattern: '^\d{4}-\d{4}$'
+            minLength: 9
+            maxLength: 9            
             example: 2022-2023
           in: query
           name: academicYear
@@ -156,15 +173,48 @@ paths:
       description: Verificare lo stato di salute del sistema
       tags:
         - health-check
+      security: [{}]
       responses:
         '204':
           description: il servizio è in esecuzione correttamente.
         '500':
           description: il servizio non è in esecuzione.
 components:
+  headers:
+    Retry-After:
+      description: |-
+        Retry contacting the endpoint *at least* after seconds.
+        See https://tools.ietf.org/html/rfc7231#section-7.1.3
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer
+    X-RateLimit-Limit:
+      description: The number of allowed requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Remaining:
+      description: The number of remaining requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Reset:
+      description: The number of seconds left in the current period
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer   
   schemas:
     FasciaISEE:
       type: object
+      additionalProperties: false
       x-examples:
         Example 1:
           iseeBand: FASCIA 1
@@ -177,16 +227,21 @@ components:
           description: Nome della Fascia ISEE
           example: FASCIA 1
           readOnly: true
+          minLength: 1
+          maxLength: 20           
         minValue:
           type: integer
           format: int32
           description: Valore minimo dell'ISEE per la fascia corrispondente
           minimum: 0
+          maximum: 1000000000
           readOnly: true
         maxValue:
           type: integer
           format: int32
           description: Valore massimo dell''ISEE per la fascia corrispondente. Se la fascia non ha un valore massimo definito, viene impostato su "null"
+          minimum: 0
+          maximum: 1000000000          
           nullable: true
           readOnly: true
         numberInRange:
@@ -194,6 +249,7 @@ components:
           format: int32
           description: Numero di studentesse e di studenti con ISEE compreso nell'intervallo minValue e maxValue
           minimum: 0
+          maximum: 500000
           exclusiveMinimum: false
           readOnly: true
       required:

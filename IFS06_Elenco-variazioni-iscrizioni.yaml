@@ -21,6 +21,7 @@ paths:
       summary: Variazioni iscrizioni
       tags:
         - variazioni iscrizioni
+      security: [{}]
       responses:
         '200':
           description: Richiesta eseguita con successo
@@ -28,6 +29,7 @@ paths:
             application/json:
               schema:
                 type: object
+                additionalProperties: false
                 x-examples:
                   Example 1:
                     totElem: 3
@@ -51,30 +53,43 @@ paths:
                     description: totale degli elementi disponibili
                     format: int32
                     readOnly: true
+                    maximum: 256
+                    minimum: 0
                   totPages:
                     type: integer
                     description: totale delle pagine disponibili
                     format: int32
                     readOnly: true
+                    maximum: 256
+                    minimum: 0                    
                   currentPage:
                     type: integer
                     description: numero della pagina corrente restituita
                     format: int32
                     readOnly: true
+                    maximum: 256
+                    minimum: 0                    
                   perPage:
                     type: integer
                     description: numero di elementi presenti nella pagina
                     format: int32
                     readOnly: true
+                    maximum: 256
+                    minimum: 0                    
                   data:
                     type: object
+                    additionalProperties: false
                     description: dati effettivi della pagina corrente
+                    maxItems: 256
+                    minItems: 0
                     required:
                       - students
                     properties:
                       students:
                         type: array
                         description: Elenco di studentesse e studenti che hanno avuto variazioni nelle iscrizioni
+                        maxItems: 100
+                        minItems: 0                        
                         items:
                           $ref: '#/components/schemas/Studente'
                 required:
@@ -135,6 +150,7 @@ paths:
             format: int32
             default: 1
             minimum: 1
+            maximum: 256
           in: query
           name: page
           description: Numero della pagina che si vuole visualizzare
@@ -144,6 +160,7 @@ paths:
             format: int32
             default: 15
             minimum: 1
+            maximum: 256
           in: query
           name: limit
           description: Numero massimo di elementi per pagina
@@ -155,15 +172,48 @@ paths:
       description: Verificare lo stato di salute del sistema
       tags:
         - health-check
+      security: [{}]
       responses:
         '204':
           description: il servizio è in esecuzione correttamente.
         '500':
           description: il servizio non è in esecuzione.
 components:
+  headers:
+    Retry-After:
+      description: |-
+        Retry contacting the endpoint *at least* after seconds.
+        See https://tools.ietf.org/html/rfc7231#section-7.1.3
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer
+    X-RateLimit-Limit:
+      description: The number of allowed requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Remaining:
+      description: The number of remaining requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Reset:
+      description: The number of seconds left in the current period
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer  
   schemas:
     Studente:
       title: Studente
+      additionalProperties: false
       x-stoplight:
         id: h5iin6mdxsvx1
       type: object
@@ -178,6 +228,8 @@ components:
           type: string
           description: Nome completo
           readOnly: true
+          minLength: 1
+          maxLength: 256          
         taxCode:
           type: string
           description: Codice fiscale
