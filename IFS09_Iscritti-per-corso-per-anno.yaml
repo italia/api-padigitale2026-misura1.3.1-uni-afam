@@ -1,0 +1,11 @@
+openapi: 3.0.0
+info:
+  title: IFS09 - Iscritti a un corso per anno
+  version: 1.0.0
+  description: |
+    Vuole acquisire il numero di studentesse e studenti iscritti a un corso di laurea per anno accademico
+paths:
+  /stats/iscritti:
+    get:
+      description: Richiede il numero di studentesse e studenti iscritti a un corso per anno accademico
+

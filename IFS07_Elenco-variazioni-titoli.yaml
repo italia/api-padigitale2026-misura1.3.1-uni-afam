@@ -1,0 +1,10 @@
+openapi: 3.0.0
+info:
+  title: IFS07 - Elenco variazione titoli
+  version: 1.0.0
+  description: |
+    Vuole acquisire la lista delle studentesse e degli studenti che hanno subito un cambio di stato hai relativi titoli conseguiti tra un istante t0 e uno t1 
+paths:
+  /variazioni-titoli:
+    get:
+      description: Richiede la lista delle studentesse e degli studenti con lo stato dei titoli variato dall'istante t

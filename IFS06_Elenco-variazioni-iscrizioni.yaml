@@ -1,0 +1,11 @@
+openapi: 3.0.0
+info:
+  title: IFS06 - Elenco Variazioni Iscrizioni
+  version: 1.0.0
+  description: |
+    Vuole acquisire la lista delle studentesse e degli studenti che hanno subito un cambio di stato alla relativa iscrizione tra un istante t0 e uno t1.
+paths:
+  /variazioni-iscrizioni:
+    get:
+      description: Richiede la lista delle studentesse e degli studenti con lo stato delle iscrizioni variato dall'istante t
+      

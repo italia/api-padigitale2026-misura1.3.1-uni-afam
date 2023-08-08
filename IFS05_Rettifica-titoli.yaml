@@ -1,0 +1,16 @@
+openapi: 3.0.0
+info:
+  title: IFS05 - Rettifica titoli
+  version: 1.0.0
+  description: |
+    Vuole richiedere la rettifica dei dati di un titolo conseguito o mancante di una studentessa o di uno studente
+paths:
+  /rettifiche-titoli:
+    post:
+      description: Permette di creare una richiesta di rettifica dei dati relativi ai titoli di una studentessa o uno studente
+  '/rettifiche-titoli/{taxCode}':
+    get:
+      description: Richiede periodicamente lo stato delle richieste di rettifica dei titoli di una studentessa o uno studente
+  '/rettifiche-titoli/{rectificationId}/dettaglio':
+    get:
+      description: Riechiede periodicamente lo stato di una specifica richiesta di rettifica titolo

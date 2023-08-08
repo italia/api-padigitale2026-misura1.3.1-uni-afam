@@ -1,0 +1,17 @@
+openapi: 3.0.0
+info:
+  title: IFS04 - Rettifica iscrizioni
+  version: 1.0.0
+  description: |
+    Vuole richiedere la rettifica dei dati di un iscrizione, di un'iscrizione mancante o di un'iscrizione in eccesso per una studentessa o per uno studente
+paths:
+  /rettifiche-iscrizioni:
+    post:
+      description: Permette di creare una richiesta di rettifica dei dati relativi alle iscrizioni di una studentessa o uno studente.
+  '/rettifiche-iscrizioni/{taxCode}':
+    get:
+      description: Richiede periodiamcente lo stato delle richieste di rettifica iscrizioni di una studentessa o uno studente
+  '/rettifiche-iscrizioni/{rectificationId}/dettaglio':
+    get:
+      description: Riechiede periodicamente lo stato di una specifica richiesta di rettifica iscrizione
+

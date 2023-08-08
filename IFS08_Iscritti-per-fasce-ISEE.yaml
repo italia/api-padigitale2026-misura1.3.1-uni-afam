@@ -1,0 +1,11 @@
+openapi: 3.0.0
+info:
+  title: IFS08 - Iscritti per fasce ISEE
+  version: 1.0.0
+  description: |
+    Vuole acquisire il numero di studentesse e studenti per fasce ISEE e per corso di laurea in un anno accademico
+paths:
+  /stats/iscritti-per-isee:
+    get:
+      description: Richiede la lista del numero di studentesse e studenti per fasce ISEE  e per corso di laurea in un anno accademico
+
