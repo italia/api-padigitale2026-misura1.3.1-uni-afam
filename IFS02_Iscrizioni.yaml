@@ -2,11 +2,11 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: IFS02 - Recupero dettaglio iscrizioni
-  x-summary: Dettaglio iscrizioni di una studentessa o uno studente
+  title: IFS02 - Recupero dettaglio iscrizioni / Retrieve enrollment details
+  x-summary: Dettaglio iscrizioni di una studentessa o uno studente / Enrollment detail of a student
   version: 1.0.0
   description: |
-   Fornisce informazioni di dettaglio riguardanti le iscrizioni di una studentessa o uno studente all'università o AFAM pubblico.
+   Fornisce informazioni di dettaglio riguardanti le iscrizioni di una studentessa o uno studente all'università o AFAM pubblico. / Provides detailed information regarding the enrollment of student at a public university or AFAM
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -26,15 +26,15 @@ paths:
         name: taxCode
         in: path
         required: true
-        description: Codice Fiscale
+        description: Codice Fiscale / Tax Identification Number 
     get:
-      summary: Recupero iscrizioni di una studentessa o di uno studente
+      summary: Recupero iscrizioni di una studentessa o di uno studente / Retrieve enrollment details of student
       tags:
         - iscrizioni
       security: [{}]
       responses:
         '200':
-          description: Richiesta eseguita con successo
+          description: Richiesta eseguita con successo / Request successfully executed
           content:
             application/json:
               schema:
@@ -58,9 +58,8 @@ paths:
                         courseName: Ingegneria
                         classCode: L-8
                         className: Ingegneria informatica
-                        registrationYear: 2019/2020
-                        enrolmentYear: 2021/2022
-                        courseYear: 3° anno
+                        academicYear: 2021/2022
+                        courseYear: 3
                       - _id: c79b1a8e2d16000003aaf5c2
                         instituteCode: IFNAP1
                         instituteName: Università Federico II di Napoli
@@ -69,9 +68,8 @@ paths:
                         courseName: Ingegneria informatica
                         classCode: LM-32
                         className: Ingegneria informatica
-                        registrationYear: 2022/2023
-                        enrolmentYear: 2022/2023
-                        courseYear: 1° anno
+                        academicYear: 2022/2023
+                        courseYear: 1
                 Example 2:
                   value:
                     personalData:
@@ -83,25 +81,25 @@ paths:
                       birthPlace: Roma
                     enrolments: []
         '404':
-          description: Non sono state trovate iscrizioni per la studentessa o lo studente in questo istituto
+          description: Non sono state trovate iscrizioni per la studentessa o lo studente in questo istituto / No enrollments were found for the student at this institution
         '500':
-          description: Errore interno del server
+          description: Errore interno del server / Internal server error
       operationId: enrolments-of-student
-      description: Restituisce i dettagli delle iscrizioni di una studentessa o di uno studente
+      description: Restituisce i dettagli delle iscrizioni di una studentessa o di uno studente / Returns the enrollment details of student
       parameters: []
   /status:
     get:
       summary: Verifica stato delle API (Health Check)
       security: [{}]
       operationId: check-status
-      description: Verificare lo stato di salute del sistema
+      description: Verificare lo stato di salute del sistema / Check the system's health status
       tags:
         - health-check
       responses:
         '204':
-          description: il servizio è in esecuzione correttamente.
+          description: il servizio è in esecuzione correttamente. / The service is running correctly.
         '500':
-          description: il servizio non è in esecuzione.
+          description: il servizio non è in esecuzione. / The service is not running.
 components:
   headers:
     Retry-After:
@@ -114,21 +112,21 @@ components:
         minimum: 0
         type: integer
     X-RateLimit-Limit:
-      description: The number of allowed requests in the current period
+      description: Numero di richieste consentite nel periodo attuale / The number of allowed requests in the current period
       schema:
         format: int32
         maximum: 1000000
         minimum: 0
         type: integer
     X-RateLimit-Remaining:
-      description: The number of remaining requests in the current period
+      description: Numero di richieste rimanenti nel periodo attuale/ The number of remaining requests in the current period
       schema:
         format: int32
         maximum: 1000000
         minimum: 0
         type: integer
     X-RateLimit-Reset:
-      description: The number of seconds left in the current period
+      description: Numero di secondi rimanenti nel periodo attuale / The number of seconds left in the current period
       schema:
         format: int32
         maximum: 186400
@@ -156,9 +154,8 @@ components:
               courseName: Ingegneria
               classCode: L-8
               className: Ingegneria informatica
-              registrationYear: 2019/2020
-              enrolmentYear: 2021/2022
-              courseYear: 3° anno
+              academicYear: 2021/2022
+              courseYear: 3
             - _id: c79b1a8e2d16000003aaf5c2
               instituteCode: IFNAP1
               instituteName: Università Federico II di Napoli
@@ -167,10 +164,9 @@ components:
               courseName: Ingegneria informatica
               classCode: LM-32
               className: Ingegneria informatica
-              registrationYear: 2022/2023
-              enrolmentYear: 2022/2023
-              courseYear: 1° anno
-      description: Dettaglio iscrizioni di una studentessa o di uno studente
+              academicYear: 2022/2023
+              courseYear: 1
+      description: Dettaglio iscrizioni di una studentessa o di uno studente / Enrollment details of student
       x-stoplight:
         id: 22de4be4ac251
       properties:
@@ -180,7 +176,7 @@ components:
           type: array
           maxItems: 256
           minItems: 0
-          description: Elenco iscrizioni di una studentessa o di uno studente
+          description: Elenco iscrizioni di una studentessa o di uno studente / List of enrollments for student
           items:
             $ref: '#/components/schemas/Iscrizione'
       required:
@@ -189,6 +185,18 @@ components:
     Iscrizione:
       type: object
       additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/yyy/
+        instituteCode: instituteCode
+        instituteName: instituteName
+        courseType: courseType
+        courseCode: courseCode
+        courseName: courseName
+        classCode: classCode
+        className: className
+        academicYear: academicYear
+        courseYear: courseYear
       x-examples:
         Example 1:
           _id: 908d3e72b51a6f0034e2a11c
@@ -199,77 +207,70 @@ components:
           courseName: Ingegneria
           classCode: L-8
           className: Ingegneria informatica
-          registrationYear: 2019/2020
-          enrolmentYear: 2021/2022
-          courseYear: 3° anno
-      description: Informazioni dettagliate sull'iscrizione
+          academicYear: 2021/2022
+          courseYear: 3
+      description: Informazioni dettagliate sull'iscrizione / Detailed enrollment information
       properties:
         _id:
           type: string
-          description: id dell'iscrizione della studentessa o dello studente
+          description: id dell'iscrizione della studentessa o dello studente / Enrollment ID of the student
           example: '127112'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 50
         instituteCode:
           type: string
-          description: Codice identificativo dell’istituto
-          example: 'UFS1025'
+          description: Codice identificativo dell’istituto / Institutional identification code [** DA DEFINIRE PATTERN CORRETTO **]
+          example: 'C0'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 50
         instituteName:
           type: string
-          description: Denominazione dell’istituto
-          example: 'Università degli studi di Milano'
+          description: Denominazione dell’istituto / Institution name
+          example: 'Roma - Università degli studi del "Foro Italico"'
           readOnly: true
           minLength: 1
           maxLength: 256
         courseType:
           type: string
-          description: Tipologia del corso di studio
+          description: Tipologia del corso di studio / Type of study program
           example: 'laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale'
           readOnly: true
           minLength: 1
           maxLength: 256
         courseCode:
           type: string
-          description: Codice del corso
-          pattern: '^[A-Z\d]{2,4}\d{2,4}$'
+          description: Codice del corso / Course code [** DA DEFINIRE PATTERN CORRETTO **]
+          #pattern: '^[A-Z\d]{2,4}\d{2,4}$'
           readOnly: true
           minLength: 4
-          maxLength: 8
+          maxLength: 20
         courseName:
           type: string
-          description: Denominazione corso
+          description: Denominazione corso / Course name
           example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
           readOnly: true
           minLength: 1
           maxLength: 256
         classCode:
           type: string
-          description: Codice identificativo della classe di laurea
-          pattern: '^[A-Z]+-\d{1,2}$'
+          description: Codice identificativo della classe di laurea / Identification code of the degree class [** DA DEFINIRE PATTERN CORRETTO **]
+          #pattern: '^[A-Z]+-\d{1,2}$'
           example: L-8
           readOnly: true
-          minLength: 1
-          maxLength: 10
+          minLength: 2
+          maxLength: 20
         className:
           type: string
-          description: Denominazione della classe di laurea
+          description: Denominazione della classe di laurea / Name of the degree class
           example: 'Informatica, Meccanica, Elettronica, Civile'
           readOnly: true
           minLength: 1
           maxLength: 256
-        registrationYear:
+        academicYear:
           type: string
-          description: Anno accademico di immatricolazione della studentessa o dello studente
-          pattern: '^\d{4}/\d{4}$'
-          minLength: 9
-          maxLength: 9
-        enrolmentYear:
-          type: string
-          description: Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente
+          description: Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente / Last academic year in which enrollment in the student's course is recorded
           example: 2022/2023
           pattern: '^\d{4}/\d{4}$'
           readOnly: true
@@ -277,12 +278,12 @@ components:
           maxLength: 9
         courseYear:
           type: string
-          description: Ultimo anno in cui risulta l'iscrizione al corso della studentessa o dello studente
-          example: 3° anno
-          pattern: ^\d+° anno$
+          description: Ultimo anno in cui risulta l'iscrizione al corso della studentessa o dello studente / Last year in which enrollment in the student's course is recorded
+          example: 3
+          pattern: ^\d{2}$
           readOnly: true
-          minLength: 1
-          maxLength: 9
+          minLength: 2
+          maxLength: 2
       required:
         - _id
         - instituteCode
@@ -292,12 +293,20 @@ components:
         - courseName
         - classCode
         - className
-        - registrationYear
-        - enrolmentYear
+        - academicYear
         - courseYear
     DatiPersonali:
       type: object
       additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/CPV/
+        givenName: givenName
+        taxCode: taxCode
+        familyName: familyName
+        birthDate: dateOfBirth
+        birthPlace: hasBirthPlace
+        personID: personID      
       x-examples:
         Example 1:
           taxCode: RSSMRA80A01F205D
@@ -306,11 +315,11 @@ components:
           familyName: Rossi
           birthDate: '1990-05-17'
           birthPlace: Roma
-      description: Dati personali della studentessa o dello studente
+      description: Dati personali della studentessa o dello studente / Personal data of the student
       properties:
         taxCode:
           type: string
-          description: Codice Fiscale
+          description: Codice Fiscale / Tax Identification Number 
           example: RSSMRA80A01F205D
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
           minLength: 16
@@ -318,7 +327,7 @@ components:
           readOnly: true
         personID:
           type: string
-          description: Identificativo ANPR
+          description: Identificativo ANPR / ANPR Identifier
           maxLength: 9
           minLength: 9
           pattern: '^[A-Z0-9]{8}[A-Z]$'
@@ -326,7 +335,7 @@ components:
           readOnly: true
         givenName:
           type: string
-          description: Nome
+          description: Nome / Name
           example: Mario
           pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
           readOnly: true
@@ -334,7 +343,7 @@ components:
           maxLength: 256
         familyName:
           type: string
-          description: Cognome
+          description: Cognome / Surname
           example: Rossi
           pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
           readOnly: true
@@ -345,12 +354,12 @@ components:
           format: date
           example: '1990-05-17'
           pattern: '^\d{4}-\d{2}-\d{2}$'
-          description: Data di nascita
+          description: Data di nascita / Date of birth
           readOnly: true
         birthPlace:
           type: string
           example: Rome
-          description: Luogo di nascita
+          description: Luogo di nascita / Place of birth
           readOnly: true
           minLength: 1
           maxLength: 256
