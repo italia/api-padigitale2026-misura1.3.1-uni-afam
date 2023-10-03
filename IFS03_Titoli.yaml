@@ -61,8 +61,8 @@ paths:
                         classCode: LM-32
                         className: Ingegneria informatica
                         academicQualificationDate: '2022-07-01'
-                        academicQualificationVote: '110'
-                        courseMaximumGrade: 110L
+                        gradeValue: '110'
+                        GradingScale: 110L
                       - _id: 3f67d91a4b52080005e890cd
                         instituteCode: IFSRM1
                         instituteName: Università degli Studi di Roma 'La Sapienza'
@@ -73,8 +73,8 @@ paths:
                         classCode: DR-003
                         className: Intelligenza artificiale
                         academicQualificationDate: '2022-07-01'
-                        academicQualificationVote: '-'
-                        courseMaximumGrade: '-'
+                        gradeValue: '-'
+                        GradingScale: '-'
                 Example 2:
                   value:
                     personalData:
@@ -160,8 +160,8 @@ components:
               classCode: LM-32
               className: Ingegneria informatica
               academicQualificationDate: '2022-07-01'
-              academicQualificationVote: '110'
-              courseMaximumGrade: 110L
+              gradeValue: '110'
+              GradingScale: 110L
             - _id: 3f67d91a4b52080005e890cd
               instituteCode: IFSRM1
               instituteName: Università degli Studi di Roma 'La Sapienza'
@@ -172,8 +172,8 @@ components:
               classCode: DR-003
               className: Intelligenza artificiale
               academicQualificationDate: '2022-07-01'
-              academicQualificationVote: '-'
-              courseMaximumGrade: '-'
+              gradeValue: '-'
+              GradingScale: '-'
       description: Anagrafica ed elenco titoli conseguiti da una studentessa o uno studente
       x-stoplight:
         id: 15d3067a4c448
@@ -193,6 +193,20 @@ components:
     Titolo:
       type: object
       additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/yyy/
+        instituteCode: instituteCode
+        instituteName: instituteName
+        titleName: titleName
+        courseType: courseType
+        courseCode: courseCode
+        courseName: courseName
+        classCode: classCode
+        className: className 
+        academicQualificationDate: academicQualificationDate
+        gradeValue: gradeValue
+        GradingScale: GradingScale
       x-examples:
         Example 1:
           _id: 201c59d6a7b800e917c63a1f
@@ -205,8 +219,8 @@ components:
           classCode: LM-32
           className: Ingegneria informatica
           academicQualificationDate: '2022-07-01'
-          academicQualificationVote: '110'
-          courseMaximumGrade: 110L
+          gradeValue: '110'
+          GradingScale: 110L
       description: Dettaglio titolo
       properties:
         _id:
@@ -275,7 +289,7 @@ components:
           example: '2023-05-15'
           format: date
           readOnly: true
-        academicQualificationVote:
+        gradeValue: #"prima si chiamava academicQualificationVote"
           type: string
           description: Voto ottenuto al conseguimento del titolo di studio
           pattern: ^(\d+)L?|-$
@@ -283,7 +297,7 @@ components:
           maxLength: 4          
           example: 110L
           readOnly: true
-        courseMaximumGrade:
+        GradingScale: #cercare la struttura gradingScale per modificare questo campo "GradingScale" prima si chiamava "courseMaximumGrade"
           type: string
           example: '110'
           pattern: '^\d{1,3}L?|-$'
@@ -302,11 +316,20 @@ components:
         - classCode
         - className
         - academicQualificationDate
-        - academicQualificationVote
-        - courseMaximumGrade
+        - gradeValue
+        - GradingScale
     DatiPersonali:
       type: object
       additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/CPV/
+        givenName: givenName
+        taxCode: taxCode
+        familyName: familyName
+        birthDate: dateOfBirth
+        birthPlace: hasBirthPlace
+        personID: personID         
       x-examples:
         Example 1:
           taxCode: RSSMRA80A01F205D

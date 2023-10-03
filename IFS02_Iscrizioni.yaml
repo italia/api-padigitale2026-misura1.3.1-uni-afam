@@ -58,9 +58,8 @@ paths:
                         courseName: Ingegneria
                         classCode: L-8
                         className: Ingegneria informatica
-                        registrationYear: 2019/2020
-                        enrolmentYear: 2021/2022
-                        courseYear: 3° anno
+                        academicYear: 2021/2022
+                        courseYear: 3
                       - _id: c79b1a8e2d16000003aaf5c2
                         instituteCode: IFNAP1
                         instituteName: Università Federico II di Napoli
@@ -69,9 +68,8 @@ paths:
                         courseName: Ingegneria informatica
                         classCode: LM-32
                         className: Ingegneria informatica
-                        registrationYear: 2022/2023
-                        enrolmentYear: 2022/2023
-                        courseYear: 1° anno
+                        academicYear: 2022/2023
+                        courseYear: 1
                 Example 2:
                   value:
                     personalData:
@@ -156,9 +154,8 @@ components:
               courseName: Ingegneria
               classCode: L-8
               className: Ingegneria informatica
-              registrationYear: 2019/2020
-              enrolmentYear: 2021/2022
-              courseYear: 3° anno
+              academicYear: 2021/2022
+              courseYear: 3
             - _id: c79b1a8e2d16000003aaf5c2
               instituteCode: IFNAP1
               instituteName: Università Federico II di Napoli
@@ -167,9 +164,8 @@ components:
               courseName: Ingegneria informatica
               classCode: LM-32
               className: Ingegneria informatica
-              registrationYear: 2022/2023
-              enrolmentYear: 2022/2023
-              courseYear: 1° anno
+              academicYear: 2022/2023
+              courseYear: 1
       description: Dettaglio iscrizioni di una studentessa o di uno studente / Enrollment details of student
       x-stoplight:
         id: 22de4be4ac251
@@ -199,8 +195,7 @@ components:
         courseName: courseName
         classCode: classCode
         className: className
-        registrationYear: registrationYear
-        enrolmentYear: enrolmentYear
+        academicYear: academicYear
         courseYear: courseYear
       x-examples:
         Example 1:
@@ -212,9 +207,8 @@ components:
           courseName: Ingegneria
           classCode: L-8
           className: Ingegneria informatica
-          registrationYear: 2019/2020
-          enrolmentYear: 2021/2022
-          courseYear: 3° anno
+          academicYear: 2021/2022
+          courseYear: 3
       description: Informazioni dettagliate sull'iscrizione / Detailed enrollment information
       properties:
         _id:
@@ -226,15 +220,15 @@ components:
           maxLength: 50
         instituteCode:
           type: string
-          description: Codice identificativo dell’istituto / Institutional identification code
-          example: 'UFS1025'
+          description: Codice identificativo dell’istituto / Institutional identification code [** DA DEFINIRE PATTERN CORRETTO **]
+          example: 'C0'
           readOnly: true
           minLength: 1
           maxLength: 50
         instituteName:
           type: string
           description: Denominazione dell’istituto / Institution name
-          example: 'Università degli studi di Milano'
+          example: 'Roma - Università degli studi del "Foro Italico"'
           readOnly: true
           minLength: 1
           maxLength: 256
@@ -247,26 +241,26 @@ components:
           maxLength: 256
         courseCode:
           type: string
-          description: Codice del corso / Course code
-          pattern: '^[A-Z\d]{2,4}\d{2,4}$'
+          description: Codice del corso / Course code [** DA DEFINIRE PATTERN CORRETTO **]
+          #pattern: '^[A-Z\d]{2,4}\d{2,4}$'
           readOnly: true
           minLength: 4
-          maxLength: 8
+          maxLength: 20
         courseName:
           type: string
-          description: Denominazione corso / Couse name
+          description: Denominazione corso / Course name
           example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
           readOnly: true
           minLength: 1
           maxLength: 256
         classCode:
           type: string
-          description: Codice identificativo della classe di laurea / Identification code of the degree class
-          pattern: '^[A-Z]+-\d{1,2}$'
+          description: Codice identificativo della classe di laurea / Identification code of the degree class [** DA DEFINIRE PATTERN CORRETTO **]
+          #pattern: '^[A-Z]+-\d{1,2}$'
           example: L-8
           readOnly: true
-          minLength: 1
-          maxLength: 10
+          minLength: 2
+          maxLength: 20
         className:
           type: string
           description: Denominazione della classe di laurea / Name of the degree class
@@ -274,13 +268,7 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 256
-        registrationYear:
-          type: string
-          description: Anno accademico di immatricolazione della studentessa o dello studente / Academic year of enrollment for student.
-          pattern: '^\d{4}/\d{4}$'
-          minLength: 9
-          maxLength: 9
-        enrolmentYear:
+        academicYear:
           type: string
           description: Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente / Last academic year in which enrollment in the student's course is recorded
           example: 2022/2023
@@ -291,11 +279,11 @@ components:
         courseYear:
           type: string
           description: Ultimo anno in cui risulta l'iscrizione al corso della studentessa o dello studente / Last year in which enrollment in the student's course is recorded
-          example: 3° anno
-          pattern: ^\d+° anno$
+          example: 3
+          pattern: ^\d{2}$
           readOnly: true
-          minLength: 1
-          maxLength: 9
+          minLength: 2
+          maxLength: 2
       required:
         - _id
         - instituteCode
@@ -305,8 +293,7 @@ components:
         - courseName
         - classCode
         - className
-        - registrationYear
-        - enrolmentYear
+        - academicYear
         - courseYear
     DatiPersonali:
       type: object
