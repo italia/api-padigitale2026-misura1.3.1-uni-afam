@@ -16,16 +16,16 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
-  '/students/Enrollments':
+  '/students/enrollments':
     parameters:
-        - name: PersonID
+        - name: personID
           in: query
           required: false
           schema:
             type: string
             maxLength: 9
             minLength: 9
-            description: ANPR Identifier / Identificativo ANPR 
+            description: National unique identifier / Identificativo unico nazionale
             pattern: "^[A-Z0-9]{8}[A-Z]$"
         - name: taxCode
           in: query
@@ -34,12 +34,12 @@ paths:
             type: string
             maxLength: 16
             minLength: 16
-            description: Codice Fiscale / Tax Identification Number 
+            description: Tax Identification Number / Codice Fiscale 
             pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"    
     get:
       summary: Retrieve enrollment details of student / Recupero iscrizioni di una studentessa o di uno studente 
       tags:
-        - iscrizioni
+        - Enrollments
       security: [{}]
       responses:
         '200':
@@ -59,7 +59,7 @@ paths:
                       birthDate: '1990-05-17'
                       birthPlace: Roma
                     Enrollments:
-                      - instituteCode: 16
+                      - instituteCode: '16'
                         instituteName: Milano - Politecnico
                         courseType: Corso di laurea
                         courseCode: INF101
@@ -276,13 +276,14 @@ components:
           minLength: 9
           maxLength: 9
         courseYear:
-          type: string
+          type: integer
+          format: int32
           description: Last year in which enrollment in the student's course is recorded / Ultimo anno in cui risulta l'iscrizione al corso della studentessa o dello studente
           example: 3
           pattern: ^\d{2}$
           readOnly: true
-          minLength: 2
-          maxLength: 2
+          minimum: 1
+          maximum: 99
       required:
         - instituteCode
         - instituteName
@@ -361,18 +362,11 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 256
-      required:
-        - taxCode
-        - personID
-        - givenName
-        - familyName
-        - birthDate
-        - birthPlace
   requestBodies: {}
   responses: {}
 servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: iscrizioni
+  - name: Enrollments
   - name: health-check
