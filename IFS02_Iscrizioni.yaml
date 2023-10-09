@@ -47,7 +47,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StudentdEnrollments'
+                $ref: '#/components/schemas/StudentEnrollments'
               examples:
                 Example 1:
                   value:
@@ -61,7 +61,7 @@ paths:
                     Enrollments:
                       - instituteCode: '16'
                         instituteName: Milano - Politecnico
-                        courseType: Corso di laurea
+                        studyProgrammme: Corso di laurea
                         courseCode: INF101
                         courseName: Ingegneria
                         classCode: L-8
@@ -70,7 +70,7 @@ paths:
                         courseYear: 3
                       - instituteCode: C6
                         instituteName: Milano-Bicocca - Università degli studi
-                        courseType: Corso di laurea magistrale
+                        studyProgrammme: Corso di laurea magistrale
                         courseCode: INF200
                         courseName: Ingegneria informatica
                         classCode: LM-32
@@ -142,7 +142,7 @@ components:
         minimum: 0
         type: integer
   schemas:
-    StudentdEnrollments:
+    StudentEnrollments:
       additionalProperties: false
       type: object
       x-examples:
@@ -157,7 +157,7 @@ components:
           Enrollments:
             - instituteCode: 16
               instituteName: Milano - Politecnico
-              courseType: Corso di laurea
+              studyProgrammme: Corso di laurea
               courseCode: INF101
               courseName: Ingegneria
               classCode: L-8
@@ -166,7 +166,7 @@ components:
               courseYear: 3
             - instituteCode: C6
               instituteName: Milano-Bicocca - Università degli studi
-              courseType: Corso di laurea magistrale
+              studyProgrammme: Corso di laurea magistrale
               courseCode: INF200
               courseName: Ingegneria informatica
               classCode: LM-32
@@ -197,7 +197,7 @@ components:
         '@vocab': http://w3id.org/italia/onto/yyy/
         instituteCode: instituteCode
         instituteName: instituteName
-        courseType: courseType
+        studyProgrammme: studyProgrammme
         courseCode: courseCode
         courseName: courseName
         classCode: classCode
@@ -208,7 +208,7 @@ components:
         Example 1:
           instituteCode: 16
           instituteName: Milano - Politecnico
-          courseType: Corso di laurea
+          studyProgrammme: Corso di laurea
           courseCode: INF101
           courseName: Ingegneria
           classCode: L-8
@@ -231,7 +231,7 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 256
-        courseType:
+        studyProgrammme:
           type: string
           description: Type of study program / Tipologia del corso di studio
           example: 'laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale'
@@ -287,7 +287,7 @@ components:
       required:
         - instituteCode
         - instituteName
-        - courseType
+        - studyProgrammme
         - courseCode
         - courseName
         - classCode
