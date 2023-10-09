@@ -63,7 +63,7 @@ paths:
                       - instituteCode: IFSRM1
                         instituteName: Università degli Studi di Roma 'La Sapienza'
                         titleName: Dottore magistrale
-                        courseType: Laurea magistrale
+                        studyProgrammme: Laurea magistrale
                         courseCode: INF200
                         courseName: Ingegneria
                         classCode: LM-32
@@ -74,7 +74,7 @@ paths:
                       - instituteCode: IFSRM1
                         instituteName: Università degli Studi di Roma 'La Sapienza'
                         titleName: Dottore di ricerca
-                        courseType: Dottorato di ricerca
+                        studyProgrammme: Dottorato di ricerca
                         courseCode: DR101
                         courseName: Informatica
                         classCode: DR-003
@@ -162,7 +162,7 @@ components:
             - instituteCode: IFSRM1
               instituteName: Università degli Studi di Roma 'La Sapienza'
               titleName: Dottore magistrale
-              courseType: Laurea magistrale
+              studyProgrammme: Laurea magistrale
               courseCode: INF200
               courseName: Ingegneria
               classCode: LM-32
@@ -173,7 +173,7 @@ components:
             - instituteCode: IFSRM1
               instituteName: Università degli Studi di Roma 'La Sapienza'
               titleName: Dottore di ricerca
-              courseType: Dottorato di ricerca
+              studyProgrammme: Dottorato di ricerca
               courseCode: DR101
               courseName: Informatica
               classCode: DR-003
@@ -206,7 +206,7 @@ components:
         instituteCode: instituteCode
         instituteName: instituteName
         titleName: titleName
-        courseType: courseType
+        studyProgrammme: studyProgrammme
         courseCode: courseCode
         courseName: courseName
         classCode: classCode
@@ -219,7 +219,7 @@ components:
           instituteCode: IFSRM1
           instituteName: Università degli Studi di Roma 'La Sapienza'
           titleName: Dottore magistrale
-          courseType: Laurea magistrale
+          studyProgrammme: Laurea magistrale
           courseCode: INF200
           courseName: Ingegneria
           classCode: LM-32
@@ -247,7 +247,7 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 256
-        courseType:
+        studyProgrammme:
           type: string
           description: Type of course of study / Tipo di corso di studio
           example: laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale
@@ -310,7 +310,7 @@ components:
         - instituteCode
         - instituteName
         - titleName
-        - courseType
+        - studyProgrammme
         - courseCode
         - courseName
         - classCode
