@@ -62,21 +62,21 @@ paths:
                       - instituteCode: '16'
                         instituteName: Milano - Politecnico
                         studyProgrammme: Corso di laurea
-                        courseCode: INF101
-                        courseName: Ingegneria
-                        classCode: L-8
-                        className: Ingegneria informatica
+                        degreeCourseCode: '1573960'
+                        degreeCourseName: Ingegneria
+                        degreeClassCode: L-8
+                        degreeClassName: Ingegneria informatica
                         academicYear: 2021/2022
-                        courseYear: 3
+                        degreeCourseYear: 3
                       - instituteCode: C6
                         instituteName: Milano-Bicocca - Università degli studi
                         studyProgrammme: Corso di laurea magistrale
-                        courseCode: INF200
-                        courseName: Ingegneria informatica
-                        classCode: LM-32
-                        className: Ingegneria informatica
+                        degreeCourseCode: '1573960'
+                        degreeCourseName: Ingegneria informatica
+                        degreeClassCode: LM-32
+                        degreeClassName: Ingegneria informatica
                         academicYear: 2022/2023
-                        courseYear: 1
+                        degreeCourseYear: 1
                 Example 2:
                   value:
                     PersonalData:
@@ -158,21 +158,21 @@ components:
             - instituteCode: 16
               instituteName: Milano - Politecnico
               studyProgrammme: Corso di laurea
-              courseCode: INF101
-              courseName: Ingegneria
-              classCode: L-8
-              className: Ingegneria informatica
+              degreeCourseCode: '1573960'
+              degreeCourseName: Ingegneria
+              degreeClassCode: L-8
+              degreeClassName: Ingegneria informatica
               academicYear: 2021/2022
-              courseYear: 3
+              degreeCourseYear: 3
             - instituteCode: C6
               instituteName: Milano-Bicocca - Università degli studi
               studyProgrammme: Corso di laurea magistrale
-              courseCode: INF200
-              courseName: Ingegneria informatica
-              classCode: LM-32
-              className: Ingegneria informatica
+              degreeCourseCode: '1573960'
+              degreeCourseName: Ingegneria informatica
+              degreeClassCode: LM-32
+              degreeClassName: Ingegneria informatica
               academicYear: 2022/2023
-              courseYear: 1
+              degreeCourseYear: 1
       description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
       x-stoplight:
         id: 22de4be4ac251
@@ -198,23 +198,23 @@ components:
         instituteCode: instituteCode
         instituteName: instituteName
         studyProgrammme: studyProgrammme
-        courseCode: courseCode
-        courseName: courseName
-        classCode: classCode
-        className: className
+        degreeCourseCode: degreeCourseCode
+        degreeCourseName: degreeCourseName
+        degreeClassCode: degreeClassCode
+        degreeClassName: degreeClassName
         academicYear: academicYear
-        courseYear: courseYear
+        degreeCourseYear: degreeCourseYear
       x-examples:
         Example 1:
           instituteCode: 16
           instituteName: Milano - Politecnico
           studyProgrammme: Corso di laurea
-          courseCode: INF101
-          courseName: Ingegneria
-          classCode: L-8
-          className: Ingegneria informatica
+          degreeCourseCode: '1573960'
+          degreeCourseName: Ingegneria
+          degreeClassCode: L-8
+          degreeClassName: Ingegneria informatica
           academicYear: 2021/2022
-          courseYear: 3
+          degreeCourseYear: 3
       description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
       properties:
         instituteCode:
@@ -238,21 +238,21 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 256
-        courseCode:
+        degreeCourseCode:
           type: string
           description: Course code / Codice del corso [** DA DEFINIRE PATTERN CORRETTO **]
           #pattern: '^[A-Z\d]{2,4}\d{2,4}$'
           readOnly: true
-          minLength: 4
+          minLength: 1
           maxLength: 20
-        courseName:
+        degreeCourseName:
           type: string
           description: Course name / Denominazione corso
           example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
           readOnly: true
           minLength: 1
           maxLength: 256
-        classCode:
+        degreeClassCode:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea [** DA DEFINIRE PATTERN CORRETTO **]
           #pattern: '^[A-Z]+-\d{1,2}$'
@@ -260,7 +260,7 @@ components:
           readOnly: true
           minLength: 2
           maxLength: 20
-        className:
+        degreeClassName:
           type: string
           description: Name of the degree class / Denominazione della classe di laurea 
           example: 'Informatica, Meccanica, Elettronica, Civile'
@@ -275,7 +275,7 @@ components:
           readOnly: true
           minLength: 9
           maxLength: 9
-        courseYear:
+        degreeCourseYear:
           type: integer
           format: int32
           description: Last year in which enrollment in the student's course is recorded / Ultimo anno in cui risulta l'iscrizione al corso della studentessa o dello studente
@@ -288,12 +288,12 @@ components:
         - instituteCode
         - instituteName
         - studyProgrammme
-        - courseCode
-        - courseName
-        - classCode
-        - className
+        - degreeCourseCode
+        - degreeCourseName
+        - degreeClassCode
+        - degreeClassName
         - academicYear
-        - courseYear
+        - degreeCourseYear
     PersonalData:
       type: object
       additionalProperties: false
