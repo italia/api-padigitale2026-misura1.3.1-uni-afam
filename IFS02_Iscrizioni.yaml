@@ -61,7 +61,7 @@ paths:
                     Enrollments:
                       - instituteCode: '16'
                         instituteName: Milano - Politecnico
-                        studyProgrammme: Corso di laurea
+                        studyProgramme: Corso di laurea
                         degreeCourseCode: '1573960'
                         degreeCourseName: Ingegneria
                         degreeClassCode: L-8
@@ -70,7 +70,7 @@ paths:
                         degreeCourseYear: 3
                       - instituteCode: C6
                         instituteName: Milano-Bicocca - Università degli studi
-                        studyProgrammme: Corso di laurea magistrale
+                        studyProgramme: Corso di laurea magistrale
                         degreeCourseCode: '1573960'
                         degreeCourseName: Ingegneria informatica
                         degreeClassCode: LM-32
@@ -157,7 +157,7 @@ components:
           Enrollments:
             - instituteCode: 16
               instituteName: Milano - Politecnico
-              studyProgrammme: Corso di laurea
+              studyProgramme: Corso di laurea
               degreeCourseCode: '1573960'
               degreeCourseName: Ingegneria
               degreeClassCode: L-8
@@ -166,7 +166,7 @@ components:
               degreeCourseYear: 3
             - instituteCode: C6
               instituteName: Milano-Bicocca - Università degli studi
-              studyProgrammme: Corso di laurea magistrale
+              studyProgramme: Corso di laurea magistrale
               degreeCourseCode: '1573960'
               degreeCourseName: Ingegneria informatica
               degreeClassCode: LM-32
@@ -197,7 +197,7 @@ components:
         '@vocab': http://w3id.org/italia/onto/yyy/
         instituteCode: instituteCode
         instituteName: instituteName
-        studyProgrammme: studyProgrammme
+        studyProgramme: studyProgramme
         degreeCourseCode: degreeCourseCode
         degreeCourseName: degreeCourseName
         degreeClassCode: degreeClassCode
@@ -208,7 +208,7 @@ components:
         Example 1:
           instituteCode: 16
           instituteName: Milano - Politecnico
-          studyProgrammme: Corso di laurea
+          studyProgramme: Corso di laurea
           degreeCourseCode: '1573960'
           degreeCourseName: Ingegneria
           degreeClassCode: L-8
@@ -231,7 +231,7 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 256
-        studyProgrammme:
+        studyProgramme:
           type: string
           description: Type of study program / Tipologia del corso di studio
           example: 'laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale'
@@ -287,7 +287,7 @@ components:
       required:
         - instituteCode
         - instituteName
-        - studyProgrammme
+        - studyProgramme
         - degreeCourseCode
         - degreeCourseName
         - degreeClassCode
