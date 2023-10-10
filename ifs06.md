@@ -1,3 +1,4 @@
+```mermaid
 sequenceDiagram
     autonumber
     IFS->>+IFS: hash(iscrizioni)->vn
@@ -10,3 +11,4 @@ sequenceDiagram
         IFS-->>-ANIS: {student,[isrizioni]}
         ANIS-->>+DB ANIS: update student
     end
+```
