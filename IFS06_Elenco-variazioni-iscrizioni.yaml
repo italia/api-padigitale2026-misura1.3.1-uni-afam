@@ -2,11 +2,11 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: IFS06 - Elenco variazioni iscrizioni
-  x-summary: Acquisisce la lista delle studentesse e degli studenti che hanno subito un cambio di stato alla relativa iscrizione tra un istante t0 e uno t1 compresi (ad es. t0 = 1 gennaio 2019 e t1 = 31 dicembre 2019 per richiedere i dati relativi all'anno solare 2019)
+  title: IFS06 - List of enrollment changes / Elenco variazioni iscrizioni
+  x-summary: Acquires the list of students who have undergone a change of status at the relevant enrollment. / Acquisisce la lista delle studentesse e degli studenti che hanno subito un cambio di stato alla relativa iscrizione.
   version: 1.0.0
   description: |
-    Ottiene l'elenco di codici fiscali delle studentesse e degli studenti che hanno avuto variazioni alle iscrizioni in un certo intervallo di tempo.
+    Obtains the list of students who have had variations in enrollment. / Ottiene l'elenco delle studentesse e degli studenti che hanno avuto variazioni alle iscrizioni.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -16,15 +16,25 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
-  /variazioni-iscrizioni:
+  '/enrollment-changes':
+    parameters:
+      - name: currentPage
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+          description: Current page number / Numero di pagina corrente
+          maximum: 9999
+          minimum: 1
     get:
-      summary: Variazioni iscrizioni
+      summary: Enrollment changes / Variazioni iscrizioni
       tags:
-        - variazioni iscrizioni
+        - enrollment changes
       security: [{}]
       responses:
         '200':
-          description: Richiesta eseguita con successo
+          description: Request successfully executed / Richiesta eseguita con successo
           content:
             application/json:
               schema:
@@ -32,152 +42,142 @@ paths:
                 additionalProperties: false
                 x-examples:
                   Example 1:
-                    totElem: 3
-                    totPages: 1
+                    items: 3
+                    pages: 20
                     currentPage: 1
-                    perPage: 15
+                    itemsPerPage: 15
+                    instituteCode: 'C8'
+                    lastUpd: '2023-09-21'                    
                     data:
-                      students:
-                        - fullName: Mario Rossi
+                      enrollmentChanges:
+                        - hash: 4ef246ed27b83886dd33377c0da06031 
                           taxCode: RSSMRA80A01H501B
                           personID: 1A3B5C7D9
-                        - fullName: Giulia Bianchi
+                        - hash: 4ef246ed27b83886dd33377c0da06031
                           taxCode: BNCGLI85C44D612Y
                           personID: X5Y7Z9A2C
-                        - fullName: Luca Verdi
+                        - hash: 4ef246ed27b83886dd33377c0da06031
                           taxCode: VRDLCA90H23E789Z
                           personID: M8N2P6QR4
                 properties:
-                  totElem:
+                  items:
                     type: integer
-                    description: totale degli elementi disponibili
+                    description: total available items / totale degli elementi disponibili
                     format: int32
                     readOnly: true
                     maximum: 256
                     minimum: 0
-                  totPages:
+                  pages:
                     type: integer
-                    description: totale delle pagine disponibili
+                    description: total pages available / totale delle pagine disponibili
                     format: int32
                     readOnly: true
                     maximum: 256
                     minimum: 0                    
                   currentPage:
                     type: integer
-                    description: numero della pagina corrente restituita
+                    description: number of the current page returned / numero della pagina corrente restituita
                     format: int32
                     readOnly: true
                     maximum: 256
                     minimum: 0                    
-                  perPage:
+                  itemsPerPage:
                     type: integer
-                    description: numero di elementi presenti nella pagina
+                    description: number of elements in the page / numero di elementi presenti nella pagina
                     format: int32
                     readOnly: true
                     maximum: 256
-                    minimum: 0                    
+                    minimum: 0
+                  instituteCode:
+                    type: string
+                    description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+                    example: 'C7'
+                    readOnly: true
+                    minLength: 2
+                    maxLength: 2
+                  lastUpd:
+                    type: string
+                    format: date
+                    description: Date last updated / Data ultimo aggiornamento
+                    example: '2023-10-13'
+                    readOnly: true
+                    pattern: '^\d{4}-\d{2}-\d{2}$'
                   data:
                     type: object
                     additionalProperties: false
-                    description: dati effettivi della pagina corrente
+                    description: actual data of the current page / dati effettivi della pagina corrente
                     maxItems: 256
                     minItems: 0
                     required:
-                      - students
+                      - enrollmentChanges
                     properties:
-                      students:
+                      enrollmentChanges:
                         type: array
-                        description: Elenco di studentesse e studenti che hanno avuto variazioni nelle iscrizioni
+                        description: List of students who had changes in enrollment / Elenco di studentesse e studenti che hanno avuto variazioni nelle iscrizioni
                         maxItems: 100
                         minItems: 0                        
                         items:
-                          $ref: '#/components/schemas/Studente'
+                          $ref: '#/components/schemas/Student'
                 required:
-                  - totElem
-                  - totPages
+                  - items
+                  - pages
                   - currentPage
-                  - perPage
+                  - itemsPerPage
+                  - instituteCode
+                  - lastUpd
                   - data
               examples:
                 Example 1:
                   value:
-                    totElem: 3
-                    totPages: 1
+                    items: 3
+                    pages: 20
                     currentPage: 1
-                    perPage: 15
+                    itemsPerPage: 15
+                    instituteCode: 'C8'
+                    lastUpd: '2023-09-21'
                     data:
-                      students:
-                        - fullName: Mario Rossi
+                      enrollmentChanges:
+                        - hash: 4ef246ed27b83886dd33377c0da06031
                           taxCode: RSSMRA80A01H501B
                           personID: 1A3B5C7D9
-                        - fullName: Giulia Bianchi
+                        - hash: 4ef246ed27b83886dd33377c0da06031
                           taxCode: BNCGLI85C44D612Y
                           personID: X5Y7Z9A2C
-                        - fullName: Luca Verdi
+                        - hash: 4ef246ed27b83886dd33377c0da06031
                           taxCode: VRDLCA90H23E789Z
                           personID: M8N2P6QR4
                 Example 2:
                   value:
-                    totElem: 0
-                    totPages: 1
+                    items: 0
+                    pages: 20
                     currentPage: 1
-                    perPage: 15
+                    itemsPerPage: 15
+                    instituteCode: '19'
+                    lastUpd: '2023-09-21'
                     data:
-                      students: []
+                      enrollmentChanges: []
+        '400':
+          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input                    
+        '404':
+          description: No changes were found in student enrollment / Non sono state trovate variazioni delle iscrizioni degli studenti
         '500':
-          description: Errore interno del server
-      operationId: variazioni-iscrizioni
-      description: restituisce l'elenco di codici fiscali delle studentesse e degli studenti che hanno avuto variazioni alle iscrizioni in un certo intervallo di tempo.
-      parameters:
-        - schema:
-            type: string
-            format: date
-            example: '2022-04-10'
-          in: query
-          name: t0
-          required: true
-          description: data di inizio dell'intervallo da considerare
-        - schema:
-            type: string
-            format: date
-            example: '2023-07-06'
-          in: query
-          name: t1
-          allowEmptyValue: true
-          description: data di fine dell''intervallo da considerare (se non valorizzato vale la data del giorno)
-        - schema:
-            type: integer
-            format: int32
-            default: 1
-            minimum: 1
-            maximum: 256
-          in: query
-          name: page
-          description: Numero della pagina che si vuole visualizzare
-          required: true
-        - schema:
-            type: integer
-            format: int32
-            default: 15
-            minimum: 1
-            maximum: 256
-          in: query
-          name: limit
-          description: Numero massimo di elementi per pagina
-          required: true  
+          description: Internal server error / Errore interno del server
+      operationId: enrollment-changes
+      description: returns the list of students who have had enrollment changes. / restituisce l'elenco delle studentesse e degli studenti che hanno avuto variazioni alle iscrizioni.
+      parameters: []
   /status:
     get:
       summary: Verifica stato delle API (Health Check)
       operationId: check-status
-      description: Verificare lo stato di salute del sistema
+      description: Check the system's health status / Verificare lo stato di salute del sistema
       tags:
         - health-check
       security: [{}]
       responses:
         '204':
-          description: il servizio è in esecuzione correttamente.
+          description: The service is running correctly / Il servizio è in esecuzione correttamente
         '500':
-          description: il servizio non è in esecuzione.
+          description: The service is not running / Il servizio non è in esecuzione
 components:
   headers:
     Retry-After:
@@ -211,28 +211,39 @@ components:
         minimum: 0
         type: integer  
   schemas:
-    Studente:
-      title: Studente
+    Student:
+      title: Student
       additionalProperties: false
+      x-refersTo: https://w3id.org/italia/onto/CPV/Person
+      x-jsonld-context:
+        "@vocab": "https://w3id.org/italia/onto/CPV/"
+        tax_code: taxCode
+        personID: personID      
+        hash:
+          "@id": hash
+          "@type": "@id"
+          "@context":
+            "@base": "https://w3id.org/italia/controlled-vocabulary/classifications-for-people/hash/" #[E' UN ESEMPIO]
       x-stoplight:
         id: h5iin6mdxsvx1
       type: object
-      description: Dati identificativi di una studentessa o di uno studente
+      description: Identification data of a student / Dati identificativi di una studentessa o di uno studente
       x-examples:
         Example 1:
-          fullName: Mario Rossi
+          hash: 4ef246ed27b83886dd33377c0da06031
           taxCode: RSSMRA80A01H501B
           personID: 1A3B5C7D9
       properties:
-        fullName:
+        hash:
           type: string
-          description: Nome completo
+          description: Hash code / Codice hash
           readOnly: true
           minLength: 1
-          maxLength: 256          
+          maxLength: 32
+          example : 4ef246ed27b83886dd33377c0da06031          
         taxCode:
           type: string
-          description: Codice fiscale
+          description: Tax Identification Number / Codice Fiscale
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
           example: RSSMRA80A01H501B
           minLength: 16
@@ -240,13 +251,13 @@ components:
           readOnly: true
         personID:
           type: string
-          description: Identificativo ANPR
+          description: ANPR Identifier / Identificativo ANPR 
           minLength: 9
           maxLength: 9
           pattern: '^[A-Z0-9]{9}$'
           readOnly: true
       required:
-        - fullName
+        - hash
         - taxCode
         - personID
   requestBodies: {}
@@ -255,5 +266,5 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: variazioni iscrizioni
+  - name: enrollment changes
   - name: health-check
