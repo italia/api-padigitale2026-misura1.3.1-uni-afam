@@ -41,7 +41,7 @@ paths:
           required: false
           schema:
             type: string
-            maxLength: 100
+            maxLength: 64
             minLength: 1
             description: Tax Identification Number hash / Codice Fiscale hash
     get:
