@@ -16,9 +16,9 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
-  '/students/enrollments':
+  '/it/student-enrollments':
     parameters:
-        - name: personID
+        - name: person_id
           in: query
           required: false
           schema:
@@ -27,7 +27,7 @@ paths:
             minLength: 9
             description: National unique identifier / Identificativo unico nazionale
             pattern: "^[A-Z0-9]{8}[A-Z]$"
-        - name: taxCode
+        - name: tax_code
           in: query
           required: false
           schema:
@@ -35,11 +35,19 @@ paths:
             maxLength: 16
             minLength: 16
             description: Tax Identification Number / Codice Fiscale 
-            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"    
+            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
+        - name: tax_code_hash
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 64
+            minLength: 1
+            description: Tax Identification Number hash / Codice Fiscale hash
     get:
       summary: Retrieve enrollment details of student / Recupero iscrizioni di una studentessa o di uno studente 
       tags:
-        - Enrollments
+        - enrollments
       security: [{}]
       responses:
         '200':
@@ -47,46 +55,46 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StudentEnrollments'
+                $ref: '#/components/schemas/enrollments'
               examples:
                 Example 1:
                   value:
-                    PersonalData:
-                      taxCode: RSSMRA80A01F205D
-                      personID: AB123456C
-                      givenName: Mario
-                      familyName: Rossi
-                      birthDate: '1990-05-17'
-                      birthPlace: Roma
-                    Enrollments:
-                      - instituteCode: '16'
-                        instituteName: Milano - Politecnico
-                        studyProgramme: Corso di laurea
-                        degreeCourseCode: '1573960'
-                        degreeCourseName: Ingegneria
-                        degreeClassCode: L-8
-                        degreeClassName: Ingegneria informatica
-                        academicYear: 2021/2022
-                        degreeCourseYear: 3
-                      - instituteCode: C6
-                        instituteName: Milano-Bicocca - Università degli studi
-                        studyProgramme: Corso di laurea magistrale
-                        degreeCourseCode: '1573960'
-                        degreeCourseName: Ingegneria informatica
-                        degreeClassCode: LM-32
-                        degreeClassName: Ingegneria informatica
-                        academicYear: 2022/2023
-                        degreeCourseYear: 1
+                    personal_data:
+                      tax_code: RSSMRA80A01F205D
+                      person_id: AB123456C
+                      given_name: Mario
+                      family_name: Rossi
+                      birth_date: '1990-05-17'
+                      birth_place: Roma
+                    enrollments:
+                      - institute_code: '16'
+                        institute_name: Milano - Politecnico
+                        study_programme: Laurea Magistrale (DM 270/04)
+                        degree_course_code: '1576480'
+                        degree_course_name: Ingegneria informatica
+                        degree_class_code: LM-32
+                        degree_class_name: Ingegneria informatica
+                        academic_year: 2021/2022
+                        degree_course_year: 3
+                      - institute_code: C6
+                        institute_name: Milano-Bicocca - Università degli studi
+                        study_programme: Laurea Magistrale Ciclo Unico (DM 270/04)
+                        degree_course_code: '1576474'
+                        degree_course_name: Giurisprudenza
+                        degree_class_code: '31'
+                        degree_class_name: Scienze giuridiche
+                        academic_year: 2022/2023
+                        degree_course_year: 1
                 Example 2:
                   value:
-                    PersonalData:
-                      taxCode: RSSMRA80A01F205D
-                      personID: AB123456C
-                      givenName: Mario
-                      familyName: Rossi
-                      birthDate: '1990-05-17'
-                      birthPlace: Roma
-                    Enrollments: []
+                    personal_data:
+                      tax_code: RSSMRA80A01F205D
+                      person_id: AB123456C
+                      given_name: Mario
+                      family_name: Rossi
+                      birth_date: '1990-05-17'
+                      birth_place: Roma
+                    enrollments: []
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
@@ -142,117 +150,117 @@ components:
         minimum: 0
         type: integer
   schemas:
-    StudentEnrollments:
+    enrollments:
       additionalProperties: false
       type: object
       x-examples:
         Example 1:
-          PersonalData:
-            taxCode: RSSMRA80A01F205D
-            personID: AB123456C
-            givenName: Mario
-            familyName: Rossi
-            birthDate: '1990-05-17'
-            birthPlace: Roma
-          Enrollments:
-            - instituteCode: 16
-              instituteName: Milano - Politecnico
-              studyProgramme: Corso di laurea
-              degreeCourseCode: '1573960'
-              degreeCourseName: Ingegneria
-              degreeClassCode: L-8
-              degreeClassName: Ingegneria informatica
-              academicYear: 2021/2022
-              degreeCourseYear: 3
-            - instituteCode: C6
-              instituteName: Milano-Bicocca - Università degli studi
-              studyProgramme: Corso di laurea magistrale
-              degreeCourseCode: '1573960'
-              degreeCourseName: Ingegneria informatica
-              degreeClassCode: LM-32
-              degreeClassName: Ingegneria informatica
-              academicYear: 2022/2023
-              degreeCourseYear: 1
+          personal_data:
+            tax_code: RSSMRA80A01F205D
+            person_id: AB123456C
+            given_name: Mario
+            family_name: Rossi
+            birth_date: '1990-05-17'
+            birth_place: Roma
+          enrollments:
+            - institute_code: '16'
+              institute_name: Milano - Politecnico
+              study_programme: Laurea Magistrale (DM 270/04)
+              degree_course_code: '1576480'
+              degree_course_name: Ingegneria informatica
+              degree_class_code: LM-32
+              degree_class_name: Ingegneria informatica
+              academic_year: 2021/2022
+              degree_course_year: 3
+            - institute_code: C6
+              institute_name: Milano-Bicocca - Università degli studi
+              study_programme: Laurea Magistrale Ciclo Unico (DM 270/04)
+              degree_course_code: '1576474'
+              degree_course_name: Giurisprudenza
+              degree_class_code: '31'
+              degree_class_name: Scienze giuridiche
+              academic_year: 2022/2023
+              degree_course_year: 1
       description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
       x-stoplight:
         id: 22de4be4ac251
       properties:
-        PersonalData:
-          $ref: '#/components/schemas/PersonalData'
-        Enrollments:
+        personal_data:
+          $ref: '#/components/schemas/personal_data'
+        enrollments:
           type: array
           maxItems: 256
           minItems: 0
           description: List of enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
           items:
-            $ref: '#/components/schemas/Enrollment'
+            $ref: '#/components/schemas/enrollment'
       required:
-        - PersonalData
-        - Enrollments
-    Enrollment:
+        - personal_data
+        - enrollments
+    enrollment:
       type: object
       additionalProperties: false
       x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
       x-jsonld-context:
         '@vocab': http://w3id.org/italia/onto/yyy/
-        instituteCode: instituteCode
-        instituteName: instituteName
-        studyProgramme: studyProgramme
-        degreeCourseCode: degreeCourseCode
-        degreeCourseName: degreeCourseName
-        degreeClassCode: degreeClassCode
-        degreeClassName: degreeClassName
-        academicYear: academicYear
-        degreeCourseYear: degreeCourseYear
+        institute_code: institute_code
+        institute_name: institute_name
+        study_programme: study_programme
+        degree_course_code: degree_course_code
+        degree_course_name: degree_course_name
+        degree_class_code: degree_class_code
+        degree_class_name: degree_class_name
+        academic_year: academic_year
+        degree_course_year: degree_course_year
       x-examples:
         Example 1:
-          instituteCode: 16
-          instituteName: Milano - Politecnico
-          studyProgramme: Corso di laurea
-          degreeCourseCode: '1573960'
-          degreeCourseName: Ingegneria
-          degreeClassCode: L-8
-          degreeClassName: Ingegneria informatica
-          academicYear: 2021/2022
-          degreeCourseYear: 3
+          institute_code: '16'
+          institute_name: Milano - Politecnico
+          study_programme: Laurea Magistrale (DM 270/04)
+          degree_course_code: '1576480'
+          degree_course_name: Ingegneria informatica
+          degree_class_code: LM-32
+          degree_class_name: Ingegneria informatica
+          academic_year: 2021/2022
+          degree_course_year: 3
       description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
       properties:
-        instituteCode:
+        institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: '16'
           readOnly: true
           minLength: 2
           maxLength: 2
-        instituteName:
+        institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
           example: 'Milano - Politecnico'
           readOnly: true
           minLength: 1
           maxLength: 256
-        studyProgramme:
+        study_programme:
           type: string
           description: Type of study program / Tipologia del corso di studio
-          example: 'laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale'
+          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
           readOnly: true
           minLength: 1
           maxLength: 256
-        degreeCourseCode:
+        degree_course_code:
           type: string
           description: Course code / Codice del corso [** DA DEFINIRE PATTERN CORRETTO **]
           #pattern: '^[A-Z\d]{2,4}\d{2,4}$'
           readOnly: true
           minLength: 1
           maxLength: 20
-        degreeCourseName:
+        degree_course_name:
           type: string
           description: Course name / Denominazione corso
           example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
           readOnly: true
           minLength: 1
           maxLength: 256
-        degreeClassCode:
+        degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea [** DA DEFINIRE PATTERN CORRETTO **]
           #pattern: '^[A-Z]+-\d{1,2}$'
@@ -260,14 +268,14 @@ components:
           readOnly: true
           minLength: 2
           maxLength: 20
-        degreeClassName:
+        degree_class_name:
           type: string
           description: Name of the degree class / Denominazione della classe di laurea 
-          example: 'Informatica, Meccanica, Elettronica, Civile'
+          example: 'Ingegneria informatica, Scienze giuridiche'
           readOnly: true
           minLength: 1
           maxLength: 256
-        academicYear:
+        academic_year:
           type: string
           description: Last academic year in which enrollment in the student's course is recorded / Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente 
           example: 2022/2023
@@ -275,7 +283,7 @@ components:
           readOnly: true
           minLength: 9
           maxLength: 9
-        degreeCourseYear:
+        degree_course_year:
           type: integer
           format: int32
           description: Last year in which enrollment in the student's course is recorded / Ultimo anno in cui risulta l'iscrizione al corso della studentessa o dello studente
@@ -285,38 +293,38 @@ components:
           minimum: 1
           maximum: 99
       required:
-        - instituteCode
-        - instituteName
-        - studyProgramme
-        - degreeCourseCode
-        - degreeCourseName
-        - degreeClassCode
-        - degreeClassName
-        - academicYear
-        - degreeCourseYear
-    PersonalData:
+        - institute_code
+        - institute_name
+        - study_programme
+        - degree_course_code
+        - degree_course_name
+        - degree_class_code
+        - degree_class_name
+        - academic_year
+        - degree_course_year
+    personal_data:
       type: object
       additionalProperties: false
       x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
       x-jsonld-context:
         '@vocab': http://w3id.org/italia/onto/CPV/
-        givenName: givenName
-        taxCode: taxCode
-        familyName: familyName
-        birthDate: dateOfBirth
-        birthPlace: hasBirthPlace
-        personID: personID      
+        given_name: givenName
+        tax_code: taxCode
+        family_name: familyName
+        birth_date: dateOfBirth
+        birth_place: hasBirthPlace
+        person_id: personID
       x-examples:
         Example 1:
-          taxCode: RSSMRA80A01F205D
-          personID: AB123456C
-          givenName: Mario
-          familyName: Rossi
-          birthDate: '1990-05-17'
-          birthPlace: Roma
+          tax_code: RSSMRA80A01F205D
+          person_id: AB123456C
+          given_name: Mario
+          family_name: Rossi
+          birth_date: '1990-05-17'
+          birth_place: Roma
       description: Personal data of the student / Dati personali della studentessa o dello studente
       properties:
-        taxCode:
+        tax_code:
           type: string
           description: Tax Identification Number / Codice Fiscale
           example: RSSMRA80A01F205D
@@ -324,7 +332,7 @@ components:
           minLength: 16
           maxLength: 16
           readOnly: true
-        personID:
+        person_id:
           type: string
           description: ANPR Identifier / Identificativo ANPR 
           maxLength: 9
@@ -332,7 +340,7 @@ components:
           pattern: '^[A-Z0-9]{8}[A-Z]$'
           example: AB123456C
           readOnly: true
-        givenName:
+        given_name:
           type: string
           description: Name / Nome
           example: Mario
@@ -340,7 +348,7 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 256
-        familyName:
+        family_name:
           type: string
           description: Surname / Cognome
           example: Rossi
@@ -348,14 +356,14 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 256
-        birthDate:
+        birth_date:
           type: string
           format: date
           example: '1990-05-17'
           pattern: '^\d{4}-\d{2}-\d{2}$'
           description: Date of birth / Data di nascita
           readOnly: true
-        birthPlace:
+        birth_place:
           type: string
           example: Rome
           description: Place of birth / Luogo di nascita
@@ -368,5 +376,5 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: Enrollments
+  - name: enrollments
   - name: health-check
