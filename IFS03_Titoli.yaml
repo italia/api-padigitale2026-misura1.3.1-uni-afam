@@ -42,7 +42,7 @@ paths:
           schema:
             type: string
             maxLength: 64
-            minLength: 1
+            minLength: 64
             description: Tax Identification Number hash / Codice Fiscale hash
     get:
       summary: Degrees earned by the student / Titoli conseguiti dalla studentessa o dallo studente
