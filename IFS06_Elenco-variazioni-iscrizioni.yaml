@@ -2,11 +2,11 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: IFS06 - List of enrollment changes / Elenco variazioni iscrizioni
-  x-summary: Acquires the list of students who have undergone a change of status at the relevant enrollment. / Acquisisce la lista delle studentesse e degli studenti che hanno subito un cambio di stato alla relativa iscrizione.
+  title: IFS06 - List of enrollment changes / Elenco variazioni iscrizioni #modificare il nome e le descrizioni
+  x-summary: Acquires the updated enrollment list for each student. / Acquisisce la lista delle iscrizioni aggiornate per ogni studente/studentessa.
   version: 1.0.0
   description: |
-    Obtains the list of students who have had variations in enrollment. / Ottiene l'elenco delle studentesse e degli studenti che hanno avuto variazioni alle iscrizioni.
+    Requires a list of the last active enrollment for each course of study in the last 10 academic years. / Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli ultimi 10 anni accademici.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -16,21 +16,20 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
-  '/enrollment-changes':
+  '/it/student-enrollments-changes':
     parameters:
-      - name: currentPage
+      - name: cursor
         in: query
-        required: true
+        required: false
         schema:
-          type: integer
-          format: int32
-          description: Current page number / Numero di pagina corrente
-          maximum: 9999
-          minimum: 1
+          type: string
+          description: Cursor / Cursore
+          maxLength: 100
+          minLength: 1
     get:
-      summary: Enrollment changes / Variazioni iscrizioni
+      summary: Retrieve enrollment details of student / Recupero iscrizioni di una studentessa o di uno studente 
       tags:
-        - enrollment changes
+        - enrollments-changes
       security: [{}]
       responses:
         '200':
@@ -38,146 +37,54 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                additionalProperties: false
-                x-examples:
-                  Example 1:
-                    items: 3
-                    pages: 20
-                    currentPage: 1
-                    itemsPerPage: 15
-                    instituteCode: 'C8'
-                    lastUpd: '2023-09-21'                    
-                    data:
-                      enrollmentChanges:
-                        - hash: 4ef246ed27b83886dd33377c0da06031 
-                          taxCode: RSSMRA80A01H501B
-                          personID: 1A3B5C7D9
-                        - hash: 4ef246ed27b83886dd33377c0da06031
-                          taxCode: BNCGLI85C44D612Y
-                          personID: X5Y7Z9A2C
-                        - hash: 4ef246ed27b83886dd33377c0da06031
-                          taxCode: VRDLCA90H23E789Z
-                          personID: M8N2P6QR4
-                properties:
-                  items:
-                    type: integer
-                    description: total available items / totale degli elementi disponibili
-                    format: int32
-                    readOnly: true
-                    maximum: 256
-                    minimum: 0
-                  pages:
-                    type: integer
-                    description: total pages available / totale delle pagine disponibili
-                    format: int32
-                    readOnly: true
-                    maximum: 256
-                    minimum: 0                    
-                  currentPage:
-                    type: integer
-                    description: number of the current page returned / numero della pagina corrente restituita
-                    format: int32
-                    readOnly: true
-                    maximum: 256
-                    minimum: 0                    
-                  itemsPerPage:
-                    type: integer
-                    description: number of elements in the page / numero di elementi presenti nella pagina
-                    format: int32
-                    readOnly: true
-                    maximum: 256
-                    minimum: 0
-                  instituteCode:
-                    type: string
-                    description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-                    example: 'C7'
-                    readOnly: true
-                    minLength: 2
-                    maxLength: 2
-                  lastUpd:
-                    type: string
-                    format: date
-                    description: Date last updated / Data ultimo aggiornamento
-                    example: '2023-10-13'
-                    readOnly: true
-                    pattern: '^\d{4}-\d{2}-\d{2}$'
-                  data:
-                    type: object
-                    additionalProperties: false
-                    description: actual data of the current page / dati effettivi della pagina corrente
-                    maxItems: 256
-                    minItems: 0
-                    required:
-                      - enrollmentChanges
-                    properties:
-                      enrollmentChanges:
-                        type: array
-                        description: List of students who had changes in enrollment / Elenco di studentesse e studenti che hanno avuto variazioni nelle iscrizioni
-                        maxItems: 100
-                        minItems: 0                        
-                        items:
-                          $ref: '#/components/schemas/Student'
-                required:
-                  - items
-                  - pages
-                  - currentPage
-                  - itemsPerPage
-                  - instituteCode
-                  - lastUpd
-                  - data
+                $ref: '#/components/schemas/student-enrollments-changes'
               examples:
                 Example 1:
                   value:
-                    items: 3
-                    pages: 20
-                    currentPage: 1
-                    itemsPerPage: 15
-                    instituteCode: 'C8'
-                    lastUpd: '2023-09-21'
                     data:
-                      enrollmentChanges:
-                        - hash: 4ef246ed27b83886dd33377c0da06031
-                          taxCode: RSSMRA80A01H501B
-                          personID: 1A3B5C7D9
-                        - hash: 4ef246ed27b83886dd33377c0da06031
-                          taxCode: BNCGLI85C44D612Y
-                          personID: X5Y7Z9A2C
-                        - hash: 4ef246ed27b83886dd33377c0da06031
-                          taxCode: VRDLCA90H23E789Z
-                          personID: M8N2P6QR4
+                      institute_code: C6
+                      last_update: '2023-10-13'
+                      enrollments_hash:
+                        - key: '4e12345678986dd33377c0da06031'
+                          hash: '56c3880bfcc4df0e35780c805d9ec942bbb8b4e237c1b63c6f2688cb58ef0a3a'
+                        - key: 'adsjojr45678986dd333asofrm456'
+                          hash: '56c3880bfcc4df0e35780c80sdlkjljiirpepw85830t3j85jg0fj054fj04jf03'
+                        - key: 'asodfrefpwe350350823563fowf43'
+                          hash: 'df8340f834tr8f3j84fj48jf83fngooero45305jf30l04k0r43kfd043kdew34t'
+                    meta:
+                      cursor: '6eyJpZCI6M57'
                 Example 2:
                   value:
-                    items: 0
-                    pages: 20
-                    currentPage: 1
-                    itemsPerPage: 15
-                    instituteCode: '19'
-                    lastUpd: '2023-09-21'
                     data:
-                      enrollmentChanges: []
+                      institute_code: B9
+                      last_update: '2023-18-21'
+                      enrollments_hash:
+                        - key: '4e12345678986dd33377c0da06031'
+                          hash: 'df8340f834tr8f3j84fj48jf83fngooero45305jf30l04k0r43kfd043kdew34t'
+                    meta:
+                      cursor: '9fsfoet54dgs'
         '400':
-          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input                    
+          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
-          description: No changes were found in student enrollment / Non sono state trovate variazioni delle iscrizioni degli studenti
+          description: No enrollments were found for the student at this institution / Non sono state trovate iscrizioni per la studentessa o lo studente in questo istituto
         '500':
-          description: Internal server error / Errore interno del server
-      operationId: enrollment-changes
-      description: returns the list of students who have had enrollment changes. / restituisce l'elenco delle studentesse e degli studenti che hanno avuto variazioni alle iscrizioni.
+          description: Internal server error / Errore interno del server 
+      operationId: Enrollments-of-student
+      description:  Returns the enrollment details of student / Restituisce i dettagli delle iscrizioni di una studentessa o di uno studente
       parameters: []
   /status:
     get:
       summary: Verifica stato delle API (Health Check)
+      security: [{}]
       operationId: check-status
-      description: Check the system's health status / Verificare lo stato di salute del sistema
+      description: Check the system's health status / Verificare lo stato di salute del sistema 
       tags:
         - health-check
-      security: [{}]
       responses:
         '204':
           description: The service is running correctly / Il servizio è in esecuzione correttamente
         '500':
-          description: The service is not running / Il servizio non è in esecuzione
+          description:  The service is not running. / Il servizio non è in esecuzione. 
 components:
   headers:
     Retry-After:
@@ -190,81 +97,141 @@ components:
         minimum: 0
         type: integer
     X-RateLimit-Limit:
-      description: The number of allowed requests in the current period
+      description: The number of allowed requests in the current period / Numero di richieste consentite nel periodo attuale
       schema:
         format: int32
         maximum: 1000000
         minimum: 0
         type: integer
     X-RateLimit-Remaining:
-      description: The number of remaining requests in the current period
+      description: The number of remaining requests in the current period / Numero di richieste rimanenti nel periodo attuale 
       schema:
         format: int32
         maximum: 1000000
         minimum: 0
         type: integer
     X-RateLimit-Reset:
-      description: The number of seconds left in the current period
+      description: The number of seconds left in the current period / Numero di secondi rimanenti nel periodo attuale
       schema:
         format: int32
         maximum: 186400
         minimum: 0
-        type: integer  
+        type: integer
   schemas:
-    Student:
-      title: Student
+    student-enrollments-changes:
       additionalProperties: false
-      x-refersTo: https://w3id.org/italia/onto/CPV/Person
-      x-jsonld-context:
-        "@vocab": "https://w3id.org/italia/onto/CPV/"
-        tax_code: taxCode
-        personID: personID      
-        hash:
-          "@id": hash
-          "@type": "@id"
-          "@context":
-            "@base": "https://w3id.org/italia/controlled-vocabulary/classifications-for-people/hash/" #[E' UN ESEMPIO]
-      x-stoplight:
-        id: h5iin6mdxsvx1
       type: object
-      description: Identification data of a student / Dati identificativi di una studentessa o di uno studente
       x-examples:
         Example 1:
-          hash: 4ef246ed27b83886dd33377c0da06031
-          taxCode: RSSMRA80A01H501B
-          personID: 1A3B5C7D9
+          data:
+            institute_code: C6
+            last_update: '2023-10-13 17:23:26'
+            enrollments_hash:
+              - key: '4e12345678986dd33377c0da06031'
+                hash: '56c3880bfcc4df0e35780c805d9ec942bbb8b4e237c1b63c6f2688cb58ef0a3a'
+              - key: 'adsjojr45678986dd333asofrm456'
+                hash: '56c3880bfcc4df0e35780c80sdlkjljiirpepw85830t3j85jg0fj054fj04jf03'
+              - key: 'asodfrefpwe350350823563fowf43'
+                hash: 'df8340f834tr8f3j84fj48jf83fngooero45305jf30l04k0r43kfd043kdew34t'
+          meta:
+            - cursor: '6eyJpZCI6M57'
+      description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
+      x-stoplight:
+        id: 22de4be4ac251
       properties:
+        data:
+          $ref: '#/components/schemas/data'
+        meta:
+            $ref: '#/components/schemas/meta'
+      required:
+        - data
+        - meta
+    meta:
+      type: object
+      additionalProperties: false
+      x-examples:
+        Example 1:
+          cursor: 'o2j4230jd4043'
+      description: Informazioni del cursore
+      properties:
+        cursor:
+          type: string
+          description: Cursor / Cursore
+          example: 'fowfio543s'
+          readOnly: true
+          minLength: 1
+          maxLength: 100
+      required:
+        - cursor
+    data:
+      type: object
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/xxx/yyy
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/xxx/
+        institute_code: institute_code
+      x-examples:
+        Example 1:
+          institute_code: C6
+          last_update: '2023-10-13 17:23:26'
+          enrollments_hash:
+            - key: '4e12345678986dd33377c0da06031'
+              hash: '56c3880bfcc4df0e35780c805d9ec942bbb8b4e237c1b63c6f2688cb58ef0a3a'
+            - key: 'adsjojr45678986dd333asofrm456'
+              hash: 'odjwofweoo4952r9349dj39j349jf4fmd394fjfaforkdikdwi59fmmdm3oo4rjj'
+      description: Personal data of the student / Dati personali della studentessa o dello studente
+      properties:
+        institute_code:
+          type: string
+          description: Institutional identification code / Codice identificativo dell’istituto
+          example: 'C3'
+          readOnly: true
+          minLength: 2
+          maxLength: 2
+        last_update:
+          type: string
+          format: date
+          description: Date last updated / Data ultimo aggiornamento
+          example: '2023-10-13'
+          readOnly: true
+        enrollments_hash:
+          type: array
+          maxItems: 10000 #da rivedere
+          minItems: 0
+          description: List of enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
+          items:
+            $ref: '#/components/schemas/enrollments_hash'
+    enrollments_hash:
+      type: object
+      additionalProperties: false
+      x-examples:
+        Example 1:
+          key: AAA4ef246ed27b83886dd33377c
+          hash: 9bc4e295f51d940db6d7a9ca01059ace00376d4feed10225c592e010a780a8d5
+      description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
+      properties:
+        key:
+          type: string
+          description: Keys / Chiave
+          example: 'AAA4ef246ed27b83886dd33377c'
+          readOnly: true
+          minLength: 1
+          maxLength: 100
         hash:
           type: string
           description: Hash code / Codice hash
+          example: '9bc4e295f51d940db6d7a9ca01059ace00376d4feed10225c592e010a780a8d5'
           readOnly: true
-          minLength: 1
-          maxLength: 32
-          example : 4ef246ed27b83886dd33377c0da06031          
-        taxCode:
-          type: string
-          description: Tax Identification Number / Codice Fiscale
-          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
-          example: RSSMRA80A01H501B
-          minLength: 16
-          maxLength: 16
-          readOnly: true
-        personID:
-          type: string
-          description: ANPR Identifier / Identificativo ANPR 
-          minLength: 9
-          maxLength: 9
-          pattern: '^[A-Z0-9]{9}$'
-          readOnly: true
+          minLength: 64
+          maxLength: 64
       required:
+        - key
         - hash
-        - taxCode
-        - personID
   requestBodies: {}
   responses: {}
 servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: enrollment changes
+  - name: enrollments-changes
   - name: health-check

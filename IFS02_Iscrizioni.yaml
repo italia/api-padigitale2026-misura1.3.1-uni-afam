@@ -42,7 +42,7 @@ paths:
           schema:
             type: string
             maxLength: 64
-            minLength: 1
+            minLength: 64
             description: Tax Identification Number hash / Codice Fiscale hash
     get:
       summary: Retrieve enrollment details of student / Recupero iscrizioni di una studentessa o di uno studente 
