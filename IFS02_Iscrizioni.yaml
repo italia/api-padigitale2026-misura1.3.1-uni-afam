@@ -24,7 +24,7 @@ paths:
           schema:
             type: string
             maxLength: 9
-            minLength: 9
+            minLength: 0
             description: National unique identifier / Identificativo unico nazionale
             pattern: "^[A-Z0-9]{8}[A-Z]$"
         - name: tax_code
@@ -57,7 +57,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/enrollments'
               examples:
-                Example 1:
+                Example statuscode=200:
                   value:
                     personal_data:
                       tax_code: RSSMRA80A01F205D
@@ -85,7 +85,58 @@ paths:
                         degree_class_name: Scienze giuridiche
                         academic_year: 2022/2023
                         degree_course_year: 1
-                Example 2:
+        '400':
+          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+        '404':
+          description: No enrollments were found for the student at this institution / Non sono state trovate iscrizioni per la studentessa o lo studente in questo istituto
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/enrollments'
+              examples:
+                Example statuscode=404:
+                  value:
+                    personal_data: null
+                    enrollments: []
+        '500':
+          description: Internal server error / Errore interno del server 
+      operationId: Enrollments-of-student
+      description:  Returns the enrollment details of student / Restituisce i dettagli delle iscrizioni di una studentessa o di uno studente
+      parameters: []
+  '/eu/proof-education-enrollments':
+    parameters:
+        - name: person_id
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 9
+            minLength: 0
+            description: National unique identifier / Identificativo unico nazionale
+            pattern: "^[A-Z0-9]{8}[A-Z]$"          
+        - name: tax_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+            minLength: 16
+            description: Tax Identification Number / Codice Fiscale 
+            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
+    get:
+      summary: Retrieve enrollment details of student in SDG format / Recupero iscrizioni di una studentessa o di uno studente in formato SDG
+      tags:
+        - education-enrollments
+      security: [{}]
+      responses:
+        '200':
+          description: Request successfully executed / Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proof_education_enrollments'
+              examples:
+                Example statuscode=200:
                   value:
                     personal_data:
                       tax_code: RSSMRA80A01F205D
@@ -94,14 +145,108 @@ paths:
                       family_name: Rossi
                       birth_date: '1990-05-17'
                       birth_place: Roma
-                    enrollments: []
+                    proof_enrollments:
+                      - study_programme: Ingegneria informatica
+                        institute_name: Milano - Politecnico
+                        country_of_academic_institution: Italia
+                        end_date_of_study_programme: 2023-10-01
+                        date_of_enrolment: 2020-10-01
+                      - study_programme: Ingegneria elettronica
+                        institute_name: Milano-Bicocca - Università degli studi
+                        country_of_academic_institution: Italia
+                        end_date_of_study_programme: 2023-10-01
+                        date_of_enrolment: 2020-10-01
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
           description: No enrollments were found for the student at this institution / Non sono state trovate iscrizioni per la studentessa o lo studente in questo istituto
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/proof_education_enrollments'
+              examples:
+                Example statuscode=404:
+                  value:
+                    personal_data:
+                    proof_enrollments: []
         '500':
           description: Internal server error / Errore interno del server 
-      operationId: Enrollments-of-student
+      operationId: Enrollments-education-of-student
+      description:  Returns the enrollment details of student / Restituisce i dettagli delle iscrizioni di una studentessa o di uno studente
+      parameters: []
+  '/eu/proof-education-courses':
+    parameters:
+        - name: person_id
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 9
+            minLength: 9
+            description: National unique identifier / Identificativo unico nazionale
+            pattern: "^[A-Z0-9]{8}[A-Z]$"
+        - name: tax_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+            minLength: 16
+            description: Tax Identification Number / Codice Fiscale 
+            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
+          allowEmptyValue: true  
+    get:
+      summary: Requires the list of examinations taken by the student in SDG format / Richiede la lista degli esami sostenuti dallo studente in formato SDG
+      tags:
+        - education-courses
+      security: [{}]
+      responses:
+        '200':
+          description: Request successfully executed / Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proof_education_courses'
+              examples:
+                Example statuscode=200:
+                  value:
+                    personal_data:
+                      tax_code: RSSMRA80A01F205D
+                      person_id: AB123456C
+                      given_name: Mario
+                      family_name: Rossi
+                      birth_date: '1990-05-17'
+                      birth_place: Roma
+                    proof_courses:
+                      study_programme: Ingegneria informatica
+                      institute_name: Milano - Politecnico
+                      courses: 
+                        - course_name: Esame 1
+                          start_date: 2020-10-13
+                          end_date: 2023-10-13
+                          grade: 30
+                          credits_ects: 6
+                        - course_name: Esame 2
+                          start_date: 2020-10-13
+                          end_date: 2023-10-13
+                          grade: 30
+                          credits_ects: 6
+        '400':
+          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+        '404':
+          description: No examinations were found for the student at this institution. / Non sono state trovati esami per la studentessa o lo studente in questo istituto.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/proof_education_courses'
+              examples:
+                Example statuscode=404:
+                  value:
+                    personal_data: null
+                    proof_courses: null
+        '500':
+          description: Internal server error / Errore interno del server 
+      operationId: Qualifications-education-of-student
       description:  Returns the enrollment details of student / Restituisce i dettagli delle iscrizioni di una studentessa o di uno studente
       parameters: []
   /status:
@@ -116,7 +261,7 @@ paths:
         '204':
           description: The service is running correctly / Il servizio è in esecuzione correttamente
         '500':
-          description:  The service is not running. / Il servizio non è in esecuzione. 
+          description:  The service is not running. / Il servizio non è in esecuzione.
 components:
   headers:
     Retry-After:
@@ -197,6 +342,246 @@ components:
       required:
         - personal_data
         - enrollments
+    proof_education_enrollments:
+      additionalProperties: false
+      type: object
+      x-examples:
+        Example 1:
+          personal_data:
+            tax_code: RSSMRA80A01F205D
+            person_id: AB123456C
+            given_name: Mario
+            family_name: Rossi
+            birth_date: 1990-05-17
+            birth_place: Roma
+          proof_enrollments:
+            - study_programme: Ingegneria informatica
+              institute_name: Milano - Politecnico
+              country_of_academic_institution: Italia
+              end_date_of_study_programme: 2023-10-13
+              date_of_enrolment: 2020-10-13
+            - study_programme: Ingegneria elettronica
+              institute_name: Milano-Bicocca - Università degli studi
+              country_of_academic_institution: Italia
+              end_date_of_study_programme: 2023-10-13
+              date_of_enrolment: 2020-10-13
+      description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
+      x-stoplight:
+        id: 22de4be4ac251
+      properties:
+        personal_data:
+          $ref: '#/components/schemas/personal_data'
+        proof_enrollments:
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
+          items:
+            $ref: '#/components/schemas/proof_enrollment'
+      required:
+        - personal_data
+        - proof_enrollments
+    proof_enrollment:
+      type: object
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/yyy/
+        institute_name: institute_name
+        study_programme: study_programme
+        country_of_academic_institution: country_of_academic_institution
+        end_date_of_study_programme: end_date_of_study_programme
+        date_of_enrolment: date_of_enrolment
+      x-examples:
+        Example 1:
+          study_programme: Ingegneria elettronica
+          institute_name: Milano-Bicocca - Università degli studi
+          country_of_academic_institution: Italia
+          end_date_of_study_programme: 01/10/2008
+          date_of_enrolment: 01/10/2005
+      description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
+      properties:
+        institute_name:
+          type: string
+          description: Institution name / Denominazione dell’istituto
+          example: 'Milano - Politecnico'
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+        study_programme:
+          type: string
+          description: Type of study program / Tipologia del corso di studio
+          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+        country_of_academic_institution:
+          type: string
+          description: Country of the academic institution / Paese dell'istituzione accademica
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        end_date_of_study_programme:
+          type: string
+          format: date
+          description: Date of completion of studies / Data completamento studi
+          example: 2023-10-01
+          readOnly: true
+          minLength: 10
+          maxLength: 10
+        date_of_enrolment:
+          type: string
+          format: date
+          description: Enrollment date / Data iscrizione
+          example: 2020-10-01
+          readOnly: true
+          minLength: 10
+          maxLength: 10
+      required:
+        - institute_name
+        - study_programme
+        - country_of_academic_institution
+        - end_date_of_study_programme
+        - date_of_enrolment
+    proof_education_courses:
+      additionalProperties: false
+      maxItems: 256
+      minItems: 0
+      type: object
+      x-examples:
+        Example 1:
+          personal_data:
+            tax_code: RSSMRA80A01F205D
+            person_id: AB123456C
+            given_name: Mario
+            family_name: Rossi
+            birth_date: 1990-05-17
+            birth_place: Roma
+          proof_courses:
+            study_programme: Ingegneria informatica
+            institute_name: Milano - Politecnico
+            courses: 
+              - course_name: Esame 1
+                start_date: 01/10/2023
+                end_date: 01/10/2020
+                grade: 30
+                credits_ects: 6
+              - course_name: Esame 2
+                start_date: 2020-10-13
+                end_date: 2023-10-13
+                grade: 30
+                credits_ects: 6
+      description: Examinations details of student / Dettaglio esami di una studentessa o di uno studente
+      x-stoplight:
+        id: 22de4be4ac251
+      properties:
+        personal_data:
+          $ref: '#/components/schemas/personal_data'
+        proof_courses:
+          $ref: '#/components/schemas/proof_courses'
+      required:
+        - personal_data
+        - proof_courses
+    proof_courses:
+      type: object
+      nullable: true
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/xxx/yyy
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/xxx/
+        institute_code: institute_code
+        study_programme: study_programme
+      x-examples:
+        Example 1:
+          study_programme: Ingegneria informatica
+          institute_name: Milano - Politecnico
+          courses: 
+            - course_name: Esame 1
+              start_date: 2020-10-13
+              end_date: 2023-10-13
+              grade: 30
+              credits_ects: 6
+            - course_name: Esame 2
+              start_date: 2020-10-13
+              end_date: 2023-10-13
+              grade: 30
+              credits_ects: 6
+      description: Examinations taken by the student / Esami sostenuti della studentessa o dello studente
+      properties:
+        institute_name:
+          type: string
+          description: Institution name / Denominazione dell’istituto
+          example: 'Milano - Politecnico'
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+        study_programme:
+          type: string
+          description: Type of study program / Tipologia del corso di studio
+          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+        courses:
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of qualifications for student / Elenco iscrizioni di una studentessa o di uno studente
+          items:
+            $ref: '#/components/schemas/courses'
+    courses:
+      type: object
+      additionalProperties: false
+      x-examples:
+        Example 1:
+          course_name: Esame 1
+          start_date: 2020-10-13
+          end_date: 2023-10-13
+          grade: 30
+          credits_ects: 6
+      description: Detailed examination information / Informazioni dettagliate sul corso
+      properties:
+        course_name:
+          type: string
+          description: Course name / Nome corso
+          example: Esame 1
+          readOnly: true
+          minLength: 1
+          maxLength: 100
+        start_date:
+          type: string
+          format: date
+          description: Course start date / Data inizio corso
+          example: 2020-10-13
+          readOnly: true
+        end_date:
+          type: string
+          format: date
+          description: Course end date / Data fine corso
+          example: 2023-10-13
+          readOnly: true
+        grade:
+          type: integer
+          format: int32
+          description: Grade / voto
+          example: 30
+          readOnly: true
+          maximum: 30
+          minimum: 18
+        credits_ects:
+          type: integer
+          format: int32
+          description: ECTS credits / Crediti ECTS
+          example: 6
+          readOnly: true
+          maximum: 20
+          minimum: 1
+      required:
+        - course_name
+        - start_date
+        - end_date
+        - grade
+        - credits_ects
     enrollment:
       type: object
       additionalProperties: false
@@ -304,6 +689,7 @@ components:
         - degree_course_year
     personal_data:
       type: object
+      nullable: true
       additionalProperties: false
       x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
       x-jsonld-context:
@@ -320,7 +706,7 @@ components:
           person_id: AB123456C
           given_name: Mario
           family_name: Rossi
-          birth_date: '1990-05-17'
+          birth_date: 1990-05-17
           birth_place: Roma
       description: Personal data of the student / Dati personali della studentessa o dello studente
       properties:
@@ -359,7 +745,7 @@ components:
         birth_date:
           type: string
           format: date
-          example: '1990-05-17'
+          example: 1990-05-17
           pattern: '^\d{4}-\d{2}-\d{2}$'
           description: Date of birth / Data di nascita
           readOnly: true
@@ -377,4 +763,6 @@ servers:
     description: localhost
 tags:
   - name: enrollments
+  - name: education-enrollments
+  - name: education-courses
   - name: health-check

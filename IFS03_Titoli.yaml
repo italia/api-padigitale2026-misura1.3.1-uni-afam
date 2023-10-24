@@ -16,7 +16,7 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
-  '/it/student-qualifications':
+  '/it/academic-qualifications':
     parameters:
         - name: person_id
           in: query
@@ -56,9 +56,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/academic_degrees'
+                $ref: '#/components/schemas/academic_qualifications'
               examples:
-                Example 1:
+                Example statuscode=200:
                   value:
                     personal_data:
                       tax_code: RSSMRA80A01F205D
@@ -67,7 +67,7 @@ paths:
                       family_name: Rossi
                       birth_date: '1990-05-17'
                       birth_place: Roma
-                    academic_qualifications:
+                    qualifications:
                       - institute_code: '26'
                         institute_name: Università degli Studi di Roma 'La Sapienza'
                         qualification_name: Dottore magistrale
@@ -90,20 +90,19 @@ paths:
                         degree_qualification_date: '2022-07-01'
                         grade_value: 98
                         grading_scale: 110
-                Example 2:
-                  value:
-                    personal_data:
-                      tax_code: RSSMRA80A01F205D
-                      person_id: AB123456C
-                      given_name: Mario
-                      family_name: Rossi
-                      birth_date: '1990-05-17'
-                      birth_place: Roma
-                    academic_qualifications: []
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input                    
         '404':
           description: No degrees were found to have been earned for the student / Non sono stati trovati titoli conseguiti per la studentessa o lo studente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/academic_qualifications'
+              examples:
+                Example statuscode=404:
+                  value:
+                    personal_data:
+                    qualifications: []
         '500':
           description: Internal server error / Errore interno del server 
       operationId: titoli-studente
@@ -154,7 +153,7 @@ components:
         minimum: 0
         type: integer
   schemas:
-    academic_degrees:
+    academic_qualifications:
       type: object
       additionalProperties: false
       x-examples:
@@ -166,7 +165,7 @@ components:
             family_name: Rossi
             birth_date: '1990-05-17'
             birth_place: Roma
-          academic_qualifications:
+          qualifications:
             - institute_code: '16'
               institute_name: Milano - Politecnico
               qualification_name: Dottore magistrale
@@ -195,17 +194,17 @@ components:
       properties:
         personal_data:
           $ref: '#/components/schemas/personal_data'
-        academic_qualifications:
+        qualifications:
           description: List of degrees earned by the student / Elenco dei titoli conseguiti dalla studentessa o dallo studente
           type: array
           maxItems: 256
           minItems: 0
           items:
-            $ref: '#/components/schemas/academic_qualification'
+            $ref: '#/components/schemas/qualifications'
       required:
         - personal_data
-        - academic_qualifications
-    academic_qualification:
+        - qualifications
+    qualifications:
       type: object
       additionalProperties: false
       x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
