@@ -3,10 +3,10 @@ x-stoplight:
   id: 0f56e32f16f60
 info:
   title: IFS07 - List of title changes / Elenco variazioni titoli
-  x-summary: Acquisisce la lista delle studentesse e degli studenti che hanno subito un cambio di stato ai relativi titoli conseguiti tra un istante t0 e uno t1 compresi (ad es. t0 = 1 gennaio 2019 e t1 = 31 dicembre 2019 per richiedere i dati relativi all'anno solare 2019)
+  x-summary: Acquires the updated qualification list for each student. / Acquisisce la lista dei titoli aggiornati per ogni studente.
   version: 1.0.0
   description: |
-    Ottiene l'elenco di codici fiscali delle studentesse e degli studenti che hanno avuto variazioni ai titoli conseguiti in un certo intervallo di tempo.
+    Requires a list of the last active qualification for each course of study in the last 10 academic years. / Richiede la lista degli ultimi titoli attivi per ogni corso di studi negli ultimi 10 anni accademici.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -27,7 +27,7 @@ paths:
           maxLength: 100
           minLength: 1
     get:
-      summary: Retrieve enrollment details of student / Recupero iscrizioni di una studentessa o di uno studente 
+      summary: It requires a list of the last active qualifications for each course of study in the last 10 academic years. / Richiede la lista degli ultimi titoli attivi per ogni corso di studi negli ultimi 10 anni accademici.
       tags:
         - qualifications-changes
       security: [{}]
@@ -39,7 +39,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/student-qualifications-changes'
               examples:
-                Example 1:
+                Example statuscode=200:
                   value:
                     data:
                       institute_code: C6
@@ -53,24 +53,26 @@ paths:
                           hash: 'df8340f834tr8f3j84fj48jf83fngooero45305jf30l04k0r43kfd043kdew34t'
                     meta:
                       cursor: '6eyJpZCI6M57'
-                Example 2:
-                  value:
-                    data:
-                      institute_code: B9
-                      last_update: '2023-18-21'
-                      qualifications_hash:
-                        - key: '4e12345678986dd33377c0da06031'
-                          hash: 'df8340f834tr8f3j84fj48jf83fngooero45305jf30l04k0r43kfd043kdew34t'
-                    meta:
-                      cursor: '9fsfoet54dgs'
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
-          description: No enrollments were found for the student at this institution / Non sono state trovate iscrizioni per la studentessa o lo studente in questo istituto
+          description: No qualifications were found at this institution / Non sono stati trovati titoli in questo istituto
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/student-qualifications-changes'
+              examples:
+                Example statuscode=404:
+                  value:
+                    data: 
+                      institute_code: C6
+                      last_update: '2023-10-13'
+                      enrollments_hash: []
+                    meta: 
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Enrollments-of-student
-      description:  Returns the enrollment details of student / Restituisce i dettagli delle iscrizioni di una studentessa o di uno studente
+      description: Returning the information reduced to a 'hash (SHA256)' for each student in the form (key, value), where the key is the hash of the student's social security number and the value is the hash of the student's qualifications. / Restituisce le informazioni ridotte in "hash (SHA256)" per ogni studente/studentessa nella forma (chiave, valore), dove la chiave è l'hash del codice fiscale dello studente e il valore è l'hash dei suoi titoli.
       parameters: []
   /status:
     get:
@@ -135,7 +137,7 @@ components:
                 hash: 'df8340f834tr8f3j84fj48jf83fngooero45305jf30l04k0r43kfd043kdew34t'
           meta:
             - cursor: '6eyJpZCI6M57'
-      description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
+      description: Returning the information reduced to a 'hash (SHA256)' for each student in the form (key, value), where the key is the hash of the student's social security number and the value is the hash of the student's qualifications. / Restituisce le informazioni ridotte in "hash (SHA256)" per ogni studente/studentessa nella forma (chiave, valore), dove la chiave è l'hash del codice fiscale dello studente e il valore è l'hash dei suoi titoli.
       x-stoplight:
         id: 22de4be4ac251
       properties:
@@ -196,9 +198,8 @@ components:
           readOnly: true
         qualifications_hash:
           type: array
-          maxItems: 10000 #da rivedere
           minItems: 0
-          description: List of enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
+          description: List of qualifications for student / Elenco iscrizioni di una studentessa o di uno studente
           items:
             $ref: '#/components/schemas/qualifications_hash'
     qualifications_hash:
@@ -208,18 +209,18 @@ components:
         Example 1:
           key: AAA4ef246ed27b83886dd33377c
           hash: 9bc4e295f51d940db6d7a9ca01059ace00376d4feed10225c592e010a780a8d5
-      description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
+      description: Detailed qualification information / Informazioni dettagliate sul titoli
       properties:
         key:
           type: string
-          description: Keys / Chiave
+          description: Hash tax code / Hash del codice fiscale
           example: 'AAA4ef246ed27b83886dd33377c'
           readOnly: true
           minLength: 1
           maxLength: 100
         hash:
           type: string
-          description: Hash code / Codice hash
+          description: Enrollments hash code / Codice hash delle iscrizioni
           example: '9bc4e295f51d940db6d7a9ca01059ace00376d4feed10225c592e010a780a8d5'
           readOnly: true
           minLength: 64
