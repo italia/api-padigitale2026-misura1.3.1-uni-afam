@@ -69,7 +69,8 @@ paths:
                     enrollments:
                       - institute_code: '16'
                         institute_name: Milano - Politecnico
-                        study_programme: Laurea Magistrale (DM 270/04)
+                        study_programme_name: Laurea Magistrale (DM 270/04)
+                        study_programme_code: MS
                         degree_course_code: '1576480'
                         degree_course_name: Ingegneria informatica
                         degree_class_code: LM-32
@@ -78,7 +79,8 @@ paths:
                         degree_course_year: 3
                       - institute_code: C6
                         institute_name: Milano-Bicocca - Università degli studi
-                        study_programme: Laurea Magistrale Ciclo Unico (DM 270/04)
+                        study_programme_name: Laurea Magistrale Ciclo Unico (DM 270/04)
+                        study_programme_code: LM
                         degree_course_code: '1576474'
                         degree_course_name: Giurisprudenza
                         degree_class_code: '31'
@@ -172,7 +174,7 @@ paths:
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Enrollments-education-of-student
-      description:  Returns the enrollment details of student / Restituisce i dettagli delle iscrizioni di una studentessa o di uno studente
+      description: Returns the enrollment details of student / Restituisce i dettagli delle iscrizioni di una studentessa o di uno studente
       parameters: []
   '/eu/proof-education-courses':
     parameters:
@@ -249,6 +251,80 @@ paths:
       operationId: Qualifications-education-of-student
       description:  Returns the enrollment details of student / Restituisce i dettagli delle iscrizioni di una studentessa o di uno studente
       parameters: []
+  '/eu/proof-tertiary-education-admission':
+    parameters:
+        - name: person_id
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 9
+            minLength: 9
+            description: National unique identifier / Identificativo unico nazionale
+            pattern: "^[A-Z0-9]{8}[A-Z]$"
+        - name: tax_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+            minLength: 16
+            description: Tax Identification Number / Codice Fiscale 
+            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
+          allowEmptyValue: true
+    get:
+      summary: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
+      tags:
+        - education-tertiary
+      security: [{}]
+      responses:
+        '200':
+          description: Request successfully executed / Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proof_tertiary_education_admission'
+              examples:
+                Example statuscode=200:
+                  value:
+                    personal_data:
+                      tax_code: RSSMRA80A01F205D
+                      person_id: AB123456C
+                      given_name: Mario
+                      family_name: Rossi
+                      birth_date: '1990-05-17'
+                      birth_place: Roma
+                    proof_admissions:
+                      - institute_name: Milano - Politecnico
+                        study_programme: Ingegneria elettronica
+                        study_programme_duration: 3
+                        study_programme_duration_ects: 180
+                        start_date_of_accademic_year: 2020-10-13
+                        end_date_of_accademic_year: 2023-10-13
+                      - institute_name: Università degli studi di Cagliari
+                        study_programme: Fisica
+                        study_programme_duration: 3
+                        study_programme_duration_ects: 180
+                        start_date_of_accademic_year: 2020-10-13
+                        end_date_of_accademic_year: 2023-10-13
+        '400':
+          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+        '404':
+          description: No certificates of admission to tertiary education institutions were found / Non sono stati trovati certificati di ammissione a istituti di istruzione terziaria
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/proof_tertiary_education_admission'
+              examples:
+                Example statuscode=404:
+                  value:
+                    personal_data:
+                    proof_admissions: []
+        '500':
+          description: Internal server error / Errore interno del server 
+      operationId: Tertiary-education-of-student
+      description: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
+      parameters: []
   /status:
     get:
       summary: Verifica stato delle API (Health Check)
@@ -310,7 +386,8 @@ components:
           enrollments:
             - institute_code: '16'
               institute_name: Milano - Politecnico
-              study_programme: Laurea Magistrale (DM 270/04)
+              study_programme_name: Laurea Magistrale (DM 270/04)
+              study_programme_code: MS
               degree_course_code: '1576480'
               degree_course_name: Ingegneria informatica
               degree_class_code: LM-32
@@ -319,7 +396,8 @@ components:
               degree_course_year: 3
             - institute_code: C6
               institute_name: Milano-Bicocca - Università degli studi
-              study_programme: Laurea Magistrale Ciclo Unico (DM 270/04)
+              study_programme_name: Laurea Magistrale Ciclo Unico (DM 270/04)
+              study_programme_code: LM
               degree_course_code: '1576474'
               degree_course_name: Giurisprudenza
               degree_class_code: '31'
@@ -582,6 +660,116 @@ components:
         - end_date
         - grade
         - credits_ects
+    proof_tertiary_education_admission:
+      additionalProperties: false
+      type: object
+      x-examples:
+        Example 1:
+          personal_data:
+            tax_code: RSSMRA80A01F205D
+            person_id: AB123456C
+            given_name: Mario
+            family_name: Rossi
+            birth_date: 1990-05-17
+            birth_place: Roma
+          proof_admissions:
+            - institute_name: Milano - Politecnico
+              study_programme: Ingegneria elettronica
+              study_programme_duration: 3
+              study_programme_duration_ects: 180
+              start_date_of_accademic_year: 2020-10-13
+              end_date_of_accademic_year: 2023-10-13
+            - institute_name: Università degli studi di Cagliari
+              study_programme: Fisica
+              study_programme_duration: 3
+              study_programme_duration_ects: 180
+              start_date_of_accademic_year: 2020-10-13
+              end_date_of_accademic_year: 2023-10-13
+      description: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
+      x-stoplight:
+        id: 22de4be4ac251
+      properties:
+        personal_data:
+          $ref: '#/components/schemas/personal_data'
+        proof_admissions:
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of admission certificates / Elenco dei certificati di ammissione
+          items:
+            $ref: '#/components/schemas/proof_admissions'
+      required:
+        - personal_data
+        - proof_admissions
+    proof_admissions:
+      type: object
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/yyy/
+        institute_name: institute_name
+        study_programme: study_programme
+      x-examples:
+        Example 1:
+          institute_name: Milano - Politecnico
+          study_programme: Laurea Specialistica (DM 509/99)
+          study_programme_duration: 3
+          study_programme_duration_ects: 180
+          start_date_of_accademic_year: 2020-10-13
+          end_date_of_accademic_year: 2023-10-13
+      description: Detailed information on admission certification / Informazioni dettagliate sulla certificazione di ammissione
+      properties:
+        institute_name:
+          type: string
+          description: Institution name / Denominazione dell’istituto
+          example: 'Milano - Politecnico'
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+        study_programme:
+          type: string
+          description: Type of study program / Tipologia del corso di studio
+          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+        study_programme_duration:
+          type: integer
+          format: int32
+          description: Duration of study course / Durata del corso di studi
+          readOnly: true
+          minimum: 1
+          maximum: 99
+        study_programme_duration_ects:
+          type: integer
+          format: int32
+          description: Duration of study course in ECTS/ Durata del corso di studi in ECTS
+          readOnly: true
+          minimum: 1
+          maximum: 999
+        start_date_of_accademic_year:
+          type: string
+          format: date
+          description: Academic year start date / Data inzio anno accademico
+          example: 2020-10-01
+          readOnly: true
+          minLength: 10
+          maxLength: 10
+        end_date_of_accademic_year:
+          type: string
+          format: date
+          description: Academic year end date / Data fine anno accademico
+          example: 2020-10-01
+          readOnly: true
+          minLength: 10
+          maxLength: 10
+      required:
+        - institute_name
+        - study_programme
+        - study_programme_duration
+        - study_programme_duration_ects
+        - start_date_of_accademic_year
+        - end_date_of_accademic_year
     enrollment:
       type: object
       additionalProperties: false
@@ -590,7 +778,8 @@ components:
         '@vocab': http://w3id.org/italia/onto/yyy/
         institute_code: institute_code
         institute_name: institute_name
-        study_programme: study_programme
+        study_programme_name: study_programme_name
+        study_programme_code: study_programme_code
         degree_course_code: degree_course_code
         degree_course_name: degree_course_name
         degree_class_code: degree_class_code
@@ -601,7 +790,8 @@ components:
         Example 1:
           institute_code: '16'
           institute_name: Milano - Politecnico
-          study_programme: Laurea Magistrale (DM 270/04)
+          study_programme_name: Laurea Magistrale (DM 270/04)
+          study_programme_code: MS
           degree_course_code: '1576480'
           degree_course_name: Ingegneria informatica
           degree_class_code: LM-32
@@ -624,13 +814,20 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 256
-        study_programme:
+        study_programme_name:
           type: string
           description: Type of study program / Tipologia del corso di studio
           example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
           readOnly: true
           minLength: 1
           maxLength: 256
+        study_programme_code:
+          type: string
+          description: Code of study program / codice del corso di studio
+          example: 'LM'
+          readOnly: true
+          minLength: 1
+          maxLength: 2
         degree_course_code:
           type: string
           description: Course code / Codice del corso [** DA DEFINIRE PATTERN CORRETTO **]
@@ -680,7 +877,8 @@ components:
       required:
         - institute_code
         - institute_name
-        - study_programme
+        - study_programme_name
+        - study_programme_code
         - degree_course_code
         - degree_course_name
         - degree_class_code
@@ -765,4 +963,5 @@ tags:
   - name: enrollments
   - name: education-enrollments
   - name: education-courses
+  - name: education-tertiary
   - name: health-check

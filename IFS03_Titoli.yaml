@@ -95,18 +95,146 @@ paths:
         '404':
           description: No degrees were found to have been earned for the student / Non sono stati trovati titoli conseguiti per la studentessa o lo studente
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/academic_qualifications'
               examples:
                 Example statuscode=404:
                   value:
-                    personal_data:
+                    personal_data: null
                     qualifications: []
         '500':
           description: Internal server error / Errore interno del server 
       operationId: titoli-studente
       description: Returns the list of degrees earned by a student / Restituisce la lista dei titoli conseguiti da una studentessa o uno studente
+  '/eu/proof-education-qualifications':
+    parameters:
+        - name: tax_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+            minLength: 16
+            description: Tax Identification Number / Codice Fiscale 
+            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
+    get:
+      summary: Retrieve qualification details of student in SDG format / Recupero titoli di una studentessa o di uno studente in formato SDG
+      tags:
+        - proof-education-qualifications
+      security: [{}]
+      responses:
+        '200':
+          description: Request successfully executed / Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proof_education_qualifications'
+              examples:
+                Example statuscode=200:
+                  value:
+                    personal_data:
+                      tax_code: RSSMRA80A01F205D
+                      person_id: AB123456C
+                      given_name: Mario
+                      family_name: Rossi
+                    proof_qualifications:
+                      - institute_name: Milano - Politecnico
+                        achieved_title_name: Laurea in ingegneria informatica
+                        degree_class_code: LM-77
+                        degree_qualification_date: 2022-07-01
+                        grade_value: 110
+                        grading_scale: 110
+                        country_of_academic_institution: Italia
+                      - institute_name: Università degli studi di Cagliari
+                        achieved_title_name: Laurea in Fisica
+                        degree_class_code: LM-7
+                        degree_qualification_date: 2002-10-01
+                        grade_value: 110
+                        grading_scale: 110
+                        country_of_academic_institution: Italia
+        '400':
+          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+        '404':
+          description: No certificates of admission to tertiary education institutions were found / Non sono stati trovati certificati di ammissione a istituti di istruzione terziaria
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/proof_education_qualifications'
+              examples:
+                Example statuscode=404:
+                  value:
+                    personal_data:
+                    proof_qualifications: []
+        '500':
+          description: Internal server error / Errore interno del server 
+      operationId: Qualifications-education-of-student
+      description: Returns the qualification details of student / Restituisce i dettagli dei titoli di una studentessa o di uno studente
+      parameters: []
+  '/eu/proof-education-qualifications-level':
+    parameters:
+        - name: tax_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+            minLength: 16
+            description: Tax Identification Number / Codice Fiscale 
+            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
+          allowEmptyValue: true  
+    get:
+      summary: Requires the list of examinations taken by the student in SDG format / Richiede la lista degli esami sostenuti dallo studente in formato SDG
+      tags:
+        - proof-education-qualifications-level
+      security: [{}]
+      responses:
+        '200':
+          description: Request successfully executed / Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proof_education_qualifications_level'
+              examples:
+                Example statuscode=200:
+                  value:
+                    personal_data:
+                      tax_code: RSSMRA80A01F205D
+                      person_id: AB123456C
+                      given_name: Mario
+                      family_name: Rossi
+                    proof_qualifications_level:
+                      qualification_name: Laurea in Scienze Aziendali
+                      study_programme_duration_years_or_months: 3 anni a tempo pieno
+                      institute_name: Università degli studi di Cagliari
+                      degree_qualification_date: 2022-07-01
+                      total_ects: 180
+                      eqf_level: 6° livello
+                      nqf_level: I ciclo QF-EHEA
+                      has_parent_relation: false
+                      study_programme_duration_ects: 180
+                      ects_courses: 
+                        - ects_credits: 6
+                        - ects_credits: 12
+                        - ects_credits: 6
+        '400':
+          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+        '404':
+          description: No qualification were found for the student. / Non sono stati trovati titoli per la studentessa o lo studente.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/proof_education_qualifications_level'
+              examples:
+                Example statuscode=404:
+                  value:
+                    personal_data: null
+                    proof_qualifications_level: null
+        '500':
+          description: Internal server error / Errore interno del server 
+      operationId: Proof-education-qualifications-level
+      description:  Returns the list of simplified supplment diplomas in SDG format / Restituisce la lista dei diplomi supplment semplificati in formato SDG
+      parameters: []
   /status:
     get:
       summary: Verifica stato delle API (Health Check)
@@ -327,8 +455,279 @@ components:
         - degree_qualification_date
         - grade_value
         - grading_scale
+    proof_education_qualifications:
+      additionalProperties: false
+      type: object
+      x-examples:
+        Example 1:
+          personal_data:
+            tax_code: RSSMRA80A01F205D
+            person_id: AB123456C
+            given_name: Mario
+            family_name: Rossi
+            birth_date: 1990-05-17
+            birth_place: Roma
+          proof_qualifications:
+            - institute_name: Milano - Politecnico
+              achieved_title_name: Laurea in ingegneria informatica
+              degree_class_code: LM-77
+              degree_qualification_date: 2022-07-01
+              grade_value: 110
+              grading_scale: 110
+            - institute_name: Università degli studi di Cagliari
+              achieved_title_name: Laurea in Fisica
+              degree_class_code: LM-7
+              degree_qualification_date: 2002-10-01
+              grade_value: 110
+              grading_scale: 110
+              country_of_academic_institution: Italia
+      description: Qualification details of student / Dettaglio titoli di una studentessa o di uno studente
+      x-stoplight:
+        id: 22de4be4ac251
+      properties:
+        personal_data:
+          $ref: '#/components/schemas/personal_data'
+        proof_qualifications:
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of qualifications for student / Elenco titoli di una studentessa o di uno studente
+          items:
+            $ref: '#/components/schemas/proof_qualifications'
+      required:
+        - personal_data
+        - proof_qualifications
+    proof_qualifications:
+      type: object
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/yyy/
+        institute_name: institute_name
+        achieved_title_name: achieved_title_name
+        degree_class_code: degree_class_code
+      x-examples:
+        Example 1:
+          institute_name: Milano - Politecnico
+          achieved_title_name: Laurea in ingegneria informatica
+          degree_class_code: LM-77
+          degree_qualification_date: 2022-07-01
+          grade_value: 110
+          grading_scale: 110
+          country_of_academic_institution: Italia
+      description: Detailed qualification information / Informazioni dettagliate sul titolo
+      properties:
+        institute_name:
+          type: string
+          description: Institution name / Denominazione dell’istituto
+          example: 'Milano - Politecnico'
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+        achieved_title_name:
+          type: string
+          description: Name qualification achieved / Nome titolo ottenuto
+          example: 'Laurea in ingegneria informatica'
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+        degree_class_code:
+          type: string
+          description: Identification code of the degree class / Codice identificativo della classe di laurea
+          #pattern: '^[A-Z]+-\d{1,2}$'
+          example: L-8
+          readOnly: true
+          minLength: 2
+          maxLength: 20
+        degree_qualification_date:
+          type: string
+          format: date
+          description: Date of completion of studies / Data completamento studi
+          example: 2023-10-01
+          readOnly: true
+          minLength: 10
+          maxLength: 10
+        grade_value:
+          type: integer
+          format: int32
+          description: Grade / voto
+          example: 110
+          readOnly: true
+          maximum: 999
+          minimum: 1
+        grading_scale:
+          type: integer
+          format: int32
+          description: Grade scale / Scala voto
+          example: 110
+          readOnly: true
+          maximum: 999
+          minimum: 1
+        country_of_academic_institution:
+          type: string
+          description: Country of the academic institution / Paese dell'istituzione accademica
+          example: Italia
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+      required:
+        - institute_name
+        - achieved_title_name
+        - degree_class_code
+        - degree_qualification_date
+        - grade_value
+        - grading_scale
+    proof_education_qualifications_level:
+      additionalProperties: false
+      type: object
+      x-examples:
+        Example 1:
+          personal_data:
+            tax_code: RSSMRA80A01F205D
+            person_id: AB123456C
+            given_name: Mario
+            family_name: Rossi
+          proof_qualifications_level:
+            qualification_name: Laurea in Scienze Aziendali
+            study_programme_duration_years_or_months: 3 anni a tempo pieno
+            institute_name: Università degli studi di Cagliari
+            degree_qualification_date: 2022-07-01
+            total_ects: 180
+            eqf_level: 6° livello
+            nqf_level: I ciclo QF-EHEA
+            has_parent_relation: false
+            study_programme_duration_ects: 180
+            ects_courses: 
+              - ects_credits: 6
+              - ects_credits: 12
+              - ects_credits: 6
+      description: Returns the list of simplified supplment diplomas in SDG format / Restituisce la lista dei diplomi supplment semplificati in formato SDG
+      x-stoplight:
+        id: 22de4be4ac251
+      properties:
+        personal_data:
+          $ref: '#/components/schemas/personal_data'
+        proof_qualifications_level:
+          $ref: '#/components/schemas/proof_qualifications_level'
+      required:
+        - personal_data
+        - proof_qualifications_level
+    proof_qualifications_level:
+      type: object
+      nullable: true
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/xxx/yyy
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/xxx/
+        qualification_name: qualification_name
+        institute_name: institute_name
+      x-examples:
+        Example 1:
+          qualification_name: Laurea in Scienze Aziendali
+          study_programme_duration_years_or_months: 3 anni a tempo pieno
+          institute_name: Università degli studi di Cagliari
+          degree_qualification_date: 2022-07-01
+          total_ects: 180
+          eqf_level: 6° livello
+          nqf_level: I ciclo QF-EHEA
+          has_parent_relation: false
+          study_programme_duration_ects: 180
+          ects_courses: 
+            - ects_credits: 6
+            - ects_credits: 12
+            - ects_credits: 6
+      description: Simplified supplment diplomas in SDG format / Diplomi supplment semplificati in formato SDG
+      properties:
+        qualification_name:
+          type: string
+          description: Diploma name / Denominazione diploma
+          example: 'Laurea in Scienze Aziendali'
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+        study_programme_duration_years_or_months:
+          type: string
+          description: Duration of study programme in years or months / Durata programma di studio in anni o mesi
+          example: '3 anni a tempo pieno'
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+        institute_name:
+          type: string
+          description: Institution name / Denominazione dell’istituto
+          example: 'Milano - Politecnico'
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+        degree_qualification_date:
+          type: string
+          format: date
+          description: Date of graduation / Data ottenimento titolo
+          example: 2022-07-01
+          readOnly: true
+          minLength: 10
+          maxLength: 10
+        total_ects:
+          type: integer
+          format: int32
+          description: Total ECTS credits / Crediti totali ECTS
+          example: 180
+          readOnly: true
+          maximum: 999
+          minimum: 1
+        eqf_level:
+          type: string
+          description: EQF level / Livello EQF
+          example: '6° livello'
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+        nqf_level:
+          type: string
+          description: NQF level / Livello NQF
+          example: 'I ciclo QF-EHEA'
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+        has_parent_relation:
+          type: boolean
+          description: Parent relation / Relazione con i genitori
+          example: true
+          readOnly: true
+        study_programme_duration_ects:
+          type: integer
+          format: int32
+          description: Course duration in ECTS / Durata corso di studi in ECTS
+          example: 180
+          readOnly: true
+          maximum: 999
+          minimum: 1
+        ects_courses:
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of courses in ECTS / Elenco corsi in ECTS
+          items:
+            $ref: '#/components/schemas/ects_courses'
+    ects_courses:
+      type: object
+      additionalProperties: false
+      x-examples:
+        Example 1:
+          ects_credits: 6
+      description: Detailed information on ECTS courses / Informazioni dettagliate sui corsi in ECTS
+      properties:
+        ects_credits:
+          type: integer
+          format: int32
+          description: Course in ECTS / Corso in ECTS
+          example: 180
+          readOnly: true
+          maximum: 999
+          minimum: 1
     personal_data:
       type: object
+      nullable: true
       additionalProperties: false
       x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
       x-jsonld-context:
@@ -402,4 +801,6 @@ servers:
     description: localhost
 tags:
   - name: academic-qualifications
+  - name: proof-education-qualifications
+  - name: proof-education-qualifications-level
   - name: health-check
