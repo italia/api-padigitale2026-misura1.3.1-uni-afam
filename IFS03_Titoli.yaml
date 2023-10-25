@@ -71,7 +71,8 @@ paths:
                       - institute_code: '26'
                         institute_name: Università degli Studi di Roma 'La Sapienza'
                         qualification_name: Dottore magistrale
-                        study_programme: Laurea magistrale
+                        study_programme_code: MS
+                        study_programme_name: Laurea Magistrale (DM 270/04)
                         degree_course_code: '1573960'
                         degree_course_name: Ingegneria
                         degree_class_code: LM-32
@@ -82,7 +83,8 @@ paths:
                       - institute_code: '26'
                         institute_name: Università degli Studi di Roma 'La Sapienza'
                         qualification_name: Dottore di ricerca
-                        study_programme: Dottorato di ricerca
+                        study_programme_code: DR
+                        study_programme_name: Dottorato di ricerca
                         degree_course_code: '1576760'
                         degree_course_name: Biotecnologie Agro-Alimentari
                         degree_class_code: LM-7
@@ -297,7 +299,8 @@ components:
             - institute_code: '16'
               institute_name: Milano - Politecnico
               qualification_name: Dottore magistrale
-              study_programme: Laurea Magistrale (DM 270/04)
+              study_programme_code: MS
+              study_programme_name: Laurea Magistrale (DM 270/04)
               degree_course_code: '1576480'
               degree_course_name: Ingegneria informatica
               degree_class_code: LM-32
@@ -308,7 +311,8 @@ components:
             - institute_code: '26'
               institute_name: Università degli Studi di Roma 'La Sapienza'
               qualification_name: Dottore di ricerca
-              study_programme: Dottorato di ricerca
+              study_programme_code: DR
+              study_programme_name: Dottorato di ricerca
               degree_course_code: '1576760'
               degree_course_name: Biotecnologie Agro-Alimentari
               degree_class_code: LM-7
@@ -341,7 +345,8 @@ components:
         institute_code: institute_code
         institute_name: institute_name
         qualification_name: qualification_name
-        study_programme: study_programme
+        study_programme_code: study_programme_code
+        study_programme_name: study_programme_name
         degree_course_code: degree_course_code
         degree_course_name: degree_course_name
         degree_class_code: degree_class_code
@@ -354,7 +359,8 @@ components:
           institute_code: '26'
           institute_name: Università degli Studi di Roma 'La Sapienza'
           qualification_name: Dottore magistrale
-          study_programme: Laurea Magistrale (DM 270/04)
+          study_programme_code: MS
+          study_programme_name: Laurea Magistrale (DM 270/04)
           degree_course_code: '1573960'
           degree_course_name: Ingegneria informatica
           degree_class_code: LM-32
@@ -382,7 +388,14 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 256
-        study_programme:
+        study_programme_code:
+          type: string
+          description: Code of study program / codice del corso di studio
+          example: 'LM'
+          readOnly: true
+          minLength: 1
+          maxLength: 2
+        study_programme_name:
           type: string
           description: Type of course of study / Tipo di corso di studio
           example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
@@ -447,7 +460,8 @@ components:
         - institute_code
         - institute_name
         - qualification_name
-        - study_programme
+        - study_programme_code
+        - study_programme_name
         - degree_course_code
         - degree_course_name
         - degree_class_code

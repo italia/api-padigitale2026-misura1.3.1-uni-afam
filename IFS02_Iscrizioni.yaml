@@ -69,8 +69,8 @@ paths:
                     enrollments:
                       - institute_code: '16'
                         institute_name: Milano - Politecnico
-                        study_programme_name: Laurea Magistrale (DM 270/04)
                         study_programme_code: MS
+                        study_programme_name: Laurea Magistrale (DM 270/04)
                         degree_course_code: '1576480'
                         degree_course_name: Ingegneria informatica
                         degree_class_code: LM-32
@@ -79,8 +79,8 @@ paths:
                         degree_course_year: 3
                       - institute_code: C6
                         institute_name: Milano-Bicocca - Università degli studi
-                        study_programme_name: Laurea Magistrale Ciclo Unico (DM 270/04)
                         study_programme_code: LM
+                        study_programme_name: Laurea Magistrale Ciclo Unico (DM 270/04)
                         degree_course_code: '1576474'
                         degree_course_name: Giurisprudenza
                         degree_class_code: '31'
@@ -386,8 +386,8 @@ components:
           enrollments:
             - institute_code: '16'
               institute_name: Milano - Politecnico
-              study_programme_name: Laurea Magistrale (DM 270/04)
               study_programme_code: MS
+              study_programme_name: Laurea Magistrale (DM 270/04)
               degree_course_code: '1576480'
               degree_course_name: Ingegneria informatica
               degree_class_code: LM-32
@@ -396,8 +396,8 @@ components:
               degree_course_year: 3
             - institute_code: C6
               institute_name: Milano-Bicocca - Università degli studi
-              study_programme_name: Laurea Magistrale Ciclo Unico (DM 270/04)
               study_programme_code: LM
+              study_programme_name: Laurea Magistrale Ciclo Unico (DM 270/04)
               degree_course_code: '1576474'
               degree_course_name: Giurisprudenza
               degree_class_code: '31'
@@ -790,8 +790,8 @@ components:
         Example 1:
           institute_code: '16'
           institute_name: Milano - Politecnico
-          study_programme_name: Laurea Magistrale (DM 270/04)
           study_programme_code: MS
+          study_programme_name: Laurea Magistrale (DM 270/04)
           degree_course_code: '1576480'
           degree_course_name: Ingegneria informatica
           degree_class_code: LM-32
@@ -814,13 +814,6 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 256
-        study_programme_name:
-          type: string
-          description: Type of study program / Tipologia del corso di studio
-          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
-          readOnly: true
-          minLength: 1
-          maxLength: 256
         study_programme_code:
           type: string
           description: Code of study program / codice del corso di studio
@@ -828,6 +821,13 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 2
+        study_programme_name:
+          type: string
+          description: Type of study program / Tipologia del corso di studio
+          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
+          readOnly: true
+          minLength: 1
+          maxLength: 256
         degree_course_code:
           type: string
           description: Course code / Codice del corso [** DA DEFINIRE PATTERN CORRETTO **]
@@ -877,8 +877,8 @@ components:
       required:
         - institute_code
         - institute_name
-        - study_programme_name
         - study_programme_code
+        - study_programme_name
         - degree_course_code
         - degree_course_name
         - degree_class_code
