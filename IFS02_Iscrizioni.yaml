@@ -69,24 +69,14 @@ paths:
                     enrollments:
                       - institute_code: '16'
                         institute_name: Milano - Politecnico
-                        study_programme_code: MS
-                        study_programme_name: Laurea Magistrale (DM 270/04)
-                        degree_course_code: '1576480'
+                        programme_type_code: MS
+                        programme_type_name: Laurea Magistrale (DM 270/04)
+                        degree_course_code: '1573960'
                         degree_course_name: Ingegneria informatica
                         degree_class_code: LM-32
                         degree_class_name: Ingegneria informatica
                         academic_year: 2021/2022
                         degree_course_year: 3
-                      - institute_code: C6
-                        institute_name: Milano-Bicocca - Università degli studi
-                        study_programme_code: LM
-                        study_programme_name: Laurea Magistrale Ciclo Unico (DM 270/04)
-                        degree_course_code: '1576474'
-                        degree_course_name: Giurisprudenza
-                        degree_class_code: '31'
-                        degree_class_name: Scienze giuridiche
-                        academic_year: 2022/2023
-                        degree_course_year: 1
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
@@ -145,19 +135,17 @@ paths:
                       person_id: AB123456C
                       given_name: Mario
                       family_name: Rossi
-                      birth_date: '1990-05-17'
-                      birth_place: Roma
                     proof_enrollments:
-                      - study_programme: Ingegneria informatica
+                      - course_name: Ingegneria informatica
                         institute_name: Milano - Politecnico
                         country_of_academic_institution: Italia
                         end_date_of_study_programme: 2023-10-01
                         date_of_enrolment: 2020-10-01
-                      - study_programme: Ingegneria elettronica
+                      - course_name: Ingegneria elettronica
                         institute_name: Milano-Bicocca - Università degli studi
                         country_of_academic_institution: Italia
-                        end_date_of_study_programme: 2023-10-01
-                        date_of_enrolment: 2020-10-01
+                        end_date_of_study_programme: 2008-10-01
+                        date_of_enrolment: 2005-10-01
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
@@ -217,10 +205,9 @@ paths:
                       person_id: AB123456C
                       given_name: Mario
                       family_name: Rossi
-                      birth_date: '1990-05-17'
-                      birth_place: Roma
                     proof_courses:
-                      study_programme: Ingegneria informatica
+                      degree_course_name: Ingegneria elettronica
+                      degree_course_code: '1576478'
                       institute_name: Milano - Politecnico
                       courses: 
                         - course_name: Esame 1
@@ -292,19 +279,17 @@ paths:
                       person_id: AB123456C
                       given_name: Mario
                       family_name: Rossi
-                      birth_date: '1990-05-17'
-                      birth_place: Roma
                     proof_admissions:
                       - institute_name: Milano - Politecnico
-                        study_programme: Ingegneria elettronica
-                        study_programme_duration: 3
-                        study_programme_duration_ects: 180
+                        course_name: Ingegneria elettronica
+                        duration_temporal_coverage: "3 anni"
+                        duration_ects_credits: 180
                         start_date_of_accademic_year: 2020-10-13
                         end_date_of_accademic_year: 2023-10-13
                       - institute_name: Università degli studi di Cagliari
-                        study_programme: Fisica
-                        study_programme_duration: 3
-                        study_programme_duration_ects: 180
+                        course_name: Fisica
+                        duration_temporal_coverage: "36 mesi"
+                        duration_ects_credits: 180
                         start_date_of_accademic_year: 2020-10-13
                         end_date_of_accademic_year: 2023-10-13
         '400':
@@ -386,24 +371,14 @@ components:
           enrollments:
             - institute_code: '16'
               institute_name: Milano - Politecnico
-              study_programme_code: MS
-              study_programme_name: Laurea Magistrale (DM 270/04)
+              programme_type_code: MS
+              programme_type_name: Laurea Magistrale (DM 270/04)
               degree_course_code: '1576480'
               degree_course_name: Ingegneria informatica
               degree_class_code: LM-32
               degree_class_name: Ingegneria informatica
               academic_year: 2021/2022
               degree_course_year: 3
-            - institute_code: C6
-              institute_name: Milano-Bicocca - Università degli studi
-              study_programme_code: LM
-              study_programme_name: Laurea Magistrale Ciclo Unico (DM 270/04)
-              degree_course_code: '1576474'
-              degree_course_name: Giurisprudenza
-              degree_class_code: '31'
-              degree_class_name: Scienze giuridiche
-              academic_year: 2022/2023
-              degree_course_year: 1
       description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
       x-stoplight:
         id: 22de4be4ac251
@@ -430,19 +405,17 @@ components:
             person_id: AB123456C
             given_name: Mario
             family_name: Rossi
-            birth_date: 1990-05-17
-            birth_place: Roma
           proof_enrollments:
-            - study_programme: Ingegneria informatica
+            - course_name: Ingegneria informatica
               institute_name: Milano - Politecnico
               country_of_academic_institution: Italia
               end_date_of_study_programme: 2023-10-13
               date_of_enrolment: 2020-10-13
-            - study_programme: Ingegneria elettronica
+            - course_name: Ingegneria elettronica
               institute_name: Milano-Bicocca - Università degli studi
               country_of_academic_institution: Italia
-              end_date_of_study_programme: 2023-10-13
-              date_of_enrolment: 2020-10-13
+              end_date_of_study_programme: 2008-10-13
+              date_of_enrolment: 2005-10-13
       description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
       x-stoplight:
         id: 22de4be4ac251
@@ -466,13 +439,13 @@ components:
       x-jsonld-context:
         '@vocab': http://w3id.org/italia/onto/yyy/
         institute_name: institute_name
-        study_programme: study_programme
+        course_name: course_name
         country_of_academic_institution: country_of_academic_institution
         end_date_of_study_programme: end_date_of_study_programme
         date_of_enrolment: date_of_enrolment
       x-examples:
         Example 1:
-          study_programme: Ingegneria elettronica
+          course_name: Ingegneria elettronica
           institute_name: Milano-Bicocca - Università degli studi
           country_of_academic_institution: Italia
           end_date_of_study_programme: 01/10/2008
@@ -486,10 +459,10 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 256
-        study_programme:
+        course_name:
           type: string
-          description: Type of study program / Tipologia del corso di studio
-          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
+          description: Course name / Denominazione corso
+          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
           readOnly: true
           minLength: 1
           maxLength: 256
@@ -517,7 +490,7 @@ components:
           maxLength: 10
       required:
         - institute_name
-        - study_programme
+        - course_name
         - country_of_academic_institution
         - end_date_of_study_programme
         - date_of_enrolment
@@ -533,10 +506,9 @@ components:
             person_id: AB123456C
             given_name: Mario
             family_name: Rossi
-            birth_date: 1990-05-17
-            birth_place: Roma
           proof_courses:
-            study_programme: Ingegneria informatica
+            degree_course_name: Ingegneria elettronica
+            degree_course_code: '1576478'
             institute_name: Milano - Politecnico
             courses: 
               - course_name: Esame 1
@@ -568,10 +540,10 @@ components:
       x-jsonld-context:
         '@vocab': http://w3id.org/italia/onto/xxx/
         institute_code: institute_code
-        study_programme: study_programme
       x-examples:
         Example 1:
-          study_programme: Ingegneria informatica
+          degree_course_name: Ingegneria elettronica
+          degree_course_code: '1576478'
           institute_name: Milano - Politecnico
           courses: 
             - course_name: Esame 1
@@ -593,10 +565,17 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 256
-        study_programme:
+        degree_course_code:
           type: string
-          description: Type of study program / Tipologia del corso di studio
-          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
+          description: Course code / Codice del corso 
+          #pattern: '^[A-Z\d]{2,4}\d{2,4}$'
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        degree_course_name:
+          type: string
+          description: Course name / Denominazione corso
+          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
           readOnly: true
           minLength: 1
           maxLength: 256
@@ -670,19 +649,17 @@ components:
             person_id: AB123456C
             given_name: Mario
             family_name: Rossi
-            birth_date: 1990-05-17
-            birth_place: Roma
           proof_admissions:
             - institute_name: Milano - Politecnico
-              study_programme: Ingegneria elettronica
-              study_programme_duration: 3
-              study_programme_duration_ects: 180
+              course_name: Ingegneria elettronica
+              duration_temporal_coverage: "3 anni"
+              duration_ects_credits: 180
               start_date_of_accademic_year: 2020-10-13
               end_date_of_accademic_year: 2023-10-13
             - institute_name: Università degli studi di Cagliari
-              study_programme: Fisica
-              study_programme_duration: 3
-              study_programme_duration_ects: 180
+              course_name: Fisica
+              duration_temporal_coverage: "36 mesi"
+              duration_ects_credits: 180
               start_date_of_accademic_year: 2020-10-13
               end_date_of_accademic_year: 2023-10-13
       description: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
@@ -708,13 +685,12 @@ components:
       x-jsonld-context:
         '@vocab': http://w3id.org/italia/onto/yyy/
         institute_name: institute_name
-        study_programme: study_programme
       x-examples:
         Example 1:
           institute_name: Milano - Politecnico
-          study_programme: Laurea Specialistica (DM 509/99)
-          study_programme_duration: 3
-          study_programme_duration_ects: 180
+          course_name: Ingegneria elettronica
+          duration_temporal_coverage: "3 anni"
+          duration_ects_credits: 180
           start_date_of_accademic_year: 2020-10-13
           end_date_of_accademic_year: 2023-10-13
       description: Detailed information on admission certification / Informazioni dettagliate sulla certificazione di ammissione
@@ -726,21 +702,20 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 256
-        study_programme:
+        course_name:
           type: string
-          description: Type of study program / Tipologia del corso di studio
-          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
+          description: Course name / Denominazione corso
+          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
           readOnly: true
           minLength: 1
           maxLength: 256
-        study_programme_duration:
-          type: integer
-          format: int32
+        duration_temporal_coverage:
+          type: string
           description: Duration of study course / Durata del corso di studi
           readOnly: true
-          minimum: 1
-          maximum: 99
-        study_programme_duration_ects:
+          minLength: 1
+          maxLength: 256
+        duration_ects_credits:
           type: integer
           format: int32
           description: Duration of study course in ECTS/ Durata del corso di studi in ECTS
@@ -765,9 +740,9 @@ components:
           maxLength: 10
       required:
         - institute_name
-        - study_programme
-        - study_programme_duration
-        - study_programme_duration_ects
+        - course_name
+        - duration_temporal_coverage
+        - duration_ects_credits
         - start_date_of_accademic_year
         - end_date_of_accademic_year
     enrollment:
@@ -778,8 +753,8 @@ components:
         '@vocab': http://w3id.org/italia/onto/yyy/
         institute_code: institute_code
         institute_name: institute_name
-        study_programme_name: study_programme_name
-        study_programme_code: study_programme_code
+        programme_type_name: programme_type_name
+        programme_type_code: programme_type_code
         degree_course_code: degree_course_code
         degree_course_name: degree_course_name
         degree_class_code: degree_class_code
@@ -790,8 +765,8 @@ components:
         Example 1:
           institute_code: '16'
           institute_name: Milano - Politecnico
-          study_programme_code: MS
-          study_programme_name: Laurea Magistrale (DM 270/04)
+          programme_type_code: MS
+          programme_type_name: Laurea Magistrale (DM 270/04)
           degree_course_code: '1576480'
           degree_course_name: Ingegneria informatica
           degree_class_code: LM-32
@@ -814,14 +789,14 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 256
-        study_programme_code:
+        programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
           example: 'LM'
           readOnly: true
           minLength: 1
           maxLength: 2
-        study_programme_name:
+        programme_type_name:
           type: string
           description: Type of study program / Tipologia del corso di studio
           example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
@@ -877,8 +852,8 @@ components:
       required:
         - institute_code
         - institute_name
-        - study_programme_code
-        - study_programme_name
+        - programme_type_code
+        - programme_type_name
         - degree_course_code
         - degree_course_name
         - degree_class_code
