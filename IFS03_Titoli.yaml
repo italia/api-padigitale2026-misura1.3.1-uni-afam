@@ -36,7 +36,7 @@ paths:
             minLength: 16
             description: Tax Identification Number / Codice Fiscale 
             pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
-        - name: tax_code_hash
+        - name: key
           in: query
           required: false
           schema:
@@ -44,6 +44,14 @@ paths:
             maxLength: 64
             minLength: 64
             description: Tax Identification Number hash / Codice Fiscale hash
+        - name: institute_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 32
+            minLength: 1
+            description: Institute code / Codice istituto
     get:
       summary: Degrees earned by the student / Titoli conseguiti dalla studentessa o dallo studente
       tags:
@@ -68,8 +76,8 @@ paths:
                       birth_date: '1990-05-17'
                       birth_place: Roma
                     qualifications:
-                      - institute_code: '26'
-                        institute_name: Università degli Studi di Roma 'La Sapienza'
+                      - institute_code: '16'
+                        institute_name: Milano - Politecnico
                         qualification_name: Dottore magistrale
                         programme_type_code: MS
                         programme_type_name: Laurea Magistrale (DM 270/04)
@@ -77,25 +85,11 @@ paths:
                         degree_course_name: Ingegneria
                         degree_class_code: LM-32
                         degree_class_name: Ingegneria informatica
-                        degree_qualification_date: '2022-07-01'
-                        grade_value: 110
-                        grading_scale: 110
-                        grading_scale_minimum_grade: 66
-                        grading_scale_maximum_grade: 110
-                      - institute_code: '26'
-                        institute_name: Università degli Studi di Roma 'La Sapienza'
-                        qualification_name: Dottore di ricerca
-                        programme_type_code: DR
-                        programme_type_name: Dottorato di ricerca
-                        degree_course_code: '1576760'
-                        degree_course_name: Biotecnologie Agro-Alimentari
-                        degree_class_code: LM-7
-                        degree_class_name: Biotecnologie agrarie
-                        degree_qualification_date: '2022-07-01'
-                        grade_value: 98
-                        grading_scale: 110
-                        grading_scale_minimum_grade: 66
-                        grading_scale_maximum_grade: 110
+                        academic_qualification_date: '2022-07-01'
+                        qualification_grade_value: '110'
+                        qualification_grading_scale: '110'
+                        qualification_grading_scale_minimum_grade: '66'
+                        qualification_grading_scale_maximum_grade: '110'
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input                    
         '404':
@@ -124,6 +118,14 @@ paths:
             minLength: 16
             description: Tax Identification Number / Codice Fiscale 
             pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
+        - name: institute_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 32
+            minLength: 1
+            description: Institute code / Codice istituto
     get:
       summary: Retrieve qualification details of student in SDG format / Recupero titoli di una studentessa o di uno studente in formato SDG
       tags:
@@ -145,7 +147,8 @@ paths:
                       given_name: Mario
                       family_name: Rossi
                     proof_qualifications:
-                      - institute_name: Milano - Politecnico
+                      - institute_code: '16'
+                        institute_name: Milano - Politecnico
                         qualification_name: Laurea in ingegneria informatica
                         programme_type_code: MS
                         programme_type_name: Laurea Magistrale (DM 270/04)
@@ -153,26 +156,12 @@ paths:
                         degree_course_name: Ingegneria
                         degree_class_code: LM-32
                         degree_class_name: Ingegneria informatica
-                        degree_qualification_date: 2022-07-01
-                        grade_value: 110
-                        grading_scale: 110
-                        grading_scale_minimum_grade: 66
-                        grading_scale_maximum_grade: 110
-                        country_of_academic_institution: Italia
-                      - institute_name: Università degli studi di Cagliari
-                        qualification_name: Laurea in Fisica
-                        programme_type_code: MS
-                        programme_type_name: Laurea Magistrale (DM 270/04)
-                        degree_course_code: '1573960'
-                        degree_course_name: Ingegneria
-                        degree_class_code: LM-32
-                        degree_class_name: Ingegneria informatica
-                        degree_qualification_date: 2002-10-01
-                        grade_value: 110
-                        grading_scale: 110
-                        grading_scale_minimum_grade: 66
-                        grading_scale_maximum_grade: 110
-                        country_of_academic_institution: Italia
+                        academic_qualification_date: 2022-07-01
+                        qualification_grade_value: '110'
+                        qualification_grading_scale: '110'
+                        qualification_grading_scale_minimum_grade: '66'
+                        qualification_grading_scale_maximum_grade: '110'
+                        academic_qualification_country: Italia
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
@@ -203,6 +192,14 @@ paths:
             description: Tax Identification Number / Codice Fiscale 
             pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
           allowEmptyValue: true  
+        - name: institute_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 32
+            minLength: 1
+            description: Institute code / Codice istituto
     get:
       summary: Requires the list of examinations taken by the student in SDG format / Richiede la lista degli esami sostenuti dallo studente in formato SDG
       tags:
@@ -226,17 +223,18 @@ paths:
                     proof_qualifications_level:
                       qualification_name: Laurea in Scienze Aziendali
                       study_programme_duration_years_or_months: 3 anni a tempo pieno
-                      institute_name: Università degli studi di Cagliari
-                      degree_qualification_date: 2022-07-01
+                      institute_code: '16'
+                      institute_name: Milano - Politecnico
+                      academic_qualification_date: 2022-07-01
                       total_ects: 180
                       eqf_level: 6° livello
                       nqf_level: I ciclo QF-EHEA
                       has_parent_relation: false
-                      study_programme_duration_ects: 180
+                      degree_course_duration_ects_credit: 180
                       ects_courses: 
-                        - ects_credits: 6
-                        - ects_credits: 12
-                        - ects_credits: 6
+                        - ects_credits_received: 6
+                        - ects_credits_received: 12
+                        - ects_credits_received: 6
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
@@ -323,25 +321,11 @@ components:
               degree_course_name: Ingegneria informatica
               degree_class_code: LM-32
               degree_class_name: Ingegneria informatica
-              degree_qualification_date: '2022-07-01'
-              grade_value: 110
-              grading_scale: 110
-              grading_scale_minimum_grade: 66
-              grading_scale_maximum_grade: 110
-            - institute_code: '26'
-              institute_name: Università degli Studi di Roma 'La Sapienza'
-              qualification_name: Dottore di ricerca
-              programme_type_code: DR
-              programme_type_name: Dottorato di ricerca
-              degree_course_code: '1576760'
-              degree_course_name: Biotecnologie Agro-Alimentari
-              degree_class_code: LM-7
-              degree_class_name: Biotecnologie agrarie
-              degree_qualification_date: '2022-07-01'
-              grade_value: 98
-              grading_scale: 110
-              grading_scale_minimum_grade: 66
-              grading_scale_maximum_grade: 110
+              academic_qualification_date: '2022-07-01'
+              qualification_grade_value: '110'
+              qualification_grading_scale: '110'
+              qualification_grading_scale_minimum_grade: '66'
+              qualification_grading_scale_maximum_grade: '110'
       description: Registry and list of degrees earned by a student / Anagrafica ed elenco titoli conseguiti da una studentessa o uno studente
       x-stoplight:
         id: 15d3067a4c448
@@ -373,9 +357,9 @@ components:
         degree_course_name: degree_course_name
         degree_class_code: degree_class_code
         degree_class_name: degree_class_name
-        degree_qualification_date: degree_qualification_date
-        grade_value: grade_value
-        grading_scale: grading_scale
+        academic_qualification_date: academic_qualification_date
+        qualification_grade_value: qualification_grade_value
+        qualification_grading_scale: qualification_grading_scale
       x-examples:
         Example 1:
           institute_code: '26'
@@ -387,31 +371,31 @@ components:
           degree_course_name: Ingegneria informatica
           degree_class_code: LM-32
           degree_class_name: Ingegneria informatica
-          degree_qualification_date: '2022-07-01'
-          grade_value: 110
-          grading_scale: 110
-          grading_scale_minimum_grade: 66
-          grading_scale_maximum_grade: 110
+          academic_qualification_date: '2022-07-01'
+          qualification_grade_value: '110'
+          qualification_grading_scale: '110'
+          qualification_grading_scale_minimum_grade: '66'
+          qualification_grading_scale_maximum_grade: '110'
       description: Degree detail / Dettaglio titolo
       properties:
         institute_code:
           type: string
           description: Institute identification code / Codice identificativo dell'istituto
           readOnly: true
-          minLength: 1
-          maxLength: 10
+          minLength: 2
+          maxLength: 2
         institute_name:
           type: string
           description: Name of institution / Nome dell'istituto
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         qualification_name:
           type: string
           description: Title of the degree / Denominazione del titolo di studio
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
@@ -425,7 +409,7 @@ components:
           example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         degree_course_code:
           type: string
           description: Course Code / Codice del corso
@@ -438,7 +422,7 @@ components:
           example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
@@ -452,48 +436,41 @@ components:
           example: 'Informatica, Meccanica, Elettronica, Civile'
           readOnly: true
           minLength: 1
-          maxLength: 256
-        degree_qualification_date:
+          maxLength: 2048
+        academic_qualification_date:
           type: string
           description: Date of graduation / Data di conseguimento del titolo di studio
           pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'
           example: '2023-05-15'
           format: date
           readOnly: true
-        grade_value:
-          type: integer
-          format: int32
+        qualification_grade_value:
+          type: string
           description: Grade obtained upon graduation / Voto ottenuto al conseguimento del titolo di studio
-          pattern: ^\d{3}$
-          minimum: 1
-          maximum: 999
-          example: 110
+          minLength: 1
+          maxLength: 32
+          example: '110'
           readOnly: true
-        grading_scale:
-          type: integer
-          format: int32
-          example: 110
-          pattern: ^\d{3}$
-          minimum: 1
-          maximum: 999
+        qualification_grading_scale:
+          type: string
+          minLength: 1
+          maxLength: 32
+          example: '110'
           description: Rating scale / Scala di valutazione
           readOnly: true
-        grading_scale_minimum_grade:
-          type: integer
+        qualification_grading_scale_minimum_grade:
+          type: string
           format: int32
-          example: 66
-          pattern: ^\d{3}$
-          minimum: 1
-          maximum: 999
+          minLength: 1
+          maxLength: 32
+          example: '66'
           description: Minimum course grade / Voto minimo del corso
           readOnly: true
-        grading_scale_maximum_grade:
-          type: integer
-          format: int32
-          example: 110
-          pattern: ^\d{3}$
-          minimum: 1
-          maximum: 999
+        qualification_grading_scale_maximum_grade:
+          type: string
+          minLength: 1
+          maxLength: 32
+          example: '110'
           description: Highest course grade / Voto massimo del corso
           readOnly: true
     proof_education_qualifications:
@@ -509,7 +486,8 @@ components:
             birth_date: 1990-05-17
             birth_place: Roma
           proof_qualifications:
-            - institute_name: Milano - Politecnico
+            - institute_code: '16'
+              institute_name: Milano - Politecnico
               qualification_name: Laurea in ingegneria informatica
               programme_type_code: MS
               programme_type_name: Laurea Magistrale (DM 270/04)
@@ -517,26 +495,12 @@ components:
               degree_course_name: Ingegneria
               degree_class_code: LM-32
               degree_class_name: Ingegneria informatica
-              degree_qualification_date: 2022-07-01
-              grade_value: 110
-              grading_scale: 110
-              grading_scale_minimum_grade: 66
-              grading_scale_maximum_grade: 110
-              country_of_academic_institution: Italia
-            - institute_name: Università degli studi di Cagliari
-              qualification_name: Laurea in Fisica
-              programme_type_code: MS
-              programme_type_name: Laurea Magistrale (DM 270/04)
-              degree_course_code: '1573960'
-              degree_course_name: Ingegneria
-              degree_class_code: LM-32
-              degree_class_name: Ingegneria informatica
-              degree_qualification_date: 2002-10-01
-              grade_value: 110
-              grading_scale: 110
-              grading_scale_minimum_grade: 66
-              grading_scale_maximum_grade: 110
-              country_of_academic_institution: Italia
+              academic_qualification_date: 2022-07-01
+              qualification_grade_value: '110'
+              qualification_grading_scale: '110'
+              qualification_grading_scale_minimum_grade: '66'
+              qualification_grading_scale_maximum_grade: '110'
+              academic_qualification_country: Italia
       description: Qualification details of student / Dettaglio titoli di una studentessa o di uno studente
       x-stoplight:
         id: 22de4be4ac251
@@ -559,11 +523,13 @@ components:
       x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
       x-jsonld-context:
         '@vocab': http://w3id.org/italia/onto/yyy/
+        institute_code: institute_code
         institute_name: institute_name
         qualification_name: qualification_name
         degree_class_code: degree_class_code
       x-examples:
         Example 1:
+          institute_code: '16'
           institute_name: Milano - Politecnico
           qualification_name: Laurea in ingegneria informatica
           programme_type_code: MS
@@ -572,28 +538,35 @@ components:
           degree_course_name: Ingegneria
           degree_class_code: LM-32
           degree_class_name: Ingegneria informatica
-          degree_qualification_date: 2022-07-01
-          grade_value: 110
-          grading_scale: 110
-          grading_scale_minimum_grade: 66
-          grading_scale_maximum_grade: 110
-          country_of_academic_institution: Italia
+          academic_qualification_date: 2022-07-01
+          qualification_grade_value: '110'
+          qualification_grading_scale: '110'
+          qualification_grading_scale_minimum_grade: '66'
+          qualification_grading_scale_maximum_grade: '110'
+          academic_qualification_country: Italia
       description: Detailed qualification information / Informazioni dettagliate sul titolo
       properties:
+        institute_code:
+          type: string
+          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          example: '16'
+          readOnly: true
+          minLength: 2
+          maxLength: 2
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
           example: 'Milano - Politecnico'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         qualification_name:
           type: string
           description: Name qualification achieved / Nome titolo ottenuto
           example: 'Laurea in ingegneria informatica'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
@@ -607,7 +580,7 @@ components:
           example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         degree_course_code:
           type: string
           description: Course Code / Codice del corso
@@ -620,7 +593,7 @@ components:
           example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
@@ -634,8 +607,8 @@ components:
           example: 'Informatica, Meccanica, Elettronica, Civile'
           readOnly: true
           minLength: 1
-          maxLength: 256
-        degree_qualification_date:
+          maxLength: 2048
+        academic_qualification_date:
           type: string
           format: date
           description: Date of completion of studies / Data completamento studi
@@ -643,48 +616,41 @@ components:
           readOnly: true
           minLength: 10
           maxLength: 10
-        grade_value:
-          type: integer
-          format: int32
+        qualification_grade_value:
+          type: string
           description: Grade / voto
-          example: 110
+          minLength: 1
+          maxLength: 32
+          example: '110'
           readOnly: true
-          maximum: 999
-          minimum: 1
-        grading_scale:
-          type: integer
-          format: int32
-          example: 110
-          pattern: ^\d{3}$
-          minimum: 1
-          maximum: 999
+        qualification_grading_scale:
+          type: string
+          minLength: 1
+          maxLength: 32
+          example: '110'
           description: Rating scale / Scala di valutazione
           readOnly: true
-        grading_scale_minimum_grade:
-          type: integer
-          format: int32
-          example: 66
-          pattern: ^\d{3}$
-          minimum: 1
-          maximum: 999
+        qualification_grading_scale_minimum_grade:
+          type: string
+          minLength: 1
+          maxLength: 32
+          example: '66'
           description: Minimum course grade / Voto minimo del corso
           readOnly: true
-        grading_scale_maximum_grade:
-          type: integer
-          format: int32
-          example: 110
-          pattern: ^\d{3}$
-          minimum: 1
-          maximum: 999
+        qualification_grading_scale_maximum_grade:
+          type: string
+          minLength: 1
+          maxLength: 32
+          example: '110'
           description: Highest course grade / Voto massimo del corso
           readOnly: true
-        country_of_academic_institution:
+        academic_qualification_country:
           type: string
           description: Country of the academic institution / Paese dell'istituzione accademica
           example: Italia
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
     proof_education_qualifications_level:
       additionalProperties: false
       type: object
@@ -696,19 +662,20 @@ components:
             given_name: Mario
             family_name: Rossi
           proof_qualifications_level:
-            qualification_name: Laurea in Scienze Aziendali
+            qualification_name: Laurea ingegneria informatica
             study_programme_duration_years_or_months: 3 anni a tempo pieno
-            institute_name: Università degli studi di Cagliari
-            degree_qualification_date: 2022-07-01
+            institute_code: '16'
+            institute_name: Milano - Politecnico
+            academic_qualification_date: 2022-07-01
             total_ects: 180
             eqf_level: 6° livello
             nqf_level: I ciclo QF-EHEA
             has_parent_relation: false
-            study_programme_duration_ects: 180
+            degree_course_duration_ects_credit: 180
             ects_courses: 
-              - ects_credits: 6
-              - ects_credits: 12
-              - ects_credits: 6
+              - ects_credits_received: 6
+              - ects_credits_received: 12
+              - ects_credits_received: 6
       description: Returns the list of simplified supplment diplomas in SDG format / Restituisce la lista dei diplomi supplment semplificati in formato SDG
       x-stoplight:
         id: 22de4be4ac251
@@ -728,22 +695,24 @@ components:
       x-jsonld-context:
         '@vocab': http://w3id.org/italia/onto/xxx/
         qualification_name: qualification_name
+        institute_code: institute_code
         institute_name: institute_name
       x-examples:
         Example 1:
-          qualification_name: Laurea in Scienze Aziendali
+          qualification_name: Laurea ingegneria informatica
           study_programme_duration_years_or_months: 3 anni a tempo pieno
-          institute_name: Università degli studi di Cagliari
-          degree_qualification_date: 2022-07-01
+          institute_code: '16'
+          institute_name: Milano - Politecnico
+          academic_qualification_date: 2022-07-01
           total_ects: 180
           eqf_level: 6° livello
           nqf_level: I ciclo QF-EHEA
           has_parent_relation: false
-          study_programme_duration_ects: 180
+          degree_course_duration_ects_credit: 180
           ects_courses: 
-            - ects_credits: 6
-            - ects_credits: 12
-            - ects_credits: 6
+            - ects_credits_received: 6
+            - ects_credits_received: 12
+            - ects_credits_received: 6
       description: Simplified supplment diplomas in SDG format / Diplomi supplment semplificati in formato SDG
       properties:
         qualification_name:
@@ -752,22 +721,29 @@ components:
           example: 'Laurea in Scienze Aziendali'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         study_programme_duration_years_or_months:
           type: string
           description: Duration of study programme in years or months / Durata programma di studio in anni o mesi
           example: '3 anni a tempo pieno'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
+        institute_code:
+          type: string
+          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          example: '16'
+          readOnly: true
+          minLength: 2
+          maxLength: 2
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
           example: 'Milano - Politecnico'
           readOnly: true
           minLength: 1
-          maxLength: 256
-        degree_qualification_date:
+          maxLength: 2048
+        academic_qualification_date:
           type: string
           format: date
           description: Date of graduation / Data ottenimento titolo
@@ -789,20 +765,20 @@ components:
           example: '6° livello'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         nqf_level:
           type: string
           description: NQF level / Livello NQF
           example: 'I ciclo QF-EHEA'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         has_parent_relation:
           type: boolean
           description: Parent relation / Relazione con i genitori
           example: true
           readOnly: true
-        study_programme_duration_ects:
+        degree_course_duration_ects_credit:
           type: integer
           format: int32
           description: Course duration in ECTS / Durata corso di studi in ECTS
@@ -822,10 +798,10 @@ components:
       additionalProperties: false
       x-examples:
         Example 1:
-          ects_credits: 6
+          ects_credits_received: 6
       description: Detailed information on ECTS courses / Informazioni dettagliate sui corsi in ECTS
       properties:
-        ects_credits:
+        ects_credits_received:
           type: integer
           format: int32
           description: Course in ECTS / Corso in ECTS
@@ -876,18 +852,18 @@ components:
           type: string
           description: Name / Nome
           example: Mario
-          pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
+          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         family_name:
           type: string
           description: Surname / Cognome
           example: Rossi
-          pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
+          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         birth_date:
           type: string
           format: date
@@ -901,7 +877,7 @@ components:
           description: Place of birth / Luogo di nascita
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
   requestBodies: {}
   responses: {}
 servers:

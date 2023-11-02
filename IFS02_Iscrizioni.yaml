@@ -36,7 +36,7 @@ paths:
             minLength: 16
             description: Tax Identification Number / Codice Fiscale 
             pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
-        - name: tax_code_hash
+        - name: key
           in: query
           required: false
           schema:
@@ -44,6 +44,14 @@ paths:
             maxLength: 64
             minLength: 64
             description: Tax Identification Number hash / Codice Fiscale hash
+        - name: institute_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 1
+            minLength: 32
+            description: Institute code / Codice istituto
     get:
       summary: Retrieve enrollment details of student / Recupero iscrizioni di una studentessa o di uno studente 
       tags:
@@ -115,6 +123,14 @@ paths:
             minLength: 16
             description: Tax Identification Number / Codice Fiscale 
             pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
+        - name: institute_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 1
+            minLength: 32
+            description: Institute code / Codice istituto
     get:
       summary: Retrieve enrollment details of student in SDG format / Recupero iscrizioni di una studentessa o di uno studente in formato SDG
       tags:
@@ -142,20 +158,11 @@ paths:
                         degree_course_name: Ingegneria informatica
                         degree_class_code: LM-32
                         degree_class_name: Ingegneria informatica
+                        institute_code: '16'
                         institute_name: Milano - Politecnico
                         country_of_academic_institution: Italia
-                        end_date_of_study_programme: 2023-10-01
-                        date_of_enrolment: 2020-10-01
-                      - programme_type_code: MS
-                        programme_type_name: Laurea Magistrale (DM 270/04)
-                        degree_course_code: '1573960'
-                        degree_course_name: Ingegneria informatica
-                        degree_class_code: LM-32
-                        degree_class_name: Ingegneria informatica
-                        institute_name: Milano-Bicocca - Università degli studi
-                        country_of_academic_institution: Italia
-                        end_date_of_study_programme: 2008-10-01
-                        date_of_enrolment: 2005-10-01
+                        expected_graduation_date: 2023-10-01
+                        enrolment_date: 2020-10-01
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
@@ -194,7 +201,15 @@ paths:
             minLength: 16
             description: Tax Identification Number / Codice Fiscale 
             pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
-          allowEmptyValue: true  
+          allowEmptyValue: true
+        - name: institute_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 1
+            minLength: 32
+            description: Institute code / Codice istituto
     get:
       summary: Requires the list of examinations taken by the student in SDG format / Richiede la lista degli esami sostenuti dallo studente in formato SDG
       tags:
@@ -222,18 +237,19 @@ paths:
                       degree_course_name: Ingegneria informatica
                       degree_class_code: LM-32
                       degree_class_name: Ingegneria informatica
+                      institute_code: '16'
                       institute_name: Milano - Politecnico
-                      courses: 
-                        - course_name: Esame 1
+                      learnings: 
+                        - attended_learning_name: Esame 1
                           start_date: 2020-10-13
                           end_date: 2023-10-13
-                          grade: 30
-                          credits_ects: 6
-                        - course_name: Esame 2
+                          grade_value: '30'
+                          ects_credits_received: 6
+                        - attended_learning_name: Esame 2
                           start_date: 2020-10-13
                           end_date: 2023-10-13
-                          grade: 30
-                          credits_ects: 6
+                          grade_value: '30'
+                          ects_credits_received: 6
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
@@ -273,6 +289,14 @@ paths:
             description: Tax Identification Number / Codice Fiscale 
             pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
           allowEmptyValue: true
+        - name: institute_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 1
+            minLength: 32
+            description: Institute code / Codice istituto
     get:
       summary: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
       tags:
@@ -294,25 +318,15 @@ paths:
                       given_name: Mario
                       family_name: Rossi
                     proof_admissions:
-                      - institute_name: Milano - Politecnico
+                      - institute_code: '16'
+                        institute_name: Milano - Politecnico
                         programme_type_code: MS
                         programme_type_name: Laurea Magistrale (DM 270/04)
                         degree_course_code: '1573960'
                         degree_course_name: Ingegneria informatica
                         degree_class_code: LM-32
                         degree_class_name: Ingegneria informatica
-                        duration_temporal_coverage: "3 anni"
-                        duration_ects_credits: 180
-                        start_date_of_accademic_year: 2020-10-13
-                        end_date_of_accademic_year: 2023-10-13
-                      - institute_name: Università degli studi di Cagliari
-                        programme_type_code: MS
-                        programme_type_name: Laurea Magistrale (DM 270/04)
-                        degree_course_code: '1573960'
-                        degree_course_name: Ingegneria informatica
-                        degree_class_code: LM-32
-                        degree_class_name: Ingegneria informatica
-                        duration_temporal_coverage: "36 mesi"
+                        degree_course_duration_in_years_or_months: "3 anni"
                         duration_ects_credits: 180
                         start_date_of_accademic_year: 2020-10-13
                         end_date_of_accademic_year: 2023-10-13
@@ -436,20 +450,11 @@ components:
               degree_course_name: Ingegneria informatica
               degree_class_code: LM-32
               degree_class_name: Ingegneria informatica
+              institute_code: '16'
               institute_name: Milano - Politecnico
               country_of_academic_institution: Italia
-              end_date_of_study_programme: 2023-10-13
-              date_of_enrolment: 2020-10-13
-            - programme_type_code: MS
-              programme_type_name: Laurea Magistrale (DM 270/04)
-              degree_course_code: '1573960'
-              degree_course_name: Ingegneria informatica
-              degree_class_code: LM-32
-              degree_class_name: Ingegneria informatica
-              institute_name: Milano-Bicocca - Università degli studi
-              country_of_academic_institution: Italia
-              end_date_of_study_programme: 2008-10-13
-              date_of_enrolment: 2005-10-13
+              expected_graduation_date: 2023-10-13
+              enrolment_date: 2020-10-13
       description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
       x-stoplight:
         id: 22de4be4ac251
@@ -472,10 +477,11 @@ components:
       x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
       x-jsonld-context:
         '@vocab': http://w3id.org/italia/onto/yyy/
+        institute_code: institute_code
         institute_name: institute_name
         country_of_academic_institution: country_of_academic_institution
-        end_date_of_study_programme: end_date_of_study_programme
-        date_of_enrolment: date_of_enrolment
+        expected_graduation_date: expected_graduation_date
+        enrolment_date: enrolment_date
       x-examples:
         Example 1:
           programme_type_code: MS
@@ -484,9 +490,10 @@ components:
           degree_course_name: Ingegneria informatica
           degree_class_code: LM-32
           degree_class_name: Ingegneria informatica
+          institute_code: '16'
           institute_name: Milano - Politecnico
           country_of_academic_institution: Italia
-          end_date_of_study_programme: 2023-10-13
+          expected_graduation_date: 2023-10-13
           date_of_enrolment: 2020-10-13
       description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
       properties:
@@ -503,7 +510,7 @@ components:
           example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         degree_course_code:
           type: string
           description: Course code / Codice del corso
@@ -516,7 +523,7 @@ components:
           example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
@@ -530,21 +537,28 @@ components:
           example: 'Ingegneria informatica, Scienze giuridiche'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
+        institute_code:
+          type: string
+          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          example: '16'
+          readOnly: true
+          minLength: 2
+          maxLength: 2
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
           example: 'Milano - Politecnico'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         country_of_academic_institution:
           type: string
           description: Country of the academic institution / Paese dell'istituzione accademica
           readOnly: true
           minLength: 1
           maxLength: 20
-        end_date_of_study_programme:
+        expected_graduation_date:
           type: string
           format: date
           description: Date of completion of studies / Data completamento studi
@@ -552,7 +566,7 @@ components:
           readOnly: true
           minLength: 10
           maxLength: 10
-        date_of_enrolment:
+        enrolment_date:
           type: string
           format: date
           description: Enrollment date / Data iscrizione
@@ -579,18 +593,19 @@ components:
             degree_course_name: Ingegneria informatica
             degree_class_code: LM-32
             degree_class_name: Ingegneria informatica
+            institute_code: '16'
             institute_name: Milano - Politecnico
-            courses:
-              - course_name: Esame 1
+            learnings:
+              - attended_learning_name: Esame 1
                 start_date: 01/10/2023
                 end_date: 01/10/2020
-                grade: 30
-                credits_ects: 6
-              - course_name: Esame 2
+                grade_value: '30'
+                ects_credits_received: 6
+              - attended_learning_name: Esame 2
                 start_date: 2020-10-13
                 end_date: 2023-10-13
-                grade: 30
-                credits_ects: 6
+                grade_value: '30'
+                ects_credits_received: 6
       description: Examinations details of student / Dettaglio esami di una studentessa o di uno studente
       x-stoplight:
         id: 22de4be4ac251
@@ -618,18 +633,19 @@ components:
           degree_course_name: Ingegneria informatica
           degree_class_code: LM-32
           degree_class_name: Ingegneria informatica
+          institute_code: '16'
           institute_name: Milano - Politecnico
-          courses: 
-            - course_name: Esame 1
+          learnings: 
+            - attended_learning_name: Esame 1
               start_date: 2020-10-13
               end_date: 2023-10-13
-              grade: 30
-              credits_ects: 6
-            - course_name: Esame 2
+              grade_value: '30'
+              ects_credits_received: 6
+            - attended_learning_name: Esame 2
               start_date: 2020-10-13
               end_date: 2023-10-13
-              grade: 30
-              credits_ects: 6
+              grade_value: '30'
+              ects_credits_received: 6
       description: Examinations taken by the student / Esami sostenuti della studentessa o dello studente
       properties:
         programme_type_code:
@@ -645,7 +661,7 @@ components:
           example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         degree_course_code:
           type: string
           description: Course code / Codice del corso
@@ -658,7 +674,7 @@ components:
           example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
@@ -672,22 +688,29 @@ components:
           example: 'Ingegneria informatica, Scienze giuridiche'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
+        institute_code:
+          type: string
+          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          example: '16'
+          readOnly: true
+          minLength: 2
+          maxLength: 2
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
           example: 'Milano - Politecnico'
           readOnly: true
           minLength: 1
-          maxLength: 256
-        courses:
+          maxLength: 2048
+        learnings:
           type: array
           maxItems: 256
           minItems: 0
           description: List of qualifications for student / Elenco iscrizioni di una studentessa o di uno studente
           items:
-            $ref: '#/components/schemas/courses'
-    courses:
+            $ref: '#/components/schemas/learnings'
+    learnings:
       type: object
       additionalProperties: false
       x-examples:
@@ -695,17 +718,17 @@ components:
           course_name: Esame 1
           start_date: 2020-10-13
           end_date: 2023-10-13
-          grade: 30
-          credits_ects: 6
+          grade_value: '30'
+          ects_credits_received: 6
       description: Detailed examination information / Informazioni dettagliate sul corso
       properties:
-        course_name:
+        attended_learning_name:
           type: string
           description: Course name / Nome corso
           example: Esame 1
           readOnly: true
           minLength: 1
-          maxLength: 100
+          maxLength: 2048
         start_date:
           type: string
           format: date
@@ -718,21 +741,20 @@ components:
           description: Course end date / Data fine corso
           example: 2023-10-13
           readOnly: true
-        grade:
-          type: integer
-          format: int32
+        grade_value:
+          type: string
           description: Grade / voto
-          example: 30
+          example: '30'
           readOnly: true
-          maximum: 30
-          minimum: 18
-        credits_ects:
+          minLength: 1
+          maxLength: 64
+        ects_credits_received:
           type: integer
           format: int32
           description: ECTS credits / Crediti ECTS
           example: 6
           readOnly: true
-          maximum: 20
+          maximum: 999
           minimum: 1
     proof_tertiary_education_admission:
       additionalProperties: false
@@ -745,25 +767,15 @@ components:
             given_name: Mario
             family_name: Rossi
           proof_admissions:
-            - institute_name: Milano - Politecnico
+            - institute_code: '16'
+              institute_name: Milano - Politecnico
               programme_type_code: MS
               programme_type_name: Laurea Magistrale (DM 270/04)
               degree_course_code: '1573960'
               degree_course_name: Ingegneria informatica
               degree_class_code: LM-32
               degree_class_name: Ingegneria informatica
-              duration_temporal_coverage: "3 anni"
-              duration_ects_credits: 180
-              start_date_of_accademic_year: 2020-10-13
-              end_date_of_accademic_year: 2023-10-13
-            - institute_name: Università degli studi di Cagliari
-              programme_type_code: MS
-              programme_type_name: Laurea Magistrale (DM 270/04)
-              degree_course_code: '1573960'
-              degree_course_name: Ingegneria informatica
-              degree_class_code: LM-32
-              degree_class_name: Ingegneria informatica
-              duration_temporal_coverage: "36 mesi"
+              degree_course_duration_in_years_or_months: "3 anni"
               duration_ects_credits: 180
               start_date_of_accademic_year: 2020-10-13
               end_date_of_accademic_year: 2023-10-13
@@ -789,9 +801,11 @@ components:
       x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
       x-jsonld-context:
         '@vocab': http://w3id.org/italia/onto/yyy/
+        institute_code: institute_code
         institute_name: institute_name
       x-examples:
         Example 1:
+          institute_code: '16'
           institute_name: Milano - Politecnico
           programme_type_code: MS
           programme_type_name: Laurea Magistrale (DM 270/04)
@@ -799,19 +813,26 @@ components:
           degree_course_name: Ingegneria informatica
           degree_class_code: LM-32
           degree_class_name: Ingegneria informatica
-          duration_temporal_coverage: "3 anni"
+          degree_course_duration_in_years_or_months: "3 anni"
           duration_ects_credits: 180
           start_date_of_accademic_year: 2020-10-13
           end_date_of_accademic_year: 2023-10-13
       description: Detailed information on admission certification / Informazioni dettagliate sulla certificazione di ammissione
       properties:
+        institute_code:
+          type: string
+          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          example: '16'
+          readOnly: true
+          minLength: 2
+          maxLength: 2
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
           example: 'Milano - Politecnico'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
@@ -825,7 +846,7 @@ components:
           example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         degree_course_code:
           type: string
           description: Course code / Codice del corso
@@ -838,7 +859,7 @@ components:
           example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
@@ -852,13 +873,13 @@ components:
           example: 'Ingegneria informatica, Scienze giuridiche'
           readOnly: true
           minLength: 1
-          maxLength: 256
-        duration_temporal_coverage:
+          maxLength: 2048
+        degree_course_duration_in_years_or_months:
           type: string
           description: Duration of study course / Durata del corso di studi
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         duration_ects_credits:
           type: integer
           format: int32
@@ -870,7 +891,7 @@ components:
           type: string
           format: date
           description: Academic year start date / Data inzio anno accademico
-          example: 2020-10-01
+          example: 2023-10-01
           readOnly: true
           minLength: 10
           maxLength: 10
@@ -925,7 +946,7 @@ components:
           example: 'Milano - Politecnico'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
@@ -939,7 +960,7 @@ components:
           example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         degree_course_code:
           type: string
           description: Course code / Codice del corso
@@ -952,7 +973,7 @@ components:
           example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
@@ -966,7 +987,7 @@ components:
           example: 'Ingegneria informatica, Scienze giuridiche'
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         academic_year:
           type: string
           description: Last academic year in which enrollment in the student's course is recorded / Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente 
@@ -1027,18 +1048,18 @@ components:
           type: string
           description: Name / Nome
           example: Mario
-          pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
+          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         family_name:
           type: string
           description: Surname / Cognome
           example: Rossi
-          pattern: '^[A-ZÀ-ÖØ-Ýa-zà-öø-ý\s''-]+$'
+          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
         birth_date:
           type: string
           format: date
@@ -1052,7 +1073,7 @@ components:
           description: Place of birth / Luogo di nascita
           readOnly: true
           minLength: 1
-          maxLength: 256
+          maxLength: 2048
   requestBodies: {}
   responses: {}
 servers:

@@ -26,6 +26,14 @@ paths:
           description: Cursor / Cursore
           maxLength: 100
           minLength: 1
+      - name: institute_code
+        in: query
+        required: false
+        schema:
+          type: string
+          maxLength: 32
+          minLength: 1
+          description: Institute code / Codice istituto
     get:
       summary: It requires a list of the last active qualifications for each course of study in the last 10 academic years. / Richiede la lista degli ultimi titoli attivi per ogni corso di studi negli ultimi 10 anni accademici.
       tags:
@@ -45,11 +53,11 @@ paths:
                       institute_code: C6
                       last_update: '2023-10-13'
                       qualifications_hash:
-                        - key: '4e12345678986dd33377c0da06031'
+                        - key: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
                           hash: '56c3880bfcc4df0e35780c805d9ec942bbb8b4e237c1b63c6f2688cb58ef0a3a'
-                        - key: 'adsjojr45678986dd333asofrm456'
+                        - key: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
                           hash: '56c3880bfcc4df0e35780c80sdlkjljiirpepw85830t3j85jg0fj054fj04jf03'
-                        - key: 'asodfrefpwe350350823563fowf43'
+                        - key: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
                           hash: 'df8340f834tr8f3j84fj48jf83fngooero45305jf30l04k0r43kfd043kdew34t'
                     meta:
                       cursor: '6eyJpZCI6M57'
@@ -67,7 +75,7 @@ paths:
                     data: 
                       institute_code: C6
                       last_update: '2023-10-13'
-                      enrollments_hash: []
+                      qualifications_hash: []
                     meta: 
         '500':
           description: Internal server error / Errore interno del server 
@@ -129,11 +137,11 @@ components:
             institute_code: C6
             last_update: '2023-10-13 17:23:26'
             qualifications_hash:
-              - key: '4e12345678986dd33377c0da06031'
+              - key: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
                 hash: '56c3880bfcc4df0e35780c805d9ec942bbb8b4e237c1b63c6f2688cb58ef0a3a'
-              - key: 'adsjojr45678986dd333asofrm456'
+              - key: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
                 hash: '56c3880bfcc4df0e35780c80sdlkjljiirpepw85830t3j85jg0fj054fj04jf03'
-              - key: 'asodfrefpwe350350823563fowf43'
+              - key: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
                 hash: 'df8340f834tr8f3j84fj48jf83fngooero45305jf30l04k0r43kfd043kdew34t'
           meta:
             - cursor: '6eyJpZCI6M57'
@@ -207,17 +215,17 @@ components:
       additionalProperties: false
       x-examples:
         Example 1:
-          key: AAA4ef246ed27b83886dd33377c
+          key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
           hash: 9bc4e295f51d940db6d7a9ca01059ace00376d4feed10225c592e010a780a8d5
       description: Detailed qualification information / Informazioni dettagliate sul titoli
       properties:
         key:
           type: string
           description: Hash tax code / Hash del codice fiscale
-          example: 'AAA4ef246ed27b83886dd33377c'
+          example: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
           readOnly: true
-          minLength: 1
-          maxLength: 100
+          minLength: 64
+          maxLength: 64
         hash:
           type: string
           description: Enrollments hash code / Codice hash delle iscrizioni
