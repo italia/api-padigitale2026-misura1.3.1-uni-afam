@@ -43,7 +43,7 @@ paths:
             type: string
             maxLength: 64
             minLength: 64
-            description: Tax Identification Number hash / Codice Fiscale hash
+            description: Hash of tax code / Codice Fiscale hash
         - name: institute_code
           in: query
           required: false
@@ -80,11 +80,8 @@ paths:
                         institute_name: Milano - Politecnico
                         qualification_name: Dottore magistrale
                         programme_type_code: MS
-                        programme_type_name: Laurea Magistrale (DM 270/04)
                         degree_course_code: '1573960'
-                        degree_course_name: Ingegneria
                         degree_class_code: LM-32
-                        degree_class_name: Ingegneria informatica
                         academic_qualification_date: '2022-07-01'
                         qualification_grade_value: '110'
                         qualification_grading_scale: '110'
@@ -316,11 +313,8 @@ components:
               institute_name: Milano - Politecnico
               qualification_name: Dottore magistrale
               programme_type_code: MS
-              programme_type_name: Laurea Magistrale (DM 270/04)
               degree_course_code: '1576480'
-              degree_course_name: Ingegneria informatica
               degree_class_code: LM-32
-              degree_class_name: Ingegneria informatica
               academic_qualification_date: '2022-07-01'
               qualification_grade_value: '110'
               qualification_grading_scale: '110'
@@ -352,11 +346,8 @@ components:
         institute_name: institute_name
         qualification_name: qualification_name
         programme_type_code: programme_type_code
-        programme_type_name: programme_type_name
         degree_course_code: degree_course_code
-        degree_course_name: degree_course_name
         degree_class_code: degree_class_code
-        degree_class_name: degree_class_name
         academic_qualification_date: academic_qualification_date
         qualification_grade_value: qualification_grade_value
         qualification_grading_scale: qualification_grading_scale
@@ -366,11 +357,8 @@ components:
           institute_name: Università degli Studi di Roma 'La Sapienza'
           qualification_name: Dottore magistrale
           programme_type_code: MS
-          programme_type_name: Laurea Magistrale (DM 270/04)
           degree_course_code: '1573960'
-          degree_course_name: Ingegneria informatica
           degree_class_code: LM-32
-          degree_class_name: Ingegneria informatica
           academic_qualification_date: '2022-07-01'
           qualification_grade_value: '110'
           qualification_grading_scale: '110'
@@ -403,26 +391,12 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 2
-        programme_type_name:
-          type: string
-          description: Type of course of study / Tipo di corso di studio
-          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
-          readOnly: true
-          minLength: 1
-          maxLength: 2048
         degree_course_code:
           type: string
           description: Course Code / Codice del corso
           readOnly: true
           minLength: 1
           maxLength: 20
-        degree_course_name:
-          type: string
-          description: Course name / Denominazione corso
-          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
-          readOnly: true
-          minLength: 1
-          maxLength: 2048
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
@@ -430,13 +404,6 @@ components:
           readOnly: true
           minLength: 2
           maxLength: 20
-        degree_class_name:
-          type: string
-          description: Name of the degree class / Denominazione della classe di laurea 
-          example: 'Informatica, Meccanica, Elettronica, Civile'
-          readOnly: true
-          minLength: 1
-          maxLength: 2048
         academic_qualification_date:
           type: string
           description: Date of graduation / Data di conseguimento del titolo di studio

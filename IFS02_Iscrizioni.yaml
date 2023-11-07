@@ -43,14 +43,14 @@ paths:
             type: string
             maxLength: 64
             minLength: 64
-            description: Tax Identification Number hash / Codice Fiscale hash
+            description: Hash of tax code / Codice Fiscale hash
         - name: institute_code
           in: query
           required: false
           schema:
             type: string
-            maxLength: 1
-            minLength: 32
+            maxLength: 32
+            minLength: 1
             description: Institute code / Codice istituto
     get:
       summary: Retrieve enrollment details of student / Recupero iscrizioni di una studentessa o di uno studente 
@@ -78,11 +78,8 @@ paths:
                       - institute_code: '16'
                         institute_name: Milano - Politecnico
                         programme_type_code: MS
-                        programme_type_name: Laurea Magistrale (DM 270/04)
                         degree_course_code: '1573960'
-                        degree_course_name: Ingegneria informatica
                         degree_class_code: LM-32
-                        degree_class_name: Ingegneria informatica
                         academic_year: 2021/2022
                         degree_course_year: 3
         '400':
@@ -410,11 +407,8 @@ components:
             - institute_code: '16'
               institute_name: Milano - Politecnico
               programme_type_code: MS
-              programme_type_name: Laurea Magistrale (DM 270/04)
               degree_course_code: '1576480'
-              degree_course_name: Ingegneria informatica
               degree_class_code: LM-32
-              degree_class_name: Ingegneria informatica
               academic_year: 2021/2022
               degree_course_year: 3
       description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
@@ -911,12 +905,9 @@ components:
         '@vocab': http://w3id.org/italia/onto/yyy/
         institute_code: institute_code
         institute_name: institute_name
-        programme_type_name: programme_type_name
         programme_type_code: programme_type_code
         degree_course_code: degree_course_code
-        degree_course_name: degree_course_name
         degree_class_code: degree_class_code
-        degree_class_name: degree_class_name
         academic_year: academic_year
         degree_course_year: degree_course_year
       x-examples:
@@ -924,11 +915,8 @@ components:
           institute_code: '16'
           institute_name: Milano - Politecnico
           programme_type_code: MS
-          programme_type_name: Laurea Magistrale (DM 270/04)
           degree_course_code: '1576480'
-          degree_course_name: Ingegneria informatica
           degree_class_code: LM-32
-          degree_class_name: Ingegneria informatica
           academic_year: 2021/2022
           degree_course_year: 3
       description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
@@ -954,26 +942,12 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 2
-        programme_type_name:
-          type: string
-          description: Type of study program / Tipologia del corso di studio
-          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
-          readOnly: true
-          minLength: 1
-          maxLength: 2048
         degree_course_code:
           type: string
           description: Course code / Codice del corso
           readOnly: true
           minLength: 1
           maxLength: 20
-        degree_course_name:
-          type: string
-          description: Course name / Denominazione corso
-          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
-          readOnly: true
-          minLength: 1
-          maxLength: 2048
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
@@ -981,13 +955,6 @@ components:
           readOnly: true
           minLength: 2
           maxLength: 20
-        degree_class_name:
-          type: string
-          description: Name of the degree class / Denominazione della classe di laurea 
-          example: 'Ingegneria informatica, Scienze giuridiche'
-          readOnly: true
-          minLength: 1
-          maxLength: 2048
         academic_year:
           type: string
           description: Last academic year in which enrollment in the student's course is recorded / Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente 
