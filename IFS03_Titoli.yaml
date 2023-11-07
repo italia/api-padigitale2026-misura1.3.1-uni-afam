@@ -26,7 +26,7 @@ paths:
             maxLength: 9
             minLength: 9
             description: National unique identifier / Identificativo unico nazionale
-            pattern: "^[A-Z0-9]{8}[A-Z]$"
+            pattern: "^[A-Z0-9]{9}"
         - name: tax_code
           in: query
           required: false
