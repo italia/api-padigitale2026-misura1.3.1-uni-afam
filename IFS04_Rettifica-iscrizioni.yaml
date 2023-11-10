@@ -2,11 +2,11 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: IFS04 - Rettifica iscrizioni
-  x-summary:  Richiede la rettifica dei dati di un’iscrizione o una iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
+  title: IFS04 - Rectification enrollment / Rettifica iscrizioni
+  x-summary: Requests the rectification of missing or excess entry data for a student who is attending or has attended. / Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
   version: 1.0.0
   description: |
-        Richiede la rettifica dei dati di un’iscrizione o una iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
+        Requests the rectification of missing or excess entry data for a student who is attending or has attended. / Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -17,147 +17,58 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 security: [{}]
 paths:
-  /rettifiche-iscrizioni/campi:
-    get:
-      summary: Elenco campi modificabili in una iscrizione
-      tags:
-        - campi rettifica iscrizione
-      parameters: []
-      security: [{}]
-      responses:
-        '200':
-          description: Richiesta eseguita con successo
-          content:
-            application/json:
-              schema:
-                additionalProperties: false
-                type: object
-                properties:
-                  fields:
-                    type: array
-                    maxItems: 256
-                    minItems: 0
-                    description: Elenco dei campi modificabili
-                    items:
-                      $ref: '#/components/schemas/CampoRettifica'
-                required:
-                  - fields
-              examples:
-                Example 1:
-                  value:
-                    fields:
-                      - fieldName: instituteCode
-                        fieldDescription: Codice dell'istituto
-                        fieldType: string
-                        fieldPattern: '^[A-Za-z ]+$'
-                      - fieldName: instituteName
-                        fieldDescription: Nome dell'istituto
-                        fieldType: string
-                        fieldPattern: '^[A-Za-z ]+$'
-                      - fieldName: courseCode
-                        fieldDescription: Codice del corso
-                        fieldType: string
-                        fieldPattern: '^[A-Za-z ]+$'
-                      - fieldName: courseName
-                        fieldDescription: Nome del corso
-                        fieldType: string
-                        fieldPattern: '^[A-Za-z ]+$'
-                      - fieldName: courseType
-                        fieldDescription: Tipologia del corso di studio
-                        fieldType: string
-                        fieldPattern: '^[A-Za-z ]+$'
-                      - fieldName: classCode
-                        fieldDescription: Codice della classe
-                        fieldType: string
-                        fieldPattern: '^[A-Za-z ]+$'
-                      - fieldName: className
-                        fieldDescription: Nome della classe
-                        fieldType: string
-                        fieldPattern: '^[A-Za-z ]+$'
-                      - fieldName: registrationYear
-                        fieldDescription: Anno accademico di immatricolazione
-                        fieldType: string
-                        fieldPattern: '^[A-Za-z ]+$'
-                      - fieldName: enrolmentYear
-                        fieldDescription: Ultimo anno accademico in cui risulta l'iscrizione al corso per la studentessa o lo studente
-                        fieldType: string
-                        fieldPattern: '^[A-Za-z ]+$'
-                      - fieldName: courseYear
-                        fieldDescription: Ultimo anno in cui risulta l'iscrizione al corso per la studentessa o lo studente
-                        fieldType: string
-                        fieldPattern: '^[A-Za-z ]+$'
-        '500':
-          description: Errore interno del server
-      operationId: campi-rettifica-iscrizione
-      description: Restituisce l'elenco dei campi modificabili in una iscrizione
-    parameters: []
-  /rettifiche-iscrizioni:
+  '/it/rectification-education-enrollment':
     post:
-      summary: Rettifica iscrizione studente
-      operationId: rettifica-iscrizione-studente
+      summary: (OK) Correction of student registration / Rettifica iscrizione studente
+      operationId: rectification-student-enrollment
       tags:
-        - rettifica iscrizione
+        - rectification-enrollment
       security:
         - bearerAuth: []
       parameters: []
       responses:
         '200':
-          description: Richiesta eseguita con successo
+          description: Registration correction request sent successfully / Richiesta rettifica iscrizione inviata con successo
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RispostaRettifica'
+                $ref: '#/components/schemas/rectificationDetail'
               examples:
-                Example 1:
+                Example res 1:
                   value:
-                    rectificationId: 6d183bc572f6b200015a4167
+                    file_status: aquired
+                    file_code: 6d183bc572f6b200015a4167
+                    message: Richiesta rettifica iscrizione acquisita
         '404':
-          description: Studente non trovato
+          description: Student not found / Studente non trovato
         '500':
-          description: Errore interno del server
-      description: Permette di creare una richiesta di rettifica dei dati relativi alle iscrizioni di una studentessa o uno studente.
+          description: Internal server error / Errore interno del server 
+      description: Allows  to create a request to correct data relating to a student's registration / Permette di creare una richiesta di rettifica dei dati relativi alle iscrizioni di una studentessa o uno studente.
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/RichiestaRettifica'
             examples:
-              Example 1:
+              Example post 1:
                 value:
                   taxCode: RSSMRA80A01F205D
-                  enrollmentToEdit:
-                    enrollmentId: 908d3e72b51a6f0034e2a11c
-                    fieldsToEdit:
-                      - fieldName: instituteName
-                        oldValue: Università degli studi di Milano
-                        newValue: Università degli studi di Roma 'La Sapienza'
-                      - fieldName: courseType
-                        oldValue: Laurea
-                        newValue: Corso di Laurea
-                      - fieldName: registrationYear
-                        oldValue: 2021/2022
-                        newValue: 2022/2023
-                      - fieldName: courseYear
-                        oldValue: 2° anno
-                        newValue: 3° anno
-                  rectificationReqText: Testo con la richiesta di rettifica
-                  openNotes: Note aperte studentessa o studente
-              Example 2:
-                value:
-                  taxCode: RSSMRA80A01F205D
-                  enrollmentToEnter:
-                    instituteCode: IFSRM1
-                    instituteName: Università degli Studi di Roma 'La Sapienza'
-                    courseType: Corso di laurea
-                    courseCode: INF101
-                    courseName: Ingegneria
-                    classCode: L-8
-                    className: Ingegneria informatica
-                    registrationYear: 2019/2020
-                    enrolmentYear: 2021/2022
-                    courseYear: 3° anno
-                  rectificationReqText: Testo con la richiesta di rettifica
-                  openNotes: Note aperte studentessa o studente
+                  reason: Modifica iscrizione xxx
+                  attributes:
+                      - attribute_name: institute_Name
+                        current: Università degli studi di Milano
+                        suggested: Università degli studi di Roma 'La Sapienza'
+                      - attribute_name: course_type
+                        current: Laurea
+                        suggested: Corso di Laurea
+                      - attribute_name: enrollment_year
+                        current: 2021/2022
+                        suggested: 2022/2023
+                      - attribute_name: course_year
+                        current: 2° anno
+                        suggested: 3° anno
+                  request: Testo con la richiesta di rettifica
+                  note: Note aperte studentessa o studente
           application/xml:
             schema:
               type: object
@@ -165,162 +76,116 @@ paths:
               properties: {}
         description: ''
     parameters: []
-  '/rettifiche-iscrizioni/{taxCode}':
+  '/it/rectification-education-enrollment-status':
     parameters:
-      - schema:
-          type: string
-          minLength: 1
-          maxLength: 256          
-        name: taxCode
-        in: path
-        required: true
-        description: Codice Fiscale
+        - name: tax_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+            minLength: 16
+            description: Tax Identification Number hash / Codice Fiscale hash
+            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
+        - name: person_id
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 9
+            minLength: 9
+            description: National unique identifier / Identificativo unico nazionale
+            pattern: "^[A-Z0-9]{9}"
+        - name: file_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 64
+            minLength: 1
+            pattern: "^[A-Z0-9]{1,64}"
+            description: Rectification code / Codice rettifica 
     get:
-      summary: Elenco rettifiche iscrizioni
+      summary: (OK) Student enrolment correction detail / Dettaglio rettifica iscrizione studentessa o studente
       tags:
-        - rettifiche iscrizioni
+        - enrollment-rectification-details
       parameters: []
       security: [{}]
       responses:
         '200':
-          description: Richiesta eseguita con successo
+          description: Request executed successfully / Richiesta eseguita con successo (annulamento)
           content:
             application/json:
               schema:
-                additionalProperties: false
-                type: object
-                properties:
-                  rectifications:
-                    type: array
-                    maxItems: 256
-                    minItems: 0
-                    items:
-                      $ref: '#/components/schemas/Rettifica'
+                $ref: '#/components/schemas/enrollments_change_request'
               examples:
                 Example 1:
-                  value:
-                    rectifications:
-                      - rectificationId: 6d183bc572f6b200015a4167
-                        enrollmentId: 908d3e72b51a6f0034e2a11c
-                        state: Presa in carico
-                        date: '2023-02-12'
-                        rectificationReqText: Modifica dati iscrizione
-                        openNotes: Note operte
-                      - rectificationId: a8c4910e76b5200001d4f268
-                        enrollmentId: 245e6c91b7a82000314fd9a0
-                        state: In lavorazione
-                        date: '2023-03-18'
-                        rectificationReqText: Modifica dati iscrizione
-                        openNotes: Note operte
-                      - rectificationId: d5f8a7e910c6b2000153a410
-                        enrollmentId: 7b93401e2c68b10001ca278f
-                        state: Accettata
-                        date: '2023-05-02'
-                        rectificationReqText: Modifica dati iscrizione
-                        openNotes: Note operte
-                      - rectificationId: e0a712c6f9b9200001d5f834
-                        enrollmentId: c50e9a71b26f21000167a83d
-                        state: Rifiutata
-                        date: '2023-06-23'
-                        rectificationReqText: Modifica dati iscrizione
-                        openNotes: Note operte
-                Example 2:
-                  value:
-                    rectifications: []
+                  value: 
+                    enrollment_change_request:
+                      - file_status: approved
+                        file_code: 6d183bc572f6b200015a4167
+                        message: testo messaggio
+                      - file_status: rejected
+                        file_code: 6d183b54654127dfhh15a4167
+                        message: testo messaggio  
         '404':
-          description: Non è stato possibile trovare la studentessa o lo studente nell'archivio
+          description: Registration correction not found / Rettifica iscrizione non trovata
         '500':
-          description: Errore interno del server
-      operationId: rettifiche-iscrizioni-studente
-      description: 'Permette di recuperare, tramite il codice fiscale, l''elenco delle richieste di rettifica iscrizione di una studentessa o uno studente specifici.'
-  '/rettifiche-iscrizioni/{rectificationId}/dettaglio':
-    parameters:
-      - schema:
-          type: string
-          minLength: 1
-          maxLength: 256          
-        name: rectificationId
-        in: path
-        required: true
-        description: Identificativo della rettifica
+          description: Internal server error / Errore interno del server 
+      operationId: detail-enrollment-rectification
+      description: Allows you to retrieve the status of a registration adjustment request via its identifier / Permette di recuperare lo stato di una richiesta di rettifica iscrizione tramite il suo identificativo
+  '/it/rectification-education-enrollment-cancellation':
     get:
-      summary: Dettaglio rettifica iscrizione studentessa o studente
+      summary: Request for cancellation of rectification / Richiesta di annullamento rettifica
       tags:
-        - dettaglio rettifica iscrizione
-      parameters: []
+        - cancellation-enrollment-rectification
+      parameters: 
+        - name: tax_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+            minLength: 16
+            description: Tax Identification Number / Codice Fiscale 
+            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
+        - name: person_id
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 9
+            minLength: 9
+            description: National unique identifier / Identificativo unico nazionale
+            pattern: "^[A-Z0-9]{9}"
+        - name: file_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 64
+            minLength: 1
+            pattern: "^[A-Z0-9]{1,64}"
+            description: Rectification code / Codice rettifica
       security: [{}]
       responses:
         '200':
-          description: Richiesta eseguita con successo
+          description: Request for cancellation of rectification completed successfully / Richiesta annullamento rettifica eseguita con successo
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DettaglioRettifica'
+                $ref: '#/components/schemas/rectificationDetail'
               examples:
                 Example 1:
                   value:
-                    rectificationId: 6d183bc572f6b200015a4167
-                    state: Accettata
-                    enrollmentToEdit:
-                      enrollmentId: 908d3e72b51a6f0034e2a11c
-                      fieldsToEdit:
-                        - fieldName: instituteName
-                          oldValue: Università degli studi di Milano
-                          newValue: Università degli studi di Roma 'La Sapienza'
-                        - fieldName: courseType
-                          oldValue: Laurea
-                          newValue: Corso di Laurea
-                        - fieldName: registrationYear
-                          oldValue: 2021/2022
-                          newValue: 2022/2023
-                        - fieldName: courseYear
-                          oldValue: 2° anno
-                          newValue: 3° anno
-                    stateHistory:
-                      - state: Accettata
-                        date: '2023-06-10'
-                        description: Descrizione del passaggio di stato
-                      - state: In lavorazione
-                        date: '2023-03-05'
-                        description: Descrizione del passaggio di stato
-                      - state: Presa in carico
-                        date: '2023-02-25'
-                        description: Descrizione del passaggio di stato
-                    rectificationReqText: Testo con la richiesta di rettifica
-                    openNotes: Note aperte studentessa o studente
-                Example 2:
-                  value:
-                    rectificationId: 6d183bc572f6b200015a4167
-                    state: Accettata
-                    enrollmentToEnter:
-                      instituteCode: IFSRM1
-                      instituteName: Università degli Studi di Roma 'La Sapienza'
-                      courseType: Corso di laurea
-                      courseCode: INF101
-                      courseName: Ingegneria
-                      classCode: L-8
-                      className: Ingegneria informatica
-                      registrationYear: 2019/2020
-                      enrolmentYear: 2021/2022
-                      courseYear: 3° anno
-                    stateHistory:
-                      - state: Accettata
-                        date: '2023-06-10'
-                        description: Descrizione del passaggio di stato
-                      - state: In lavorazione
-                        date: '2023-03-05'
-                        description: Descrizione del passaggio di stato
-                      - state: Presa in carico
-                        date: '2023-02-25'
-                        description: Descrizione del passaggio di stato
-                    rectificationReqText: Testo con la richiesta di rettifica
-                    openNotes: Note aperte studentessa o studente
-        '404':
-          description: Rettifica iscrizione non trovata
+                    file_status: approved
+                    file_code: 6d183bc572f6b200015a4167
+                    message: messaggio di testo
         '500':
-          description: Errore interno del server
-      operationId: dettaglio-rettifica-iscrizione
-      description: Permette di recuperare il dettaglio di una richiesta di rettifica iscrizione tramite il suo identificativo.
+          description: Internal server error / Errore interno del server 
+      operationId: rectification-cancellation
+      description: Rectification cancellation request / Effettua la richiesta di annullamento rettifica 
+    parameters: []
   /status:
     get:
       summary: Verifica stato delle API (Health Check)
@@ -367,499 +232,156 @@ components:
         minimum: 0
         type: integer
   schemas:
-    CampoRettifica:
-      type: object
-      additionalProperties: false
-      x-examples:
-        Example 1:
-          fieldName: instituteName
-          fieldDescription: Nome dell'istituto
-          fieldType: string
-          fieldPattern: '^[A-Za-z ]+$'
-      properties:
-        fieldName:
-          type: string
-          description: Nome del campo
-          readOnly: true
-          minLength: 1
-          maxLength: 256          
-        fieldDescription:
-          type: string
-          description: Descrizione del campo
-          readOnly: true
-          minLength: 1
-          maxLength: 256          
-        fieldType:
-          type: string
-          description: Tipo del campo
-          readOnly: true
-          minLength: 1
-          maxLength: 256          
-        fieldPattern:
-          type: string
-          description: Pattern del campo
-          readOnly: true
-          minLength: 1
-          maxLength: 256          
-      required:
-        - fieldName
-        - fieldDescription
-        - fieldType
-      description: Dettaglio campo rettifica
-      x-stoplight:
-        id: 705c3b968ec92
     RichiestaRettifica:
       type: object
       additionalProperties: false      
       x-examples:
         Example 1:
           taxCode: RSSMRA80A01F205D
-          enrollmentToEdit:
-            enrollmentId: 908d3e72b51a6f0034e2a11c
-            fieldsToEdit:
-              - fieldName: instituteName
-                oldValue: Università degli studi di Milano
-                newValue: Università degli studi di Roma 'La Sapienza'
-              - fieldName: courseType
-                oldValue: Laurea
-                newValue: Corso di Laurea
-              - fieldName: registrationYear
-                oldValue: 2021/2022
-                newValue: 2022/2023
-              - fieldName: courseYear
-                oldValue: 2° anno
-                newValue: 3° anno
-          rectificationReqText: Testo con la richiesta di rettifica
-          openNotes: Note aperte dello studente/ex studente
-        Example 2:
-          taxCode: RSSMRA80A01F205D
-          enrollmentToEnter:
-            instituteCode: IFSRM1
-            instituteName: Università degli Studi di Roma 'La Sapienza'
-            courseType: Corso di laurea
-            courseCode: INF101
-            courseName: Ingegneria
-            classCode: L-8
-            className: Ingegneria informatica
-            registrationYear: 2019/2020
-            enrolmentYear: 2021/2022
-            courseYear: 3° anno
-          rectificationReqText: Testo con la richiesta di rettifica
-          openNotes: Note aperte studentessa o studente studente
+          reason: Modifica iscrizione xxx
+          attributes:
+              - attribute_name: institute_name
+                current: Università degli studi di Milano
+                suggested: Università degli studi di Roma 'La Sapienza'
+              - attribute_name: degree_course_type
+                current: Laurea
+                suggested: Corso di Laurea
+              - attribute_name: registratio_year
+                current: 2021/2022
+                suggested: 2022/2023
+              - attribute_name: degree_cours_Year
+                current: 2° anno
+                suggested: 3° anno
+          request: Testo con la richiesta di rettifica
+          note: Note aperte dello studente/ex studente
       x-stoplight:
         id: b40e2be27c423
-      description: Richiesta creazione rettifica iscrizione di una studentessa o uno studente
+      description: Request creation rectification of a student's enrollment / Richiesta creazione rettifica iscrizione di una studentessa o uno studente
       properties:
         taxCode:
           type: string
-          description: Codice fiscale
+          description: Tax Identification Number / Codice fiscale
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
           example: RSSMRA80A01F205D
           minLength: 16
           maxLength: 16
           readOnly: true
-        enrollmentToEdit:
-          $ref: '#/components/schemas/ModificaIscrizione'
-        enrollmentToEnter:
-          $ref: '#/components/schemas/Iscrizione'
-        rectificationReqText:
+        reason:
           type: string
-          description: Testo con la richiesta di rettifica
-          readOnly: true
-          minLength: 1
-          maxLength: 5000           
-        openNotes:
-          type: string
-          description: Note aperte studentessa o studente
-          readOnly: true
-          minLength: 1
-          maxLength: 5000           
-      required:
-        - taxCode
-        - rectificationReqText
-        - openNotes
-    ModificaCampo:
-      type: object
-      additionalProperties: false      
-      x-examples:
-        Example 1:
-          fieldName: instituteName
-          oldValue: Università degli studi di Milano
-          newValue: Università degli studi di Roma 'La Sapienza'
-      description: Contiene il nome del campo da modificare con valore vecchio e valore nuovo
-      properties:
-        fieldName:
-          type: string
-          description: Nome del campo da modificare
-          readOnly: true
-          minLength: 1
-          maxLength: 256             
-        oldValue:
-          type: string
-          description: Valore attuale del campo
-          minLength: 1
-          maxLength: 256             
-        newValue:
-          type: string
-          description: Nuovo valore da attribuire al campo
-          readOnly: true
-          minLength: 1
-          maxLength: 256             
-      required:
-        - fieldName
-        - oldValue
-        - newValue
-      x-stoplight:
-        id: 752f77d2e91a7
-    ModificaIscrizione:
-      title: ModificaIscrizione
-      x-stoplight:
-        id: cx3v0va134mhh  
-      type: object
-      additionalProperties: false      
-      description: Contiene l'id dell'iscrizione e l'elenco di tutti i campi da modificare
-      properties:
-        enrollmentId:
-          type: string
-          description: id dell'iscrizione da modificare
-          readOnly: true
-          minLength: 1
-          maxLength: 256            
-        fieldsToEdit:
-          type: array
-          description: Elenco dei campi da modificare
-          maxItems: 256
-          minItems: 0          
-          items:
-            $ref: '#/components/schemas/ModificaCampo'
-      required:
-        - enrollmentId
-        - fieldsToEdit
-      x-examples:
-        Example 1:
-          enrollmentId: 908d3e72b51a6f0034e2a11c
-          fieldsToEdit:
-            - fieldName: instituteName
-              oldValue: Università degli studi di Milano
-              newValue: Università degli studi di Roma 'La Sapienza'
-            - fieldName: courseType
-              oldValue: Laurea
-              newValue: Corso di Laurea
-            - fieldName: registrationYear
-              oldValue: 2021/2022
-              newValue: 2022/2023
-            - fieldName: courseYear
-              oldValue: 2° anno
-              newValue: 3° anno
-    Iscrizione:
-      type: object
-      additionalProperties: false      
-      x-examples:
-        Example 1:
-          _id: 908d3e72b51a6f0034e2a11c
-          instituteCode: IFSRM1
-          instituteName: Università degli Studi di Roma 'La Sapienza'
-          courseType: Corso di laurea
-          courseCode: INF101
-          courseName: Ingegneria
-          classCode: L-8
-          className: Ingegneria informatica
-          registrationYear: 2019/2020
-          enrolmentYear: 2021/2022
-          courseYear: 3° anno
-      description: Informazioni dettagliate sull'iscrizione
-      properties:
-        instituteCode:
-          type: string
-          description: Codice identificativo dell’istituto
-          readOnly: true
-          minLength: 1
-          maxLength: 256           
-        instituteName:
-          type: string
-          description: Denominazione dell’istituto
-          readOnly: true
-          minLength: 1
-          maxLength: 256           
-        courseType:
-          type: string
-          description: Tipologia del corso di studio
-          example: laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale
-          readOnly: true
-          minLength: 1
-          maxLength: 256                
-        courseCode:
-          type: string
-          description: Codice del corso
-          pattern: '^[A-Z\d]{2,4}\d{2,4}$'
-          readOnly: true
-          minLength: 4
-          maxLength: 8              
-        courseName:
-          type: string
-          description: Denominazione corso
-          example: ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design
-          readOnly: true
-          minLength: 1
-          maxLength: 256          
-        classCode:
-          type: string
-          description: Codice identificativo della classe di laurea
-          pattern: '^[A-Z]+-\d{1,2}$'
-          minLength: 1
-          maxLength: 10
-          example: L-8
-          readOnly: true
-        className:
-          type: string
-          description: Denominazione della classe di laurea
-          example: Informatica, Meccanica, Elettronica, Civile
-          readOnly: true
-          minLength: 1
-          maxLength: 256          
-        registrationYear:
-          type: string
-          description: Anno accademico di immatricolazione della studentessa o dello studente
-          pattern: '^\d{4}/\d{4}$'
-          minLength: 9
-          maxLength: 9          
-        enrolmentYear:
-          type: string
-          description: Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente
-          example: 2022/2023
-          pattern: '^\d{4}/\d{4}$'
-          readOnly: true
-          minLength: 9
-          maxLength: 9
-        courseYear:
-          type: string
-          description: Ultimo anno in cui risulta l'iscrizione della studentessa o dello studente
-          example: 3° anno
-          pattern: ^\d+° anno$
-          readOnly: true
-          minLength: 7
-          maxLength: 8
-      required:
-        - instituteCode
-        - instituteName
-        - courseType
-        - courseCode
-        - courseName
-        - classCode
-        - className
-        - registrationYear
-        - enrolmentYear
-        - courseYear
-    RispostaRettifica:
-      additionalProperties: false
-      type: object
-      x-examples:
-        Example 1:
-          rectificationId: 6d183bc572f6b200015a4167
-      description: Risposta di avvenuta creazione richiesta rettifica
-      x-stoplight:
-        id: 6be27a42c1852
-      properties:
-        rectificationId:
-          type: string
-          description: Identificativo della rettifica effettuata
-          example: 2A9BCD3E4F567890
-          minLength: 16
-          maxLength: 24
-          readOnly: true
-      required:
-        - rectificationId
-    Rettifica:
-      additionalProperties: false
-      type: object
-      x-examples:
-        Example 1:
-          rectificationId: 6d183bc572f6b200015a4167
-          enrollmentId: 908d3e72b51a6f0034e2a11c
-          state: Presa in carico
-          date: '2023-02-12'
-          rectificationReqText: Modifica dati iscrizione
-          openNotes: Note operte
-      description: Rettifica iscrizione
-      properties:
-        rectificationId:
-          type: string
-          description: Identificativo della rettifica
-          readOnly: true
-          minLength: 1
-          maxLength: 256            
-        enrollmentId:
-          type: string
-          description: id dell'iscrizione rettificata
-          nullable: true
-          readOnly: true    
-          minLength: 0
-          maxLength: 256                   
-        state:
-          type: string
-          description: Stato attuale della rettifica
-          readOnly: true
-          minLength: 1
-          maxLength: 256            
-        date:
-          type: string
-          format: date
-          description: Data ultima transizione rettifica
-          readOnly: true
-          minLength: 10
-          maxLength: 10  
-        rectificationReqText:
-          type: string
-          description: Testo con la richiesta di rettifica
-          readOnly: true
-          minLength: 1
-          maxLength: 5000            
-        openNotes:
-          type: string
-          description: Note aperte studentessa o studente
-          readOnly: true
-          minLength: 1
-          maxLength: 5000            
-      required:
-        - rectificationId
-        - state
-        - date
-        - rectificationReqText
-        - openNotes
-    DettaglioRettifica:
-      additionalProperties: false
-      type: object
-      x-examples:
-        Example 1:
-          rectificationId: 6d183bc572f6b200015a4167
-          enrollmentId: 908d3e72b51a6f0034e2a11c
-          state: Accettata
-          enrollmentToEnter:
-            instituteCode: IFSRM1
-            instituteName: Università degli Studi di Roma 'La Sapienza'
-            courseType: Corso di laurea
-            courseCode: INF101
-            courseName: Ingegneria
-            classCode: L-8
-            className: Ingegneria informatica
-            registrationYear: 2019/2020
-            enrolmentYear: 2021/2022
-            courseYear: 3° anno
-          stateHistory:
-            - state: Accettata
-              date: '2023-06-10'
-              description: Descrizione del passaggio di stato
-            - state: In lavorazione
-              date: '2023-03-05'
-              description: Descrizione del passaggio di stato
-            - state: Presa in carico
-              date: '2023-02-25'
-              description: Descrizione del passaggio di stato
-          rectificationReqText: Testo con la richiesta di rettifica
-          openNotes: Note aperte studentessa o studente
-        Example 2:
-          rectificationId: 6d183bc572f6b200015a4167
-          enrollmentId: 908d3e72b51a6f0034e2a11c
-          state: Accettata
-          enrollmentToEdit:
-            enrollmentId: 908d3e72b51a6f0034e2a11c
-            fieldsToEdit:
-              - fieldName: instituteName
-                oldValue: Università degli studi di Milano
-                newValue: Università degli studi di Roma 'La Sapienza'
-              - fieldName: courseType
-                oldValue: Laurea
-                newValue: Corso di Laurea
-              - fieldName: registrationYear
-                oldValue: 2021/2022
-                newValue: 2022/2023
-              - fieldName: courseYear
-                oldValue: 2° anno
-                newValue: 3° anno
-          stateHistory:
-            - state: Accettata
-              date: '2023-06-10'
-              description: Descrizione del passaggio di stato
-            - state: In lavorazione
-              date: '2023-03-05'
-              description: Descrizione del passaggio di stato
-            - state: Presa in carico
-              date: '2023-02-25'
-              description: Descrizione del passaggio di stato
-          rectificationReqText: Testo con la richiesta di rettifica
-          openNotes: Note aperte dello studentessa o studente
-      description: Dettaglio di una rettifica iscrizione per una studentessa o uno studente
-      properties:
-        rectificationId:
-          type: string
-          description: Identificativo della rettifica
-          readOnly: true
-          minLength: 1
-          maxLength: 256          
-        state:
-          type: string
-          description: stato attuale della rettifica
-          readOnly: true
-          minLength: 1
-          maxLength: 256          
-        enrollmentToEdit:
-          $ref: '#/components/schemas/ModificaIscrizione'
-        enrollmentToEnter:
-          $ref: '#/components/schemas/Iscrizione'
-        stateHistory:
-          type: array
-          maxItems: 256
-          minItems: 0          
-          description: Cronologia delle transizioni di stato
-          items:
-            $ref: '#/components/schemas/State'
-        rectificationReqText:
-          type: string
-          description: Testo con la richiesta di rettifica
-          readOnly: true
-          minLength: 1
-          maxLength: 5000              
-        openNotes:
-          type: string
-          description: Note aperte studente/ex studente
-          readOnly: true
-          minLength: 1
-          maxLength: 5000             
-      required:
-        - rectificationId
-        - state
-        - stateHistory
-        - rectificationReqText
-        - openNotes
-    State:
-      additionalProperties: false
-      type: object
-      properties:
-        state:
-          type: string
-          description: valore dello stato
-          readOnly: true
-          minLength: 1
-          maxLength: 256          
-        date:
-          type: string
-          format: date
-          description: data corrispondente alla transizione di stato
-          readOnly: true
-          minLength: 10
-          maxLength: 10          
-        description:
-          type: string
-          description: descrizione del passaggio di stato
-          readOnly: true
+          description: Modification description / Descrizione modifica
+          example: Modifica iscrizione xxx
           minLength: 1
           maxLength: 256
+          readOnly: true  
+        attributes:
+          $ref: '#/components/schemas/attributes'
+        request:
+          type: string
+          description: Text with request for rectification / Testo con la richiesta di rettifica
+          readOnly: true
+          minLength: 1
+          maxLength: 5000
+        note:
+          type: string
+          description: Open notes from student / Note aperte studentessa o studente
+          readOnly: true
+          minLength: 1
+          maxLength: 5000
+      required:
+        - taxCode
+    enrollments_change_request:
+      type: object
+      additionalProperties: false
       x-examples:
         Example 1:
-          state: Accettata
-          date: '2023-06-10'
-          description: Descrizione del passaggio di stato
-      description: Stato della Rettifica
+          enrollment_change_request:
+            - file_status: approved
+              file_code: 6d183bc572f6b200015a4167
+              message: testo messaggio
+            - file_status: rejected
+              file_code: 6d183b54654127dfhh15a4167
+              message: testo messaggio  
+      description: Personal data of the student / Dati personali della studentessa o dello studente
+      properties:
+        enrollment_change_request:
+          type: array
+          minItems: 0
+          maxItems: 256
+          description: List of enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
+          items:
+            $ref: '#/components/schemas/rectificationDetail'
+    rectificationDetail:
+      additionalProperties: false
+      type: object
+      x-examples:
+        Example 1:
+          file_status: accepted
+          file_code: 908d3e72b51a6f0034e2a11c
+          message: accettata
+      description: Status of an enrollment rectification for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
+      properties:
+        file_status:
+          type: string
+          description: Attribute name to be changed when rectification enrollment / Nome attributo da variare in fase di rettifica iscrizione
+          readOnly: true
+          minLength: 1
+          maxLength: 256   
+        file_code:
+          type: string
+          description: Current value of the field to be varied / Valore corrente del campo da variare
+          readOnly: true
+          minLength: 1
+          maxLength: 256    
+        message:
+          type: string
+          description: New value to be replaced during rectification / Nuovo valore da sostituire in fase di rettifica
+          readOnly: true
+          minLength: 1
+          maxLength: 256 
+      required:
+        - file_status
+        - file_code
+        - message
+    attributes:
+          additionalProperties: false
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of attributes to be varied / Lista di attributi da variare
+          items:
+            $ref: '#/components/schemas/attribute'
+    attribute:
+      additionalProperties: false
+      type: object
+      x-examples:
+        Example 1:
+          attribute_name: degree_course_year
+          current: 5
+          suggested: 4
+      description: Status of an enrollment rectification for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
+      properties:
+        attribute_name:
+          type: string
+          description: Attribute name to be changed when rectification enrollment / Nome attributo da variare in fase di rettifica iscrizione
+          readOnly: true
+          minLength: 1
+          maxLength: 256   
+        current:
+          type: string
+          description: Current value to be rectified / Valore corrente da rettificare
+          readOnly: true
+          minLength: 1
+          maxLength: 256    
+        suggested:
+          type: string
+          description: New value to be rectified / Nuovo valore da rettificare
+          readOnly: true
+          minLength: 1
+          maxLength: 256 
+      required:
+        - attribute_name
+        - current
+        - suggested
   requestBodies: {}
   responses: {}
   securitySchemes:
@@ -871,8 +393,7 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: campi rettifica iscrizione
-  - name: rettifica iscrizione
-  - name: rettifiche iscrizioni
-  - name: dettaglio rettifica iscrizione
+  - name: rectification-enrollment
+  - name: enrollment-rectification-details
+  - name: cancellation-enrollment-rectification
   - name: health-check
