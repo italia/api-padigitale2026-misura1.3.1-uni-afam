@@ -43,7 +43,7 @@ paths:
             type: string
             maxLength: 64
             minLength: 64
-            description: Hash of tax number / Codice Fiscale hash
+            description: Hash of tax code / Codice Fiscale hash
         - name: institute_code
           in: query
           required: false
