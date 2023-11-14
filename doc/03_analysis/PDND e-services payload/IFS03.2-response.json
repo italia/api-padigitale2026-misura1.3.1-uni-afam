@@ -5,20 +5,23 @@
     "given_name": "Mario",
     "family_name": "Rossi"
   },
-  "proof_admissions": [
+  "proof_qualifications": [
     {
       "institute_code": "16",
       "institute_name": "Milano - Politecnico",
+      "qualification_name": "Laurea in ingegneria informatica",
       "programme_type_code": "MS",
       "programme_type_name": "Laurea Magistrale (DM 270/04)",
       "degree_course_code": "1573960",
-      "degree_course_name": "Ingegneria informatica",
+      "degree_course_name": "Ingegneria",
       "degree_class_code": "LM-32",
       "degree_class_name": "Ingegneria informatica",
-      "degree_course_duration_in_years_or_months": "3 anni",
-      "duration_ects_credits": 180,
-      "start_date_of_accademic_year": {},
-      "end_date_of_accademic_year": {}
+      "academic_qualification_date": {},
+      "qualification_grade_value": "110",
+      "qualification_grading_scale": "110",
+      "qualification_grading_scale_minimum_grade": "66",
+      "qualification_grading_scale_maximum_grade": "110",
+      "academic_qualification_country": "Italia"
     }
   ]
 }
