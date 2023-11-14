@@ -26,7 +26,7 @@ paths:
             maxLength: 9
             minLength: 0
             description: National unique identifier / Identificativo unico nazionale
-            pattern: "^[A-Z0-9]{8}[A-Z]$"
+            pattern: "^[A-Z0-9]{9}$"
         - name: tax_code
           in: query
           required: false
@@ -82,6 +82,7 @@ paths:
                         degree_class_code: LM-32
                         academic_year: 2021/2022
                         degree_course_year: 3
+                        status: active
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
@@ -110,7 +111,7 @@ paths:
             maxLength: 9
             minLength: 0
             description: National unique identifier / Identificativo unico nazionale
-            pattern: "^[A-Z0-9]{8}[A-Z]$"          
+            pattern: "^[A-Z0-9]{9}$"
         - name: tax_code
           in: query
           required: false
@@ -125,8 +126,8 @@ paths:
           required: false
           schema:
             type: string
-            maxLength: 1
-            minLength: 32
+            maxLength: 32
+            minLength: 1
             description: Institute code / Codice istituto
     get:
       summary: Retrieve enrollment details of student in SDG format / Recupero iscrizioni di una studentessa o di uno studente in formato SDG
@@ -188,7 +189,7 @@ paths:
             maxLength: 9
             minLength: 9
             description: National unique identifier / Identificativo unico nazionale
-            pattern: "^[A-Z0-9]{8}[A-Z]$"
+            pattern: "^[A-Z0-9]{9}$"
         - name: tax_code
           in: query
           required: false
@@ -204,8 +205,8 @@ paths:
           required: false
           schema:
             type: string
-            maxLength: 1
-            minLength: 32
+            maxLength: 32
+            minLength: 1
             description: Institute code / Codice istituto
     get:
       summary: Requires the list of examinations taken by the student in SDG format / Richiede la lista degli esami sostenuti dallo studente in formato SDG
@@ -275,7 +276,7 @@ paths:
             maxLength: 9
             minLength: 9
             description: National unique identifier / Identificativo unico nazionale
-            pattern: "^[A-Z0-9]{8}[A-Z]$"
+            pattern: "^[A-Z0-9]{9}$"
         - name: tax_code
           in: query
           required: false
@@ -291,8 +292,8 @@ paths:
           required: false
           schema:
             type: string
-            maxLength: 1
-            minLength: 32
+            maxLength: 32
+            minLength: 1
             description: Institute code / Codice istituto
     get:
       summary: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
@@ -411,6 +412,7 @@ components:
               degree_class_code: LM-32
               academic_year: 2021/2022
               degree_course_year: 3
+              status: active
       description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
       x-stoplight:
         id: 22de4be4ac251
@@ -919,6 +921,7 @@ components:
           degree_class_code: LM-32
           academic_year: 2021/2022
           degree_course_year: 3
+          status: active
       description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
       properties:
         institute_code:
@@ -937,7 +940,7 @@ components:
           maxLength: 2048
         programme_type_code:
           type: string
-          description: Code of study program / codice del corso di studio
+          description: Code of study program / Codice del corso di studio
           example: 'LM'
           readOnly: true
           minLength: 1
@@ -972,6 +975,13 @@ components:
           readOnly: true
           minimum: 1
           maximum: 99
+        status:
+          type: string
+          description: Enrollment status / Stato dell'iscrizione
+          example: active
+          readOnly: true
+          minLength: 1
+          maxLength: 20
     personal_data:
       type: object
       nullable: true
@@ -1008,7 +1018,7 @@ components:
           description: ANPR Identifier / Identificativo ANPR 
           maxLength: 9
           minLength: 9
-          pattern: '^[A-Z0-9]{8}[A-Z]$'
+          pattern: "^[A-Z0-9]{9}$"
           example: AB123456C
           readOnly: true
         given_name:
