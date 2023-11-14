@@ -1,0 +1,267 @@
+openapi: 3.0.0
+x-stoplight:
+  id: 0f56e32f16f60
+info:
+  title: IFS08 - Iscritti per fasce ISEE
+  x-summary: Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accademico
+  version: 1.0.0
+  description: |
+    Questa API consente di ottenere il numero di studentesse e di studenti iscritti suddivisi per fasce ISEE.
+  contact:
+    name: helpdesk
+    email: helpdesk@gmail.com
+  x-api-id: 00000000-0000-0000-0000-000000000000
+  termsOfService: 'http://swagger.io/terms/'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  /stats/iscritti-per-isee:
+    get:
+      summary: Iscritti per fasce ISEE
+      tags:
+        - fasce isee
+      security: [{}]   
+      responses:
+        '200':
+          description: Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  instituteName:
+                    type: string
+                    description: Nome dell'istituto di formazione superiore
+                    readOnly: true
+                    minLength: 1
+                    maxLength: 256              
+                  facultyName:
+                    type: string
+                    description: Nome della facoltà
+                    readOnly: true
+                    minLength: 1
+                    maxLength: 256                    
+                  courseName:
+                    type: string
+                    description: Nome del Corso di studi
+                    readOnly: true
+                    minLength: 1
+                    maxLength: 256                    
+                  academicYear:
+                    type: string
+                    example: 2022-2023
+                    pattern: '^\d{4}-\d{4}$'
+                    readOnly: true
+                    minLength: 9
+                    maxLength: 9                    
+                  numberRegistered:
+                    type: integer
+                    description: Numero di iscritti
+                    format: int32
+                    minimum: 0
+                    maximum: 500000
+                    readOnly: true
+                  iseeBands:
+                    type: array
+                    description: Elenco di fasce ISEE con il numero di studentesse e di studenti per fascia
+                    minItems: 0
+                    maxItems: 500000                   
+                    items:
+                      $ref: '#/components/schemas/FasciaISEE'
+                required:
+                  - instituteName
+                  - numberRegistered
+                  - iseeBands
+              examples:
+                Example 1:
+                  value:
+                    instituteName: Università degli Studi di Roma 'La Sapienza'
+                    facultyName: Ingegneria
+                    courseName: Ingegneria Informatica
+                    academicYear: 2022-2023
+                    numberRegistered: 48
+                    iseeBands:
+                      - iseeBand: FASCIA 1
+                        minValue: 0
+                        maxValue: 6000
+                        numberInRange: 5
+                      - iseeBand: FASCIA 2
+                        minValue: 6001
+                        maxValue: 11000
+                        numberInRange: 15
+                      - iseeBand: FASCIA 3
+                        minValue: 11001
+                        maxValue: 20000
+                        numberInRange: 10
+                      - iseeBand: FASCIA 4
+                        minValue: 20001
+                        maxValue: 30000
+                        numberInRange: 8
+                      - iseeBand: FASCIA 5
+                        minValue: 30001
+                        maxValue: 35000
+                        numberInRange: 6
+                      - iseeBand: FASCIA 6
+                        minValue: 35001
+                        maxValue: 40000
+                        numberInRange: 3
+                      - iseeBand: FASCIA 7
+                        minValue: 40001
+                        maxValue: null
+                        numberInRange: 1
+                Example 2:
+                  value:
+                    instituteName: Università degli Studi di Roma 'La Sapienza'
+                    academicYear: 2022-2023
+                    numberRegistered: 1200
+                    iseeBands:
+                      - iseeBand: FASCIA 1
+                        minValue: 0
+                        maxValue: 6000
+                        numberInRange: 201
+                      - iseeBand: FASCIA 2
+                        minValue: 6001
+                        maxValue: 11000
+                        numberInRange: 418
+                      - iseeBand: FASCIA 3
+                        minValue: 11001
+                        maxValue: 20000
+                        numberInRange: 102
+                      - iseeBand: FASCIA 4
+                        minValue: 20001
+                        maxValue: 30000
+                        numberInRange: 75
+                      - iseeBand: FASCIA 5
+                        minValue: 30001
+                        maxValue: 35000
+                        numberInRange: 183
+                      - iseeBand: FASCIA 6
+                        minValue: 35001
+                        maxValue: 40000
+                        numberInRange: 122
+                      - iseeBand: FASCIA 7
+                        minValue: 40001
+                        maxValue: null
+                        numberInRange: 99
+        '500':
+          description: Errore interno del server
+      operationId: iscritti-per-isee
+      description: Restituisce l''elenco di fasce ISEE con il numero di studentesse e di studenti iscritti per fascia. Valorizzando i queryParams opzionali (courseName e academicYear) è possibile filtrare i risultati. Non valorizzandoli il risultato ottenuto si riferirà all''IFS per intero.
+      parameters:
+        - schema:
+            type: string
+            minLength: 1
+            maxLength: 256            
+          in: query
+          name: courseName
+          description: Nome del corso di studi
+        - schema:
+            type: string
+            pattern: '^\d{4}-\d{4}$'
+            minLength: 9
+            maxLength: 9            
+            example: 2022-2023
+          in: query
+          name: academicYear
+          description: 'Anno accademico '
+  /status:
+    get:
+      summary: Verifica stato delle API (Health Check)
+      operationId: check-status
+      description: Verificare lo stato di salute del sistema
+      tags:
+        - health-check
+      security: [{}]
+      responses:
+        '204':
+          description: il servizio è in esecuzione correttamente.
+        '500':
+          description: il servizio non è in esecuzione.
+components:
+  headers:
+    Retry-After:
+      description: |-
+        Retry contacting the endpoint *at least* after seconds.
+        See https://tools.ietf.org/html/rfc7231#section-7.1.3
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer
+    X-RateLimit-Limit:
+      description: The number of allowed requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Remaining:
+      description: The number of remaining requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Reset:
+      description: The number of seconds left in the current period
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer   
+  schemas:
+    FasciaISEE:
+      type: object
+      additionalProperties: false
+      x-examples:
+        Example 1:
+          iseeBand: FASCIA 1
+          minValue: 0
+          maxValue: 6000
+          numberInRange: 120
+      properties:
+        iseeBand:
+          type: string
+          description: Nome della Fascia ISEE
+          example: FASCIA 1
+          readOnly: true
+          minLength: 1
+          maxLength: 20           
+        minValue:
+          type: integer
+          format: int32
+          description: Valore minimo dell'ISEE per la fascia corrispondente
+          minimum: 0
+          maximum: 1000000000
+          readOnly: true
+        maxValue:
+          type: integer
+          format: int32
+          description: Valore massimo dell''ISEE per la fascia corrispondente. Se la fascia non ha un valore massimo definito, viene impostato su "null"
+          minimum: 0
+          maximum: 1000000000          
+          nullable: true
+          readOnly: true
+        numberInRange:
+          type: integer
+          format: int32
+          description: Numero di studentesse e di studenti con ISEE compreso nell'intervallo minValue e maxValue
+          minimum: 0
+          maximum: 500000
+          exclusiveMinimum: false
+          readOnly: true
+      required:
+        - iseeBand
+        - minValue
+        - maxValue
+        - numberInRange
+  requestBodies: {}
+  responses: {}
+servers:
+  - url: 'https://localhost:8080/api'
+    description: localhost
+tags:
+  - name: health-check
+  - name: fasce isee

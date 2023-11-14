@@ -1,0 +1,857 @@
+openapi: 3.0.0
+x-stoplight:
+  id: 0f56e32f16f60
+info:
+  title: IFS03 - Retrive degrees / Recupero titoli
+  x-summary: This service returns the list of degrees earned by a student. / Questo servizio ritorna l'elenco dei titoli conseguiti da una studentessa o uno studente.
+  version: 1.0.0
+  description: |
+    Returns the list of degrees earned by a student / Restituisce l'elenco dei titoli conseguiti da una studentessa o uno studente
+  contact:
+    name: helpdesk
+    email: helpdesk@mail.edu.it
+  x-api-id: 00000000-0000-0000-0000-000000000000
+  termsOfService: 'http://swagger.io/terms/'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  '/it/academic-qualifications':
+    parameters:
+        - name: person_id
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 9
+            minLength: 9
+            description: National unique identifier / Identificativo unico nazionale
+            pattern: "^[A-Z0-9]{8}[A-Z]$"
+        - name: tax_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+            minLength: 16
+            description: Tax Identification Number / Codice Fiscale 
+            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
+        - name: key
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 64
+            minLength: 64
+            description: Hash of tax code / Codice Fiscale hash
+        - name: institute_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 32
+            minLength: 1
+            description: Institute code / Codice istituto
+    get:
+      summary: Degrees earned by the student / Titoli conseguiti dalla studentessa o dallo studente
+      tags:
+        - academic-qualifications
+      security: [{}]
+      parameters: []
+      responses:
+        '200':
+          description: Request successfully executed / Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/academic_qualifications'
+              examples:
+                Example statuscode=200:
+                  value:
+                    personal_data:
+                      tax_code: RSSMRA80A01F205D
+                      person_id: AB123456C
+                      given_name: Mario
+                      family_name: Rossi
+                      birth_date: '1990-05-17'
+                      birth_place: Roma
+                    qualifications:
+                      - institute_code: '16'
+                        institute_name: Milano - Politecnico
+                        qualification_name: Dottore magistrale
+                        programme_type_code: MS
+                        degree_course_code: '1573960'
+                        degree_class_code: LM-32
+                        academic_qualification_date: '2022-07-01'
+                        qualification_grade_value: '110'
+                        qualification_grading_scale: '110'
+                        qualification_grading_scale_minimum_grade: '66'
+                        qualification_grading_scale_maximum_grade: '110'
+        '400':
+          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input                    
+        '404':
+          description: No degrees were found to have been earned for the student / Non sono stati trovati titoli conseguiti per la studentessa o lo studente
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/academic_qualifications'
+              examples:
+                Example statuscode=404:
+                  value:
+                    personal_data: null
+                    qualifications: []
+        '500':
+          description: Internal server error / Errore interno del server 
+      operationId: titoli-studente
+      description: Returns the list of degrees earned by a student / Restituisce la lista dei titoli conseguiti da una studentessa o uno studente
+  '/eu/proof-education-qualifications':
+    parameters:
+        - name: tax_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+            minLength: 16
+            description: Tax Identification Number / Codice Fiscale 
+            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
+        - name: institute_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 32
+            minLength: 1
+            description: Institute code / Codice istituto
+    get:
+      summary: Retrieve qualification details of student in SDG format / Recupero titoli di una studentessa o di uno studente in formato SDG
+      tags:
+        - proof-education-qualifications
+      security: [{}]
+      responses:
+        '200':
+          description: Request successfully executed / Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proof_education_qualifications'
+              examples:
+                Example statuscode=200:
+                  value:
+                    personal_data:
+                      tax_code: RSSMRA80A01F205D
+                      person_id: AB123456C
+                      given_name: Mario
+                      family_name: Rossi
+                    proof_qualifications:
+                      - institute_code: '16'
+                        institute_name: Milano - Politecnico
+                        qualification_name: Laurea in ingegneria informatica
+                        programme_type_code: MS
+                        programme_type_name: Laurea Magistrale (DM 270/04)
+                        degree_course_code: '1573960'
+                        degree_course_name: Ingegneria
+                        degree_class_code: LM-32
+                        degree_class_name: Ingegneria informatica
+                        academic_qualification_date: 2022-07-01
+                        qualification_grade_value: '110'
+                        qualification_grading_scale: '110'
+                        qualification_grading_scale_minimum_grade: '66'
+                        qualification_grading_scale_maximum_grade: '110'
+                        academic_qualification_country: Italia
+        '400':
+          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+        '404':
+          description: No certificates of admission to tertiary education institutions were found / Non sono stati trovati certificati di ammissione a istituti di istruzione terziaria
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/proof_education_qualifications'
+              examples:
+                Example statuscode=404:
+                  value:
+                    personal_data:
+                    proof_qualifications: []
+        '500':
+          description: Internal server error / Errore interno del server 
+      operationId: Qualifications-education-of-student
+      description: Returns the qualification details of student / Restituisce i dettagli dei titoli di una studentessa o di uno studente
+      parameters: []
+  '/eu/proof-education-qualifications-level':
+    parameters:
+        - name: tax_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+            minLength: 16
+            description: Tax Identification Number / Codice Fiscale 
+            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
+          allowEmptyValue: true  
+        - name: institute_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 32
+            minLength: 1
+            description: Institute code / Codice istituto
+    get:
+      summary: Requires the list of examinations taken by the student in SDG format / Richiede la lista degli esami sostenuti dallo studente in formato SDG
+      tags:
+        - proof-education-qualifications-level
+      security: [{}]
+      responses:
+        '200':
+          description: Request successfully executed / Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proof_education_qualifications_level'
+              examples:
+                Example statuscode=200:
+                  value:
+                    personal_data:
+                      tax_code: RSSMRA80A01F205D
+                      person_id: AB123456C
+                      given_name: Mario
+                      family_name: Rossi
+                    proof_qualifications_level:
+                      qualification_name: Laurea in Scienze Aziendali
+                      study_programme_duration_years_or_months: 3 anni a tempo pieno
+                      institute_code: '16'
+                      institute_name: Milano - Politecnico
+                      academic_qualification_date: 2022-07-01
+                      total_ects: 180
+                      eqf_level: 6° livello
+                      nqf_level: I ciclo QF-EHEA
+                      has_parent_relation: false
+                      degree_course_duration_ects_credit: 180
+                      ects_courses: 
+                        - ects_credits_received: 6
+                        - ects_credits_received: 12
+                        - ects_credits_received: 6
+        '400':
+          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+        '404':
+          description: No qualification were found for the student. / Non sono stati trovati titoli per la studentessa o lo studente.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/proof_education_qualifications_level'
+              examples:
+                Example statuscode=404:
+                  value:
+                    personal_data: null
+                    proof_qualifications_level: null
+        '500':
+          description: Internal server error / Errore interno del server 
+      operationId: Proof-education-qualifications-level
+      description:  Returns the list of simplified supplment diplomas in SDG format / Restituisce la lista dei diplomi supplment semplificati in formato SDG
+      parameters: []
+  /status:
+    get:
+      summary: Verifica stato delle API (Health Check)
+      security: [{}]
+      operationId: check-status
+      description: Check the system's health status / Verificare lo stato di salute del sistema 
+      tags:
+        - health-check
+      responses:
+        '204':
+          description: The service is running correctly / Il servizio è in esecuzione correttamente
+        '500':
+          description: The service is not running / Il servizio non è in esecuzione
+components:
+  headers:
+    Retry-After:
+      description: |-
+        Retry contacting the endpoint *at least* after seconds.
+        See https://tools.ietf.org/html/rfc7231#section-7.1.3
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer
+    X-RateLimit-Limit:
+      description: The number of allowed requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Remaining:
+      description: The number of remaining requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Reset:
+      description: The number of seconds left in the current period
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer
+  schemas:
+    academic_qualifications:
+      type: object
+      additionalProperties: false
+      x-examples:
+        Example 1:
+          personal_data:
+            tax_code: RSSMRA80A01F205D
+            person_id: AB123456C
+            given_name: Mario
+            family_name: Rossi
+            birth_date: '1990-05-17'
+            birth_place: Roma
+          qualifications:
+            - institute_code: '16'
+              institute_name: Milano - Politecnico
+              qualification_name: Dottore magistrale
+              programme_type_code: MS
+              degree_course_code: '1576480'
+              degree_class_code: LM-32
+              academic_qualification_date: '2022-07-01'
+              qualification_grade_value: '110'
+              qualification_grading_scale: '110'
+              qualification_grading_scale_minimum_grade: '66'
+              qualification_grading_scale_maximum_grade: '110'
+      description: Registry and list of degrees earned by a student / Anagrafica ed elenco titoli conseguiti da una studentessa o uno studente
+      x-stoplight:
+        id: 15d3067a4c448
+      properties:
+        personal_data:
+          $ref: '#/components/schemas/personal_data'
+        qualifications:
+          description: List of degrees earned by the student / Elenco dei titoli conseguiti dalla studentessa o dallo studente
+          type: array
+          maxItems: 256
+          minItems: 0
+          items:
+            $ref: '#/components/schemas/qualifications'
+      required:
+        - personal_data
+        - qualifications
+    qualifications:
+      type: object
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/yyy/
+        institute_code: institute_code
+        institute_name: institute_name
+        qualification_name: qualification_name
+        programme_type_code: programme_type_code
+        degree_course_code: degree_course_code
+        degree_class_code: degree_class_code
+        academic_qualification_date: academic_qualification_date
+        qualification_grade_value: qualification_grade_value
+        qualification_grading_scale: qualification_grading_scale
+      x-examples:
+        Example 1:
+          institute_code: '26'
+          institute_name: Università degli Studi di Roma 'La Sapienza'
+          qualification_name: Dottore magistrale
+          programme_type_code: MS
+          degree_course_code: '1573960'
+          degree_class_code: LM-32
+          academic_qualification_date: '2022-07-01'
+          qualification_grade_value: '110'
+          qualification_grading_scale: '110'
+          qualification_grading_scale_minimum_grade: '66'
+          qualification_grading_scale_maximum_grade: '110'
+      description: Degree detail / Dettaglio titolo
+      properties:
+        institute_code:
+          type: string
+          description: Institute identification code / Codice identificativo dell'istituto
+          readOnly: true
+          minLength: 2
+          maxLength: 2
+        institute_name:
+          type: string
+          description: Name of institution / Nome dell'istituto
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        qualification_name:
+          type: string
+          description: Title of the degree / Denominazione del titolo di studio
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        programme_type_code:
+          type: string
+          description: Code of study program / codice del corso di studio
+          example: 'LM'
+          readOnly: true
+          minLength: 1
+          maxLength: 2
+        degree_course_code:
+          type: string
+          description: Course Code / Codice del corso
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        degree_class_code:
+          type: string
+          description: Identification code of the degree class / Codice identificativo della classe di laurea
+          example: L-8
+          readOnly: true
+          minLength: 2
+          maxLength: 20
+        academic_qualification_date:
+          type: string
+          description: Date of graduation / Data di conseguimento del titolo di studio
+          pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'
+          example: '2023-05-15'
+          format: date
+          readOnly: true
+        qualification_grade_value:
+          type: string
+          description: Grade obtained upon graduation / Voto ottenuto al conseguimento del titolo di studio
+          minLength: 1
+          maxLength: 32
+          example: '110'
+          readOnly: true
+        qualification_grading_scale:
+          type: string
+          minLength: 1
+          maxLength: 32
+          example: '110'
+          description: Rating scale / Scala di valutazione
+          readOnly: true
+        qualification_grading_scale_minimum_grade:
+          type: string
+          format: int32
+          minLength: 1
+          maxLength: 32
+          example: '66'
+          description: Minimum course grade / Voto minimo del corso
+          readOnly: true
+        qualification_grading_scale_maximum_grade:
+          type: string
+          minLength: 1
+          maxLength: 32
+          example: '110'
+          description: Highest course grade / Voto massimo del corso
+          readOnly: true
+    proof_education_qualifications:
+      additionalProperties: false
+      type: object
+      x-examples:
+        Example 1:
+          personal_data:
+            tax_code: RSSMRA80A01F205D
+            person_id: AB123456C
+            given_name: Mario
+            family_name: Rossi
+            birth_date: 1990-05-17
+            birth_place: Roma
+          proof_qualifications:
+            - institute_code: '16'
+              institute_name: Milano - Politecnico
+              qualification_name: Laurea in ingegneria informatica
+              programme_type_code: MS
+              programme_type_name: Laurea Magistrale (DM 270/04)
+              degree_course_code: '1573960'
+              degree_course_name: Ingegneria
+              degree_class_code: LM-32
+              degree_class_name: Ingegneria informatica
+              academic_qualification_date: 2022-07-01
+              qualification_grade_value: '110'
+              qualification_grading_scale: '110'
+              qualification_grading_scale_minimum_grade: '66'
+              qualification_grading_scale_maximum_grade: '110'
+              academic_qualification_country: Italia
+      description: Qualification details of student / Dettaglio titoli di una studentessa o di uno studente
+      x-stoplight:
+        id: 22de4be4ac251
+      properties:
+        personal_data:
+          $ref: '#/components/schemas/personal_data'
+        proof_qualifications:
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of qualifications for student / Elenco titoli di una studentessa o di uno studente
+          items:
+            $ref: '#/components/schemas/proof_qualifications'
+      required:
+        - personal_data
+        - proof_qualifications
+    proof_qualifications:
+      type: object
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/yyy/
+        institute_code: institute_code
+        institute_name: institute_name
+        qualification_name: qualification_name
+        degree_class_code: degree_class_code
+      x-examples:
+        Example 1:
+          institute_code: '16'
+          institute_name: Milano - Politecnico
+          qualification_name: Laurea in ingegneria informatica
+          programme_type_code: MS
+          programme_type_name: Laurea Magistrale (DM 270/04)
+          degree_course_code: '1573960'
+          degree_course_name: Ingegneria
+          degree_class_code: LM-32
+          degree_class_name: Ingegneria informatica
+          academic_qualification_date: 2022-07-01
+          qualification_grade_value: '110'
+          qualification_grading_scale: '110'
+          qualification_grading_scale_minimum_grade: '66'
+          qualification_grading_scale_maximum_grade: '110'
+          academic_qualification_country: Italia
+      description: Detailed qualification information / Informazioni dettagliate sul titolo
+      properties:
+        institute_code:
+          type: string
+          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          example: '16'
+          readOnly: true
+          minLength: 2
+          maxLength: 2
+        institute_name:
+          type: string
+          description: Institution name / Denominazione dell’istituto
+          example: 'Milano - Politecnico'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        qualification_name:
+          type: string
+          description: Name qualification achieved / Nome titolo ottenuto
+          example: 'Laurea in ingegneria informatica'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        programme_type_code:
+          type: string
+          description: Code of study program / codice del corso di studio
+          example: 'LM'
+          readOnly: true
+          minLength: 1
+          maxLength: 2
+        programme_type_name:
+          type: string
+          description: Type of course of study / Tipo di corso di studio
+          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        degree_course_code:
+          type: string
+          description: Course Code / Codice del corso
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        degree_course_name:
+          type: string
+          description: Course name / Denominazione corso
+          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        degree_class_code:
+          type: string
+          description: Identification code of the degree class / Codice identificativo della classe di laurea
+          example: L-8
+          readOnly: true
+          minLength: 2
+          maxLength: 20
+        degree_class_name:
+          type: string
+          description: Name of the degree class / Denominazione della classe di laurea 
+          example: 'Informatica, Meccanica, Elettronica, Civile'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        academic_qualification_date:
+          type: string
+          format: date
+          description: Date of completion of studies / Data completamento studi
+          example: 2023-10-01
+          readOnly: true
+          minLength: 10
+          maxLength: 10
+        qualification_grade_value:
+          type: string
+          description: Grade / voto
+          minLength: 1
+          maxLength: 32
+          example: '110'
+          readOnly: true
+        qualification_grading_scale:
+          type: string
+          minLength: 1
+          maxLength: 32
+          example: '110'
+          description: Rating scale / Scala di valutazione
+          readOnly: true
+        qualification_grading_scale_minimum_grade:
+          type: string
+          minLength: 1
+          maxLength: 32
+          example: '66'
+          description: Minimum course grade / Voto minimo del corso
+          readOnly: true
+        qualification_grading_scale_maximum_grade:
+          type: string
+          minLength: 1
+          maxLength: 32
+          example: '110'
+          description: Highest course grade / Voto massimo del corso
+          readOnly: true
+        academic_qualification_country:
+          type: string
+          description: Country of the academic institution / Paese dell'istituzione accademica
+          example: Italia
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+    proof_education_qualifications_level:
+      additionalProperties: false
+      type: object
+      x-examples:
+        Example 1:
+          personal_data:
+            tax_code: RSSMRA80A01F205D
+            person_id: AB123456C
+            given_name: Mario
+            family_name: Rossi
+          proof_qualifications_level:
+            qualification_name: Laurea ingegneria informatica
+            study_programme_duration_years_or_months: 3 anni a tempo pieno
+            institute_code: '16'
+            institute_name: Milano - Politecnico
+            academic_qualification_date: 2022-07-01
+            total_ects: 180
+            eqf_level: 6° livello
+            nqf_level: I ciclo QF-EHEA
+            has_parent_relation: false
+            degree_course_duration_ects_credit: 180
+            ects_courses: 
+              - ects_credits_received: 6
+              - ects_credits_received: 12
+              - ects_credits_received: 6
+      description: Returns the list of simplified supplment diplomas in SDG format / Restituisce la lista dei diplomi supplment semplificati in formato SDG
+      x-stoplight:
+        id: 22de4be4ac251
+      properties:
+        personal_data:
+          $ref: '#/components/schemas/personal_data'
+        proof_qualifications_level:
+          $ref: '#/components/schemas/proof_qualifications_level'
+      required:
+        - personal_data
+        - proof_qualifications_level
+    proof_qualifications_level:
+      type: object
+      nullable: true
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/xxx/yyy
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/xxx/
+        qualification_name: qualification_name
+        institute_code: institute_code
+        institute_name: institute_name
+      x-examples:
+        Example 1:
+          qualification_name: Laurea ingegneria informatica
+          study_programme_duration_years_or_months: 3 anni a tempo pieno
+          institute_code: '16'
+          institute_name: Milano - Politecnico
+          academic_qualification_date: 2022-07-01
+          total_ects: 180
+          eqf_level: 6° livello
+          nqf_level: I ciclo QF-EHEA
+          has_parent_relation: false
+          degree_course_duration_ects_credit: 180
+          ects_courses: 
+            - ects_credits_received: 6
+            - ects_credits_received: 12
+            - ects_credits_received: 6
+      description: Simplified supplment diplomas in SDG format / Diplomi supplment semplificati in formato SDG
+      properties:
+        qualification_name:
+          type: string
+          description: Diploma name / Denominazione diploma
+          example: 'Laurea in Scienze Aziendali'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        study_programme_duration_years_or_months:
+          type: string
+          description: Duration of study programme in years or months / Durata programma di studio in anni o mesi
+          example: '3 anni a tempo pieno'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        institute_code:
+          type: string
+          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          example: '16'
+          readOnly: true
+          minLength: 2
+          maxLength: 2
+        institute_name:
+          type: string
+          description: Institution name / Denominazione dell’istituto
+          example: 'Milano - Politecnico'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        academic_qualification_date:
+          type: string
+          format: date
+          description: Date of graduation / Data ottenimento titolo
+          example: 2022-07-01
+          readOnly: true
+          minLength: 10
+          maxLength: 10
+        total_ects:
+          type: integer
+          format: int32
+          description: Total ECTS credits / Crediti totali ECTS
+          example: 180
+          readOnly: true
+          maximum: 999
+          minimum: 1
+        eqf_level:
+          type: string
+          description: EQF level / Livello EQF
+          example: '6° livello'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        nqf_level:
+          type: string
+          description: NQF level / Livello NQF
+          example: 'I ciclo QF-EHEA'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        has_parent_relation:
+          type: boolean
+          description: Parent relation / Relazione con i genitori
+          example: true
+          readOnly: true
+        degree_course_duration_ects_credit:
+          type: integer
+          format: int32
+          description: Course duration in ECTS / Durata corso di studi in ECTS
+          example: 180
+          readOnly: true
+          maximum: 999
+          minimum: 1
+        ects_courses:
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of courses in ECTS / Elenco corsi in ECTS
+          items:
+            $ref: '#/components/schemas/ects_courses'
+    ects_courses:
+      type: object
+      additionalProperties: false
+      x-examples:
+        Example 1:
+          ects_credits_received: 6
+      description: Detailed information on ECTS courses / Informazioni dettagliate sui corsi in ECTS
+      properties:
+        ects_credits_received:
+          type: integer
+          format: int32
+          description: Course in ECTS / Corso in ECTS
+          example: 180
+          readOnly: true
+          maximum: 999
+          minimum: 1
+    personal_data:
+      type: object
+      nullable: true
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/CPV/
+        given_name: givenName
+        tax_code: taxCode
+        family_name: familyName
+        birth_date: dateOfBirth
+        birth_place: hasBirthPlace
+        person_id: personID
+      x-examples:
+        Example 1:
+          tax_code: RSSMRA80A01F205D
+          person_id: AB123456C
+          given_name: Mario
+          family_name: Rossi
+          birth_date: '1990-05-17'
+          birth_place: Roma
+      description: Personal data of the student / Dati personali della studentessa o dello studente
+      properties:
+        tax_code:
+          type: string
+          description: Tax Identification Number / Codice Fiscale
+          example: RSSMRA80A01F205D
+          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          minLength: 16
+          maxLength: 16
+          readOnly: true
+        person_id:
+          type: string
+          description: ANPR Identifier / Identificativo ANPR 
+          maxLength: 9
+          minLength: 9
+          pattern: '^[A-Z0-9]{8}[A-Z]$'
+          example: AB123456C
+          readOnly: true
+        given_name:
+          type: string
+          description: Name / Nome
+          example: Mario
+          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        family_name:
+          type: string
+          description: Surname / Cognome
+          example: Rossi
+          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        birth_date:
+          type: string
+          format: date
+          example: '1990-05-17'
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          description: Date of birth / Data di nascita
+          readOnly: true
+        birth_place:
+          type: string
+          example: Rome
+          description: Place of birth / Luogo di nascita
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+  requestBodies: {}
+  responses: {}
+servers:
+  - url: 'https://localhost:8080/api'
+    description: localhost
+tags:
+  - name: academic-qualifications
+  - name: proof-education-qualifications
+  - name: proof-education-qualifications-level
+  - name: health-check
