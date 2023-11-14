@@ -1,0 +1,372 @@
+openapi: 3.0.0
+x-stoplight:
+  id: 0f56e32f16f60
+info:
+  title: IFS01 - Offerta formativa
+  x-summary: Offerta formativa di un'Università/AFAM pubblica
+  version: 1.0.0
+  description: |
+    Ottiene l'elenco dei corsi erogati da un'università o AFAM pubblica. I dati restituiti includono informazioni sui singoli corsi offerti.
+  contact:
+    name: helpdesk
+    email: helpdesk@gmail.com
+  x-api-id: 00000000-0000-0000-0000-000000000000
+  termsOfService: http://swagger.io/terms/
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /offerta-formativa/{aa}:    
+    get:
+      summary: Offerta formativa di un'Università/AFAM pubblica
+      tags:
+        - offerta formativa
+      security: [{}]  
+      parameters:
+        - schema:
+            type: string
+            maxLength: 100
+            minLength: 0
+          in: query
+          name: courseType
+          description: Tipologia del corso di studio
+        - schema:
+            type: string
+            maxLength: 5
+            minLength: 1
+          in: query
+          name: classCode
+          description: Codice identificativo della classe di laurea
+        - schema:
+            type: string
+            maxLength: 10
+            minLength: 1
+          in: query
+          name: faculty
+          description: Facoltà
+        - schema:
+            type: integer
+            format: int32
+            default: 1
+            minimum: 1
+            maximum: 1000000
+          in: query
+          name: page
+          description: Numero della pagina che si vuole visualizzare
+          required: true
+        - schema:
+            type: integer
+            format: int32
+            default: 15
+            minimum: 1
+            maximum: 1000000
+          in: query
+          name: limit
+          description: Numero massimo di elementi per pagina
+          required: true
+      responses:
+        '200':
+          description: Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                type: object                
+                additionalProperties: false
+                x-examples:
+                  Example 1:
+                    totElem: 150
+                    totPages: 10
+                    currentPage: 1
+                    perPage: 15
+                    data:
+                      instituteCode: IFSRM1
+                      instituteName: Università degli Studi di Roma 'La Sapienza'
+                      courses:
+                        - _id: 8f5e36a720b30180001e2b4c
+                          faculty: Ingegneria
+                          courseType: Corso di laurea
+                          courseName: Ingegneria Informatica
+                          classCode: L-8
+                          className: Ingegneria dell'informazione
+                        - _id: d3b8a6c501f1268000129e7f
+                          faculty: Ingegneria
+                          courseType: Corso di laurea magistrale
+                          courseName: Ingegneria Informatica
+                          classCode: LM-32
+                          className: Intelligenza artificiale
+                        - _id: 1754e9c6bda01080001ad678
+                          faculty: Economia
+                          courseType: Corso di laurea
+                          courseName: Economia e Commercio
+                          classCode: L-18
+                          className: Scienze Economiche
+                        - _id: 60a27b659c62180001c7d79e
+                          faculty: Giurisprudenza
+                          courseType: Corso di laurea
+                          courseName: Giurisprudenza
+                          classCode: L-14
+                          className: Scienze Giuridiche
+                properties:
+                  totElem:
+                    type: integer
+                    description: totale degli elementi disponibili
+                    format: int32
+                    readOnly: true
+                    minimum: 0
+                    maximum: 1000000  
+                  totPages:
+                    type: integer
+                    description: totale delle pagine disponibili
+                    format: int32
+                    readOnly: true
+                    minimum: 0
+                    maximum: 1000000 
+                  currentPage:
+                    type: integer
+                    description: numero della pagina corrente restituita
+                    format: int32
+                    readOnly: true
+                    minimum: 0
+                    maximum: 1000000 
+                  perPage:
+                    type: integer
+                    description: numero di elementi presenti nella pagina
+                    format: int32
+                    readOnly: true
+                    minimum: 0
+                    maximum: 1000000 
+                  data:
+                    $ref: '#/components/schemas/OffertaFormativa'
+                required:
+                  - totElem
+                  - totPages
+                  - currentPage
+                  - perPage
+                  - data
+              examples:
+                Example 1:
+                  value:
+                    totElem: 4
+                    totPages: 1
+                    currentPage: 1
+                    perPage: 15
+                    data:
+                      instituteCode: IFSRM1
+                      instituteName: Università degli Studi di Roma 'La Sapienza'
+                      courses:
+                        - _id: 8f5e36a720b30180001e2b4c
+                          faculty: Ingegneria
+                          courseType: Corso di laurea
+                          courseName: Ingegneria Informatica
+                          classCode: L-8
+                          className: Ingegneria dell'informazione
+                        - _id: d3b8a6c501f1268000129e7f
+                          faculty: Ingegneria
+                          courseType: Corso di laurea magistrale
+                          courseName: Ingegneria Informatica
+                          classCode: L-32
+                          className: Intelligenza artificiale
+                        - _id: 1754e9c6bda01080001ad678
+                          faculty: Economia
+                          courseType: Corso di laurea
+                          courseName: Economia e Commercio
+                          classCode: L-18
+                          className: Scienze Economiche
+                        - _id: 60a27b659c62180001c7d79e
+                          faculty: Giurisprudenza
+                          courseType: Corso di laurea
+                          courseName: Giurisprudenza
+                          classCode: L-14
+                          className: Scienze Giuridiche
+        '500':
+          description: Errore interno del server
+      operationId: offerta-formativa
+      description: |-
+        Restituisce l'elenco di tutti i corsi attivi ed offerti da un'Università/AFAM pubblica in uno specifico anno accademico.
+    parameters:
+      - schema:
+          type: string
+          example: 2022-2023
+          pattern: ^\d{4}-\d{4}$
+          maxLength: 9
+          minLength: 9
+        name: aa
+        in: path
+        required: true
+        description: Anno accademico di riferimento
+  /status:
+    get:
+      summary: Verifica stato delle API (Health Check)
+      operationId: check-status
+      description: Verificare lo stato di salute del sistema
+      tags:
+        - health-check
+      security: [{}]  
+      responses:
+        '204':
+          description: il servizio è in esecuzione correttamente.
+        '500':
+          description: il servizio non è in esecuzione.
+components:
+  headers:
+    Retry-After:
+      description: |-
+        Retry contacting the endpoint *at least* after seconds.
+        See https://tools.ietf.org/html/rfc7231#section-7.1.3
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer
+    X-RateLimit-Limit:
+      description: The number of allowed requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Remaining:
+      description: The number of remaining requests in the current period
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Reset:
+      description: The number of seconds left in the current period
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer    
+  schemas:
+    OffertaFormativa:
+      additionalProperties: false
+      type: object
+      x-examples:
+        Example 1:
+          instituteCode: IFSRM1
+          instituteName: Università degli Studi di Roma 'La Sapienza'
+          courses:
+            - _id: 8f5e36a720b30180001e2b4c
+              faculty: Ingegneria
+              courseType: Corso di laurea
+              courseName: Ingegneria Informatica
+              classCode: L-8
+              className: Ingegneria dell'informazione
+            - _id: d3b8a6c501f1268000129e7f
+              faculty: Ingegneria
+              courseType: Corso di laurea magistrale
+              courseName: Ingegneria Informatica
+              classCode: LM-32
+              className: Intelligenza artificiale
+            - _id: 1754e9c6bda01080001ad678
+              faculty: Economia
+              courseType: Corso di laurea
+              courseName: Economia e Commercio
+              classCode: L-18
+              className: Scienze Economiche
+            - _id: 60a27b659c62180001c7d79e
+              faculty: Giurisprudenza
+              courseType: Corso di laurea
+              courseName: Giurisprudenza
+              classCode: L-14
+              className: Scienze Giuridiche
+      description: Corsi erogati in un'Università/AFAM pubblica
+      x-stoplight:
+        id: 3d1cadb8732af
+      properties:
+        instituteCode:
+          type: string
+          description: Codice identificativo dell’istituto
+          readOnly: true
+          minLength: 0
+          maxLength: 10
+        instituteName:
+          type: string
+          description: Nome dell'istituto
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+        courses:
+          type: array
+          maxItems: 100       
+          minItems: 0 
+          description: Elenco corsi erogati
+          items:
+            $ref: '#/components/schemas/Corso'
+      required:
+        - instituteCode
+        - instituteName
+        - courses
+    Corso:
+      additionalProperties: false      
+      title: Corso
+      x-stoplight:
+        id: jc5yohovopcsd
+      type: object
+      x-examples:
+        Example 1:
+          _id: 8f5e36a720b30180001e2b4c
+          faculty: Ingegneria
+          courseType: Corso di laurea
+          courseName: Ingegneria Informatica
+          classCode: L-8
+          className: Ingegneria dell'informazione
+      description: Corso di studi
+      properties:
+        _id:
+          type: string
+          description: id del corso erogato dall'Università/AFAM pubblica
+          readOnly: true
+          maxLength: 100
+        faculty:
+          type: string
+          description: Nome della facoltà
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+        courseType:
+          type: string
+          description: Tipo di corso di studio
+          example: laurea, laurea magistrale, dottorato di ricerca, specializzazione, master, formazione professionale
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+        courseName:
+          type: string
+          description: Denominazione del corso di studio
+          example: ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+        classCode:
+          type: string
+          description: Codice della classe di studio
+          pattern: ^[A-Z]+-\d{1,2}$
+          example: L-8
+          readOnly: true
+          minLength: 1
+          maxLength: 5
+        className:
+          type: string
+          description: Denominazione della classe di studio
+          example: Informatica, Meccanica, Elettronica, Civile
+          readOnly: true
+          minLength: 0   
+          maxLength: 256 
+      required:
+        - _id
+        - faculty
+        - courseType
+        - courseName
+        - classCode
+        - className
+  requestBodies: {}
+  responses: {}
+servers:
+  - url: https://localhost:8080/api
+    description: localhost
+tags:
+  - name: offerta formativa
+  - name: health-check
