@@ -1,0 +1,1054 @@
+openapi: 3.0.0
+x-stoplight:
+  id: 0f56e32f16f60
+info:
+  title: IFS02 - Retrieve enrollment details / Recupero dettaglio iscrizioni 
+  x-summary: Enrollment detail of a student / Dettaglio iscrizioni di una studentessa o uno studente 
+  version: 1.0.0
+  description: |
+   Provides detailed information regarding the enrollment of student at a public university or AFAM / Fornisce informazioni di dettaglio riguardanti le iscrizioni di una studentessa o uno studente all'università o AFAM pubblico
+  contact:
+    name: helpdesk
+    email: helpdesk@gmail.com
+  x-api-id: 00000000-0000-0000-0000-000000000000
+  termsOfService: 'http://swagger.io/terms/'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  '/it/student-enrollments':
+    parameters:
+        - name: person_id
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 9
+            minLength: 0
+            description: National unique identifier / Identificativo unico nazionale
+            pattern: "^[A-Z0-9]{8}[A-Z]$"
+        - name: tax_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+            minLength: 16
+            description: Tax Identification Number / Codice Fiscale 
+            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
+        - name: key
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 64
+            minLength: 64
+            description: Hash of tax code / Codice Fiscale hash
+        - name: institute_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 32
+            minLength: 1
+            description: Institute code / Codice istituto
+    get:
+      summary: Retrieve enrollment details of student / Recupero iscrizioni di una studentessa o di uno studente 
+      tags:
+        - enrollments
+      security: [{}]
+      responses:
+        '200':
+          description: Request successfully executed / Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/enrollments'
+              examples:
+                Example statuscode=200:
+                  value:
+                    personal_data:
+                      tax_code: RSSMRA80A01F205D
+                      person_id: AB123456C
+                      given_name: Mario
+                      family_name: Rossi
+                      birth_date: '1990-05-17'
+                      birth_place: Roma
+                    enrollments:
+                      - institute_code: '16'
+                        institute_name: Milano - Politecnico
+                        programme_type_code: MS
+                        degree_course_code: '1573960'
+                        degree_class_code: LM-32
+                        academic_year: 2021/2022
+                        degree_course_year: 3
+        '400':
+          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+        '404':
+          description: No enrollments were found for the student at this institution / Non sono state trovate iscrizioni per la studentessa o lo studente in questo istituto
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/enrollments'
+              examples:
+                Example statuscode=404:
+                  value:
+                    personal_data: 
+                    enrollments: []
+        '500':
+          description: Internal server error / Errore interno del server 
+      operationId: Enrollments-of-student
+      description:  Returns the enrollment details of student / Restituisce i dettagli delle iscrizioni di una studentessa o di uno studente
+      parameters: []
+  '/eu/proof-education-enrollments':
+    parameters:
+        - name: person_id
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 9
+            minLength: 0
+            description: National unique identifier / Identificativo unico nazionale
+            pattern: "^[A-Z0-9]{8}[A-Z]$"          
+        - name: tax_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+            minLength: 16
+            description: Tax Identification Number / Codice Fiscale 
+            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
+        - name: institute_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 1
+            minLength: 32
+            description: Institute code / Codice istituto
+    get:
+      summary: Retrieve enrollment details of student in SDG format / Recupero iscrizioni di una studentessa o di uno studente in formato SDG
+      tags:
+        - education-enrollments
+      security: [{}]
+      responses:
+        '200':
+          description: Request successfully executed / Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proof_education_enrollments'
+              examples:
+                Example statuscode=200:
+                  value:
+                    personal_data:
+                      tax_code: RSSMRA80A01F205D
+                      person_id: AB123456C
+                      given_name: Mario
+                      family_name: Rossi
+                    proof_enrollments:
+                      - programme_type_code: MS
+                        programme_type_name: Laurea Magistrale (DM 270/04)
+                        degree_course_code: '1573960'
+                        degree_course_name: Ingegneria informatica
+                        degree_class_code: LM-32
+                        degree_class_name: Ingegneria informatica
+                        institute_code: '16'
+                        institute_name: Milano - Politecnico
+                        country_of_academic_institution: Italia
+                        expected_graduation_date: 2023-10-01
+                        enrolment_date: 2020-10-01
+        '400':
+          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+        '404':
+          description: No enrollments were found for the student at this institution / Non sono state trovate iscrizioni per la studentessa o lo studente in questo istituto
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/proof_education_enrollments'
+              examples:
+                Example statuscode=404:
+                  value:
+                    personal_data: 
+                    proof_enrollments: []
+        '500':
+          description: Internal server error / Errore interno del server 
+      operationId: Enrollments-education-of-student
+      description: Returns the enrollment details of student / Restituisce i dettagli delle iscrizioni di una studentessa o di uno studente
+      parameters: []
+  '/eu/proof-education-courses':
+    parameters:
+        - name: person_id
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 9
+            minLength: 9
+            description: National unique identifier / Identificativo unico nazionale
+            pattern: "^[A-Z0-9]{8}[A-Z]$"
+        - name: tax_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+            minLength: 16
+            description: Tax Identification Number / Codice Fiscale 
+            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
+          allowEmptyValue: true
+        - name: institute_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 1
+            minLength: 32
+            description: Institute code / Codice istituto
+    get:
+      summary: Requires the list of examinations taken by the student in SDG format / Richiede la lista degli esami sostenuti dallo studente in formato SDG
+      tags:
+        - education-courses
+      security: [{}]
+      responses:
+        '200':
+          description: Request successfully executed / Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proof_education_courses'
+              examples:
+                Example statuscode=200:
+                  value:
+                    personal_data:
+                      tax_code: RSSMRA80A01F205D
+                      person_id: AB123456C
+                      given_name: Mario
+                      family_name: Rossi
+                    proof_courses:
+                      programme_type_code: MS
+                      programme_type_name: Laurea Magistrale (DM 270/04)
+                      degree_course_code: '1573960'
+                      degree_course_name: Ingegneria informatica
+                      degree_class_code: LM-32
+                      degree_class_name: Ingegneria informatica
+                      institute_code: '16'
+                      institute_name: Milano - Politecnico
+                      learnings: 
+                        - attended_learning_name: Esame 1
+                          start_date: 2020-10-13
+                          end_date: 2023-10-13
+                          grade_value: '30'
+                          ects_credits_received: 6
+                        - attended_learning_name: Esame 2
+                          start_date: 2020-10-13
+                          end_date: 2023-10-13
+                          grade_value: '30'
+                          ects_credits_received: 6
+        '400':
+          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+        '404':
+          description: No examinations were found for the student at this institution. / Non sono state trovati esami per la studentessa o lo studente in questo istituto.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/proof_education_courses'
+              examples:
+                Example statuscode=404:
+                  value:
+                    personal_data: 
+                    proof_courses: null
+        '500':
+          description: Internal server error / Errore interno del server 
+      operationId: Qualifications-education-of-student
+      description:  Returns the enrollment details of student / Restituisce i dettagli delle iscrizioni di una studentessa o di uno studente
+      parameters: []
+  '/eu/proof-tertiary-education-admission':
+    parameters:
+        - name: person_id
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 9
+            minLength: 9
+            description: National unique identifier / Identificativo unico nazionale
+            pattern: "^[A-Z0-9]{8}[A-Z]$"
+        - name: tax_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+            minLength: 16
+            description: Tax Identification Number / Codice Fiscale 
+            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
+          allowEmptyValue: true
+        - name: institute_code
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 1
+            minLength: 32
+            description: Institute code / Codice istituto
+    get:
+      summary: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
+      tags:
+        - education-tertiary
+      security: [{}]
+      responses:
+        '200':
+          description: Request successfully executed / Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proof_tertiary_education_admission'
+              examples:
+                Example statuscode=200:
+                  value:
+                    personal_data:
+                      tax_code: RSSMRA80A01F205D
+                      person_id: AB123456C
+                      given_name: Mario
+                      family_name: Rossi
+                    proof_admissions:
+                      - institute_code: '16'
+                        institute_name: Milano - Politecnico
+                        programme_type_code: MS
+                        programme_type_name: Laurea Magistrale (DM 270/04)
+                        degree_course_code: '1573960'
+                        degree_course_name: Ingegneria informatica
+                        degree_class_code: LM-32
+                        degree_class_name: Ingegneria informatica
+                        degree_course_duration_in_years_or_months: "3 anni"
+                        duration_ects_credits: 180
+                        start_date_of_accademic_year: 2020-10-13
+                        end_date_of_accademic_year: 2023-10-13
+        '400':
+          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+        '404':
+          description: No certificates of admission to tertiary education institutions were found / Non sono stati trovati certificati di ammissione a istituti di istruzione terziaria
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/proof_tertiary_education_admission'
+              examples:
+                Example statuscode=404:
+                  value:
+                    personal_data:
+                    proof_admissions: []
+        '500':
+          description: Internal server error / Errore interno del server 
+      operationId: Tertiary-education-of-student
+      description: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
+      parameters: []
+  /status:
+    get:
+      summary: Verifica stato delle API (Health Check)
+      security: [{}]
+      operationId: check-status
+      description: Check the system's health status / Verificare lo stato di salute del sistema 
+      tags:
+        - health-check
+      responses:
+        '204':
+          description: The service is running correctly / Il servizio è in esecuzione correttamente
+        '500':
+          description:  The service is not running. / Il servizio non è in esecuzione.
+components:
+  headers:
+    Retry-After:
+      description: |-
+        Retry contacting the endpoint *at least* after seconds.
+        See https://tools.ietf.org/html/rfc7231#section-7.1.3
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer
+    X-RateLimit-Limit:
+      description: The number of allowed requests in the current period / Numero di richieste consentite nel periodo attuale
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Remaining:
+      description: The number of remaining requests in the current period / Numero di richieste rimanenti nel periodo attuale 
+      schema:
+        format: int32
+        maximum: 1000000
+        minimum: 0
+        type: integer
+    X-RateLimit-Reset:
+      description: The number of seconds left in the current period / Numero di secondi rimanenti nel periodo attuale
+      schema:
+        format: int32
+        maximum: 186400
+        minimum: 0
+        type: integer
+  schemas:
+    enrollments:
+      additionalProperties: false
+      type: object
+      x-examples:
+        Example 1:
+          personal_data:
+            tax_code: RSSMRA80A01F205D
+            person_id: AB123456C
+            given_name: Mario
+            family_name: Rossi
+            birth_date: '1990-05-17'
+            birth_place: Roma
+          enrollments:
+            - institute_code: '16'
+              institute_name: Milano - Politecnico
+              programme_type_code: MS
+              degree_course_code: '1576480'
+              degree_class_code: LM-32
+              academic_year: 2021/2022
+              degree_course_year: 3
+      description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
+      x-stoplight:
+        id: 22de4be4ac251
+      properties:
+        personal_data:
+          $ref: '#/components/schemas/personal_data'
+        enrollments:
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
+          items:
+            $ref: '#/components/schemas/enrollment'
+      required:
+        - personal_data
+        - enrollments
+    proof_education_enrollments:
+      additionalProperties: false
+      type: object
+      x-examples:
+        Example 1:
+          personal_data:
+            tax_code: RSSMRA80A01F205D
+            person_id: AB123456C
+            given_name: Mario
+            family_name: Rossi
+          proof_enrollments:
+            - programme_type_code: MS
+              programme_type_name: Laurea Magistrale (DM 270/04)
+              degree_course_code: '1573960'
+              degree_course_name: Ingegneria informatica
+              degree_class_code: LM-32
+              degree_class_name: Ingegneria informatica
+              institute_code: '16'
+              institute_name: Milano - Politecnico
+              country_of_academic_institution: Italia
+              expected_graduation_date: 2023-10-13
+              enrolment_date: 2020-10-13
+      description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
+      x-stoplight:
+        id: 22de4be4ac251
+      properties:
+        personal_data:
+          $ref: '#/components/schemas/personal_data'
+        proof_enrollments:
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
+          items:
+            $ref: '#/components/schemas/proof_enrollment'
+      required:
+        - personal_data
+        - proof_enrollments
+    proof_enrollment:
+      type: object
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/yyy/
+        institute_code: institute_code
+        institute_name: institute_name
+        country_of_academic_institution: country_of_academic_institution
+        expected_graduation_date: expected_graduation_date
+        enrolment_date: enrolment_date
+      x-examples:
+        Example 1:
+          programme_type_code: MS
+          programme_type_name: Laurea Magistrale (DM 270/04)
+          degree_course_code: '1573960'
+          degree_course_name: Ingegneria informatica
+          degree_class_code: LM-32
+          degree_class_name: Ingegneria informatica
+          institute_code: '16'
+          institute_name: Milano - Politecnico
+          country_of_academic_institution: Italia
+          expected_graduation_date: 2023-10-13
+          date_of_enrolment: 2020-10-13
+      description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
+      properties:
+        programme_type_code:
+          type: string
+          description: Code of study program / codice del corso di studio
+          example: 'LM'
+          readOnly: true
+          minLength: 1
+          maxLength: 2
+        programme_type_name:
+          type: string
+          description: Type of study program / Tipologia del corso di studio
+          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        degree_course_code:
+          type: string
+          description: Course code / Codice del corso
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        degree_course_name:
+          type: string
+          description: Course name / Denominazione corso
+          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        degree_class_code:
+          type: string
+          description: Identification code of the degree class / Codice identificativo della classe di laurea
+          example: L-8
+          readOnly: true
+          minLength: 2
+          maxLength: 20
+        degree_class_name:
+          type: string
+          description: Name of the degree class / Denominazione della classe di laurea 
+          example: 'Ingegneria informatica, Scienze giuridiche'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        institute_code:
+          type: string
+          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          example: '16'
+          readOnly: true
+          minLength: 2
+          maxLength: 2
+        institute_name:
+          type: string
+          description: Institution name / Denominazione dell’istituto
+          example: 'Milano - Politecnico'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        country_of_academic_institution:
+          type: string
+          description: Country of the academic institution / Paese dell'istituzione accademica
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        expected_graduation_date:
+          type: string
+          format: date
+          description: Date of completion of studies / Data completamento studi
+          example: 2023-10-01
+          readOnly: true
+          minLength: 10
+          maxLength: 10
+        enrolment_date:
+          type: string
+          format: date
+          description: Enrollment date / Data iscrizione
+          example: 2020-10-01
+          readOnly: true
+          minLength: 10
+          maxLength: 10
+    proof_education_courses:
+      additionalProperties: false
+      maxItems: 256
+      minItems: 0
+      type: object
+      x-examples:
+        Example 1:
+          personal_data:
+            tax_code: RSSMRA80A01F205D
+            person_id: AB123456C
+            given_name: Mario
+            family_name: Rossi
+          proof_courses:
+            programme_type_code: MS
+            programme_type_name: Laurea Magistrale (DM 270/04)
+            degree_course_code: '1573960'
+            degree_course_name: Ingegneria informatica
+            degree_class_code: LM-32
+            degree_class_name: Ingegneria informatica
+            institute_code: '16'
+            institute_name: Milano - Politecnico
+            learnings:
+              - attended_learning_name: Esame 1
+                start_date: 01/10/2023
+                end_date: 01/10/2020
+                grade_value: '30'
+                ects_credits_received: 6
+              - attended_learning_name: Esame 2
+                start_date: 2020-10-13
+                end_date: 2023-10-13
+                grade_value: '30'
+                ects_credits_received: 6
+      description: Examinations details of student / Dettaglio esami di una studentessa o di uno studente
+      x-stoplight:
+        id: 22de4be4ac251
+      properties:
+        personal_data:
+          $ref: '#/components/schemas/personal_data'
+        proof_courses:
+          $ref: '#/components/schemas/proof_courses'
+      required:
+        - personal_data
+        - proof_courses
+    proof_courses:
+      type: object
+      nullable: true
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/xxx/yyy
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/xxx/
+        institute_code: institute_code
+      x-examples:
+        Example 1:
+          programme_type_code: MS
+          programme_type_name: Laurea Magistrale (DM 270/04)
+          degree_course_code: '1573960'
+          degree_course_name: Ingegneria informatica
+          degree_class_code: LM-32
+          degree_class_name: Ingegneria informatica
+          institute_code: '16'
+          institute_name: Milano - Politecnico
+          learnings: 
+            - attended_learning_name: Esame 1
+              start_date: 2020-10-13
+              end_date: 2023-10-13
+              grade_value: '30'
+              ects_credits_received: 6
+            - attended_learning_name: Esame 2
+              start_date: 2020-10-13
+              end_date: 2023-10-13
+              grade_value: '30'
+              ects_credits_received: 6
+      description: Examinations taken by the student / Esami sostenuti della studentessa o dello studente
+      properties:
+        programme_type_code:
+          type: string
+          description: Code of study program / codice del corso di studio
+          example: 'LM'
+          readOnly: true
+          minLength: 1
+          maxLength: 2
+        programme_type_name:
+          type: string
+          description: Type of study program / Tipologia del corso di studio
+          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        degree_course_code:
+          type: string
+          description: Course code / Codice del corso
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        degree_course_name:
+          type: string
+          description: Course name / Denominazione corso
+          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        degree_class_code:
+          type: string
+          description: Identification code of the degree class / Codice identificativo della classe di laurea
+          example: L-8
+          readOnly: true
+          minLength: 2
+          maxLength: 20
+        degree_class_name:
+          type: string
+          description: Name of the degree class / Denominazione della classe di laurea 
+          example: 'Ingegneria informatica, Scienze giuridiche'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        institute_code:
+          type: string
+          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          example: '16'
+          readOnly: true
+          minLength: 2
+          maxLength: 2
+        institute_name:
+          type: string
+          description: Institution name / Denominazione dell’istituto
+          example: 'Milano - Politecnico'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        learnings:
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of qualifications for student / Elenco iscrizioni di una studentessa o di uno studente
+          items:
+            $ref: '#/components/schemas/learnings'
+    learnings:
+      type: object
+      additionalProperties: false
+      x-examples:
+        Example 1:
+          course_name: Esame 1
+          start_date: 2020-10-13
+          end_date: 2023-10-13
+          grade_value: '30'
+          ects_credits_received: 6
+      description: Detailed examination information / Informazioni dettagliate sul corso
+      properties:
+        attended_learning_name:
+          type: string
+          description: Course name / Nome corso
+          example: Esame 1
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        start_date:
+          type: string
+          format: date
+          description: Course start date / Data inizio corso
+          example: 2020-10-13
+          readOnly: true
+        end_date:
+          type: string
+          format: date
+          description: Course end date / Data fine corso
+          example: 2023-10-13
+          readOnly: true
+        grade_value:
+          type: string
+          description: Grade / voto
+          example: '30'
+          readOnly: true
+          minLength: 1
+          maxLength: 64
+        ects_credits_received:
+          type: integer
+          format: int32
+          description: ECTS credits / Crediti ECTS
+          example: 6
+          readOnly: true
+          maximum: 999
+          minimum: 1
+    proof_tertiary_education_admission:
+      additionalProperties: false
+      type: object
+      x-examples:
+        Example 1:
+          personal_data:
+            tax_code: RSSMRA80A01F205D
+            person_id: AB123456C
+            given_name: Mario
+            family_name: Rossi
+          proof_admissions:
+            - institute_code: '16'
+              institute_name: Milano - Politecnico
+              programme_type_code: MS
+              programme_type_name: Laurea Magistrale (DM 270/04)
+              degree_course_code: '1573960'
+              degree_course_name: Ingegneria informatica
+              degree_class_code: LM-32
+              degree_class_name: Ingegneria informatica
+              degree_course_duration_in_years_or_months: "3 anni"
+              duration_ects_credits: 180
+              start_date_of_accademic_year: 2020-10-13
+              end_date_of_accademic_year: 2023-10-13
+      description: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
+      x-stoplight:
+        id: 22de4be4ac251
+      properties:
+        personal_data:
+          $ref: '#/components/schemas/personal_data'
+        proof_admissions:
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of admission certificates / Elenco dei certificati di ammissione
+          items:
+            $ref: '#/components/schemas/proof_admissions'
+      required:
+        - personal_data
+        - proof_admissions
+    proof_admissions:
+      type: object
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/yyy/
+        institute_code: institute_code
+        institute_name: institute_name
+      x-examples:
+        Example 1:
+          institute_code: '16'
+          institute_name: Milano - Politecnico
+          programme_type_code: MS
+          programme_type_name: Laurea Magistrale (DM 270/04)
+          degree_course_code: '1573960'
+          degree_course_name: Ingegneria informatica
+          degree_class_code: LM-32
+          degree_class_name: Ingegneria informatica
+          degree_course_duration_in_years_or_months: "3 anni"
+          duration_ects_credits: 180
+          start_date_of_accademic_year: 2020-10-13
+          end_date_of_accademic_year: 2023-10-13
+      description: Detailed information on admission certification / Informazioni dettagliate sulla certificazione di ammissione
+      properties:
+        institute_code:
+          type: string
+          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          example: '16'
+          readOnly: true
+          minLength: 2
+          maxLength: 2
+        institute_name:
+          type: string
+          description: Institution name / Denominazione dell’istituto
+          example: 'Milano - Politecnico'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        programme_type_code:
+          type: string
+          description: Code of study program / codice del corso di studio
+          example: 'LM'
+          readOnly: true
+          minLength: 1
+          maxLength: 2
+        programme_type_name:
+          type: string
+          description: Type of study program / Tipologia del corso di studio
+          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        degree_course_code:
+          type: string
+          description: Course code / Codice del corso
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        degree_course_name:
+          type: string
+          description: Course name / Denominazione corso
+          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        degree_class_code:
+          type: string
+          description: Identification code of the degree class / Codice identificativo della classe di laurea
+          example: L-8
+          readOnly: true
+          minLength: 2
+          maxLength: 20
+        degree_class_name:
+          type: string
+          description: Name of the degree class / Denominazione della classe di laurea 
+          example: 'Ingegneria informatica, Scienze giuridiche'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        degree_course_duration_in_years_or_months:
+          type: string
+          description: Duration of study course / Durata del corso di studi
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        duration_ects_credits:
+          type: integer
+          format: int32
+          description: Duration of study course in ECTS/ Durata del corso di studi in ECTS
+          readOnly: true
+          minimum: 1
+          maximum: 999
+        start_date_of_accademic_year:
+          type: string
+          format: date
+          description: Academic year start date / Data inzio anno accademico
+          example: 2023-10-01
+          readOnly: true
+          minLength: 10
+          maxLength: 10
+        end_date_of_accademic_year:
+          type: string
+          format: date
+          description: Academic year end date / Data fine anno accademico
+          example: 2020-10-01
+          readOnly: true
+          minLength: 10
+          maxLength: 10
+    enrollment:
+      type: object
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/yyy/
+        institute_code: institute_code
+        institute_name: institute_name
+        programme_type_code: programme_type_code
+        degree_course_code: degree_course_code
+        degree_class_code: degree_class_code
+        academic_year: academic_year
+        degree_course_year: degree_course_year
+      x-examples:
+        Example 1:
+          institute_code: '16'
+          institute_name: Milano - Politecnico
+          programme_type_code: MS
+          degree_course_code: '1576480'
+          degree_class_code: LM-32
+          academic_year: 2021/2022
+          degree_course_year: 3
+      description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
+      properties:
+        institute_code:
+          type: string
+          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          example: '16'
+          readOnly: true
+          minLength: 2
+          maxLength: 2
+        institute_name:
+          type: string
+          description: Institution name / Denominazione dell’istituto
+          example: 'Milano - Politecnico'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        programme_type_code:
+          type: string
+          description: Code of study program / codice del corso di studio
+          example: 'LM'
+          readOnly: true
+          minLength: 1
+          maxLength: 2
+        degree_course_code:
+          type: string
+          description: Course code / Codice del corso
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        degree_class_code:
+          type: string
+          description: Identification code of the degree class / Codice identificativo della classe di laurea
+          example: L-8
+          readOnly: true
+          minLength: 2
+          maxLength: 20
+        academic_year:
+          type: string
+          description: Last academic year in which enrollment in the student's course is recorded / Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente 
+          example: 2022/2023
+          pattern: '^\d{4}/\d{4}$'
+          readOnly: true
+          minLength: 9
+          maxLength: 9
+        degree_course_year:
+          type: integer
+          format: int32
+          description: Last year in which enrollment in the student's course is recorded / Ultimo anno in cui risulta l'iscrizione al corso della studentessa o dello studente
+          example: 3
+          pattern: ^\d{2}$
+          readOnly: true
+          minimum: 1
+          maximum: 99
+    personal_data:
+      type: object
+      nullable: true
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/CPV/
+        given_name: givenName
+        tax_code: taxCode
+        family_name: familyName
+        birth_date: dateOfBirth
+        birth_place: hasBirthPlace
+        person_id: personID
+      x-examples:
+        Example 1:
+          tax_code: RSSMRA80A01F205D
+          person_id: AB123456C
+          given_name: Mario
+          family_name: Rossi
+          birth_date: 1990-05-17
+          birth_place: Roma
+      description: Personal data of the student / Dati personali della studentessa o dello studente
+      properties:
+        tax_code:
+          type: string
+          description: Tax Identification Number / Codice Fiscale
+          example: RSSMRA80A01F205D
+          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          minLength: 16
+          maxLength: 16
+          readOnly: true
+        person_id:
+          type: string
+          description: ANPR Identifier / Identificativo ANPR 
+          maxLength: 9
+          minLength: 9
+          pattern: '^[A-Z0-9]{8}[A-Z]$'
+          example: AB123456C
+          readOnly: true
+        given_name:
+          type: string
+          description: Name / Nome
+          example: Mario
+          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        family_name:
+          type: string
+          description: Surname / Cognome
+          example: Rossi
+          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        birth_date:
+          type: string
+          format: date
+          example: 1990-05-17
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          description: Date of birth / Data di nascita
+          readOnly: true
+        birth_place:
+          type: string
+          example: Rome
+          description: Place of birth / Luogo di nascita
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+  requestBodies: {}
+  responses: {}
+servers:
+  - url: 'https://localhost:8080/api'
+    description: localhost
+tags:
+  - name: enrollments
+  - name: education-enrollments
+  - name: education-courses
+  - name: education-tertiary
+  - name: health-check
