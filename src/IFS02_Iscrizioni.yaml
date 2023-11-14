@@ -142,13 +142,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/request_enrollment'
+              $ref: '#/components/schemas/enrollment_info'
             examples:
               Example post 1:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: sasadsdsda
-                  key: sdsadacaddsasdasadsad
                   institute_code: AA
           application/xml:
             schema:
@@ -221,13 +220,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/request_enrollment'
+              $ref: '#/components/schemas/enrollment_info'
             examples:
               Example post 1:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: sasadsdsda
-                  key: sdsadacaddsasdasadsad
                   institute_code: AA1
           application/xml:
             schema:
@@ -293,13 +291,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/request_enrollment'
+              $ref: '#/components/schemas/enrollment_info'
             examples:
               Example post 1:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: sasadsdsda
-                  key: sdsadacaddsasdasadsad
                   institute_code: AA1
           application/xml:
             schema:
@@ -1058,7 +1055,42 @@ components:
       required:
         - tax_code      
         - key
-          
+    enrollment_info:
+      type: object
+      additionalProperties: false      
+      x-examples:
+        Example 1:
+          tax_code: RSSMRA80A01F205D
+          person_id: Modifica iscrizione xxx
+          institute_code: AA
+      x-stoplight:
+        id: b40e2be27c423
+      description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
+      properties:
+        tax_code:
+          type: string
+          description: Tax Identification Number / Codice fiscale
+          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          example: RSSMRA80A01F205D
+          minLength: 16
+          maxLength: 16
+          readOnly: true
+        person_id:
+          type: string
+          description: person_id
+          example: Modifica iscrizione xxx
+          minLength: 1
+          maxLength: 256
+          readOnly: true  
+        institute_code:
+          type: string
+          description: institute_code
+          example: AA1
+          minLength: 1
+          maxLength: 256
+          readOnly: true  
+      required:
+        - tax_code      
   requestBodies: {}
   responses: {}
   securitySchemes:
