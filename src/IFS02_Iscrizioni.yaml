@@ -72,12 +72,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/request_enrollment'
+              $ref: '#/components/schemas/it_enrollment_request'
             examples:
               Example post 1:
                 value:
                   tax_code: RSSMRA80A01F205D
-                  person_id: sasadsdsda
+                  person_id: 12345678A
                   key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
                   institute_code: AA
           application/xml:
@@ -142,12 +142,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/enrollment_info'
+              $ref: '#/components/schemas/eu_enrollment_request'
             examples:
               Example post 1:
                 value:
                   tax_code: RSSMRA80A01F205D
-                  person_id: sasadsdsda
+                  person_id: 12345678A
                   institute_code: AA
           application/xml:
             schema:
@@ -220,12 +220,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/enrollment_info'
+              $ref: '#/components/schemas/eu_enrollment_request'
             examples:
               Example post 1:
                 value:
                   tax_code: RSSMRA80A01F205D
-                  person_id: sasadsdsda
+                  person_id: 12345678A
                   institute_code: AA1
           application/xml:
             schema:
@@ -291,7 +291,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/enrollment_info'
+              $ref: '#/components/schemas/eu_enrollment_request'
             examples:
               Example post 1:
                 value:
@@ -949,7 +949,7 @@ components:
       x-jsonld-context:
         '@vocab': http://w3id.org/italia/onto/CPV/
         given_name: givenName
-        tax_code: tax_code
+        tax_code: taxCode
         family_name: familyName
         birth_date: dateOfBirth
         birth_place: hasBirthPlace
@@ -1010,13 +1010,13 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 2048
-    request_enrollment:
+    it_enrollment_request:
       type: object
       additionalProperties: false      
       x-examples:
         Example 1:
           tax_code: RSSMRA80A01F205D
-          person_id: Modifica iscrizione xxx
+          person_id: 12345678A
           key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
           institute_code: AA
       x-stoplight:
@@ -1055,7 +1055,7 @@ components:
       required:
         - tax_code      
         - key
-    enrollment_info:
+    eu_enrollment_request:
       type: object
       additionalProperties: false      
       x-examples:

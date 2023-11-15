@@ -74,12 +74,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/qualification_request'
+              $ref: '#/components/schemas/it_qualification_request'
             examples:
               Example post 1:
                 value:
                   tax_code: RSSMRA80A01F205D
-                  person_id: ABCD123
+                  person_id: 12345678A
                   institute_code: AA
                   key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
           application/xml:
@@ -147,7 +147,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/qualification_info'
+              $ref: '#/components/schemas/eu_qualification_request'
             examples:
               Example post 1:
                 value:
@@ -219,7 +219,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/qualification_info'
+              $ref: '#/components/schemas/eu_qualification_request'
             examples:
               Example post 1:
                 value:
@@ -827,7 +827,7 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 2048
-    qualification_request:
+    it_qualification_request:
       type: object
       additionalProperties: false      
       x-examples:
@@ -838,7 +838,7 @@ components:
           institute_code: AA
       x-stoplight:
         id: b40e2be27c423
-      description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
+      description: Request qualifications of a student's  / Richiesta titoli di una studentessa o uno studente
       properties:
         tax_code:
           type: string
@@ -847,32 +847,32 @@ components:
           example: RSSMRA80A01F205D
           minLength: 16
           maxLength: 16
-          readOnly: true
+          readOnly: false
         person_id:
           type: string
           description: National unique identifier / Identificativo unico nazionale
           example: 12345678A
-          minLength: 1
-          maxLength: 256
-          readOnly: true  
+          minLength: 9
+          maxLength: 9
+          readOnly: false  
         key:
           type: string
           description: Hash tax code / Hash del codice fiscale
           example: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
           minLength: 64
           maxLength: 64
-          readOnly: true  
+          readOnly: false  
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: AA1
           minLength: 1
           maxLength: 256
-          readOnly: true  
+          readOnly: false  
       required:
         - tax_code      
         - institute_code
-    qualification_info:
+    eu_qualification_request:
       type: object
       additionalProperties: false      
       x-examples:
@@ -883,7 +883,7 @@ components:
           institute_code: AA
       x-stoplight:
         id: b40e2be27c423
-      description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
+      description: Request qualifications of a student's  / Richiesta titoli di una studentessa o uno studente
       properties:
         tax_code:
           type: string
@@ -892,14 +892,14 @@ components:
           example: RSSMRA80A01F205D
           minLength: 16
           maxLength: 16
-          readOnly: true
+          readOnly: false
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: AA1
           minLength: 1
           maxLength: 256
-          readOnly: true  
+          readOnly: false  
       required:
         - tax_code      
         - institute_code
