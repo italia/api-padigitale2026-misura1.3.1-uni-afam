@@ -1,1 +1,19 @@
 /*working in progress*/
+{
+    learnig_courses: [
+        {
+            "programme_type_name": "Laurea Magistrale (DM 270/04)",
+            "programme_type_code": "MS",
+            "degree_class_code": "LM-20",
+            "degree_class_name": "Ingegneria aerospaziale e astronautica",
+            "degree_course_name": "Scuola di Ingegneria Industriale e dell'Informazione",
+            "degree_course_code": "469",
+            "degree_class_language": "EN", (official_language)
+       "degree_class_period_years": 2,
+            "total_credits": 120,
+            "accademic_year": 2023/2024,
+            "website_course": "http://www.ingindinf.polimi.it",
+            "website_university": "https://ccs-aerospaziale.polimi.it"
+        }
+    ]
+}

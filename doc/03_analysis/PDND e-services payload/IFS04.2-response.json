@@ -1,0 +1,14 @@
+/* Working in progress */
+"enrollment_change_request": [
+    {
+        "file_code": "12345AB",
+        "file_status": "Approved",
+        "message": ""
+    },
+    {
+        "file_code": "12345AB",
+        "file_status": "Approved",
+        "message": ""
+    }
+]
+/*note: aggiungere un Enum degli status possibili*/

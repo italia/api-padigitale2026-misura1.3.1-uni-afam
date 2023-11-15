@@ -1,0 +1,20 @@
+/* Working in progress
+
+stato rettifica
+
+ POSSIBILI RESPONSE
+{
+        file_status: "Acquired",
+        message:"Annullamento richiesta accettata"
+}
+{
+        file_status: "Approved ",
+        message:"richiesta già annullata"
+}
+
+{
+        file_status: "Rejected",      
+        message:"La richiesta non può essere annullata"    
+}
+
+*/
