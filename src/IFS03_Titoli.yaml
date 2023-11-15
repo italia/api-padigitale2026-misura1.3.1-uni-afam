@@ -833,8 +833,8 @@ components:
       x-examples:
         Example 1:
           tax_code: RSSMRA80A01F205D
-          person_id: Modifica iscrizione xxx
-          key: 12312313131321
+          person_id: 12345678A
+          key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
           institute_code: AA
       x-stoplight:
         id: b40e2be27c423
@@ -879,7 +879,7 @@ components:
         Example 1:
           tax_code: RSSMRA80A01F205D
           person_id: 12345678A
-          key: 12312313131321
+          key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
           institute_code: AA
       x-stoplight:
         id: b40e2be27c423
