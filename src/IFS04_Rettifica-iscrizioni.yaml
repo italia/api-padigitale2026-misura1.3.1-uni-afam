@@ -117,7 +117,7 @@ paths:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
-                  file_code: AA
+                  file_code: 6d183bc572f6b200015a4167
           application/xml:
             schema:
               type: object
@@ -157,7 +157,7 @@ paths:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
-                  file_code: AA
+                  file_code: 6d183bc572f6b200015a4167
           application/xml:
             schema:
               type: object
@@ -391,7 +391,7 @@ components:
         file_code:
           type: string
           description: Rectification enrollment code/ Codice Rettifica iscrizioni
-          example: AA1
+          example: 6d183bc572f6b200015a4167
           minLength: 1
           maxLength: 64
           readOnly: false  
