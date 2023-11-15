@@ -1017,7 +1017,7 @@ components:
         Example 1:
           tax_code: RSSMRA80A01F205D
           person_id: Modifica iscrizione xxx
-          key: 12312313131321
+          key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
           institute_code: AA
       x-stoplight:
         id: b40e2be27c423
@@ -1033,21 +1033,21 @@ components:
           readOnly: true
         person_id:
           type: string
-          description: person_id
-          example: Modifica iscrizione xxx
+          description: National unique identifier / Identificativo unico nazionale
+          example: 12345678A
           minLength: 1
           maxLength: 256
           readOnly: true  
         key:
           type: string
-          description: person_id
-          example: Modifica iscrizione xxx
-          minLength: 1
-          maxLength: 256
+          description: Hash tax code / Hash del codice fiscale
+          example: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
+          minLength: 64
+          maxLength: 64
           readOnly: true  
         institute_code:
           type: string
-          description: institute_code
+          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: AA1
           minLength: 1
           maxLength: 256
@@ -1061,7 +1061,7 @@ components:
       x-examples:
         Example 1:
           tax_code: RSSMRA80A01F205D
-          person_id: Modifica iscrizione xxx
+          person_id: 12345678A
           institute_code: AA
       x-stoplight:
         id: b40e2be27c423
@@ -1077,20 +1077,21 @@ components:
           readOnly: true
         person_id:
           type: string
-          description: person_id
-          example: Modifica iscrizione xxx
+          description: National unique identifier / Identificativo unico nazionale
+          example: 12345678A
           minLength: 1
           maxLength: 256
           readOnly: true  
         institute_code:
           type: string
-          description: institute_code
+          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: AA1
           minLength: 1
           maxLength: 256
           readOnly: true  
       required:
         - tax_code      
+        - institute_code
   requestBodies: {}
   responses: {}
   securitySchemes:
