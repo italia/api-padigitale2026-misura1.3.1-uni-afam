@@ -83,7 +83,8 @@ paths:
       tags:
         - enrollment-rectification-details
       parameters: []
-      security: [{}]
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Request executed successfully / Richiesta eseguita con successo (annulamento)
@@ -129,7 +130,8 @@ paths:
       summary: Request for cancellation of rectification / Richiesta di annullamento rettifica
       tags:
         - cancellation-enrollment-rectification
-      security: [{}]
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Request for cancellation of rectification completed successfully / Richiesta annullamento rettifica eseguita con successo
