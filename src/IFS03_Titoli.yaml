@@ -17,46 +17,12 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
   '/it/academic-qualifications':
-    parameters:
-        - name: person_id
-          in: query
-          required: false
-          schema:
-            type: string
-            maxLength: 9
-            minLength: 9
-            description: National unique identifier / Identificativo unico nazionale
-            pattern: "^[A-Z0-9]{9}$"
-        - name: tax_code
-          in: query
-          required: false
-          schema:
-            type: string
-            maxLength: 16
-            minLength: 16
-            description: Tax Identification Number / Codice Fiscale 
-            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
-        - name: key
-          in: query
-          required: false
-          schema:
-            type: string
-            maxLength: 64
-            minLength: 64
-            description: Hash of tax code / Codice Fiscale hash
-        - name: institute_code
-          in: query
-          required: false
-          schema:
-            type: string
-            maxLength: 32
-            minLength: 1
-            description: Institute code / Codice istituto
-    get:
+    post:
       summary: Degrees earned by the student / Titoli conseguiti dalla studentessa o dallo studente
       tags:
         - academic-qualifications
-      security: [{}]
+      security:
+        - bearerAuth: []
       parameters: []
       responses:
         '200':
@@ -104,30 +70,31 @@ paths:
           description: Internal server error / Errore interno del server 
       operationId: titoli-studente
       description: Returns the list of degrees earned by a student / Restituisce la lista dei titoli conseguiti da una studentessa o uno studente
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/it_qualification_request'
+            examples:
+              Example post 1:
+                value:
+                  tax_code: RSSMRA80A01F205D
+                  person_id: 12345678A
+                  institute_code: AA
+                  key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
+          application/xml:
+            schema:
+              type: object
+              additionalProperties: false
+              properties: {}
+        description: 'Request di esempio'
   '/eu/proof-education-qualifications':
-    parameters:
-        - name: tax_code
-          in: query
-          required: false
-          schema:
-            type: string
-            maxLength: 16
-            minLength: 16
-            description: Tax Identification Number / Codice Fiscale 
-            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
-        - name: institute_code
-          in: query
-          required: false
-          schema:
-            type: string
-            maxLength: 32
-            minLength: 1
-            description: Institute code / Codice istituto
-    get:
+    post:
       summary: Retrieve qualification details of student in SDG format / Recupero titoli di una studentessa o di uno studente in formato SDG
       tags:
         - proof-education-qualifications
-      security: [{}]
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Request successfully executed / Richiesta eseguita con successo
@@ -176,32 +143,31 @@ paths:
           description: Internal server error / Errore interno del server 
       operationId: Qualifications-education-of-student
       description: Returns the qualification details of student / Restituisce i dettagli dei titoli di una studentessa o di uno studente
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/eu_qualification_request'
+            examples:
+              Example post 1:
+                value:
+                  tax_code: RSSMRA80A01F205D
+                  institute_code: AA
+          application/xml:
+            schema:
+              type: object
+              additionalProperties: false
+              properties: {}
+        description: 'Request di esempio'
       parameters: []
   '/eu/proof-education-qualifications-level':
-    parameters:
-        - name: tax_code
-          in: query
-          required: false
-          schema:
-            type: string
-            maxLength: 16
-            minLength: 16
-            description: Tax Identification Number / Codice Fiscale 
-            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
-          allowEmptyValue: true  
-        - name: institute_code
-          in: query
-          required: false
-          schema:
-            type: string
-            maxLength: 32
-            minLength: 1
-            description: Institute code / Codice istituto
-    get:
+
+    post:
       summary: Requires the list of examinations taken by the student in SDG format / Richiede la lista degli esami sostenuti dallo studente in formato SDG
       tags:
         - proof-education-qualifications-level
-      security: [{}]
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Request successfully executed / Richiesta eseguita con successo
@@ -249,6 +215,22 @@ paths:
           description: Internal server error / Errore interno del server 
       operationId: Proof-education-qualifications-level
       description:  Returns the list of simplified supplment diplomas in SDG format / Restituisce la lista dei diplomi supplment semplificati in formato SDG
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/eu_qualification_request'
+            examples:
+              Example post 1:
+                value:
+                  tax_code: RSSMRA80A01F205D
+                  institute_code: AA
+          application/xml:
+            schema:
+              type: object
+              additionalProperties: false
+              properties: {}
+        description: 'Request di esempio'
       parameters: []
   /status:
     get:
@@ -845,8 +827,89 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 2048
+    it_qualification_request:
+      type: object
+      additionalProperties: false      
+      x-examples:
+        Example 1:
+          tax_code: RSSMRA80A01F205D
+          person_id: 12345678A
+          key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
+          institute_code: AA
+      x-stoplight:
+        id: b40e2be27c423
+      description: Request qualifications of a student's  / Richiesta titoli di una studentessa o uno studente
+      properties:
+        tax_code:
+          type: string
+          description: Tax Identification Number / Codice fiscale
+          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          example: RSSMRA80A01F205D
+          minLength: 16
+          maxLength: 16
+          readOnly: false
+        person_id:
+          type: string
+          description: National unique identifier / Identificativo unico nazionale
+          example: 12345678A
+          minLength: 9
+          maxLength: 9
+          readOnly: false  
+        key:
+          type: string
+          description: Hash tax code / Hash del codice fiscale
+          example: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
+          minLength: 64
+          maxLength: 64
+          readOnly: false  
+        institute_code:
+          type: string
+          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          example: AA1
+          minLength: 1
+          maxLength: 256
+          readOnly: false  
+      required:
+        - tax_code      
+        - institute_code
+    eu_qualification_request:
+      type: object
+      additionalProperties: false      
+      x-examples:
+        Example 1:
+          tax_code: RSSMRA80A01F205D
+          person_id: 12345678A
+          key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
+          institute_code: AA
+      x-stoplight:
+        id: b40e2be27c423
+      description: Request qualifications of a student's  / Richiesta titoli di una studentessa o uno studente
+      properties:
+        tax_code:
+          type: string
+          description: Tax Identification Number / Codice fiscale
+          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          example: RSSMRA80A01F205D
+          minLength: 16
+          maxLength: 16
+          readOnly: false
+        institute_code:
+          type: string
+          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          example: AA1
+          minLength: 1
+          maxLength: 256
+          readOnly: false  
+      required:
+        - tax_code      
+        - institute_code
   requestBodies: {}
   responses: {}
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: PASETO 
 servers:
   - url: 'https://localhost:8080/api'
     description: localhost
