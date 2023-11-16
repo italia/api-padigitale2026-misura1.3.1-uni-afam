@@ -1,1 +1,28 @@
-/**/
+{
+  "taxCode": "RSSMRA80A01F205D",
+  "reason": "Modifica iscrizione xxx",
+  "attributes": [
+    {
+      "attribute_name": "institute_Name",
+      "current": "Università degli studi di Milano",
+      "suggested": "Università degli studi di Roma 'La Sapienza'"
+    },
+    {
+      "attribute_name": "course_type",
+      "current": "Laurea",
+      "suggested": "Corso di Laurea"
+    },
+    {
+      "attribute_name": "enrollment_year",
+      "current": "2021/2022",
+      "suggested": "2022/2023"
+    },
+    {
+      "attribute_name": "course_year",
+      "current": "2° anno",
+      "suggested": "3° anno"
+    }
+  ],
+  "request": "Testo con la richiesta di rettifica",
+  "note": "Note aperte studentessa o studente"
+}

@@ -1,14 +1,39 @@
-/* Working in progress */
-"enrollment_change_request": [
+/* Con file_code - restituisce solamente il singolo item*/
+
+
+{
+  "enrollment_change_request": [
     {
-        "file_code": "12345AB",
-        "file_status": "Approved",
-        "message": ""
+      "file_status": "approved",
+      "file_code": "6d183bc572f6b200015a4167",
+      "message": "testo messaggio"
+    }
+  ]
+}
+
+/* Senza file_code - restituisce tutto*/
+
+{
+  "enrollment_change_request": [
+    {
+      "file_status": "approved",
+      "file_code": "6d183bc572f6b200015a4167",
+      "message": "testo messaggio"
     },
     {
-        "file_code": "12345AB",
-        "file_status": "Approved",
-        "message": ""
+      "file_status": "rejected",
+      "file_code": "6d183b54654127dfhh15a4167",
+      "message": "testo messaggio"
     }
-]
-/*note: aggiungere un Enum degli status possibili*/
+  ]
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,20 +1,5 @@
-/* Working in progress
-
-stato rettifica
-
- POSSIBILI RESPONSE
 {
-        file_status: "Acquired",
-        message:"Annullamento richiesta accettata"
+  "file_status": "approved",
+  "file_code": "6d183bc572f6b200015a4167",
+  "message": "testo messaggio"
 }
-{
-        file_status: "Approved ",
-        message:"richiesta già annullata"
-}
-
-{
-        file_status: "Rejected",      
-        message:"La richiesta non può essere annullata"    
-}
-
-*/
