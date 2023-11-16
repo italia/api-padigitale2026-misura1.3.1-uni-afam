@@ -52,7 +52,7 @@ paths:
             examples:
               Example post 1:
                 value:
-                  taxCode: RSSMRA80A01F205D
+                  tax_code: RSSMRA80A01F205D
                   reason: Modifica iscrizione xxx
                   attributes:
                       - attribute_name: institute_Name
@@ -218,7 +218,7 @@ components:
       additionalProperties: false      
       x-examples:
         Example 1:
-          taxCode: RSSMRA80A01F205D
+          tax_code: RSSMRA80A01F205D
           reason: Modifica iscrizione xxx
           attributes:
               - attribute_name: institute_name
@@ -239,7 +239,7 @@ components:
         id: b40e2be27c423
       description: Request creation rectification of a student's enrollment / Richiesta creazione rettifica iscrizione di una studentessa o uno studente
       properties:
-        taxCode:
+        tax_code:
           type: string
           description: Tax Identification Number / Codice fiscale
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
@@ -269,7 +269,7 @@ components:
           minLength: 1
           maxLength: 5000
       required:
-        - taxCode
+        - tax_code
     enrollments_change_request:
       type: object
       additionalProperties: false
@@ -415,3 +415,4 @@ tags:
   - name: enrollment-rectification-details
   - name: cancellation-enrollment-rectification
   - name: health-check
+  
