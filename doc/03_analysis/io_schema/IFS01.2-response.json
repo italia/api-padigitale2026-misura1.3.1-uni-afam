@@ -4,16 +4,17 @@ OFFERTA FORMATIVA - DETTAGLIO CORSO
 */
 
 
-/*verificare url: https://www4.ceda.polimi.it/manifesti/manifesti/controller/MostraIndirizziPublic.do?evn_default=EVENTO&aa=2023&k_cf=225&k_corso_la=353&ac_ins=1&k_indir=MEC&lang=IT&tipoCorso=ALL_TIPO_CORSO&caricaOffertaInvisibile=false&semestre=ALL_SEMESTRI&sede=ALL_SEDI*/
 
 
+/*ESEMPIO 1*/
 {
    "programme_type_name":"Laurea Magistrale (DM 270/04)",
    "programme_type_code":"MS",
    "programme_access":"Libero",
    "course_location":"Milano, Settimo Milanese",
-   "remote_course_activities":true, /*Può prevedere corsi da remoto? da verificare nome attributo */   
-   "is_full_remote":false, /*è full remote? da verificare nome attributo */   
+   //"remote_course_activities":true, /*Può prevedere corsi da remoto? da verificare nome attributo */   
+   //"is_full_remote":false, /*è full remote? da verificare nome attributo */   
+   "remote_mode": "full-remote", /*full, part-time, not-available*/
    "course_area":"Ingegneria",
    "degree_class_code":"LM-20",
    "degree_class_language":"EN",
@@ -40,7 +41,7 @@ OFFERTA FORMATIVA - DETTAGLIO CORSO
          "requirement_description":"Laurea ante riforma (vecchio ordinamento)"
       }
    ],
-   "learning_courses":[
+   "curriculum_list":[  // study_plan, 
       {
          "curriculum_name":"Ingegneria aerospaziale e astronautica",/*indirizzo, percorso, specializzazione filone formativo*/
          "curriculum_learnings":[
@@ -152,3 +153,10 @@ OFFERTA FORMATIVA - DETTAGLIO CORSO
 	  }
    ]
 }
+
+
+
+/*verificare url: https://www4.ceda.polimi.it/manifesti/manifesti/controller/MostraIndirizziPublic.do?evn_default=EVENTO&aa=2023&k_cf=225&k_corso_la=353&ac_ins=1&k_indir=MEC&lang=IT&tipoCorso=ALL_TIPO_CORSO&caricaOffertaInvisibile=false&semestre=ALL_SEMESTRI&sede=ALL_SEDI*/
+
+/*ESEMPIO 2*/
+
