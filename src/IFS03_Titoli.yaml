@@ -16,7 +16,7 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
-  '/it/academic-qualifications':
+  '/accademic-qualifications':
     post:
       summary: Degrees earned by the student / Titoli conseguiti dalla studentessa o dallo studente
       tags:
@@ -88,7 +88,7 @@ paths:
               additionalProperties: false
               properties: {}
         description: 'Request di esempio'
-  '/eu/proof-education-qualifications':
+  '/proof-education-qualifications':
     post:
       summary: Retrieve qualification details of student in SDG format / Recupero titoli di una studentessa o di uno studente in formato SDG
       tags:
@@ -160,7 +160,7 @@ paths:
               properties: {}
         description: 'Request di esempio'
       parameters: []
-  '/eu/proof-education-qualifications-level':
+  '/proof-education-qualifications-level':
 
     post:
       summary: Requires the list of examinations taken by the student in SDG format / Richiede la lista degli esami sostenuti dallo studente in formato SDG

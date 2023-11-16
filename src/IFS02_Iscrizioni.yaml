@@ -16,7 +16,7 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
-  '/it/student-enrollments':
+  '/accademic-enrollments':
 
     post:
       summary: Retrieve enrollment details of student / Recupero iscrizioni di una studentessa o di uno studente 
@@ -87,7 +87,7 @@ paths:
               properties: {}
         description: ''
       parameters: []
-  '/eu/proof-education-enrollments':
+  '/proof-education-enrollments':
     post:
       summary: Retrieve enrollment details of student in SDG format / Recupero iscrizioni di una studentessa o di uno studente in formato SDG
       tags:
@@ -156,7 +156,7 @@ paths:
               properties: {}
         description: ''
       parameters: []
-  '/eu/proof-education-courses':
+  '/proof-education-courses':
 
     post:
       summary: Requires the list of examinations taken by the student in SDG format / Richiede la lista degli esami sostenuti dallo studente in formato SDG
@@ -234,7 +234,7 @@ paths:
               properties: {}
         description: ''
       parameters: []
-  '/eu/proof-tertiary-education-admission':
+  '/proof-tertiary-education-admission':
 
     post:
       summary: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria

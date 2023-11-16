@@ -17,7 +17,7 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 security: [{}]
 paths:
-  '/it/rectification-education-qualification':
+  '/accademic-qualification-changes':
     post:
       summary: (OK) Correction of student registration / Rettifica iscrizione studente
       operationId: rectification-student-qualification
@@ -52,7 +52,7 @@ paths:
             examples:
               Example post 1:
                 value:
-                  taxCode: RSSMRA80A01F205D
+                  tax_code: RSSMRA80A01F205D
                   reason: Modifica iscrizione xxx
                   attributes:
                       - attribute_name: institute_Name
@@ -74,43 +74,17 @@ paths:
               type: object
               additionalProperties: false
               properties: {}
-        description: ''
+        description: 'Request di esempio'
     parameters: []
-  '/it/rectification-education-qualification-status':
-    parameters:
-        - name: tax_code
-          in: query
-          required: false
-          schema:
-            type: string
-            maxLength: 16
-            minLength: 16
-            description: Tax Identification Number hash / Codice Fiscale hash
-            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
-        - name: person_id
-          in: query
-          required: false
-          schema:
-            type: string
-            maxLength: 9
-            minLength: 9
-            description: National unique identifier / Identificativo unico nazionale
-            pattern: "^[A-Z0-9]{9}"
-        - name: file_code
-          in: query
-          required: false
-          schema:
-            type: string
-            maxLength: 64
-            minLength: 1
-            pattern: "^[A-Z0-9]{1,64}"
-            description: Rectification code / Codice rettifica 
-    get:
+  '/accademic-qualification-change-status':
+
+    post:
       summary: (OK) Student enrolment correction detail / Dettaglio rettifica iscrizione studentessa o studente
       tags:
-        - qualification-rectification-details
+        - accademic-qualification-change-details
       parameters: []
-      security: [{}]
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Request executed successfully / Richiesta eseguita con successo (annulamento)
@@ -134,40 +108,31 @@ paths:
           description: Internal server error / Errore interno del server 
       operationId: detail-qualification-rectification
       description: Allows you to retrieve the status of a registration adjustment request via its identifier / Permette di recuperare lo stato di una richiesta di rettifica iscrizione tramite il suo identificativo
-  '/it/rectification-education-qualification-cancellation':
-    get:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/rectification_qualification_request'
+            examples:
+              Example post 1:
+                value:
+                  tax_code: LNGDVD80L31B354S
+                  person_id: 12345678A
+                  file_code: asdsadsadsadsa
+          application/xml:
+            schema:
+              type: object
+              additionalProperties: false
+              properties: {}
+        description: 'Request di esempio'
+  '/accademic-qualification-change-cancellation':
+    post:
       summary: Request for cancellation of rectification / Richiesta di annullamento rettifica
       tags:
         - cancellation-qualification-rectification
-      parameters: 
-        - name: tax_code
-          in: query
-          required: false
-          schema:
-            type: string
-            maxLength: 16
-            minLength: 16
-            description: Tax Identification Number / Codice Fiscale 
-            pattern: "^([a-zA-Z]{6}[0-9L-Nl-nP-Vp-v]{2}[A-Ea-eHhLlMmPpRrSsTt][0-9L-Nl-nP-Vp-v]{2}[a-zA-Z][0-9L-Nl-nP-Vp-v]{3}[a-zA-Z])$"
-        - name: person_id
-          in: query
-          required: false
-          schema:
-            type: string
-            maxLength: 9
-            minLength: 9
-            description: National unique identifier / Identificativo unico nazionale
-            pattern: "^[A-Z0-9]{9}"
-        - name: file_code
-          in: query
-          required: false
-          schema:
-            type: string
-            maxLength: 64
-            minLength: 1
-            pattern: "^[A-Z0-9]{1,64}"
-            description: Rectification code / Codice rettifica
-      security: [{}]
+
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Request for cancellation of rectification completed successfully / Richiesta annullamento rettifica eseguita con successo
@@ -185,6 +150,23 @@ paths:
           description: Internal server error / Errore interno del server 
       operationId: rectification-cancellation
       description: Rectification cancellation request / Effettua la richiesta di annullamento rettifica 
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/rectification_qualification_request'
+            examples:
+              Example post 1:
+                value:
+                  tax_code: LNGDVD80L31B354S
+                  person_id: 12345678A
+                  file_code: asdsadsadsadsa
+          application/xml:
+            schema:
+              type: object
+              additionalProperties: false
+              properties: {}
+        description: 'Request di esempio'      
     parameters: []
   /status:
     get:
@@ -237,7 +219,7 @@ components:
       additionalProperties: false      
       x-examples:
         Example 1:
-          taxCode: RSSMRA80A01F205D
+          tax_code: RSSMRA80A01F205D
           reason: Modifica iscrizione xxx
           attributes:
               - attribute_name: institute_name
@@ -258,7 +240,7 @@ components:
         id: b40e2be27c423
       description: Request creation rectification of a student's qualification / Richiesta creazione rettifica titolo di una studentessa o uno studente
       properties:
-        taxCode:
+        tax_code:
           type: string
           description: Tax Identification Number / Codice fiscale
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
@@ -288,7 +270,7 @@ components:
           minLength: 1
           maxLength: 5000
       required:
-        - taxCode
+        - tax_code
     qualifications_change_request:
       type: object
       additionalProperties: false
@@ -382,6 +364,43 @@ components:
         - attribute_name
         - current
         - suggested
+    rectification_qualification_request:
+      type: object
+      additionalProperties: false      
+      x-examples:
+        Example 1:
+          tax_code: RSSMRA80A01F205D
+          person_id: 12345678A
+          institute_code: AA
+      x-stoplight:
+        id: b40e2be27c423
+      description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
+      properties:
+        tax_code:
+          type: string
+          description: Tax Identification Number / Codice fiscale
+          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          example: RSSMRA80A01F205D
+          minLength: 16
+          maxLength: 16
+          readOnly: false
+        person_id:
+          type: string
+          description: National unique identifier / Identificativo unico nazionale
+          example: 12345678A
+          minLength: 9
+          maxLength: 9
+          readOnly: false  
+        file_code:
+          type: string
+          description: Rectification enrollment code/ Codice Rettifica iscrizioni
+          example: 6d183bc572f6b200015a4167
+          minLength: 1
+          maxLength: 64
+          readOnly: false  
+      required:
+        - tax_code     
+        - file_code    
   requestBodies: {}
   responses: {}
   securitySchemes:
@@ -393,7 +412,7 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: rectification-qualification
-  - name: qualification-rectification-details
-  - name: cancellation-qualification-rectification
-  - name: health-check
+  - name: accademic-qualification-changes
+  - name: accademic-qualification-change-status
+  - name: accademic-qualification-change-cancellation
+  - name: status

@@ -17,7 +17,7 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 security: [{}]
 paths:
-  '/it/rectification-education-enrollment':
+  '/accademic-enrollment-changes':
     post:
       summary: (OK) Correction of student registration / Rettifica iscrizione studente
       operationId: rectification-student-enrollment
@@ -76,7 +76,7 @@ paths:
               properties: {}
         description: ''
     parameters: []
-  '/it/rectification-education-enrollment-status':
+  '/accademic-enrollment-change-status':
   
     post:
       summary: (OK) Student enrolment correction detail / Dettaglio rettifica iscrizione studentessa o studente
@@ -125,7 +125,7 @@ paths:
               additionalProperties: false
               properties: {}
         description: 'Esempio richiesta'      
-  '/it/rectification-education-enrollment-cancellation':
+  '/accademic-enrollment-cancellation':
     post:
       summary: Request for cancellation of rectification / Richiesta di annullamento rettifica
       tags:
