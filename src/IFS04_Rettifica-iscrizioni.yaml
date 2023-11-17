@@ -392,7 +392,7 @@ components:
           readOnly: false  
         file_code:
           type: string
-          description: Rectification enrollment code/ Codice Rettifica iscrizioni
+          description: change request enrollment code/ Codice Rettifica iscrizioni
           example: 6d183bc572f6b200015a4167
           minLength: 1
           maxLength: 64
