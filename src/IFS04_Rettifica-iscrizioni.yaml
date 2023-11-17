@@ -2,7 +2,7 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: IFS04 - Rectification enrollment / Rettifica iscrizioni
+  title: IFS04 - Change Request enrollment / Rettifica iscrizioni
   x-summary: Requests the rectification of missing or excess entry data for a student who is attending or has attended. / Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
   version: 1.0.0
   description: |
@@ -17,12 +17,12 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 security: [{}]
 paths:
-  '/accademic-enrollment-changes':
+  '/accademic-enrollment-change-request':
     post:
       summary: (OK) Correction of student registration / Rettifica iscrizione studente
       operationId: rectification-student-enrollment
       tags:
-        - rectification-enrollment
+        - accademic enrollment change request
       security:
         - bearerAuth: []
       parameters: []
@@ -32,7 +32,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/rectificationDetail'
+                $ref: '#/components/schemas/change_request_detail'
               examples:
                 Example res 1:
                   value:
@@ -48,7 +48,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RichiestaRettifica'
+              $ref: '#/components/schemas/change_request'
             examples:
               Example post 1:
                 value:
@@ -76,12 +76,12 @@ paths:
               properties: {}
         description: ''
     parameters: []
-  '/accademic-enrollment-change-status':
+  '/accademic-enrollment-change-request-status':
   
     post:
       summary: (OK) Student enrolment correction detail / Dettaglio rettifica iscrizione studentessa o studente
       tags:
-        - enrollment-rectification-details
+        - accademic enrollment change request status
       parameters: []
       security:
         - bearerAuth: []
@@ -112,7 +112,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/rectification_enrollment_request'
+              $ref: '#/components/schemas/enrollment_change_request'
             examples:
               Example post 1:
                 value:
@@ -125,11 +125,11 @@ paths:
               additionalProperties: false
               properties: {}
         description: 'Esempio richiesta'      
-  '/accademic-enrollment-cancellation':
+  '/accademic-enrollment-change-request-cancellation':
     post:
-      summary: Request for cancellation of rectification / Richiesta di annullamento rettifica
+      summary: Cancellation of change request / Richiesta di annullamento rettifica
       tags:
-        - cancellation-enrollment-rectification
+        - accademic enrollment change request cancellation
       security:
         - bearerAuth: []
       responses:
@@ -138,7 +138,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/rectificationDetail'
+                $ref: '#/components/schemas/change_request_detail'
               examples:
                 Example 1:
                   value:
@@ -153,7 +153,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/rectification_enrollment_request'
+              $ref: '#/components/schemas/enrollment_change_request'
             examples:
               Example post 1:
                 value:
@@ -213,7 +213,7 @@ components:
         minimum: 0
         type: integer
   schemas:
-    RichiestaRettifica:
+    change_request:
       type: object
       additionalProperties: false      
       x-examples:
@@ -290,8 +290,8 @@ components:
           maxItems: 256
           description: List of enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
           items:
-            $ref: '#/components/schemas/rectificationDetail'
-    rectificationDetail:
+            $ref: '#/components/schemas/change_request_detail'
+    change_request_detail:
       additionalProperties: false
       type: object
       x-examples:
@@ -306,7 +306,11 @@ components:
           description: Attribute name to be changed when rectification enrollment / Nome attributo da variare in fase di rettifica iscrizione
           readOnly: true
           minLength: 1
-          maxLength: 256   
+          maxLength: 256
+          enum:
+            - approved 
+            - rejected
+            - aquired
         file_code:
           type: string
           description: Current value of the field to be varied / Valore corrente del campo da variare
@@ -363,7 +367,7 @@ components:
         - attribute_name
         - current
         - suggested
-    rectification_enrollment_request:
+    enrollment_change_request:
       type: object
       additionalProperties: false      
       x-examples:
@@ -411,8 +415,8 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: rectification-enrollment
-  - name: enrollment-rectification-details
-  - name: cancellation-enrollment-rectification
+  - name: accademic enrollment change request
+  - name: accademic enrollment change request status
+  - name: accademic enrollment change request cancellation
   - name: health-check
   
