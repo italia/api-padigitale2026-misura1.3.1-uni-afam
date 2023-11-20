@@ -20,9 +20,8 @@ paths:
   '/academic-enrollment-change-request':
     post:
       summary: (OK) Correction of student registration / Rettifica iscrizione studente
-      operationId: rectification-student-enrollment
       tags:
-        - accademic enrollment change request
+        - academic enrollment change request
       security:
         - bearerAuth: []
       parameters: []
@@ -76,12 +75,12 @@ paths:
               properties: {}
         description: ''
     parameters: []
-  '/accademic-enrollment-change-request-status':
+  '/academic-enrollment-change-request-status':
   
     post:
       summary: (OK) Student enrolment correction detail / Dettaglio rettifica iscrizione studentessa o studente
       tags:
-        - accademic enrollment change request status
+        - academic enrollment change request status
       parameters: []
       security:
         - bearerAuth: []
@@ -106,7 +105,6 @@ paths:
           description: Registration correction not found / Rettifica iscrizione non trovata
         '500':
           description: Internal server error / Errore interno del server 
-      operationId: detail-enrollment-rectification
       description: Allows you to retrieve the status of a registration adjustment request via its identifier / Permette di recuperare lo stato di una richiesta di rettifica iscrizione tramite il suo identificativo
       requestBody:
         content:
@@ -125,11 +123,11 @@ paths:
               additionalProperties: false
               properties: {}
         description: 'Esempio richiesta'      
-  '/accademic-enrollment-change-request-cancellation':
+  '/academic-enrollment-change-request-cancellation':
     post:
       summary: Cancellation of change request / Richiesta di annullamento rettifica
       tags:
-        - accademic enrollment change request cancellation
+        - academic enrollment change request cancellation
       security:
         - bearerAuth: []
       responses:
@@ -237,7 +235,7 @@ components:
           note: Note aperte dello studente/ex studente
       x-stoplight:
         id: b40e2be27c423
-      description: Request creation rectification of a student's enrollment / Richiesta creazione rettifica iscrizione di una studentessa o uno studente
+      description: change request of academic enrollment/ richiesta di rettifica di iscrizione di una studentessa o uno studente
       properties:
         tax_code:
           type: string
@@ -288,7 +286,7 @@ components:
           type: array
           minItems: 0
           maxItems: 256
-          description: List of enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
+          description: List of academic enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
           items:
             $ref: '#/components/schemas/change_request_detail'
     change_request_detail:
@@ -299,7 +297,7 @@ components:
           file_status: accepted
           file_code: 908d3e72b51a6f0034e2a11c
           message: accettata
-      description: Status of an enrollment rectification for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
+      description: Status of an academic enrollment rectification for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
       properties:
         file_status:
           type: string
@@ -415,8 +413,8 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: accademic enrollment change request
-  - name: accademic enrollment change request status
-  - name: accademic enrollment change request cancellation
+  - name: academic enrollment change request
+  - name: academic enrollment change request status
+  - name: academic enrollment change request cancellation
   - name: health-check
   
