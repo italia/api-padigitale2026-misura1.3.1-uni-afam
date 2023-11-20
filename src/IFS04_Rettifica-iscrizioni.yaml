@@ -297,11 +297,11 @@ components:
           file_status: accepted
           file_code: 908d3e72b51a6f0034e2a11c
           message: accettata
-      description: Status of an academic enrollment rectification for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
+      description: Status of an academic enrollment change request for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
       properties:
         file_status:
           type: string
-          description: Attribute name to be changed when rectification enrollment / Nome attributo da variare in fase di rettifica iscrizione
+          description: Status of an academic enrollment change request for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
           readOnly: true
           minLength: 1
           maxLength: 256
@@ -311,13 +311,13 @@ components:
             - aquired
         file_code:
           type: string
-          description: Current value of the field to be varied / Valore corrente del campo da variare
+          description: change request enrollment code/ Codice Rettifica iscrizioni
           readOnly: true
           minLength: 1
           maxLength: 256    
         message:
           type: string
-          description: New value to be replaced during rectification / Nuovo valore da sostituire in fase di rettifica
+          description: Change request message output / Messaggio esito richiesta rettifica
           readOnly: true
           minLength: 1
           maxLength: 256 
