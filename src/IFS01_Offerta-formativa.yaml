@@ -2,7 +2,7 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: IFS01 - Offerta formativa
+  title: IFS01 - Offerta formativa 
   x-summary: Offerta formativa di un'Università/AFAM pubblica
   version: 1.0.0
   description: |

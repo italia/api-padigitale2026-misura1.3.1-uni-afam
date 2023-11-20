@@ -2,7 +2,7 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: IFS04 - Change Request enrollment / Rettifica iscrizioni
+  title: IFS04 - Academic enrollment change request  / Rettifica iscrizioni accademiche
   x-summary: Requests the rectification of missing or excess entry data for a student who is attending or has attended. / Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
   version: 1.0.0
   description: |
@@ -17,7 +17,7 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 security: [{}]
 paths:
-  '/accademic-enrollment-change-request':
+  '/academic-enrollment-change-request':
     post:
       summary: (OK) Correction of student registration / Rettifica iscrizione studente
       operationId: rectification-student-enrollment
