@@ -235,7 +235,7 @@ components:
           note: Note aperte dello studente/ex studente
       x-stoplight:
         id: b40e2be27c423
-      description: change request of academic enrollment/ richiesta di rettifica di iscrizione di una studentessa o uno studente
+      description: academic enrollment change request / richiesta di rettifica di iscrizione di una studentessa o uno studente
       properties:
         tax_code:
           type: string
@@ -297,11 +297,11 @@ components:
           file_status: accepted
           file_code: 908d3e72b51a6f0034e2a11c
           message: accettata
-      description: Status of an academic enrollment rectification for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
+      description: Status of an academic enrollment change request for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
       properties:
         file_status:
           type: string
-          description: Attribute name to be changed when rectification enrollment / Nome attributo da variare in fase di rettifica iscrizione
+          description: Status of an academic enrollment change request for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
           readOnly: true
           minLength: 1
           maxLength: 256
@@ -311,13 +311,13 @@ components:
             - aquired
         file_code:
           type: string
-          description: Current value of the field to be varied / Valore corrente del campo da variare
+          description: enrollment change request code/ Codice Rettifica iscrizioni
           readOnly: true
           minLength: 1
           maxLength: 256    
         message:
           type: string
-          description: New value to be replaced during rectification / Nuovo valore da sostituire in fase di rettifica
+          description: Change request message output / Messaggio esito richiesta rettifica
           readOnly: true
           minLength: 1
           maxLength: 256 
@@ -341,11 +341,11 @@ components:
           attribute_name: degree_course_year
           current: 5
           suggested: 4
-      description: Status of an enrollment rectification for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
+      description: Status of an enrollment change request for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
       properties:
         attribute_name:
           type: string
-          description: Attribute name to be changed when rectification enrollment / Nome attributo da variare in fase di rettifica iscrizione
+          description: Attribute name to be changed  / Nome attributo da variare in fase di rettifica iscrizione
           readOnly: true
           minLength: 1
           maxLength: 256   
@@ -375,7 +375,7 @@ components:
           institute_code: AA
       x-stoplight:
         id: b40e2be27c423
-      description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
+      description: Request of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
       properties:
         tax_code:
           type: string
@@ -394,7 +394,7 @@ components:
           readOnly: false  
         file_code:
           type: string
-          description: change request enrollment code/ Codice Rettifica iscrizioni
+          description: enrollment change request code/ Codice Rettifica iscrizioni
           example: 6d183bc572f6b200015a4167
           minLength: 1
           maxLength: 64
