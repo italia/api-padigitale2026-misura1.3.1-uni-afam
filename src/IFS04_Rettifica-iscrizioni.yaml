@@ -2,7 +2,7 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: IFS04 - Rectification enrollment / Rettifica iscrizioni
+  title: IFS04 - Academic enrollment change request  / Rettifica iscrizioni accademiche
   x-summary: Requests the rectification of missing or excess entry data for a student who is attending or has attended. / Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
   version: 1.0.0
   description: |
@@ -17,12 +17,11 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 security: [{}]
 paths:
-  '/accademic-enrollment-changes':
+  '/academic-enrollment-change-request':
     post:
       summary: (OK) Correction of student registration / Rettifica iscrizione studente
-      operationId: rectification-student-enrollment
       tags:
-        - rectification-enrollment
+        - academic enrollment change request
       security:
         - bearerAuth: []
       parameters: []
@@ -32,7 +31,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/rectificationDetail'
+                $ref: '#/components/schemas/change_request_detail'
               examples:
                 Example res 1:
                   value:
@@ -48,7 +47,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RichiestaRettifica'
+              $ref: '#/components/schemas/change_request'
             examples:
               Example post 1:
                 value:
@@ -76,12 +75,12 @@ paths:
               properties: {}
         description: ''
     parameters: []
-  '/accademic-enrollment-change-status':
+  '/academic-enrollment-change-request-status':
   
     post:
       summary: (OK) Student enrolment correction detail / Dettaglio rettifica iscrizione studentessa o studente
       tags:
-        - enrollment-rectification-details
+        - academic enrollment change request status
       parameters: []
       security:
         - bearerAuth: []
@@ -106,13 +105,12 @@ paths:
           description: Registration correction not found / Rettifica iscrizione non trovata
         '500':
           description: Internal server error / Errore interno del server 
-      operationId: detail-enrollment-rectification
       description: Allows you to retrieve the status of a registration adjustment request via its identifier / Permette di recuperare lo stato di una richiesta di rettifica iscrizione tramite il suo identificativo
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/rectification_enrollment_request'
+              $ref: '#/components/schemas/enrollment_change_request'
             examples:
               Example post 1:
                 value:
@@ -125,11 +123,11 @@ paths:
               additionalProperties: false
               properties: {}
         description: 'Esempio richiesta'      
-  '/accademic-enrollment-cancellation':
+  '/academic-enrollment-change-request-cancellation':
     post:
-      summary: Request for cancellation of rectification / Richiesta di annullamento rettifica
+      summary: Cancellation of change request / Richiesta di annullamento rettifica
       tags:
-        - cancellation-enrollment-rectification
+        - academic enrollment change request cancellation
       security:
         - bearerAuth: []
       responses:
@@ -138,7 +136,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/rectificationDetail'
+                $ref: '#/components/schemas/change_request_detail'
               examples:
                 Example 1:
                   value:
@@ -153,7 +151,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/rectification_enrollment_request'
+              $ref: '#/components/schemas/enrollment_change_request'
             examples:
               Example post 1:
                 value:
@@ -213,7 +211,7 @@ components:
         minimum: 0
         type: integer
   schemas:
-    RichiestaRettifica:
+    change_request:
       type: object
       additionalProperties: false      
       x-examples:
@@ -237,7 +235,7 @@ components:
           note: Note aperte dello studente/ex studente
       x-stoplight:
         id: b40e2be27c423
-      description: Request creation rectification of a student's enrollment / Richiesta creazione rettifica iscrizione di una studentessa o uno studente
+      description: change request of academic enrollment/ richiesta di rettifica di iscrizione di una studentessa o uno studente
       properties:
         tax_code:
           type: string
@@ -288,10 +286,10 @@ components:
           type: array
           minItems: 0
           maxItems: 256
-          description: List of enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
+          description: List of academic enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
           items:
-            $ref: '#/components/schemas/rectificationDetail'
-    rectificationDetail:
+            $ref: '#/components/schemas/change_request_detail'
+    change_request_detail:
       additionalProperties: false
       type: object
       x-examples:
@@ -299,14 +297,18 @@ components:
           file_status: accepted
           file_code: 908d3e72b51a6f0034e2a11c
           message: accettata
-      description: Status of an enrollment rectification for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
+      description: Status of an academic enrollment rectification for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
       properties:
         file_status:
           type: string
           description: Attribute name to be changed when rectification enrollment / Nome attributo da variare in fase di rettifica iscrizione
           readOnly: true
           minLength: 1
-          maxLength: 256   
+          maxLength: 256
+          enum:
+            - approved 
+            - rejected
+            - aquired
         file_code:
           type: string
           description: Current value of the field to be varied / Valore corrente del campo da variare
@@ -363,7 +365,7 @@ components:
         - attribute_name
         - current
         - suggested
-    rectification_enrollment_request:
+    enrollment_change_request:
       type: object
       additionalProperties: false      
       x-examples:
@@ -411,8 +413,8 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: rectification-enrollment
-  - name: enrollment-rectification-details
-  - name: cancellation-enrollment-rectification
+  - name: academic enrollment change request
+  - name: academic enrollment change request status
+  - name: academic enrollment change request cancellation
   - name: health-check
   

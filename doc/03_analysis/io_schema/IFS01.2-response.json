@@ -1,12 +1,152 @@
-/*
-Link di riferimento: https://www8.ceda.polimi.it/manifesti/manifesti/controller/extra/RegolamentoPublic.do?jaf_currentWFID=main&EVN_DEFAULT=evento&aa=2023&k_corso_la=469&lang=IT
-OFFERTA FORMATIVA - DETTAGLIO CORSO 
-*/
-
+/* OFFERTA FORMATIVA - DETTAGLIO CORSO  */
+/*verificare url: https://www4.ceda.polimi.it/manifesti/manifesti/controller/MostraIndirizziPublic.do?evn_default=EVENTO&aa=2023&k_cf=225&k_corso_la=353&ac_ins=1&k_indir=MEC&lang=IT&tipoCorso=ALL_TIPO_CORSO&caricaOffertaInvisibile=false&semestre=ALL_SEMESTRI&sede=ALL_SEDI*/
 
 
 
 /*ESEMPIO 1*/
+{
+   "programme_type_name":"Laurea Di Primo Livello - Ordinamento 270/04",
+   "programme_type_code":"L2",
+   "programme_access":"Libero",
+   "course_location":"Milano Bovisa",
+   "remote_mode": "on-site", /*full-remote, on-site, hybrid, not-available*/
+   "course_area":"Ingegneria industriale",
+   "degree_class_code":"L-9",
+   "degree_class_language":"IT",
+   "degree_class_period_years":3,
+   "degree_course_name":"Ingegneria Meccanica",
+   "degree_course_code":"353",
+   "total_credits":180,
+   "accademic_year":"2023/2024",
+   "first_year_activation_course":"2010/2011",/* Facoltativo*/
+   "website_university":"http://www.ingindinf.polimi.it",
+   "website_course":"",
+   
+   "curriculum_list":[  /* study_plan,*/ 
+      {
+         "curriculum_name":"NON DIFFERENZIATO", /*indirizzo, percorso, specializzazione filone formativo*/
+         "curriculum_learnings":[
+            {
+               "degree_course_year":1,
+               "learnings":[
+                  {
+                     "learning_ssd":"MAT/03",
+                     "learning_name":"ANALISI E GEOMETRIA 1",
+                     "learning_code":"081360",
+                     "learning_cfu":10,
+                     "learning_hour":48,
+                     "learning_language":"IT",
+                     "learning_ref":"http://...." /*perma link*/
+					 
+                  },
+                  {
+                     "learning_ssd":"CHIM/07",
+                     "learning_name":"FONDAMENTI DI CHIMICA",
+                     "learning_code":"081374",
+                     "learning_cfu":7,
+                     "learning_hour":36,
+                     "learning_language":"IT",
+                     "learning_ref":"http://...."
+                  }
+               ]
+            },
+            {
+               "degree_course_year":2,
+               "learnings":[
+                  {
+                     "learning_ssd":"ING-IND/14",
+                     "learning_name":"COSTRUZIONE DI MACCHINE 1",
+                     "learning_code":"050834422782",
+                     "learning_cfu":10,
+                     "learning_hour":40,
+                     "learning_language":"IT",
+                     "learning_ref":"http://...."
+                  },
+                  {
+                     "learning_ssd":"ING-IND/13",
+                     "learning_name":"MECCANICA APPLICATA ALLE MACCHINE",
+                     "learning_code":"054828",
+                     "learning_cfu":10,
+                     "learning_hour":48,
+                     "learning_language":"IT",
+                     "learning_ref":"http://...."
+                  }
+               ]
+            }			
+			
+         ]
+      },
+	  
+	  {
+		 "curriculum_name":"Processi tecnologici",
+         "curriculum_learnings":[
+            {
+               "degree_course_year":3,
+               "learnings":[
+                  {
+                     "learning_ssd":"ICAR/01",
+                     "learning_name":"MECCANICA DEI FLUIDI",
+                     "learning_code":"083503",
+                     "learning_cfu":7,
+                     "learning_hour":36,
+                     "learning_language":"IT",
+                     "learning_ref":"http://...." /*perma link*/
+                  },
+                  {
+                     "learning_ssd":"ING-IND/21",
+                     "learning_name":"TECNOLOGIE METALLURGICHE",
+                     "learning_code":"086509",
+                     "learning_cfu":8,
+                     "learning_hour":48,
+                     "learning_language":"IT",
+                     "learning_ref":"http://...."
+                  }
+               ]
+            }
+         ]	  
+		  
+	  }
+     ,
+	  
+	  {
+		 "curriculum_name":"Veicoli",
+         "curriculum_learnings":[
+            {
+               "degree_course_year":3,
+               "learnings":[
+                  {
+                     "learning_ssd":"ING-IND/17",
+                     "learning_name":"IMPIANTI MECCANICI",
+                     "learning_code":"086468",
+                     "learning_cfu":7,
+                     "learning_hour":36,
+                     "learning_language":"IT",
+                     "learning_ref":"http://...." /*perma link*/
+                  },
+                  {
+                     "learning_ssd":"ING-IND/14",
+                     "learning_name":"TEORIA E TECNICA DEI VEICOLI TERRESTRI",
+                     "learning_code":"086512",
+                     "learning_cfu":5,
+                     "learning_hour":25,
+                     "learning_language":"IT",
+                     "learning_ref":"http://...."
+                  }
+               ]
+            }
+         ]	  
+		  
+	  }
+   ]
+}
+
+
+
+/*Link di riferimento: https://www8.ceda.polimi.it/manifesti/manifesti/controller/extra/RegolamentoPublic.do?jaf_currentWFID=main&EVN_DEFAULT=evento&aa=2023&k_corso_la=469&lang=IT*/
+
+/*ESEMPIO 2*/
+
+
 {
    "programme_type_name":"Laurea Magistrale (DM 270/04)",
    "programme_type_code":"MS",
@@ -14,7 +154,7 @@ OFFERTA FORMATIVA - DETTAGLIO CORSO
    "course_location":"Milano, Settimo Milanese",
    //"remote_course_activities":true, /*Può prevedere corsi da remoto? da verificare nome attributo */   
    //"is_full_remote":false, /*è full remote? da verificare nome attributo */   
-   "remote_mode": "full-remote", /*full, part-time, not-available*/
+   "remote_mode": "on-site", /*full-remote, on-site, hybrid, not-available*/
    "course_area":"Ingegneria",
    "degree_class_code":"LM-20",
    "degree_class_language":"EN",
@@ -41,9 +181,9 @@ OFFERTA FORMATIVA - DETTAGLIO CORSO
          "requirement_description":"Laurea ante riforma (vecchio ordinamento)"
       }
    ],
-   "curriculum_list":[  // study_plan, 
+   "curriculum_list":[  /* study_plan,*/ 
       {
-         "curriculum_name":"Ingegneria aerospaziale e astronautica",/*indirizzo, percorso, specializzazione filone formativo*/
+         "curriculum_name":"Ingegneria aerospaziale e astronautica", /*indirizzo, percorso, specializzazione filone formativo*/
          "curriculum_learnings":[
             {
                "degree_course_year":1,
@@ -91,9 +231,7 @@ OFFERTA FORMATIVA - DETTAGLIO CORSO
                      "learning_ref":"http://...."
                   }
                ]
-            },
-
-			
+            }			
 			
          ]
       },
@@ -153,10 +291,3 @@ OFFERTA FORMATIVA - DETTAGLIO CORSO
 	  }
    ]
 }
-
-
-
-/*verificare url: https://www4.ceda.polimi.it/manifesti/manifesti/controller/MostraIndirizziPublic.do?evn_default=EVENTO&aa=2023&k_cf=225&k_corso_la=353&ac_ins=1&k_indir=MEC&lang=IT&tipoCorso=ALL_TIPO_CORSO&caricaOffertaInvisibile=false&semestre=ALL_SEMESTRI&sede=ALL_SEDI*/
-
-/*ESEMPIO 2*/
-

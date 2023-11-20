@@ -2,7 +2,7 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: IFS05 - Rectification qualification / Rettifica titoli
+  title: IFS05 - Qualification Change / Rettifica titoli
   x-summary: Requests the rectification of missing or excess entry data for a student who is attending or has attended. / Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
   version: 1.0.0
   description: |
@@ -17,12 +17,12 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 security: [{}]
 paths:
-  '/accademic-qualification-changes':
+  '/accademic-qualification-change-request':
     post:
       summary: (OK) Correction of student registration / Rettifica iscrizione studente
       operationId: rectification-student-qualification
       tags:
-        - rectification-qualification
+        - accademic qualification change request
       security:
         - bearerAuth: []
       parameters: []
@@ -32,7 +32,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/rectificationDetail'
+                $ref: '#/components/schemas/qualification_change_request_detail'
               examples:
                 Example res 1:
                   value:
@@ -48,7 +48,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RichiestaRettifica'
+              $ref: '#/components/schemas/qualification_change_request'
             examples:
               Example post 1:
                 value:
@@ -76,12 +76,12 @@ paths:
               properties: {}
         description: 'Request di esempio'
     parameters: []
-  '/accademic-qualification-change-status':
+  '/accademic-qualification-change-request-status':
 
     post:
       summary: (OK) Student enrolment correction detail / Dettaglio rettifica iscrizione studentessa o studente
       tags:
-        - accademic-qualification-change-details
+        - accademic qualification change request status
       parameters: []
       security:
         - bearerAuth: []
@@ -112,7 +112,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/rectification_qualification_request'
+              $ref: '#/components/schemas/accademic_qualification_change_request'
             examples:
               Example post 1:
                 value:
@@ -125,11 +125,11 @@ paths:
               additionalProperties: false
               properties: {}
         description: 'Request di esempio'
-  '/accademic-qualification-change-cancellation':
+  '/accademic-qualification-change-request-cancellation':
     post:
       summary: Request for cancellation of rectification / Richiesta di annullamento rettifica
       tags:
-        - cancellation-qualification-rectification
+        - accademic qualification change request cancellation
 
       security:
         - bearerAuth: []
@@ -139,7 +139,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/rectificationDetail'
+                $ref: '#/components/schemas/qualification_change_request_detail'
               examples:
                 Example 1:
                   value:
@@ -154,7 +154,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/rectification_qualification_request'
+              $ref: '#/components/schemas/accademic_qualification_change_request'
             examples:
               Example post 1:
                 value:
@@ -214,7 +214,7 @@ components:
         minimum: 0
         type: integer
   schemas:
-    RichiestaRettifica:
+    qualification_change_request:
       type: object
       additionalProperties: false      
       x-examples:
@@ -291,8 +291,8 @@ components:
           maxItems: 256
           description: List of qualifications for student / Elenco titoli di una studentessa o di uno studente
           items:
-            $ref: '#/components/schemas/rectificationDetail'
-    rectificationDetail:
+            $ref: '#/components/schemas/qualification_change_request_detail'
+    qualification_change_request_detail:
       additionalProperties: false
       type: object
       x-examples:
@@ -364,7 +364,7 @@ components:
         - attribute_name
         - current
         - suggested
-    rectification_qualification_request:
+    accademic_qualification_change_request:
       type: object
       additionalProperties: false      
       x-examples:
@@ -412,7 +412,7 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: accademic-qualification-changes
-  - name: accademic-qualification-change-status
-  - name: accademic-qualification-change-cancellation
-  - name: status
+  - name: accademic qualification change request
+  - name: accademic qualification change request status
+  - name: accademic qualification change request cancellation
+  - name: health-check
