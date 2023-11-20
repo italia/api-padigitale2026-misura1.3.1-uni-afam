@@ -2,7 +2,7 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: IFS05 - Qualification Change / Rettifica titoli
+  title: IFS05 - Qualification Change request/ Rettifica titoli
   x-summary: Requests the rectification of missing or excess entry data for a student who is attending or has attended. / Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
   version: 1.0.0
   description: |
@@ -17,12 +17,12 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 security: [{}]
 paths:
-  '/accademic-qualification-change-request':
+  '/academic-qualification-change-request':
     post:
       summary: (OK) Correction of student registration / Rettifica iscrizione studente
       operationId: rectification-student-qualification
       tags:
-        - accademic qualification change request
+        - academic qualification change request
       security:
         - bearerAuth: []
       parameters: []
@@ -76,12 +76,12 @@ paths:
               properties: {}
         description: 'Request di esempio'
     parameters: []
-  '/accademic-qualification-change-request-status':
+  '/academic-qualification-change-request-status':
 
     post:
       summary: (OK) Student enrolment correction detail / Dettaglio rettifica iscrizione studentessa o studente
       tags:
-        - accademic qualification change request status
+        - academic qualification change request status
       parameters: []
       security:
         - bearerAuth: []
@@ -112,24 +112,24 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/accademic_qualification_change_request'
+              $ref: '#/components/schemas/academic_qualification_change_request'
             examples:
               Example post 1:
                 value:
                   tax_code: LNGDVD80L31B354S
                   person_id: 12345678A
-                  file_code: asdsadsadsadsa
+                  file_code: 6d183bc572f6b200015a4167
           application/xml:
             schema:
               type: object
               additionalProperties: false
               properties: {}
         description: 'Request di esempio'
-  '/accademic-qualification-change-request-cancellation':
+  '/academic-qualification-change-request-cancellation':
     post:
       summary: Request for cancellation of rectification / Richiesta di annullamento rettifica
       tags:
-        - accademic qualification change request cancellation
+        - academic qualification change request cancellation
 
       security:
         - bearerAuth: []
@@ -148,19 +148,18 @@ paths:
                     message: messaggio di testo
         '500':
           description: Internal server error / Errore interno del server 
-      operationId: rectification-cancellation
       description: Rectification cancellation request / Effettua la richiesta di annullamento rettifica 
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/accademic_qualification_change_request'
+              $ref: '#/components/schemas/academic_qualification_change_request'
             examples:
               Example post 1:
                 value:
                   tax_code: LNGDVD80L31B354S
                   person_id: 12345678A
-                  file_code: asdsadsadsadsa
+                  file_code: 6d183bc572f6b200015a4167
           application/xml:
             schema:
               type: object
@@ -238,7 +237,7 @@ components:
           note: Note aperte dello studente/ex studente
       x-stoplight:
         id: b40e2be27c423
-      description: Request creation rectification of a student's qualification / Richiesta creazione rettifica titolo di una studentessa o uno studente
+      description: qualification change request of a student's qualification / Richiesta creazione rettifica titolo di una studentessa o uno studente
       properties:
         tax_code:
           type: string
@@ -259,7 +258,7 @@ components:
           $ref: '#/components/schemas/attributes'
         request:
           type: string
-          description: Text with request for rectification / Testo con la richiesta di rettifica
+          description: qualification  chacge request Text / Testo con la richiesta di rettifica
           readOnly: true
           minLength: 1
           maxLength: 5000
@@ -300,23 +299,23 @@ components:
           file_status: accepted
           file_code: 908d3e72b51a6f0034e2a11c
           message: accettata
-      description: Status of an qualification rectification for a student / Stato di una rettifica titolo per una studentessa o uno studente
+      description: Status of an qualification change request for a student / Stato di una rettifica titolo per una studentessa o uno studente
       properties:
         file_status:
           type: string
-          description: Attribute name to be changed when rectification qualification / Nome attributo da variare in fase di rettifica titolo
+          description: Status of an academic qualification change request for a student / Stato di una rettifica Titolo per una studentessa o uno studente
           readOnly: true
           minLength: 1
           maxLength: 256   
         file_code:
           type: string
-          description: Current value of the field to be varied / Valore corrente del campo da variare
+          description: change request qualification code/ Codice Rettifica titolo
           readOnly: true
           minLength: 1
           maxLength: 256    
         message:
           type: string
-          description: New value to be replaced during rectification / Nuovo valore da sostituire in fase di rettifica
+          description: Change request message output / Messaggio esito richiesta rettifica
           readOnly: true
           minLength: 1
           maxLength: 256 
@@ -364,7 +363,7 @@ components:
         - attribute_name
         - current
         - suggested
-    accademic_qualification_change_request:
+    academic_qualification_change_request:
       type: object
       additionalProperties: false      
       x-examples:
@@ -393,7 +392,7 @@ components:
           readOnly: false  
         file_code:
           type: string
-          description: Rectification enrollment code/ Codice Rettifica iscrizioni
+          description: change request qualification code/ Codice Rettifica titolo
           example: 6d183bc572f6b200015a4167
           minLength: 1
           maxLength: 64
@@ -412,7 +411,7 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: accademic qualification change request
-  - name: accademic qualification change request status
-  - name: accademic qualification change request cancellation
+  - name: academic qualification change request
+  - name: academic qualification change request status
+  - name: academic qualification change request cancellation
   - name: health-check
