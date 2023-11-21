@@ -1,6 +1,7 @@
 /*working in progress*/
+
 {
-    courses: [
+    "courses": [
         {
             "programme_type_code":"L2",
             "programme_access":"Libero",
@@ -12,7 +13,6 @@
             "degree_course_code":"353",
             "total_credits":180,
             "accademic_year":"2023/2024"
-
         },
         {
             "programme_type_code":"MS",
@@ -24,9 +24,12 @@
             "degree_class_period_years":2,
             "degree_course_code":"469",
             "total_credits":120,
-            "accademic_year":"2023/2024",
-            "first_year_activation_course":"2023/2024"/* Facoltativo*/
-
+            "accademic_year":"2023/2024"          
         }
     ]
+    ,
+    "meta":
+    {
+        "cursor":""
+    }
 }
