@@ -7,21 +7,21 @@
          //"degree_course_name":"Ingegneria aerospaziale e astronautica",
          "degree_class_code":"LM-20",
          "accademic_year": "2023-2024",
-         "isee":[
+         "ranges":[
             {          
-               "range_min_value":"0",
-               "range_max_value":"5000",               
-               "count":1000
+               "isee_min_value":"0",
+               "isee_max_value":"5000",               
+               "enrollment_count":1000
             },
             {              
-               "range_min_value":"5001",
-               "range_max_value":"10000",    
-               "count":500
+               "isee_min_value":"5001",
+               "isee_max_value":"10000",    
+               "enrollment_count":500
             },
             {             
-               "range_min_value":"10001",
-               "range_max_value":"15000",    
-               "count":800
+               "isee_min_value":"10001",
+               "isee_max_value":"15000",    
+               "enrollment_count":800
             }      
          ]
       },
@@ -31,22 +31,22 @@
          "degree_course_code":"353",
          //"degree_course_name":"Ingegneria Meccanica",
          "degree_class_code":"L-9",
-         "isee":[
+         "ranges":[
             {          
-               "range_min_value":"0",
-               "range_max_value":"5000",               
-               "count":1000
+               "isee_min_value":"0",
+               "isee_max_value":"5000",               
+               "enrollment_count":1000
             },
             {              
-               "range_min_value":"5001",
-               "range_max_value":"10000",    
-               "count":500
+               "isee_min_value":"5001",
+               "isee_max_value":"10000",    
+               "enrollment_count":500
             },
             {             
-               "range_min_value":"10001",
-               "range_max_value":"15000",    
-               "count":800
-            }      
+               "isee_min_value":"10001",
+               "isee_max_value":"15000",    
+               "enrollment_count":800
+            }    
          ]
       }
    ]
