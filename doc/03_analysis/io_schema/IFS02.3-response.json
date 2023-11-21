@@ -5,7 +5,7 @@
     "given_name": "Mario",
     "family_name": "Rossi"
   },
-  "proof_courses": {
+  "proof_education_course": {
     "programme_type_code": "MS",
     "programme_type_name": "Laurea Magistrale (DM 270/04)",
     "degree_course_code": "1573960",
@@ -31,3 +31,4 @@
       }
     ]
   }
+}
