@@ -5,3 +5,52 @@
 
 
 */
+
+
+
+{
+    "enrollment_by_course_year":[
+       {
+          "programme_type_code":"MS",
+          "programme_type_name":"Laurea Magistrale (DM 270/04)",
+          "degree_course_code":"469",
+          "degree_course_name":"Ingegneria aerospaziale e astronautica",
+          "degree_class_code":"LM-20",
+          "degree_course_year":[
+             {
+                "year":"2020",
+                "count":1000
+             },
+             {
+                "year":"2021",
+                "count":500
+             },
+             {
+                "year":"2022",
+                "count":800
+             }
+          ]
+       },
+       {
+          "programme_type_code":"L2",
+          "programme_type_name":"Laurea Di Primo Livello - Ordinamento 270/04)",
+          "degree_course_code":"353",
+          "degree_course_name":"Ingegneria Meccanica",
+          "degree_class_code":"L-9",
+          "degree_course_year":[
+            {
+                "year":"2020",
+                "count":1000
+             },
+             {
+                "year":"2021",
+                "count":500
+             },
+             {
+                "year":"2022",
+                "count":800
+             }
+          ]
+       }
+    ]
+ }
