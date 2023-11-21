@@ -1,5 +1,14 @@
 {
-        file_status: "acquired",
-        file_code: "6d183bc572f6b200015a4167",
-        message:"accettata campi validati"
-}
+        "qualification_change_request": [
+          {
+            "file_status": "approved",
+            "file_code": "6d183bc572f6b200015a4167",
+            "message": "testo messaggio"
+          },
+          {
+            "file_status": "rejected",
+            "file_code": "6d183b54654127dfhh15a4167",
+            "message": "testo messaggio"
+          }
+        ]
+      }
