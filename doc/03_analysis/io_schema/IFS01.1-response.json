@@ -2,36 +2,30 @@
 {
     courses: [
         {
-            "programme_type_name":"Laurea Di Primo Livello - Ordinamento 270/04",
             "programme_type_code":"L2",
             "programme_access":"Libero",
-            "course_location":"Milano Bovisa",
-            "remote_mode": "on-site", /*full-remote, on-site, hybrid, not-available*/
+            "course_location":"Milano Bovisa",       
             "course_area":"Ingegneria industriale",
             "degree_class_code":"L-9",
             "degree_class_language":"IT",
-            "degree_class_period_years":3,
-            "degree_course_name":"Ingegneria Meccanica",
+            "degree_class_period_years":3,         
             "degree_course_code":"353",
             "total_credits":180,
             "accademic_year":"2023/2024"
 
         },
         {
-            "programme_type_name":"Laurea Magistrale (DM 270/04)",
             "programme_type_code":"MS",
             "programme_access":"Libero",
-            "course_location":"Milano, Settimo Milanese",         
-            "remote_mode": "on-site", /*full-remote, on-site, hybrid, not-available*/
+            "course_location":"Milano, Settimo Milanese",    
             "course_area":"Ingegneria",
             "degree_class_code":"LM-20",
             "degree_class_language":"EN",
             "degree_class_period_years":2,
-            "degree_course_name":"Ingegneria aerospaziale e astronautica",
             "degree_course_code":"469",
             "total_credits":120,
             "accademic_year":"2023/2024",
-            "first_year_activation_course":"2010/2011"/* Facoltativo*/
+            "first_year_activation_course":"2023/2024"/* Facoltativo*/
 
         }
     ]
