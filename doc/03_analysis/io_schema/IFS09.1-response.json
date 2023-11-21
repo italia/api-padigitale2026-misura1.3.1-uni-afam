@@ -1,8 +1,8 @@
 /* Working in progress
-/*Request-> accademic_year + degree_course_code*/
+/*Request-> academicyear + degree_course_code*/
 
 {
-   "count_accademic_enrollments_by_degree_courses":
+   "count_academic_enrollments_by_degree_courses":
       [
          {
             "programme_type_code":"MS",

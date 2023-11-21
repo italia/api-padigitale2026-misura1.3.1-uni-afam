@@ -17,7 +17,7 @@
    //"degree_course_name":"Ingegneria Meccanica",
    "degree_course_code":"353",
    "total_credits":180,
-   "accademic_year":"2023/2024",
+   "academic_year":"2023/2024",
    "first_year_activation_course":"2010/2011",/* Facoltativo*/
    "website_university":"http://www.ingindinf.polimi.it",
    "website_course":"",
@@ -160,7 +160,7 @@
    "degree_class_period_years":2, 
    "degree_course_code":"469",
    "total_credits":120,
-   "accademic_year":"2023/2024",
+   "academicyear":"2023/2024",
    "first_year_activation_course":"2010/2011",/* Facoltativo*/
    "website_university":"http://www.ingindinf.polimi.it",
    "website_course":"https://ccs-aerospaziale.polimi.it",

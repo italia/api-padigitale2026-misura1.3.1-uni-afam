@@ -1,12 +1,12 @@
 {
-   "count_accademic_enrollments_by_isee_ranges":[
+   "count_academicenrollments_by_isee_ranges":[
       {
          "programme_type_code":"MS",
          //"programme_type_name":"Laurea Magistrale (DM 270/04)",
          "degree_course_code":"469",
          //"degree_course_name":"Ingegneria aerospaziale e astronautica",
          "degree_class_code":"LM-20",
-         "accademic_year": "2023-2024",
+         "academic_year": "2023-2024",
          "ranges":[
             {          
                "isee_min_value":"0",
