@@ -179,7 +179,7 @@ paths:
                       person_id: AB123456C
                       given_name: Mario
                       family_name: Rossi
-                    proof_courses:
+                    proof_education_course:
                       programme_type_code: MS
                       programme_type_name: Laurea Magistrale (DM 270/04)
                       degree_course_code: '1573960'
@@ -211,7 +211,7 @@ paths:
                 Example statuscode=404:
                   value:
                     personal_data: 
-                    proof_courses: null
+                    proof_education_course: null
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Qualifications-education-of-student
@@ -541,7 +541,7 @@ components:
             person_id: AB123456C
             given_name: Mario
             family_name: Rossi
-          proof_courses:
+          proof_education_course:
             programme_type_code: MS
             programme_type_name: Laurea Magistrale (DM 270/04)
             degree_course_code: '1573960'
@@ -567,12 +567,12 @@ components:
       properties:
         personal_data:
           $ref: '#/components/schemas/personal_data'
-        proof_courses:
-          $ref: '#/components/schemas/proof_courses'
+        proof_education_course:
+          $ref: '#/components/schemas/proof_education_course'
       required:
         - personal_data
-        - proof_courses
-    proof_courses:
+        - proof_education_course
+    proof_education_course:
       type: object
       nullable: true
       additionalProperties: false
