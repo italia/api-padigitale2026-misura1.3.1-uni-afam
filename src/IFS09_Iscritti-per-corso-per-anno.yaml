@@ -33,16 +33,15 @@ paths:
               examples:
                 Example statuscode=200:
                   value:
-                    count_academic_enrollments_by_degree_courses:                  
+                    count_academinc_enrollment:                  
                       - programme_type_code: MS
-                        degree_course_code: 469
+                        degree_course_code: '469'
                         degree_class_code: LM-11
                         enrollment_count: 15000
                       - programme_type_code: MS
-                        degree_course_code: 355
+                        degree_course_code: '355'
                         degree_class_code: LM-7
                         enrollment_count: 10000  
-
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
@@ -54,7 +53,7 @@ paths:
               examples:
                 Example statuscode=404:
                   value:
-                    count_academic_enrollments_by_degree_courses: []
+                    count_academinc_enrollment: []
 
         '500':
           description: Internal server error / Errore interno del server 
@@ -128,7 +127,7 @@ components:
       type: object
       x-examples:
         Example 1:
-          count_academic_enrollments_by_degree_courses:
+          count_academinc_enrollment:
             - programme_type_code: MS
               degree_course_code: 469
               degree_class_code: LM-20
@@ -148,11 +147,6 @@ components:
           description: count academic student enrollments / numero iscrizioni per corso
           items:
             $ref: '#/components/schemas/count_academinc_enrollment'
-      required:
-        - programme_type_code
-        - degree_course_code
-        - degree_class_code
-        - enrollment_count
 
 
 
@@ -195,7 +189,11 @@ components:
           readOnly: true
           minimum: 1
           maximum: 9999999
-
+      required:
+        - programme_type_code
+        - degree_course_code
+        - degree_class_code
+        - enrollment_count
     count_enrollment_request:
       type: object
       additionalProperties: false      
