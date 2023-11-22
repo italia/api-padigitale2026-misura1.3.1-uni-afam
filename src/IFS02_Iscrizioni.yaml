@@ -2,11 +2,11 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: IFS02 - Retrieve enrollment details / Recupero dettaglio iscrizioni 
+  title: IFS02 - Retrieve academic enrollment detail / Recupero del dettaglio delle iscrizioni accademiche
   x-summary: Enrollment detail of a student / Dettaglio iscrizioni di una studentessa o uno studente 
   version: 1.0.0
   description: |
-   Provides detailed information regarding the enrollment of student at a public university or AFAM / Fornisce informazioni di dettaglio riguardanti le iscrizioni di una studentessa o uno studente all'università o AFAM pubblico
+   Provides detailed information regarding the enrollment of student at an university or AFAM / Fornisce informazioni di dettaglio riguardanti le iscrizioni di una studentessa o uno studente all'università o AFAM
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -16,12 +16,12 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
-  '/academicenrollments':
+  '/academic-enrollments':
 
     post:
       summary: Retrieve enrollment details of student / Recupero iscrizioni di una studentessa o di uno studente 
       tags:
-        - enrollments
+        - academic-enrollments
       security:
         - bearerAuth: []
       responses:
@@ -87,11 +87,11 @@ paths:
               properties: {}
         description: ''
       parameters: []
-  '/proof-education-enrollments':
+  '/proof-tertiary-education-enrollments':
     post:
       summary: Retrieve enrollment details of student in SDG format / Recupero iscrizioni di una studentessa o di uno studente in formato SDG
       tags:
-        - education-enrollments
+        - proof-tertiary-education-enrollments
       security:
         - bearerAuth: []
       responses:
@@ -156,12 +156,12 @@ paths:
               properties: {}
         description: ''
       parameters: []
-  '/proof-education-courses':
+  '/proof-tertiary-education-courses':
 
     post:
       summary: Requires the list of examinations taken by the student in SDG format / Richiede la lista degli esami sostenuti dallo studente in formato SDG
       tags:
-        - education-courses
+        - proof-tertiary-education-courses
       security:
         - bearerAuth: []
       responses:
@@ -239,7 +239,7 @@ paths:
     post:
       summary: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
       tags:
-        - education-tertiary
+        - proof-tertiary-education-admission
       security:
         - bearerAuth: []
       responses:
@@ -1103,8 +1103,8 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: enrollments
-  - name: education-enrollments
-  - name: education-courses
-  - name: education-tertiary
+  - name: academic-enrollments
+  - name: proof-tertiary-education-enrollments
+  - name: proof-tertiary-education-courses
+  - name: proof-tertiary-education-admission
   - name: health-check
