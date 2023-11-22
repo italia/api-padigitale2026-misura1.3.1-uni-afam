@@ -17,29 +17,13 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 paths:
 #IFS01.2
-  '/it/course-details':
-    parameters:
-      - name: cursor
-        in: query
-        required: false
-        schema:
-          type: string
-          description: Cursor / Cursore
-          maxLength: 100
-          minLength: 1
-      - name: institute_code
-        in: query
-        required: false
-        schema:
-          type: string
-          maxLength: 32
-          minLength: 1
-          description: Institute code / Codice istituto
-    get:
+  '/it/course-details': 
+    post:
       summary: Requires the detail of a course. / Richiede il dettaglio di un corso.
       tags:
         - course-details
-      security: [{}]
+      security: 
+        - bearerAuth: []
       responses:
         '200':
           description: Request successfully executed / Richiesta eseguita con successo
@@ -71,14 +55,14 @@ paths:
                             learnings:
                             - learning_ssd: MAT/03
                               learning_name: ANALISI E GEOMETRIA 1
-                              learning_code: 081360
+                              learning_code: '081360'
                               learning_cfu: 10
                               learning_hour: 48
                               learning_language: IT
                               learning_ref: http://....
                             - learning_ssd: CHIM/07
                               learning_name: FONDAMENTI DI CHIMICA
-                              learning_code: 081374
+                              learning_code: '081374'
                               learning_cfu: 7
                               learning_hour: 36
                               learning_language: IT
@@ -87,14 +71,14 @@ paths:
                             learnings:
                             - learning_ssd: ING-IND/14
                               learning_name: COSTRUZIONE DI MACCHINE 1
-                              learning_code: 050834422782
+                              learning_code: '05083782'
                               learning_cfu: 10
                               learning_hour: 40
                               learning_language: IT
                               learning_ref: http://....
                             - learning_ssd: ING-IND/13
                               learning_name: MECCANICA APPLICATA ALLE MACCHINE
-                              learning_code: 054828
+                              learning_code: '54828'
                               learning_cfu: 10
                               learning_hour: 48
                               learning_language: IT
@@ -105,14 +89,14 @@ paths:
                             learnings:
                             - learning_ssd: ICAR/01
                               learning_name: MECCANICA DEI FLUIDI
-                              learning_code: 083503
+                              learning_code: '83503'
                               learning_cfu: 7
                               learning_hour: 36
                               learning_language: IT
                               learning_ref: http://....
                             - learning_ssd: ING-IND/21
                               learning_name: TECNOLOGIE METALLURGICHE
-                              learning_code: 086509
+                              learning_code: '86509'
                               learning_cfu: 8
                               learning_hour: 48
                               learning_language: IT
@@ -123,14 +107,14 @@ paths:
                             learnings:
                             - learning_ssd: ING-IND/17
                               learning_name: IMPIANTI MECCANICI
-                              learning_code: 086468
+                              learning_code: '86468'
                               learning_cfu: 7
                               learning_hour: 36
                               learning_language: IT
                               learning_ref: http://....
                             - learning_ssd: ING-IND/14
                               learning_name: TEORIA E TECNICA DEI VEICOLI TERRESTRI
-                              learning_code: 086509
+                              learning_code: '086509'
                               learning_cfu: 5
                               learning_hour: 25
                               learning_language: IT
@@ -139,15 +123,26 @@ paths:
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
           description: No enrollments were found at this institution / Non sono state trovate iscrizioni in questo istituto
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/course-details'
-              examples:
-                Example statuscode=404:
-                  value:
         '500':
           description: Internal server error / Errore interno del server 
+      
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/course_detail_request'
+            examples:
+              Example post 1:
+                value:
+                  degree_class_code: 'LM-20'
+                  degree_course_code: '465'
+          application/xml:
+            schema:
+              type: object
+              additionalProperties: false
+              properties: {}
+        description: ''
+      
       operationId: Enrollments-of-student
       description: Returning the information reduced to a 'hash (SHA256)' for each student in the form (key, value), where the key is the hash of the student's social security number and the value is the hash of the student's enrolment. / Restituisce le informazioni ridotte in "hash (SHA256)" per ogni studente/studentessa nella forma (chiave, valore), dove la chiave è l'hash del codice fiscale dello studente e il valore è l'hash delle sue iscrizioni.
       parameters: []
@@ -483,8 +478,42 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 256
+
+
+    course_detail_request:
+      type: object
+      additionalProperties: false      
+      x-examples:
+        Example 1:
+          degree_class_code : LM-20
+          degree_course_code: 456
+      x-stoplight:
+        id: b40e2be27c423
+      description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
+      properties:
+        degree_class_code:
+          type: string
+          description: Identification code of the degree class / Codice identificativo della classe di laurea
+          example: L-8
+          readOnly: true
+          minLength: 2
+          maxLength: 20
+        degree_course_code:
+          type: string
+          description: Course code / Codice del corso
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+      required:
+        - degree_class_code      
+        - degree_course_code		
   requestBodies: {}
   responses: {}
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: PASETO 
 servers:
   - url: 'https://localhost:8080/api'
     description: localhost
