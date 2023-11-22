@@ -1,7 +1,6 @@
 /*Working in progress*/
 
 {
-    "proof_mobility_period":{
        "personal_data":{
           "tax_code":"RSSMRA80A01F205D",
           "person_id":"AB123456C",
@@ -10,7 +9,7 @@
           "birth_date":"1990-05-17",
           "birth_place":"Roma"
        },
-       "proof_periods":[
+       "proof_mobility_periods":[
           {
              "eqf_level":"Livello 7",
              "mobility_start_date":"2020-05-17",
@@ -26,5 +25,4 @@
              "departure_country":"Italia"
           }
        ]
-    }
  }

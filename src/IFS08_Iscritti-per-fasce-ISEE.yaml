@@ -17,155 +17,61 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
   /stats/iscritti-per-isee:
-    get:
+    post:
       summary: Iscritti per fasce ISEE
       tags:
-        - fasce isee
-      security: [{}]   
+        - count-academic-enrollments-by-isee-ranges
+      security:
+       - bearerAuth: []
       responses:
         '200':
           description: Richiesta eseguita con successo
           content:
             application/json:
               schema:
-                type: object
-                additionalProperties: false
-                properties:
-                  instituteName:
-                    type: string
-                    description: Nome dell'istituto di formazione superiore
-                    readOnly: true
-                    minLength: 1
-                    maxLength: 256              
-                  facultyName:
-                    type: string
-                    description: Nome della facoltà
-                    readOnly: true
-                    minLength: 1
-                    maxLength: 256                    
-                  courseName:
-                    type: string
-                    description: Nome del Corso di studi
-                    readOnly: true
-                    minLength: 1
-                    maxLength: 256                    
-                  academicYear:
-                    type: string
-                    example: 2022-2023
-                    pattern: '^\d{4}-\d{4}$'
-                    readOnly: true
-                    minLength: 9
-                    maxLength: 9                    
-                  numberRegistered:
-                    type: integer
-                    description: Numero di iscritti
-                    format: int32
-                    minimum: 0
-                    maximum: 500000
-                    readOnly: true
-                  iseeBands:
-                    type: array
-                    description: Elenco di fasce ISEE con il numero di studentesse e di studenti per fascia
-                    minItems: 0
-                    maxItems: 500000                   
-                    items:
-                      $ref: '#/components/schemas/FasciaISEE'
-                required:
-                  - instituteName
-                  - numberRegistered
-                  - iseeBands
+                $ref: '#/components/schemas/count_academic_enrollments_by_isee_ranges'
               examples:
                 Example 1:
                   value:
-                    instituteName: Università degli Studi di Roma 'La Sapienza'
-                    facultyName: Ingegneria
-                    courseName: Ingegneria Informatica
-                    academicYear: 2022-2023
-                    numberRegistered: 48
-                    iseeBands:
-                      - iseeBand: FASCIA 1
-                        minValue: 0
-                        maxValue: 6000
-                        numberInRange: 5
-                      - iseeBand: FASCIA 2
-                        minValue: 6001
-                        maxValue: 11000
-                        numberInRange: 15
-                      - iseeBand: FASCIA 3
-                        minValue: 11001
-                        maxValue: 20000
-                        numberInRange: 10
-                      - iseeBand: FASCIA 4
-                        minValue: 20001
-                        maxValue: 30000
-                        numberInRange: 8
-                      - iseeBand: FASCIA 5
-                        minValue: 30001
-                        maxValue: 35000
-                        numberInRange: 6
-                      - iseeBand: FASCIA 6
-                        minValue: 35001
-                        maxValue: 40000
-                        numberInRange: 3
-                      - iseeBand: FASCIA 7
-                        minValue: 40001
-                        maxValue: null
-                        numberInRange: 1
-                Example 2:
-                  value:
-                    instituteName: Università degli Studi di Roma 'La Sapienza'
-                    academicYear: 2022-2023
-                    numberRegistered: 1200
-                    iseeBands:
-                      - iseeBand: FASCIA 1
-                        minValue: 0
-                        maxValue: 6000
-                        numberInRange: 201
-                      - iseeBand: FASCIA 2
-                        minValue: 6001
-                        maxValue: 11000
-                        numberInRange: 418
-                      - iseeBand: FASCIA 3
-                        minValue: 11001
-                        maxValue: 20000
-                        numberInRange: 102
-                      - iseeBand: FASCIA 4
-                        minValue: 20001
-                        maxValue: 30000
-                        numberInRange: 75
-                      - iseeBand: FASCIA 5
-                        minValue: 30001
-                        maxValue: 35000
-                        numberInRange: 183
-                      - iseeBand: FASCIA 6
-                        minValue: 35001
-                        maxValue: 40000
-                        numberInRange: 122
-                      - iseeBand: FASCIA 7
-                        minValue: 40001
-                        maxValue: null
-                        numberInRange: 99
+                    programme_type_code: MS
+                    degree_course_code: '469'
+                    degree_class_code: LM-20
+                    academic_year: 2023/2024
+                    ranges:
+                      - isee_min_value: 0
+                        isee_max_value: 5000               
+                        enrollment_count: 1000
+                      - isee_min_value: 5001
+                        isee_max_value: 10000               
+                        enrollment_count: 500
+                      - isee_min_value: 10001
+                        isee_max_value: 15000               
+                        enrollment_count: 500
+                      
+             
         '500':
           description: Errore interno del server
+      
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/isee_enrollment_request'
+            examples:
+              Example post 1:
+                value:
+                  academic_year: '2023/2024'
+                  degree_course_code: '465'
+          application/xml:
+            schema:
+              type: object
+              additionalProperties: false
+              properties: {}
+        description: ''
+      
       operationId: iscritti-per-isee
       description: Restituisce l''elenco di fasce ISEE con il numero di studentesse e di studenti iscritti per fascia. Valorizzando i queryParams opzionali (courseName e academicYear) è possibile filtrare i risultati. Non valorizzandoli il risultato ottenuto si riferirà all''IFS per intero.
-      parameters:
-        - schema:
-            type: string
-            minLength: 1
-            maxLength: 256            
-          in: query
-          name: courseName
-          description: Nome del corso di studi
-        - schema:
-            type: string
-            pattern: '^\d{4}-\d{4}$'
-            minLength: 9
-            maxLength: 9            
-            example: 2022-2023
-          in: query
-          name: academicYear
-          description: 'Anno accademico '
+
   /status:
     get:
       summary: Verifica stato delle API (Health Check)
@@ -212,56 +118,138 @@ components:
         minimum: 0
         type: integer   
   schemas:
-    FasciaISEE:
+    ranges:
       type: object
       additionalProperties: false
       x-examples:
         Example 1:
-          iseeBand: FASCIA 1
-          minValue: 0
-          maxValue: 6000
-          numberInRange: 120
+          isee_min_value: 0
+          isee_max_value: 6000
+          enrollment_count: 120
       properties:
-        iseeBand:
+        isee_min_value:
           type: string
-          description: Nome della Fascia ISEE
-          example: FASCIA 1
+          description: Valore minimo della fascia
+          example: 0
           readOnly: true
           minLength: 1
-          maxLength: 20           
-        minValue:
-          type: integer
-          format: int32
-          description: Valore minimo dell'ISEE per la fascia corrispondente
-          minimum: 0
-          maximum: 1000000000
+          maxLength: 10           
+        isee_max_value:
+          type: string
+          description: Valore massimo della fascia
+          minLength: 1
+          maxLength: 10  
           readOnly: true
-        maxValue:
+        enrollment_count:
           type: integer
           format: int32
-          description: Valore massimo dell''ISEE per la fascia corrispondente. Se la fascia non ha un valore massimo definito, viene impostato su "null"
+          description: Numero di iscritti per fascia
           minimum: 0
           maximum: 1000000000          
           nullable: true
           readOnly: true
-        numberInRange:
-          type: integer
-          format: int32
-          description: Numero di studentesse e di studenti con ISEE compreso nell'intervallo minValue e maxValue
-          minimum: 0
-          maximum: 500000
-          exclusiveMinimum: false
-          readOnly: true
       required:
-        - iseeBand
-        - minValue
-        - maxValue
-        - numberInRange
+        - isee_min_value
+        - isee_max_value
+        - enrollment_count
+    count_academic_enrollments_by_isee_ranges:
+      type: object
+      nullable: true
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/xxx/yyy
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/xxx/
+        programme_type_code: programme_type_code
+        degree_course_code: degree_course_code
+        degree_class_code: degree_class_code
+      x-examples:
+        Example 1:
+          programme_type_code: MS
+          degree_course_code: 469
+          degree_class_code: LM-20
+          academic_year: 2023-2024
+          ranges: 
+            - isee_min_value: 0
+            - isee_max_value: 15000
+            - enrollment_count: 1000
+      description: Iscritti al corso di laurea per fascia ISEE
+      properties:
+        programme_type_code:
+          type: string
+          description: Code of study program / codice del corso di studio
+          example: 'LM'
+          readOnly: true
+          minLength: 1
+          maxLength: 2
+        degree_course_code:
+          type: string
+          description: Course code / Codice del corso
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        degree_class_code:
+          type: string
+          description: Identification code of the degree class / Codice identificativo della classe di laurea
+          example: L-8
+          readOnly: true
+          minLength: 2
+          maxLength: 20
+        academic_year:
+          type: string
+          description: Last academic year in which enrollment in the student's course is recorded / Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente 
+          example: 2022/2023
+          pattern: '^\d{4}/\d{4}$'
+          readOnly: true
+          minLength: 9
+          maxLength: 9
+        ranges:
+          type: array
+          maxItems: 500000
+          minItems: 0
+          description: Elenco di fasce ISEE
+          items:
+            $ref: '#/components/schemas/ranges'
+            
+    isee_enrollment_request:
+      type: object
+      additionalProperties: false      
+      x-examples:
+        Example 1:
+          academic_year : 2023/2024
+          degree_course_code: 456
+      x-stoplight:
+        id: b40e2be27c423
+      description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
+      properties:
+        academic_year:
+          type: string
+          description: Last academic year in which enrollment in the student's course is recorded / Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente 
+          example: 2022/2023
+          pattern: '^\d{4}/\d{4}$'
+          readOnly: true
+          minLength: 9
+          maxLength: 9
+        degree_course_code:
+          type: string
+          description: Course code / Codice del corso
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+      required:
+        - academic_year      
+        - degree_course_code			        
+            
+            
   requestBodies: {}
   responses: {}
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: PASETO 
 servers:
   - url: 'https://localhost:8080/api'
     description: localhost
-tags:
+tags:  
+  - name: count-academic-enrollments-by-isee-ranges
   - name: health-check
-  - name: fasce isee

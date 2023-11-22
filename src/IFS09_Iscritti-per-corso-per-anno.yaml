@@ -2,11 +2,11 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: IFS09 - Iscritti a un corso per anno
-  x-summary: Acquisisce il numero di studentesse e studenti iscritti a uno specifico corso per anno accademico
+  title: IFS08 - Iscritti per fasce ISEE
+  x-summary: Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accademico
   version: 1.0.0
   description: |
-    Ottiene il numero di studentesse e di studenti iscritti ad un IFS.
+    Questa API consente di ottenere il numero di studentesse e di studenti iscritti suddivisi per fasce ISEE.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -16,53 +16,47 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
-  /count-accademic-enrollments:
+  /stats/iscritti-per-isee:
     post:
-      summary: numero di iscritti per corso
+      summary: Iscritti per fasce ISEE
       tags:
-        - iscritti
-      security: 
-        - bearerAuth: []
+        - count-academic-enrollments-by-isee-ranges
+      security:
+       - bearerAuth: []
       responses:
         '200':
-          description: Request successfully executed / Richiesta eseguita con successo
+          description: Richiesta eseguita con successo
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/count_academic_enrollments_by_degree_courses'
+                $ref: '#/components/schemas/count_academic_enrollments_by_isee_ranges'
               examples:
                 Example statuscode=200:
                   value:
-                    count_academic_enrollments_by_degree_courses:                  
-                      - programme_type_code: MS
-                        degree_course_code: 469
-                        degree_class_code: LM-11
-                        enrollment_count: 15000
-                      - programme_type_code: MS
-                        degree_course_code: 355
-                        degree_class_code: LM-7
-                        enrollment_count: 10000  
-
-        '400':
-          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
-        '404':
-          description: No enrollments were found for the student at this institution / Non sono state trovate iscrizioni per la studentessa o lo studente in questo istituto
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/count_academic_enrollments_by_degree_courses'
-              examples:
-                Example statuscode=404:
-                  value:
-                    count_academic_enrollments_by_degree_courses: []
-
+                    programme_type_code: MS
+                    degree_course_code: '469'
+                    degree_class_code: LM-20
+                    academic_year: 2023/2024
+                    ranges:
+                      - isee_min_value: 1
+                        isee_max_value: 5000               
+                        enrollment_count: 1000
+                      - isee_min_value: 5001
+                        isee_max_value: 10000               
+                        enrollment_count: 500
+                      - isee_min_value: 10001
+                        isee_max_value: 15000               
+                        enrollment_count: 500
+                      
+             
         '500':
-          description: Internal server error / Errore interno del server 
+          description: Errore interno del server
+      
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/count_enrollment_request'
+              $ref: '#/components/schemas/isee_enrollment_request'
             examples:
               Example post 1:
                 value:
@@ -74,8 +68,9 @@ paths:
               additionalProperties: false
               properties: {}
         description: ''
+      
       operationId: iscritti-per-isee
-      description: 'Restituisce il numero di studentesse e di studenti iscritti. Valorizzando i queryParams opzionali (courseName e academicYear) è possibile filtrare i risultati. Non valorizzandoli il risultato ottenuto si riferirà all''IFS per intero.'
+      description: Restituisce l''elenco di fasce ISEE con il numero di studentesse e di studenti iscritti per fascia. Valorizzando i queryParams opzionali (courseName e academicYear) è possibile filtrare i risultati. Non valorizzandoli il risultato ottenuto si riferirà all''IFS per intero.
 
   /status:
     get:
@@ -84,7 +79,7 @@ paths:
       description: Verificare lo stato di salute del sistema
       tags:
         - health-check
-      security: [{}]       
+      security: [{}]
       responses:
         '204':
           description: il servizio è in esecuzione correttamente.
@@ -121,51 +116,63 @@ components:
         format: int32
         maximum: 186400
         minimum: 0
-        type: integer  
+        type: integer   
   schemas:
-    count_academic_enrollments_by_degree_courses:
-      additionalProperties: false
+    ranges:
       type: object
+      additionalProperties: false
       x-examples:
         Example 1:
-          count_academic_enrollments_by_degree_courses:
-            - programme_type_code: MS
-              degree_course_code: 469
-              degree_class_code: LM-20
-              enrollment_count: 12000
-            - programme_type_code: L2
-              degree_course_code: 355
-              degree_class_code: LM-11
-              enrollment_count: 15000               
-      description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
-      x-stoplight:
-        id: 22de4be4ac251
-      properties:       
-        count_academinc_enrollment:
-          type: array
-          maxItems: 256
-          minItems: 0
-          description: count academic student enrollments / numero iscrizioni per corso
-          items:
-            $ref: '#/components/schemas/count_academinc_enrollment'
+          isee_min_value: 0
+          isee_max_value: 6000
+          enrollment_count: 120
+      properties:
+        isee_min_value:
+          type: string
+          description: Valore minimo della fascia
+          example: '1000'
+          readOnly: true
+          minLength: 1
+          maxLength: 10           
+        isee_max_value:
+          type: string
+          description: Valore massimo della fascia
+          minLength: 1
+          maxLength: 10  
+          readOnly: true
+        enrollment_count:
+          type: integer
+          format: int32
+          description: Numero di iscritti per fascia
+          minimum: 0
+          maximum: 1000000000          
+          nullable: true
+          readOnly: true
       required:
-        - programme_type_code
-        - degree_course_code
-        - degree_class_code
+        - isee_min_value
+        - isee_max_value
         - enrollment_count
-
-
-
-    count_academinc_enrollment:
+    count_academic_enrollments_by_isee_ranges:
       type: object
+      nullable: true
       additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/xxx/yyy
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/xxx/
+        programme_type_code: programme_type_code
+        degree_course_code: degree_course_code
+        degree_class_code: degree_class_code
       x-examples:
         Example 1:
           programme_type_code: MS
           degree_course_code: 469
           degree_class_code: LM-20
-          enrollment_count: 15000
-      description: Detailed examination information / Informazioni dettagliate sul corso
+          academic_year: 2023-2024
+          ranges: 
+            - isee_min_value: 0
+            - isee_max_value: 15000
+            - enrollment_count: 1000
+      description: Iscritti al corso di laurea per fascia ISEE
       properties:
         programme_type_code:
           type: string
@@ -187,21 +194,28 @@ components:
           readOnly: true
           minLength: 2
           maxLength: 20
-        enrollment_count:
-          type: integer
-          format: int32
-          description: number of enrollment/numero di iscritti
-          example: 30000
+        academic_year:
+          type: string
+          description: Last academic year in which enrollment in the student's course is recorded / Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente 
+          example: 2022/2023
+          pattern: '^\d{4}/\d{4}$'
           readOnly: true
-          minimum: 1
-          maximum: 9999999
-
-    count_enrollment_request:
+          minLength: 9
+          maxLength: 9
+        ranges:
+          type: array
+          maxItems: 500000
+          minItems: 0
+          description: Elenco di fasce ISEE
+          items:
+            $ref: '#/components/schemas/ranges'
+            
+    isee_enrollment_request:
       type: object
       additionalProperties: false      
       x-examples:
         Example 1:
-          academic_year : 20
+          academic_year : 2023/2024
           degree_course_code: 456
       x-stoplight:
         id: b40e2be27c423
@@ -223,8 +237,9 @@ components:
           maxLength: 20
       required:
         - academic_year      
-        - degree_course_code			
-
+        - degree_course_code			        
+            
+            
   requestBodies: {}
   responses: {}
   securitySchemes:
@@ -235,6 +250,6 @@ components:
 servers:
   - url: 'https://localhost:8080/api'
     description: localhost
-tags:
-  - name: iscritti
+tags:  
+  - name: count-academic-enrollments-by-isee-ranges
   - name: health-check
