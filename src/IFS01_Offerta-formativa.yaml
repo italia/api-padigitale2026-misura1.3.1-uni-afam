@@ -2,11 +2,11 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: IFS01 - Offerta formativa 
-  x-summary: Offerta formativa di un'Università/AFAM pubblica
+  title: IFS01 - Educational offer / Offerta formativa 
+  x-summary: Acquire data on the courses active and offered by an institute in a given academic year. / Vuole acquisire i dati dei corsi attivi ed offerti da un Istituto in un dato anno accademico.
   version: 1.0.0
   description: |
-    Ottiene l'elenco dei corsi erogati da un'università o AFAM pubblica. I dati restituiti includono informazioni sui singoli corsi offerti.
+    Obtains the list of courses provided by a public university or AFAM. The data returned includes information on the individual courses offered. / Ottiene l'elenco dei corsi erogati da un'università o AFAM pubblica. I dati restituiti includono informazioni sui singoli corsi offerti.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -16,12 +16,11 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 paths:
-#IFS01.2
-  '/it/course-details': 
+  '/educational-offering-degree-course-list': 
     post:
-      summary: Requires the detail of a course. / Richiede il dettaglio di un corso.
+      summary: Request the list of active courses offered by the Institute in an academic year. / Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico.
       tags:
-        - course-details
+        - educational-offering-degree-course-list
       security: 
         - bearerAuth: []
       responses:
@@ -30,7 +29,74 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/course-details'
+                $ref: '#/components/schemas/course_list'
+              examples:
+                Example statuscode=200:
+                  value:
+                    degree_courses:
+                      - programme_type_code: C6
+                        programme_access: Libero
+                        course_location: Milano Bovisa
+                        course_area: Ingegneria industriale
+                        degree_class_code: L-9
+                        degree_class_language: IT
+                        degree_class_period_years: 3
+                        degree_course_code: '353'
+                        total_credits: 180
+                        academic_year: 2023/2024
+                      - programme_type_code: MS
+                        programme_access: Libero
+                        course_location: Milano, Settimo Milanese
+                        course_area: Ingegneria
+                        degree_class_code: LM-20
+                        degree_class_language: EN
+                        degree_class_period_years: 2
+                        degree_course_code: '469'
+                        total_credits: 120
+                        academic_year: 2023/2024
+                    meta:
+                      cursor: '6eyJpZCI6M57'
+        '400':
+          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+        '404':
+          description: No enrollments were found at this institution / Non sono state trovate iscrizioni in questo istituto
+        '500':
+          description: Internal server error / Errore interno del server 
+      
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/course_list_request'
+            examples:
+              Example post 1:
+                value:
+                  academic_year: 2023/2024
+                  cursor: 
+          application/xml:
+            schema:
+              type: object
+              additionalProperties: false
+              properties: {}
+        description: ''
+      
+      operationId: educational-offering-degree-course-list
+      description: Request the list of active courses offered by the Institute in an academic year. / Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico.
+      parameters: []
+  '/educational-offering-degree-course-detail': 
+    post:
+      summary: Requires the detail of a course. / Richiede il dettaglio di un corso.
+      tags:
+        - educational-offering-degree-course-detail
+      security: 
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Request successfully executed / Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/course_details'
               examples:
                 Example statuscode=200:
                   value:
@@ -143,8 +209,8 @@ paths:
               properties: {}
         description: ''
       
-      operationId: Enrollments-of-student
-      description: Returning the information reduced to a 'hash (SHA256)' for each student in the form (key, value), where the key is the hash of the student's social security number and the value is the hash of the student's enrolment. / Restituisce le informazioni ridotte in "hash (SHA256)" per ogni studente/studentessa nella forma (chiave, valore), dove la chiave è l'hash del codice fiscale dello studente e il valore è l'hash delle sue iscrizioni.
+      operationId: educational-offering-degree-course-detail
+      description: Requires the detail of a course. / Richiede il dettaglio di un corso.
       parameters: []
   /status:
     get:
@@ -192,7 +258,152 @@ components:
         minimum: 0
         type: integer
   schemas:
-    course-details:
+    course_list:
+      nullable: true
+      type: object
+      additionalProperties: false
+      x-examples:
+        Example 1:
+          degree_courses:
+            - programme_type_code: C6
+              programme_access: Libero
+              course_location: Milano Bovisa
+              course_area: Ingegneria industriale
+              degree_class_code: L-9
+              degree_class_language: IT
+              degree_class_period_years: 3
+              degree_course_code: '353'
+              total_credits: 180
+              academic_year: 2023/2024
+            - programme_type_code: MS
+              programme_access: Libero
+              course_location: Milano, Settimo Milanese
+              course_area: Ingegneria
+              degree_class_code: LM-20
+              degree_class_language: EN
+              degree_class_period_years: 2
+              degree_course_code: '469'
+              total_credits: 120
+              academic_year: 2023/2024
+          meta:
+            cursor: '6eyJpZCI6M57'
+      description: List of active courses offered by the Institute in an academic year. / Lista dei corsi attivi offerti dall'Istituto in un anno accademico.
+      properties:
+        degree_courses:
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of active courses offered by the Institute in an academic year. / Lista dei corsi attivi offerti dall'Istituto in un anno accademico.
+          items:
+            $ref: '#/components/schemas/degree_courses'
+        meta:
+            $ref: '#/components/schemas/meta'
+    degree_courses:
+      type: object
+      additionalProperties: false
+      x-examples:
+        Example 1:
+          programme_type_code: C6
+          programme_access: Libero
+          course_location: Milano Bovisa
+          course_area: Ingegneria industriale
+          degree_class_code: L-9
+          degree_class_language: IT
+          degree_class_period_years: 3
+          degree_course_code: '353'
+          total_credits: 180
+          academic_year: 2023/2024
+      description: Detailed course information / Informazioni dettagliate sul corso
+      properties:
+        programme_type_code:
+          type: string
+          description: Code of study program / codice del corso di studio
+          example: 'LM'
+          readOnly: true
+          minLength: 1
+          maxLength: 2
+        programme_access:
+          type: string
+          description: Access to the course / Accesso al corso
+          example: Libero
+          readOnly: true
+          minLength: 1
+          maxLength: 99
+        course_location:
+          type: string
+          description: Course location / Sede del corso
+          example: Milano Bovisa
+          readOnly: true
+          minLength: 1
+          maxLength: 99
+        course_area:
+          type: string
+          description: Course area / Area del corso
+          example: Ingegneria industriale
+          readOnly: true
+          minLength: 1
+          maxLength: 99
+        degree_class_code:
+          type: string
+          description: Identification code of the degree class / Codice identificativo della classe di laurea
+          example: L-8
+          readOnly: true
+          minLength: 2
+          maxLength: 20
+        degree_class_language:
+          type: string
+          description: Language of the degree class / Lingua della classe di laurea
+          example: IT
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        degree_class_period_years:
+          type: integer
+          format: int32
+          description: Degree course duration in years / Durata corso di laurea in anni
+          example: 3
+          readOnly: true
+          minimum: 1
+          maximum: 99
+        degree_course_code:
+          type: string
+          description: Course code / Codice del corso
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        total_credits:
+          type: integer
+          format: int32
+          description: Total credits degree course / Totale crediti corso di laurea
+          example: 180
+          readOnly: true
+          minimum: 1
+          maximum: 999
+        academic_year:
+          type: string
+          description: Academic year / Anno accademico
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+    meta:
+      nullable: true
+      type: object
+      additionalProperties: false
+      x-examples:
+        Example 1:
+          cursor: 'o2j4230jd4043'
+      description: Informazioni del cursore
+      properties:
+        cursor:
+          type: string
+          description: Cursor / Cursore
+          example: 'fowfio543s'
+          readOnly: true
+          minLength: 1
+          maxLength: 100
+      required:
+        - cursor
+    course_details:
       additionalProperties: false
       type: object
       x-examples:
@@ -478,11 +689,37 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 256
-
-
+    course_list_request:
+      type: object
+      additionalProperties: false
+      x-examples:
+        Example 1:
+          academic_year: 2023/2024
+          cursor: ""
+      x-stoplight:
+        id: b40e2be27c423
+      description: Request the list of active courses offered by the Institute in an academic year. / Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico.
+      properties:
+        academic_year:
+          type: string
+          description: Academic year / Anno accademico
+          example: 2023/2024
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        cursor:
+          type: string
+          description: Cursor / Cursore
+          example: 'fowfio543s'
+          nullable: true
+          readOnly: true
+          minLength: 1
+          maxLength: 100
+      required:
+        - academic_year
     course_detail_request:
       type: object
-      additionalProperties: false      
+      additionalProperties: false
       x-examples:
         Example 1:
           degree_class_code : LM-20
@@ -505,8 +742,8 @@ components:
           minLength: 1
           maxLength: 20
       required:
-        - degree_class_code      
-        - degree_course_code		
+        - degree_class_code
+        - degree_course_code
   requestBodies: {}
   responses: {}
   securitySchemes:
@@ -518,5 +755,6 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: course-details
+  - name: educational-offering-degree-course-detail
+  - name: educational-offering-degree-course-list
   - name: health-check
