@@ -232,6 +232,101 @@ paths:
               properties: {}
         description: 'Request di esempio'
       parameters: []
+
+  '/proof-education-qualifications-diploma-supplement':
+
+    post:
+      summary: Requires the list of qualifiiiccations taken by the student in SDG format / Richiede la lista delle qualifiche in possesso dallo studente in formato SDG
+      tags:
+        - proof-education-qualifications-diploma-supplement
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Request successfully executed / Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proof_education_qualifications_level'
+              examples:
+                Example statuscode=200:
+                  value:
+                    personal_data:
+                      tax_code: RSSMRA80A01F205D
+                      person_id: AB123456C
+                      given_name: Mario
+                      family_name: Rossi
+                    proof_qualifications_diploma_supplement:
+                      ects_credits_received: 180
+                      institute_name: Cagliari - Università degli Studi
+                      institute_code: 04
+                      programme_type_code: MS
+                      programme_type_name: Laurea Magistrale (DM 270/04)
+                      degree_course_code: 455
+                      degree_course_name: Ingegneria informatica
+                      degree_class_code: LM-32
+                      degree_class_name: Ingegneria informatica
+                      degree_course_duration_in_years_or_months: 3 anni a tempo pieno
+                      qualification_grade_value: 100
+                      qualification_grading_scale: 110
+                      qualification_grading_scale_minimum_grade: 66
+                      qualification_grading_scale_maximum_grade: 110
+                      qualification_date: 2022-07-01
+                      access_to_regulated_profession: Non applicabile
+                      administering_institute_name: Cagliari - Università degli studi
+                      administering_institute_status: xx
+                      qualification_institute_name: Cagliari - Università degli studi
+                      qualification_institute_status: xx
+                      eqf_level: 6° livello
+                      nqf_level: I ciclo QF-XXX
+                      attended_learnings:
+                        - learning_grade_value: 30/30
+                          learning_name: Esame 1
+                          learning_start_date: '2018-12-01'
+                          learning_end_date: '2019-03-01'
+                        - learning_grade_value: 22/30
+                          learning_name: Esame 2
+                          learning_start_date: '2018-06-01'
+                          learning_end_date: '2018-10-01'
+                        - learning_grade_value: Idoneo
+                          learning_name: Esame 3
+                          learning_start_date: '2018-07-01'
+                          learning_end_date: '2019-07-01'
+                      
+        '400':
+          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+        '404':
+          description: No qualification were found for the student. / Non sono stati trovati titoli per la studentessa o lo studente.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/proof_education_qualifications_diploma_supplement'
+              examples:
+                Example statuscode=404:
+                  value:
+                    personal_data: null
+                    proof_qualifications_diploma_supplement: null
+        '500':
+          description: Internal server error / Errore interno del server 
+      description:  Returns the list of simplified supplment diplomas in SDG format / Restituisce la lista dei diplomi supplment semplificati in formato SDG
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/diploma_supplement_request'
+            examples:
+              Example post 1:
+                value:
+                  tax_code: RSSMRA80A01F205D
+                  person_id: AB123456C
+          application/xml:
+            schema:
+              type: object
+              additionalProperties: false
+              properties: {}
+        description: 'Request di esempio'
+      parameters: []
+
   /status:
     get:
       summary: Verifica stato delle API (Health Check)
@@ -600,6 +695,63 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 2048
+    proof_education_qualifications_diploma_supplement:
+      additionalProperties: false
+      type: object
+      x-examples:
+        Example 1:
+          personal_data:
+            tax_code: RSSMRA80A01F205D
+            person_id: AB123456C
+            given_name: Mario
+            family_name: Rossi
+          proof_qualifications_diploma_supplement:
+            ects_credits_received: 180
+            institute_name: Cagliari - Università degli Studi
+            institute_code: 04
+            programme_type_code: MS
+            programme_type_name: Laurea Magistrale (DM 270/04)
+            degree_course_code: 455
+            degree_course_name: Ingegneria informatica
+            degree_class_code: LM-32
+            degree_class_name: Ingegneria informatica
+            degree_course_duration_in_years_or_months: 3 anni a tempo pieno
+            qualification_grade_value: 100
+            qualification_grading_scale: 110
+            qualification_grading_scale_minimum_grade: 66
+            qualification_grading_scale_maximum_grade: 110
+            qualification_date: 2022-07-01
+            access_to_regulated_profession: Non applicabile
+            administering_institute_name: Cagliari - Università degli studi
+            administering_institute_status: xx
+            qualification_institute_name: Cagliari - Università degli studi
+            qualification_institute_status: xx
+            eqf_level: 6° livello
+            nqf_level: I ciclo QF-XXX
+            attended_learnings:
+              - learning_grade_value: 30/30
+                learning_name: Esame 1
+                learning_start_date: 2018-12-01
+                learning_end_date: 2019-03-01
+              - learning_grade_value: 22/30
+                learning_name: Esame 2
+                learning_start_date: 2018-06-01
+                learning_end_date: 2018-10-01
+              - learning_grade_value: Idoneo
+                learning_name: Esame 3
+                learning_start_date: 2018-07-01
+                learning_end_date: 2019-07-01
+      description: Returns the list of simplified supplment diplomas in SDG format / Restituisce la lista dei diplomi supplment semplificati in formato SDG
+      x-stoplight:
+        id: 22de4be4ac251
+      properties:
+        personal_data:
+          $ref: '#/components/schemas/personal_data'
+        proof_qualifications_diploma_supplement:
+          $ref: '#/components/schemas/proof_qualifications_diploma_supplement'
+      required:
+        - personal_data
+        - proof_qualifications_diploma_supplement
     proof_education_qualifications_level:
       additionalProperties: false
       type: object
@@ -636,6 +788,217 @@ components:
       required:
         - personal_data
         - proof_qualifications_level
+    proof_qualifications_diploma_supplement:
+      type: object
+      nullable: true
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/xxx/yyy
+      x-jsonld-context:
+        '@vocab': http://w3id.org/italia/onto/xxx/
+        qualification_name: qualification_name
+        institute_code: institute_code
+        institute_name: institute_name
+      x-examples:
+        Example 1:
+          ects_credits_received: 180
+          institute_name: Cagliari - Università degli Studi
+          institute_code: 04
+          programme_type_code: MS
+          programme_type_name: Laurea Magistrale (DM 270/04)
+          degree_course_code: 455
+          degree_course_name: Ingegneria informatica
+          degree_class_code: LM-32
+          degree_class_name: Ingegneria informatica
+          degree_course_duration_in_years_or_months: 3 anni a tempo pieno
+          qualification_grade_value: 100
+          qualification_grading_scale: 110
+          qualification_grading_scale_minimum_grade: 66
+          qualification_grading_scale_maximum_grade: 110
+          qualification_date: 2022-07-01
+          access_to_regulated_profession: Non applicabile
+          administering_institute_name: Cagliari - Università degli studi
+          administering_institute_status: xx
+          qualification_institute_name: Cagliari - Università degli studi
+          qualification_institute_status: xx
+          eqf_level: 6° livello
+          nqf_level: I ciclo QF-XXX
+          attended_learnings:
+            - learning_grade_value: 30/30
+              learning_name: Esame 1
+              learning_start_date: 2018-12-01
+              learning_end_date: 2019-03-01
+            - learning_grade_value: 22/30
+              learning_name: Esame 2
+              learning_start_date: 2018-06-01
+              learning_end_date: 2018-10-01
+            - learning_grade_value: Idoneo
+              learning_name: Esame 3
+              learning_start_date: 2018-07-01
+              learning_end_date: 2019-07-01
+      description: Simplified supplment diplomas in SDG format / Diplomi supplment semplificati in formato SDG
+      properties:
+        ects_credits_received:
+          format: int32
+          description: Credits recieved / Crediti ricevuti
+          example: 180
+          readOnly: true
+          maximum: 999
+          minimum: 1
+        institute_name: 
+          type: string
+          description: Institute name / Nome dell'istituto
+          example: 'Cagliari - Università degli Studi'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        institute_code:
+          type: string
+          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          example: '04'
+          readOnly: true
+          minLength: 2
+          maxLength: 2
+        programme_type_code:
+          type: string
+          description: Code of study program / codice del corso di studio
+          example: 'MS'
+          readOnly: true
+          minLength: 1
+          maxLength: 2
+        programme_type_name:
+          type: string
+          description: Type of course of study / Tipo di corso di studio
+          example: 'Laurea Magistrale (DM 270/04)'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        degree_course_code:
+          type: string
+          description: Course Code / Codice del corso
+          example: '455'
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        degree_course_name:
+          type: string
+          description: Course name / Denominazione corso
+          example: 'Ingegneria informatica'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        degree_class_code:
+          type: string
+          description: Identification code of the degree class / Codice identificativo della classe di laurea
+          example: LM-32
+          readOnly: true
+          minLength: 2
+          maxLength: 20
+        degree_class_name:
+          type: string
+          description: Name of the degree class / Denominazione della classe di laurea 
+          example: 'Ingegneria informatica'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        degree_course_duration_in_years_or_months:
+          type: string
+          description: Duration of ccourse / Durata del corso
+          example: '3 anni a tempo pieno'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        qualification_grade_value:
+          type: string
+          description: Grade / voto
+          example: '100'
+          readOnly: true
+          minLength: 1
+          maxLength: 32
+        qualification_grading_scale:
+          type: string
+          description: Rating scale / Scala di valutazione
+          example: '110'
+          readOnly: true
+          minLength: 1
+          maxLength: 32
+        qualification_grading_scale_minimum_grade:
+          type: string
+          description: Rating scale minimum / Scala di valutazione minima
+          example: '66'
+          readOnly: true
+          minLength: 1
+          maxLength: 32
+        qualification_grading_scale_maximum_grade:
+          type: string
+          description: Rating scale maximum / Scala di valutazione massima
+          example: '110'
+          readOnly: true
+          minLength: 1
+          maxLength: 32
+        qualification_date:
+          type: string
+          format: date
+          description: Date of completion of studies / Data completamento studi
+          example: 2022-07-01
+          readOnly: true
+          minLength: 10
+          maxLength: 10
+        access_to_regulated_profession:
+          type: string
+          description: Rating scale maximum / Scala di valutazione massima
+          example: 'Non applicabile'
+          readOnly: true
+          minLength: 1
+          maxLength: 32
+        administering_institute_name:
+          type: string
+          description: Administering institute name / Nome dell'Istituto Amministratrice
+          example: 'Cagliari - Università degli studi'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        administering_institute_status:
+          type: string
+          description: Administering institute status / Stato dell'Istituto Amministratrice
+          example: 'xx'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        qualification_institute_name:
+          type: string
+          description: Qualiification institute name / Nome dell'Istituto di qualificazione
+          example: 'Cagliari - Università degli studi'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        qualification_institute_status:
+          type: string
+          description: Qualiification institute status / Stato dell'Istituto di qualificazione
+          example: 'xx'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        eqf_level:
+          type: string
+          description: EQF level / Livello EQF
+          example: '6° livello'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        nqf_level:
+          type: string
+          description: NQF level / Livello NQF
+          example: 'I ciclo QF-XXX'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        attended_learnings:
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of attended learnings / Elenco corsi frequentati
+          items:
+            $ref: '#/components/schemas/attended_learnings'
     proof_qualifications_level:
       type: object
       nullable: true
@@ -742,6 +1105,51 @@ components:
           description: List of courses in ECTS / Elenco corsi in ECTS
           items:
             $ref: '#/components/schemas/ects_courses'
+    attended_learnings:
+      type: object
+      additionalProperties: false
+      x-examples:
+        Example 1:
+          learning_grade_value: 30/30
+          learning_name: Esame 1
+          learning_start_date: 2018-12-01
+          learning_end_date: 2019-03-01
+        Example 2:
+          learning_grade_value: Idoneo
+          learning_name: Esame 3
+          learning_start_date: 2018-07-01
+          learning_end_date: 2019-07-01
+      description: Detailed information on completed courses / Informazioni dettagliate sui corsi completati
+      properties:
+        learning_grade_value:
+          type: string
+          description: Exam vote / Voto d'esame
+          example: '30/30, Idoneo'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        learning_name:
+          type: string
+          description: Exam name / Nome d'esame
+          example: 'Esame 1, Esame 2'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        learning_start_date:          
+          type: string
+          description: Course start date / Data inizio corso
+          example: 2018-12-01
+          readOnly: true
+          minLength: 10
+          maxLength: 10
+        learning_end_date:          
+          type: string
+          format: date
+          description: Course end date / Data fine corso
+          example: 2019-03-01
+          readOnly: true
+          minLength: 10
+          maxLength: 10
     ects_courses:
       type: object
       additionalProperties: false
@@ -903,6 +1311,37 @@ components:
       required:
         - tax_code      
         - institute_code
+    diploma_supplement_request:
+      type: object
+      additionalProperties: false      
+      x-examples:
+        Example 1:
+          tax_code: RSSMRA80A01F205D
+          person_id: 12345678A
+          key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
+          institute_code: AA
+      x-stoplight:
+        id: b40e2be27c423
+      description: Request qualifications of a student's  / Richiesta titoli di una studentessa o uno studente
+      properties:
+        tax_code:
+          type: string
+          description: Tax Identification Number / Codice fiscale
+          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          example: RSSMRA80A01F205D
+          minLength: 16
+          maxLength: 16
+          readOnly: false
+        person_id:
+          type: string
+          description: person_id
+          example: AA1
+          minLength: 1
+          maxLength: 256
+          readOnly: false  
+      required:
+        - tax_code      
+        - person_id
   requestBodies: {}
   responses: {}
   securitySchemes:
@@ -917,4 +1356,5 @@ tags:
   - name: academic-qualifications
   - name: proof-education-qualifications
   - name: proof-education-qualifications-level
+  - name: proof-education-qualifications-diploma-supplement
   - name: health-check
