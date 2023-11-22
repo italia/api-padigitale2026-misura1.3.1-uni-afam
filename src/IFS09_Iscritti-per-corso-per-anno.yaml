@@ -33,7 +33,7 @@ paths:
               examples:
                 Example statuscode=200:
                   value:
-                    count_academinc_enrollment:                  
+                    count_academic_enrollment:
                       - programme_type_code: MS
                         degree_course_code: '469'
                         degree_class_code: LM-11
@@ -53,7 +53,7 @@ paths:
               examples:
                 Example statuscode=404:
                   value:
-                    count_academinc_enrollment: []
+                    count_academic_enrollment: []
 
         '500':
           description: Internal server error / Errore interno del server 
@@ -127,7 +127,7 @@ components:
       type: object
       x-examples:
         Example 1:
-          count_academinc_enrollment:
+          count_academic_enrollment:
             - programme_type_code: MS
               degree_course_code: 469
               degree_class_code: LM-20
@@ -140,17 +140,17 @@ components:
       x-stoplight:
         id: 22de4be4ac251
       properties:       
-        count_academinc_enrollment:
+        count_academic_enrollment:
           type: array
           maxItems: 256
           minItems: 0
           description: count academic student enrollments / numero iscrizioni per corso
           items:
-            $ref: '#/components/schemas/count_academinc_enrollment'
+            $ref: '#/components/schemas/count_academic_enrollment'
 
 
 
-    count_academinc_enrollment:
+    count_academic_enrollment:
       type: object
       additionalProperties: false
       x-examples:
