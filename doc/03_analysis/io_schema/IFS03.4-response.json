@@ -1,13 +1,12 @@
 /* Working in progress*/
 {
-    "proof_education_qualifications_diploma_supplement":{
        "personal_data":{
           "tax_code":"RSSMRA80A01F205D",
           "person_id":"AB123456C",
           "given_name":"Mario",
           "family_name":"Rossi"
        },
-       "proof_qualifications_level_diploma_supplement":[
+       "proof_qualifications_diploma_supplement":[
           {
              "ects_credits_received":180,
              "institute_name":"Cagliari - Università degli studi",
@@ -26,26 +25,26 @@
              "qualification_date":"2022-07-01",
              "access_to_regulated_profession":"Non applicabile",
              "administering_institute_name":"Cagliari - Università degli studi",
-             "administering_institute_status":"Università statale",
+             "administering_institute_status":"xx",
              "qualification_institute_name":"Cagliari - Università degli studi",
-             "qualification_institute_status":"Università statale",
+             "qualification_institute_status":"xx",
              "eqf_level":"6° livello",
              "nqf_level":"I ciclo QF-XXX",
-             "attended_learning":[
+             "attended_learnings":[
                 {
-                   "learning_grade_value ":30,
+                   "learning_grade_value ":"30/30",
                    "learning_name":"Esame 1",
                    "learning_start_date":"2018-12-01",
                    "learning_end_date  ":"2019-03-01"
                 },
                 {
-                   "learning_grade_value ":22,
+                   "learning_grade_value ":"22/30",
                    "learning_name":"Esame 2",
                    "learning_start_date":"2018-06-01",
                    "learning_end_date  ":"2018-10-01"
                 },
                 {
-                   "learning_grade_value ":28,
+                   "learning_grade_value ":"Idoneo",
                    "learning_name":"Esame 3",
                    "learning_start_date":"2018-07-01",
                    "learning_end_date  ":"2019-07-01"
@@ -53,5 +52,5 @@
              ]
           }
        ]
-    }
+
  }

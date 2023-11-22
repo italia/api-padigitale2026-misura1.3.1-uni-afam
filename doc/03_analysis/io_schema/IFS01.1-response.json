@@ -1,7 +1,7 @@
 /*working in progress*/
 
 {
-    "courses": [
+    "degree_courses": [
         {
             "programme_type_code":"L2",
             "programme_access":"Libero",
