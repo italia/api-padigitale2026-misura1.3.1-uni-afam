@@ -7,7 +7,12 @@
          //"degree_course_name":"Ingegneria aerospaziale e astronautica",
          "degree_class_code":"LM-20",
          "academic_year": "2023-2024",
+         /** da definire delle fasce costanti per tutti gli istituti */
          "ranges":[
+            {
+               /*isee non definito */
+               "enrollment_count":278
+            }
             {          
                "isee_min_value":"0",
                "isee_max_value":"5000",               
