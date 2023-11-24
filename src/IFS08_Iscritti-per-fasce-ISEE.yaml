@@ -37,15 +37,19 @@ paths:
                     degree_course_code: '469'
                     degree_class_code: LM-20
                     academic_year: 2023/2024
+                    tot_enrollment_count: 3000
                     ranges:
-                      - isee_min_value: '1'
-                        isee_max_value: '5000'               
+                      - isee_min_value: null
+                        isee_max_value: null              
                         enrollment_count: 1000
-                      - isee_min_value: '5001'
-                        isee_max_value: '10000'               
+                      - isee_min_value: 1
+                        isee_max_value: 5000              
+                        enrollment_count: 1000
+                      - isee_min_value: 5001
+                        isee_max_value: 10000             
                         enrollment_count: 500
-                      - isee_min_value: '10001'
-                        isee_max_value: '15000'               
+                      - isee_min_value: 10001
+                        isee_max_value: 15000               
                         enrollment_count: 500
                       
              
@@ -123,22 +127,26 @@ components:
       additionalProperties: false
       x-examples:
         Example 1:
-          isee_min_value: '1000'
-          isee_max_value: '6000'
+          isee_min_value: 1000
+          isee_max_value: 6000
           enrollment_count: 120
       properties:
         isee_min_value:
-          type: string
+          type: integer
           description: Valore minimo della fascia
+          format: Int32
           readOnly: true
-          minLength: 1
-          maxLength: 10           
+          minimum: 0
+          maximum: 9999999    
+          nullable: true       
         isee_max_value:
-          type: string
+          type: integer
+          format: Int32
           description: Valore massimo della fascia
-          minLength: 1
-          maxLength: 10  
+          minimum: 0
+          maximum: 9999999  
           readOnly: true
+          nullable: true
         enrollment_count:
           type: integer
           format: int32
@@ -146,7 +154,7 @@ components:
           minimum: 0
           maximum: 1000000000          
           nullable: true
-          readOnly: true
+          readOnly: true          
       required:
         - isee_min_value
         - isee_max_value
@@ -167,6 +175,7 @@ components:
           degree_course_code: 469
           degree_class_code: LM-20
           academic_year: 2023-2024
+          tot_enrollment_count: 1000
           ranges: 
             - isee_min_value: '1000'
             - isee_max_value: '15000'
@@ -201,6 +210,14 @@ components:
           readOnly: true
           minLength: 9
           maxLength: 9
+        tot_enrollment_count:
+          type: integer
+          format: int32
+          description: Numero di iscritti totali
+          minimum: 0
+          maximum: 1000000000          
+          nullable: true
+          readOnly: true     
         ranges:
           type: array
           maxItems: 500000

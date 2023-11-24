@@ -7,27 +7,29 @@
          //"degree_course_name":"Ingegneria aerospaziale e astronautica",
          "degree_class_code":"LM-20",
          "academic_year": "2023-2024",
-         "tot_enrollment_count": "xxx"
+         "tot_enrollment_count": 2800,
          /** Da definire delle fasce costanti per tutti gli istituti per esempio attraverso una circolare del MUR */
          "ranges":[
             {
-               /*isee non definito */
-               "enrollment_count":278
+               /*caso isee non definito */
+               "isee_min_value": null,
+               "isee_max_value": null,
+               "enrollment_count":300
             }
             {          
-               "isee_min_value":"0",
-               "isee_max_value":"5000",               
+               "isee_min_value":0,
+               "isee_max_value":5000,               
                "enrollment_count":1000
             },
             {              
-               "isee_min_value":"5001",
-               "isee_max_value":"10000",    
+               "isee_min_value":5001,
+               "isee_max_value":10000,    
                "enrollment_count":500
             },
             {             
-               "isee_min_value":"10001",
-               "isee_max_value":"15000",    
-               "enrollment_count":800
+               "isee_min_value":10001,
+               "isee_max_value":15000,    
+               "enrollment_count":1000
             }      
          ]
       },

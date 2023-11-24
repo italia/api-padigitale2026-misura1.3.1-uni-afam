@@ -1,6 +1,6 @@
 /* Working in progress
 /*Request-> academicyear + degree_course_code*/
-/* To add the splitting by female and male */
+/* To add the splitting by female and male (DONE)*/
 {
    "count_academic_enrollments_by_degree_courses":
       [
@@ -8,20 +8,25 @@
             "programme_type_code":"MS",
             "degree_course_code":"469",
             "degree_class_code":"LM-20",
-            "enrollment_count": 15000
+            "female_enrollment_count": 15000,
+            "male_enrollment_count": 10000
+            
          },
          {
             "programme_type_code":"MS",
             "degree_course_code":"355",
             "degree_class_code":"LM-11",
-            "enrollment_count": 2000
+            "female_enrollment_count": 2000,
+            "male_enrollment_count": 1500
+            
          }
          ,
          {
             "programme_type_code":"L2",
             "degree_course_code":"245",
             "degree_class_code":"L-7",
-            "enrollment_count": 5000
+            "female_enrollment_count": 5000,
+            "male_enrollment_count": 6000            
          }
       ]
 }

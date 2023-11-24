@@ -33,15 +33,18 @@ paths:
               examples:
                 Example statuscode=200:
                   value:
-                    count_academic_enrollment:
+                    count_academic_enrollments_by_degree_courses:
                       - programme_type_code: MS
                         degree_course_code: '469'
                         degree_class_code: LM-11
-                        enrollment_count: 15000
+                        female_enrollment_count: 15000
+                        male_enrollment_count: null                        
                       - programme_type_code: MS
                         degree_course_code: '355'
                         degree_class_code: LM-7
-                        enrollment_count: 10000  
+                        female_enrollment_count: 10000  
+                        male_enrollment_count: 5600  
+                        
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
@@ -53,7 +56,7 @@ paths:
               examples:
                 Example statuscode=404:
                   value:
-                    count_academic_enrollment: []
+                    count_academic_enrollments_by_degree_courses: []
 
         '500':
           description: Internal server error / Errore interno del server 
@@ -127,15 +130,17 @@ components:
       type: object
       x-examples:
         Example 1:
-          count_academic_enrollment:
+          count_academic_enrollments_by_degree_courses:
             - programme_type_code: MS
               degree_course_code: 469
               degree_class_code: LM-20
-              enrollment_count: 12000
+              female_enrollment_count: 12000
+              male_enrollment_count: null              
             - programme_type_code: L2
               degree_course_code: 355
               degree_class_code: LM-11
-              enrollment_count: 15000               
+              female_enrollment_count: 15000    
+              male_enrollment_count: 10000                
       description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
       x-stoplight:
         id: 22de4be4ac251
@@ -158,7 +163,8 @@ components:
           programme_type_code: MS
           degree_course_code: 469
           degree_class_code: LM-20
-          enrollment_count: 15000
+          female_enrollment_count: 15000
+          male_enrollment_count: 15000          
       description: Detailed examination information / Informazioni dettagliate sul corso
       properties:
         programme_type_code:
@@ -181,19 +187,31 @@ components:
           readOnly: true
           minLength: 2
           maxLength: 20
-        enrollment_count:
+        female_enrollment_count:
           type: integer
           format: int32
-          description: number of enrollment/numero di iscritti
+          description: number of enrollment/numero di iscritti (female)
           example: 30000
+          nullable: true
           readOnly: true
           minimum: 1
           maximum: 9999999
+        male_enrollment_count:
+          type: integer
+          format: int32
+          description: number of enrollment/numero di iscritti (male)
+          example: 30000
+          nullable: true
+          readOnly: true
+          minimum: 1
+          maximum: 9999999  
       required:
         - programme_type_code
         - degree_course_code
         - degree_class_code
-        - enrollment_count
+        - female_enrollment_count
+        - male_enrollment_count
+        
     count_enrollment_request:
       type: object
       additionalProperties: false      
