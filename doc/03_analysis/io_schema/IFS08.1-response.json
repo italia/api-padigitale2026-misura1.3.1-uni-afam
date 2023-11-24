@@ -7,7 +7,8 @@
          //"degree_course_name":"Ingegneria aerospaziale e astronautica",
          "degree_class_code":"LM-20",
          "academic_year": "2023-2024",
-         /** da definire delle fasce costanti per tutti gli istituti */
+         "tot_enrollment_count": "xxx"
+         /** Da definire delle fasce costanti per tutti gli istituti per esempio attraverso una circolare del MUR */
          "ranges":[
             {
                /*isee non definito */
@@ -36,6 +37,7 @@
          "degree_course_code":"353",
          //"degree_course_name":"Ingegneria Meccanica",
          "degree_class_code":"L-9",
+         "tot_enrollment_count": "xxx",
          "ranges":[
             {          
                "isee_min_value":"0",
