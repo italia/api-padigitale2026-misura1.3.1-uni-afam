@@ -16,7 +16,7 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
-  '/academicqualifications':
+  '/academic_qualifications':
     post:
       summary: Degrees earned by the student / Titoli conseguiti dalla studentessa o dallo studente
       tags:
@@ -88,11 +88,11 @@ paths:
               additionalProperties: false
               properties: {}
         description: 'Request di esempio'
-  '/proof-education-qualifications':
+  '/proof-tertiary-education-qualifications':
     post:
       summary: Retrieve qualification details of student in SDG format / Recupero titoli di una studentessa o di uno studente in formato SDG
       tags:
-        - proof-education-qualifications
+        - proof-tertiary-education-qualifications
       security:
         - bearerAuth: []
       responses:
@@ -160,12 +160,12 @@ paths:
               properties: {}
         description: 'Request di esempio'
       parameters: []
-  '/proof-education-qualifications-level':
+  '/proof-tertiary-education-qualifications-level':
 
     post:
       summary: Requires the list of examinations taken by the student in SDG format / Richiede la lista degli esami sostenuti dallo studente in formato SDG
       tags:
-        - proof-education-qualifications-level
+        - proof-tertiary-education-qualifications-level
       security:
         - bearerAuth: []
       responses:
@@ -213,7 +213,7 @@ paths:
                     proof_qualifications_level: null
         '500':
           description: Internal server error / Errore interno del server 
-      operationId: Proof-education-qualifications-level
+      operationId: Proof-tertiary-education-qualifications-level
       description:  Returns the list of simplified supplment diplomas in SDG format / Restituisce la lista dei diplomi supplment semplificati in formato SDG
       requestBody:
         content:
@@ -233,12 +233,12 @@ paths:
         description: 'Request di esempio'
       parameters: []
 
-  '/proof-education-qualifications-diploma-supplement':
+  '/proof-tertiary-education-qualifications-diploma-supplement':
 
     post:
       summary: Requires the list of qualifiiiccations taken by the student in SDG format / Richiede la lista delle qualifiche in possesso dallo studente in formato SDG
       tags:
-        - proof-education-qualifications-diploma-supplement
+        - proof-tertiary-education-qualifications-diploma-supplement
       security:
         - bearerAuth: []
       responses:
@@ -1354,7 +1354,7 @@ servers:
     description: localhost
 tags:
   - name: academic-qualifications
-  - name: proof-education-qualifications
-  - name: proof-education-qualifications-level
-  - name: proof-education-qualifications-diploma-supplement
+  - name: proof-tertiary-education-qualifications
+  - name: proof-tertiary-education-qualifications-level
+  - name: proof-tertiary-education-qualifications-diploma-supplement
   - name: health-check

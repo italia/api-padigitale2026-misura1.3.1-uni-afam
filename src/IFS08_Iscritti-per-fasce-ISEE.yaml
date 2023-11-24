@@ -16,7 +16,7 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
-  /stats/iscritti-per-isee:
+  /count-academic-enrollments-by-isee-ranges:
     post:
       summary: Iscritti per fasce ISEE
       tags:
