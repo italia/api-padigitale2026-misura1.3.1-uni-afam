@@ -39,17 +39,29 @@ paths:
                     academic_year: 2023/2024
                     tot_enrollment_count: 3000
                     ranges:
-                      - isee_min_value: null
+                      - range_description: 'ISEE non presentato'
+                        isee_min_value: null
                         isee_max_value: null              
                         enrollment_count: 1000
-                      - isee_min_value: 1
-                        isee_max_value: 5000              
+                      - range_description: '<=13.000'
+                        isee_min_value: 0
+                        isee_max_value: 13000              
                         enrollment_count: 1000
-                      - isee_min_value: 5001
-                        isee_max_value: 10000             
+                      - range_description: '13.001-16.000'
+                        isee_min_value: 13001
+                        isee_max_value: 16000              
+                        enrollment_count: 1000  
+                      - range_description: '40.001-45.000'
+                        isee_min_value: 40001
+                        isee_max_value: 45000             
                         enrollment_count: 500
-                      - isee_min_value: 10001
-                        isee_max_value: 15000               
+                      - range_description: '60.001-70.000'
+                        isee_min_value: 60001
+                        isee_max_value: 70000             
+                        enrollment_count: 500  
+                      - range_description: '> 100.000'
+                        isee_min_value: 100001
+                        isee_max_value: null              
                         enrollment_count: 500
                       
              
@@ -154,11 +166,20 @@ components:
           minimum: 0
           maximum: 1000000000          
           nullable: true
-          readOnly: true          
+          readOnly: true
+        range_description:
+          type: string
+          description: descrizione Fascia ISEE
+          example: '> 100000'
+          readOnly: true
+          nullable: true
+          minLength: 0
+          maxLength: 64            
       required:
         - isee_min_value
         - isee_max_value
         - enrollment_count
+        - range_description
     count_academic_enrollments_by_isee_ranges:
       type: object
       nullable: true
@@ -180,6 +201,7 @@ components:
             - isee_min_value: '1000'
             - isee_max_value: '15000'
             - enrollment_count: 1000
+            - range_description: '> 100001'
       description: Iscritti al corso di laurea per fascia ISEE
       properties:
         programme_type_code:
