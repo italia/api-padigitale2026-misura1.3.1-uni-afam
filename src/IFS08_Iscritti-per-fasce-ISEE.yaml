@@ -74,8 +74,13 @@ paths:
               examples:
                 Example statuscode=404:
                   value:
-                    personal_data: 
-                    proof_enrollments: []              
+                    programme_type_code: MS
+                    degree_course_code: '469'
+                    degree_class_code: LM-20
+                    academic_year: 2023/2024
+                    tot_enrollment_count: 3000
+                    ranges: []
+                    
              
         '500':
           description: Internal server error / Errore interno del server

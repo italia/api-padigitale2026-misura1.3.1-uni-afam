@@ -6,7 +6,7 @@ info:
   x-summary: Acquisisce il numero di studentesse e studenti iscritti a uno specifico corso per anno accademico
   version: 1.0.0
   description: |
-    Ottiene il numero di studentesse e di studenti iscritti ad un IFS.
+    Obtains the number of students enrolled in an IFS. / Ottiene il numero di studentesse e di studenti iscritti ad un IFS.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -18,7 +18,7 @@ info:
 paths:
   /count-accademic-enrollments-by-degree-courses:
     post:
-      summary: numero di iscritti per corso
+      summary: Number of students per course / numero di iscritti per corso
       tags:
         - count-accademic-enrollments-by-degree-courses
       security: 
@@ -83,15 +83,15 @@ paths:
     get:
       summary: Verifica stato delle API (Health Check)
       operationId: check-status
-      description: Verificare lo stato di salute del sistema
+      description: Check the system's health status / Verificare lo stato di salute del sistema
       tags:
         - health-check
       security: [{}]       
       responses:
         '204':
-          description: il servizio è in esecuzione correttamente.
+          description: The service is running correctly / il servizio è in esecuzione correttamente.
         '500':
-          description: il servizio non è in esecuzione.
+          description: The service is not running. / il servizio non è in esecuzione.
 components:
   headers:
     Retry-After:
@@ -104,21 +104,21 @@ components:
         minimum: 0
         type: integer
     X-RateLimit-Limit:
-      description: The number of allowed requests in the current period
+      description: The number of allowed requests in the current period / Numero di richieste consentite nel periodo attuale
       schema:
         format: int32
         maximum: 1000000
         minimum: 0
         type: integer
     X-RateLimit-Remaining:
-      description: The number of remaining requests in the current period
+      description: The number of remaining requests in the current period / Numero di richieste rimanenti nel periodo attuale 
       schema:
         format: int32
         maximum: 1000000
         minimum: 0
         type: integer
     X-RateLimit-Reset:
-      description: The number of seconds left in the current period
+      description: The number of seconds left in the current period / Numero di secondi rimanenti nel periodo attuale
       schema:
         format: int32
         maximum: 186400
