@@ -81,7 +81,7 @@ paths:
     post:
       summary: (OK) Student enrolment correction detail / Dettaglio rettifica iscrizione studentessa o studente
       tags:
-        - academic qualification change request status
+        - academic-qualification-change-request-status
       parameters: []
       security:
         - bearerAuth: []
@@ -165,7 +165,8 @@ paths:
               type: object
               additionalProperties: false
               properties: {}
-        description: 'Request di esempio'      
+        description: 'Request di esempio'   
+      operationId: academic-qualification-change-request-cancellation 
     parameters: []
   /status:
     get:

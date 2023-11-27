@@ -33,7 +33,7 @@ paths:
               examples:
                 Example statuscode=200:
                   value:
-                    count_academic_enrollments_by_degree_courses:
+                    count_academic_enrollment:
                       - programme_type_code: MS
                         degree_course_code: '469'
                         degree_class_code: LM-11
@@ -56,7 +56,7 @@ paths:
               examples:
                 Example statuscode=404:
                   value:
-                    count_academic_enrollments_by_degree_courses: []
+                    count_academic_enrollment: []
 
         '500':
           description: Internal server error / Errore interno del server 
@@ -130,7 +130,7 @@ components:
       type: object
       x-examples:
         Example 1:
-          count_academic_enrollments_by_degree_courses:
+          count_academic_enrollment:
             - programme_type_code: MS
               degree_course_code: 469
               degree_class_code: LM-20

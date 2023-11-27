@@ -74,6 +74,7 @@ paths:
               additionalProperties: false
               properties: {}
         description: ''
+      operationId: academic-enrollment-change-request
     parameters: []
   '/academic-enrollment-change-request-status':
   
@@ -122,7 +123,8 @@ paths:
               type: object
               additionalProperties: false
               properties: {}
-        description: 'Esempio richiesta'      
+        description: 'Esempio richiesta'
+      operationId: academic-enrollment-change-request-statu
   '/academic-enrollment-change-request-cancellation':
     post:
       summary: Cancellation of change request / Richiesta di annullamento rettifica

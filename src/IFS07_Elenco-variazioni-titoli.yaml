@@ -66,7 +66,7 @@ paths:
         '404':
           description: No qualifications were found at this institution / Non sono stati trovati titoli in questo istituto
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/student-qualifications-changes'
               examples:
@@ -76,7 +76,7 @@ paths:
                       institute_code: C6
                       last_update: '2023-10-13'
                       qualifications_hash: []
-                    meta: 
+                    meta:
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Enrollments-of-student
@@ -159,6 +159,7 @@ components:
     meta:
       type: object
       additionalProperties: false
+      nullable: true
       x-examples:
         Example 1:
           cursor: 'o2j4230jd4043'

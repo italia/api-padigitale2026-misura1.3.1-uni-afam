@@ -16,7 +16,7 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
-  '/academic_qualifications':
+  '/academic-qualifications':
     post:
       summary: Degrees earned by the student / Titoli conseguiti dalla studentessa o dallo studente
       tags:
@@ -247,7 +247,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/proof_education_qualifications_level'
+                $ref: '#/components/schemas/proof_education_qualifications_diploma_supplement'
               examples:
                 Example statuscode=200:
                   value:
@@ -259,18 +259,18 @@ paths:
                     proof_qualifications_diploma_supplement:
                       ects_credits_received: 180
                       institute_name: Cagliari - Università degli Studi
-                      institute_code: 04
+                      institute_code: '04'
                       programme_type_code: MS
                       programme_type_name: Laurea Magistrale (DM 270/04)
-                      degree_course_code: 455
+                      degree_course_code: '455'
                       degree_course_name: Ingegneria informatica
                       degree_class_code: LM-32
                       degree_class_name: Ingegneria informatica
                       degree_course_duration_in_years_or_months: 3 anni a tempo pieno
-                      qualification_grade_value: 100
-                      qualification_grading_scale: 110
-                      qualification_grading_scale_minimum_grade: 66
-                      qualification_grading_scale_maximum_grade: 110
+                      qualification_grade_value: '100'
+                      qualification_grading_scale: '110'
+                      qualification_grading_scale_minimum_grade: '66'
+                      qualification_grading_scale_maximum_grade: '110'
                       qualification_date: 2022-07-01
                       access_to_regulated_profession: Non applicabile
                       administering_institute_name: Cagliari - Università degli studi
@@ -325,6 +325,7 @@ paths:
               additionalProperties: false
               properties: {}
         description: 'Request di esempio'
+      operationId: proof-tertiary-education-qualifications-diploma-supplement
       parameters: []
 
   /status:
