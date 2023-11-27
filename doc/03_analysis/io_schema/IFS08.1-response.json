@@ -12,25 +12,57 @@
          "ranges":[
             {
                /*caso isee non definito */
+               "range_description":"ISEE non presentato",
                "isee_min_value": null,
                "isee_max_value": null,
                "enrollment_count":300
-            }
-            {          
+            },
+            { 
+               "range_description":"<=13.000",         
                "isee_min_value":0,
-               "isee_max_value":5000,               
+               "isee_max_value":13000,               
                "enrollment_count":1000
             },
-            {              
-               "isee_min_value":5001,
-               "isee_max_value":10000,    
+            {       
+               "range_description":"13.001-16.000",         
+               "isee_min_value":13001,
+               "isee_max_value":16000,    
                "enrollment_count":500
             },
-            {             
-               "isee_min_value":10001,
-               "isee_max_value":15000,    
+            {     
+               "range_description":"38.001-40.000",            
+               "isee_min_value":38001,
+               "isee_max_value":40000,    
                "enrollment_count":1000
-            }      
+            }     
+            ,
+            {     
+               "range_description":"40.001-45.000",            
+               "isee_min_value":40001,
+               "isee_max_value":45000,    
+               "enrollment_count":1000
+            }   
+            ,
+            {     
+               "range_description":"55.001-60.000",            
+               "isee_min_value":55001,
+               "isee_max_value":60000,    
+               "enrollment_count":1000
+            }   
+            ,
+            {     
+               "range_description":"60.001-70.000",            
+               "isee_min_value":60001,
+               "isee_max_value":70000,    
+               "enrollment_count":1000
+            }   
+            ,
+            {     
+               "range_description":"> 100.000",            
+               "isee_min_value":100001,
+               "isee_max_value":null,    /*indica nessun limite massimo*/
+               "enrollment_count":1000
+            }     
          ]
       },
       {
@@ -41,21 +73,59 @@
          "degree_class_code":"L-9",
          "tot_enrollment_count": "xxx",
          "ranges":[
-            {          
-               "isee_min_value":"0",
-               "isee_max_value":"5000",               
+            {
+               /*caso isee non definito */
+               "range_description":"ISEE non presentato",
+               "isee_min_value": null,
+               "isee_max_value": null,
+               "enrollment_count":300
+            },
+            { 
+               "range_description":"<=13.000",         
+               "isee_min_value":0,
+               "isee_max_value":13000,               
                "enrollment_count":1000
             },
-            {              
-               "isee_min_value":"5001",
-               "isee_max_value":"10000",    
+            {       
+               "range_description":"13.001-16.000",         
+               "isee_min_value":13001,
+               "isee_max_value":16000,    
                "enrollment_count":500
             },
-            {             
-               "isee_min_value":"10001",
-               "isee_max_value":"15000",    
-               "enrollment_count":800
-            }    
+            {     
+               "range_description":"38.001-40.000",            
+               "isee_min_value":38001,
+               "isee_max_value":40000,    
+               "enrollment_count":1000
+            }     
+            ,
+            {     
+               "range_description":"40.001-45.000",            
+               "isee_min_value":40001,
+               "isee_max_value":45000,    
+               "enrollment_count":1000
+            }   
+            ,
+            {     
+               "range_description":"55.001-60.000",            
+               "isee_min_value":55001,
+               "isee_max_value":60000,    
+               "enrollment_count":1000
+            }   
+            ,
+            {     
+               "range_description":"60.001-70.000",            
+               "isee_min_value":60001,
+               "isee_max_value":70000,    
+               "enrollment_count":1000
+            }   
+            ,
+            {     
+               "range_description":"> 100.000",            
+               "isee_min_value":100001,
+               "isee_max_value":null,    /*indica nessun limite massimo*/
+               "enrollment_count":1000
+            }     
          ]
       }
    ]
