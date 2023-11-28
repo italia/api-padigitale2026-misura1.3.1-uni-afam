@@ -5,9 +5,7 @@
           "tax_code":"RSSMRA80A01F205D",
           "person_id":"AB123456C",
           "given_name":"Mario",
-          "family_name":"Rossi",
-          "birth_date":"1990-05-17",
-          "birth_place":"Roma"
+          "family_name":"Rossi"
        },
        "proof_mobility_periods":[
           {

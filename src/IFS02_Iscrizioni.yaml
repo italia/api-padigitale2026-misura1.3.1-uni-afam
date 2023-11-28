@@ -305,6 +305,76 @@ paths:
               properties: {}
         description: ''
       parameters: []
+  '/proof-mobility-periods':
+    post:
+      summary: Acquisition of evidence of learning activities carried out outside the tertiary education institution from which a student obtained diploma / Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio diploma.
+      tags:
+        - proof-mobility-periods
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Request successfully executed / Richiesta eseguita con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proof_personal_mobility_periods'
+              examples:
+                Example statuscode=200:
+                  value:
+                    personal_data:
+                      tax_code: RSSMRA80A01F205D
+                      person_id: AB123456C
+                      given_name: Mario
+                      family_name: Rossi
+                    proof_mobility_periods:
+                      - eqf_level: Livello 7
+                        mobility_start_date: 2020-05-17
+                        mobility_end_date: 2021-05-17
+                        mobility_period_type: Lungo termine
+                        destination_institute_name: Universidad Politecnica de Madrid
+                        destination_erasmus_code: VALENCI02
+                        departure_institute_name: Politecnico di Milano
+                        departure_erasmus_code: MILANO02
+                        destination_department: Faculty of Science & Engineering
+                        departure_department: Dipartimento di Ingegneria Industriale
+                        destination_country: Spagna
+                        departure_country: Italia
+        '400':
+          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+        '404':
+          description: No evidence was found for learning activities outside the institution. / Non sono stati trovate prove alle attività di apprendimento al di fuori dell'istituzione.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/proof_personal_mobility_periods'
+              examples:
+                Example statuscode=404:
+                  value:
+                    personal_data:
+                    proof_mobility_periods: []
+        '500':
+          description: Internal server error / Errore interno del server 
+      operationId: proof-mobility-periods
+      description: Returns evidence of learning activities carried out outside the tertiary education institution from which a student obtained degree. / Restituisce prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio diploma.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/eu_enrollment_request'
+            examples:
+              Example post 1:
+                value:
+                  tax_code: RSSMRA80A01F205D
+                  person_id: sasadsdsda
+                  institute_code: AA1
+          application/xml:
+            schema:
+              type: object
+              additionalProperties: false
+              properties: {}
+        description: ''
+      parameters: []
   /status:
     get:
       summary: Verifica stato delle API (Health Check)
@@ -858,6 +928,150 @@ components:
           readOnly: true
           minLength: 10
           maxLength: 10
+    proof_personal_mobility_periods:
+      additionalProperties: false
+      type: object
+      x-examples:
+        Example 1:
+          personal_data:
+            tax_code: RSSMRA80A01F205D
+            person_id: AB123456C
+            given_name: Mario
+            family_name: Rossi
+          proof_mobility_periods:
+            - eqf_level: Livello 7
+              mobility_start_date: 2020-05-17
+              mobility_end_date: 2021-05-17
+              mobility_period_type: Lungo termine
+              destination_institute_name: Universidad Politecnica de Madrid
+              destination_erasmus_code: VALENCI02
+              departure_institute_name: Politecnico di Milano
+              departure_erasmus_code: MILANO02
+              destination_department: Faculty of Science & Engineering
+              departure_department: Dipartimento di Ingegneria Industriale
+              destination_country: Spagna
+              departure_country: Italia
+      description: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
+      x-stoplight:
+        id: 22de4be4ac251
+      properties:
+        personal_data:
+          $ref: '#/components/schemas/personal_data'
+        proof_mobility_periods:
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of admission certificates / Elenco dei certificati di ammissione
+          items:
+            $ref: '#/components/schemas/proof_mobility_periods'
+      required:
+        - personal_data
+        - proof_mobility_periods
+    proof_mobility_periods:
+      type: object
+      additionalProperties: false
+      x-examples:
+        Example 1:
+          eqf_level: Livello 7
+          mobility_start_date: 2020-05-17
+          mobility_end_date: 2021-05-17
+          mobility_period_type: Lungo termine
+          destination_institute_name: Universidad Politecnica de Madrid
+          destination_erasmus_code: VALENCI02
+          departure_institute_name: Politecnico di Milano
+          departure_erasmus_code: MILANO02
+          destination_department: Faculty of Science & Engineering
+          departure_department: Dipartimento di Ingegneria Industriale
+          destination_country: Spagna
+          departure_country: Italia
+      description: Detailed information on admission certification / Informazioni dettagliate sulla certificazione di ammissione
+      properties:
+        eqf_level:
+          type: string
+          description: Level of education (EQF) / Livello di educazione (EQF)
+          example: Livello 7
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        mobility_start_date:
+          type: string
+          format: date
+          description: Erasmus start date / Data inzio anno erasmus
+          example: 2020-05-17
+          readOnly: true
+          minLength: 10
+          maxLength: 10
+        mobility_end_date:
+          type: string
+          format: date
+          description: Erasmus end date / Data fine anno erasmus
+          example: 2021-05-17
+          readOnly: true
+          minLength: 10
+          maxLength: 10
+        mobility_period_type:
+          type: string
+          description: Type of mobility period / Tipo del periodo di mobilità
+          example: Lungo termine
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        destination_institute_name:
+          type: string
+          description: Name of destination institution / Nome dell'istituto di destinazione
+          example: Universidad Politecnica de Madrid
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        destination_erasmus_code:
+          type: string
+          description: Code of destination institution / Codice dell'istituto di destinazione
+          example: VALENCI02
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        departure_institute_name:
+          type: string
+          description: Name of departure institution / Nome dell'istituto di partenza
+          example: Politecnico di Milano
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        departure_erasmus_code:
+          type: string
+          description: Code of departure institution / Codice dell'istituto di partenza
+          example: MILANO02
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        destination_department:
+          type: string
+          description: Department of destination / Dipartimento di destinazione
+          example: Faculty of Science & Engineering
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        departure_department:
+          type: string
+          description: Department of departure / Dipartimento di partenza
+          example: Dipartimento di Ingegneria Industriale
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        destination_country:
+          type: string
+          description: Destination country / Paese di destinazione
+          example: Spagna
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        departure_country:
+          type: string
+          description: Departure country / Paese di arrivo
+          example: Italia
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
     enrollment:
       type: object
       additionalProperties: false
@@ -1090,8 +1304,7 @@ components:
           maxLength: 256
           readOnly: true  
       required:
-        - tax_code      
-        - institute_code
+        - tax_code
   requestBodies: {}
   responses: {}
   securitySchemes:
@@ -1107,4 +1320,5 @@ tags:
   - name: proof-tertiary-education-enrollments
   - name: proof-tertiary-education-courses
   - name: proof-tertiary-education-admission
+  - name: proof-mobility-periods
   - name: health-check
