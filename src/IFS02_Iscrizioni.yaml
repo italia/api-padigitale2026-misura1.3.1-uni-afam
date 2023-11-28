@@ -2,11 +2,11 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: IFS02 - Retrieve academic enrollment detail / Recupero del dettaglio delle iscrizioni accademiche
-  x-summary: Enrollment detail of a student / Dettaglio iscrizioni di una studentessa o uno studente 
+  title: IFS02 - Retrieve academic enrollments detail / Acquisisce il dettaglio delle iscrizioni accademiche
+  x-summary: Enrollments detail of a student / Dettaglio delle iscrizioni di una studentessa o uno studente 
   version: 1.0.0
   description: |
-   Provides detailed information regarding the enrollment of student at an university or AFAM / Fornisce informazioni di dettaglio riguardanti le iscrizioni di una studentessa o uno studente all'università o AFAM
+   Provides detailed information regarding the enrollment of student at an university or AFAM / Fornisce le informazioni di dettaglio riguardanti le iscrizioni di una studentessa o uno studente all'università o AFAM
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
