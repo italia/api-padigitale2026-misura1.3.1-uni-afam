@@ -1,0 +1,23 @@
+{
+  "tax_code": "RSSMRA80A01F205D",
+  "reason": "Segnalazione bonifica titolo xxx",
+  "attributes": [
+    {
+      "attribute_name": "institute_Name",
+      "current": "Università degli studi di MiXXlano",
+      "suggested": "Università degli studi di Milano"
+    },
+    {
+      "attribute_name": "course_type",
+      "current": "Cours di Laurea",
+      "suggested": "Corso di Laurea"
+    },
+    {
+      "attribute_name": "qualification_year",
+      "current": "2021/2022",
+      "suggested": "2022/2023"
+    }
+  ],
+  "request": "Testo con la richiesta di rettifica",
+  "note": "Note aperte studentessa o studente"
+}

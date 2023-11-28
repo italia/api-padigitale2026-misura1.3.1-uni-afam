@@ -232,7 +232,6 @@ paths:
               properties: {}
         description: 'Request di esempio'
       parameters: []
-
   '/proof-tertiary-education-qualifications-diploma-supplement':
 
     post:
