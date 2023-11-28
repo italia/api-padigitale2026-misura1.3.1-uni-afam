@@ -36,7 +36,7 @@ paths:
               examples:
                 Example res 1:
                   value:
-                    file_status: aquired
+                    file_status: acquired
                     file_code: 6d183bc572f6b200015a4167
                     message: Richiesta rettifica iscrizione acquisita
         '404':

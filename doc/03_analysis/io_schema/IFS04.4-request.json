@@ -1,0 +1,20 @@
+{
+    "tax_code":"MRNDNS78H29S795U",
+    "issues":[
+        {
+            "attribute_name":"degree_course_code", 
+            "attribute_value": "1573960",
+            "issue_description": "degree course code didn't find on the controlled vocabulary "
+        },
+        {
+            "attribute_name":"tax_code",
+            "attribute_value": "MRNDNS78H29S795U",
+            "issue_description": "tax code didn't find on ANPR Master Data"
+        },
+        {
+            "attribute_name":"degree_course_year",
+            "attribute_value": "A",
+            "issue_description": "degree course can be only a numeric value"
+        }
+    ]
+}
