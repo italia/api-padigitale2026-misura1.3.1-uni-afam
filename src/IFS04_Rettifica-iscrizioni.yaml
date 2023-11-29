@@ -167,6 +167,59 @@ paths:
               properties: {}
         description: 'Esempio richiesta'            
     parameters: []
+  '/academic-issue-change-request':
+    post:
+      summary: Reporting any anomalies in academic enrolment data / Comunicazione di eventuali anomalie sui dati delle iscrizioni accademiche
+      tags:
+        - academic-issue-change-request
+      security:
+        - bearerAuth: []
+      parameters: []
+      responses:
+        '200':
+          description: Registration correction request sent successfully / Richiesta rettifica inviata con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/issue_detail'
+              examples:
+                Example res 1:
+                  value:
+                    file_status: approved
+                    file_code: 6d183bc572f6b200015a4167
+                    message: Testo messaggio
+        '404':
+          description: Student not found / Studente non trovato
+        '500':
+          description: Internal server error / Errore interno del server 
+      description: Allows to report an anomaly in the enrolment data of a student. / Permette di segnalare una anomalia dei dati relativi alle iscrizioni di una studentessa o uno studente.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/issue_request'
+            examples:
+              Example post 1:
+                value:
+                  tax_code: RSSMRA80A01F205D
+                  issues:
+                      - attribute_name: degree_course_code
+                        attribute_value: '1573960'
+                        issue_description: degree course code didn't find on the controlled vocabulary
+                      - attribute_name: tax_code
+                        attribute_value: MRNDNS78H29S795U
+                        issue_description: tax code didn't find on ANPR Master Data
+                      - attribute_name: degree_course_year
+                        attribute_value: A
+                        issue_description: degree course can be only a numeric value
+          application/xml:
+            schema:
+              type: object
+              additionalProperties: false
+              properties: {}
+        description: ''
+      operationId: academic-issue-change-request 
+    parameters: []
   /status:
     get:
       summary: Verifica stato delle API (Health Check)
@@ -270,6 +323,78 @@ components:
           maxLength: 5000
       required:
         - tax_code
+    issue_request:
+      type: object
+      additionalProperties: false      
+      x-examples:
+        Example 1:
+          tax_code: RSSMRA80A01F205D
+          issues:
+            - attribute_name: degree_course_code
+              attribute_value: '1573960'
+              issue_description: degree course code didn't find on the controlled vocabulary
+            - attribute_name: tax_code
+              attribute_value: MRNDNS78H29S795U
+              issue_description: tax code didn't find on ANPR Master Data
+            - attribute_name: degree_course_year
+              attribute_value: A
+              issue_description: degree course can be only a numeric value
+      x-stoplight:
+        id: b40e2be27c423
+      description: Academic change request / Richiesta di rettifica di una studentessa o uno studente
+      properties:
+        tax_code:
+          type: string
+          description: Tax Identification Number / Codice fiscale
+          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          example: RSSMRA80A01F205D
+          minLength: 16
+          maxLength: 16
+          readOnly: true
+        issues:
+          $ref: '#/components/schemas/issues'
+      required:
+        - tax_code
+    issues:
+          additionalProperties: false
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of issues to be varied / Lista di attributi da variare
+          items:
+            $ref: '#/components/schemas/issue'
+    issue:
+      additionalProperties: false
+      type: object
+      x-examples:
+        Example 1:
+          attribute_name: degree_course_code
+          attribute_value: '1573960'
+          issue_description: degree course code didn't find on the controlled vocabulary
+      description: Status of an academic change request for a student / Stato di una rettifica per una studentessa o uno studente
+      properties:
+        attribute_name:
+          type: string
+          description: Attribute name to be changed  / Nome attributo da variare in fase di rettifica iscrizione
+          readOnly: true
+          minLength: 1
+          maxLength: 256   
+        attribute_value:
+          type: string
+          description: Current value to be rectified / Valore corrente da rettificare
+          readOnly: true
+          minLength: 1
+          maxLength: 256    
+        issue_description:
+          type: string
+          description: New value to be rectified / Nuovo valore da rettificare
+          readOnly: true
+          minLength: 1
+          maxLength: 256 
+      required:
+        - attribute_name
+        - attribute_value
+        - issue_description
     enrollments_change_request:
       type: object
       additionalProperties: false
@@ -314,6 +439,42 @@ components:
         file_code:
           type: string
           description: enrollment change request code/ Codice Rettifica iscrizioni
+          readOnly: true
+          minLength: 1
+          maxLength: 256    
+        message:
+          type: string
+          description: Change request message output / Messaggio esito richiesta rettifica
+          readOnly: true
+          minLength: 1
+          maxLength: 256 
+      required:
+        - file_status
+        - file_code
+        - message
+    issue_detail:
+      additionalProperties: false
+      type: object
+      x-examples:
+        Example 1:
+          file_status: approved
+          file_code: 908d3e72b51a6f0034e2a11c
+          message: Testo messaggio
+      description: Status of an academic change request for a student / Stato di una rettifica per una studentessa o uno studente
+      properties:
+        file_status:
+          type: string
+          description: Status of an academic change request for a student / Stato di una rettifica per una studentessa o uno studente
+          readOnly: true
+          minLength: 1
+          maxLength: 256
+          enum:
+            - approved
+            - rejected
+            - acquired
+        file_code:
+          type: string
+          description: Change request code/ Codice rettifica 
           readOnly: true
           minLength: 1
           maxLength: 256    
@@ -418,5 +579,6 @@ tags:
   - name: academic-enrollment-change-request
   - name: academic-enrollment-change-request-status
   - name: academic-enrollment-change-request-cancellation
+  - name: academic-issue-change-request
   - name: health-check
   
