@@ -19,7 +19,7 @@ paths:
   '/academic-enrollments':
 
     post:
-      summary: Retrieve enrollment details of student / Recupero iscrizioni di una studentessa o di uno studente 
+      summary: Acquisition of the details of active enrollments in the last three academic years for a female/male student. / Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accademici di una studentessa o di uno studente
       tags:
         - academic-enrollments
       security:
@@ -89,7 +89,7 @@ paths:
       parameters: []
   '/proof-tertiary-education-enrollments':
     post:
-      summary: Retrieve enrollment details of student in SDG format / Recupero iscrizioni di una studentessa o di uno studente in formato SDG
+      summary: Acquisition of evidence regarding enrollment in tertiary education studies for a female/male student. / Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terziaria di una studentessa/studente
       tags:
         - proof-tertiary-education-enrollments
       security:
@@ -137,7 +137,7 @@ paths:
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Enrollments-education-of-student
-      description: Returns the enrollment details of student / Restituisce i dettagli delle iscrizioni di una studentessa o di uno studente
+      description: <ul> <li>Retrieves the evidences regarding enrollment in tertiary education studies.</li><li>Acquisisce le prove riguardanti l'iscrizione agli studi di istruzione terziaria (livelli EQF 5/6/7/8) Vengono considerati solo gli studi di tipo generale (non professionalizzanti)</li></ul>
       requestBody:
         content:
           application/json:
@@ -159,7 +159,7 @@ paths:
   '/proof-tertiary-education-courses':
 
     post:
-      summary: Requires the list of examinations taken by the student in SDG format / Richiede la lista degli esami sostenuti dallo studente in formato SDG
+      summary: Acquisition of evidence regarding the transcript (courses taken, grades obtained, etc.) of tertiary education studies for a female/male student. The transcript may pertain to completed or ongoing studies. / Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può riferirsi a studi completati o in corso
       tags:
         - proof-tertiary-education-courses
       security:
@@ -215,7 +215,7 @@ paths:
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Qualifications-education-of-student
-      description:  Returns the enrollment details of student / Restituisce i dettagli delle iscrizioni di una studentessa o di uno studente
+      description:  <ul> <li>Retrieves the evidences regarding the transcript (courses taken, grades obtained, etc.) of tertiary education studies (EQF levels 5/6/7/8). The transcript may refer to completed or in progress courses</li><li>Acquisisce le prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria (livelli EQF 5/6/7/8). La trascrizione può riferirsi a studi completati o in corso.</li></ul>
       requestBody:
         content:
           application/json:
@@ -237,7 +237,7 @@ paths:
   '/proof-tertiary-education-admission':
 
     post:
-      summary: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
+      summary: Acquisition of evidence regarding admission to tertiary education studies for a female/male student. / Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione terziaria di una studentessa/studente
       tags:
         - proof-tertiary-education-admission
       security:
@@ -286,7 +286,7 @@ paths:
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Tertiary-education-of-student
-      description: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
+      description: <ul> <li>Retrieves the evidences regarding admission to tertiary education studies (EQF levels 5/6/7/8);</li><li>Acquisisce le prove riguardanti l'ammissione agli studi di istruzione terziaria (livelli EQF 5/6/7/8); pur essendo collegato alla prova di iscrizione, non è intrinsecamente equivalente ad essa.</li></ul>
       requestBody:
         content:
           application/json:
@@ -307,7 +307,7 @@ paths:
       parameters: []
   '/proof-mobility-periods':
     post:
-      summary: Acquisition of evidence of learning activities carried out outside the tertiary education institution from which a student obtained diploma / Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio diploma.
+      summary: Acquisition of evidence related to learning activities conducted outside the tertiary education institution from which a female/male student obtained their diploma. / Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio diploma.
       tags:
         - proof-mobility-periods
       security:
@@ -356,7 +356,7 @@ paths:
         '500':
           description: Internal server error / Errore interno del server 
       operationId: proof-mobility-periods
-      description: Returns evidence of learning activities carried out outside the tertiary education institution from which a student obtained degree. / Restituisce prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio diploma.
+      description: <ul> <li>Retrieves the evidences related to learning activities carried out outside the tertiary education institution from which a person obtained their diploma</li><li>Acuisisce le prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una persona ha ottenuto il proprio diploma.</li></ul>
       requestBody:
         content:
           application/json:

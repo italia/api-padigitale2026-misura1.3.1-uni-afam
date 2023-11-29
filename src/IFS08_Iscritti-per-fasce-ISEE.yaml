@@ -18,7 +18,7 @@ info:
 paths:
   /count-academic-enrollments-by-isee-ranges:
     post:
-      summary: Students enrolled by ISEE bands / Iscritti per fasce ISEE
+      summary: Acquisition of the number of female and male students in predefined ISEE brackets in study programs for an academic year at the Higher Education Institute. / Acquisizione del numero di studentesse e studenti per fasce ISEE prestabilite nei corsi di studio per un anno accademico nell'Istituto di formazione superiore
       tags:
         - count-academic-enrollments-by-isee-ranges
       security:

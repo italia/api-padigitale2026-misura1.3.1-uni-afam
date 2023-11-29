@@ -35,7 +35,7 @@ paths:
           minLength: 1
           description: Institute code / Codice istituto
     get:
-      summary: It requires a list of the last active qualifications for each course of study in the last 10 academic years. / Richiede la lista degli ultimi titoli attivi per ogni corso di studi negli ultimi 10 anni accademici.
+      summary: Acquisition of "fingerprints (hash codes)" for all academic titles to identify variations from the recipient's perspective. / Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fine di identificarne le variazioni dal punto di vista del fruitore
       tags:
         - student-qualifications-changes
       security: [{}]

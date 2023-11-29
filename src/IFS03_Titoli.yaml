@@ -18,7 +18,7 @@ info:
 paths:
   '/academic-qualifications':
     post:
-      summary: Degrees earned by the student / Titoli conseguiti dalla studentessa o dallo studente
+      summary: Acquisition of the details of academic titles obtained by a female/male student. / Acquisizione del dettaglio dei titoli accademici conseguiti da una studentessa/uno studente
       tags:
         - academic-qualifications
       security:
@@ -90,7 +90,7 @@ paths:
         description: 'Request di esempio'
   '/proof-tertiary-education-qualifications':
     post:
-      summary: Proof of tertiary education diploma/certificate/degree
+      summary: Acquisition of evidence regarding the completion of tertiary education studies. / Acquisizione delle prove riguardanti il completamento degli studi di istruzione terziaria
       tags:
         - proof-tertiary-education-qualifications
       security:
@@ -142,7 +142,7 @@ paths:
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Qualifications-education-of-student
-      description: retrieves evidence regarding completion of tertiary education studies (e.g. EQF levels 5/6/7/8) / recupera le prove riguardanti il completamento degli studi di istruzione terziaria (ad esempio, livelli EQF 5/6/7/8)
+      description: <ul> <li>Retrieves the evidences regarding completion of tertiary education studies (e.g. EQF levels 5/6/7/8)</li><li>Acquisisce le prove riguardanti il completamento degli studi di istruzione terziaria (ad esempio, livelli EQF 5/6/7/8)</li></ul>
       requestBody:
         content:
           application/json:
@@ -163,7 +163,7 @@ paths:
   '/proof-tertiary-education-qualifications-level':
 
     post:
-      summary: Proof of qualification level of tertiary education diploma/certificate/degree and its courses
+      summary: Acquisition of evidence regarding the qualification level of tertiary education studies. / Acquisizione delle prove riguardanti il livello di qualifica degli studi di istruzione terziaria
       tags:
         - proof-tertiary-education-qualifications-level
       security:
@@ -214,7 +214,7 @@ paths:
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Proof-tertiary-education-qualifications-level
-      description:  retrieves evidence regarding the level of qualification of tertiary education studies, with the aim of facilitating the recognition of qualifications across borders, by providing information on NQF/EQF levels and their associated ECTS credits. / Recupera le prove riguardanti il livello di qualifica degli studi di istruzione terziaria, con l'obiettivo di agevolare il riconoscimento delle qualifiche oltre i confini, fornendo informazioni sui livelli NQF/EQF e i relativi crediti ECTS associati.
+      description:  <ul> <li>Rtrieves the evidences regarding the level of qualification of tertiary education studies, with the aim of facilitating the recognition of qualifications across borders, by providing information on NQF/EQF levels and their associated ECTS credits.</li><li>Acquisisce le prove riguardanti il livello di qualifica degli studi di istruzione terziaria, con l'obiettivo di agevolare il riconoscimento delle qualifiche oltre i confini, fornendo informazioni sui livelli NQF/EQF e i relativi crediti ECTS associati.</li></ul>
       requestBody:
         content:
           application/json:
@@ -235,7 +235,7 @@ paths:
   '/proof-tertiary-education-qualifications-diploma-supplement':
 
     post:
-      summary: Proof of tertiary education diploma supplement (EU DS template)
+      summary: Acquisition of evidence related to the "Diploma Supplement" tool. / Acquisizione delle prove relative allo strumento "Diploma Supplement"
       tags:
         - proof-tertiary-education-qualifications-diploma-supplement
       security:
@@ -307,7 +307,7 @@ paths:
                     proof_qualifications_diploma_supplement: null
         '500':
           description: Internal server error / Errore interno del server 
-      description:  retrieves evidence relating to the "Diploma Supplement" tool, developed jointly by the Council of Europe, the European Commission and UNESCO, and its updated version, adopted by the Lisbon Convention Committee in 2007 / Recupera le prove relative allo strumento "Diploma Supplement," sviluppato congiuntamente dal Consiglio d'Europa, dalla Commissione Europea e dall'UNESCO, e della sua versione aggiornata, adottata dal Comitato della Convenzione di Lisbona nel 2007.
+      description:  <ul> <li>Retrieves evidence relating to the "Diploma Supplement" developed jointly by the Council of Europe, the European Commission and UNESCO, and its updated version, adopted by the Lisbon Convention Committee in 2007</li><li>Recupera le prove relative allo strumento "Diploma Supplement," sviluppato congiuntamente dal Consiglio d'Europa, dalla Commissione Europea e dall'UNESCO, e della sua versione aggiornata, adottata dal Comitato della Convenzione di Lisbona nel 2007.</li></ul>
       requestBody:
         content:
           application/json:

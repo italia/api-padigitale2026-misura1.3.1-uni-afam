@@ -35,7 +35,7 @@ paths:
           minLength: 1
           description: Institute code / Codice istituto
     get:
-      summary: It requires a list of the last active enrolments for each course of study in the last 10 academic years. / Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli ultimi 10 anni accademici.
+      summary: Acquisition of "fingerprints (hash codes)" for all student enrollments in the last three academic years to identify variations from the recipient's perspective. / Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle studentesse/degli studenti negli ultimi tre anni accademici al fine di identificarne le variazioni dal punto di vista del fruitore
       tags:
         - student-enrollments-changes
       security: [{}]
