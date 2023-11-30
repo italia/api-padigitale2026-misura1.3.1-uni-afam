@@ -1,20 +1,50 @@
 {
-    "tax_code":"MRNDNS78H29S795U",
-    "issues":[
+    "personal_data": {
+        "tax_code": "RSSMRA80A01F205D",
+        "person_id": "AB123456C",
+        "given_name": "Mario",
+        "family_name": "Rossi",
+        "birth_date": "1990/05/17",
+        "birth_place": "Roma",
+        "issues": [
+            {
+                "attribute_name":"tax_code",
+                "issue_description": "tax code didn't find on ANPR Master Data"
+            },
+            {
+                "attribute_name":"birth_date",
+                "issue_description": "the correct birth date format is 1990-05-17"
+            },
+            {
+                "attribute_name":null,
+                "issue_description": "description note"                
+            }
+        ]
+    },
+    "enrollments": [
         {
-            "attribute_name":"degree_course_code", 
-            "attribute_value": "1573960",
-            "issue_description": "degree course code didn't find on the controlled vocabulary "
-        },
-        {
-            "attribute_name":"tax_code",
-            "attribute_value": "MRNDNS78H29S795U",
-            "issue_description": "tax code didn't find on ANPR Master Data"
-        },
-        {
-            "attribute_name":"degree_course_year",
-            "attribute_value": "A",
-            "issue_description": "degree course can be only a numeric value"
+            "institute_code": "16",
+            "institute_name": "Milano - Politecnico",
+            "programme_type_code": "MS",
+            "degree_course_code": "1573960",
+            "degree_class_code": "LM-32",
+            "academic_year": "2021/2022",
+            "degree_course_year": "A",
+            "status": "active",
+            "issues": [
+                {
+                    "attribute_name": "degree_course_code",
+                    "issue_description": "degree course code didn't find on the controlled vocabulary "
+                },
+                {
+                    "attribute_name": "degree_course_year",
+                    "issue_description": "degree course can be only a numeric value"
+                },
+                {
+                    "attribute_name":null,
+                    "issue_description": "description note"                
+                }
+            ]
         }
     ]
 }
