@@ -197,9 +197,31 @@ In questo paragrafo verrano descritti XXXXXX
 9. [IFS09 Iscritti a un corso per anno](#ifs09-iscritti-a-un-corso-per-anno)
 
 
+<hr>
 
 #### IFS01 Offerta Formativa
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+Vuole acquisire i dati dei corsi attivi ed offerti da un Istituto in un dato anno accademico
+
+##### IFS01.1
+
+Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico
+
+Esempio IFS01.1 [Request](doc/03_analysis/io_schema/IFS01.1-request.json)
+
+Esempio IFS01.1 [Response](doc/03_analysis/io_schema/IFS01.1-response.json)
+
+> **_NOTE:_**   
+> Se possibile prevedere la paginazione della response. Se tale funzionalità è implementata, nella request sarà necessario valorizzare anche il campo cursor
+
+##### IFS01.2
+
+Richiede il dettaglio di un corso
+
+Esempio IFS01.2 [Request](doc/03_analysis/io_schema/IFS01.2-request.json)
+
+Esempio IFS01.2 [Response](doc/03_analysis/io_schema/IFS01.2-response.json)
+
+<hr>
 
 #### IFS02 Iscrizioni
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
@@ -231,6 +253,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <hr>
 
 
-Per maggiori informazioni:
+## Per maggiori informazioni:
 * [Interoperabilità e PDND su Developers Italia](https://developers.italia.it/it/interoperabilita/)
 * [Avvisi di PAdigitale 2026](https://areariservata.padigitale2026.gov.it/Pa_digitale2026_avvisi)
+
+## Authors
+
+* 
+* 
+* 
