@@ -4,74 +4,168 @@ Questo repository contiene le specifiche delle API relative alla misura 1.3.1 pe
 
 La tabella sottostante (Tabella 1) riporta il dettaglio del titolo e descrizione per tutte e nove le API (dalla IFS01 alla IFS09) che dovranno essere erogate dai Soggetti Attuatori in base alla fascia di appartenenza. 
 
+
 <table>
        <caption>Tabella 1 – Descrizione delle nove API assegnate alle cinque fasce di Università e AFAM</caption>
 
-  <th>API ID</th><th>Titolo</th><th>Descrizione</th>
+
+  <th>Use Case</th>
+  <th>API-ID</th>
+  <th>e-service-name</th>
+  <th>API-Method</th>
+  <th>e-service description</th>
+  
   <tr>
-    <td>IFS01</td><td>Offerta formativa</td><td>Acquisizione dei dati dei corsi attivi ed offerti da un Istituto in un dato anno accademico</td>
-  </tr>
-  <tr>
-    <td rowspan=3>IFS02</td>
-    <td rowspan=3>Iscrizioni</td>
-    <td>Acquisisce i dati di dettaglio delle iscrizioni di una studentessa o di uno studente in formato nazionale.</td>
-    <tr>
-    <td>Acquisisce i dati di dettaglio delle iscrizioni di una studentessa o di uno studente in formato transfrontaliero. </td>
-    </tr>
-  <tr>
-    <td>Acquisisce gli esami sostenuti con voto (transcript) di una studentessa o di uno studente in formato transfrontaliero. </td>
-  </tr>
-  </tr>
-    <tr>
-    <td rowspan=3>IFS03</td>
-    <td rowspan=3>Titoli</td>
-    <td>Acquisisce i titoli conseguiti nell'istituto da una studentessa o uno studente in formato nazionale.</td>
-    <tr>
-    <td>Acquisisce il diploma supplement semplificato (senza voti degli esami) in formato transfrontaliero.</td>
-    </tr>
-  <tr>
-    <td>Acquisisce il diploma supplement in formato transfrontaliero.</td>
-  </tr>
+      <td rowspan="2">Offerta formativa</td>
+      <td rowspan="2">IFS01</td>
+      <td rowspan="2">ifs-offerta-formativa</td>
+      <td>IFS01.1</td>
+      <td>Acquisizione della lista dei corsi di studio offerti da un Istituto di
+          formazione superiore in un dato anno accademico</td>
   </tr>
   <tr>
-    <td rowspan=2>IFS04</td>
-    <td rowspan=2>Rettifica iscrizioni</td>
-    <td>Richiede la rettifica dei dati di un’iscrizione o una iscrizione mancante o in eccesso per una studentessa o uno studente.  
+      <td>IFS01.2</td>
+      <td>Acquisizione del dettaglio di un corso di studio offerto da un Istituto di
+          formazione superiore</td>
   </tr>
   <tr>
-    <td>Monitora lo stato della richiesta di rettifica delle iscrizioni</td>
-  </tr>
-</td>
-  </tr>
-  <tr>
-    <td rowspan=2>IFS05</td>
-    <td rowspan=2>Rettifica titoli</td>
-    <td>Richiede la rettifica dei dati di un titolo conseguito o mancante di una studentessa o uno studente.  
+      <td rowspan="5">Iscrizioni</td>
+      <td rowspan="5">IFS02</td>
+      <td rowspan="5">ifs-iscrizioni</td>
+      <td>IFS02.1</td>
+      <td>Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni
+          accademici di una studentessa o di uno studente</td>
   </tr>
   <tr>
-  <td>Monitora lo stato della richiesta di rettifica dei titoli</td>
+      <td>IFS02.2</td>
+      <td>Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione
+          terziaria di una studentessa/studente</td>
   </tr>
-<tr>
-  <td>IFS06</td>
-  <td>Elenco Variazioni Iscrizioni</td>
-  <td>Acquisisce la lista delle studentesse e degli studenti che hanno subito un cambio di stato alla relativa iscrizione tra un istante t0 e uno t1 compresi (ad es. t0 = 1 gennaio 2019 e t1 = 31 dicembre 2019 per richiedere i dati relativi all'anno solare 2019)</td>
-</tr> 
-<tr>
-  <td>IFS07</td>
-  <td>Elenco variazione titoli</td>
-  <td>Acquisisce la lista delle studentesse e degli studenti che hanno subito un cambio di stato ai relativi titoli conseguiti tra un istante t0 e uno t1 compresi (ad es. t0 = 1 gennaio 2019 e t1 = 31 dicembre 2019 per richiedere i dati relativi all'anno solare 2019)</td>
-</tr>
-<tr>
-  <td>IFS08</td>
-  <td>Iscritti per fasce ISEE</td>
-  <td>Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accademico<td>
-</tr>
-<tr>
-  <td>IFS09</td>
-  <td>Iscritti a un corso per anno</td>
-  <td>Acquisisce il numero di studentesse e studenti iscritti a uno specifico corso per anno accademico</td>
-</tr>
+  <tr>
+      <td>IFS02.3</td>
+      <td>Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti
+          ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può
+          riferirsi a studi completati o in corso</td>
+  </tr>
+  <tr>
+      <td>IFS02.4</td>
+      <td>Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione
+          terziaria di una studentessa/studente;</td>
+
+  </tr>
+  <tr>
+      <td>IFS02.5</td>
+      <td>Acquisizione delle prove relative alle attività di apprendimento svolte al di
+          fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il
+          proprio diploma</td>
+  </tr>
+  <tr>
+      <td rowspan="4">Titoli</td>
+      <td rowspan="4">IFS03</td>
+      <td rowspan="4">ifs-titoli</td>
+      <td>IFS03.1</td>
+      <td>Acquisizione del dettaglio dei titoli accademici conseguiti da una
+          studentessa/uno studente</td>
+  </tr>
+  <tr>
+      <td>IFS03.2</td>
+      <td>Acquisizione delle prove riguardanti il completamento degli studi di
+          istruzione terziaria </td>
+  </tr>
+  <tr>
+      <td>IFS03.3</td>
+      <td>Acquisizione delle prove riguardanti il livello di qualifica degli studi di
+          istruzione terziaria</td>
+  </tr>
+  <tr>
+      <td>IFS03.4</td>
+      <td>Acquisizione delle prove relative allo strumento "Diploma Supplement"</td>
+  </tr>
+  <tr>
+      <td rowspan="4">Rettifica iscrizioni</td>
+      <td rowspan="4">IFS04</td>
+      <td rowspan="4">ifs-rettifica-iscrizioni</td>
+      <td>IFS04.1</td>
+      <td>Richiesta di rettifica di un'iscrizione accademica di una studentessa/uno
+          studente all'Istituto di formazione superiore</td>
+  </tr>
+  <tr>
+      <td>IFS04.2</td>
+      <td>Acquisizione dello stato delle richieste di rettifica delle iscrizioni
+          accademiche di una studentessa/uno studente all'Istituto di istruzione superiore</td>
+  </tr>
+  <tr>
+      <td>IFS04.3</td>
+      <td>Richiesta di annullamento di una richiesta di rettifica di una iscrizione
+          accademica di una studentessa/uno studente all'Istituto di istruzione superiore</td>
+  </tr>
+  <tr>
+      <td>IFS04.4</td>
+      <td>Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare
+          eventuali anomalie sui dati delle iscrizioni accademiche</td>
+  </tr>
+  <tr>
+      <td rowspan="4">Rettifica titoli</td>
+      <td rowspan="4">IFS05</td>
+      <td rowspan="4">ifs-rettifica-titoli</td>
+      <td>IFS05.1</td>
+      <td>Richiesta di rettifica di un titolo accademico di una studentessa/uno studente
+          all'Istituto di formazione superiore</td>
+  </tr>
+  <tr>
+      <td>IFS05.2</td>
+      <td>Acquisizione dello stato delle richieste di rettifica dei titoli accademici di
+          una studentessa/uno studente all'Istituto di istruzione superiore</td>
+  </tr>
+  <tr>
+      <td>IFS05.3</td>
+      <td>Richiesta di annullamento di una richiesta di rettifica di un titolo
+          accademico di una studentessa/uno studente all'Istituto di istruzione superiore</td>
+  </tr>
+  <tr>
+      <td>IFS05.4</td>
+      <td>Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare
+          eventuali anomalie sui dati dei titoli accademici</td>
+  </tr>
+  <tr>
+      <td>Variazioni Iscrizioni</td>
+      <td>IFS06</td>
+      <td>ifs-variazioni-iscrizioni</td>
+      <td>IFS06.1</td>
+      <td>Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle
+          studentesse/degli studenti negli ultimi tre anni accademici al fine di identificarne le variazioni
+          dal punto di vista del fruitore</td>
+  </tr>
+  <tr>
+      <td>Variazioni titoli</td>
+      <td>IFS07</td>
+      <td>ifs-variazioni-titoli</td>
+      <td>IFS07.1</td>
+      <td>Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al
+          fine di identificarne le variazioni dal punto di vista del fruitore</td>
+  </tr>
+  <tr>
+      <td>Iscritti per fasce ISEE</td>
+      <td>IFS08</td>
+      <td>ifs-iscrizioni-per-fasce-isee</td>
+      <td>IFS08.1</td>
+      <td>Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno
+          accademico</td>
+  </tr>
+  <tr>       
+      <td>Iscritti a un corso per anno</td>
+      <td>IFS09</td>
+      <td>ifs-iscrizioni-per-corso</td>
+      <td>IFS09.1</td>
+      <td>Acquisizione del numero di studentesse e studenti iscritti a un corso di studi
+          per anno accademico</td>
+  </tr>
+    
 </table>
+
+
+
+
 
 
 Come indicato nella tabella sottostante (Tabella 2), gli Atenei e AFAM pubblici che possono aderire all’avviso sono divisi in fasce basate sul numero di iscritti, a cui corrisponde un numero preciso di API da erogare, dettagliate nella tabella 1. 
