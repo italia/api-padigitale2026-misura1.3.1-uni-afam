@@ -185,7 +185,7 @@ components:
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
           readOnly: true
-          minLength: 2
+          minLength: 1
           maxLength: 20
         female_enrollment_count:
           type: integer
@@ -239,7 +239,7 @@ components:
           maxLength: 20
       required:
         - academic_year      
-        - degree_course_code			
+        - degree_course_code
 
   requestBodies: {}
   responses: {}

@@ -348,7 +348,7 @@ components:
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
           readOnly: true
-          minLength: 2
+          minLength: 1
           maxLength: 20
         degree_class_language:
           type: string
@@ -487,7 +487,7 @@ components:
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
           readOnly: true
-          minLength: 2
+          minLength: 1
           maxLength: 20
         degree_class_language:
           type: string
@@ -733,7 +733,7 @@ components:
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
           readOnly: true
-          minLength: 2
+          minLength: 1
           maxLength: 20
         degree_course_code:
           type: string

@@ -52,6 +52,7 @@ paths:
               Example post 1:
                 value:
                   tax_code: RSSMRA80A01F205D
+                  person_id: 12345678A
                   reason: Modifica iscrizione xxx
                   attributes:
                       - attribute_name: institute_Name
@@ -79,7 +80,7 @@ paths:
   '/academic-enrollment-change-request-status':
   
     post:
-      summary: (OK) Student enrolment correction detail / Dettaglio rettifica iscrizione studentessa o studente
+      summary: (OK) Student enrollment correction detail / Dettaglio rettifica iscrizione studentessa o studente
       tags:
         - academic-enrollment-change-request-status
       parameters: []
@@ -169,7 +170,7 @@ paths:
     parameters: []
   '/academic-issue-change-request':
     post:
-      summary: Reporting any anomalies in academic enrolment data / Comunicazione di eventuali anomalie sui dati delle iscrizioni accademiche
+      summary: Reporting any anomalies in academic enrollment data / Comunicazione di eventuali anomalie sui dati delle iscrizioni accademiche
       tags:
         - academic-issue-change-request
       security:
@@ -192,7 +193,7 @@ paths:
           description: Student not found / Studente non trovato
         '500':
           description: Internal server error / Errore interno del server 
-      description: Allows to report an anomaly in the enrolment data of a student. / Permette di segnalare una anomalia dei dati relativi alle iscrizioni di una studentessa o uno studente.
+      description: Allows to report an anomaly in the enrollment data of a student. / Permette di segnalare una anomalia dei dati relativi alle iscrizioni di una studentessa o uno studente.
       requestBody:
         content:
           application/json:
@@ -201,16 +202,35 @@ paths:
             examples:
               Example post 1:
                 value:
-                  tax_code: RSSMRA80A01F205D
-                  issues:
+                  personal_data:
+                    tax_code: RSSMRA80A01F205D
+                    person_id: AB123456C
+                    given_name: Mario
+                    family_name: Rossi
+                    birth_date: 1990-05-17
+                    birth_place: Roma
+                    issues:
                       - attribute_name: degree_course_code
-                        attribute_value: '1573960'
                         issue_description: degree course code didn't find on the controlled vocabulary
                       - attribute_name: tax_code
-                        attribute_value: MRNDNS78H29S795U
                         issue_description: tax code didn't find on ANPR Master Data
                       - attribute_name: degree_course_year
-                        attribute_value: A
+                        issue_description: degree course can be only a numeric value
+                  enrollments:
+                    institute_code: '16'
+                    institute_name: Milano - Politecnico
+                    programme_type_code: MS
+                    degree_course_code: '1573960'
+                    degree_class_code: LM-32
+                    academic_year: 2021/2022
+                    degree_course_year: 3
+                    status: active
+                    issues:
+                      - attribute_name: degree_course_code
+                        issue_description: degree course code didn't find on the controlled vocabulary
+                      - attribute_name: tax_code
+                        issue_description: tax code didn't find on ANPR Master Data
+                      - attribute_name: degree_course_year
                         issue_description: degree course can be only a numeric value
           application/xml:
             schema:
@@ -272,6 +292,7 @@ components:
       x-examples:
         Example 1:
           tax_code: RSSMRA80A01F205D
+          person_id: 12345678A
           reason: Modifica iscrizione xxx
           attributes:
               - attribute_name: institute_name
@@ -299,6 +320,13 @@ components:
           example: RSSMRA80A01F205D
           minLength: 16
           maxLength: 16
+          readOnly: true
+        person_id:
+          type: string
+          description: ANPR Identifier / Identificativo ANPR 
+          maxLength: 9
+          minLength: 9
+          example: AB123456C
           readOnly: true
         reason:
           type: string
@@ -328,34 +356,192 @@ components:
       additionalProperties: false      
       x-examples:
         Example 1:
-          tax_code: RSSMRA80A01F205D
-          issues:
-            - attribute_name: degree_course_code
-              attribute_value: '1573960'
-              issue_description: degree course code didn't find on the controlled vocabulary
-            - attribute_name: tax_code
-              attribute_value: MRNDNS78H29S795U
-              issue_description: tax code didn't find on ANPR Master Data
-            - attribute_name: degree_course_year
-              attribute_value: A
-              issue_description: degree course can be only a numeric value
+          personal_data:
+            tax_code: RSSMRA80A01F205D
+            person_id: AB123456C
+            given_name: Mario
+            family_name: Rossi
+            birth_date: 1990/05/17
+            birth_place: Roma
+            issues:
+              - attribute_name: degree_course_code
+                issue_description: degree course code didn't find on the controlled vocabulary
+              - attribute_name: tax_code
+                issue_description: tax code didn't find on ANPR Master Data
+              - attribute_name: degree_course_year
+                issue_description: degree course can be only a numeric value
+          enrollments:
+            institute_code: '16'
+            institute_name: Milano - Politecnico
+            programme_type_code: MS
+            degree_course_code: '1573960'
+            degree_class_code: LM-32
+            academic_year: 2021/2022
+            degree_course_year: A
+            status: active
+            issues:
+              - attribute_name: degree_course_code
+                issue_description: degree course code didn't find on the controlled vocabulary
+              - attribute_name: tax_code
+                issue_description: tax code didn't find on ANPR Master Data
+              - attribute_name: degree_course_year
+                issue_description: degree course can be only a numeric value
       x-stoplight:
         id: b40e2be27c423
       description: Academic change request / Richiesta di rettifica di una studentessa o uno studente
       properties:
+        personal_data:
+          $ref: '#/components/schemas/personal_data'
+        enrollments:
+          $ref: '#/components/schemas/enrollments'
+    personal_data:
+      type: object
+      nullable: true
+      additionalProperties: false
+      x-examples:
+        Example 1:
+          tax_code: RSSMRA80A01F205D
+          person_id: AB123456C
+          given_name: Mario
+          family_name: Rossi
+          birth_date: 1990-05-17
+          birth_place: Roma
+          issues:
+            - attribute_name: degree_course_code
+              issue_description: degree course code didn't find on the controlled vocabulary
+      description: Personal data of the student / Dati personali della studentessa o dello studente
+      properties:
         tax_code:
           type: string
-          description: Tax Identification Number / Codice fiscale
-          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          description: Tax Identification Number / Codice Fiscale
           example: RSSMRA80A01F205D
+          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
           minLength: 16
           maxLength: 16
           readOnly: true
+        person_id:
+          type: string
+          description: ANPR Identifier / Identificativo ANPR 
+          maxLength: 9
+          minLength: 9
+          pattern: "^[A-Z0-9]{9}$"
+          example: AB123456C
+          readOnly: true
+        given_name:
+          type: string
+          description: Name / Nome
+          example: Mario
+          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        family_name:
+          type: string
+          description: Surname / Cognome
+          example: Rossi
+          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        birth_date:
+          type: string
+          format: date
+          example: 1990-05-17
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          description: Date of birth / Data di nascita
+          readOnly: true
+        birth_place:
+          type: string
+          example: Rome
+          description: Place of birth / Luogo di nascita
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
         issues:
-          $ref: '#/components/schemas/issues'
-      required:
-        - tax_code
-    issues:
+          additionalProperties: false
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of issues to be varied / Lista di attributi da variare
+          items:
+            $ref: '#/components/schemas/issue'
+    enrollments:
+      type: object
+      additionalProperties: false
+      x-examples:
+        Example 1:
+          institute_code: '16'
+          institute_name: Milano - Politecnico
+          programme_type_code: MS
+          degree_course_code: '1576480'
+          degree_class_code: LM-32
+          academic_year: 2021/2022
+          degree_course_year: 3
+          status: active
+          issues:
+            - attribute_name: degree_course_code
+              issue_description: degree course code didn't find on the controlled vocabulary
+      description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
+      properties:
+        institute_code:
+          type: string
+          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          example: '16'
+          readOnly: true
+          minLength: 2
+          maxLength: 2
+        institute_name:
+          type: string
+          description: Institution name / Denominazione dell’istituto
+          example: 'Milano - Politecnico'
+          readOnly: true
+          minLength: 1
+          maxLength: 2048
+        programme_type_code:
+          type: string
+          description: Code of study program / Codice del corso di studio
+          example: 'LM'
+          readOnly: true
+          minLength: 1
+          maxLength: 2
+        degree_course_code:
+          type: string
+          description: Course code / Codice del corso
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        degree_class_code:
+          type: string
+          description: Identification code of the degree class / Codice identificativo della classe di laurea
+          example: L-8
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        academic_year:
+          type: string
+          description: Last academic year in which enrollment in the student's course is recorded / Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente 
+          example: 2022/2023
+          pattern: '^\d{4}/\d{4}$'
+          readOnly: true
+          minLength: 9
+          maxLength: 9
+        degree_course_year:
+          type: integer
+          format: int32
+          description: Last year in which enrollment in the student's course is recorded / Ultimo anno in cui risulta l'iscrizione al corso della studentessa o dello studente
+          example: 3
+          pattern: ^\d{2}$
+          readOnly: true
+          minimum: 1
+          maximum: 99
+        status:
+          type: string
+          description: Enrollment status / Stato dell'iscrizione
+          example: active
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        issues:
           additionalProperties: false
           type: array
           maxItems: 256
@@ -369,7 +555,6 @@ components:
       x-examples:
         Example 1:
           attribute_name: degree_course_code
-          attribute_value: '1573960'
           issue_description: degree course code didn't find on the controlled vocabulary
       description: Status of an academic change request for a student / Stato di una rettifica per una studentessa o uno studente
       properties:
@@ -378,13 +563,7 @@ components:
           description: Attribute name to be changed  / Nome attributo da variare in fase di rettifica iscrizione
           readOnly: true
           minLength: 1
-          maxLength: 256   
-        attribute_value:
-          type: string
-          description: Current value to be rectified / Valore corrente da rettificare
-          readOnly: true
-          minLength: 1
-          maxLength: 256    
+          maxLength: 256
         issue_description:
           type: string
           description: New value to be rectified / Nuovo valore da rettificare
@@ -393,7 +572,6 @@ components:
           maxLength: 256 
       required:
         - attribute_name
-        - attribute_value
         - issue_description
     enrollments_change_request:
       type: object

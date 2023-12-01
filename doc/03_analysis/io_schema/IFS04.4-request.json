@@ -4,7 +4,7 @@
         "person_id": "AB123456C",
         "given_name": "Mario",
         "family_name": "Rossi",
-        "birth_date": "1990/05/17",
+        "birth_date": "1990-05-17",
         "birth_place": "Roma",
         "issues": [
             {
@@ -29,7 +29,7 @@
             "degree_course_code": "1573960",
             "degree_class_code": "LM-32",
             "academic_year": "2021/2022",
-            "degree_course_year": "A",
+            "degree_course_year": 3,
             "status": "active",
             "issues": [
                 {

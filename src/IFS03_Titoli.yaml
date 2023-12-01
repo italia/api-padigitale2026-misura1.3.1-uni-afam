@@ -152,6 +152,7 @@ paths:
               Example post 1:
                 value:
                   tax_code: RSSMRA80A01F205D
+                  person_id: 12345678A
                   institute_code: AA
           application/xml:
             schema:
@@ -224,6 +225,7 @@ paths:
               Example post 1:
                 value:
                   tax_code: RSSMRA80A01F205D
+                  person_id: 12345678A
                   institute_code: AA
           application/xml:
             schema:
@@ -312,12 +314,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/diploma_supplement_request'
+              $ref: '#/components/schemas/eu_qualification_request'
             examples:
               Example post 1:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: AB123456C
+                  institute_code: AA
           application/xml:
             schema:
               type: object
@@ -479,7 +482,7 @@ components:
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
           readOnly: true
-          minLength: 2
+          minLength: 1
           maxLength: 20
         academic_qualification_date:
           type: string
@@ -643,7 +646,7 @@ components:
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
           readOnly: true
-          minLength: 2
+          minLength: 1
           maxLength: 20
         degree_class_name:
           type: string
@@ -891,7 +894,7 @@ components:
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: LM-32
           readOnly: true
-          minLength: 2
+          minLength: 1
           maxLength: 20
         degree_class_name:
           type: string
@@ -1301,47 +1304,20 @@ components:
           minLength: 16
           maxLength: 16
           readOnly: false
+        person_id:
+          type: string
+          description: ANPR Identifier / Identificativo ANPR 
+          maxLength: 9
+          minLength: 9
+          example: AB123456C
+          readOnly: true
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: AA1
           minLength: 1
           maxLength: 256
-          readOnly: false  
-      required:
-        - tax_code      
-        - institute_code
-    diploma_supplement_request:
-      type: object
-      additionalProperties: false      
-      x-examples:
-        Example 1:
-          tax_code: RSSMRA80A01F205D
-          person_id: 12345678A
-          key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
-          institute_code: AA
-      x-stoplight:
-        id: b40e2be27c423
-      description: Request qualifications of a student's  / Richiesta titoli di una studentessa o uno studente
-      properties:
-        tax_code:
-          type: string
-          description: Tax Identification Number / Codice fiscale
-          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
-          example: RSSMRA80A01F205D
-          minLength: 16
-          maxLength: 16
           readOnly: false
-        person_id:
-          type: string
-          description: person_id
-          example: AA1
-          minLength: 1
-          maxLength: 256
-          readOnly: false  
-      required:
-        - tax_code      
-        - person_id
   requestBodies: {}
   responses: {}
   securitySchemes:

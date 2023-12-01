@@ -120,7 +120,7 @@ paths:
                         institute_name: Milano - Politecnico
                         country_of_academic_institution: Italia
                         expected_graduation_date: 2023-10-01
-                        enrolment_date: 2020-10-01
+                        enrollment_date: 2020-10-01
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
@@ -479,7 +479,7 @@ components:
               institute_name: Milano - Politecnico
               country_of_academic_institution: Italia
               expected_graduation_date: 2023-10-13
-              enrolment_date: 2020-10-13
+              enrollment_date: 2020-10-13
       description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
       x-stoplight:
         id: 22de4be4ac251
@@ -506,7 +506,7 @@ components:
         institute_name: institute_name
         country_of_academic_institution: country_of_academic_institution
         expected_graduation_date: expected_graduation_date
-        enrolment_date: enrolment_date
+        enrollment_date: enrollment_date
       x-examples:
         Example 1:
           programme_type_code: MS
@@ -519,7 +519,7 @@ components:
           institute_name: Milano - Politecnico
           country_of_academic_institution: Italia
           expected_graduation_date: 2023-10-13
-          date_of_enrolment: 2020-10-13
+          date_of_enrollment: 2020-10-13
       description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
       properties:
         programme_type_code:
@@ -554,7 +554,7 @@ components:
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
           readOnly: true
-          minLength: 2
+          minLength: 1
           maxLength: 20
         degree_class_name:
           type: string
@@ -591,7 +591,7 @@ components:
           readOnly: true
           minLength: 10
           maxLength: 10
-        enrolment_date:
+        enrollment_date:
           type: string
           format: date
           description: Enrollment date / Data iscrizione
@@ -705,7 +705,7 @@ components:
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
           readOnly: true
-          minLength: 2
+          minLength: 1
           maxLength: 20
         degree_class_name:
           type: string
@@ -890,7 +890,7 @@ components:
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
           readOnly: true
-          minLength: 2
+          minLength: 1
           maxLength: 20
         degree_class_name:
           type: string
@@ -1129,7 +1129,7 @@ components:
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
           readOnly: true
-          minLength: 2
+          minLength: 1
           maxLength: 20
         academic_year:
           type: string
@@ -1191,7 +1191,6 @@ components:
           description: ANPR Identifier / Identificativo ANPR 
           maxLength: 9
           minLength: 9
-          pattern: "^[A-Z0-9]{9}$"
           example: AB123456C
           readOnly: true
         given_name:
@@ -1302,9 +1301,7 @@ components:
           example: AA1
           minLength: 1
           maxLength: 256
-          readOnly: true  
-      required:
-        - tax_code
+          readOnly: true
   requestBodies: {}
   responses: {}
   securitySchemes:

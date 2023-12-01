@@ -45,7 +45,6 @@
                 },
                 {
                     "attribute_name":"qualification_grading_scale",
-                    "attribute_value": null,
                     "issue_description": "degree grading scale cannot be null or emtpy if the grading value is valued with a number"
                 },
                 {
