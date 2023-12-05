@@ -482,7 +482,7 @@ Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle stude
 " /> Esempio IFS06.1 [Response](doc/03_analysis/io_schema/IFS06.1-response.json)
 
 
-#### WORK FLOW EXAMPLE:
+#### Esempio "Flusso operativo"
 
 <img src="doc/05_gallery/ifs06-ANIS update process.drawio.png"  /> 
 
