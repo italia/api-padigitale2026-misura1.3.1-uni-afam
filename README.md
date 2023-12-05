@@ -238,6 +238,9 @@ Richiede il dettaglio di un corso
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS01.2 [Response](doc/03_analysis/io_schema/IFS01.2-response.json)
 
+> 💡 **Importante:**    
+> * test 
+> * test
 <hr>
 
 ### IFS02 Iscrizioni 🚀
@@ -255,15 +258,14 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.1 [Request](doc/03_analysis/io_schema/IFS02.1-request.json)
 
-&emsp;&emsp;&emsp; **_NOTE REQUEST_**   
 
-- Nella request popolare almeno uno dei seguenti campi: tax_code o person_id. 
-   
-- Parametro key facoltativo
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.1 [Response](doc/03_analysis/io_schema/IFS02.1-response.json)
 
+> 💡 **Importante:**    
+> * Nella request popolare almeno uno dei seguenti campi: tax_code o person_id. 
+> * Parametro key facoltativo
 
 
 
@@ -276,6 +278,11 @@ Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terzi
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.2 [Response](doc/03_analysis/io_schema/IFS02.2-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
 ##### IFS02.3
 
 Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può riferirsi a studi completati o in corso
@@ -285,6 +292,11 @@ Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenu
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.3 [Response](doc/03_analysis/io_schema/IFS02.3-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
 
 #### 🌐 IFS02.4
 
@@ -296,6 +308,12 @@ Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione terzi
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.4 [Response](doc/03_analysis/io_schema/IFS02.4-response.json)
 
+> 💡 **Importante:**    
+> * test
+> * test
+
+
+
 #### 🌐 IFS02.5
 
 Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio diploma
@@ -305,6 +323,11 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.5 [Response](doc/03_analysis/io_schema/IFS02.5-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
 
 <hr>
 
@@ -324,6 +347,12 @@ Acquisizione del dettaglio dei titoli accademici conseguiti da una studentessa/u
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.1 [Response](doc/03_analysis/io_schema/IFS03.1-response.json)
 
+> 💡 **Importante:**    
+> * test
+> * test
+
+
+
 #### 🌐 IFS03.2
 
 Acquisizione delle prove riguardanti il completamento degli studi di istruzione terziaria 
@@ -333,6 +362,11 @@ Acquisizione delle prove riguardanti il completamento degli studi di istruzione 
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.2 [Response](doc/03_analysis/io_schema/IFS03.2-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
 
 #### 🌐 IFS03.3
 
@@ -344,6 +378,11 @@ Acquisizione delle prove riguardanti il livello di qualifica degli studi di istr
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.3 [Response](doc/03_analysis/io_schema/IFS03.3-response.json)
 
+> 💡 **Importante:**    
+> * test
+> * test
+
+
 #### 🌐 IFS03.4
 
 Acquisizione delle prove relative allo strumento "Diploma Supplement"
@@ -353,6 +392,11 @@ Acquisizione delle prove relative allo strumento "Diploma Supplement"
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.4 [Response](doc/03_analysis/io_schema/IFS03.4-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
 
 
 
@@ -377,6 +421,12 @@ Richiesta di rettifica  di un'iscrizione accademica di una studentessa/uno stude
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS04.1 [Response](doc/03_analysis/io_schema/IFS04.1-response.json)
 
+
+> 💡 **Importante:**    
+> * test
+> * test
+
+
 #### 🌐 IFS04.2
 
 Acquisizione dello stato delle richieste di rettifica delle iscrizioni accademiche di una studentessa/uno studente all'Istituto di istruzione superiore
@@ -386,6 +436,11 @@ Acquisizione dello stato delle richieste di rettifica delle iscrizioni accademic
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS04.2 [Response](doc/03_analysis/io_schema/IFS04.2-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
 
 #### 🌐 IFS04.3
 
@@ -397,6 +452,11 @@ Richiesta di annullamento di una richiesta di rettifica di una iscrizione accade
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS04.3 [Response](doc/03_analysis/io_schema/IFS04.3-response.json)
 
+> 💡 **Importante:**    
+> * test
+> * test
+
+
 #### 🌐 IFS04.4
 
 Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare eventuali anomalie sui dati delle iscrizioni accademiche
@@ -407,6 +467,9 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS04.4 [Response](doc/03_analysis/io_schema/IFS04.4-response.json)
 
+> 💡 **Importante:**    
+> * test
+> * test
 
 
 <hr>
@@ -429,6 +492,11 @@ Richiesta di rettifica  di un titolo accademico di una studentessa/uno studente 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS05.1 [Response](doc/03_analysis/io_schema/IFS05.1-response.json)
 
+> 💡 **Importante:**    
+> * test
+> * test
+
+
 #### 🌐 IFS05.2
 
 Acquisizione dello stato delle richieste di rettifica dei titoli accademici di una studentessa/uno studente all'Istituto di istruzione superiore
@@ -438,6 +506,11 @@ Acquisizione dello stato delle richieste di rettifica dei titoli accademici di u
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS05.2 [Response](doc/03_analysis/io_schema/IFS05.2-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
 
 #### 🌐 IFS05.3
 
@@ -449,6 +522,11 @@ Richiesta di annullamento di una richiesta di rettifica di un titolo accademico 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS05.3 [Response](doc/03_analysis/io_schema/IFS05.3-response.json)
 
+> 💡 **Importante:**    
+> * test
+> * test
+
+
 #### 🌐 IFS05.4
 
 Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare eventuali anomalie sui dati dei titoli accademici
@@ -459,6 +537,9 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS05.4 [Response](doc/03_analysis/io_schema/IFS05.4-response.json)
 
+> 💡 **Importante:**    
+> * test
+> * test
 
 
 <hr>
@@ -482,7 +563,12 @@ Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle stude
 " /> Esempio IFS06.1 [Response](doc/03_analysis/io_schema/IFS06.1-response.json)
 
 
-#### Esempio "Flusso operativo"
+> 💡 **Importante:**    
+> * test
+> * test
+
+
+#### Esempio "Scenario operativo"
 
 <img src="doc/05_gallery/ifs06-ANIS update process.drawio.png"  /> 
 
@@ -506,6 +592,10 @@ Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fi
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS07.1 [Response](doc/03_analysis/io_schema/IFS07.1-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
 
 
 <hr>
@@ -531,6 +621,11 @@ Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno acca
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS08.1 [Response](doc/03_analysis/io_schema/IFS08.1-response.json)
 
+> 💡 **Importante:**    
+> * test
+> * test
+
+
 
 <hr>
 
@@ -553,6 +648,9 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 " /> Esempio IFS09.1 [Response](doc/03_analysis/io_schema/IFS09.1-response.json)
 
 
+> 💡 **Importante:**    
+> * test
+> * test
 
 
 <hr>
