@@ -462,23 +462,67 @@ Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle stude
 " /> Esempio IFS06.1 [Response](doc/03_analysis/io_schema/IFS06.1-response.json)
 
 
-
-
 <hr>
 
 ### IFS07 Elenco variazione titoli 🚀
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+Richiede la lista degli ultimi titoli attivi per ogni corso di studi negli ultimi 10 anni accademici.
+
+Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli ultimi 10 anni accademici.
+
+<img src="doc/05_gallery/swagger.svg" width="18
+" /> Definizione [OpenApi.yaml](src/IFS07_Elenco-variazioni-titoli.yaml)
+
+
+##### IFS07.1
+
+Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fine di identificarne le variazioni dal punto di vista del fruitore
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS07.1 [Request](doc/03_analysis/io_schema/IFS07.1-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS07.1 [Response](doc/03_analysis/io_schema/IFS07.1-response.json)
+
 
 <hr>
 
 ### IFS08 Iscritti per fasce ISEE 🚀
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accademico
+
+<img src="doc/05_gallery/swagger.svg" width="18
+" /> Definizione [OpenApi.yaml](src/IFS08_Iscritti-per-fasce-ISEE.yaml)
+
+##### IFS08.1
+
+Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno accademico
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS08.1 [Request](doc/03_analysis/io_schema/IFS08.1-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS08.1 [Response](doc/03_analysis/io_schema/IFS08.1-response.json)
+
+
 <hr>
 
 
 
 ### IFS09 Iscritti a un corso per anno 🚀
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+Ottiene il numero di studentesse e di studenti iscritti ad un IFS.
+
+<img src="doc/05_gallery/swagger.svg" width="18
+" /> Definizione [OpenApi.yaml](src/IFS09_Iscritti-per-corso-per-anno.yaml)
+
+##### IFS09.1
+
+Acquisizione del numero di studentesse e studenti iscritti a un corso di studi per anno accademico
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS09.1 [Request](doc/03_analysis/io_schema/IFS09.1-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS09.1 [Response](doc/03_analysis/io_schema/IFS09.1-response.json)
+
 
 
 
