@@ -340,17 +340,129 @@ Acquisizione delle prove relative allo strumento "Diploma Supplement"
 
 
 ### IFS04 Rettifica iscrizioni 🚀
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+
+Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
+
+<img src="doc/05_gallery/swagger.svg" width="18
+" /> Definizione [OpenApi.yaml](src/IFS04_Rettifica-iscrizioni.yaml)
+
+
+##### IFS04.1
+
+Richiesta di rettifica  di un'iscrizione accademica di una studentessa/uno studente all'Istituto di formazione superiore
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS04.1 [Request](doc/03_analysis/io_schema/IFS04.1-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS04.1 [Response](doc/03_analysis/io_schema/IFS04.1-response.json)
+
+##### IFS04.2
+
+Acquisizione dello stato delle richieste di rettifica delle iscrizioni accademiche di una studentessa/uno studente all'Istituto di istruzione superiore
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS04.2 [Request](doc/03_analysis/io_schema/IFS04.2-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS04.2 [Response](doc/03_analysis/io_schema/IFS04.2-response.json)
+
+##### IFS04.3
+
+Richiesta di annullamento di una richiesta di rettifica di una iscrizione accademica di una studentessa/uno studente all'Istituto di istruzione superiore
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS04.3 [Request](doc/03_analysis/io_schema/IFS04.3-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS04.3 [Response](doc/03_analysis/io_schema/IFS04.3-response.json)
+
+##### IFS04.4
+
+Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare eventuali anomalie sui dati delle iscrizioni accademiche
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS04.4 [Request](doc/03_analysis/io_schema/IFS04.4-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS04.4 [Response](doc/03_analysis/io_schema/IFS04.4-response.json)
+
+
 
 <hr>
 
 ### IFS05 Rettifica titoli 🚀
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
+
+<img src="doc/05_gallery/swagger.svg" width="18
+" /> Definizione [OpenApi.yaml](src/IFS05_Rettifica-titoli.yaml)
+
+
+
+##### IFS05.1
+
+Richiesta di rettifica  di un titolo accademico di una studentessa/uno studente all'Istituto di formazione superiore
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS05.1 [Request](doc/03_analysis/io_schema/IFS05.1-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS05.1 [Response](doc/03_analysis/io_schema/IFS05.1-response.json)
+
+##### IFS05.2
+
+Acquisizione dello stato delle richieste di rettifica dei titoli accademici di una studentessa/uno studente all'Istituto di istruzione superiore
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS05.2 [Request](doc/03_analysis/io_schema/IFS05.2-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS05.2 [Response](doc/03_analysis/io_schema/IFS05.2-response.json)
+
+##### IFS05.3
+
+Richiesta di annullamento di una richiesta di rettifica di un titolo accademico di una studentessa/uno studente all'Istituto di istruzione superiore
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS05.3 [Request](doc/03_analysis/io_schema/IFS05.3-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS05.3 [Response](doc/03_analysis/io_schema/IFS05.3-response.json)
+
+##### IFS05.4
+
+Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare eventuali anomalie sui dati dei titoli accademici
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS05.4 [Request](doc/03_analysis/io_schema/IFS05.4-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS05.4 [Response](doc/03_analysis/io_schema/IFS05.4-response.json)
+
+
 
 <hr>
 
 ### IFS06 Elenco Variazioni Iscrizioni 🚀
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+
+Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli ultimi 10 anni accademici.
+
+<img src="doc/05_gallery/swagger.svg" width="18
+" /> Definizione [OpenApi.yaml](src/IFS06_Elenco-variazioni-iscrizioni.yaml)
+
+
+##### IFS06.1
+
+Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle studentesse/degli studenti negli ultimi tre anni accademici al fine di identificarne le variazioni dal punto di vista del fruitore
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS06.1 [Request](doc/03_analysis/io_schema/IFS06.1-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS06.1 [Response](doc/03_analysis/io_schema/IFS06.1-response.json)
+
+
+
 
 <hr>
 
