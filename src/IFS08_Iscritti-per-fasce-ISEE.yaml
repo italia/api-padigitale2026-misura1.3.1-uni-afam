@@ -33,10 +33,6 @@ paths:
               examples:
                 Example statuscode=200:
                   value:
-                    programme_type_code: MS
-                    degree_course_code: '469'
-                    degree_class_code: LM-20
-                    academic_year: 2023/2024
                     tot_enrollment_count: 3000
                     ranges:
                       - range_description: 'ISEE non presentato'
@@ -84,7 +80,6 @@ paths:
              
         '500':
           description: Internal server error / Errore interno del server
-      
       requestBody:
         content:
           application/json:
@@ -94,7 +89,6 @@ paths:
               Example post 1:
                 value:
                   academic_year: '2023/2024'
-                  degree_course_code: '465'
           application/xml:
             schema:
               type: object
@@ -201,18 +195,8 @@ components:
       type: object
       nullable: true
       additionalProperties: false
-      x-jsonld-type: https://w3id.org/italia/onto/xxx/yyy
-      x-jsonld-context:
-        '@vocab': http://w3id.org/italia/onto/xxx/
-        programme_type_code: programme_type_code
-        degree_course_code: degree_course_code
-        degree_class_code: degree_class_code
       x-examples:
         Example 1:
-          programme_type_code: MS
-          degree_course_code: 469
-          degree_class_code: LM-20
-          academic_year: 2023-2024
           tot_enrollment_count: 1000
           ranges: 
             - isee_min_value: '1000'
@@ -221,34 +205,6 @@ components:
             - range_description: '> 100001'
       description: Students enrolled in the degree course by ISEE bracket / Iscritti al corso di laurea per fascia ISEE
       properties:
-        programme_type_code:
-          type: string
-          description: Code of study program / codice del corso di studio
-          example: 'LM'
-          readOnly: true
-          minLength: 1
-          maxLength: 2
-        degree_course_code:
-          type: string
-          description: Course code / Codice del corso
-          readOnly: true
-          minLength: 1
-          maxLength: 20
-        degree_class_code:
-          type: string
-          description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: L-8
-          readOnly: true
-          minLength: 1
-          maxLength: 20
-        academic_year:
-          type: string
-          description: Last academic year in which enrollment in the student's course is recorded / Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente 
-          example: 2022/2023
-          pattern: '^\d{4}/\d{4}$'
-          readOnly: true
-          minLength: 9
-          maxLength: 9
         tot_enrollment_count:
           type: integer
           format: int32
@@ -271,7 +227,6 @@ components:
       x-examples:
         Example 1:
           academic_year : 2023/2024
-          degree_course_code: 456
       x-stoplight:
         id: b40e2be27c423
       description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
@@ -284,17 +239,8 @@ components:
           readOnly: true
           minLength: 9
           maxLength: 9
-        degree_course_code:
-          type: string
-          description: Course code / Codice del corso
-          readOnly: true
-          minLength: 1
-          maxLength: 20
       required:
-        - academic_year      
-        - degree_course_code			        
-            
-            
+        - academic_year
   requestBodies: {}
   responses: {}
   securitySchemes:
