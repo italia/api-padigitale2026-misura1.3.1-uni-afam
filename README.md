@@ -252,31 +252,39 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 
 Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terziaria di una studentessa/studente
 
-Esempio IFS02.2 [Request](doc/03_analysis/io_schema/IFS02.2-request.json)
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS02.2 [Request](doc/03_analysis/io_schema/IFS02.2-request.json)
 
-Esempio IFS02.2 [Response](doc/03_analysis/io_schema/IFS02.2-response.json)
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS02.2 [Response](doc/03_analysis/io_schema/IFS02.2-response.json)
 ##### IFS02.3
 
 Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può riferirsi a studi completati o in corso
 
-Esempio IFS02.3 [Request](doc/03_analysis/io_schema/IFS02.3-request.json)
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS02.3 [Request](doc/03_analysis/io_schema/IFS02.3-request.json)
 
-Esempio IFS02.3 [Response](doc/03_analysis/io_schema/IFS02.3-response.json)
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS02.3 [Response](doc/03_analysis/io_schema/IFS02.3-response.json)
 ##### IFS02.4
 
 Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione terziaria di una studentessa/studente;
 
-Esempio IFS02.4 [Request](doc/03_analysis/io_schema/IFS02.4-request.json)
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS02.4 [Request](doc/03_analysis/io_schema/IFS02.4-request.json)
 
-Esempio IFS02.4 [Response](doc/03_analysis/io_schema/IFS02.4-response.json)
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS02.4 [Response](doc/03_analysis/io_schema/IFS02.4-response.json)
 
 ##### IFS02.5
 
 Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio diploma
 
-Esempio IFS02.5 [Request](doc/03_analysis/io_schema/IFS02.5-request.json)
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS02.5 [Request](doc/03_analysis/io_schema/IFS02.5-request.json)
 
-Esempio IFS02.5 [Response](doc/03_analysis/io_schema/IFS02.5-response.json)
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS02.5 [Response](doc/03_analysis/io_schema/IFS02.5-response.json)
 
 <hr>
 
