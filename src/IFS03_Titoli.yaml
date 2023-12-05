@@ -37,10 +37,10 @@ paths:
                     personal_data:
                       tax_code: RSSMRA80A01F205D
                       person_id: AB123456C
-                      given_name: Mario
-                      family_name: Rossi
-                      birth_date: '1990-05-17'
-                      birth_place: Roma
+                      given_name: null
+                      family_name: null
+                      birth_date: null
+                      birth_place: null
                     qualifications:
                       - institute_code: '16'
                         institute_name: Milano - Politecnico
@@ -108,8 +108,8 @@ paths:
                     personal_data:
                       tax_code: RSSMRA80A01F205D
                       person_id: AB123456C
-                      given_name: Mario
-                      family_name: Rossi
+                      given_name: null
+                      family_name: null
                     proof_qualifications:
                       - institute_code: '16'
                         institute_name: Milano - Politecnico
@@ -182,8 +182,8 @@ paths:
                     personal_data:
                       tax_code: RSSMRA80A01F205D
                       person_id: AB123456C
-                      given_name: Mario
-                      family_name: Rossi
+                      given_name: null
+                      family_name: null
                     proof_qualifications_level:
                       qualification_name: Laurea in Scienze Aziendali
                       study_programme_duration_years_or_months: 3 anni a tempo pieno
@@ -255,8 +255,8 @@ paths:
                     personal_data:
                       tax_code: RSSMRA80A01F205D
                       person_id: AB123456C
-                      given_name: Mario
-                      family_name: Rossi
+                      given_name: null
+                      family_name: null
                     proof_qualifications_diploma_supplement:
                       ects_credits_received: 180
                       institute_name: Cagliari - Università degli Studi
@@ -384,10 +384,10 @@ components:
           personal_data:
             tax_code: RSSMRA80A01F205D
             person_id: AB123456C
-            given_name: Mario
-            family_name: Rossi
-            birth_date: '1990-05-17'
-            birth_place: Roma
+            given_name: null
+            family_name: null
+            birth_date: null
+            birth_place: null
           qualifications:
             - institute_code: '16'
               institute_name: Milano - Politecnico
@@ -528,10 +528,10 @@ components:
           personal_data:
             tax_code: RSSMRA80A01F205D
             person_id: AB123456C
-            given_name: Mario
-            family_name: Rossi
-            birth_date: 1990-05-17
-            birth_place: Roma
+            given_name: null
+            family_name: null
+            birth_date: null
+            birth_place: null
           proof_qualifications:
             - institute_code: '16'
               institute_name: Milano - Politecnico
@@ -706,8 +706,8 @@ components:
           personal_data:
             tax_code: RSSMRA80A01F205D
             person_id: AB123456C
-            given_name: Mario
-            family_name: Rossi
+            given_name: null
+            family_name: null
           proof_qualifications_diploma_supplement:
             ects_credits_received: 180
             institute_name: Cagliari - Università degli Studi
@@ -763,8 +763,8 @@ components:
           personal_data:
             tax_code: RSSMRA80A01F205D
             person_id: AB123456C
-            given_name: Mario
-            family_name: Rossi
+            given_name: null
+            family_name: null
           proof_qualifications_level:
             qualification_name: Laurea ingegneria informatica
             study_programme_duration_years_or_months: 3 anni a tempo pieno
@@ -1200,6 +1200,7 @@ components:
           minLength: 16
           maxLength: 16
           readOnly: true
+          nullable: true
         person_id:
           type: string
           description: ANPR Identifier / Identificativo ANPR 
@@ -1208,6 +1209,7 @@ components:
           pattern: "^[A-Z0-9]{9}$"
           example: AB123456C
           readOnly: true
+          nullable: true
         given_name:
           type: string
           description: Name / Nome
@@ -1216,6 +1218,7 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 2048
+          nullable: true
         family_name:
           type: string
           description: Surname / Cognome
@@ -1224,6 +1227,7 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 2048
+          nullable: true
         birth_date:
           type: string
           format: date
@@ -1231,6 +1235,7 @@ components:
           pattern: '^\d{4}-\d{2}-\d{2}$'
           description: Date of birth / Data di nascita
           readOnly: true
+          nullable: true
         birth_place:
           type: string
           example: Rome
@@ -1238,6 +1243,7 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 2048
+          nullable: true
     it_qualification_request:
       type: object
       additionalProperties: false      

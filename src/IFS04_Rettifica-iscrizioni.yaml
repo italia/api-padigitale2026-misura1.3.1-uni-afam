@@ -202,13 +202,17 @@ paths:
             examples:
               Example post 1:
                 value:
+                  subscriber_id: "1234"
+                  subscriber_name: ANIS
+                  subscriber_message: It wasn't possible to load all the enrollments of this student
+                  data_request_timestamp: 2019-10-12T07:20:50.52Z
                   personal_data:
                     tax_code: RSSMRA80A01F205D
                     person_id: AB123456C
-                    given_name: Mario
-                    family_name: Rossi
-                    birth_date: 1990-05-17
-                    birth_place: Roma
+                    given_name: null
+                    family_name: null
+                    birth_date: null
+                    birth_place: null
                     issues:
                       - attribute_name: degree_course_code
                         issue_description: degree course code didn't find on the controlled vocabulary
@@ -356,13 +360,17 @@ components:
       additionalProperties: false      
       x-examples:
         Example 1:
+          subscriber_id: "1234"
+          subscriber_name: ANIS
+          subscriber_message: It wasn't possible to load all the enrollments of this student
+          data_request_timestamp: "2023-12-04 01:00:00"
           personal_data:
             tax_code: RSSMRA80A01F205D
             person_id: AB123456C
-            given_name: Mario
-            family_name: Rossi
-            birth_date: 1990/05/17
-            birth_place: Roma
+            given_name: null
+            family_name: null
+            birth_date: null
+            birth_place: null
             issues:
               - attribute_name: degree_course_code
                 issue_description: degree course code didn't find on the controlled vocabulary
@@ -390,6 +398,35 @@ components:
         id: b40e2be27c423
       description: Academic change request / Richiesta di rettifica di una studentessa o uno studente
       properties:
+        subscriber_id:
+          type: string
+          description: Applicant Identification Code / Codice identificativo richiedente
+          example: '213521'
+          minLength: 1
+          maxLength: 2048
+          readOnly: true
+        subscriber_name:
+          type: string
+          description: Applicant name / Nome richiedente
+          example: ANIS
+          minLength: 1
+          maxLength: 2048
+          readOnly: true
+        subscriber_message:
+          type: string
+          description: Applicant message / Messaggio richiedente
+          example: It wasn't possible to load all the enrollments of this student
+          minLength: 1
+          maxLength: 2048
+          readOnly: true
+        data_request_timestamp:
+          type: string
+          format: date-time
+          description: Timestamp request / Timestamp richiesta
+          example: 2019-10-12T07:20:50.52Z
+          minLength: 1
+          maxLength: 36
+          readOnly: true
         personal_data:
           $ref: '#/components/schemas/personal_data'
         enrollments:
@@ -419,6 +456,7 @@ components:
           minLength: 16
           maxLength: 16
           readOnly: true
+          nullable: true
         person_id:
           type: string
           description: ANPR Identifier / Identificativo ANPR 
@@ -427,6 +465,7 @@ components:
           pattern: "^[A-Z0-9]{9}$"
           example: AB123456C
           readOnly: true
+          nullable: true
         given_name:
           type: string
           description: Name / Nome
@@ -435,6 +474,7 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 2048
+          nullable: true
         family_name:
           type: string
           description: Surname / Cognome
@@ -443,6 +483,7 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 2048
+          nullable: true
         birth_date:
           type: string
           format: date
@@ -450,6 +491,7 @@ components:
           pattern: '^\d{4}-\d{2}-\d{2}$'
           description: Date of birth / Data di nascita
           readOnly: true
+          nullable: true
         birth_place:
           type: string
           example: Rome
@@ -457,6 +499,7 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 2048
+          nullable: true
         issues:
           additionalProperties: false
           type: array
