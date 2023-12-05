@@ -462,6 +462,10 @@ Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle stude
 " /> Esempio IFS06.1 [Response](doc/03_analysis/io_schema/IFS06.1-response.json)
 
 
+WORK FLOW
+
+<img src="doc/05_gallery/ifs06-ANIS update process.drawio.png"  /> 
+
 <hr>
 
 ### IFS07 Elenco variazione titoli 🚀
@@ -495,6 +499,12 @@ Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accadem
 ##### IFS08.1
 
 Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno accademico
+
+
+ **_NOTE:_**   
+- la API deve essere organizzate secondo la ripartizione degli scaglioni coerenti con i provvedimenti normativi in vigore relativamente alla tassazione universitaria (No-tax area e progressività) per gli Atenei statali e gli istituti AFAM statali (L. 232/2016, DM 1014/2021, DM 1016/2021). 
+- E' di libero arbitrio degli istituti la scelta di definire una soglia minima di studenti entro la quale mostrare la fascia di reddito.
+
 
 <img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS08.1 [Request](doc/03_analysis/io_schema/IFS08.1-request.json)
