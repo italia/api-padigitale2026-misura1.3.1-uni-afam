@@ -212,12 +212,18 @@ Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " />  Esempio IFS01.1 [Request](doc/03_analysis/io_schema/IFS01.1-request.json)
 
+
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " />  Esempio IFS01.1 [Response](doc/03_analysis/io_schema/IFS01.1-response.json)
 
+
+
 > **_NOTE:_**   
-> Prevedere se possibile la paginazione della response. 
-> Se tale funzionalità è implementata, nella request sarà necessario valorizzare anche il campo cursor
+> * Prevedere se possibile la paginazione della response. 
+> * Se tale funzionalità è implementata, nella request sarà necessario valorizzare anche il campo cursor
+
+
+
 
 #### 🌐 IFS01.2
 
@@ -247,11 +253,11 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.1 [Request](doc/03_analysis/io_schema/IFS02.1-request.json)
 
-> **_NOTE REQUEST 1:_**   
-> Nella request popolare almeno uno dei seguenti campi: tax_code o person_id. 
+&emsp;&emsp;&emsp; **_NOTE REQUEST_**   
 
-> **NOTE REQUEST 2**   
-> Parametro key facoltativo
+- Nella request popolare almeno uno dei seguenti campi: tax_code o person_id. 
+   
+- Parametro key facoltativo
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.1 [Response](doc/03_analysis/io_schema/IFS02.1-response.json)
