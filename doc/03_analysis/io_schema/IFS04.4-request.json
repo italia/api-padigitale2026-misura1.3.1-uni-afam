@@ -1,11 +1,17 @@
 {
+    "subscriber_id": "1234",
+    "subscriber_name": "ANIS",
+    "subscriber_message": "It wasn't possible to load all the enrollments of this student",
+    "data_request_timestamp": "2023-12-04 01:00:00",
+
     "personal_data": {
         "tax_code": "RSSMRA80A01F205D",
         "person_id": "AB123456C",
-        "given_name": "Mario",
-        "family_name": "Rossi",
-        "birth_date": "1990-05-17",
-        "birth_place": "Roma",
+        /* I seguenti dati dello studente sono valorizzati solo in assenza di tax_code e person_id */
+        "given_name": null,
+        "family_name": null,
+        "birth_date": null,
+        "birth_place": null,
         "issues": [
             {
                 "attribute_name":"tax_code",

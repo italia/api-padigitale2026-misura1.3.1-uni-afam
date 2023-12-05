@@ -1,6 +1,3 @@
-/* Working in progress
-/*Request-> academicyear + degree_course_code*/
-/* To add the splitting by female and male (DONE)*/
 {
    "count_academic_enrollments_by_degree_courses":
       [

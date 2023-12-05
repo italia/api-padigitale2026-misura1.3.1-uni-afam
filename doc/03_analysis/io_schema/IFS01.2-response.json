@@ -1,11 +1,4 @@
-/* OFFERTA FORMATIVA - DETTAGLIO CORSO  */
-/*verificare url: https://www4.ceda.polimi.it/manifesti/manifesti/controller/MostraIndirizziPublic.do?evn_default=EVENTO&aa=2023&k_cf=225&k_corso_la=353&ac_ins=1&k_indir=MEC&lang=IT&tipoCorso=ALL_TIPO_CORSO&caricaOffertaInvisibile=false&semestre=ALL_SEMESTRI&sede=ALL_SEDI*/
-
-
-
-/*ESEMPIO 1*/
 {
-   //"programme_type_name":"Laurea Di Primo Livello - Ordinamento 270/04",
    "programme_type_code":"L2",
    "programme_access":"Libero",
    "course_location":"Milano Bovisa",
@@ -14,7 +7,6 @@
    "degree_class_code":"L-9",
    "degree_class_language":"IT",
    "degree_class_period_years":3,
-   //"degree_course_name":"Ingegneria Meccanica",
    "degree_course_code":"353",
    "total_credits":180,
    "academic_year":"2023/2024",

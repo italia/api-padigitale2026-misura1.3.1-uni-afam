@@ -288,39 +288,84 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 
 <hr>
 
-#### IFS03 Titoli 🚀
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+### IFS03 Titoli 🚀
+Restituisce l'elenco dei titoli conseguiti da una studentessa o uno studente
+
+<img src="doc/05_gallery/swagger.svg" width="18
+" /> Definizione [OpenApi.yaml](src/IFS03_Titoli.yaml)
+
+##### IFS03.1
+
+Acquisizione del dettaglio dei titoli accademici conseguiti da una studentessa/uno studente
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS03.1 [Request](doc/03_analysis/io_schema/IFS03.1-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS03.1 [Response](doc/03_analysis/io_schema/IFS03.1-response.json)
+
+##### IFS03.2
+
+Acquisizione delle prove riguardanti il completamento degli studi di istruzione terziaria 
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS03.2 [Request](doc/03_analysis/io_schema/IFS03.2-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS03.2 [Response](doc/03_analysis/io_schema/IFS03.2-response.json)
+
+##### IFS03.3
+
+Acquisizione delle prove riguardanti il livello di qualifica degli studi di istruzione terziaria
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS03.3 [Request](doc/03_analysis/io_schema/IFS03.3-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS03.3 [Response](doc/03_analysis/io_schema/IFS03.3-response.json)
+
+##### IFS03.4
+
+Acquisizione delle prove relative allo strumento "Diploma Supplement"
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS03.4 [Request](doc/03_analysis/io_schema/IFS03.4-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS03.4 [Response](doc/03_analysis/io_schema/IFS03.4-response.json)
+
+
 
 <hr>
 
 
-#### IFS04 Rettifica iscrizioni 🚀
+### IFS04 Rettifica iscrizioni 🚀
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
 <hr>
 
-#### IFS05 Rettifica titoli 🚀
+### IFS05 Rettifica titoli 🚀
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
 <hr>
 
-#### IFS06 Elenco Variazioni Iscrizioni 🚀
+### IFS06 Elenco Variazioni Iscrizioni 🚀
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
 <hr>
 
-#### IFS07 Elenco variazione titoli 🚀
+### IFS07 Elenco variazione titoli 🚀
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
 <hr>
 
-#### IFS08 Iscritti per fasce ISEE 🚀
+### IFS08 Iscritti per fasce ISEE 🚀
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 <hr>
 
 
 
-#### IFS09 Iscritti a un corso per anno 🚀
+### IFS09 Iscritti a un corso per anno 🚀
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
 
@@ -331,6 +376,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ## Per maggiori informazioni:
 * [Interoperabilità e PDND su Developers Italia](https://developers.italia.it/it/interoperabilita/)
 * [Avvisi di PAdigitale 2026](https://areariservata.padigitale2026.gov.it/Pa_digitale2026_avvisi)
+
+## Ultima Modifica
+
+05/12/2023
 
 ## Authors
 
