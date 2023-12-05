@@ -199,11 +199,11 @@ In questo paragrafo verrano descritti XXXXXX
 
 <hr>
 
-#### IFS01 Offerta Formativa
+### IFS01 Offerta Formativa <img src="doc/05_gallery/rocket.svg" width="18" />
 Vuole acquisire i dati dei corsi attivi ed offerti da un Istituto in un dato anno accademico
 
 <img src="doc/05_gallery/swagger.svg" width="18
-" /> Definizione [OpenApi.yaml](src/IFS01_Offerta-formativa.yaml) 
+" /> Definizione [OpenApi.yaml](src/IFS01_Offerta-formativa.yaml)  
 
 ##### IFS01.1
 
@@ -231,7 +231,7 @@ Richiede il dettaglio di un corso
 
 <hr>
 
-#### IFS02 Iscrizioni
+### IFS02 Iscrizioni 🚀
 
 Acquisisce il dettaglio delle iscrizioni accademiche.
 Fornisce le informazioni di dettaglio riguardanti le iscrizioni di una studentessa o uno studente all'università o AFAM
