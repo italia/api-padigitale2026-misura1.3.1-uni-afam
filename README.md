@@ -216,7 +216,8 @@ Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico
 " />  Esempio IFS01.1 [Response](doc/03_analysis/io_schema/IFS01.1-response.json)
 
 > **_NOTE:_**   
-> Se possibile prevedere la paginazione della response. Se tale funzionalità è implementata, nella request sarà necessario valorizzare anche il campo cursor
+> Prevedere se possibile la paginazione della response. 
+> Se tale funzionalità è implementata, nella request sarà necessario valorizzare anche il campo cursor
 
 ##### IFS01.2
 
@@ -246,8 +247,18 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 <img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.1 [Request](doc/03_analysis/io_schema/IFS02.1-request.json)
 
+> **_NOTE REQUEST 1:_**   
+> Nella request popolare almeno uno dei seguenti campi: tax_code o person_id. 
+
+> **NOTE REQUEST 2**   
+> Parametro key facoltativo
+
 <img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.1 [Response](doc/03_analysis/io_schema/IFS02.1-response.json)
+
+
+
+
 ##### IFS02.2
 
 Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terziaria di una studentessa/studente
@@ -462,7 +473,7 @@ Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle stude
 " /> Esempio IFS06.1 [Response](doc/03_analysis/io_schema/IFS06.1-response.json)
 
 
-WORK FLOW
+#### WORK FLOW EXAMPLE:
 
 <img src="doc/05_gallery/ifs06-ANIS update process.drawio.png"  /> 
 
@@ -503,7 +514,7 @@ Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno acca
 
  **_NOTE:_**   
 - la API deve essere organizzate secondo la ripartizione degli scaglioni coerenti con i provvedimenti normativi in vigore relativamente alla tassazione universitaria (No-tax area e progressività) per gli Atenei statali e gli istituti AFAM statali (L. 232/2016, DM 1014/2021, DM 1016/2021). 
-- E' di libero arbitrio degli istituti la scelta di definire una soglia minima di studenti entro la quale mostrare la fascia di reddito.
+- <b><i> E' di libero arbitrio degli istituti la scelta di definire una soglia minima di studenti entro la quale mostrare la fascia di reddito.<i/><b/>
 
 
 <img src="doc/05_gallery/json.png" width="20
@@ -549,6 +560,6 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 
 ## Authors
 
-* 
-* 
-* 
+* Denis Marini
+* Lorenzo Doneda
+* Davide Longo
