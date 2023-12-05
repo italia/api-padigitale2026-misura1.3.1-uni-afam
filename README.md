@@ -217,19 +217,14 @@ Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico
 " />  Esempio IFS01.1 [Response](doc/03_analysis/io_schema/IFS01.1-response.json)
 
 
-😕💔 test
 
 
-> **Importante:**    :heartpulse: 
+
+> 💡 **Importante:**    
 > * Prevedere se possibile la paginazione della response. 
 > * Se tale funzionalità è implementata, nella request sarà necessario valorizzare anche il campo cursor
 
 
-| | ico | shortcode | ico | shortcode | |
-| - | :-: | - | :-: | - | - |
-| [top](#smileys--emotion) | :relieved: | `:relieved:` | :pensive: | `:pensive:` | [top](#table-of-contents) |
-| [top](#smileys--emotion) | :sleepy: | `:sleepy:` | :drooling_face: | `:drooling_face:` | [top](#table-of-contents) |
-| [top](#smileys--emotion) | :sleeping: | `:sleeping:` | | | [top](#table-of-contents) |
 
 
 #### 🌐 IFS01.2
