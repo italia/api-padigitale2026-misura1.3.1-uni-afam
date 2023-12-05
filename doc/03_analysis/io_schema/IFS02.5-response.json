@@ -2,8 +2,11 @@
        "personal_data":{
           "tax_code":"RSSMRA80A01F205D",
           "person_id":"AB123456C",
-          "given_name":"Mario",
-          "family_name":"Rossi"
+         /* I seguenti dati dello studente sono valorizzati solo in assenza di tax_code e person_id */
+         "given_name": null,
+         "family_name": null,
+         "birth_date": null,
+         "birth_place": null
        },
        "proof_mobility_periods":[
           {
