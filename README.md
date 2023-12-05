@@ -202,13 +202,18 @@ In questo paragrafo verrano descritti XXXXXX
 #### IFS01 Offerta Formativa
 Vuole acquisire i dati dei corsi attivi ed offerti da un Istituto in un dato anno accademico
 
+<img src="doc/05_gallery/swagger.svg" width="18
+" /> Definizione [OpenApi.yaml](src/IFS01_Offerta-formativa.yaml) 
+
 ##### IFS01.1
 
 Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico
 
-Esempio IFS01.1 [Request](doc/03_analysis/io_schema/IFS01.1-request.json)
+<img src="doc/05_gallery/json.png" width="20
+" />  Esempio IFS01.1 [Request](doc/03_analysis/io_schema/IFS01.1-request.json)
 
-Esempio IFS01.1 [Response](doc/03_analysis/io_schema/IFS01.1-response.json)
+<img src="doc/05_gallery/json.png" width="20
+" />  Esempio IFS01.1 [Response](doc/03_analysis/io_schema/IFS01.1-response.json)
 
 > **_NOTE:_**   
 > Se possibile prevedere la paginazione della response. Se tale funzionalità è implementata, nella request sarà necessario valorizzare anche il campo cursor
@@ -217,14 +222,61 @@ Esempio IFS01.1 [Response](doc/03_analysis/io_schema/IFS01.1-response.json)
 
 Richiede il dettaglio di un corso
 
-Esempio IFS01.2 [Request](doc/03_analysis/io_schema/IFS01.2-request.json)
 
-Esempio IFS01.2 [Response](doc/03_analysis/io_schema/IFS01.2-response.json)
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS01.2 [Request](doc/03_analysis/io_schema/IFS01.2-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS01.2 [Response](doc/03_analysis/io_schema/IFS01.2-response.json)
 
 <hr>
 
 #### IFS02 Iscrizioni
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+
+Acquisisce il dettaglio delle iscrizioni accademiche.
+Fornisce le informazioni di dettaglio riguardanti le iscrizioni di una studentessa o uno studente all'università o AFAM
+
+<img src="doc/05_gallery/swagger.svg" width="18
+" /> Definizione [OpenApi.yaml](src/IFS02_Iscrizioni.yaml)
+
+##### IFS02.1
+
+Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accademici di una studentessa o di uno studente
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS02.1 [Request](doc/03_analysis/io_schema/IFS02.1-request.json)
+
+<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS02.1 [Response](doc/03_analysis/io_schema/IFS02.1-response.json)
+##### IFS02.2
+
+Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terziaria di una studentessa/studente
+
+Esempio IFS02.2 [Request](doc/03_analysis/io_schema/IFS02.2-request.json)
+
+Esempio IFS02.2 [Response](doc/03_analysis/io_schema/IFS02.2-response.json)
+##### IFS02.3
+
+Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può riferirsi a studi completati o in corso
+
+Esempio IFS02.3 [Request](doc/03_analysis/io_schema/IFS02.3-request.json)
+
+Esempio IFS02.3 [Response](doc/03_analysis/io_schema/IFS02.3-response.json)
+##### IFS02.4
+
+Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione terziaria di una studentessa/studente;
+
+Esempio IFS02.4 [Request](doc/03_analysis/io_schema/IFS02.4-request.json)
+
+Esempio IFS02.4 [Response](doc/03_analysis/io_schema/IFS02.4-response.json)
+
+##### IFS02.5
+
+Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio diploma
+
+Esempio IFS02.5 [Request](doc/03_analysis/io_schema/IFS02.5-request.json)
+
+Esempio IFS02.5 [Response](doc/03_analysis/io_schema/IFS02.5-response.json)
 
 <hr>
 
