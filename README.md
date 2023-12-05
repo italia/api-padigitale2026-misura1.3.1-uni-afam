@@ -186,20 +186,20 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 
 In questo paragrafo verrano descritti XXXXXX
 
-1. [IFS01 Offerta Formativa](#ifs01-offerta-formativa)
-2. [IFS02 Iscrizioni](#ifs02-iscrizioni)
-3. [IFS03 Titoli](#ifs03-titoli)
-4. [IFS04 Rettifica iscrizioni](#ifs04-rettifica-iscrizioni)
-5. [IFS05 Rettifica titoli](#ifs05-ettifica-titoli)
-6. [IFS06 Elenco Variazioni Iscrizioni](#ifs06-elenco-variazioni-iscrizioni)
-7. [IFS07 Elenco variazione titoli](#ifs07-elenco-variazione-titoli)
-8. [IFS08 Iscritti per fasce ISEE](#ifs03-iscritti-per-fasce-isee)
-9. [IFS09 Iscritti a un corso per anno](#ifs09-iscritti-a-un-corso-per-anno)
+1. [IFS01 Offerta Formativa](#ifs01-offerta-formativa-🚀)
+2. [IFS02 Iscrizioni](#ifs02-iscrizioni-🚀)
+3. [IFS03 Titoli](#ifs03-titoli-🚀)
+4. [IFS04 Rettifica iscrizioni](#ifs04-rettifica-iscrizioni-🚀)
+5. [IFS05 Rettifica titoli](#ifs05-ettifica-titoli-🚀)
+6. [IFS06 Elenco Variazioni Iscrizioni](#ifs06-elenco-variazioni-iscrizioni-🚀)
+7. [IFS07 Elenco variazione titoli](#ifs07-elenco-variazione-titoli-🚀)
+8. [IFS08 Iscritti per fasce ISEE](#ifs03-iscritti-per-fasce-isee-🚀)
+9. [IFS09 Iscritti a un corso per anno](#ifs09-iscritti-a-un-corso-per-anno-🚀)
 
 
 <hr>
 
-### IFS01 Offerta Formativa <img src="doc/05_gallery/rocket.svg" width="18" />
+### IFS01 Offerta Formativa 🚀
 Vuole acquisire i dati dei corsi attivi ed offerti da un Istituto in un dato anno accademico
 
 <img src="doc/05_gallery/swagger.svg" width="18
@@ -288,39 +288,39 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 
 <hr>
 
-#### IFS03 Titoli
+#### IFS03 Titoli 🚀
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
 <hr>
 
 
-#### IFS04 Rettifica iscrizioni
+#### IFS04 Rettifica iscrizioni 🚀
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
 <hr>
 
-#### IFS05 Rettifica titoli
+#### IFS05 Rettifica titoli 🚀
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
 <hr>
 
-#### IFS06 Elenco Variazioni Iscrizioni
+#### IFS06 Elenco Variazioni Iscrizioni 🚀
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
 <hr>
 
-#### IFS07 Elenco variazione titoli
+#### IFS07 Elenco variazione titoli 🚀
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
 <hr>
 
-#### IFS08 Iscritti per fasce ISEE
+#### IFS08 Iscritti per fasce ISEE 🚀
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 <hr>
 
 
 
-#### IFS09 Iscritti a un corso per anno
+#### IFS09 Iscritti a un corso per anno 🚀
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
 
