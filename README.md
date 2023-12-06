@@ -184,6 +184,16 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 
 ## Linee Guida e-service
 
+<p align="center">
+ <img src="doc/05_gallery/umarell-dtd.png" width="100"/>
+</p>
+<p align="center"><span style="color: yellow"> 
+    Working in progress
+    </span>
+</p>
+
+
+
 In questo paragrafo verrano descritti XXXXXX
 
 1. [IFS01 Offerta Formativa](#ifs01-offerta-formativa-🚀)
