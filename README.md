@@ -183,14 +183,13 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 
 
 ## Linee Guida e-service
-
 <p align="center">
- <img src="doc/05_gallery/umarell-dtd.png" width="100"/>
+    <b>Working in progress</b>
 </p>
-<p align="center"><span style="color: yellow"> 
-    Working in progress
-    </span>
+<p align="center">
+ <img src="doc/05_gallery/umarell-dtd.png" width="150"/>
 </p>
+
 
 
 
