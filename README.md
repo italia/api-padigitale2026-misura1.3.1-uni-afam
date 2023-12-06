@@ -195,7 +195,7 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 
 In questo paragrafo verrano descritti XXXXXX
 
-1. [IFS01 Offerta Formativa](#ifs01-offerta-formativa)
+1. [IFS01 Offerta Formativa](#ifs01-offerta-formativa-:rochet:)
 2. [IFS02 Iscrizioni](#ifs02-iscrizioni-🚀)
 3. [IFS03 Titoli](#ifs03-titoli-🚀)
 4. [IFS04 Rettifica iscrizioni](#ifs04-rettifica-iscrizioni-🚀)
@@ -208,7 +208,7 @@ In questo paragrafo verrano descritti XXXXXX
 
 <hr>
 
-### IFS01 Offerta Formativa
+### IFS01 Offerta Formativa :rocket:
 Vuole acquisire i dati dei corsi attivi ed offerti da un Istituto in un dato anno accademico
 
 <img src="doc/05_gallery/swagger.svg" width="18
