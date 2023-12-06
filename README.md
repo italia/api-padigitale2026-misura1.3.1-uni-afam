@@ -184,7 +184,7 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 
 ## Linee Guida e-service
 <p align="center">
-    <b>Working in progress</b>
+    <b>Work in progress</b>
 </p>
 <p align="center">
  <img src="doc/05_gallery/umarell-dtd.png" width="150"/>
