@@ -691,7 +691,9 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 
 <p align="center">
 ⏫ [Back to top ](#linee-guida-e-service)
-<p/>
+</p>
+⏫ [Back to top ](#linee-guida-e-service)
+
 <hr>
 
 
