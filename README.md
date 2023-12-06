@@ -250,7 +250,13 @@ Richiede il dettaglio di un corso
 > 💡 **Importante:**    
 > * test 
 > * test
+
+
+⏫ [Back to top ](#linee-guida-e-service)
+
 <hr>
+
+
 
 ### IFS02 Iscrizioni
 
@@ -337,6 +343,7 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 > * test
 > * test
 
+⏫ [Back to top ](#linee-guida-e-service)
 
 <hr>
 
@@ -408,6 +415,7 @@ Acquisizione delle prove relative allo strumento "Diploma Supplement"
 
 
 
+⏫ [Back to top ](#linee-guida-e-service)
 
 <hr>
 
@@ -480,6 +488,7 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 > * test
 > * test
 
+⏫ [Back to top ](#linee-guida-e-service)
 
 <hr>
 
@@ -550,6 +559,7 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 > * test
 > * test
 
+⏫ [Back to top ](#linee-guida-e-service)
 
 <hr>
 
@@ -581,9 +591,11 @@ Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle stude
 
 <img src="doc/05_gallery/ifs06-ANIS update process.drawio.png"  /> 
 
+⏫ [Back to top ](#linee-guida-e-service)
+
 <hr>
 
-### IFS07 Elenco variazione titoli 🚀
+### IFS07 Elenco variazione titoli
 Richiede la lista degli ultimi titoli attivi per ogni corso di studi negli ultimi 10 anni accademici.
 
 Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli ultimi 10 anni accademici.
@@ -606,6 +618,7 @@ Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fi
 > * test
 > * test
 
+⏫ [Back to top ](#linee-guida-e-service)
 
 <hr>
 
@@ -635,6 +648,7 @@ Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno acca
 > * test
 
 
+⏫ [Back to top ](#linee-guida-e-service)
 
 <hr>
 
@@ -661,6 +675,7 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 > * test
 > * test
 
+⏫ [Back to top ](#linee-guida-e-service)
 
 <hr>
 
