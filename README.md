@@ -230,8 +230,10 @@ Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico
 
 
 > 💡 **Importante:**    
-> * Prevedere se possibile la paginazione della response. 
-> * Se tale funzionalità è implementata, nella request sarà necessario valorizzare anche il campo cursor
+> * La request prevede l'obbligatorietà della compilazione del campo <i><b>academic_year</b></i>. 
+> * attributo  <i><b>cursor</b></i> : da non valorizzare nella prima chiamata. Nel caso in cui la response restituisca l'attributo cursor valorizzato, sarà necessario iterare la chiamata e popolare nella request il campo cursor.
+> * Viene lasciata allo sviluppatore la gestione della paginazione della response.
+
 
 
 
@@ -248,8 +250,8 @@ Richiede il dettaglio di un corso
 " /> Esempio IFS01.2 [Response](doc/03_analysis/io_schema/IFS01.2-response.json)
 
 > 💡 **Importante:**    
-> * test 
-> * test
+> * riferimento ontologico:  https://schema.gov.it/lodview/onto/Learning/DegreeCourse
+
 
 
 ⏫ [Back to top ](#linee-guida-e-service)
@@ -281,6 +283,7 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 > 💡 **Importante:**    
 > * Nella request popolare almeno uno dei seguenti campi: tax_code o person_id. 
 > * Parametro key facoltativo
+
 
 
 
