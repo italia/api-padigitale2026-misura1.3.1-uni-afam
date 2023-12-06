@@ -195,20 +195,20 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 
 In questo paragrafo verrano descritti XXXXXX
 
-1. [IFS01 Offerta Formativa](#ifs01-offerta-formativa-:rochet:)
-2. [IFS02 Iscrizioni](#ifs02-iscrizioni-🚀)
-3. [IFS03 Titoli](#ifs03-titoli-🚀)
-4. [IFS04 Rettifica iscrizioni](#ifs04-rettifica-iscrizioni-🚀)
-5. [IFS05 Rettifica titoli](#ifs05-ettifica-titoli-🚀)
-6. [IFS06 Elenco Variazioni Iscrizioni](#ifs06-elenco-variazioni-iscrizioni-🚀)
-7. [IFS07 Elenco variazione titoli](#ifs07-elenco-variazione-titoli-🚀)
-8. [IFS08 Iscritti per fasce ISEE](#ifs03-iscritti-per-fasce-isee-🚀)
-9. [IFS09 Iscritti a un corso per anno](#ifs09-iscritti-a-un-corso-per-anno-🚀)
+1. [IFS01 Offerta Formativa](#ifs01-offerta-formativa)
+2. [IFS02 Iscrizioni](#ifs02-iscrizioni)
+3. [IFS03 Titoli](#ifs03-titoli)
+4. [IFS04 Rettifica iscrizioni](#ifs04-rettifica-iscrizioni)
+5. [IFS05 Rettifica titoli](#ifs05-ettifica-titoli)
+6. [IFS06 Elenco Variazioni Iscrizioni](#ifs06-elenco-variazioni-iscrizioni)
+7. [IFS07 Elenco variazione titoli](#ifs07-elenco-variazione-titoli)
+8. [IFS08 Iscritti per fasce ISEE](#ifs03-iscritti-per-fasce-isee)
+9. [IFS09 Iscritti a un corso per anno](#ifs09-iscritti-a-un-corso-per-anno)
 
 
 <hr>
 
-### IFS01 Offerta Formativa :rocket:
+### IFS01 Offerta Formativa
 Vuole acquisire i dati dei corsi attivi ed offerti da un Istituto in un dato anno accademico
 
 <img src="doc/05_gallery/swagger.svg" width="18
@@ -252,7 +252,7 @@ Richiede il dettaglio di un corso
 > * test
 <hr>
 
-### IFS02 Iscrizioni 🚀
+### IFS02 Iscrizioni
 
 Acquisisce il dettaglio delle iscrizioni accademiche.
 Fornisce le informazioni di dettaglio riguardanti le iscrizioni di una studentessa o uno studente all'università o AFAM
@@ -340,7 +340,7 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 
 <hr>
 
-### IFS03 Titoli 🚀
+### IFS03 Titoli
 Restituisce l'elenco dei titoli conseguiti da una studentessa o uno studente
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
@@ -412,7 +412,7 @@ Acquisizione delle prove relative allo strumento "Diploma Supplement"
 <hr>
 
 
-### IFS04 Rettifica iscrizioni 🚀
+### IFS04 Rettifica iscrizioni
 
 Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
 
@@ -483,7 +483,7 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 
 <hr>
 
-### IFS05 Rettifica titoli 🚀
+### IFS05 Rettifica titoli
 Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
@@ -553,7 +553,7 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 
 <hr>
 
-### IFS06 Elenco Variazioni Iscrizioni 🚀
+### IFS06 Elenco Variazioni Iscrizioni
 
 Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli ultimi 10 anni accademici.
 
@@ -609,7 +609,7 @@ Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fi
 
 <hr>
 
-### IFS08 Iscritti per fasce ISEE 🚀
+### IFS08 Iscritti per fasce ISEE
 Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accademico
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
@@ -640,7 +640,7 @@ Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno acca
 
 
 
-### IFS09 Iscritti a un corso per anno 🚀
+### IFS09 Iscritti a un corso per anno
 Ottiene il numero di studentesse e di studenti iscritti ad un IFS.
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
