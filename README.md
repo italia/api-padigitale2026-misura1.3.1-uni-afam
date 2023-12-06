@@ -202,7 +202,7 @@ In questo paragrafo verrano descritti XXXXXX
 5. [IFS05 Rettifica titoli](#ifs05-ettifica-titoli)
 6. [IFS06 Elenco Variazioni Iscrizioni](#ifs06-elenco-variazioni-iscrizioni)
 7. [IFS07 Elenco variazione titoli](#ifs07-elenco-variazione-titoli)
-8. [IFS08 Iscritti per fasce ISEE](#ifs03-iscritti-per-fasce-isee)
+8. [IFS08 Iscritti per fasce ISEE](#ifs08-iscritti-per-fasce-isee)
 9. [IFS09 Iscritti a un corso per anno](#ifs09-iscritti-a-un-corso-per-anno)
 
 
