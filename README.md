@@ -187,11 +187,8 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
     <b>Work in progress</b>
 </p>
 <p align="center">
- <img src="doc/05_gallery/umarell-dtd.png" width="150"/>
+ <img src="doc/05_gallery/umarell.png" width="80"/>
 </p>
-
-
-
 
 In questo paragrafo verrano descritti XXXXXX
 
@@ -590,7 +587,8 @@ Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle stude
 > * test
 
 
-#### Esempio "Scenario operativo"
+#### Esempio: 
+Scenario operativo di acquisizione delle variazioni delle iscrizioni fra l'anagrafe ANIS e un Istituto di istruzione superiore
 
 <img src="doc/05_gallery/ifs06-ANIS update process.drawio.png"  /> 
 
