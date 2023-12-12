@@ -228,7 +228,7 @@ paths:
                     degree_class_code: LM-32
                     academic_year: 2021/2022
                     degree_course_year: 3
-                    status: active
+                    status: attivo
                     issues:
                       - attribute_name: degree_course_code
                         issue_description: degree course code didn't find on the controlled vocabulary
@@ -386,7 +386,7 @@ components:
             degree_class_code: LM-32
             academic_year: 2021/2022
             degree_course_year: A
-            status: active
+            status: attivo
             issues:
               - attribute_name: degree_course_code
                 issue_description: degree course code didn't find on the controlled vocabulary
@@ -520,7 +520,7 @@ components:
           degree_class_code: LM-32
           academic_year: 2021/2022
           degree_course_year: 3
-          status: active
+          status: attivo
           issues:
             - attribute_name: degree_course_code
               issue_description: degree course code didn't find on the controlled vocabulary
@@ -580,10 +580,14 @@ components:
         status:
           type: string
           description: Enrollment status / Stato dell'iscrizione
-          example: active
+          example: attivo
           readOnly: true
           minLength: 1
           maxLength: 20
+          enum:
+            - attivo
+            - non attivo
+            - sospeso
         issues:
           additionalProperties: false
           type: array

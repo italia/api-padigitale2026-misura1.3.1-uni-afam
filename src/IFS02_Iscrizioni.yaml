@@ -49,7 +49,7 @@ paths:
                         degree_class_code: LM-32
                         academic_year: 2021/2022
                         degree_course_year: 3
-                        status: active
+                        status: attivo
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
@@ -441,7 +441,7 @@ components:
               degree_class_code: LM-32
               academic_year: 2021/2022
               degree_course_year: 3
-              status: active
+              status: attivo
       description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
       x-stoplight:
         id: 22de4be4ac251
@@ -1094,7 +1094,7 @@ components:
           degree_class_code: LM-32
           academic_year: 2021/2022
           degree_course_year: 3
-          status: active
+          status: attivo
       description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
       properties:
         institute_code:
@@ -1151,10 +1151,14 @@ components:
         status:
           type: string
           description: Enrollment status / Stato dell'iscrizione
-          example: active
+          example: attivo
           readOnly: true
           minLength: 1
           maxLength: 20
+          enum:
+            - attivo
+            - non attivo
+            - sospeso
     personal_data:
       type: object
       nullable: true
