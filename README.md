@@ -211,7 +211,7 @@ Vuole acquisire i dati dei corsi attivi ed offerti da un Istituto in un dato ann
 <img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS01_Offerta-formativa.yaml)  
 
-#### 🌐 IFS01.1
+#### :globe_with_meridians: IFS01.1
 
 Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico
 
@@ -226,7 +226,7 @@ Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico
 
 
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * La request prevede l'obbligatorietà della compilazione del campo <i><b>academic_year</b></i>. 
 > * attributo  <i><b>cursor</b></i> : da non valorizzare nella prima chiamata. Nel caso in cui la response restituisca l'attributo cursor valorizzato, sarà necessario iterare la chiamata e popolare nella request il campo cursor.
 > * Viene lasciata allo sviluppatore la gestione della paginazione della response.
@@ -235,7 +235,7 @@ Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico
 
 
 
-#### 🌐 IFS01.2
+#### :globe_with_meridians: IFS01.2
 
 Richiede il dettaglio di un corso
 
@@ -246,12 +246,12 @@ Richiede il dettaglio di un corso
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS01.2 [Response](doc/03_analysis/io_schema/IFS01.2-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * riferimento ontologico:  https://schema.gov.it/lodview/onto/Learning/DegreeCourse
 
 
 
-⏫ [Back to top ](#linee-guida-e-service)
+:arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
 <hr>
 
@@ -265,7 +265,7 @@ Fornisce le informazioni di dettaglio riguardanti le iscrizioni di una studentes
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS02_Iscrizioni.yaml)
 
-#### 🌐 IFS02.1
+#### :globe_with_meridians: IFS02.1
 
 Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accademici di una studentessa o di uno studente
 
@@ -277,14 +277,14 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.1 [Response](doc/03_analysis/io_schema/IFS02.1-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * Nella request popolare almeno uno dei seguenti campi: tax_code o person_id. 
 > * Parametro key facoltativo
 
 
 
 
-#### 🌐 IFS02.2
+#### :globe_with_meridians: IFS02.2
 
 Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terziaria di una studentessa/studente
 
@@ -294,7 +294,7 @@ Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terzi
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.2 [Response](doc/03_analysis/io_schema/IFS02.2-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
@@ -308,12 +308,12 @@ Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenu
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.3 [Response](doc/03_analysis/io_schema/IFS02.3-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
 
-#### 🌐 IFS02.4
+#### :globe_with_meridians: IFS02.4
 
 Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione terziaria di una studentessa/studente;
 
@@ -323,13 +323,13 @@ Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione terzi
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.4 [Response](doc/03_analysis/io_schema/IFS02.4-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
 
 
-#### 🌐 IFS02.5
+#### :globe_with_meridians: IFS02.5
 
 Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio diploma
 
@@ -339,11 +339,11 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.5 [Response](doc/03_analysis/io_schema/IFS02.5-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
-⏫ [Back to top ](#linee-guida-e-service)
+:arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
 <hr>
 
@@ -353,7 +353,7 @@ Restituisce l'elenco dei titoli conseguiti da una studentessa o uno studente
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS03_Titoli.yaml)
 
-#### 🌐 IFS03.1
+#### :globe_with_meridians: IFS03.1
 
 Acquisizione del dettaglio dei titoli accademici conseguiti da una studentessa/uno studente
 
@@ -363,13 +363,13 @@ Acquisizione del dettaglio dei titoli accademici conseguiti da una studentessa/u
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.1 [Response](doc/03_analysis/io_schema/IFS03.1-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
 
 
-#### 🌐 IFS03.2
+#### :globe_with_meridians: IFS03.2
 
 Acquisizione delle prove riguardanti il completamento degli studi di istruzione terziaria 
 
@@ -379,12 +379,12 @@ Acquisizione delle prove riguardanti il completamento degli studi di istruzione 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.2 [Response](doc/03_analysis/io_schema/IFS03.2-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
 
-#### 🌐 IFS03.3
+#### :globe_with_meridians: IFS03.3
 
 Acquisizione delle prove riguardanti il livello di qualifica degli studi di istruzione terziaria
 
@@ -394,12 +394,12 @@ Acquisizione delle prove riguardanti il livello di qualifica degli studi di istr
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.3 [Response](doc/03_analysis/io_schema/IFS03.3-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
 
-#### 🌐 IFS03.4
+#### :globe_with_meridians: IFS03.4
 
 Acquisizione delle prove relative allo strumento "Diploma Supplement"
 
@@ -409,13 +409,13 @@ Acquisizione delle prove relative allo strumento "Diploma Supplement"
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.4 [Response](doc/03_analysis/io_schema/IFS03.4-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
 
 
-⏫ [Back to top ](#linee-guida-e-service)
+:arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
 <hr>
 
@@ -428,7 +428,7 @@ Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una 
 " /> Definizione [OpenApi.yaml](src/IFS04_Rettifica-iscrizioni.yaml)
 
 
-#### 🌐 IFS04.1
+#### :globe_with_meridians: IFS04.1
 
 Richiesta di rettifica  di un'iscrizione accademica di una studentessa/uno studente all'Istituto di formazione superiore
 
@@ -439,12 +439,12 @@ Richiesta di rettifica  di un'iscrizione accademica di una studentessa/uno stude
 " /> Esempio IFS04.1 [Response](doc/03_analysis/io_schema/IFS04.1-response.json)
 
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
 
-#### 🌐 IFS04.2
+#### :globe_with_meridians: IFS04.2
 
 Acquisizione dello stato delle richieste di rettifica delle iscrizioni accademiche di una studentessa/uno studente all'Istituto di istruzione superiore
 
@@ -454,12 +454,12 @@ Acquisizione dello stato delle richieste di rettifica delle iscrizioni accademic
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS04.2 [Response](doc/03_analysis/io_schema/IFS04.2-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
 
-#### 🌐 IFS04.3
+#### :globe_with_meridians: IFS04.3
 
 Richiesta di annullamento di una richiesta di rettifica di una iscrizione accademica di una studentessa/uno studente all'Istituto di istruzione superiore
 
@@ -469,12 +469,12 @@ Richiesta di annullamento di una richiesta di rettifica di una iscrizione accade
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS04.3 [Response](doc/03_analysis/io_schema/IFS04.3-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
 
-#### 🌐 IFS04.4
+#### :globe_with_meridians: IFS04.4
 
 Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare eventuali anomalie sui dati delle iscrizioni accademiche
 
@@ -484,11 +484,11 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS04.4 [Response](doc/03_analysis/io_schema/IFS04.4-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
-⏫ [Back to top ](#linee-guida-e-service)
+:arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
 <hr>
 
@@ -500,7 +500,7 @@ Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una 
 
 
 
-#### 🌐 IFS05.1
+#### :globe_with_meridians: IFS05.1
 
 Richiesta di rettifica  di un titolo accademico di una studentessa/uno studente all'Istituto di formazione superiore
 
@@ -510,12 +510,12 @@ Richiesta di rettifica  di un titolo accademico di una studentessa/uno studente 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS05.1 [Response](doc/03_analysis/io_schema/IFS05.1-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
 
-#### 🌐 IFS05.2
+#### :globe_with_meridians: IFS05.2
 
 Acquisizione dello stato delle richieste di rettifica dei titoli accademici di una studentessa/uno studente all'Istituto di istruzione superiore
 
@@ -525,12 +525,12 @@ Acquisizione dello stato delle richieste di rettifica dei titoli accademici di u
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS05.2 [Response](doc/03_analysis/io_schema/IFS05.2-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
 
-#### 🌐 IFS05.3
+#### :globe_with_meridians: IFS05.3
 
 Richiesta di annullamento di una richiesta di rettifica di un titolo accademico di una studentessa/uno studente all'Istituto di istruzione superiore
 
@@ -540,12 +540,12 @@ Richiesta di annullamento di una richiesta di rettifica di un titolo accademico 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS05.3 [Response](doc/03_analysis/io_schema/IFS05.3-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
 
-#### 🌐 IFS05.4
+#### :globe_with_meridians: IFS05.4
 
 Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare eventuali anomalie sui dati dei titoli accademici
 
@@ -555,11 +555,11 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS05.4 [Response](doc/03_analysis/io_schema/IFS05.4-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
-⏫ [Back to top ](#linee-guida-e-service)
+:arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
 <hr>
 
@@ -571,7 +571,7 @@ Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli u
 " /> Definizione [OpenApi.yaml](src/IFS06_Elenco-variazioni-iscrizioni.yaml)
 
 
-#### 🌐 IFS06.1
+#### :globe_with_meridians: IFS06.1
 
 Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle studentesse/degli studenti negli ultimi tre anni accademici al fine di identificarne le variazioni dal punto di vista del fruitore
 
@@ -582,7 +582,7 @@ Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle stude
 " /> Esempio IFS06.1 [Response](doc/03_analysis/io_schema/IFS06.1-response.json)
 
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
@@ -592,7 +592,7 @@ Scenario operativo di acquisizione delle variazioni delle iscrizioni fra l'anagr
 
 <img src="doc/05_gallery/ifs06-ANIS update process.drawio.png"  /> 
 
-⏫ [Back to top ](#linee-guida-e-service)
+:arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
 <hr>
 
@@ -605,7 +605,7 @@ Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli u
 " /> Definizione [OpenApi.yaml](src/IFS07_Elenco-variazioni-titoli.yaml)
 
 
-#### 🌐 IFS07.1
+#### :globe_with_meridians: IFS07.1
 
 Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fine di identificarne le variazioni dal punto di vista del fruitore
 
@@ -615,11 +615,11 @@ Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fi
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS07.1 [Response](doc/03_analysis/io_schema/IFS07.1-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
-⏫ [Back to top ](#linee-guida-e-service)
+:arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
 <hr>
 
@@ -629,7 +629,7 @@ Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accadem
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS08_Iscritti-per-fasce-ISEE.yaml)
 
-#### 🌐 IFS08.1
+#### :globe_with_meridians: IFS08.1
 
 Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno accademico
 
@@ -644,12 +644,12 @@ Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno acca
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS08.1 [Response](doc/03_analysis/io_schema/IFS08.1-response.json)
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
 
-⏫ [Back to top ](#linee-guida-e-service)
+:arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
 <hr>
 
@@ -661,7 +661,7 @@ Ottiene il numero di studentesse e di studenti iscritti ad un IFS.
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS09_Iscritti-per-corso-per-anno.yaml)
 
-#### 🌐 IFS09.1 
+#### :globe_with_meridians: IFS09.1 
 
 Acquisizione del numero di studentesse e studenti iscritti a un corso di studi per anno accademico
 
@@ -672,11 +672,11 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 " /> Esempio IFS09.1 [Response](doc/03_analysis/io_schema/IFS09.1-response.json)
 
 
-> 💡 **Importante:**    
+> :bulb: **Importante:**    
 > * test
 > * test
 
-⏫ [Back to top ](#linee-guida-e-service)
+:arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
 <hr>
 
