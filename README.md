@@ -183,192 +183,500 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 
 
 ## Linee Guida e-service
+<p align="center">
+    <b>Work in progress</b>
+</p>
+<p align="center">
+ <img src="doc/05_gallery/umarell.png" width="80"/>
+</p>
 
 In questo paragrafo verrano descritti XXXXXX
 
-1. [IFS01 Offerta Formativa](#ifs01-offerta-formativa-🚀)
-2. [IFS02 Iscrizioni](#ifs02-iscrizioni-🚀)
-3. [IFS03 Titoli](#ifs03-titoli-🚀)
-4. [IFS04 Rettifica iscrizioni](#ifs04-rettifica-iscrizioni-🚀)
-5. [IFS05 Rettifica titoli](#ifs05-ettifica-titoli-🚀)
-6. [IFS06 Elenco Variazioni Iscrizioni](#ifs06-elenco-variazioni-iscrizioni-🚀)
-7. [IFS07 Elenco variazione titoli](#ifs07-elenco-variazione-titoli-🚀)
-8. [IFS08 Iscritti per fasce ISEE](#ifs03-iscritti-per-fasce-isee-🚀)
-9. [IFS09 Iscritti a un corso per anno](#ifs09-iscritti-a-un-corso-per-anno-🚀)
+1. [IFS01 Offerta Formativa](#ifs01-offerta-formativa)
+2. [IFS02 Iscrizioni](#ifs02-iscrizioni)
+3. [IFS03 Titoli](#ifs03-titoli)
+4. [IFS04 Rettifica iscrizioni](#ifs04-rettifica-iscrizioni)
+5. [IFS05 Rettifica titoli](#ifs05-ettifica-titoli)
+6. [IFS06 Elenco Variazioni Iscrizioni](#ifs06-elenco-variazioni-iscrizioni)
+7. [IFS07 Elenco variazione titoli](#ifs07-elenco-variazione-titoli)
+8. [IFS08 Iscritti per fasce ISEE](#ifs08-iscritti-per-fasce-isee)
+9. [IFS09 Iscritti a un corso per anno](#ifs09-iscritti-a-un-corso-per-anno)
 
 
 <hr>
 
-### IFS01 Offerta Formativa 🚀
+### IFS01 Offerta Formativa
 Vuole acquisire i dati dei corsi attivi ed offerti da un Istituto in un dato anno accademico
 
 <img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS01_Offerta-formativa.yaml)  
 
-##### IFS01.1
+#### 🌐 IFS01.1
 
 Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " />  Esempio IFS01.1 [Request](doc/03_analysis/io_schema/IFS01.1-request.json)
 
-<img src="doc/05_gallery/json.png" width="20
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " />  Esempio IFS01.1 [Response](doc/03_analysis/io_schema/IFS01.1-response.json)
 
-> **_NOTE:_**   
-> Se possibile prevedere la paginazione della response. Se tale funzionalità è implementata, nella request sarà necessario valorizzare anche il campo cursor
 
-##### IFS01.2
+
+
+
+> 💡 **Importante:**    
+> * La request prevede l'obbligatorietà della compilazione del campo <i><b>academic_year</b></i>. 
+> * attributo  <i><b>cursor</b></i> : da non valorizzare nella prima chiamata. Nel caso in cui la response restituisca l'attributo cursor valorizzato, sarà necessario iterare la chiamata e popolare nella request il campo cursor.
+> * Viene lasciata allo sviluppatore la gestione della paginazione della response.
+
+
+
+
+
+#### 🌐 IFS01.2
 
 Richiede il dettaglio di un corso
 
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS01.2 [Request](doc/03_analysis/io_schema/IFS01.2-request.json)
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS01.2 [Response](doc/03_analysis/io_schema/IFS01.2-response.json)
+
+> 💡 **Importante:**    
+> * riferimento ontologico:  https://schema.gov.it/lodview/onto/Learning/DegreeCourse
+
+
+
+⏫ [Back to top ](#linee-guida-e-service)
 
 <hr>
 
-### IFS02 Iscrizioni 🚀
+
+
+### IFS02 Iscrizioni
 
 Acquisisce il dettaglio delle iscrizioni accademiche.
 Fornisce le informazioni di dettaglio riguardanti le iscrizioni di una studentessa o uno studente all'università o AFAM
 
-<img src="doc/05_gallery/swagger.svg" width="18
+&emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS02_Iscrizioni.yaml)
 
-##### IFS02.1
+#### 🌐 IFS02.1
 
 Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accademici di una studentessa o di uno studente
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.1 [Request](doc/03_analysis/io_schema/IFS02.1-request.json)
 
-<img src="doc/05_gallery/json.png" width="20
+
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.1 [Response](doc/03_analysis/io_schema/IFS02.1-response.json)
-##### IFS02.2
+
+> 💡 **Importante:**    
+> * Nella request popolare almeno uno dei seguenti campi: tax_code o person_id. 
+> * Parametro key facoltativo
+
+
+
+
+#### 🌐 IFS02.2
 
 Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terziaria di una studentessa/studente
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.2 [Request](doc/03_analysis/io_schema/IFS02.2-request.json)
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.2 [Response](doc/03_analysis/io_schema/IFS02.2-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
 ##### IFS02.3
 
 Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può riferirsi a studi completati o in corso
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.3 [Request](doc/03_analysis/io_schema/IFS02.3-request.json)
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.3 [Response](doc/03_analysis/io_schema/IFS02.3-response.json)
-##### IFS02.4
+
+> 💡 **Importante:**    
+> * test
+> * test
+
+
+#### 🌐 IFS02.4
 
 Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione terziaria di una studentessa/studente;
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.4 [Request](doc/03_analysis/io_schema/IFS02.4-request.json)
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.4 [Response](doc/03_analysis/io_schema/IFS02.4-response.json)
 
-##### IFS02.5
+> 💡 **Importante:**    
+> * test
+> * test
+
+
+
+#### 🌐 IFS02.5
 
 Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio diploma
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.5 [Request](doc/03_analysis/io_schema/IFS02.5-request.json)
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.5 [Response](doc/03_analysis/io_schema/IFS02.5-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
+⏫ [Back to top ](#linee-guida-e-service)
 
 <hr>
 
-### IFS03 Titoli 🚀
+### IFS03 Titoli
 Restituisce l'elenco dei titoli conseguiti da una studentessa o uno studente
 
-<img src="doc/05_gallery/swagger.svg" width="18
+&emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS03_Titoli.yaml)
 
-##### IFS03.1
+#### 🌐 IFS03.1
 
 Acquisizione del dettaglio dei titoli accademici conseguiti da una studentessa/uno studente
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.1 [Request](doc/03_analysis/io_schema/IFS03.1-request.json)
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.1 [Response](doc/03_analysis/io_schema/IFS03.1-response.json)
 
-##### IFS03.2
+> 💡 **Importante:**    
+> * test
+> * test
+
+
+
+#### 🌐 IFS03.2
 
 Acquisizione delle prove riguardanti il completamento degli studi di istruzione terziaria 
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.2 [Request](doc/03_analysis/io_schema/IFS03.2-request.json)
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.2 [Response](doc/03_analysis/io_schema/IFS03.2-response.json)
 
-##### IFS03.3
+> 💡 **Importante:**    
+> * test
+> * test
+
+
+#### 🌐 IFS03.3
 
 Acquisizione delle prove riguardanti il livello di qualifica degli studi di istruzione terziaria
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.3 [Request](doc/03_analysis/io_schema/IFS03.3-request.json)
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.3 [Response](doc/03_analysis/io_schema/IFS03.3-response.json)
 
-##### IFS03.4
+> 💡 **Importante:**    
+> * test
+> * test
+
+
+#### 🌐 IFS03.4
 
 Acquisizione delle prove relative allo strumento "Diploma Supplement"
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.4 [Request](doc/03_analysis/io_schema/IFS03.4-request.json)
 
-<img src="doc/05_gallery/json.png" width="20
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.4 [Response](doc/03_analysis/io_schema/IFS03.4-response.json)
 
+> 💡 **Importante:**    
+> * test
+> * test
 
+
+
+⏫ [Back to top ](#linee-guida-e-service)
+
+<hr>
+
+
+### IFS04 Rettifica iscrizioni
+
+Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
+
+&emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
+" /> Definizione [OpenApi.yaml](src/IFS04_Rettifica-iscrizioni.yaml)
+
+
+#### 🌐 IFS04.1
+
+Richiesta di rettifica  di un'iscrizione accademica di una studentessa/uno studente all'Istituto di formazione superiore
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS04.1 [Request](doc/03_analysis/io_schema/IFS04.1-request.json)
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS04.1 [Response](doc/03_analysis/io_schema/IFS04.1-response.json)
+
+
+> 💡 **Importante:**    
+> * test
+> * test
+
+
+#### 🌐 IFS04.2
+
+Acquisizione dello stato delle richieste di rettifica delle iscrizioni accademiche di una studentessa/uno studente all'Istituto di istruzione superiore
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS04.2 [Request](doc/03_analysis/io_schema/IFS04.2-request.json)
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS04.2 [Response](doc/03_analysis/io_schema/IFS04.2-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
+
+#### 🌐 IFS04.3
+
+Richiesta di annullamento di una richiesta di rettifica di una iscrizione accademica di una studentessa/uno studente all'Istituto di istruzione superiore
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS04.3 [Request](doc/03_analysis/io_schema/IFS04.3-request.json)
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS04.3 [Response](doc/03_analysis/io_schema/IFS04.3-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
+
+#### 🌐 IFS04.4
+
+Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare eventuali anomalie sui dati delle iscrizioni accademiche
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS04.4 [Request](doc/03_analysis/io_schema/IFS04.4-request.json)
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS04.4 [Response](doc/03_analysis/io_schema/IFS04.4-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
+⏫ [Back to top ](#linee-guida-e-service)
+
+<hr>
+
+### IFS05 Rettifica titoli
+Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
+
+&emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
+" /> Definizione [OpenApi.yaml](src/IFS05_Rettifica-titoli.yaml)
+
+
+
+#### 🌐 IFS05.1
+
+Richiesta di rettifica  di un titolo accademico di una studentessa/uno studente all'Istituto di formazione superiore
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS05.1 [Request](doc/03_analysis/io_schema/IFS05.1-request.json)
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS05.1 [Response](doc/03_analysis/io_schema/IFS05.1-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
+
+#### 🌐 IFS05.2
+
+Acquisizione dello stato delle richieste di rettifica dei titoli accademici di una studentessa/uno studente all'Istituto di istruzione superiore
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS05.2 [Request](doc/03_analysis/io_schema/IFS05.2-request.json)
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS05.2 [Response](doc/03_analysis/io_schema/IFS05.2-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
+
+#### 🌐 IFS05.3
+
+Richiesta di annullamento di una richiesta di rettifica di un titolo accademico di una studentessa/uno studente all'Istituto di istruzione superiore
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS05.3 [Request](doc/03_analysis/io_schema/IFS05.3-request.json)
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS05.3 [Response](doc/03_analysis/io_schema/IFS05.3-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
+
+#### 🌐 IFS05.4
+
+Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare eventuali anomalie sui dati dei titoli accademici
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS05.4 [Request](doc/03_analysis/io_schema/IFS05.4-request.json)
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS05.4 [Response](doc/03_analysis/io_schema/IFS05.4-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
+⏫ [Back to top ](#linee-guida-e-service)
+
+<hr>
+
+### IFS06 Elenco Variazioni Iscrizioni
+
+Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli ultimi 10 anni accademici.
+
+&emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
+" /> Definizione [OpenApi.yaml](src/IFS06_Elenco-variazioni-iscrizioni.yaml)
+
+
+#### 🌐 IFS06.1
+
+Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle studentesse/degli studenti negli ultimi tre anni accademici al fine di identificarne le variazioni dal punto di vista del fruitore
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS06.1 [Request](doc/03_analysis/io_schema/IFS06.1-request.json)
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS06.1 [Response](doc/03_analysis/io_schema/IFS06.1-response.json)
+
+
+> 💡 **Importante:**    
+> * test
+> * test
+
+
+#### Esempio: 
+Scenario operativo di acquisizione delle variazioni delle iscrizioni fra l'anagrafe ANIS e un Istituto di istruzione superiore
+
+<img src="doc/05_gallery/ifs06-ANIS update process.drawio.png"  /> 
+
+⏫ [Back to top ](#linee-guida-e-service)
+
+<hr>
+
+### IFS07 Elenco variazione titoli
+Richiede la lista degli ultimi titoli attivi per ogni corso di studi negli ultimi 10 anni accademici.
+
+Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli ultimi 10 anni accademici.
+
+&emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
+" /> Definizione [OpenApi.yaml](src/IFS07_Elenco-variazioni-titoli.yaml)
+
+
+#### 🌐 IFS07.1
+
+Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fine di identificarne le variazioni dal punto di vista del fruitore
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS07.1 [Request](doc/03_analysis/io_schema/IFS07.1-request.json)
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS07.1 [Response](doc/03_analysis/io_schema/IFS07.1-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
+⏫ [Back to top ](#linee-guida-e-service)
+
+<hr>
+
+### IFS08 Iscritti per fasce ISEE
+Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accademico
+
+&emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
+" /> Definizione [OpenApi.yaml](src/IFS08_Iscritti-per-fasce-ISEE.yaml)
+
+#### 🌐 IFS08.1
+
+Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno accademico
+
+
+- la API deve essere organizzata secondo la ripartizione degli scaglioni coerenti con i provvedimenti normativi in vigore relativamente alla tassazione universitaria (No-tax area e progressività) per gli Atenei statali e gli istituti AFAM statali (L. 232/2016, DM 1014/2021, DM 1016/2021). 
+- <b><i> E' di libero arbitrio degli istituti la scelta di definire una soglia minima di studenti entro la quale mostrare la fascia di reddito.</i></b>
+
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS08.1 [Request](doc/03_analysis/io_schema/IFS08.1-request.json)
+
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS08.1 [Response](doc/03_analysis/io_schema/IFS08.1-response.json)
+
+> 💡 **Importante:**    
+> * test
+> * test
+
+
+⏫ [Back to top ](#linee-guida-e-service)
 
 <hr>
 
 
-### IFS04 Rettifica iscrizioni 🚀
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
-<hr>
+### IFS09 Iscritti a un corso per anno
+Ottiene il numero di studentesse e di studenti iscritti ad un IFS.
 
-### IFS05 Rettifica titoli 🚀
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+&emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
+" /> Definizione [OpenApi.yaml](src/IFS09_Iscritti-per-corso-per-anno.yaml)
 
-<hr>
+#### 🌐 IFS09.1 
 
-### IFS06 Elenco Variazioni Iscrizioni 🚀
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+Acquisizione del numero di studentesse e studenti iscritti a un corso di studi per anno accademico
 
-<hr>
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS09.1 [Request](doc/03_analysis/io_schema/IFS09.1-request.json)
 
-### IFS07 Elenco variazione titoli 🚀
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-
-<hr>
-
-### IFS08 Iscritti per fasce ISEE 🚀
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-<hr>
+&emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
+" /> Esempio IFS09.1 [Response](doc/03_analysis/io_schema/IFS09.1-response.json)
 
 
+> 💡 **Importante:**    
+> * test
+> * test
 
-### IFS09 Iscritti a un corso per anno 🚀
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-
-
+⏫ [Back to top ](#linee-guida-e-service)
 
 <hr>
 
@@ -377,12 +685,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 * [Interoperabilità e PDND su Developers Italia](https://developers.italia.it/it/interoperabilita/)
 * [Avvisi di PAdigitale 2026](https://areariservata.padigitale2026.gov.it/Pa_digitale2026_avvisi)
 
-## Ultima Modifica
+## Ultima Modifica 🔬
 
 05/12/2023
 
-## Authors
+## Authors 🚶
 
-* 
-* 
-* 
+* Denis Marini
+* Lorenzo Doneda
+* Davide Longo
