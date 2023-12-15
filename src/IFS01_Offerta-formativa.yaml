@@ -305,7 +305,6 @@ components:
       x-jsonld-context:
         '@vocab': https://w3id.org/italia/onto/Learning/
         programme_type_code: ProgrammeType
-        # programme_access: non presente su ontologia
         course_location: EducationalOfferingSite
         # course_area: DegreeCourse ### non sappiamo a quale ontologia si riferisce
         degree_class_code: DegreeClass
@@ -446,9 +445,9 @@ components:
           "@context":
             "@base": "https://w3id.org/italia/onto/TI"
         degree_course_code: DegreeCourse
-        total_credits: credit
+        # total_credits: non presenti sull'ontologia
         academic_year: https://w3id.org/italia/onto/Learning/AcademicYear
-        first_year_activation_course: AcademicYear
+        # first_year_activation_course: non presente sull'ontologia
         # website_university: non presente sull'ontologia
         # website_course: non presente sull'ontologia
         institute_code: instituteCode
