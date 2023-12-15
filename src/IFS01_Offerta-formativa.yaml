@@ -301,26 +301,6 @@ components:
     degree_courses:
       type: object
       additionalProperties: false
-      x-jsonld-type: https://w3id.org/italia/onto/Learning
-      x-jsonld-context:
-        '@vocab': https://w3id.org/italia/onto/Learning/
-        programme_type_code: ProgrammeType
-        course_location: EducationalOfferingSite
-        # course_area: DegreeCourse ### non sappiamo a quale ontologia si riferisce
-        degree_class_code: DegreeClass
-        degree_class_language: 
-          "@id": "https://w3id.org/italia/onto/Language/Language"
-          "@type": "@id"
-          "@context":
-            "@base": "https://w3id.org/italia/onto/Language"
-        degree_class_period_years: 
-          "@id": "https://w3id.org/italia/onto/TI/Duration"
-          "@type": "@id"
-          "@context":
-            "@base": "https://w3id.org/italia/onto/TI"
-        degree_course_code: DegreeCourse
-        total_credits: credit
-        academic_year: AcademicYear
       x-examples:
         Example 1:
           programme_type_code: C6
@@ -425,32 +405,6 @@ components:
         - cursor
     course_details:
       additionalProperties: false
-      x-jsonld-type: https://w3id.org/italia/onto/Learning
-      x-jsonld-context:
-        '@vocab': https://w3id.org/italia/onto/Learning/
-        programme_type_code: ProgrammeType
-        # programme_access: non presenti sull'ontologia
-        course_location: EducationalOfferingSite
-        # remote_mode : non presente sull'ontologia
-        # course_area:  non sappiamo a quale ontologia si riferisce
-        degree_class_code: DegreeClass
-        degree_class_language: 
-          "@id": "https://w3id.org/italia/onto/Language/Language"
-          "@type": "@id"
-          "@context":
-            "@base": "https://w3id.org/italia/onto/Language"
-        degree_class_period_years: 
-          "@id": "https://w3id.org/italia/onto/TI/Duration"
-          "@type": "@id"
-          "@context":
-            "@base": "https://w3id.org/italia/onto/TI"
-        degree_course_code: DegreeCourse
-        # total_credits: non presenti sull'ontologia
-        academic_year: https://w3id.org/italia/onto/Learning/AcademicYear
-        # first_year_activation_course: non presente sull'ontologia
-        # website_university: non presente sull'ontologia
-        # website_course: non presente sull'ontologia
-        institute_code: instituteCode
       type: object
       x-examples:
         Example 1:
@@ -469,6 +423,7 @@ components:
           website_university: http://www.ingindinf.polimi.it
           website_course:
           institute_code: C6
+          last_update: '2023-10-13'
           curriculum_list:
             - curriculum_name: NON DIFFERENZIATO
               curriculum_learnings: 
@@ -635,10 +590,6 @@ components:
     curriculum_learnings:
       type: object
       additionalProperties: false
-      x-jsonld-type: https://w3id.org/italia/onto/Learning
-      x-jsonld-context:
-        '@vocab': https://w3id.org/italia/onto/Learning/
-        degree_course_year: AcademicYear
       x-examples:
         Example 1:
           degree_course_year: 1
@@ -676,24 +627,6 @@ components:
     learnings:
       type: object
       additionalProperties: false
-      x-jsonld-type: https://w3id.org/italia/onto/Learning
-      x-jsonld-context:
-        '@vocab': https://w3id.org/italia/onto/Learning/
-        learning_ssd: Learning
-        # learning_name: non presente sull'ontologia
-        # learning_code: non presente sull'ontologia
-        learning_cfu: credit
-        learning_hour:
-          "@id": "https://w3id.org/italia/onto/TI/Duration"
-          "@type": "@id"
-          "@context":
-            "@base": "https://w3id.org/italia/onto/TI"
-        learning_language: 
-          "@id": "https://w3id.org/italia/onto/Language/Language"
-          "@type": "@id"
-          "@context":
-            "@base": "https://w3id.org/italia/onto/Language"
-        # learning_ref: non presente sull'ontologia
       x-examples:
         Example 1:
           learning_ssd: CHIM/07
@@ -759,10 +692,6 @@ components:
     course_list_request:
       type: object
       additionalProperties: false
-      x-jsonld-type: https://w3id.org/italia/onto/Learning
-      x-jsonld-context:
-        '@vocab': https://w3id.org/italia/onto/Learning/
-        academic_year: AcademicYear
       x-examples:
         Example 1:
           academic_year: 2023/2024
@@ -791,11 +720,6 @@ components:
     course_detail_request:
       type: object
       additionalProperties: false
-      x-jsonld-type: https://w3id.org/italia/onto/Learning
-      x-jsonld-context:
-        '@vocab': https://w3id.org/italia/onto/Learning/
-        degree_class_code: DegreeClass
-        degree_course_code: DegreeCourse
       x-examples:
         Example 1:
           degree_class_code : LM-20
