@@ -303,8 +303,7 @@ Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terzi
 " /> Esempio IFS02.2 [Response](doc/03_analysis/io_schema/IFS02.2-response.json)
 
 > :bulb: **Importante:**    
-> * test
-> * test
+> * Si preaga di vedere le regole di obbligatorietà output presenti su [IFS02.1]
 
 ##### IFS02.3
 
@@ -317,8 +316,7 @@ Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenu
 " /> Esempio IFS02.3 [Response](doc/03_analysis/io_schema/IFS02.3-response.json)
 
 > :bulb: **Importante:**    
-> * test
-> * test
+> * Si preaga di vedere le regole di obbligatorietà output presenti su [IFS02.1]
 
 
 #### :globe_with_meridians: IFS02.4
@@ -332,8 +330,7 @@ Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione terzi
 " /> Esempio IFS02.4 [Response](doc/03_analysis/io_schema/IFS02.4-response.json)
 
 > :bulb: **Importante:**    
-> * test
-> * test
+> * Si preaga di vedere le regole di obbligatorietà output presenti su [IFS02.1]
 
 
 
@@ -348,8 +345,8 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 " /> Esempio IFS02.5 [Response](doc/03_analysis/io_schema/IFS02.5-response.json)
 
 > :bulb: **Importante:**    
-> * test
-> * test
+> * Si preaga di vedere le regole di obbligatorietà output presenti su [IFS02.1]
+
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
