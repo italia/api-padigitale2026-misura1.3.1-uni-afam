@@ -282,7 +282,7 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 > * Parametro key facoltativo
 
 
-Regole di obbligatorietà output (si prega di verificare gli esempi sul file openapi):
+Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
 1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
 2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
 3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'erorre 404 (vedi esempio nel file YAML)
@@ -303,7 +303,7 @@ Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terzi
 " /> Esempio IFS02.2 [Response](doc/03_analysis/io_schema/IFS02.2-response.json)
 
 > :bulb: **Importante:**    
-> * Si preaga di vedere le regole di obbligatorietà output presenti su [IFS02.1]
+> * Si preaga di vedere le regole di [obbligatorietà output](#ifs02-Iscrizioni) presenti su [IFS02.1]
 
 ##### IFS02.3
 
@@ -369,8 +369,15 @@ Acquisizione del dettaglio dei titoli accademici conseguiti da una studentessa/u
 " /> Esempio IFS03.1 [Response](doc/03_analysis/io_schema/IFS03.1-response.json)
 
 > :bulb: **Importante:**    
-> * test
-> * test
+
+
+Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
+1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
+2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
+3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'erorre 404 (vedi esempio nel file YAML)
+3) nella struttura "qualifications" tutti i campi sono obbligatori tranne il degree_class_code. Nel caso in cui il degree_class_code non sia valorizzabile, è possibile passarlo con il valore NULL
+4) nella struttura "qualifications", qualora sia presente un attributo non valorizzabile (ad escluisone degli attributi degree_class_code/qualification_grading_scale_maximum_grade/qualification_grading_scale_minimum_grade/qualification_grading_scale/) non dovrà essere restituito Item. 
+Qualora fosse presente solamente una qualifica e nel caso in cui quest'ultima non dovesse riportare i dati obbligatori, prevedere la restituzione dello status code 404 
 
 
 
@@ -385,9 +392,12 @@ Acquisizione delle prove riguardanti il completamento degli studi di istruzione 
 " /> Esempio IFS03.2 [Response](doc/03_analysis/io_schema/IFS03.2-response.json)
 
 > :bulb: **Importante:**    
-> * test
-> * test
 
+
+Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
+1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
+2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
+3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'erorre 404 (vedi esempio nel file YAML)
 
 #### :globe_with_meridians: IFS03.3
 
@@ -400,8 +410,12 @@ Acquisizione delle prove riguardanti il livello di qualifica degli studi di istr
 " /> Esempio IFS03.3 [Response](doc/03_analysis/io_schema/IFS03.3-response.json)
 
 > :bulb: **Importante:**    
-> * test
-> * test
+
+
+Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
+1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
+2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
+3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'erorre 404 (vedi esempio nel file YAML)
 
 
 #### :globe_with_meridians: IFS03.4
@@ -415,8 +429,12 @@ Acquisizione delle prove relative allo strumento "Diploma Supplement"
 " /> Esempio IFS03.4 [Response](doc/03_analysis/io_schema/IFS03.4-response.json)
 
 > :bulb: **Importante:**    
-> * test
-> * test
+
+
+Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
+1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
+2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
+3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'erorre 404 (vedi esempio nel file YAML)
 
 
 

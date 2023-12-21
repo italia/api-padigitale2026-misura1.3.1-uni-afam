@@ -32,15 +32,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/academic_qualifications'
               examples:
-                Example statuscode=200:
+                personal_data only taxCode:
                   value:
                     personal_data:
                       tax_code: RSSMRA80A01F205D
-                      person_id: AB123456C
-                      given_name: null
-                      family_name: null
-                      birth_date: null
-                      birth_place: null
                     qualifications:
                       - institute_code: '16'
                         institute_name: Milano - Politecnico
@@ -53,6 +48,80 @@ paths:
                         qualification_grading_scale: '110'
                         qualification_grading_scale_minimum_grade: '66'
                         qualification_grading_scale_maximum_grade: '110'
+                personal_data taxCode/personID:
+                  value:
+                    personal_data:
+                      tax_code: RSSMRA80A01F205D
+                      person_id: AB123456C      
+                    qualifications:
+                      - institute_code: '16'
+                        institute_name: Milano - Politecnico
+                        qualification_name: Dottore magistrale
+                        programme_type_code: MS
+                        degree_course_code: '1573960'
+                        degree_class_code: LM-32
+                        academic_qualification_date: '2022-07-01'
+                        qualification_grade_value: '110'
+                        qualification_grading_scale: '110'
+                        qualification_grading_scale_minimum_grade: '66'
+                        qualification_grading_scale_maximum_grade: '110'
+                personal_data witout taxCode:
+                  value:
+                    personal_data:
+                      given_name: Mario
+                      family_name: Rossi
+                      birth_date: 01/01/1980
+                      birth_place: Roma       
+                    qualifications:
+                      - institute_code: '16'
+                        institute_name: Milano - Politecnico
+                        qualification_name: Dottore magistrale
+                        programme_type_code: MS
+                        degree_course_code: '1573960'
+                        degree_class_code: LM-32
+                        academic_qualification_date: '2022-07-01'
+                        qualification_grade_value: '110'
+                        qualification_grading_scale: '110'
+                        qualification_grading_scale_minimum_grade: '66'
+                        qualification_grading_scale_maximum_grade: '110'
+                Example 1 - qualifications:
+                  value:
+                    personal_data:
+                      given_name: Mario
+                      family_name: Rossi
+                      birth_date: 01/01/1980
+                      birth_place: Roma       
+                    qualifications:
+                      - institute_code: '16'
+                        institute_name: Milano - Politecnico
+                        qualification_name: Dottore magistrale
+                        programme_type_code: MS
+                        degree_course_code: '1573960'
+                        degree_class_code: LM-32
+                        academic_qualification_date: '2022-07-01'
+                        qualification_grade_value: '110'
+                        qualification_grading_scale: '110'
+                        qualification_grading_scale_minimum_grade: null
+                        qualification_grading_scale_maximum_grade: null
+                Example 2 - qualifications:
+                  value:
+                    personal_data:
+                      given_name: Mario
+                      family_name: Rossi
+                      birth_date: 01/01/1980
+                      birth_place: Roma       
+                    qualifications:
+                      - institute_code: '16'
+                        institute_name: Milano - Politecnico
+                        qualification_name: Dottore magistrale
+                        programme_type_code: MS
+                        degree_course_code: '1573960'
+                        degree_class_code: null
+                        academic_qualification_date: '2022-07-01'
+                        qualification_grade_value: Idoneo
+                        qualification_grading_scale: null
+                        qualification_grading_scale_minimum_grade: null
+                        qualification_grading_scale_maximum_grade: null        
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input                    
         '404':
