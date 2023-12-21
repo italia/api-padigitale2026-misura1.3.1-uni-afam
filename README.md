@@ -463,8 +463,7 @@ Richiesta di rettifica  di un'iscrizione accademica di una studentessa/uno stude
 
 
 > :bulb: **Importante:**    
-> * test
-> * test
+> * TODO
 
 
 #### :globe_with_meridians: IFS04.2
@@ -478,9 +477,7 @@ Acquisizione dello stato delle richieste di rettifica delle iscrizioni accademic
 " /> Esempio IFS04.2 [Response](doc/03_analysis/io_schema/IFS04.2-response.json)
 
 > :bulb: **Importante:**    
-> * test
-> * test
-
+> * TODO
 
 #### :globe_with_meridians: IFS04.3
 
@@ -493,8 +490,7 @@ Richiesta di annullamento di una richiesta di rettifica di una iscrizione accade
 " /> Esempio IFS04.3 [Response](doc/03_analysis/io_schema/IFS04.3-response.json)
 
 > :bulb: **Importante:**    
-> * test
-> * test
+> * TODO
 
 
 #### :globe_with_meridians: IFS04.4
@@ -508,8 +504,7 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 " /> Esempio IFS04.4 [Response](doc/03_analysis/io_schema/IFS04.4-response.json)
 
 > :bulb: **Importante:**    
-> * test
-> * test
+> * TODO
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
@@ -534,8 +529,7 @@ Richiesta di rettifica  di un titolo accademico di una studentessa/uno studente 
 " /> Esempio IFS05.1 [Response](doc/03_analysis/io_schema/IFS05.1-response.json)
 
 > :bulb: **Importante:**    
-> * test
-> * test
+> * TODO
 
 
 #### :globe_with_meridians: IFS05.2
@@ -549,8 +543,7 @@ Acquisizione dello stato delle richieste di rettifica dei titoli accademici di u
 " /> Esempio IFS05.2 [Response](doc/03_analysis/io_schema/IFS05.2-response.json)
 
 > :bulb: **Importante:**    
-> * test
-> * test
+> * TODO
 
 
 #### :globe_with_meridians: IFS05.3
@@ -564,8 +557,7 @@ Richiesta di annullamento di una richiesta di rettifica di un titolo accademico 
 " /> Esempio IFS05.3 [Response](doc/03_analysis/io_schema/IFS05.3-response.json)
 
 > :bulb: **Importante:**    
-> * test
-> * test
+> * TODO
 
 
 #### :globe_with_meridians: IFS05.4
@@ -579,8 +571,7 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 " /> Esempio IFS05.4 [Response](doc/03_analysis/io_schema/IFS05.4-response.json)
 
 > :bulb: **Importante:**    
-> * test
-> * test
+> * TODO
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
@@ -606,8 +597,7 @@ Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle stude
 
 
 > :bulb: **Importante:**    
-> * test
-> * test
+> * TODO
 
 
 #### Esempio: 
@@ -639,8 +629,7 @@ Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fi
 " /> Esempio IFS07.1 [Response](doc/03_analysis/io_schema/IFS07.1-response.json)
 
 > :bulb: **Importante:**    
-> * test
-> * test
+> * TODO
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
@@ -668,8 +657,7 @@ Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno acca
 " /> Esempio IFS08.1 [Response](doc/03_analysis/io_schema/IFS08.1-response.json)
 
 > :bulb: **Importante:**    
-> * test
-> * test
+> * TODO
 
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
@@ -696,8 +684,7 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 
 
 > :bulb: **Importante:**    
-> * test
-> * test
+> * TODO
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
