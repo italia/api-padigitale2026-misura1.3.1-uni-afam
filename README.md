@@ -284,9 +284,49 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 
 Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
 1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
+```
+ESEMPIO 1: 
+
+"personal_data": {
+    "tax_code": "RSSMRA80A01F205D"
+  }
+
+ESEMPIO 2: 
+
+"personal_data": {
+    "tax_code": "RSSMRA80A01F205D",
+    "person_id": "AB123456C"
+  }
+```
+
 2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
+```
+ESEMPIO 3: 
+
+"personal_data": {
+    "given_name": Mario,
+    "family_name": Rossi,
+    "birth_date": 10-01-2022,
+    "birth_place": Roma
+  }
+```
+
 3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'erorre 404 (vedi esempio nel file YAML)
+
+```
+ESEMPIO 4: 
+
+status code=404
+
+{
+  "personal_data": null,
+  "enrollments": []
+}
+```
+
 3) nella struttura "enrollments" tutti i campi sono obbligatori tranne il degree_class_code. Nel caso in cui il degree_class_code non sia valorizzabile, è possibile passarlo con il valore NULL
+
+
 4) nella struttura "enrollments", qualora sia presente un attributo non valorizzabile (ad escluisone del attirubuto degree_class_code) l'istanza dell'iscrizione non deve essere restituita. In questa casistica, qualora sia presente solamente una iscrizione, prevedere la restituzione dello status code 404 
 
 
