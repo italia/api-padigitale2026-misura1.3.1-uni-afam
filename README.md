@@ -703,6 +703,19 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 
 <hr>
 
+## Scenario di utilizzo JSON-LD:
+
+Work in progress
+
+#### Risorse utili
+
+* Visualizzatore OpenApi.yaml in formato Swagger:  https://editor.swagger.io/
+* Convertitore di x-jsonle-context in json: https://yml2json.com/
+* Convertitore di Json in Json-ld https://json-ld.org/playground/
+
+<img src="doc/05_gallery/scenario.png" width="400" />
+
+<hr>
 
 ## Per maggiori informazioni:
 * [Interoperabilità e PDND su Developers Italia](https://developers.italia.it/it/interoperabilita/)
@@ -710,7 +723,7 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 
 ## Ultima Modifica 🔬
 
-05/12/2023
+21/12/2023
 
 ## Authors 🚶
 
