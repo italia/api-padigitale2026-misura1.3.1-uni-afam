@@ -499,14 +499,14 @@ components:
     proof_enrollment:
       type: object
       additionalProperties: false
-      x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
+      x-jsonld-type: https://w3id.org/italia/onto/Learning
       x-jsonld-context:
-        '@vocab': http://w3id.org/italia/onto/yyy/
-        institute_code: institute_code
-        institute_name: institute_name
-        country_of_academic_institution: country_of_academic_institution
-        expected_graduation_date: expected_graduation_date
-        enrollment_date: enrollment_date
+        LEA: https://w3id.org/italia/onto/Learning/
+        institute_code: LEA:instituteCode
+        institute_name: LEA:instituteName
+        programme_type_code: LEA:ProgrammeType
+        degree_course_code: LEA:DegreeCourse
+        degree_class_code: LEA:DegreeClass
       x-examples:
         Example 1:
           programme_type_code: MS
@@ -646,10 +646,14 @@ components:
       type: object
       nullable: true
       additionalProperties: false
-      x-jsonld-type: https://w3id.org/italia/onto/xxx/yyy
+      x-jsonld-type: https://w3id.org/italia/onto/Learning
       x-jsonld-context:
-        '@vocab': http://w3id.org/italia/onto/xxx/
-        institute_code: institute_code
+        LEA: https://w3id.org/italia/onto/Learning/
+        institute_code: LEA:instituteCode
+        institute_name: LEA:instituteName
+        programme_type_code: LEA:ProgrammeType
+        degree_course_code: LEA:DegreeCourse
+        degree_class_code: LEA:DegreeClass
       x-examples:
         Example 1:
           programme_type_code: MS
@@ -738,9 +742,15 @@ components:
     learnings:
       type: object
       additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/Learning
+      x-jsonld-context:
+        LEA: https://w3id.org/italia/onto/Learning/
+        attended_learning_name: LEA:Examination
+        grade_value: LEA:Grade
+        ects_credits_received: LEA:credit
       x-examples:
         Example 1:
-          course_name: Esame 1
+          attended_learning_name: Esame 1
           start_date: 2020-10-13
           end_date: 2023-10-13
           grade_value: '30'
@@ -823,11 +833,15 @@ components:
     proof_admissions:
       type: object
       additionalProperties: false
-      x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
+      x-jsonld-type: https://w3id.org/italia/onto/Learning
       x-jsonld-context:
-        '@vocab': http://w3id.org/italia/onto/yyy/
-        institute_code: institute_code
-        institute_name: institute_name
+        LEA: https://w3id.org/italia/onto/Learning/
+        institute_code: LEA:instituteCode
+        institute_name: LEA:instituteName
+        programme_type_code: LEA:ProgrammeType
+        degree_course_code: LEA:DegreeCourse
+        degree_class_code: LEA:DegreeClass
+        duration_ects_credits: LEA:credit
       x-examples:
         Example 1:
           institute_code: '16'
@@ -1075,16 +1089,15 @@ components:
     enrollment:
       type: object
       additionalProperties: false
-      x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
+      x-jsonld-type: https://w3id.org/italia/onto/Learning
       x-jsonld-context:
-        '@vocab': http://w3id.org/italia/onto/yyy/
-        institute_code: institute_code
-        institute_name: institute_name
-        programme_type_code: programme_type_code
-        degree_course_code: degree_course_code
-        degree_class_code: degree_class_code
-        academic_year: academic_year
-        degree_course_year: degree_course_year
+        LEA: https://w3id.org/italia/onto/Learning/
+        institute_code: LEA:instituteCode
+        institute_name: LEA:instituteName
+        programme_type_code: LEA:ProgrammeType
+        degree_course_code: LEA:DegreeCourse
+        degree_class_code: LEA:DegreeClass
+        academic_year: LEA:AcademicYear
       x-examples:
         Example 1:
           institute_code: '16'
@@ -1099,7 +1112,7 @@ components:
       properties:
         institute_code:
           type: string
-          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institutional identification code / Codice identificativo dell’istituto
           example: '16'
           readOnly: true
           minLength: 2
@@ -1165,14 +1178,13 @@ components:
       additionalProperties: false
       x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
       x-jsonld-context:
-        '@vocab': http://w3id.org/italia/onto/CPV/
-        given_name: givenName
-        tax_code: taxCode
-        family_name: familyName
-        birth_date: dateOfBirth
-        birth_place: hasBirthPlace
-        person_id: personID
-      x-examples:
+        CPV: https://w3id.org/italia/onto/CPV/Person
+        given_name: CPV:givenName
+        tax_code: CPV:taxCode
+        family_name: CPV:familyName
+        birth_date: CPV:birth_date
+        birth_place: CPV:hasBirthPlace
+        person_id: CPV:personID
         Example 1:
           tax_code: RSSMRA80A01F205D
           person_id: AB123456C
@@ -1235,7 +1247,14 @@ components:
           nullable: true
     it_enrollment_request:
       type: object
-      additionalProperties: false      
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
+      x-jsonld-context:
+        CPV: https://w3id.org/italia/onto/CPV/Person
+        LEA: https://w3id.org/italia/onto/Learning/
+        institute_code: LEA:instituteCode
+        tax_code: CPV:taxCode
+        person_id: CPV:personID
       x-examples:
         Example 1:
           tax_code: RSSMRA80A01F205D
@@ -1270,7 +1289,7 @@ components:
           readOnly: true  
         institute_code:
           type: string
-          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institutional identification code / Codice identificativo dell’istituto
           example: AA1
           minLength: 1
           maxLength: 256
@@ -1280,7 +1299,14 @@ components:
         - key
     eu_enrollment_request:
       type: object
-      additionalProperties: false      
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
+      x-jsonld-context:
+        CPV: https://w3id.org/italia/onto/CPV/Person
+        LEA: https://w3id.org/italia/onto/Learning/
+        institute_code: LEA:instituteCode
+        tax_code: CPV:taxCode
+        person_id: CPV:personID
       x-examples:
         Example 1:
           tax_code: RSSMRA80A01F205D
@@ -1307,7 +1333,7 @@ components:
           readOnly: true  
         institute_code:
           type: string
-          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institutional identification code / Codice identificativo dell’istituto
           example: AA1
           minLength: 1
           maxLength: 256

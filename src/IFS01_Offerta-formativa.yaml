@@ -303,25 +303,13 @@ components:
       additionalProperties: false
       x-jsonld-type: https://w3id.org/italia/onto/Learning
       x-jsonld-context:
-        '@vocab': https://w3id.org/italia/onto/Learning/
-        programme_type_code: ProgrammeType
-        # programme_access: non presente su ontologia
-        course_location: EducationalOfferingSite
-        # course_area: DegreeCourse ### non sappiamo a quale ontologia si riferisce
-        degree_class_code: DegreeClass
-        degree_class_language: 
-          "@id": "https://w3id.org/italia/onto/Language/Language"
-          "@type": "@id"
-          "@context":
-            "@base": "https://w3id.org/italia/onto/Language"
-        degree_class_period_years: 
-          "@id": "https://w3id.org/italia/onto/TI/Duration"
-          "@type": "@id"
-          "@context":
-            "@base": "https://w3id.org/italia/onto/TI"
-        degree_course_code: DegreeCourse
-        total_credits: credit
-        academic_year: AcademicYear
+        LEA: https://w3id.org/italia/onto/Learning/
+        programme_type_code: LEA:ProgrammeType
+        course_location: LEA:EducationalOfferingSite
+        degree_course_code: LEA:DegreeCourse
+        degree_class_code: LEA:DegreeClass
+        academic_year: LEA:AcademicYear
+        total_credits: LEA:credit
       x-examples:
         Example 1:
           programme_type_code: C6
@@ -429,29 +417,14 @@ components:
       x-jsonld-type: https://w3id.org/italia/onto/Learning
       x-jsonld-context:
         '@vocab': https://w3id.org/italia/onto/Learning/
-        programme_type_code: ProgrammeType
-        # programme_access: non presenti sull'ontologia
-        course_location: EducationalOfferingSite
-        # remote_mode : non presente sull'ontologia
-        # course_area:  non sappiamo a quale ontologia si riferisce
-        degree_class_code: DegreeClass
-        degree_class_language: 
-          "@id": "https://w3id.org/italia/onto/Language/Language"
-          "@type": "@id"
-          "@context":
-            "@base": "https://w3id.org/italia/onto/Language"
-        degree_class_period_years: 
-          "@id": "https://w3id.org/italia/onto/TI/Duration"
-          "@type": "@id"
-          "@context":
-            "@base": "https://w3id.org/italia/onto/TI"
-        degree_course_code: DegreeCourse
-        total_credits: credit
-        academic_year: https://w3id.org/italia/onto/Learning/AcademicYear
-        first_year_activation_course: AcademicYear
-        # website_university: non presente sull'ontologia
-        # website_course: non presente sull'ontologia
-        institute_code: instituteCode
+        programme_type_code: LEA:ProgrammeType
+        course_location: LEA:EducationalOfferingSite
+        degree_class_code: LEA:DegreeClass
+        degree_course_code: LEA:DegreeCourse
+        total_credits: LEA:credit
+        academic_year: LEA:AcademicYear
+        first_year_activation_course: LEA:AcademicYear
+        institute_code: LEA:instituteCode
       type: object
       x-examples:
         Example 1:
@@ -679,22 +652,10 @@ components:
       additionalProperties: false
       x-jsonld-type: https://w3id.org/italia/onto/Learning
       x-jsonld-context:
-        '@vocab': https://w3id.org/italia/onto/Learning/
-        learning_ssd: Learning
-        # learning_name: non presente sull'ontologia
-        # learning_code: non presente sull'ontologia
-        learning_cfu: credit
-        learning_hour:
-          "@id": "https://w3id.org/italia/onto/TI/Duration"
-          "@type": "@id"
-          "@context":
-            "@base": "https://w3id.org/italia/onto/TI"
-        learning_language: 
-          "@id": "https://w3id.org/italia/onto/Language/Language"
-          "@type": "@id"
-          "@context":
-            "@base": "https://w3id.org/italia/onto/Language"
-        # learning_ref: non presente sull'ontologia
+        LEA: https://w3id.org/italia/onto/Learning/
+        learning_ssd: LEA:Learning
+        learning_cfu: LEA:credit
+        learning_language: LEA:Language
       x-examples:
         Example 1:
           learning_ssd: CHIM/07
@@ -762,8 +723,8 @@ components:
       additionalProperties: false
       x-jsonld-type: https://w3id.org/italia/onto/Learning
       x-jsonld-context:
-        '@vocab': https://w3id.org/italia/onto/Learning/
-        academic_year: AcademicYear
+        LEA: https://w3id.org/italia/onto/Learning/
+        academic_year: LEA:AcademicYear
       x-examples:
         Example 1:
           academic_year: 2023/2024
@@ -794,9 +755,9 @@ components:
       additionalProperties: false
       x-jsonld-type: https://w3id.org/italia/onto/Learning
       x-jsonld-context:
-        '@vocab': https://w3id.org/italia/onto/Learning/
-        degree_class_code: DegreeClass
-        degree_course_code: DegreeCourse
+        LEA: https://w3id.org/italia/onto/Learning/
+        degree_course_code: LEA:DegreeCourse
+        degree_class_code: LEA:DegreeClass
       x-examples:
         Example 1:
           degree_class_code : LM-20
