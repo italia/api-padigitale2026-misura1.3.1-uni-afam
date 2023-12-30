@@ -18,7 +18,7 @@ info:
 paths:
   /count-academic-enrollments-by-isee-ranges:
     post:
-      summary: Acquisition of the number of female and male students in predefined ISEE brackets in study programs for an academic year at the Higher Education Institute. / Acquisizione del numero di studentesse e studenti per fasce ISEE prestabilite nei corsi di studio per un anno accademico nell'Istituto di formazione superiore
+      summary: Retrieve of the number of female and male students in predefined ISEE brackets in study programs for an academic year at the tertiary education Institute. / Acquisizione del numero di studentesse e studenti per fasce ISEE prestabilite nei corsi di studio per un anno accademico nell'Istituto di formazione superiore
       tags:
         - count-academic-enrollments-by-isee-ranges
       security:

@@ -2,11 +2,11 @@ openapi: 3.0.0
 x-stoplight:
   id: 0f56e32f16f60
 info:
-  title: IFS07 - List of title changes / Elenco variazioni titoli
-  x-summary: Acquires the updated qualification list for each student. / Acquisisce la lista dei titoli aggiornati per ogni studente.
+  title: IFS06 - List of enrollment changes / Elenco variazioni iscrizioni 
+  x-summary: Acquires the updated enrollment list for each student. / Acquisisce la lista delle iscrizioni aggiornate per ogni studente.
   version: 1.0.0
   description: |
-    Requires a list of the last active qualification for each course of study in the last 10 academic years. / Richiede la lista degli ultimi titoli attivi per ogni corso di studi negli ultimi 10 anni accademici.
+    Requires a list of the last active enrollment for each course of study in the last 10 academic years. / Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli ultimi 10 anni accademici.
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -16,7 +16,7 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
-  '/student-qualifications-changes':
+  '/student-enrollments-changes':
     parameters:
       - name: cursor
         in: query
@@ -35,9 +35,9 @@ paths:
           minLength: 1
           description: Institute code / Codice istituto
     get:
-      summary: Acquisition of "fingerprints (hash codes)" for all academic titles to identify variations from the recipient's perspective. / Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fine di identificarne le variazioni dal punto di vista del fruitore
+      summary: Retrieve of "fingerprints (hash codes)" for all student enrollments in the last three academic years to identify variations from the recipient's perspective. / Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle studentesse/degli studenti negli ultimi tre anni accademici al fine di identificarne le variazioni dal punto di vista del fruitore
       tags:
-        - student-qualifications-changes
+        - student-enrollments-changes
       security: [{}]
       responses:
         '200':
@@ -45,14 +45,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/student-qualifications-changes'
+                $ref: '#/components/schemas/student-enrollments-changes'
               examples:
                 Example statuscode=200:
                   value:
                     data:
                       institute_code: C6
                       last_update: '2023-10-13'
-                      qualifications_hash:
+                      enrollments_hash:
                         - key: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
                           hash: '56c3880bfcc4df0e35780c805d9ec942bbb8b4e237c1b63c6f2688cb58ef0a3a'
                         - key: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
@@ -64,23 +64,23 @@ paths:
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
-          description: No qualifications were found at this institution / Non sono stati trovati titoli in questo istituto
+          description: No enrollments were found at this institution / Non sono state trovate iscrizioni in questo istituto
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/student-qualifications-changes'
+                $ref: '#/components/schemas/student-enrollments-changes'
               examples:
                 Example statuscode=404:
                   value:
                     data: 
                       institute_code: C6
                       last_update: '2023-10-13'
-                      qualifications_hash: []
-                    meta:
+                      enrollments_hash: []
+                    meta: 
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Enrollments-of-student
-      description: Returning the information reduced to a 'hash (SHA256)' for each student in the form (key, value), where the key is the hash of the student's social security number and the value is the hash of the student's qualifications. / Restituisce le informazioni ridotte in "hash (SHA256)" per ogni studente/studentessa nella forma (chiave, valore), dove la chiave è l'hash del codice fiscale dello studente e il valore è l'hash dei suoi titoli.
+      description: Returning the information reduced to a 'hash (SHA256)' for each student in the form (key, value), where the key is the hash of the student's social security number and the value is the hash of the student's enrollment. / Restituisce le informazioni ridotte in "hash (SHA256)" per ogni studente/studentessa nella forma (chiave, valore), dove la chiave è l'hash del codice fiscale dello studente e il valore è l'hash delle sue iscrizioni.
       parameters: []
   /status:
     get:
@@ -128,7 +128,7 @@ components:
         minimum: 0
         type: integer
   schemas:
-    student-qualifications-changes:
+    student-enrollments-changes:
       additionalProperties: false
       type: object
       x-examples:
@@ -136,7 +136,7 @@ components:
           data:
             institute_code: C6
             last_update: '2023-10-13 17:23:26'
-            qualifications_hash:
+            enrollments_hash:
               - key: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
                 hash: '56c3880bfcc4df0e35780c805d9ec942bbb8b4e237c1b63c6f2688cb58ef0a3a'
               - key: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
@@ -145,7 +145,7 @@ components:
                 hash: 'df8340f834tr8f3j84fj48jf83fngooero45305jf30l04k0r43kfd043kdew34t'
           meta:
             - cursor: '6eyJpZCI6M57'
-      description: Returning the information reduced to a 'hash (SHA256)' for each student in the form (key, value), where the key is the hash of the student's social security number and the value is the hash of the student's qualifications. / Restituisce le informazioni ridotte in "hash (SHA256)" per ogni studente/studentessa nella forma (chiave, valore), dove la chiave è l'hash del codice fiscale dello studente e il valore è l'hash dei suoi titoli.
+      description: Returning the information reduced to a 'hash (SHA256)' for each student in the form (key, value), where the key is the hash of the student's social security number and the value is the hash of the student's enrollment. / Restituisce le informazioni ridotte in "hash (SHA256)" per ogni studente/studentessa nella forma (chiave, valore), dove la chiave è l'hash del codice fiscale dello studente e il valore è l'hash delle sue iscrizioni.
       x-stoplight:
         id: 22de4be4ac251
       properties:
@@ -157,9 +157,9 @@ components:
         - data
         - meta
     meta:
+      nullable: true
       type: object
       additionalProperties: false
-      nullable: true
       x-examples:
         Example 1:
           cursor: 'o2j4230jd4043'
@@ -185,10 +185,10 @@ components:
         Example 1:
           institute_code: C6
           last_update: '2023-10-13 17:23:26'
-          qualifications_hash:
-            - key: '4e12345678986dd33377c0da06031'
+          enrollments_hash:
+            - key: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
               hash: '56c3880bfcc4df0e35780c805d9ec942bbb8b4e237c1b63c6f2688cb58ef0a3a'
-            - key: 'adsjojr45678986dd333asofrm456'
+            - key: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
               hash: 'odjwofweoo4952r9349dj39j349jf4fmd394fjfaforkdikdwi59fmmdm3oo4rjj'
       description: Personal data of the student / Dati personali della studentessa o dello studente
       properties:
@@ -205,20 +205,20 @@ components:
           description: Date last updated / Data ultimo aggiornamento
           example: '2023-10-13'
           readOnly: true
-        qualifications_hash:
+        enrollments_hash:
           type: array
           minItems: 0
-          description: List of qualifications for student / Elenco iscrizioni di una studentessa o di uno studente
+          description: List of enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
           items:
-            $ref: '#/components/schemas/qualifications_hash'
-    qualifications_hash:
+            $ref: '#/components/schemas/enrollments_hash'
+    enrollments_hash:
       type: object
       additionalProperties: false
       x-examples:
         Example 1:
           key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
           hash: 9bc4e295f51d940db6d7a9ca01059ace00376d4feed10225c592e010a780a8d5
-      description: Detailed qualification information / Informazioni dettagliate sul titoli
+      description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
       properties:
         key:
           type: string
@@ -243,5 +243,5 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: student-qualifications-changes
+  - name: student-enrollments-changes
   - name: health-check
