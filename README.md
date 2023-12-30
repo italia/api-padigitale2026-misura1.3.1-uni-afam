@@ -190,7 +190,7 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
  <img src="doc/05_gallery/umarell.png" width="80"/>
 </p>
 
-In questo paragrafo verrano descritti XXXXXX
+In questo paragrafo sono descritte le seguenti API:
 
 1. [IFS01 Offerta Formativa](#ifs01-offerta-formativa)
 2. [IFS02 Iscrizioni](#ifs02-iscrizioni)
@@ -203,17 +203,19 @@ In questo paragrafo verrano descritti XXXXXX
 9. [IFS09 Iscritti a un corso per anno](#ifs09-iscritti-a-un-corso-per-anno)
 
 
+La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
+
 <hr>
 
 ### IFS01 Offerta Formativa
-Vuole acquisire i dati dei corsi attivi ed offerti da un Istituto in un dato anno accademico
+
 
 <img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS01_Offerta-formativa.yaml)  
 
 #### :globe_with_meridians: IFS01.1
 
-Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico
+Acquisizione della lista dei corsi di studio offerti da un Istituto di formazione superiore in un dato anno accademico
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " />  Esempio IFS01.1 [Request](doc/03_analysis/io_schema/IFS01.1-request.json)
@@ -222,23 +224,17 @@ Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " />  Esempio IFS01.1 [Response](doc/03_analysis/io_schema/IFS01.1-response.json)
 
-
-
-
-
 > :bulb: **Importante:**    
 > * La request prevede l'obbligatorietà della compilazione del campo <i><b>academic_year</b></i>. 
-> * attributo  <i><b>cursor</b></i> : da non valorizzare nella prima chiamata. Nel caso in cui la response restituisca l'attributo cursor valorizzato, sarà necessario iterare la chiamata e popolare nella request il campo cursor.
-> * Viene lasciata allo sviluppatore la gestione della paginazione della response.
-
-
-
-
+> * L'attributo  <i><b>cursor</b></i> è utile per la paginazione:
+>>1.  Alla prima invocazione non si valorizza l'attributo cursor
+>>1. Se la response restituisce l'attributo cursor valorizzato, sarà necessario iterare le invocazioni per ottenere l'intero dataset 
+>>1. Per le invocazioni successive alla prima si valorizza il campo cursor con il valore ottenuto nell'ultima response
+> * E' lasciata allo sviluppatore dell'API la gestione della paginazione e quindi della valorizzazione del cursor sulla response
 
 #### :globe_with_meridians: IFS01.2
 
-Richiede il dettaglio di un corso
-
+Acquisizione del dettaglio di un corso di studio offerto da un Istituto di formazione superiore
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS01.2 [Request](doc/03_analysis/io_schema/IFS01.2-request.json)
@@ -247,8 +243,7 @@ Richiede il dettaglio di un corso
 " /> Esempio IFS01.2 [Response](doc/03_analysis/io_schema/IFS01.2-response.json)
 
 > :bulb: **Importante:**    
-> * riferimento ontologico:  https://schema.gov.it/lodview/onto/Learning/DegreeCourse
-
+> * Nell'invocazione l'attributo "degree_course_code" è obbligatorio mentre l'attributo "degree_class_code" è obbligatorio solo quando il corso di studi ammette la classe
 
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
