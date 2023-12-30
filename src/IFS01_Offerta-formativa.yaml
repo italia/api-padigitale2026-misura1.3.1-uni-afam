@@ -16,11 +16,11 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 paths:
-  '/educational-offering-degree-course-list': 
+  '/educational-offering-list': 
     post:
       summary: Acquisition of the list of study programs offered by a Higher Education Institute in a given academic year. / Acquisizione della lista dei corsi di studio offerti da un Istituto di fomrazione superiore in un dato anno accademico.
       tags:
-        - educational-offering-degree-course-list
+        - educational-offering-list
       security: 
         - bearerAuth: []
       responses:
@@ -80,14 +80,14 @@ paths:
               properties: {}
         description: ''
       
-      operationId: educational-offering-degree-course-list
+      operationId: educational-offering-list
       description: <ul> <li>Request the list of active courses offered by the Institute in an academic year. </li><li>Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico.</li></ul>
       parameters: []
-  '/educational-offering-degree-course-detail': 
+  '/educational-offering-detail': 
     post:
       summary: Acquisition of the details of a study program offered by a Higher Education Institute. / Acquisizione del dettaglio di un corso di studio offerto da un Istituto di formazione superiore.
       tags:
-        - educational-offering-degree-course-detail
+        - educational-offering-detail
       security: 
         - bearerAuth: []
       responses:
@@ -209,7 +209,7 @@ paths:
               properties: {}
         description: ''
       
-      operationId: educational-offering-degree-course-detail
+      operationId: educational-offering-detail
       description: <ul> <li>Requires the detail of a course. </li><li>Richiede il dettaglio di un corso.</li></ul>
       parameters: []
   /status:
@@ -755,6 +755,6 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: educational-offering-degree-course-list
-  - name: educational-offering-degree-course-detail
+  - name: educational-offering-list
+  - name: educational-offering-detail
   - name: health-check
