@@ -196,11 +196,11 @@ In questo paragrafo sono descritte le seguenti API:
 2. [IFS02 Iscrizioni](#ifs02-iscrizioni)
 3. [IFS03 Titoli](#ifs03-titoli)
 4. [IFS04 Rettifica iscrizioni](#ifs04-rettifica-iscrizioni)
-5. [IFS05 Rettifica titoli](#ifs05-ettifica-titoli)
-6. [IFS06 Elenco Variazioni Iscrizioni](#ifs06-elenco-variazioni-iscrizioni)
-7. [IFS07 Elenco variazione titoli](#ifs07-elenco-variazione-titoli)
-8. [IFS08 Iscritti per fasce ISEE](#ifs08-iscritti-per-fasce-isee)
-9. [IFS09 Iscritti a un corso per anno](#ifs09-iscritti-a-un-corso-per-anno)
+5. [IFS05 Rettifica titoli](#ifs05-rettifica-titoli)
+6. [IFS06 Variazioni Iscrizioni](#ifs06-variazioni-iscrizioni)
+7. [IFS07 variazione titoli](#ifs07-variazione-titoli)
+8. [IFS08 Iscrizioni per fasce ISEE](#ifs08-iscrizioni-per-fasce-isee)
+9. [IFS09 Iscrizioni per corso](#ifs09-iscrizioni-per-corso)
 
 
 La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
@@ -211,7 +211,7 @@ La visualizzazione della specifica Open API e dei relativi esempi può essere ot
 
 
 <img src="doc/05_gallery/swagger.svg" width="18
-" /> Definizione [OpenApi.yaml](src/IFS01_Offerta-formativa.yaml)  
+" /> Definizione [OpenApi.yaml](src/IFS01-offerta-formativa.yaml)  
 
 #### :globe_with_meridians: IFS01.1
 
@@ -258,7 +258,7 @@ Acquisisce il dettaglio delle iscrizioni accademiche.
 Fornisce le informazioni di dettaglio riguardanti le iscrizioni di una studentessa o uno studente all'università o AFAM
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
-" /> Definizione [OpenApi.yaml](src/IFS02_Iscrizioni.yaml)
+" /> Definizione [OpenApi.yaml](src/IFS02-iscrizioni.yaml)
 
 #### :globe_with_meridians: IFS02.1
 
@@ -391,7 +391,7 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 Restituisce l'elenco dei titoli conseguiti da una studentessa o uno studente
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
-" /> Definizione [OpenApi.yaml](src/IFS03_Titoli.yaml)
+" /> Definizione [OpenApi.yaml](src/IFS03-titoli.yaml)
 
 #### :globe_with_meridians: IFS03.1
 
@@ -507,7 +507,7 @@ Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi s
 Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
-" /> Definizione [OpenApi.yaml](src/IFS04_Rettifica-iscrizioni.yaml)
+" /> Definizione [OpenApi.yaml](src/IFS04-rettifica-iscrizioni.yaml)
 
 
 #### :globe_with_meridians: IFS04.1
@@ -573,7 +573,7 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
-" /> Definizione [OpenApi.yaml](src/IFS05_Rettifica-titoli.yaml)
+" /> Definizione [OpenApi.yaml](src/IFS05-rettifica-titoli.yaml)
 
 
 
@@ -636,12 +636,12 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 
 <hr>
 
-### IFS06 Elenco Variazioni Iscrizioni
+### IFS06 Variazioni Iscrizioni
 
 Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli ultimi 10 anni accademici.
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
-" /> Definizione [OpenApi.yaml](src/IFS06_Elenco-variazioni-iscrizioni.yaml)
+" /> Definizione [OpenApi.yaml](src/IFS06-variazioni-iscrizioni.yaml)
 
 
 #### :globe_with_meridians: IFS06.1
@@ -668,13 +668,13 @@ Scenario operativo di acquisizione delle variazioni delle iscrizioni fra l'anagr
 
 <hr>
 
-### IFS07 Elenco variazione titoli
+### IFS07 Variazione titoli
 Richiede la lista degli ultimi titoli attivi per ogni corso di studi negli ultimi 10 anni accademici.
 
 Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli ultimi 10 anni accademici.
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
-" /> Definizione [OpenApi.yaml](src/IFS07_Elenco-variazioni-titoli.yaml)
+" /> Definizione [OpenApi.yaml](src/IFS07-variazioni-titoli.yaml)
 
 
 #### :globe_with_meridians: IFS07.1
@@ -694,11 +694,11 @@ Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fi
 
 <hr>
 
-### IFS08 Iscritti per fasce ISEE
+### IFS08 Iscrizioni per fasce ISEE
 Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accademico
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
-" /> Definizione [OpenApi.yaml](src/IFS08_Iscritti-per-fasce-ISEE.yaml)
+" /> Definizione [OpenApi.yaml](src/IFS08-iscrizioni-per-fasce-ISEE.yaml)
 
 #### :globe_with_meridians: IFS08.1
 
@@ -725,11 +725,11 @@ Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno acca
 
 
 
-### IFS09 Iscritti a un corso per anno
+### IFS09 Iscrizioni per corso
 Ottiene il numero di studentesse e di studenti iscritti ad un IFS.
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
-" /> Definizione [OpenApi.yaml](src/IFS09_Iscritti-per-corso-per-anno.yaml)
+" /> Definizione [OpenApi.yaml](src/IFS09-iscrizioni-per-corso.yaml)
 
 #### :globe_with_meridians: IFS09.1 
 
