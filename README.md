@@ -225,8 +225,8 @@ Acquisizione della lista dei corsi di studio offerti da un Istituto di formazion
 " />  Esempio IFS01.1 [Response](doc/03_analysis/io_schema/IFS01.1-response.json)
 
 > :bulb: **Importante:**    
-> * La request prevede l'obbligatorietà della compilazione del campo **_academic_year_**. 
-> * L'attributo  **_cursor_** è utile per la paginazione:
+> * La richiesta prevede l'obbligatorietà della compilazione del campo **_academic_year_**. 
+> * L'attributo  **_cursor_** è utile per la paginazione della risposta:
 >>1.  Alla prima invocazione non si valorizza l'attributo cursor
 >>1. Se la response restituisce l'attributo cursor valorizzato, sarà necessario iterare le invocazioni per ottenere l'intero dataset 
 >>1. Per le invocazioni successive alla prima si valorizza il campo cursor con il valore ottenuto nell'ultima response
@@ -243,7 +243,7 @@ Acquisizione del dettaglio di un corso di studio offerto da un Istituto di forma
 " /> Esempio IFS01.2 [Response](doc/03_analysis/io_schema/IFS01.2-response.json)
 
 > :bulb: **Importante:**    
-> * Nell'invocazione l'attributo **_degree_course_code_** è obbligatorio mentre l'attributo **_degree_class_code_** è obbligatorio solo quando il corso di studi ammette la classe
+> * Nella richiesta l'attributo **_degree_course_code_** è obbligatorio mentre l'attributo **_degree_class_code_** è obbligatorio solo quando il corso di studi ammette la classe
 
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
