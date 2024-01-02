@@ -6,8 +6,8 @@
             "course_location":"Milano Bovisa",       
             "course_area":"Ingegneria industriale",
             "degree_class_code":"L-9",
-            "degree_class_language":"IT",
-            "degree_class_period_years":3,         
+            "degree_course_language":"IT",
+            "degree_course_period_years":3,         
             "degree_course_code":"353",
             "total_credits":180,
             "academic_year":"2023/2024"
@@ -18,8 +18,8 @@
             "course_location":"Milano, Settimo Milanese",    
             "course_area":"Ingegneria",
             "degree_class_code":"LM-20",
-            "degree_class_language":"EN",
-            "degree_class_period_years":2,
+            "degree_course_language":"EN",
+            "degree_course_period_years":2,
             "degree_course_code":"469",
             "total_credits":120,
             "academic_year":"2023/2024"          

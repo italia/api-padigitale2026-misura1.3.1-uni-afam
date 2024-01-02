@@ -37,8 +37,8 @@ paths:
                         course_location: Milano Bovisa
                         course_area: Ingegneria industriale
                         degree_class_code: L-9
-                        degree_class_language: IT
-                        degree_class_period_years: 3
+                        degree_course_language: IT
+                        degree_course_period_years: 3
                         degree_course_code: '353'
                         total_credits: 180
                         academic_year: 2023/2024
@@ -47,8 +47,8 @@ paths:
                         course_location: Milano, Settimo Milanese
                         course_area: Ingegneria
                         degree_class_code: LM-20
-                        degree_class_language: EN
-                        degree_class_period_years: 2
+                        degree_course_language: EN
+                        degree_course_period_years: 2
                         degree_course_code: '469'
                         total_credits: 120
                         academic_year: 2023/2024
@@ -104,8 +104,8 @@ paths:
                       remote_mode: on-site
                       course_area: Ingegneria industriale
                       degree_class_code : L-9
-                      degree_class_language: IT
-                      degree_class_period_years: 3
+                      degree_course_language: IT
+                      degree_course_period_years: 3
                       degree_course_code: '353'
                       total_credits: 180
                       academic_year: 2023/2024
@@ -268,8 +268,8 @@ components:
               course_location: Milano Bovisa
               course_area: Ingegneria industriale
               degree_class_code: L-9
-              degree_class_language: IT
-              degree_class_period_years: 3
+              degree_course_language: IT
+              degree_course_period_years: 3
               degree_course_code: '353'
               total_credits: 180
               academic_year: 2023/2024
@@ -278,8 +278,8 @@ components:
               course_location: Milano, Settimo Milanese
               course_area: Ingegneria
               degree_class_code: LM-20
-              degree_class_language: EN
-              degree_class_period_years: 2
+              degree_course_language: EN
+              degree_course_period_years: 2
               degree_course_code: '469'
               total_credits: 120
               academic_year: 2023/2024
@@ -306,8 +306,8 @@ components:
           course_location: Milano Bovisa
           course_area: Ingegneria industriale
           degree_class_code: L-9
-          degree_class_language: IT
-          degree_class_period_years: 3
+          degree_course_language: IT
+          degree_course_period_years: 3
           degree_course_code: '353'
           total_credits: 180
           academic_year: 2023/2024
@@ -348,14 +348,14 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 20
-        degree_class_language:
+        degree_course_language:
           type: string
           description: Language of the degree class / Lingua della classe di laurea
           example: IT
           readOnly: true
           minLength: 1
           maxLength: 20
-        degree_class_period_years:
+        degree_course_period_years:
           type: integer
           format: int32
           description: Degree course duration in years / Durata corso di laurea in anni
@@ -412,8 +412,8 @@ components:
           remote_mode: on-site
           course_area: Ingegneria industriale
           degree_class_code : L-9
-          degree_class_language: IT
-          degree_class_period_years: 3
+          degree_course_language: IT
+          degree_course_period_years: 3
           degree_course_code: 353
           total_credits: 180
           academic_year: 2023/2024
@@ -485,14 +485,14 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 20
-        degree_class_language:
+        degree_course_language:
           type: string
           description: Language of the degree class / Lingua della classe di laurea
           example: IT
           readOnly: true
           minLength: 1
           maxLength: 20
-        degree_class_period_years:
+        degree_course_period_years:
           type: integer
           format: int32
           description: Degree course duration in years / Durata corso di laurea in anni
