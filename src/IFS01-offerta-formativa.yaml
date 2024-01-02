@@ -67,10 +67,13 @@ paths:
             schema:
               $ref: '#/components/schemas/course_list_request'
             examples:
-              Example post 1:
+              Example post 1 - prima invocazione:
+                value:
+                  academic_year: 2023/2024              
+              Example post 2 - invocazioni successive alla prima:
                 value:
                   academic_year: 2023/2024
-                  cursor: 
+                  cursor: "abc123456abc"      
           application/xml:
             schema:
               type: object
