@@ -1,6 +1,4 @@
 openapi: 3.0.0
-x-stoplight:
-  id: 0f56e32f16f60
 info:
   title: IFS09 - Iscritti a un corso per anno
   x-summary: Acquisisce il numero di studentesse e studenti iscritti a uno specifico corso per anno accademico
@@ -142,8 +140,6 @@ components:
               female_enrollment_count: 15000    
               male_enrollment_count: 10000                
       description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
-      x-stoplight:
-        id: 22de4be4ac251
       properties:       
         count_academic_enrollment:
           type: array
@@ -219,8 +215,6 @@ components:
         Example 1:
           academic_year : 20
           degree_course_code: 456
-      x-stoplight:
-        id: b40e2be27c423
       description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
       properties:
         academic_year:

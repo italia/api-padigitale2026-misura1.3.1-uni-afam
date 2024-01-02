@@ -1,6 +1,4 @@
 openapi: 3.0.0
-x-stoplight:
-  id: 0f56e32f16f60
 info:
   title: IFS02 - Retrieve academic enrollments detail / Acquisisce il dettaglio delle iscrizioni accademiche
   x-summary: Enrollments detail of a student / Dettaglio delle iscrizioni di una studentessa o uno studente 
@@ -64,7 +62,7 @@ paths:
                     personal_data:
                       given_name: Mario
                       family_name: Rossi
-                      birth_date: 01/01/1980
+                      birth_date: 1980-12-10
                       birth_place: Roma                   
                     enrollments:
                       - institute_code: '16'
@@ -482,8 +480,6 @@ components:
               degree_course_year: 3
               status: attivo
       description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
-      x-stoplight:
-        id: 22de4be4ac251
       properties:
         personal_data:
           $ref: '#/components/schemas/personal_data'
@@ -518,8 +514,6 @@ components:
               expected_graduation_date: 2023-10-13
               enrollment_date: 2020-10-13
       description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
-      x-stoplight:
-        id: 22de4be4ac251
       properties:
         personal_data:
           $ref: '#/components/schemas/personal_data'
@@ -667,8 +661,6 @@ components:
                 grade_value: '30'
                 ects_credits_received: 6
       description: Examinations details of student / Dettaglio esami di una studentessa o di uno studente
-      x-stoplight:
-        id: 22de4be4ac251
       properties:
         personal_data:
           $ref: '#/components/schemas/personal_data'
@@ -838,8 +830,6 @@ components:
               start_date_of_academicyear: 2020-10-13
               end_date_of_academicyear: 2023-10-13
       description: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
-      x-stoplight:
-        id: 22de4be4ac251
       properties:
         personal_data:
           $ref: '#/components/schemas/personal_data'
@@ -983,8 +973,6 @@ components:
               destination_country: Spagna
               departure_country: Italia
       description: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
-      x-stoplight:
-        id: 22de4be4ac251
       properties:
         personal_data:
           $ref: '#/components/schemas/personal_data'
@@ -1160,6 +1148,7 @@ components:
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
           readOnly: true
+          nullable: true
           minLength: 1
           maxLength: 20
         academic_year:
@@ -1273,8 +1262,6 @@ components:
           person_id: 12345678A
           key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
           institute_code: AA
-      x-stoplight:
-        id: b40e2be27c423
       description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
       properties:
         tax_code:
@@ -1317,8 +1304,6 @@ components:
           tax_code: RSSMRA80A01F205D
           person_id: 12345678A
           institute_code: AA
-      x-stoplight:
-        id: b40e2be27c423
       description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
       properties:
         tax_code:

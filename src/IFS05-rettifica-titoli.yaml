@@ -1,6 +1,4 @@
 openapi: 3.0.0
-x-stoplight:
-  id: 0f56e32f16f60
 info:
   title: IFS05 - Qualification Change request/ Rettifica titoli
   x-summary: Requests the rectification of missing or excess entry data for a student who is attending or has attended. / Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
@@ -317,8 +315,6 @@ components:
                 suggested: 3° anno
           request: Testo con la richiesta di rettifica
           note: Note aperte dello studente/ex studente
-      x-stoplight:
-        id: b40e2be27c423
       description: qualification change request of a student's qualification / Richiesta creazione rettifica titolo di una studentessa o uno studente
       properties:
         tax_code:
@@ -460,8 +456,6 @@ components:
           tax_code: RSSMRA80A01F205D
           person_id: 12345678A
           institute_code: AA
-      x-stoplight:
-        id: b40e2be27c423
       description: Request qualification of a student's qualification / Richiesta Titolo di una studentessa o uno studente
       properties:
         tax_code:
@@ -531,8 +525,6 @@ components:
                 issue_description: tax code didn't find on ANPR Master Data
               - attribute_name: degree_course_year
                 issue_description: degree course can be only a numeric value
-      x-stoplight:
-        id: b40e2be27c423
       description: Academic change request / Richiesta di rettifica di una studentessa o uno studente
       properties:
         subscriber_id:

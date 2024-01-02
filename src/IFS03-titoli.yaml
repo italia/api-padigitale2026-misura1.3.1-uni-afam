@@ -1,6 +1,4 @@
 openapi: 3.0.0
-x-stoplight:
-  id: 0f56e32f16f60
 info:
   title: IFS03 - Retrive degrees / Recupero titoli
   x-summary: This service returns the list of degrees earned by a student. / Questo servizio ritorna l'elenco dei titoli conseguiti da una studentessa o uno studente.
@@ -70,7 +68,7 @@ paths:
                     personal_data:
                       given_name: Mario
                       family_name: Rossi
-                      birth_date: 01/01/1980
+                      birth_date: 1980-01-01
                       birth_place: Roma       
                     qualifications:
                       - institute_code: '16'
@@ -89,7 +87,7 @@ paths:
                     personal_data:
                       given_name: Mario
                       family_name: Rossi
-                      birth_date: 01/01/1980
+                      birth_date: 1980-01-01
                       birth_place: Roma       
                     qualifications:
                       - institute_code: '16'
@@ -108,7 +106,7 @@ paths:
                     personal_data:
                       given_name: Mario
                       family_name: Rossi
-                      birth_date: 01/01/1980
+                      birth_date: 1980-01-01
                       birth_place: Roma       
                     qualifications:
                       - institute_code: '16'
@@ -470,8 +468,6 @@ components:
               qualification_grading_scale_minimum_grade: '66'
               qualification_grading_scale_maximum_grade: '110'
       description: Registry and list of degrees earned by a student / Anagrafica ed elenco titoli conseguiti da una studentessa o uno studente
-      x-stoplight:
-        id: 15d3067a4c448
       properties:
         personal_data:
           $ref: '#/components/schemas/personal_data'
@@ -582,6 +578,7 @@ components:
           example: '66'
           description: Minimum course grade / Voto minimo del corso
           readOnly: true
+          nullable: true
         qualification_grading_scale_maximum_grade:
           type: string
           minLength: 1
@@ -618,8 +615,6 @@ components:
               qualification_grading_scale_maximum_grade: '110'
               academic_qualification_country: Italia
       description: Qualification details of student / Dettaglio titoli di una studentessa o di uno studente
-      x-stoplight:
-        id: 22de4be4ac251
       properties:
         personal_data:
           $ref: '#/components/schemas/personal_data'
@@ -753,6 +748,7 @@ components:
           example: '66'
           description: Minimum course grade / Voto minimo del corso
           readOnly: true
+          nullable: true
         qualification_grading_scale_maximum_grade:
           type: string
           minLength: 1
@@ -760,6 +756,7 @@ components:
           example: '110'
           description: Highest course grade / Voto massimo del corso
           readOnly: true
+          nullable: true
         academic_qualification_country:
           type: string
           description: Country of the academic institution / Paese dell'istituzione accademica
@@ -814,8 +811,6 @@ components:
                 learning_start_date: 2018-07-01
                 learning_end_date: 2019-07-01
       description: Returns the list of simplified supplment diplomas in SDG format / Restituisce la lista dei diplomi supplment semplificati in formato SDG
-      x-stoplight:
-        id: 22de4be4ac251
       properties:
         personal_data:
           $ref: '#/components/schemas/personal_data'
@@ -850,8 +845,6 @@ components:
               - ects_credits_received: 12
               - ects_credits_received: 6
       description: Returns the list of simplified supplment diplomas in SDG format / Restituisce la lista dei diplomi supplment semplificati in formato SDG
-      x-stoplight:
-        id: 22de4be4ac251
       properties:
         personal_data:
           $ref: '#/components/schemas/personal_data'
@@ -998,6 +991,7 @@ components:
           description: Rating scale minimum / Scala di valutazione minima
           example: '66'
           readOnly: true
+          nullable: true
           minLength: 1
           maxLength: 32
         qualification_grading_scale_maximum_grade:
@@ -1322,8 +1316,7 @@ components:
           person_id: 12345678A
           key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
           institute_code: AA
-      x-stoplight:
-        id: b40e2be27c423
+
       description: Request qualifications of a student's  / Richiesta titoli di una studentessa o uno studente
       properties:
         tax_code:
@@ -1367,8 +1360,6 @@ components:
           person_id: 12345678A
           key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
           institute_code: AA
-      x-stoplight:
-        id: b40e2be27c423
       description: Request qualifications of a student's  / Richiesta titoli di una studentessa o uno studente
       properties:
         tax_code:

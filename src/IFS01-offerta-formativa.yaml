@@ -1,6 +1,4 @@
 openapi: 3.0.0
-x-stoplight:
-  id: 0f56e32f16f60
 info:
   title: IFS01 - Educational offer / Offerta formativa 
   x-summary: Acquire data on the courses active and offered by an institute in a given academic year. / Vuole acquisire i dati dei corsi attivi ed offerti da un Istituto in un dato anno accademico.
@@ -444,8 +442,6 @@ components:
                   learning_language: IT
                   learning_ref: http://....
       description: Course detail / Dettagli corso
-      x-stoplight:
-        id: 22de4be4ac251
       properties:
         programme_type_code:
           type: string
@@ -696,8 +692,6 @@ components:
         Example 1:
           academic_year: 2023/2024
           cursor: ""
-      x-stoplight:
-        id: b40e2be27c423
       description: Request the list of active courses offered by the Institute in an academic year. / Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico.
       properties:
         academic_year:
@@ -724,8 +718,6 @@ components:
         Example 1:
           degree_class_code : LM-20
           degree_course_code: 456
-      x-stoplight:
-        id: b40e2be27c423
       description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
       properties:
         degree_class_code:

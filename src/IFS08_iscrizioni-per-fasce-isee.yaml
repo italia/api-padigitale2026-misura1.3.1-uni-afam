@@ -1,6 +1,4 @@
 openapi: 3.0.0
-x-stoplight:
-  id: 0f56e32f16f60
 info:
   title: IFS08 - Students enrolled by ISEE bands / Iscritti per fasce ISEE
   x-summary: Acquires the number of students by ISEE bands in an academic year / Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accademico
@@ -227,8 +225,6 @@ components:
       x-examples:
         Example 1:
           academic_year : 2023/2024
-      x-stoplight:
-        id: b40e2be27c423
       description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
       properties:
         academic_year:

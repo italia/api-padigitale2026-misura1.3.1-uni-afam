@@ -1,6 +1,4 @@
 openapi: 3.0.0
-x-stoplight:
-  id: 0f56e32f16f60
 info:
   title: IFS06 - List of enrollment changes / Elenco variazioni iscrizioni 
   x-summary: Acquires the updated enrollment list for each student. / Acquisisce la lista delle iscrizioni aggiornate per ogni studente.
@@ -146,8 +144,6 @@ components:
           meta:
             - cursor: '6eyJpZCI6M57'
       description: Returning the information reduced to a 'hash (SHA256)' for each student in the form (key, value), where the key is the hash of the student's social security number and the value is the hash of the student's enrollment. / Restituisce le informazioni ridotte in "hash (SHA256)" per ogni studente/studentessa nella forma (chiave, valore), dove la chiave è l'hash del codice fiscale dello studente e il valore è l'hash delle sue iscrizioni.
-      x-stoplight:
-        id: 22de4be4ac251
       properties:
         data:
           $ref: '#/components/schemas/data'
