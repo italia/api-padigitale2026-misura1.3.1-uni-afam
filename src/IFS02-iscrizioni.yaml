@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: IFS02 - Retrieve academic enrollments detail / Acquisisce il dettaglio delle iscrizioni accademiche
+  title: IFS02 - Retrieves the academic enrollments detail / Acquisisce il dettaglio delle iscrizioni accademiche
   x-summary: Enrollments detail of a student / Dettaglio delle iscrizioni di una studentessa o uno studente 
   version: 1.0.0
   description: |
@@ -17,7 +17,7 @@ paths:
   '/academic-enrollments':
 
     post:
-      summary: Retrieve of the details of active enrollments in the last three academic years for a female/male student. / Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accademici di una studentessa o di uno studente
+      summary: Retrieve the  the details of active enrollments in the last three academic years for a female/male student. / Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accademici di una studentessa o di uno studente
       tags:
         - academic-enrollments
       security:
@@ -138,7 +138,7 @@ paths:
       parameters: []
   '/proof-tertiary-education-enrollments':
     post:
-      summary: Retrieve of evidence regarding enrollment in tertiary education studies for a female/male student. / Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terziaria di una studentessa/studente
+      summary: Retrieves the evidences regarding enrollment in tertiary education studies for a female/male student. / Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terziaria di una studentessa/studente
       tags:
         - proof-tertiary-education-enrollments
       security:
@@ -184,7 +184,7 @@ paths:
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Enrollments-education-of-student
-      description: <ul> <li>Retrieves the evidences regarding enrollment in tertiary education studies.</li><li>Acquisisce le prove riguardanti l'iscrizione agli studi di istruzione terziaria (livelli EQF 5/6/7/8) Vengono considerati solo gli studi di tipo generale (non professionalizzanti)</li></ul>
+      description: <ul> <li>Retrieves the evidences regarding enrollment to tertiary education studies.</li><li>Acquisisce le prove riguardanti l'iscrizione agli studi di istruzione terziaria (livelli EQF 5/6/7/8) Vengono considerati solo gli studi di tipo generale (non professionalizzanti)</li></ul>
       requestBody:
         content:
           application/json:
@@ -206,7 +206,7 @@ paths:
   '/proof-tertiary-education-courses':
 
     post:
-      summary: Retrieve of evidence regarding the transcript (courses taken, grades obtained, etc.) of tertiary education studies for a female/male student. The transcript may pertain to completed or ongoing studies. / Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può riferirsi a studi completati o in corso
+      summary: Retrieves the evidence regarding the transcript (courses taken, grades obtained, etc.) of tertiary education studies for a female/male student. The transcript may pertain to completed or ongoing studies. / Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può riferirsi a studi completati o in corso
       tags:
         - proof-tertiary-education-courses
       security:
@@ -282,7 +282,7 @@ paths:
   '/proof-tertiary-education-admission':
 
     post:
-      summary: Retrieve of evidence regarding admission to tertiary education studies for a female/male student. / Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione terziaria di una studentessa/studente
+      summary: Retrieves the evidences regarding admission to tertiary education studies for a female/male student. / Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione terziaria di una studentessa/studente
       tags:
         - proof-tertiary-education-admission
       security:
@@ -350,7 +350,7 @@ paths:
       parameters: []
   '/proof-mobility-periods':
     post:
-      summary: Retrieve of evidence related to learning activities conducted outside the tertiary education institution from which a female/male student obtained their diploma. / Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio diploma.
+      summary: retrieves the evidences related to learning activities conducted outside the tertiary education institution from which a female/male student obtained their diploma. / Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio diploma.
       tags:
         - proof-mobility-periods
       security:
