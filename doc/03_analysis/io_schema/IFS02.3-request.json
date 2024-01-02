@@ -1,5 +1,14 @@
+/*ESEMPIO 1*/
+
 {
   "tax_code": "RSSMRA80A01F205D",
-  "person_id": "",
-  "institute_code": "AA1" /*Facoltativo*/
+  "person_id": "12345678A"
 }
+
+/*ESEMPIO 2*/
+{
+  "tax_code": "RSSMRA80A01F205D",
+  "person_id": "12345678A",
+  "institute_code": "AA" /*Facoltativo*/
+}
+
