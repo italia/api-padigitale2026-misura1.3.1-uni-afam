@@ -33,7 +33,7 @@ paths:
                   value:
                     degree_courses:
                       - programme_type_code: C6
-                        programme_access: Libero
+                        programme_access: free access
                         course_location: Milano Bovisa
                         course_area: Ingegneria industriale
                         degree_class_code: L-9
@@ -43,7 +43,7 @@ paths:
                         total_credits: 180
                         academic_year: 2023/2024
                       - programme_type_code: MS
-                        programme_access: Libero
+                        programme_access: free access
                         course_location: Milano, Settimo Milanese
                         course_area: Ingegneria
                         degree_class_code: LM-20
@@ -102,7 +102,7 @@ paths:
                 Example statuscode=200:
                   value:
                       programme_type_code: L2
-                      programme_access: Libero
+                      programme_access: free access
                       course_location: Milano Bovisa
                       remote_mode: on-site
                       course_area: Ingegneria industriale
@@ -267,7 +267,7 @@ components:
         Example 1:
           degree_courses:
             - programme_type_code: C6
-              programme_access: Libero
+              programme_access: free access
               course_location: Milano Bovisa
               course_area: Ingegneria industriale
               degree_class_code: L-9
@@ -277,7 +277,7 @@ components:
               total_credits: 180
               academic_year: 2023/2024
             - programme_type_code: MS
-              programme_access: Libero
+              programme_access: free access
               course_location: Milano, Settimo Milanese
               course_area: Ingegneria
               degree_class_code: LM-20
@@ -305,7 +305,7 @@ components:
       x-examples:
         Example 1:
           programme_type_code: C6
-          programme_access: Libero
+          programme_access: free access
           course_location: Milano Bovisa
           course_area: Ingegneria industriale
           degree_class_code: L-9
@@ -326,10 +326,13 @@ components:
         programme_access:
           type: string
           description: Access to the course / Accesso al corso
-          example: Libero
+          example: free access
           readOnly: true
           minLength: 1
           maxLength: 99
+          enum:
+            - free access
+            - limited number access
         course_location:
           type: string
           description: Course location / Sede del corso
@@ -410,7 +413,7 @@ components:
       x-examples:
         Example 1:
           programme_type_code: L2
-          programme_access: Libero
+          programme_access: free access
           course_location: Milano Bovisa
           remote_mode: on-site
           course_area: Ingegneria industriale
@@ -456,10 +459,13 @@ components:
         programme_access:
           type: string
           description: Access to the course / Accesso al corso
-          example: Libero
+          example: free access
           readOnly: true
           minLength: 1
           maxLength: 99
+          enum:
+            - free access
+            - limited number access
         course_location:
           type: string
           description: Course location / Sede del corso
