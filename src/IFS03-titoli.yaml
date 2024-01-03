@@ -484,18 +484,6 @@ components:
     qualifications:
       type: object
       additionalProperties: false
-      x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
-      x-jsonld-context:
-        '@vocab': http://w3id.org/italia/onto/yyy/
-        institute_code: institute_code
-        institute_name: institute_name
-        qualification_name: qualification_name
-        programme_type_code: programme_type_code
-        degree_course_code: degree_course_code
-        degree_class_code: degree_class_code
-        academic_qualification_date: academic_qualification_date
-        qualification_grade_value: qualification_grade_value
-        qualification_grading_scale: qualification_grading_scale
       x-examples:
         Example 1:
           institute_code: '26'
@@ -631,13 +619,6 @@ components:
     proof_qualifications:
       type: object
       additionalProperties: false
-      x-jsonld-type: https://w3id.org/italia/onto/yyy/xxx
-      x-jsonld-context:
-        '@vocab': http://w3id.org/italia/onto/yyy/
-        institute_code: institute_code
-        institute_name: institute_name
-        qualification_name: qualification_name
-        degree_class_code: degree_class_code
       x-examples:
         Example 1:
           institute_code: '16'
@@ -857,12 +838,6 @@ components:
       type: object
       nullable: true
       additionalProperties: false
-      x-jsonld-type: https://w3id.org/italia/onto/xxx/yyy
-      x-jsonld-context:
-        '@vocab': http://w3id.org/italia/onto/xxx/
-        qualification_name: qualification_name
-        institute_code: institute_code
-        institute_name: institute_name
       x-examples:
         Example 1:
           ects_credits_received: 180
@@ -1069,12 +1044,6 @@ components:
       type: object
       nullable: true
       additionalProperties: false
-      x-jsonld-type: https://w3id.org/italia/onto/xxx/yyy
-      x-jsonld-context:
-        '@vocab': http://w3id.org/italia/onto/xxx/
-        qualification_name: qualification_name
-        institute_code: institute_code
-        institute_name: institute_name
       x-examples:
         Example 1:
           qualification_name: Laurea ingegneria informatica
@@ -1236,15 +1205,6 @@ components:
       type: object
       nullable: true
       additionalProperties: false
-      x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
-      x-jsonld-context:
-        '@vocab': http://w3id.org/italia/onto/CPV/
-        given_name: givenName
-        tax_code: taxCode
-        family_name: familyName
-        birth_date: dateOfBirth
-        birth_place: hasBirthPlace
-        person_id: personID
       x-examples:
         Example 1:
           tax_code: RSSMRA80A01F205D
