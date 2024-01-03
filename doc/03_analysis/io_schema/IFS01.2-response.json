@@ -4,9 +4,9 @@
    "course_location":"Milano Bovisa",
    "remote_mode": "on-site", /*full-remote, on-site, hybrid, not-available*/
    "course_area":"Ingegneria industriale",
-   "degree_course_code":"L-9",
+   "degree_class_code":"L-9",
    "degree_course_language":"IT",
-   "degree_class_period_years":3,
+   "degree_course_period_years":3,
    "degree_course_code":"353",
    "total_credits":180,
    "academic_year":"2023/2024",
