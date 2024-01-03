@@ -328,14 +328,14 @@ status code=404
 
   "enrollments": [
     {
-      "institute_code": "16", * 
-      "institute_name": "Milano - Politecnico", *
-      "programme_type_code": "MS", *
-      "degree_course_code": "1573960", *
-      "degree_class_code": "LM-32",
-      "academic_year": "2021/2022", *
-      "degree_course_year": 3, *
-      "status": "attivo" *
+      * "institute_code": "16",
+      * "institute_name": "Milano - Politecnico",
+      * "programme_type_code": "MS",
+      * "degree_course_code": "1573960",
+        "degree_class_code": "LM-32",
+      * "academic_year": "2021/2022",
+      * "degree_course_year": 3,
+      * "status": "attivo"
     }
   ]
 ```
