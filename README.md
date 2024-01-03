@@ -328,7 +328,7 @@ status code=404
 
   "enrollments": [
     {
-      "institute_code": "16",  *
+      "institute_code": "16", * 
       "institute_name": "Milano - Politecnico", *
       "programme_type_code": "MS", *
       "degree_course_code": "1573960", *
