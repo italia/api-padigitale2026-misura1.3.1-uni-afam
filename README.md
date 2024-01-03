@@ -324,7 +324,21 @@ status code=404
 
 4) nella struttura "enrollments", qualora sia presente un attributo non valorizzabile (ad escluisone del attirubuto degree_class_code) l'istanza dell'iscrizione non deve essere restituita. In questa casistica, qualora sia presente solamente una iscrizione, prevedere la restituzione dello status code 404 
 
+```Di seguito l'obbligatorietà con "*"
 
+  "enrollments": [
+    {
+      "institute_code": "16",  *
+      "institute_name": "Milano - Politecnico", *
+      "programme_type_code": "MS", *
+      "degree_course_code": "1573960", *
+      "degree_class_code": "LM-32",
+      "academic_year": "2021/2022", *
+      "degree_course_year": 3, *
+      "status": "attivo" *
+    }
+  ]
+```
 
 
 #### :globe_with_meridians: IFS02.2
