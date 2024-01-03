@@ -18,6 +18,7 @@ paths:
     parameters:
       - name: cursor
         in: query
+        description: "Indica il valore del cursore restituito dalla chiamata GET.\n  * Da NON valorizzare durante la prima invocazione;\n\ * Da valorizzare nelle invocazioni successive (laddove presente);"
         required: false
         schema:
           type: string
