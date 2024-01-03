@@ -624,8 +624,6 @@ components:
           maxLength: 10
     proof_education_courses:
       additionalProperties: false
-      maxItems: 256
-      minItems: 0
       type: object
       x-examples:
         Example 1:
