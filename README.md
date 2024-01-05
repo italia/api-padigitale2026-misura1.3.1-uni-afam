@@ -272,12 +272,13 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.1 [Response](doc/03_analysis/io_schema/IFS02.1-response.json)
 
-> :bulb: **Importante:**    
-> * Nella request popolare almeno uno dei seguenti campi: tax_code o person_id. 
+> :bulb: **Importante:**  
+> Regole di obbligatorietà input
+> * Nella request popolare almeno uno dei seguenti campi: tax_code o person_id. oppure il parametro key
 > * Parametro key facoltativo
 >
-> Regole di [obbligatorietà output](#output) (si prega di >verificare gli esempi sul file openapi):
-> 1. Nella struttura "Personal Data" è necessario prevedere la >restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
+> Regole di obbligatorietà output (si prega di verificare gli esempi sul file openapi):
+> 1. Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
 >```
 >ESEMPIO 1: 
 >
