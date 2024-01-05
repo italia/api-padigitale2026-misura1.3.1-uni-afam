@@ -17,7 +17,9 @@ paths:
   '/academic-enrollments':
 
     post:
-      summary: Retrieve the  the details of active enrollments in the last three academic years for a female/male student. / Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accademici di una studentessa o di uno studente
+      summary: |
+        Retrieve the  the details of active enrollments in the last three academic years for a female/male student. / 
+        Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accademici di una studentessa o di uno studente
       tags:
         - academic-enrollments
       security:
@@ -138,7 +140,9 @@ paths:
       parameters: []
   '/proof-tertiary-education-enrollments':
     post:
-      summary: Retrieves the evidences regarding enrollment in tertiary education studies for a female/male student. / Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terziaria di una studentessa/studente
+      summary: |
+        Retrieves the evidences regarding enrollment in tertiary education studies for a female/male student. / 
+        Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terziaria di una studentessa/studente
       tags:
         - proof-tertiary-education-enrollments
       security:
@@ -206,7 +210,9 @@ paths:
   '/proof-tertiary-education-courses':
 
     post:
-      summary: Retrieves the evidence regarding the transcript (courses taken, grades obtained, etc.) of tertiary education studies for a female/male student. The transcript may pertain to completed or ongoing studies. / Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può riferirsi a studi completati o in corso
+      summary: | 
+        Retrieves the evidence regarding the transcript (courses taken, grades obtained, etc.) of tertiary education studies for a female/male student. The transcript may pertain to completed or ongoing studies. / 
+        Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può riferirsi a studi completati o in corso
       tags:
         - proof-tertiary-education-courses
       security:
@@ -282,7 +288,9 @@ paths:
   '/proof-tertiary-education-admission':
 
     post:
-      summary: Retrieves the evidences regarding admission to tertiary education studies for a female/male student. / Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione terziaria di una studentessa/studente
+      summary: | 
+               Retrieves the evidences regarding admission to tertiary education studies for a female/male student. /
+               Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione terziaria di una studentessa/studente
       tags:
         - proof-tertiary-education-admission
       security:
@@ -311,8 +319,8 @@ paths:
                         degree_class_name: Ingegneria informatica
                         degree_course_duration_in_years_or_months: "3 anni"
                         duration_ects_credits: 180
-                        start_date_of_academicyear: 2020-10-13
-                        end_date_of_academicyear: 2023-10-13
+                        start_date_of_academic_year: 2020-10-13
+                        end_date_of_academic_year: 2023-10-13
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
@@ -329,7 +337,10 @@ paths:
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Tertiary-education-of-student
-      description: <ul> <li>Retrieves the evidences regarding admission to tertiary education studies (EQF levels 5/6/7/8);</li><li>Acquisisce le prove riguardanti l'ammissione agli studi di istruzione terziaria (livelli EQF 5/6/7/8); pur essendo collegato alla prova di iscrizione, non è intrinsecamente equivalente ad essa.</li></ul>
+      description: > 
+        <ul> <li>Retrieves the evidences regarding admission to tertiary education studies (EQF levels 5/6/7/8);
+        </li><li>Acquisisce le prove riguardanti l'ammissione agli studi di istruzione terziaria (livelli EQF 5/6/7/8); 
+        pur essendo collegato alla prova di iscrizione, non è intrinsecamente equivalente ad essa.</li></ul>
       requestBody:
         content:
           application/json:
@@ -350,7 +361,9 @@ paths:
       parameters: []
   '/proof-mobility-periods':
     post:
-      summary: retrieves the evidences related to learning activities conducted outside the tertiary education institution from which a female/male student obtained their diploma. / Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio diploma.
+      summary: |
+        Retrieves the evidences related to learning activities conducted outside the tertiary education institution from which a female/male student obtained their diploma. / 
+        Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio diploma.
       tags:
         - proof-mobility-periods
       security:
@@ -813,8 +826,8 @@ components:
               degree_class_name: Ingegneria informatica
               degree_course_duration_in_years_or_months: "3 anni"
               duration_ects_credits: 180
-              start_date_of_academicyear: 2020-10-13
-              end_date_of_academicyear: 2023-10-13
+              start_date_of_academic_year: 2020-10-13
+              end_date_of_academic_year: 2023-10-13
       description: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
       properties:
         personal_data:
@@ -844,8 +857,8 @@ components:
           degree_class_name: Ingegneria informatica
           degree_course_duration_in_years_or_months: "3 anni"
           duration_ects_credits: 180
-          start_date_of_academicyear: 2020-10-13
-          end_date_of_academicyear: 2023-10-13
+          start_date_of_academic_year: 2020-10-13
+          end_date_of_academic_year: 2023-10-13
       description: Detailed information on admission certification / Informazioni dettagliate sulla certificazione di ammissione
       properties:
         institute_code:
@@ -916,7 +929,7 @@ components:
           readOnly: true
           minimum: 1
           maximum: 999
-        start_date_of_academicyear:
+        start_date_of_academic_year:
           type: string
           format: date
           description: Academic year start date / Data inzio anno accademico
@@ -924,7 +937,7 @@ components:
           readOnly: true
           minLength: 10
           maxLength: 10
-        end_date_of_academicyear:
+        end_date_of_academic_year:
           type: string
           format: date
           description: Academic year end date / Data fine anno accademico
