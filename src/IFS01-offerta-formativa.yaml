@@ -742,6 +742,8 @@ components:
           readOnly: true
           minLength: 1
           maxLength: 20
+      required:
+        - degree_course_code    
   requestBodies: {}
   responses: {}
   securitySchemes:
