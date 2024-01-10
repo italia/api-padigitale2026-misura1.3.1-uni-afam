@@ -292,7 +292,12 @@ components:
   schemas:
     change_request:
       type: object
-      additionalProperties: false      
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
+      x-jsonld-context:
+        CPV: https://w3id.org/italia/onto/CPV/Person
+        tax_code: CPV:taxCode
+        person_id: CPV:personID
       x-examples:
         Example 1:
           tax_code: RSSMRA80A01F205D
@@ -435,6 +440,15 @@ components:
       type: object
       nullable: true
       additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
+      x-jsonld-context:
+        CPV: https://w3id.org/italia/onto/CPV/Person
+        given_name: CPV:givenName
+        tax_code: CPV:taxCode
+        family_name: CPV:familyName
+        birth_date: CPV:birth_date
+        birth_place: CPV:hasBirthPlace
+        person_id: CPV:personID
       x-examples:
         Example 1:
           tax_code: RSSMRA80A01F205D
@@ -511,6 +525,15 @@ components:
     enrollments:
       type: object
       additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/Learning
+      x-jsonld-context:
+        LEA: https://w3id.org/italia/onto/Learning/
+        institute_code: LEA:instituteCode
+        institute_name: LEA:instituteName
+        programme_type_code: LEA:ProgrammeType
+        degree_course_code: LEA:DegreeCourse
+        degree_class_code: LEA:DegreeClass
+        academic_year: LEA:AcademicYear
       x-examples:
         Example 1:
           institute_code: '16'
@@ -755,7 +778,14 @@ components:
         - suggested
     enrollment_change_request:
       type: object
-      additionalProperties: false      
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
+      x-jsonld-context:
+        CPV: https://w3id.org/italia/onto/CPV/Person
+        LEA: https://w3id.org/italia/onto/Learning/
+        institute_code: LEA:instituteCode
+        tax_code: CPV:taxCode
+        person_id: CPV:personID
       x-examples:
         Example 1:
           tax_code: RSSMRA80A01F205D
