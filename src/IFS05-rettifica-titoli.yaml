@@ -43,6 +43,7 @@ paths:
           description: Internal server error / Errore interno del server 
       description: Allows  to create a request to correct data relating to a student's registration / Permette di creare una richiesta di rettifica dei dati relativi alle iscrizioni di una studentessa o uno studente.
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -108,6 +109,7 @@ paths:
       operationId: detail-qualification-rectification
       description: Allows you to retrieve the status of a registration adjustment request via its identifier / Permette di recuperare lo stato di una richiesta di rettifica iscrizione tramite il suo identificativo
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -149,6 +151,7 @@ paths:
           description: Internal server error / Errore interno del server 
       description: cancellation change request / Effettua la richiesta di annullamento rettifica 
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -194,6 +197,7 @@ paths:
           description: Internal server error / Errore interno del server 
       description: Allows to report an anomaly in the qualification data of a student. / Permette di segnalare una anomalia dei dati relativi alle iscrizioni di una studentessa o uno studente.
       requestBody:
+        required: true
         content:
           application/json:
             schema:

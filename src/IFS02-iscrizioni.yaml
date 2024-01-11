@@ -120,6 +120,7 @@ paths:
       description:  Returns the enrollment details of student / Restituisce i dettagli delle iscrizioni di una studentessa o di uno studente
       
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -190,6 +191,7 @@ paths:
       operationId: Enrollments-education-of-student
       description: <ul> <li>Retrieves the evidences regarding enrollment to tertiary education studies.</li><li>Acquisisce le prove riguardanti l'iscrizione agli studi di istruzione terziaria (livelli EQF 5/6/7/8) Vengono considerati solo gli studi di tipo generale (non professionalizzanti)</li></ul>
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -268,6 +270,7 @@ paths:
       operationId: Qualifications-education-of-student
       description:  <ul> <li>Retrieves the evidences regarding the transcript (courses taken, grades obtained, etc.) of tertiary education studies (EQF levels 5/6/7/8). The transcript may refer to completed or in progress courses</li><li>Acquisisce le prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria (livelli EQF 5/6/7/8). La trascrizione può riferirsi a studi completati o in corso.</li></ul>
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -342,6 +345,7 @@ paths:
         </li><li>Acquisisce le prove riguardanti l'ammissione agli studi di istruzione terziaria (livelli EQF 5/6/7/8); 
         pur essendo collegato alla prova di iscrizione, non è intrinsecamente equivalente ad essa.</li></ul>
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -412,6 +416,7 @@ paths:
       operationId: proof-mobility-periods
       description: <ul> <li>Retrieves the evidences related to learning activities carried out outside the tertiary education institution from which a person obtained their diploma</li><li>Acuisisce le prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una persona ha ottenuto il proprio diploma.</li></ul>
       requestBody:
+        required: true
         content:
           application/json:
             schema:

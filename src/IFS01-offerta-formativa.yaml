@@ -62,6 +62,7 @@ paths:
           description: Internal server error / Errore interno del server 
       
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -194,6 +195,7 @@ paths:
           description: Internal server error / Errore interno del server 
       
       requestBody:
+        required: true
         content:
           application/json:
             schema:

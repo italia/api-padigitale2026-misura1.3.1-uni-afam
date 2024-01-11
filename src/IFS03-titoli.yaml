@@ -138,6 +138,7 @@ paths:
       operationId: titoli-studente
       description: Returns the list of degrees earned by a student / Restituisce la lista dei titoli conseguiti da una studentessa o uno studente
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -211,6 +212,7 @@ paths:
       operationId: Qualifications-education-of-student
       description: <ul> <li>Retrieves the evidences regarding completion of tertiary education studies (e.g. EQF levels 5/6/7/8)</li><li>Acquisisce le prove riguardanti il completamento degli studi di istruzione terziaria (ad esempio, livelli EQF 5/6/7/8)</li></ul>
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -284,6 +286,7 @@ paths:
       operationId: Proof-tertiary-education-qualifications-level
       description:  <ul> <li>Rtrieves the evidences regarding the level of qualification of tertiary education studies, with the aim of facilitating the recognition of qualifications across borders, by providing information on NQF/EQF levels and their associated ECTS credits.</li><li>Acquisisce le prove riguardanti il livello di qualifica degli studi di istruzione terziaria, con l'obiettivo di agevolare il riconoscimento delle qualifiche oltre i confini, fornendo informazioni sui livelli NQF/EQF e i relativi crediti ECTS associati.</li></ul>
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -378,6 +381,7 @@ paths:
           description: Internal server error / Errore interno del server 
       description:  <ul> <li>Retrieves evidence relating to the "Diploma Supplement" developed jointly by the Council of Europe, the European Commission and UNESCO, and its updated version, adopted by the Lisbon Convention Committee in 2007</li><li>Recupera le prove relative allo strumento "Diploma Supplement," sviluppato congiuntamente dal Consiglio d'Europa, dalla Commissione Europea e dall'UNESCO, e della sua versione aggiornata, adottata dal Comitato della Convenzione di Lisbona nel 2007.</li></ul>
       requestBody:
+        required: true
         content:
           application/json:
             schema:
