@@ -277,6 +277,85 @@ components:
     degree_courses:
       type: object
       additionalProperties: false
+      description: Detailed course information / Informazioni dettagliate sul corso
+      properties:
+        programme_type_code:
+          type: string
+          description: Code of study program / codice del corso di studio
+          example: 'LM'
+          readOnly: true
+          minLength: 1
+          maxLength: 2
+        programme_access:
+          type: string
+          description: Access to the course / Accesso al corso
+          example: free access
+          readOnly: true
+          minLength: 1
+          maxLength: 99
+          enum:
+            - free access
+            - limited number access
+        course_location:
+          type: string
+          description: Course location / Sede del corso
+          example: Milano Bovisa
+          readOnly: true
+          minLength: 1
+          maxLength: 99
+        course_area:
+          type: string
+          description: Course area / Area del corso
+          example: Ingegneria industriale
+          readOnly: true
+          minLength: 1
+          maxLength: 99
+        degree_class_code:
+          type: string
+          description: Identification code of the degree class / Codice identificativo della classe di laurea
+          example: L-8
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        degree_course_language:
+          type: string
+          description: Language of the degree class / Lingua della classe di laurea
+          example: IT
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        degree_course_period_years:
+          type: integer
+          format: int32
+          description: Degree course duration in years / Durata corso di laurea in anni
+          example: 3
+          readOnly: true
+          minimum: 1
+          maximum: 99
+        degree_course_code:
+          type: string
+          description: Course code / Codice del corso
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+        total_credits:
+          type: integer
+          format: int32
+          description: Total credits degree course / Totale crediti corso di laurea
+          example: 180
+          readOnly: true
+          minimum: 1
+          maximum: 999
+        academic_year:
+          type: string
+          description: Academic year / Anno accademico
+          readOnly: true
+          minLength: 1
+          maxLength: 20
+    meta:
+      nullable: true
+      type: object
+      additionalProperties: false
       description: Informazioni del cursore
       properties:
         cursor:
