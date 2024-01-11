@@ -130,20 +130,6 @@ components:
     student-qualifications-changes:
       additionalProperties: false
       type: object
-      x-examples:
-        Example 1:
-          data:
-            institute_code: C6
-            last_update: '2023-10-13'
-            qualifications_hash:
-              - key: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
-                hash: '56c3880bfcc4df0e35780c805d9ec942bbb8b4e237c1b63c6f2688cb58ef0a3a'
-              - key: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
-                hash: '56c3880bfcc4df0e35780c80sdlkjljiirpepw85830t3j85jg0fj054fj04jf03'
-              - key: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
-                hash: 'df8340f834tr8f3j84fj48jf83fngooero45305jf30l04k0r43kfd043kdew34t'
-          meta:
-            - cursor: '6eyJpZCI6M57'
       description: Returning the information reduced to a 'hash (SHA256)' for each student in the form (key, value), where the key is the hash of the student's social security number and the value is the hash of the student's qualifications. / Restituisce le informazioni ridotte in "hash (SHA256)" per ogni studente/studentessa nella forma (chiave, valore), dove la chiave è l'hash del codice fiscale dello studente e il valore è l'hash dei suoi titoli.
       properties:
         data:
@@ -157,9 +143,6 @@ components:
       type: object
       additionalProperties: false
       nullable: true
-      x-examples:
-        Example 1:
-          cursor: 'o2j4230jd4043'
       description: Informazioni del cursore
       properties:
         cursor:
@@ -174,15 +157,6 @@ components:
     data:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          institute_code: C6
-          last_update: '2023-10-13'
-          qualifications_hash:
-            - key: '4e12345678986dd33377c0da06031'
-              hash: '56c3880bfcc4df0e35780c805d9ec942bbb8b4e237c1b63c6f2688cb58ef0a3a'
-            - key: 'adsjojr45678986dd333asofrm456'
-              hash: 'odjwofweoo4952r9349dj39j349jf4fmd394fjfaforkdikdwi59fmmdm3oo4rjj'
       description: Personal data of the student / Dati personali della studentessa o dello studente
       properties:
         institute_code:
@@ -207,10 +181,6 @@ components:
     qualifications_hash:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
-          hash: 9bc4e295f51d940db6d7a9ca01059ace00376d4feed10225c592e010a780a8d5
       description: Detailed qualification information / Informazioni dettagliate sul titoli
       properties:
         key:

@@ -146,11 +146,6 @@ components:
     ranges:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          isee_min_value: 1000
-          isee_max_value: 6000
-          enrollment_count: 120
       properties:
         isee_min_value:
           type: integer
@@ -193,14 +188,6 @@ components:
       type: object
       nullable: true
       additionalProperties: false
-      x-examples:
-        Example 1:
-          tot_enrollment_count: 1000
-          ranges: 
-            - isee_min_value: '1000'
-            - isee_max_value: '15000'
-            - enrollment_count: 1000
-            - range_description: '> 100001'
       description: Students enrolled in the degree course by ISEE bracket / Iscritti al corso di laurea per fascia ISEE
       properties:
         tot_enrollment_count:
@@ -222,9 +209,6 @@ components:
     isee_enrollment_request:
       type: object
       additionalProperties: false      
-      x-examples:
-        Example 1:
-          academic_year : 2023/2024
       description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
       properties:
         academic_year:

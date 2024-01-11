@@ -291,26 +291,6 @@ components:
     change_request:
       type: object
       additionalProperties: false      
-      x-examples:
-        Example 1:
-          tax_code: RSSMRA80A01F205D
-          person_id: 12345678A
-          reason: Modifica iscrizione xxx
-          attributes:
-              - attribute_name: institute_name
-                current: Università degli studi di Milano
-                suggested: Università degli studi di Roma 'La Sapienza'
-              - attribute_name: degree_course_type
-                current: Laurea
-                suggested: Corso di Laurea
-              - attribute_name: registratio_year
-                current: 2021/2022
-                suggested: 2022/2023
-              - attribute_name: degree_cours_Year
-                current: 2° anno
-                suggested: 3° anno
-          request: Testo con la richiesta di rettifica
-          note: Note aperte dello studente/ex studente
       description: academic enrollment change request / richiesta di rettifica di iscrizione di una studentessa o uno studente
       properties:
         tax_code:
@@ -354,42 +334,6 @@ components:
     issue_request:
       type: object
       additionalProperties: false      
-      x-examples:
-        Example 1:
-          subscriber_id: "1234"
-          subscriber_name: ANIS
-          subscriber_message: It wasn't possible to load all the enrollments of this student
-          data_request_timestamp: "2023-12-04 01:00:00"
-          personal_data:
-            tax_code: RSSMRA80A01F205D
-            person_id: AB123456C
-            given_name: null
-            family_name: null
-            birth_date: null
-            birth_place: null
-            issues:
-              - attribute_name: degree_course_code
-                issue_description: degree course code didn't find on the controlled vocabulary
-              - attribute_name: tax_code
-                issue_description: tax code didn't find on ANPR Master Data
-              - attribute_name: degree_course_year
-                issue_description: degree course can be only a numeric value
-          enrollments:
-            institute_code: '16'
-            institute_name: Milano - Politecnico
-            programme_type_code: MS
-            degree_course_code: '1573960'
-            degree_class_code: LM-32
-            academic_year: 2021/2022
-            degree_course_year: A
-            status: attivo
-            issues:
-              - attribute_name: degree_course_code
-                issue_description: degree course code didn't find on the controlled vocabulary
-              - attribute_name: tax_code
-                issue_description: tax code didn't find on ANPR Master Data
-              - attribute_name: degree_course_year
-                issue_description: degree course can be only a numeric value
       description: Academic change request / Richiesta di rettifica di una studentessa o uno studente
       properties:
         subscriber_id:
@@ -429,17 +373,6 @@ components:
       type: object
       nullable: true
       additionalProperties: false
-      x-examples:
-        Example 1:
-          tax_code: RSSMRA80A01F205D
-          person_id: AB123456C
-          given_name: Mario
-          family_name: Rossi
-          birth_date: 1990-05-17
-          birth_place: Roma
-          issues:
-            - attribute_name: degree_course_code
-              issue_description: degree course code didn't find on the controlled vocabulary
       description: Personal data of the student / Dati personali della studentessa o dello studente
       properties:
         tax_code:
@@ -505,19 +438,6 @@ components:
     enrollments:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          institute_code: '16'
-          institute_name: Milano - Politecnico
-          programme_type_code: MS
-          degree_course_code: '1576480'
-          degree_class_code: LM-32
-          academic_year: 2021/2022
-          degree_course_year: 3
-          status: attivo
-          issues:
-            - attribute_name: degree_course_code
-              issue_description: degree course code didn't find on the controlled vocabulary
       description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
       properties:
         institute_code:
@@ -593,10 +513,6 @@ components:
     issue:
       additionalProperties: false
       type: object
-      x-examples:
-        Example 1:
-          attribute_name: degree_course_code
-          issue_description: degree course code didn't find on the controlled vocabulary
       description: Status of an academic change request for a student / Stato di una rettifica per una studentessa o uno studente
       properties:
         attribute_name:
@@ -617,15 +533,6 @@ components:
     enrollments_change_request:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          enrollment_change_request:
-            - file_status: approved
-              file_code: 6d183bc572f6b200015a4167
-              message: testo messaggio
-            - file_status: rejected
-              file_code: 6d183b54654127dfhh15a4167
-              message: testo messaggio  
       description: Personal data of the student / Dati personali della studentessa o dello studente
       properties:
         enrollment_change_request:
@@ -638,11 +545,6 @@ components:
     change_request_detail:
       additionalProperties: false
       type: object
-      x-examples:
-        Example 1:
-          file_status: accepted
-          file_code: 908d3e72b51a6f0034e2a11c
-          message: accettata
       description: Status of an academic enrollment change request for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
       properties:
         file_status:
@@ -674,11 +576,6 @@ components:
     issue_detail:
       additionalProperties: false
       type: object
-      x-examples:
-        Example 1:
-          file_status: approved
-          file_code: 908d3e72b51a6f0034e2a11c
-          message: Testo messaggio
       description: Status of an academic change request for a student / Stato di una rettifica per una studentessa o uno studente
       properties:
         file_status:
@@ -718,11 +615,6 @@ components:
     attribute:
       additionalProperties: false
       type: object
-      x-examples:
-        Example 1:
-          attribute_name: degree_course_year
-          current: 5
-          suggested: 4
       description: Status of an enrollment change request for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
       properties:
         attribute_name:
@@ -750,11 +642,6 @@ components:
     enrollment_change_request:
       type: object
       additionalProperties: false      
-      x-examples:
-        Example 1:
-          tax_code: RSSMRA80A01F205D
-          person_id: 12345678A
-          institute_code: AA
       description: Request of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
       properties:
         tax_code:

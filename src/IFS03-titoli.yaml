@@ -446,27 +446,6 @@ components:
     academic_qualifications:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          personal_data:
-            tax_code: RSSMRA80A01F205D
-            person_id: AB123456C
-            given_name: null
-            family_name: null
-            birth_date: null
-            birth_place: null
-          qualifications:
-            - institute_code: '16'
-              institute_name: Milano - Politecnico
-              qualification_name: Dottore magistrale
-              programme_type_code: MS
-              degree_course_code: '1576480'
-              degree_class_code: LM-32
-              academic_qualification_date: '2022-07-01'
-              qualification_grade_value: '110'
-              qualification_grading_scale: '110'
-              qualification_grading_scale_minimum_grade: '66'
-              qualification_grading_scale_maximum_grade: '110'
       description: Registry and list of degrees earned by a student / Anagrafica ed elenco titoli conseguiti da una studentessa o uno studente
       properties:
         personal_data:
@@ -484,19 +463,6 @@ components:
     qualifications:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          institute_code: '26'
-          institute_name: Università degli Studi di Roma 'La Sapienza'
-          qualification_name: Dottore magistrale
-          programme_type_code: MS
-          degree_course_code: '1573960'
-          degree_class_code: LM-32
-          academic_qualification_date: '2022-07-01'
-          qualification_grade_value: '110'
-          qualification_grading_scale: '110'
-          qualification_grading_scale_minimum_grade: '66'
-          qualification_grading_scale_maximum_grade: '110'
       description: Degree detail / Dettaglio titolo
       properties:
         institute_code:
@@ -535,6 +501,7 @@ components:
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
           readOnly: true
+          nullable: true
           minLength: 1
           maxLength: 20
         academic_qualification_date:
@@ -558,6 +525,7 @@ components:
           example: '110'
           description: Rating scale / Scala di valutazione
           readOnly: true
+          nullable: true
         qualification_grading_scale_minimum_grade:
           type: string
           format: int32
@@ -571,37 +539,13 @@ components:
           type: string
           minLength: 1
           maxLength: 32
+          nullable: true
           example: '110'
           description: Highest course grade / Voto massimo del corso
           readOnly: true
     proof_education_qualifications:
       additionalProperties: false
       type: object
-      x-examples:
-        Example 1:
-          personal_data:
-            tax_code: RSSMRA80A01F205D
-            person_id: AB123456C
-            given_name: null
-            family_name: null
-            birth_date: null
-            birth_place: null
-          proof_qualifications:
-            - institute_code: '16'
-              institute_name: Milano - Politecnico
-              qualification_name: Laurea in ingegneria informatica
-              programme_type_code: MS
-              programme_type_name: Laurea Magistrale (DM 270/04)
-              degree_course_code: '1573960'
-              degree_course_name: Ingegneria
-              degree_class_code: LM-32
-              degree_class_name: Ingegneria informatica
-              academic_qualification_date: 2022-07-01
-              qualification_grade_value: '110'
-              qualification_grading_scale: '110'
-              qualification_grading_scale_minimum_grade: '66'
-              qualification_grading_scale_maximum_grade: '110'
-              academic_qualification_country: Italia
       description: Qualification details of student / Dettaglio titoli di una studentessa o di uno studente
       properties:
         personal_data:
@@ -619,23 +563,6 @@ components:
     proof_qualifications:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          institute_code: '16'
-          institute_name: Milano - Politecnico
-          qualification_name: Laurea in ingegneria informatica
-          programme_type_code: MS
-          programme_type_name: Laurea Magistrale (DM 270/04)
-          degree_course_code: '1573960'
-          degree_course_name: Ingegneria
-          degree_class_code: LM-32
-          degree_class_name: Ingegneria informatica
-          academic_qualification_date: 2022-07-01
-          qualification_grade_value: '110'
-          qualification_grading_scale: '110'
-          qualification_grading_scale_minimum_grade: '66'
-          qualification_grading_scale_maximum_grade: '110'
-          academic_qualification_country: Italia
       description: Detailed qualification information / Informazioni dettagliate sul titolo
       properties:
         institute_code:
@@ -691,6 +618,7 @@ components:
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
           readOnly: true
+          nullable: true
           minLength: 1
           maxLength: 20
         degree_class_name:
@@ -722,6 +650,7 @@ components:
           example: '110'
           description: Rating scale / Scala di valutazione
           readOnly: true
+          nullable: true
         qualification_grading_scale_minimum_grade:
           type: string
           minLength: 1
@@ -748,49 +677,6 @@ components:
     proof_education_qualifications_diploma_supplement:
       additionalProperties: false
       type: object
-      x-examples:
-        Example 1:
-          personal_data:
-            tax_code: RSSMRA80A01F205D
-            person_id: AB123456C
-            given_name: null
-            family_name: null
-          proof_qualifications_diploma_supplement:
-            ects_credits_received: 180
-            institute_name: Cagliari - Università degli Studi
-            institute_code: 04
-            programme_type_code: MS
-            programme_type_name: Laurea Magistrale (DM 270/04)
-            degree_course_code: 455
-            degree_course_name: Ingegneria informatica
-            degree_class_code: LM-32
-            degree_class_name: Ingegneria informatica
-            degree_course_duration_in_years_or_months: 3 anni a tempo pieno
-            qualification_grade_value: 100
-            qualification_grading_scale: 110
-            qualification_grading_scale_minimum_grade: 66
-            qualification_grading_scale_maximum_grade: 110
-            qualification_date: 2022-07-01
-            access_to_regulated_profession: Non applicabile
-            administering_institute_name: Cagliari - Università degli studi
-            administering_institute_status: xx
-            qualification_institute_name: Cagliari - Università degli studi
-            qualification_institute_status: xx
-            eqf_level: 6° livello
-            nqf_level: I ciclo QF-XXX
-            attended_learnings:
-              - learning_grade_value: 30/30
-                learning_name: Esame 1
-                learning_start_date: 2018-12-01
-                learning_end_date: 2019-03-01
-              - learning_grade_value: 22/30
-                learning_name: Esame 2
-                learning_start_date: 2018-06-01
-                learning_end_date: 2018-10-01
-              - learning_grade_value: Idoneo
-                learning_name: Esame 3
-                learning_start_date: 2018-07-01
-                learning_end_date: 2019-07-01
       description: Returns the list of simplified supplment diplomas in SDG format / Restituisce la lista dei diplomi supplment semplificati in formato SDG
       properties:
         personal_data:
@@ -803,28 +689,6 @@ components:
     proof_education_qualifications_level:
       additionalProperties: false
       type: object
-      x-examples:
-        Example 1:
-          personal_data:
-            tax_code: RSSMRA80A01F205D
-            person_id: AB123456C
-            given_name: null
-            family_name: null
-          proof_qualifications_level:
-            qualification_name: Laurea ingegneria informatica
-            study_programme_duration_years_or_months: 3 anni a tempo pieno
-            institute_code: '16'
-            institute_name: Milano - Politecnico
-            academic_qualification_date: 2022-07-01
-            total_ects: 180
-            eqf_level: 6° livello
-            nqf_level: I ciclo QF-EHEA
-            has_parent_relation: false
-            degree_course_duration_ects_credit: 180
-            ects_courses: 
-              - ects_credits_received: 6
-              - ects_credits_received: 12
-              - ects_credits_received: 6
       description: Returns the list of simplified supplment diplomas in SDG format / Restituisce la lista dei diplomi supplment semplificati in formato SDG
       properties:
         personal_data:
@@ -838,43 +702,6 @@ components:
       type: object
       nullable: true
       additionalProperties: false
-      x-examples:
-        Example 1:
-          ects_credits_received: 180
-          institute_name: Cagliari - Università degli Studi
-          institute_code: 04
-          programme_type_code: MS
-          programme_type_name: Laurea Magistrale (DM 270/04)
-          degree_course_code: 455
-          degree_course_name: Ingegneria informatica
-          degree_class_code: LM-32
-          degree_class_name: Ingegneria informatica
-          degree_course_duration_in_years_or_months: 3 anni a tempo pieno
-          qualification_grade_value: 100
-          qualification_grading_scale: 110
-          qualification_grading_scale_minimum_grade: 66
-          qualification_grading_scale_maximum_grade: 110
-          qualification_date: 2022-07-01
-          access_to_regulated_profession: Non applicabile
-          administering_institute_name: Cagliari - Università degli studi
-          administering_institute_status: xx
-          qualification_institute_name: Cagliari - Università degli studi
-          qualification_institute_status: xx
-          eqf_level: 6° livello
-          nqf_level: I ciclo QF-XXX
-          attended_learnings:
-            - learning_grade_value: 30/30
-              learning_name: Esame 1
-              learning_start_date: 2018-12-01
-              learning_end_date: 2019-03-01
-            - learning_grade_value: 22/30
-              learning_name: Esame 2
-              learning_start_date: 2018-06-01
-              learning_end_date: 2018-10-01
-            - learning_grade_value: Idoneo
-              learning_name: Esame 3
-              learning_start_date: 2018-07-01
-              learning_end_date: 2019-07-01
       description: Simplified supplment diplomas in SDG format / Diplomi supplment semplificati in formato SDG
       properties:
         ects_credits_received:
@@ -931,6 +758,7 @@ components:
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: LM-32
           readOnly: true
+          nullable: true
           minLength: 1
           maxLength: 20
         degree_class_name:
@@ -959,6 +787,7 @@ components:
           description: Rating scale / Scala di valutazione
           example: '110'
           readOnly: true
+          nullable: true
           minLength: 1
           maxLength: 32
         qualification_grading_scale_minimum_grade:
@@ -974,6 +803,7 @@ components:
           description: Rating scale maximum / Scala di valutazione massima
           example: '110'
           readOnly: true
+          nullable: true
           minLength: 1
           maxLength: 32
         qualification_date:
@@ -1044,22 +874,6 @@ components:
       type: object
       nullable: true
       additionalProperties: false
-      x-examples:
-        Example 1:
-          qualification_name: Laurea ingegneria informatica
-          study_programme_duration_years_or_months: 3 anni a tempo pieno
-          institute_code: '16'
-          institute_name: Milano - Politecnico
-          academic_qualification_date: 2022-07-01
-          total_ects: 180
-          eqf_level: 6° livello
-          nqf_level: I ciclo QF-EHEA
-          has_parent_relation: false
-          degree_course_duration_ects_credit: 180
-          ects_courses: 
-            - ects_credits_received: 6
-            - ects_credits_received: 12
-            - ects_credits_received: 6
       description: Simplified supplment diplomas in SDG format / Diplomi supplment semplificati in formato SDG
       properties:
         qualification_name:
@@ -1143,17 +957,6 @@ components:
     attended_learnings:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          learning_grade_value: 30/30
-          learning_name: Esame 1
-          learning_start_date: 2018-12-01
-          learning_end_date: 2019-03-01
-        Example 2:
-          learning_grade_value: Idoneo
-          learning_name: Esame 3
-          learning_start_date: 2018-07-01
-          learning_end_date: 2019-07-01
       description: Detailed information on completed courses / Informazioni dettagliate sui corsi completati
       properties:
         learning_grade_value:
@@ -1188,9 +991,6 @@ components:
     ects_courses:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          ects_credits_received: 6
       description: Detailed information on ECTS courses / Informazioni dettagliate sui corsi in ECTS
       properties:
         ects_credits_received:
@@ -1205,14 +1005,6 @@ components:
       type: object
       nullable: true
       additionalProperties: false
-      x-examples:
-        Example 1:
-          tax_code: RSSMRA80A01F205D
-          person_id: AB123456C
-          given_name: Mario
-          family_name: Rossi
-          birth_date: '1990-05-17'
-          birth_place: Roma
       description: Personal data of the student / Dati personali della studentessa o dello studente
       properties:
         tax_code:
@@ -1270,13 +1062,6 @@ components:
     it_qualification_request:
       type: object
       additionalProperties: false      
-      x-examples:
-        Example 1:
-          tax_code: RSSMRA80A01F205D
-          person_id: 12345678A
-          key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
-          institute_code: AA
-
       description: Request qualifications of a student's  / Richiesta titoli di una studentessa o uno studente
       properties:
         tax_code:
@@ -1314,12 +1099,6 @@ components:
     eu_qualification_request:
       type: object
       additionalProperties: false      
-      x-examples:
-        Example 1:
-          tax_code: RSSMRA80A01F205D
-          person_id: 12345678A
-          key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
-          institute_code: AA
       description: Request qualifications of a student's  / Richiesta titoli di una studentessa o uno studente
       properties:
         tax_code:

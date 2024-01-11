@@ -263,31 +263,6 @@ components:
       nullable: true
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          degree_courses:
-            - programme_type_code: C6
-              programme_access: free access
-              course_location: Milano Bovisa
-              course_area: Ingegneria industriale
-              degree_class_code: L-9
-              degree_course_language: IT
-              degree_course_period_years: 3
-              degree_course_code: '353'
-              total_credits: 180
-              academic_year: 2023/2024
-            - programme_type_code: MS
-              programme_access: free access
-              course_location: Milano, Settimo Milanese
-              course_area: Ingegneria
-              degree_class_code: LM-20
-              degree_course_language: EN
-              degree_course_period_years: 2
-              degree_course_code: '469'
-              total_credits: 120
-              academic_year: 2023/2024
-          meta:
-            cursor: '6eyJpZCI6M57'
       description: List of active courses offered by the Institute in an academic year. / Lista dei corsi attivi offerti dall'Istituto in un anno accademico.
       properties:
         degree_courses:
@@ -302,100 +277,6 @@ components:
     degree_courses:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          programme_type_code: C6
-          programme_access: free access
-          course_location: Milano Bovisa
-          course_area: Ingegneria industriale
-          degree_class_code: L-9
-          degree_course_language: IT
-          degree_course_period_years: 3
-          degree_course_code: '353'
-          total_credits: 180
-          academic_year: 2023/2024
-      description: Detailed course information / Informazioni dettagliate sul corso
-      properties:
-        programme_type_code:
-          type: string
-          description: Code of study program / codice del corso di studio
-          example: 'LM'
-          readOnly: true
-          minLength: 1
-          maxLength: 2
-        programme_access:
-          type: string
-          description: Access to the course / Accesso al corso
-          example: free access
-          readOnly: true
-          minLength: 1
-          maxLength: 99
-          enum:
-            - free access
-            - limited number access
-        course_location:
-          type: string
-          description: Course location / Sede del corso
-          example: Milano Bovisa
-          readOnly: true
-          minLength: 1
-          maxLength: 99
-        course_area:
-          type: string
-          description: Course area / Area del corso
-          example: Ingegneria industriale
-          readOnly: true
-          minLength: 1
-          maxLength: 99
-        degree_class_code:
-          type: string
-          description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: L-8
-          readOnly: true
-          minLength: 1
-          maxLength: 20
-        degree_course_language:
-          type: string
-          description: Language of the degree class / Lingua della classe di laurea
-          example: IT
-          readOnly: true
-          minLength: 1
-          maxLength: 20
-        degree_course_period_years:
-          type: integer
-          format: int32
-          description: Degree course duration in years / Durata corso di laurea in anni
-          example: 3
-          readOnly: true
-          minimum: 1
-          maximum: 99
-        degree_course_code:
-          type: string
-          description: Course code / Codice del corso
-          readOnly: true
-          minLength: 1
-          maxLength: 20
-        total_credits:
-          type: integer
-          format: int32
-          description: Total credits degree course / Totale crediti corso di laurea
-          example: 180
-          readOnly: true
-          minimum: 1
-          maximum: 999
-        academic_year:
-          type: string
-          description: Academic year / Anno accademico
-          readOnly: true
-          minLength: 1
-          maxLength: 20
-    meta:
-      nullable: true
-      type: object
-      additionalProperties: false
-      x-examples:
-        Example 1:
-          cursor: 'o2j4230jd4043'
       description: Informazioni del cursore
       properties:
         cursor:
@@ -410,43 +291,6 @@ components:
     course_details:
       additionalProperties: false
       type: object
-      x-examples:
-        Example 1:
-          programme_type_code: L2
-          programme_access: free access
-          course_location: Milano Bovisa
-          remote_mode: on-site
-          course_area: Ingegneria industriale
-          degree_class_code : L-9
-          degree_course_language: IT
-          degree_course_period_years: 3
-          degree_course_code: 353
-          total_credits: 180
-          academic_year: 2023/2024
-          first_year_activation_course: 2010/2011
-          website_university: http://www.ingindinf.polimi.it
-          website_course:
-          institute_code: C6
-          last_update: '2023-10-13'
-          curriculum_list:
-            - curriculum_name: NON DIFFERENZIATO
-              curriculum_learnings: 
-              - degree_course_year: 1
-                learnings:
-                - learning_ssd: MAT/03
-                  learning_name: ANALISI E GEOMETRIA 1
-                  learning_code: 081360
-                  learning_cfu: 10
-                  learning_hour: 48
-                  learning_language: IT
-                  learning_ref: http://....
-                - learning_ssd: CHIM/07
-                  learning_name: FONDAMENTI DI CHIMICA
-                  learning_code: 081374
-                  learning_cfu: 7
-                  learning_hour: 36
-                  learning_language: IT
-                  learning_ref: http://....
       description: Course detail / Dettagli corso
       properties:
         programme_type_code:
@@ -556,27 +400,7 @@ components:
     curriculum_list:
       nullable: true
       type: object
-      additionalProperties: false
-      x-examples:
-        Example 1:
-          curriculum_name: NON DIFFERENZIATO
-          curriculum_learnings: 
-          - degree_course_year: 1
-            learnings:
-            - learning_ssd: MAT/03
-              learning_name: ANALISI E GEOMETRIA 1
-              learning_code: 081360
-              learning_cfu: 10
-              learning_hour: 48
-              learning_language: IT
-              learning_ref: http://....
-            - learning_ssd: CHIM/07
-              learning_name: FONDAMENTI DI CHIMICA
-              learning_code: 081374
-              learning_cfu: 7
-              learning_hour: 36
-              learning_language: IT
-              learning_ref: http://....
+      additionalProperties: false     
       description: Course list / Elenco corsi
       properties:
         curriculum_name:
@@ -595,24 +419,6 @@ components:
     curriculum_learnings:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          degree_course_year: 1
-          learnings:
-          - learning_ssd: MAT/03
-            learning_name: ANALISI E GEOMETRIA 1
-            learning_code: 081360
-            learning_cfu: 10
-            learning_hour: 48
-            learning_language: IT
-            learning_ref: http://....
-          - learning_ssd: CHIM/07
-            learning_name: FONDAMENTI DI CHIMICA
-            learning_code: 081374
-            learning_cfu: 7
-            learning_hour: 36
-            learning_language: IT
-            learning_ref: http://....
       description: Teaching list / Elenco insegnamenti
       properties:
         degree_course_year:
@@ -632,15 +438,6 @@ components:
     learnings:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          learning_ssd: CHIM/07
-          learning_name: FONDAMENTI DI CHIMICA
-          learning_code: 081374
-          learning_cfu: 7
-          learning_hour: 36
-          learning_language: IT
-          learning_ref: http://....
       description: Teaching list / Lista insegnamenti
       properties:
         learning_ssd:
@@ -697,10 +494,6 @@ components:
     course_list_request:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          academic_year: 2023/2024
-          cursor: ""
       description: Request the list of active courses offered by the Institute in an academic year. / Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico.
       properties:
         academic_year:
@@ -723,10 +516,6 @@ components:
     course_detail_request:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          degree_class_code : LM-20
-          degree_course_code: 456
       description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
       properties:
         degree_class_code:

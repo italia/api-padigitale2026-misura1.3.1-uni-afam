@@ -478,20 +478,6 @@ components:
     enrollments:
       additionalProperties: false
       type: object
-      x-examples:
-        Example 1:
-          personal_data:
-            tax_code: RSSMRA80A01F205D
-            person_id: AB123456C
-          enrollments:
-            - institute_code: '16'
-              institute_name: Milano - Politecnico
-              programme_type_code: MS
-              degree_course_code: '1576480'
-              degree_class_code: LM-32
-              academic_year: 2021/2022
-              degree_course_year: 3
-              status: attivo
       description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
       properties:
         personal_data:
@@ -509,23 +495,6 @@ components:
     proof_education_enrollments:
       additionalProperties: false
       type: object
-      x-examples:
-        Example 1:
-          personal_data:
-            tax_code: RSSMRA80A01F205D
-            person_id: AB123456C
-          proof_enrollments:
-            - programme_type_code: MS
-              programme_type_name: Laurea Magistrale (DM 270/04)
-              degree_course_code: '1573960'
-              degree_course_name: Ingegneria informatica
-              degree_class_code: LM-32
-              degree_class_name: Ingegneria informatica
-              institute_code: '16'
-              institute_name: Milano - Politecnico
-              country_of_academic_institution: Italia
-              expected_graduation_date: 2023-10-13
-              enrollment_date: 2020-10-13
       description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
       properties:
         personal_data:
@@ -543,19 +512,6 @@ components:
     proof_enrollment:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          programme_type_code: MS
-          programme_type_name: Laurea Magistrale (DM 270/04)
-          degree_course_code: '1573960'
-          degree_course_name: Ingegneria informatica
-          degree_class_code: LM-32
-          degree_class_name: Ingegneria informatica
-          institute_code: '16'
-          institute_name: Milano - Politecnico
-          country_of_academic_institution: Italia
-          expected_graduation_date: 2023-10-13
-          date_of_enrollment: 2020-10-13
       description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
       properties:
         programme_type_code:
@@ -638,31 +594,6 @@ components:
     proof_education_courses:
       additionalProperties: false
       type: object
-      x-examples:
-        Example 1:
-          personal_data:
-            tax_code: RSSMRA80A01F205D
-            person_id: AB123456C
-          proof_education_course:
-            programme_type_code: MS
-            programme_type_name: Laurea Magistrale (DM 270/04)
-            degree_course_code: '1573960'
-            degree_course_name: Ingegneria informatica
-            degree_class_code: LM-32
-            degree_class_name: Ingegneria informatica
-            institute_code: '16'
-            institute_name: Milano - Politecnico
-            learnings:
-              - attended_learning_name: Esame 1
-                start_date: 01/10/2023
-                end_date: 01/10/2020
-                grade_value: '30'
-                ects_credits_received: 6
-              - attended_learning_name: Esame 2
-                start_date: 2020-10-13
-                end_date: 2023-10-13
-                grade_value: '30'
-                ects_credits_received: 6
       description: Examinations details of student / Dettaglio esami di una studentessa o di uno studente
       properties:
         personal_data:
@@ -676,27 +607,6 @@ components:
       type: object
       nullable: true
       additionalProperties: false
-      x-examples:
-        Example 1:
-          programme_type_code: MS
-          programme_type_name: Laurea Magistrale (DM 270/04)
-          degree_course_code: '1573960'
-          degree_course_name: Ingegneria informatica
-          degree_class_code: LM-32
-          degree_class_name: Ingegneria informatica
-          institute_code: '16'
-          institute_name: Milano - Politecnico
-          learnings: 
-            - attended_learning_name: Esame 1
-              start_date: 2020-10-13
-              end_date: 2023-10-13
-              grade_value: '30'
-              ects_credits_received: 6
-            - attended_learning_name: Esame 2
-              start_date: 2020-10-13
-              end_date: 2023-10-13
-              grade_value: '30'
-              ects_credits_received: 6
       description: Examinations taken by the student / Esami sostenuti della studentessa o dello studente
       properties:
         programme_type_code:
@@ -764,13 +674,6 @@ components:
     learnings:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          course_name: Esame 1
-          start_date: 2020-10-13
-          end_date: 2023-10-13
-          grade_value: '30'
-          ects_credits_received: 6
       description: Detailed examination information / Informazioni dettagliate sul corso
       properties:
         attended_learning_name:
@@ -810,24 +713,6 @@ components:
     proof_tertiary_education_admission:
       additionalProperties: false
       type: object
-      x-examples:
-        Example 1:
-          personal_data:
-            tax_code: RSSMRA80A01F205D
-            person_id: AB123456C
-          proof_admissions:
-            - institute_code: '16'
-              institute_name: Milano - Politecnico
-              programme_type_code: MS
-              programme_type_name: Laurea Magistrale (DM 270/04)
-              degree_course_code: '1573960'
-              degree_course_name: Ingegneria informatica
-              degree_class_code: LM-32
-              degree_class_name: Ingegneria informatica
-              degree_course_duration_in_years_or_months: "3 anni"
-              duration_ects_credits: 180
-              start_date_of_academic_year: 2020-10-13
-              end_date_of_academic_year: 2023-10-13
       description: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
       properties:
         personal_data:
@@ -845,20 +730,6 @@ components:
     proof_admissions:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          institute_code: '16'
-          institute_name: Milano - Politecnico
-          programme_type_code: MS
-          programme_type_name: Laurea Magistrale (DM 270/04)
-          degree_course_code: '1573960'
-          degree_course_name: Ingegneria informatica
-          degree_class_code: LM-32
-          degree_class_name: Ingegneria informatica
-          degree_course_duration_in_years_or_months: "3 anni"
-          duration_ects_credits: 180
-          start_date_of_academic_year: 2020-10-13
-          end_date_of_academic_year: 2023-10-13
       description: Detailed information on admission certification / Informazioni dettagliate sulla certificazione di ammissione
       properties:
         institute_code:
@@ -948,24 +819,6 @@ components:
     proof_personal_mobility_periods:
       additionalProperties: false
       type: object
-      x-examples:
-        Example 1:
-          personal_data:
-            tax_code: RSSMRA80A01F205D
-            person_id: AB123456C
-          proof_mobility_periods:
-            - eqf_level: Livello 7
-              mobility_start_date: 2020-05-17
-              mobility_end_date: 2021-05-17
-              mobility_period_type: Lungo termine
-              destination_institute_name: Universidad Politecnica de Madrid
-              destination_erasmus_code: VALENCI02
-              departure_institute_name: Politecnico di Milano
-              departure_erasmus_code: MILANO02
-              destination_department: Faculty of Science & Engineering
-              departure_department: Dipartimento di Ingegneria Industriale
-              destination_country: Spagna
-              departure_country: Italia
       description: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
       properties:
         personal_data:
@@ -983,20 +836,6 @@ components:
     proof_mobility_periods:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          eqf_level: Livello 7
-          mobility_start_date: 2020-05-17
-          mobility_end_date: 2021-05-17
-          mobility_period_type: Lungo termine
-          destination_institute_name: Universidad Politecnica de Madrid
-          destination_erasmus_code: VALENCI02
-          departure_institute_name: Politecnico di Milano
-          departure_erasmus_code: MILANO02
-          destination_department: Faculty of Science & Engineering
-          departure_department: Dipartimento di Ingegneria Industriale
-          destination_country: Spagna
-          departure_country: Italia
       description: Detailed information on admission certification / Informazioni dettagliate sulla certificazione di ammissione
       properties:
         eqf_level:
@@ -1088,16 +927,6 @@ components:
     enrollment:
       type: object
       additionalProperties: false
-      x-examples:
-        Example 1:
-          institute_code: '16'
-          institute_name: Milano - Politecnico
-          programme_type_code: MS
-          degree_course_code: '1576480'
-          degree_class_code: LM-32
-          academic_year: 2021/2022
-          degree_course_year: 3
-          status: attivo
       description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
       properties:
         institute_code:
@@ -1167,14 +996,6 @@ components:
       type: object
       nullable: true
       additionalProperties: false
-      x-examples:
-        Example 1:
-          tax_code: RSSMRA80A01F205D
-          person_id: AB123456C
-          given_name: Mario
-          family_name: Rossi
-          birth_date: 1990-05-17
-          birth_place: Roma
       description: Personal data of the student / Dati personali della studentessa o dello studente
       properties:
         tax_code:
@@ -1231,12 +1052,6 @@ components:
     it_enrollment_request:
       type: object
       additionalProperties: false      
-      x-examples:
-        Example 1:
-          tax_code: RSSMRA80A01F205D
-          person_id: 12345678A
-          key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
-          institute_code: AA
       description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
       properties:
         tax_code:
@@ -1268,17 +1083,9 @@ components:
           minLength: 1
           maxLength: 256
           readOnly: true  
-      required:
-        - tax_code      
-        - key
     eu_enrollment_request:
       type: object
       additionalProperties: false      
-      x-examples:
-        Example 1:
-          tax_code: RSSMRA80A01F205D
-          person_id: 12345678A
-          institute_code: AA
       description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
       properties:
         tax_code:

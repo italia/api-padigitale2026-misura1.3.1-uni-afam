@@ -125,20 +125,7 @@ components:
   schemas:
     count_academic_enrollments_by_degree_courses:
       additionalProperties: false
-      type: object
-      x-examples:
-        Example 1:
-          count_academic_enrollment:
-            - programme_type_code: MS
-              degree_course_code: 469
-              degree_class_code: LM-20
-              female_enrollment_count: 12000
-              male_enrollment_count: null              
-            - programme_type_code: L2
-              degree_course_code: 355
-              degree_class_code: LM-11
-              female_enrollment_count: 15000    
-              male_enrollment_count: 10000                
+      type: object            
       description: Enrollment details of student / Dettaglio iscrizioni di una studentessa o di uno studente
       properties:       
         count_academic_enrollment:
@@ -153,14 +140,7 @@ components:
 
     count_academic_enrollment:
       type: object
-      additionalProperties: false
-      x-examples:
-        Example 1:
-          programme_type_code: MS
-          degree_course_code: 469
-          degree_class_code: LM-20
-          female_enrollment_count: 15000
-          male_enrollment_count: 15000          
+      additionalProperties: false      
       description: Detailed examination information / Informazioni dettagliate sul corso
       properties:
         programme_type_code:
@@ -211,10 +191,6 @@ components:
     count_enrollment_request:
       type: object
       additionalProperties: false      
-      x-examples:
-        Example 1:
-          academic_year : 20
-          degree_course_code: 456
       description: Request enrollment of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
       properties:
         academic_year:
