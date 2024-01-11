@@ -578,8 +578,7 @@ components:
         academic_year:
           type: string
           description: Academic year / Anno accademico
-          example: 2023/2024
-          readOnly: true
+          example: 2023/2024         
           minLength: 1
           maxLength: 20
         cursor:
@@ -587,7 +586,6 @@ components:
           description: Cursor / Cursore
           example: 'fowfio543s'
           nullable: true
-          readOnly: true
           minLength: 1
           maxLength: 100
       required:
@@ -601,13 +599,11 @@ components:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
-          readOnly: true
           minLength: 1
           maxLength: 20
         degree_course_code:
           type: string
           description: Course code / Codice del corso
-          readOnly: true
           minLength: 1
           maxLength: 20
       required:

@@ -304,33 +304,28 @@ components:
           example: RSSMRA80A01F205D
           minLength: 16
           maxLength: 16
-          readOnly: true
         person_id:
           type: string
           description: ANPR Identifier / Identificativo ANPR 
           maxLength: 9
           minLength: 9
           example: AB123456C
-          readOnly: true
         reason:
           type: string
           description: Modification description / Descrizione modifica
           example: Modifica iscrizione xxx
           minLength: 1
           maxLength: 256
-          readOnly: true  
         attributes:
           $ref: '#/components/schemas/attributes'
         request:
           type: string
           description: qualification  chacge request Text / Testo con la richiesta di rettifica
-          readOnly: true
           minLength: 1
           maxLength: 5000
         note:
           type: string
           description: Open notes from student / Note aperte studentessa o studente
-          readOnly: true
           minLength: 1
           maxLength: 5000
       required:
@@ -355,19 +350,16 @@ components:
         file_status:
           type: string
           description: Status of an academic qualification change request for a student / Stato di una rettifica Titolo per una studentessa o uno studente
-          readOnly: true
           minLength: 1
           maxLength: 256   
         file_code:
           type: string
           description: change request qualification code/ Codice Rettifica titolo
-          readOnly: true
           minLength: 1
           maxLength: 256    
         message:
           type: string
           description: Change request message output / Messaggio esito richiesta rettifica
-          readOnly: true
           minLength: 1
           maxLength: 256 
       required:
@@ -390,19 +382,16 @@ components:
         attribute_name:
           type: string
           description: Attribute name to be changed  / Nome attributo da variare in fase di rettifica titolo
-          readOnly: true
           minLength: 1
           maxLength: 256   
         current:
           type: string
           description: Current value to be rectified / Valore corrente da rettificare
-          readOnly: true
           minLength: 1
           maxLength: 256    
         suggested:
           type: string
           description: New value to be rectified / Nuovo valore da rettificare
-          readOnly: true
           minLength: 1
           maxLength: 256 
       required:
@@ -490,7 +479,6 @@ components:
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
           minLength: 16
           maxLength: 16
-          readOnly: true
           nullable: true
         person_id:
           type: string
@@ -499,14 +487,12 @@ components:
           minLength: 9
           pattern: "^[A-Z0-9]{9}$"
           example: AB123456C
-          readOnly: true
           nullable: true
         given_name:
           type: string
           description: Name / Nome
           example: Mario
           pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
-          readOnly: true
           minLength: 1
           maxLength: 2048
           nullable: true
@@ -515,7 +501,6 @@ components:
           description: Surname / Cognome
           example: Rossi
           pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
-          readOnly: true
           minLength: 1
           maxLength: 2048
           nullable: true
@@ -525,13 +510,11 @@ components:
           example: 1990-05-17
           pattern: '^\d{4}-\d{2}-\d{2}$'
           description: Date of birth / Data di nascita
-          readOnly: true
           nullable: true
         birth_place:
           type: string
           example: Rome
           description: Place of birth / Luogo di nascita
-          readOnly: true
           minLength: 1
           maxLength: 2048
           nullable: true
@@ -551,39 +534,33 @@ components:
         institute_code:
           type: string
           description: Institute identification code / Codice identificativo dell'istituto
-          readOnly: true
           minLength: 2
           maxLength: 2
         institute_name:
           type: string
           description: Name of institution / Nome dell'istituto
-          readOnly: true
           minLength: 1
           maxLength: 2048
         qualification_name:
           type: string
           description: Title of the degree / Denominazione del titolo di studio
-          readOnly: true
           minLength: 1
           maxLength: 2048
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
           example: 'LM'
-          readOnly: true
           minLength: 1
           maxLength: 2
         degree_course_code:
           type: string
           description: Course Code / Codice del corso
-          readOnly: true
           minLength: 1
           maxLength: 20
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
-          readOnly: true
           minLength: 1
           maxLength: 20
         academic_qualification_date:
@@ -592,21 +569,18 @@ components:
           pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'
           example: '2023-05-15'
           format: date
-          readOnly: true
         qualification_grade_value:
           type: string
           description: Grade obtained upon graduation / Voto ottenuto al conseguimento del titolo di studio
           minLength: 1
           maxLength: 32
           example: '110'
-          readOnly: true
         qualification_grading_scale:
           type: string
           minLength: 1
           maxLength: 32
           example: '110'
           description: Rating scale / Scala di valutazione
-          readOnly: true
         qualification_grading_scale_minimum_grade:
           type: string
           format: int32
@@ -614,14 +588,12 @@ components:
           maxLength: 32
           example: '66'
           description: Minimum course grade / Voto minimo del corso
-          readOnly: true
         qualification_grading_scale_maximum_grade:
           type: string
           minLength: 1
           maxLength: 32
           example: '110'
           description: Highest course grade / Voto massimo del corso
-          readOnly: true
         issues:
           additionalProperties: false
           type: array

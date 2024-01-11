@@ -300,33 +300,28 @@ components:
           example: RSSMRA80A01F205D
           minLength: 16
           maxLength: 16
-          readOnly: true
         person_id:
           type: string
           description: ANPR Identifier / Identificativo ANPR 
           maxLength: 9
           minLength: 9
           example: AB123456C
-          readOnly: true
         reason:
           type: string
           description: Modification description / Descrizione modifica
           example: Modifica iscrizione xxx
           minLength: 1
           maxLength: 256
-          readOnly: true  
         attributes:
           $ref: '#/components/schemas/attributes'
         request:
           type: string
           description: Text with request for rectification / Testo con la richiesta di rettifica
-          readOnly: true
           minLength: 1
           maxLength: 5000
         note:
           type: string
           description: Open notes from student / Note aperte studentessa o studente
-          readOnly: true
           minLength: 1
           maxLength: 5000
       required:
@@ -342,21 +337,18 @@ components:
           example: '213521'
           minLength: 1
           maxLength: 2048
-          readOnly: true
         subscriber_name:
           type: string
           description: Applicant name / Nome richiedente
           example: ANIS
           minLength: 1
           maxLength: 2048
-          readOnly: true
         subscriber_message:
           type: string
           description: Applicant message / Messaggio richiedente
           example: It wasn't possible to load all the enrollments of this student
           minLength: 1
           maxLength: 2048
-          readOnly: true
         data_request_timestamp:
           type: string
           format: date-time
@@ -364,7 +356,6 @@ components:
           example: 2019-10-12T07:20:50.52Z
           minLength: 1
           maxLength: 36
-          readOnly: true
         personal_data:
           $ref: '#/components/schemas/personal_data'
         enrollments:
@@ -382,7 +373,6 @@ components:
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
           minLength: 16
           maxLength: 16
-          readOnly: true
           nullable: true
         person_id:
           type: string
@@ -391,14 +381,12 @@ components:
           minLength: 9
           pattern: "^[A-Z0-9]{9}$"
           example: AB123456C
-          readOnly: true
           nullable: true
         given_name:
           type: string
           description: Name / Nome
           example: Mario
           pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
-          readOnly: true
           minLength: 1
           maxLength: 2048
           nullable: true
@@ -407,7 +395,6 @@ components:
           description: Surname / Cognome
           example: Rossi
           pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
-          readOnly: true
           minLength: 1
           maxLength: 2048
           nullable: true
@@ -417,13 +404,11 @@ components:
           example: 1990-05-17
           pattern: '^\d{4}-\d{2}-\d{2}$'
           description: Date of birth / Data di nascita
-          readOnly: true
           nullable: true
         birth_place:
           type: string
           example: Rome
           description: Place of birth / Luogo di nascita
-          readOnly: true
           minLength: 1
           maxLength: 2048
           nullable: true
@@ -444,34 +429,29 @@ components:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: '16'
-          readOnly: true
           minLength: 2
           maxLength: 2
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
           example: 'Milano - Politecnico'
-          readOnly: true
           minLength: 1
           maxLength: 2048
         programme_type_code:
           type: string
           description: Code of study program / Codice del corso di studio
           example: 'LM'
-          readOnly: true
           minLength: 1
           maxLength: 2
         degree_course_code:
           type: string
           description: Course code / Codice del corso
-          readOnly: true
           minLength: 1
           maxLength: 20
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
-          readOnly: true
           minLength: 1
           maxLength: 20
         academic_year:
@@ -479,7 +459,6 @@ components:
           description: Last academic year in which enrollment in the student's course is recorded / Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente 
           example: 2022/2023
           pattern: '^\d{4}/\d{4}$'
-          readOnly: true
           minLength: 9
           maxLength: 9
         degree_course_year:
@@ -488,14 +467,12 @@ components:
           description: Last year in which enrollment in the student's course is recorded / Ultimo anno in cui risulta l'iscrizione al corso della studentessa o dello studente
           example: 3
           pattern: ^\d{2}$
-          readOnly: true
           minimum: 1
           maximum: 99
         status:
           type: string
           description: Enrollment status / Stato dell'iscrizione
           example: attivo
-          readOnly: true
           minLength: 1
           maxLength: 20
           enum:
@@ -518,13 +495,11 @@ components:
         attribute_name:
           type: string
           description: Attribute name to be changed  / Nome attributo da variare in fase di rettifica iscrizione
-          readOnly: true
           minLength: 1
           maxLength: 256
         issue_description:
           type: string
           description: New value to be rectified / Nuovo valore da rettificare
-          readOnly: true
           minLength: 1
           maxLength: 256 
       required:
@@ -550,7 +525,6 @@ components:
         file_status:
           type: string
           description: Status of an academic enrollment change request for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
-          readOnly: true
           minLength: 1
           maxLength: 256
           enum:
@@ -560,13 +534,11 @@ components:
         file_code:
           type: string
           description: enrollment change request code/ Codice Rettifica iscrizioni
-          readOnly: true
           minLength: 1
           maxLength: 256    
         message:
           type: string
           description: Change request message output / Messaggio esito richiesta rettifica
-          readOnly: true
           minLength: 1
           maxLength: 256 
       required:
@@ -620,19 +592,16 @@ components:
         attribute_name:
           type: string
           description: Attribute name to be changed  / Nome attributo da variare in fase di rettifica iscrizione
-          readOnly: true
           minLength: 1
           maxLength: 256   
         current:
           type: string
           description: Current value to be rectified / Valore corrente da rettificare
-          readOnly: true
           minLength: 1
           maxLength: 256    
         suggested:
           type: string
           description: New value to be rectified / Nuovo valore da rettificare
-          readOnly: true
           minLength: 1
           maxLength: 256 
       required:
@@ -651,21 +620,18 @@ components:
           example: RSSMRA80A01F205D
           minLength: 16
           maxLength: 16
-          readOnly: false
         person_id:
           type: string
           description: National unique identifier / Identificativo unico nazionale
           example: 12345678A
           minLength: 9
           maxLength: 9
-          readOnly: false  
         file_code:
           type: string
           description: enrollment change request code/ Codice Rettifica iscrizioni
           example: 6d183bc572f6b200015a4167
           minLength: 1
           maxLength: 64
-          readOnly: false  
       required:
         - tax_code     
         - file_code

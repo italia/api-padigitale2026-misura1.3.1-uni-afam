@@ -1071,28 +1071,24 @@ components:
           example: RSSMRA80A01F205D
           minLength: 16
           maxLength: 16
-          readOnly: false
         person_id:
           type: string
           description: National unique identifier / Identificativo unico nazionale
           example: 12345678A
           minLength: 9
           maxLength: 9
-          readOnly: false  
         key:
           type: string
           description: Hash tax code / Hash del codice fiscale
           example: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
           minLength: 64
           maxLength: 64
-          readOnly: false  
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: AA1
           minLength: 1
           maxLength: 256
-          readOnly: false  
       required:
         - tax_code      
         - institute_code
@@ -1108,21 +1104,18 @@ components:
           example: RSSMRA80A01F205D
           minLength: 16
           maxLength: 16
-          readOnly: false
         person_id:
           type: string
           description: ANPR Identifier / Identificativo ANPR 
           maxLength: 9
           minLength: 9
-          example: AB123456C
-          readOnly: true
+          example: AB123456C    
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: AA1
           minLength: 1
           maxLength: 256
-          readOnly: false
   requestBodies: {}
   responses: {}
   securitySchemes:

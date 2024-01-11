@@ -1060,29 +1060,25 @@ components:
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
           example: RSSMRA80A01F205D
           minLength: 16
-          maxLength: 16
-          readOnly: true
+          maxLength: 16          
         person_id:
           type: string
           description: National unique identifier / Identificativo unico nazionale
           example: 12345678A
           minLength: 1
-          maxLength: 256
-          readOnly: true  
+          maxLength: 256          
         key:
           type: string
           description: Hash tax code / Hash del codice fiscale
           example: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
           minLength: 64
-          maxLength: 64
-          readOnly: true  
+          maxLength: 64          
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: AA1
           minLength: 1
-          maxLength: 256
-          readOnly: true  
+          maxLength: 256          
     eu_enrollment_request:
       type: object
       additionalProperties: false      
@@ -1095,21 +1091,18 @@ components:
           example: RSSMRA80A01F205D
           minLength: 16
           maxLength: 16
-          readOnly: true
         person_id:
           type: string
           description: National unique identifier / Identificativo unico nazionale
           example: 12345678A
           minLength: 1
           maxLength: 256
-          readOnly: true  
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: AA1
           minLength: 1
           maxLength: 256
-          readOnly: true
   requestBodies: {}
   responses: {}
   securitySchemes:

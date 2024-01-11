@@ -216,7 +216,6 @@ components:
           description: Last academic year in which enrollment in the student's course is recorded / Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente 
           example: 2022/2023
           pattern: '^\d{4}/\d{4}$'
-          readOnly: true
           minLength: 9
           maxLength: 9
       required:
