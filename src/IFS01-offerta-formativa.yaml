@@ -364,6 +364,7 @@ components:
           type: string
           description: Cursor / Cursore
           example: 'fowfio543s'
+          nullable: true
           readOnly: true
           minLength: 1
           maxLength: 100
