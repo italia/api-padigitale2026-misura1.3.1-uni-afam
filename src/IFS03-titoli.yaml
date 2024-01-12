@@ -561,22 +561,19 @@ components:
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: '16'
-          
+          example: '16'          
           minLength: 2
           maxLength: 2
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
-          example: 'Milano - Politecnico'
-          
+          example: 'Milano - Politecnico'          
           minLength: 1
           maxLength: 2048
         qualification_name:
           type: string
           description: Name qualification achieved / Nome titolo ottenuto
-          example: 'Laurea in ingegneria informatica'
-          
+          example: 'Laurea in ingegneria informatica'          
           minLength: 1
           maxLength: 2048
         programme_type_code:

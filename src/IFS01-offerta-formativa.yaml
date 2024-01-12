@@ -358,8 +358,6 @@ components:
           nullable: true          
           minLength: 1
           maxLength: 100
-      required:
-        - cursor
     course_details:
       additionalProperties: false
       type: object
