@@ -284,15 +284,13 @@ components:
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
-          example: 'LM'
-          readOnly: true
+          example: 'LM'          
           minLength: 1
           maxLength: 2
         programme_access:
           type: string
           description: Access to the course / Accesso al corso
-          example: free access
-          readOnly: true
+          example: free access          
           minLength: 1
           maxLength: 99
           enum:
@@ -302,56 +300,49 @@ components:
           type: string
           description: Course location / Sede del corso
           example: Milano Bovisa
-          readOnly: true
           minLength: 1
           maxLength: 99
         course_area:
           type: string
           description: Course area / Area del corso
-          example: Ingegneria industriale
-          readOnly: true
+          example: Ingegneria industriale          
           minLength: 1
           maxLength: 99
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: L-8
-          readOnly: true
+          example: L-8          
           minLength: 1
           maxLength: 20
         degree_course_language:
           type: string
           description: Language of the degree class / Lingua della classe di laurea
-          example: IT
-          readOnly: true
+          example: IT          
           minLength: 1
           maxLength: 20
         degree_course_period_years:
           type: integer
           format: int32
           description: Degree course duration in years / Durata corso di laurea in anni
-          example: 3
-          readOnly: true
+          example: 3          
           minimum: 1
           maximum: 99
         degree_course_code:
           type: string
           description: Course code / Codice del corso
-          readOnly: true
+          
           minLength: 1
           maxLength: 20
         total_credits:
           type: integer
           format: int32
           description: Total credits degree course / Totale crediti corso di laurea
-          example: 180
-          readOnly: true
+          example: 180          
           minimum: 1
           maximum: 999
         academic_year:
           type: string
-          description: Academic year / Anno accademico
-          readOnly: true
+          description: Academic year / Anno accademico          
           minLength: 1
           maxLength: 20
     meta:
@@ -364,8 +355,7 @@ components:
           type: string
           description: Cursor / Cursore
           example: 'fowfio543s'
-          nullable: true
-          readOnly: true
+          nullable: true          
           minLength: 1
           maxLength: 100
       required:
@@ -378,15 +368,13 @@ components:
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
-          example: 'LM'
-          readOnly: true
+          example: 'LM'          
           minLength: 1
           maxLength: 2
         programme_access:
           type: string
           description: Access to the course / Accesso al corso
-          example: free access
-          readOnly: true
+          example: free access          
           minLength: 1
           maxLength: 99
           enum:
@@ -395,82 +383,70 @@ components:
         course_location:
           type: string
           description: Course location / Sede del corso
-          example: Milano Bovisa
-          readOnly: true
+          example: Milano Bovisa          
           minLength: 1
           maxLength: 99
         remote_mode:
           type: string
           description: Remote instruction method / Metodo istruzione remota
-          example: on-site
-          readOnly: true
+          example: on-site          
           minLength: 1
           maxLength: 99
         course_area:
           type: string
           description: Course area / Area del corso
-          example: Ingegneria industriale
-          readOnly: true
+          example: Ingegneria industriale          
           minLength: 1
           maxLength: 99
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: L-8
-          readOnly: true
+          example: L-8          
           minLength: 1
           maxLength: 20
         degree_course_language:
           type: string
           description: Language of the degree class / Lingua della classe di laurea
-          example: IT
-          readOnly: true
+          example: IT          
           minLength: 1
           maxLength: 20
         degree_course_period_years:
           type: integer
           format: int32
           description: Degree course duration in years / Durata corso di laurea in anni
-          example: 3
-          readOnly: true
+          example: 3          
           minimum: 1
           maximum: 99
         degree_course_code:
           type: string
-          description: Course code / Codice del corso
-          readOnly: true
+          description: Course code / Codice del corso          
           minLength: 1
           maxLength: 20
         total_credits:
           type: integer
           format: int32
           description: Total credits degree course / Totale crediti corso di laurea
-          example: 180
-          readOnly: true
+          example: 180          
           minimum: 1
           maximum: 999
         academic_year:
           type: string
-          description: Academic year / Anno accademico
-          readOnly: true
+          description: Academic year / Anno accademico          
           minLength: 1
           maxLength: 20
         first_year_activation_course:
           type: string
-          description: First year of course activation / Primo anno di attivazione del corso
-          readOnly: true
+          description: First year of course activation / Primo anno di attivazione del corso          
           minLength: 1
           maxLength: 20
         website_university:
           type: string
-          description: University website / Sito università
-          readOnly: true
+          description: University website / Sito università          
           minLength: 1
           maxLength: 999
         website_course:
           type: string
-          description: Course website / Sito corso di studi
-          readOnly: true
+          description: Course website / Sito corso di studi          
           minLength: 1
           maxLength: 999
         curriculum_list:
@@ -488,8 +464,7 @@ components:
         curriculum_name:
           type: string
           description: Address, course, specialisation strand / Indirizzo, percorso, specializzazione filone formativo
-          example: NON DIFFERENZIATO
-          readOnly: true
+          example: NON DIFFERENZIATO          
           minLength: 1
           maxLength: 100
         curriculum_learnings:
@@ -507,8 +482,7 @@ components:
           type: integer
           format: int32
           description: Course teaching year / Anno insegnamento corso
-          example: 1
-          readOnly: true
+          example: 1          
           minimum: 1
           maximum: 99
         learnings:
@@ -525,52 +499,45 @@ components:
         learning_ssd:
           type: string
           description: Learning reference / Riferimento insegnamento
-          example: MAT/03
-          readOnly: true
+          example: MAT/03          
           minLength: 1
           maxLength: 256
         learning_name:
           type: string
           description: Learning name / Nome insegnamento
-          example: ANALISI E GEOMETRIA 1
-          readOnly: true
+          example: ANALISI E GEOMETRIA 1          
           minLength: 1
           maxLength: 256
         learning_code:
           type: string
           description: Learning Code / Codice insegnamento
-          example: '081360'
-          readOnly: true
+          example: '081360'          
           minLength: 1
           maxLength: 256
         learning_cfu:
           type: integer
           format: int32
           description: Learning CFU / CFU insegnamento
-          example: 10
-          readOnly: true
+          example: 10          
           minimum: 1
           maximum: 999
         learning_hour:
           type: integer
           format: int32
           description: Learning hours / Ore insegnamento
-          example: 48
-          readOnly: true
+          example: 48          
           minimum: 1
           maximum: 999
         learning_language:
           type: string
           description: Learning language / Lingua insegnamento
-          example: IT
-          readOnly: true
+          example: IT          
           minLength: 1
           maxLength: 256
         learning_ref:
           type: string
           description: Learning site / Sito insegnamento
-          example: http://....
-          readOnly: true
+          example: http://....          
           minLength: 1
           maxLength: 256
     course_list_request:

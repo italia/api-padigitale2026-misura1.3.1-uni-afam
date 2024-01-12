@@ -522,78 +522,67 @@ components:
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
-          example: 'LM'
-          readOnly: true
+          example: 'LM'          
           minLength: 1
           maxLength: 2
         programme_type_name:
           type: string
           description: Type of study program / Tipologia del corso di studio
-          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
-          readOnly: true
+          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'          
           minLength: 1
           maxLength: 2048
         degree_course_code:
           type: string
-          description: Course code / Codice del corso
-          readOnly: true
+          description: Course code / Codice del corso          
           minLength: 1
           maxLength: 20
         degree_course_name:
           type: string
           description: Course name / Denominazione corso
-          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
-          readOnly: true
+          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'          
           minLength: 1
           maxLength: 2048
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: L-8
-          readOnly: true
+          example: L-8          
           minLength: 1
           maxLength: 20
         degree_class_name:
           type: string
           description: Name of the degree class / Denominazione della classe di laurea 
-          example: 'Ingegneria informatica, Scienze giuridiche'
-          readOnly: true
+          example: 'Ingegneria informatica, Scienze giuridiche'          
           minLength: 1
           maxLength: 2048
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: '16'
-          readOnly: true
+          example: '16'          
           minLength: 2
           maxLength: 2
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
-          example: 'Milano - Politecnico'
-          readOnly: true
+          example: 'Milano - Politecnico'          
           minLength: 1
           maxLength: 2048
         country_of_academic_institution:
           type: string
-          description: Country of the academic institution / Paese dell'istituzione accademica
-          readOnly: true
+          description: Country of the academic institution / Paese dell'istituzione accademica          
           minLength: 1
           maxLength: 20
         expected_graduation_date:
           type: string
           format: date
           description: Date of completion of studies / Data completamento studi
-          example: 2023-10-01
-          readOnly: true
+          example: 2023-10-01          
           minLength: 10
           maxLength: 10
         enrollment_date:
           type: string
           format: date
           description: Enrollment date / Data iscrizione
-          example: 2020-10-01
-          readOnly: true
+          example: 2020-10-01          
           minLength: 10
           maxLength: 10
     proof_education_courses:
@@ -617,56 +606,48 @@ components:
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
-          example: 'LM'
-          readOnly: true
+          example: 'LM'          
           minLength: 1
           maxLength: 2
         programme_type_name:
           type: string
           description: Type of study program / Tipologia del corso di studio
-          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
-          readOnly: true
+          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'          
           minLength: 1
           maxLength: 2048
         degree_course_code:
           type: string
-          description: Course code / Codice del corso
-          readOnly: true
+          description: Course code / Codice del corso          
           minLength: 1
           maxLength: 20
         degree_course_name:
           type: string
           description: Course name / Denominazione corso
-          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
-          readOnly: true
+          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'          
           minLength: 1
           maxLength: 2048
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: L-8
-          readOnly: true
+          example: L-8          
           minLength: 1
           maxLength: 20
         degree_class_name:
           type: string
           description: Name of the degree class / Denominazione della classe di laurea 
-          example: 'Ingegneria informatica, Scienze giuridiche'
-          readOnly: true
+          example: 'Ingegneria informatica, Scienze giuridiche'          
           minLength: 1
           maxLength: 2048
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: '16'
-          readOnly: true
+          example: '16'          
           minLength: 2
           maxLength: 2
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
-          example: 'Milano - Politecnico'
-          readOnly: true
+          example: 'Milano - Politecnico'          
           minLength: 1
           maxLength: 2048
         learnings:
@@ -684,35 +665,31 @@ components:
         attended_learning_name:
           type: string
           description: Course name / Nome corso
-          example: Esame 1
-          readOnly: true
+          example: Esame 1          
           minLength: 1
           maxLength: 2048
         start_date:
           type: string
           format: date
           description: Course start date / Data inizio corso
-          example: 2020-10-13
-          readOnly: true
+          example: 2020-10-13          
         end_date:
           type: string
           format: date
           description: Course end date / Data fine corso
           example: 2023-10-13
-          readOnly: true
+          
         grade_value:
           type: string
           description: Grade / voto
-          example: '30'
-          readOnly: true
+          example: '30'          
           minLength: 1
           maxLength: 64
         ects_credits_received:
           type: integer
           format: int32
           description: ECTS credits / Crediti ECTS
-          example: 6
-          readOnly: true
+          example: 6          
           maximum: 999
           minimum: 1
     proof_tertiary_education_admission:
@@ -740,85 +717,73 @@ components:
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: '16'
-          readOnly: true
+          example: '16'          
           minLength: 2
           maxLength: 2
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
-          example: 'Milano - Politecnico'
-          readOnly: true
+          example: 'Milano - Politecnico'          
           minLength: 1
           maxLength: 2048
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
-          example: 'LM'
-          readOnly: true
+          example: 'LM'          
           minLength: 1
           maxLength: 2
         programme_type_name:
           type: string
           description: Type of study program / Tipologia del corso di studio
-          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
-          readOnly: true
+          example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'          
           minLength: 1
           maxLength: 2048
         degree_course_code:
           type: string
-          description: Course code / Codice del corso
-          readOnly: true
+          description: Course code / Codice del corso          
           minLength: 1
           maxLength: 20
         degree_course_name:
           type: string
           description: Course name / Denominazione corso
-          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
-          readOnly: true
+          example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'          
           minLength: 1
           maxLength: 2048
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: L-8
-          readOnly: true
+          example: L-8          
           minLength: 1
           maxLength: 20
         degree_class_name:
           type: string
           description: Name of the degree class / Denominazione della classe di laurea 
-          example: 'Ingegneria informatica, Scienze giuridiche'
-          readOnly: true
+          example: 'Ingegneria informatica, Scienze giuridiche'          
           minLength: 1
           maxLength: 2048
         degree_course_duration_in_years_or_months:
           type: string
-          description: Duration of study course / Durata del corso di studi
-          readOnly: true
+          description: Duration of study course / Durata del corso di studi          
           minLength: 1
           maxLength: 2048
         duration_ects_credits:
           type: integer
           format: int32
-          description: Duration of study course in ECTS/ Durata del corso di studi in ECTS
-          readOnly: true
+          description: Duration of study course in ECTS/ Durata del corso di studi in ECTS          
           minimum: 1
           maximum: 999
         start_date_of_academic_year:
           type: string
           format: date
           description: Academic year start date / Data inzio anno accademico
-          example: 2023-10-01
-          readOnly: true
+          example: 2023-10-01          
           minLength: 10
           maxLength: 10
         end_date_of_academic_year:
           type: string
           format: date
           description: Academic year end date / Data fine anno accademico
-          example: 2020-10-01
-          readOnly: true
+          example: 2020-10-01          
           minLength: 10
           maxLength: 10
     proof_personal_mobility_periods:
@@ -846,87 +811,75 @@ components:
         eqf_level:
           type: string
           description: Level of education (EQF) / Livello di educazione (EQF)
-          example: Livello 7
-          readOnly: true
+          example: Livello 7          
           minLength: 1
           maxLength: 2048
         mobility_start_date:
           type: string
           format: date
           description: Erasmus start date / Data inzio anno erasmus
-          example: 2020-05-17
-          readOnly: true
+          example: 2020-05-17          
           minLength: 10
           maxLength: 10
         mobility_end_date:
           type: string
           format: date
           description: Erasmus end date / Data fine anno erasmus
-          example: 2021-05-17
-          readOnly: true
+          example: 2021-05-17          
           minLength: 10
           maxLength: 10
         mobility_period_type:
           type: string
           description: Type of mobility period / Tipo del periodo di mobilità
-          example: Lungo termine
-          readOnly: true
+          example: Lungo termine          
           minLength: 1
           maxLength: 2048
         destination_institute_name:
           type: string
           description: Name of destination institution / Nome dell'istituto di destinazione
-          example: Universidad Politecnica de Madrid
-          readOnly: true
+          example: Universidad Politecnica de Madrid          
           minLength: 1
           maxLength: 2048
         destination_erasmus_code:
           type: string
           description: Code of destination institution / Codice dell'istituto di destinazione
-          example: VALENCI02
-          readOnly: true
+          example: VALENCI02          
           minLength: 1
           maxLength: 2048
         departure_institute_name:
           type: string
           description: Name of departure institution / Nome dell'istituto di partenza
-          example: Politecnico di Milano
-          readOnly: true
+          example: Politecnico di Milano          
           minLength: 1
           maxLength: 2048
         departure_erasmus_code:
           type: string
           description: Code of departure institution / Codice dell'istituto di partenza
-          example: MILANO02
-          readOnly: true
+          example: MILANO02          
           minLength: 1
           maxLength: 2048
         destination_department:
           type: string
           description: Department of destination / Dipartimento di destinazione
-          example: Faculty of Science & Engineering
-          readOnly: true
+          example: Faculty of Science & Engineering          
           minLength: 1
           maxLength: 2048
         departure_department:
           type: string
           description: Department of departure / Dipartimento di partenza
-          example: Dipartimento di Ingegneria Industriale
-          readOnly: true
+          example: Dipartimento di Ingegneria Industriale          
           minLength: 1
           maxLength: 2048
         destination_country:
           type: string
           description: Destination country / Paese di destinazione
-          example: Spagna
-          readOnly: true
+          example: Spagna          
           minLength: 1
           maxLength: 2048
         departure_country:
           type: string
           description: Departure country / Paese di arrivo
-          example: Italia
-          readOnly: true
+          example: Italia          
           minLength: 1
           maxLength: 2048
     enrollment:
@@ -937,35 +890,30 @@ components:
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: '16'
-          readOnly: true
+          example: '16'          
           minLength: 2
           maxLength: 2
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
-          example: 'Milano - Politecnico'
-          readOnly: true
+          example: 'Milano - Politecnico'          
           minLength: 1
           maxLength: 2048
         programme_type_code:
           type: string
           description: Code of study program / Codice del corso di studio
-          example: 'LM'
-          readOnly: true
+          example: 'LM'          
           minLength: 1
           maxLength: 2
         degree_course_code:
           type: string
-          description: Course code / Codice del corso
-          readOnly: true
+          description: Course code / Codice del corso          
           minLength: 1
           maxLength: 20
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: L-8
-          readOnly: true
+          example: L-8          
           nullable: true
           minLength: 1
           maxLength: 20
@@ -973,8 +921,7 @@ components:
           type: string
           description: Last academic year in which enrollment in the student's course is recorded / Ultimo anno accademico in cui risulta l'iscrizione al corso della studentessa o dello studente 
           example: 2022/2023
-          pattern: '^\d{4}/\d{4}$'
-          readOnly: true
+          pattern: '^\d{4}/\d{4}$'          
           minLength: 9
           maxLength: 9
         degree_course_year:
@@ -982,15 +929,13 @@ components:
           format: int32
           description: Last year in which enrollment in the student's course is recorded / Ultimo anno in cui risulta l'iscrizione al corso della studentessa o dello studente
           example: 3
-          pattern: ^\d{2}$
-          readOnly: true
+          pattern: ^\d{2}$          
           minimum: 1
           maximum: 99
         status:
           type: string
           description: Enrollment status / Stato dell'iscrizione
-          example: attivo
-          readOnly: true
+          example: attivo          
           minLength: 1
           maxLength: 20
           enum:
@@ -1009,23 +954,20 @@ components:
           example: RSSMRA80A01F205D
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
           minLength: 16
-          maxLength: 16
-          readOnly: true
+          maxLength: 16          
           nullable: true
         person_id:
           type: string
           description: ANPR Identifier / Identificativo ANPR 
           maxLength: 9
           minLength: 9
-          example: AB123456C
-          readOnly: true
+          example: AB123456C          
           nullable: true
         given_name:
           type: string
           description: Name / Nome
           example: Mario
-          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
-          readOnly: true
+          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$          
           minLength: 1
           maxLength: 2048
           nullable: true
@@ -1033,8 +975,7 @@ components:
           type: string
           description: Surname / Cognome
           example: Rossi
-          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
-          readOnly: true
+          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$          
           minLength: 1
           maxLength: 2048
           nullable: true
@@ -1043,14 +984,12 @@ components:
           format: date
           example: 1990-05-17
           pattern: '^\d{4}-\d{2}-\d{2}$'
-          description: Date of birth / Data di nascita
-          readOnly: true
+          description: Date of birth / Data di nascita          
           nullable: true
         birth_place:
           type: string
           example: Rome
-          description: Place of birth / Luogo di nascita
-          readOnly: true
+          description: Place of birth / Luogo di nascita          
           minLength: 1
           maxLength: 2048
           nullable: true

@@ -414,21 +414,18 @@ components:
           example: RSSMRA80A01F205D
           minLength: 16
           maxLength: 16
-          readOnly: false
         person_id:
           type: string
           description: National unique identifier / Identificativo unico nazionale
           example: 12345678A
           minLength: 9
           maxLength: 9
-          readOnly: false  
         file_code:
           type: string
           description: qualification change request code/ Codice Rettifica titolo
           example: 6d183bc572f6b200015a4167
           minLength: 1
           maxLength: 64
-          readOnly: false  
       required:
         - tax_code     
         - file_code    
@@ -443,21 +440,21 @@ components:
           example: '213521'
           minLength: 1
           maxLength: 2048
-          readOnly: true
+          
         subscriber_name:
           type: string
           description: Applicant name / Nome richiedente
           example: ANIS
           minLength: 1
           maxLength: 2048
-          readOnly: true
+          
         subscriber_message:
           type: string
           description: Applicant message / Messaggio richiedente
           example: It wasn't possible to load all the enrollments of this student
           minLength: 1
           maxLength: 2048
-          readOnly: true
+          
         data_request_timestamp:
           type: string
           format: date-time
@@ -465,7 +462,7 @@ components:
           example: 2019-10-12T07:20:50.52Z
           minLength: 1
           maxLength: 36
-          readOnly: true
+          
         personal_data:
           $ref: '#/components/schemas/personal_data'
         qualifications:
@@ -614,13 +611,13 @@ components:
         attribute_name:
           type: string
           description: Attribute name to be changed  / Nome attributo da variare in fase di rettifica iscrizione
-          readOnly: true
+          
           minLength: 1
           maxLength: 256
         issue_description:
           type: string
           description: New value to be rectified / Nuovo valore da rettificare
-          readOnly: true
+          
           minLength: 1
           maxLength: 256 
       required:
@@ -634,7 +631,7 @@ components:
         file_status:
           type: string
           description: Status of an academic change request for a student / Stato di una rettifica per una studentessa o uno studente
-          readOnly: true
+          
           minLength: 1
           maxLength: 256
           enum:
@@ -644,13 +641,13 @@ components:
         file_code:
           type: string
           description: Change request code/ Codice rettifica 
-          readOnly: true
+          
           minLength: 1
           maxLength: 256    
         message:
           type: string
           description: Change request message output / Messaggio esito richiesta rettifica
-          readOnly: true
+          
           minLength: 1
           maxLength: 256 
       required:

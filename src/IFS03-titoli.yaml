@@ -471,40 +471,34 @@ components:
       properties:
         institute_code:
           type: string
-          description: Institute identification code / Codice identificativo dell'istituto
-          readOnly: true
+          description: Institute identification code / Codice identificativo dell'istituto          
           minLength: 2
           maxLength: 2
         institute_name:
           type: string
-          description: Name of institution / Nome dell'istituto
-          readOnly: true
+          description: Name of institution / Nome dell'istituto          
           minLength: 1
           maxLength: 2048
         qualification_name:
           type: string
-          description: Title of the degree / Denominazione del titolo di studio
-          readOnly: true
+          description: Title of the degree / Denominazione del titolo di studio          
           minLength: 1
           maxLength: 2048
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
-          example: 'LM'
-          readOnly: true
+          example: 'LM'          
           minLength: 1
           maxLength: 2
         degree_course_code:
           type: string
-          description: Course Code / Codice del corso
-          readOnly: true
+          description: Course Code / Codice del corso          
           minLength: 1
           maxLength: 20
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: L-8
-          readOnly: true
+          example: L-8          
           nullable: true
           minLength: 1
           maxLength: 20
@@ -513,22 +507,19 @@ components:
           description: Date of graduation / Data di conseguimento del titolo di studio
           pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'
           example: '2023-05-15'
-          format: date
-          readOnly: true
+          format: date          
         qualification_grade_value:
           type: string
           description: Grade obtained upon graduation / Voto ottenuto al conseguimento del titolo di studio
           minLength: 1
           maxLength: 32
-          example: '110'
-          readOnly: true
+          example: '110'          
         qualification_grading_scale:
           type: string
           minLength: 1
           maxLength: 32
           example: '110'
-          description: Rating scale / Scala di valutazione
-          readOnly: true
+          description: Rating scale / Scala di valutazione          
           nullable: true
         qualification_grading_scale_minimum_grade:
           type: string
@@ -536,8 +527,7 @@ components:
           minLength: 1
           maxLength: 32
           example: '66'
-          description: Minimum course grade / Voto minimo del corso
-          readOnly: true
+          description: Minimum course grade / Voto minimo del corso          
           nullable: true
         qualification_grading_scale_maximum_grade:
           type: string
@@ -545,8 +535,7 @@ components:
           maxLength: 32
           nullable: true
           example: '110'
-          description: Highest course grade / Voto massimo del corso
-          readOnly: true
+          description: Highest course grade / Voto massimo del corso          
     proof_education_qualifications:
       additionalProperties: false
       type: object
@@ -573,55 +562,55 @@ components:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: '16'
-          readOnly: true
+          
           minLength: 2
           maxLength: 2
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
           example: 'Milano - Politecnico'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         qualification_name:
           type: string
           description: Name qualification achieved / Nome titolo ottenuto
           example: 'Laurea in ingegneria informatica'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
           example: 'LM'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2
         programme_type_name:
           type: string
           description: Type of course of study / Tipo di corso di studio
           example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         degree_course_code:
           type: string
           description: Course Code / Codice del corso
-          readOnly: true
+          
           minLength: 1
           maxLength: 20
         degree_course_name:
           type: string
           description: Course name / Denominazione corso
           example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
-          readOnly: true
+          
           nullable: true
           minLength: 1
           maxLength: 20
@@ -629,7 +618,7 @@ components:
           type: string
           description: Name of the degree class / Denominazione della classe di laurea 
           example: 'Informatica, Meccanica, Elettronica, Civile'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         academic_qualification_date:
@@ -637,7 +626,7 @@ components:
           format: date
           description: Date of completion of studies / Data completamento studi
           example: 2023-10-01
-          readOnly: true
+          
           minLength: 10
           maxLength: 10
         qualification_grade_value:
@@ -646,14 +635,14 @@ components:
           minLength: 1
           maxLength: 32
           example: '110'
-          readOnly: true
+          
         qualification_grading_scale:
           type: string
           minLength: 1
           maxLength: 32
           example: '110'
           description: Rating scale / Scala di valutazione
-          readOnly: true
+          
           nullable: true
         qualification_grading_scale_minimum_grade:
           type: string
@@ -661,7 +650,7 @@ components:
           maxLength: 32
           example: '66'
           description: Minimum course grade / Voto minimo del corso
-          readOnly: true
+          
           nullable: true
         qualification_grading_scale_maximum_grade:
           type: string
@@ -669,13 +658,13 @@ components:
           maxLength: 32
           example: '110'
           description: Highest course grade / Voto massimo del corso
-          readOnly: true
+          
           nullable: true
         academic_qualification_country:
           type: string
           description: Country of the academic institution / Paese dell'istituzione accademica
           example: Italia
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
     proof_education_qualifications_diploma_supplement:
@@ -712,56 +701,56 @@ components:
           format: int32
           description: Credits recieved / Crediti ricevuti
           example: 180
-          readOnly: true
+          
           maximum: 999
           minimum: 1
         institute_name: 
           type: string
           description: Institute name / Nome dell'istituto
           example: 'Cagliari - Università degli Studi'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: '04'
-          readOnly: true
+          
           minLength: 2
           maxLength: 2
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
           example: 'MS'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2
         programme_type_name:
           type: string
           description: Type of course of study / Tipo di corso di studio
           example: 'Laurea Magistrale (DM 270/04)'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         degree_course_code:
           type: string
           description: Course Code / Codice del corso
           example: '455'
-          readOnly: true
+          
           minLength: 1
           maxLength: 20
         degree_course_name:
           type: string
           description: Course name / Denominazione corso
           example: 'Ingegneria informatica'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: LM-32
-          readOnly: true
+          
           nullable: true
           minLength: 1
           maxLength: 20
@@ -769,28 +758,28 @@ components:
           type: string
           description: Name of the degree class / Denominazione della classe di laurea 
           example: 'Ingegneria informatica'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         degree_course_duration_in_years_or_months:
           type: string
           description: Duration of ccourse / Durata del corso
           example: '3 anni a tempo pieno'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         qualification_grade_value:
           type: string
           description: Grade / voto
           example: '100'
-          readOnly: true
+          
           minLength: 1
           maxLength: 32
         qualification_grading_scale:
           type: string
           description: Rating scale / Scala di valutazione
           example: '110'
-          readOnly: true
+          
           nullable: true
           minLength: 1
           maxLength: 32
@@ -798,7 +787,7 @@ components:
           type: string
           description: Rating scale minimum / Scala di valutazione minima
           example: '66'
-          readOnly: true
+          
           nullable: true
           minLength: 1
           maxLength: 32
@@ -806,7 +795,7 @@ components:
           type: string
           description: Rating scale maximum / Scala di valutazione massima
           example: '110'
-          readOnly: true
+          
           nullable: true
           minLength: 1
           maxLength: 32
@@ -815,56 +804,56 @@ components:
           format: date
           description: Date of completion of studies / Data completamento studi
           example: 2022-07-01
-          readOnly: true
+          
           minLength: 10
           maxLength: 10
         access_to_regulated_profession:
           type: string
           description: Rating scale maximum / Scala di valutazione massima
           example: 'Non applicabile'
-          readOnly: true
+          
           minLength: 1
           maxLength: 32
         administering_institute_name:
           type: string
           description: Administering institute name / Nome dell'Istituto Amministratrice
           example: 'Cagliari - Università degli studi'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         administering_institute_status:
           type: string
           description: Administering institute status / Stato dell'Istituto Amministratrice
           example: 'xx'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         qualification_institute_name:
           type: string
           description: Qualiification institute name / Nome dell'Istituto di qualificazione
           example: 'Cagliari - Università degli studi'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         qualification_institute_status:
           type: string
           description: Qualiification institute status / Stato dell'Istituto di qualificazione
           example: 'xx'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         eqf_level:
           type: string
           description: EQF level / Livello EQF
           example: '6° livello'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         nqf_level:
           type: string
           description: NQF level / Livello NQF
           example: 'I ciclo QF-XXX'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         attended_learnings:
@@ -884,28 +873,28 @@ components:
           type: string
           description: Diploma name / Denominazione diploma
           example: 'Laurea in Scienze Aziendali'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         study_programme_duration_years_or_months:
           type: string
           description: Duration of study programme in years or months / Durata programma di studio in anni o mesi
           example: '3 anni a tempo pieno'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: '16'
-          readOnly: true
+          
           minLength: 2
           maxLength: 2
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
           example: 'Milano - Politecnico'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         academic_qualification_date:
@@ -913,7 +902,7 @@ components:
           format: date
           description: Date of graduation / Data ottenimento titolo
           example: 2022-07-01
-          readOnly: true
+          
           minLength: 10
           maxLength: 10
         total_ects:
@@ -921,34 +910,34 @@ components:
           format: int32
           description: Total ECTS credits / Crediti totali ECTS
           example: 180
-          readOnly: true
+          
           maximum: 999
           minimum: 1
         eqf_level:
           type: string
           description: EQF level / Livello EQF
           example: '6° livello'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         nqf_level:
           type: string
           description: NQF level / Livello NQF
           example: 'I ciclo QF-EHEA'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         has_parent_relation:
           type: boolean
           description: Parent relation / Relazione con i genitori
           example: true
-          readOnly: true
+          
         degree_course_duration_ects_credit:
           type: integer
           format: int32
           description: Course duration in ECTS / Durata corso di studi in ECTS
           example: 180
-          readOnly: true
+          
           maximum: 999
           minimum: 1
         ects_courses:
@@ -967,21 +956,21 @@ components:
           type: string
           description: Exam vote / Voto d'esame
           example: '30/30, Idoneo'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         learning_name:
           type: string
           description: Exam name / Nome d'esame
           example: 'Esame 1, Esame 2'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
         learning_start_date:          
           type: string
           description: Course start date / Data inizio corso
           example: 2018-12-01
-          readOnly: true
+          
           minLength: 10
           maxLength: 10
         learning_end_date:          
@@ -989,7 +978,7 @@ components:
           format: date
           description: Course end date / Data fine corso
           example: 2019-03-01
-          readOnly: true
+          
           minLength: 10
           maxLength: 10
     ects_courses:
@@ -1002,7 +991,7 @@ components:
           format: int32
           description: Course in ECTS / Corso in ECTS
           example: 180
-          readOnly: true
+          
           maximum: 999
           minimum: 1
     personal_data:
@@ -1018,7 +1007,7 @@ components:
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
           minLength: 16
           maxLength: 16
-          readOnly: true
+          
           nullable: true
         person_id:
           type: string
@@ -1027,14 +1016,14 @@ components:
           minLength: 9
           pattern: "^[A-Z0-9]{9}$"
           example: AB123456C
-          readOnly: true
+          
           nullable: true
         given_name:
           type: string
           description: Name / Nome
           example: Mario
           pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
           nullable: true
@@ -1043,7 +1032,7 @@ components:
           description: Surname / Cognome
           example: Rossi
           pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
           nullable: true
@@ -1053,13 +1042,13 @@ components:
           example: '1990-05-17'
           pattern: '^\d{4}-\d{2}-\d{2}$'
           description: Date of birth / Data di nascita
-          readOnly: true
+          
           nullable: true
         birth_place:
           type: string
           example: Rome
           description: Place of birth / Luogo di nascita
-          readOnly: true
+          
           minLength: 1
           maxLength: 2048
           nullable: true

@@ -148,20 +148,20 @@ components:
           type: string
           description: Code of study program / codice del corso di studio
           example: 'LM'
-          readOnly: true
+          
           minLength: 1
           maxLength: 2
         degree_course_code:
           type: string
           description: Course code / Codice del corso
-          readOnly: true
+          
           minLength: 1
           maxLength: 20
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: L-8
-          readOnly: true
+          
           minLength: 1
           maxLength: 20
         female_enrollment_count:
@@ -170,7 +170,7 @@ components:
           description: number of enrollment/numero di iscritti (female)
           example: 30000
           nullable: true
-          readOnly: true
+          
           minimum: 1
           maximum: 9999999
         male_enrollment_count:
@@ -179,7 +179,7 @@ components:
           description: number of enrollment/numero di iscritti (male)
           example: 30000
           nullable: true
-          readOnly: true
+          
           minimum: 1
           maximum: 9999999  
       required:
