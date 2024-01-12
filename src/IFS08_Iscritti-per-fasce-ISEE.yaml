@@ -220,10 +220,13 @@ components:
           description: List of ISEE bands / Elenco di fasce ISEE
           items:
             $ref: '#/components/schemas/ranges'
-            
     isee_enrollment_request:
       type: object
-      additionalProperties: false      
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/Learning
+      x-jsonld-context:
+        LEA: https://w3id.org/italia/onto/Learning/
+        academic_year: LEA:AcademicYear
       x-examples:
         Example 1:
           academic_year : 2023/2024

@@ -177,10 +177,10 @@ components:
     data:
       type: object
       additionalProperties: false
-      x-jsonld-type: https://w3id.org/italia/onto/xxx/yyy
+      x-jsonld-type: https://w3id.org/italia/onto/Learning
       x-jsonld-context:
-        '@vocab': http://w3id.org/italia/onto/xxx/
-        institute_code: institute_code
+        LEA: https://w3id.org/italia/onto/Learning/
+        institute_code: LEA:instituteCode
       x-examples:
         Example 1:
           institute_code: C6

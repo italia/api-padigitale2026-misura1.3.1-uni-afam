@@ -152,12 +152,15 @@ components:
           description: count academic student enrollments / numero iscrizioni per corso
           items:
             $ref: '#/components/schemas/count_academic_enrollment'
-
-
-
     count_academic_enrollment:
       type: object
       additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/Learning
+      x-jsonld-context:
+        LEA: https://w3id.org/italia/onto/Learning/
+        programme_type_code: LEA:ProgrammeType
+        degree_course_code: LEA:DegreeCourse
+        degree_class_code: LEA:DegreeClass
       x-examples:
         Example 1:
           programme_type_code: MS
@@ -211,10 +214,14 @@ components:
         - degree_class_code
         - female_enrollment_count
         - male_enrollment_count
-        
     count_enrollment_request:
       type: object
-      additionalProperties: false      
+      additionalProperties: false
+      x-jsonld-type: https://w3id.org/italia/onto/Learning
+      x-jsonld-context:
+        LEA: https://w3id.org/italia/onto/Learning/
+        academic_year: LEA:AcademicYear
+        degree_course_code: LEA:DegreeCourse
       x-examples:
         Example 1:
           academic_year : 20
@@ -240,7 +247,6 @@ components:
       required:
         - academic_year      
         - degree_course_code
-
   requestBodies: {}
   responses: {}
   securitySchemes:
