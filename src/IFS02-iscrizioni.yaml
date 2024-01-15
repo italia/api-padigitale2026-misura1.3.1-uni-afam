@@ -502,9 +502,6 @@ components:
           description: List of enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
           items:
             $ref: '#/components/schemas/enrollment'
-      required:
-        - personal_data
-        - enrollments
     proof_education_enrollments:
       additionalProperties: false
       type: object
@@ -950,6 +947,15 @@ components:
             - attivo
             - non attivo
             - sospeso
+      required:
+        - status
+        - degree_course_year
+        - academic_year
+        - degree_class_code
+        - degree_course_code
+        - programme_type_code
+        - institute_name
+        - institute_code
     personal_data:
       type: object
       nullable: true
