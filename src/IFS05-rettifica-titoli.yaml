@@ -17,8 +17,8 @@ security: [{}]
 paths:
   '/academic-qualification-change-request':
     post:
-      summary: (OK) Correction of student registration / Rettifica iscrizione studente
-      operationId: rectification-student-qualification
+      summary: Academic qualification change request / Richiesta di rettifica dei titoli conseguti
+      operationId: academic-qualification-change-request
       tags:
         - academic-qualification-change-request
       security:
@@ -26,7 +26,7 @@ paths:
       parameters: []
       responses:
         '200':
-          description: Registration correction request sent successfully / Richiesta rettifica iscrizione inviata con successo
+          description: Academic qualification change request sent successfully / Richiesta di rettifica del titolo conseguito inviata con successo
           content:
             application/json:
               schema:
@@ -36,12 +36,12 @@ paths:
                   value:
                     file_status: acquired
                     file_code: 6d183bc572f6b200015a4167
-                    message: Richiesta rettifica iscrizione acquisita
+                    message: Richiesta di rettifica del titolo conseguito acquisita con successo
         '404':
           description: Student not found / Studente non trovato
         '500':
           description: Internal server error / Errore interno del server 
-      description: Allows  to create a request to correct data relating to a student's registration / Permette di creare una richiesta di rettifica dei dati relativi alle iscrizioni di una studentessa o uno studente.
+      description: Create an academic qualification change request / Crea una richiesta di rettifica del titolo conseguito
       requestBody:
         required: true
         content:
@@ -79,7 +79,7 @@ paths:
   '/academic-qualification-change-request-status':
 
     post:
-      summary: (OK) Student qualification correction detail / Dettaglio rettifica iscrizione studentessa o studente
+      summary: Status of academic qualification change request / Stato della richiesta di rettifica di un titolo conseguito
       tags:
         - academic-qualification-change-request-status
       parameters: []
@@ -106,8 +106,8 @@ paths:
           description: Registration correction not found / Rettifica iscrizione non trovata
         '500':
           description: Internal server error / Errore interno del server 
-      operationId: detail-qualification-rectification
-      description: Allows you to retrieve the status of a registration adjustment request via its identifier / Permette di recuperare lo stato di una richiesta di rettifica iscrizione tramite il suo identificativo
+      operationId: status-academic-qualification-change-request
+      description: Retrieve the status of the academic qualification change request satus / Permette di recuperare lo stato di una richiesta di rettifica del titolo conseguito
       requestBody:
         required: true
         content:
@@ -128,7 +128,7 @@ paths:
         description: 'Request di esempio'
   '/academic-qualification-change-request-cancellation':
     post:
-      summary: academic qualification change request cancellation / Richiesta di annullamento rettifica
+      summary: academic qualification change request cancellation / Richiesta di annullamento della richiesta di rettific di un titolo conseguito
       tags:
         - academic-qualification-change-request-cancellation
 
@@ -136,7 +136,7 @@ paths:
         - bearerAuth: []
       responses:
         '200':
-          description: Request for cancellation of rectification completed successfully / Richiesta annullamento rettifica eseguita con successo
+          description: Cancellation of academic qualification change request completed successfully / Aannullamento della richiesta di rettifica del titolo eseguita con successo
           content:
             application/json:
               schema:
@@ -170,17 +170,17 @@ paths:
         description: 'Request di esempio'   
       operationId: academic-qualification-change-request-cancellation 
     parameters: []
-  '/academic-issue-change-request':
+  '/academic-qualifications-issues':
     post:
-      summary: Reporting any anomalies in academic qualification data / Comunicazione di eventuali anomalie sui dati delle iscrizioni accademiche
+      summary: Open the issues on academic qualifications data  / Apre le anomalie sui dati dei titoli accademici
       tags:
-        - academic-issue-change-request
+        - academic-qualifications-issues
       security:
         - bearerAuth: []
       parameters: []
       responses:
         '200':
-          description: Registration correction request sent successfully / Richiesta rettifica inviata con successo
+          description: issues created successfully / Anomalie create con successo
           content:
             application/json:
               schema:
@@ -195,7 +195,7 @@ paths:
           description: Student not found / Studente non trovato
         '500':
           description: Internal server error / Errore interno del server 
-      description: Allows to report an anomaly in the qualification data of a student. / Permette di segnalare una anomalia dei dati relativi alle iscrizioni di una studentessa o uno studente.
+      description: Report issues on academic qualifcations data  / Permette di segnalare le anomalie sui dati dei titoli accademici
       requestBody:
         required: true
         content:
@@ -207,7 +207,7 @@ paths:
                 value:
                   subscriber_id: "1234"
                   subscriber_name: ANIS
-                  subscriber_message: It wasn't possible to load all the enrollments of this student
+                  subscriber_message: It wasn't possible to load all the academic qualifcations of this student
                   data_request_timestamp: 2019-10-12T07:20:50.52Z
                   personal_data:
                     tax_code: RSSMRA80A01F205D
@@ -218,7 +218,7 @@ paths:
                     birth_place: null
                     issues:
                       - attribute_name: degree_course_code
-                        issue_description: degree course code didn't find on the controlled vocabulary
+                        issue_description: degree course code didn't find
                       - attribute_name: tax_code
                         issue_description: tax code didn't find on ANPR Master Data
                       - attribute_name: degree_course_year
@@ -248,7 +248,7 @@ paths:
               additionalProperties: false
               properties: {}
         description: ''
-      operationId: academic-issue-change-request 
+      operationId: academic-qualifcations-issues 
     parameters: []
   /status:
     get:
@@ -451,7 +451,7 @@ components:
         subscriber_message:
           type: string
           description: Applicant message / Messaggio richiedente
-          example: It wasn't possible to load all the enrollments of this student
+          example: It wasn't possible to load all the academic qualifications of this student
           minLength: 1
           maxLength: 2048
           
@@ -668,5 +668,5 @@ tags:
   - name: academic-qualification-change-request
   - name: academic-qualification-change-request-status
   - name: academic-qualification-change-request-cancellation
-  - name: academic-issue-change-request
+  - name: academic-qualifcations-issues
   - name: health-check

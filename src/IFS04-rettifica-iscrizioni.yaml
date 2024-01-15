@@ -17,7 +17,7 @@ security: [{}]
 paths:
   '/academic-enrollment-change-request':
     post:
-      summary: Change request of student registration / Rettifica iscrizione studente
+      summary: Enrollment change request / Rettifica iscrizione studente
       tags:
         - academic-enrollment-change-request
       security:
@@ -40,7 +40,7 @@ paths:
           description: Student not found / Studente non trovato
         '500':
           description: Internal server error / Errore interno del server 
-      description: Allows  to create a request to correct data relating to a student's registration / Permette di creare una richiesta di rettifica dei dati relativi alle iscrizioni di una studentessa o uno studente.
+      description: Create an enrollment change request / Crea una richiesta di rettifica dei dati relativi alle iscrizioni di una studentessa o uno studente.
       requestBody:
         required: true
         content:
@@ -106,7 +106,7 @@ paths:
           description: Change request not found / Rettifica iscrizione non trovata
         '500':
           description: Internal server error / Errore interno del server 
-      description: Allows you to retrieve the status of a registration adjustment request via its identifier / Permette di recuperare lo stato di una richiesta di rettifica iscrizione tramite il suo identificativo
+      description: Retrieve the status of enrollmet change request / Recupera lo stato di una richiesta di rettifica iscrizione tramite il suo identificativo
       requestBody:
         required: true
         content:
@@ -169,17 +169,17 @@ paths:
               properties: {}
         description: 'Esempio richiesta'            
     parameters: []
-  '/academic-issue-change-request':
+  '/enrollments-issues':
     post:
-      summary: Reporting any anomalies in academic enrollment data / Comunicazione di eventuali anomalie sui dati delle iscrizioni accademiche
+      summary: Open the issues on enrollments data  / Apre le anomalie sui dati delle iscrizioni
       tags:
-        - academic-issue-change-request
+        - enrollments-issues
       security:
         - bearerAuth: []
       parameters: []
       responses:
         '200':
-          description: Change request sent successfully / Richiesta rettifica inviata con successo
+          description: issues created successfully / anomalie aperte con successo
           content:
             application/json:
               schema:
@@ -194,7 +194,7 @@ paths:
           description: Student not found / Studente non trovato
         '500':
           description: Internal server error / Errore interno del server 
-      description: Allows to report an anomaly in the enrollment data of a student. / Permette di segnalare una anomalia dei dati relativi alle iscrizioni di una studentessa o uno studente.
+      description: Report issue on enrollments data  / Permette di segnalare le anomalie sui dati delle iscrizioni
       requestBody:
         required: true
         content:
@@ -233,7 +233,7 @@ paths:
                     status: attivo
                     issues:
                       - attribute_name: degree_course_code
-                        issue_description: degree course code didn't find on the controlled vocabulary
+                        issue_description: degree course code didn't find
                       - attribute_name: tax_code
                         issue_description: tax code didn't find on ANPR Master Data
                       - attribute_name: degree_course_year
@@ -244,7 +244,7 @@ paths:
               additionalProperties: false
               properties: {}
         description: ''
-      operationId: academic-issue-change-request 
+      operationId: enrollments-issues
     parameters: []
   /status:
     get:
@@ -421,7 +421,7 @@ components:
           type: array
           maxItems: 256
           minItems: 0
-          description: List of issues to be varied / Lista di attributi da variare
+          description: List of issues / Lista di anomalie 
           items:
             $ref: '#/components/schemas/issue'
     enrollments:
@@ -488,7 +488,7 @@ components:
           type: array
           maxItems: 256
           minItems: 0
-          description: List of issues to be varied / Lista di attributi da variare
+          description: List of issues / Lista di anomalie
           items:
             $ref: '#/components/schemas/issue'
     issue:
@@ -653,6 +653,6 @@ tags:
   - name: academic-enrollment-change-request
   - name: academic-enrollment-change-request-status
   - name: academic-enrollment-change-request-cancellation
-  - name: academic-issue-change-request
+  - name: enrollments-issues
   - name: health-check
   
