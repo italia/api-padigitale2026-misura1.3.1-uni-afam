@@ -17,7 +17,7 @@ security: [{}]
 paths:
   '/academic-enrollment-change-request':
     post:
-      summary: (OK) Correction of student registration / Rettifica iscrizione studente
+      summary: Change request of student registration / Rettifica iscrizione studente
       tags:
         - academic-enrollment-change-request
       security:
@@ -25,7 +25,7 @@ paths:
       parameters: []
       responses:
         '200':
-          description: Registration correction request sent successfully / Richiesta rettifica iscrizione inviata con successo
+          description: Change request sent successfully / Richiesta rettifica iscrizione inviata con successo
           content:
             application/json:
               schema:
@@ -79,7 +79,7 @@ paths:
   '/academic-enrollment-change-request-status':
   
     post:
-      summary: (OK) Student enrollment correction detail / Dettaglio rettifica iscrizione studentessa o studente
+      summary: Student enrollment change request detail / Dettaglio rettifica iscrizione studentessa o studente
       tags:
         - academic-enrollment-change-request-status
       parameters: []
@@ -103,7 +103,7 @@ paths:
                         file_code: 6d183b54654127dfhh15a4167
                         message: testo messaggio  
         '404':
-          description: Registration correction not found / Rettifica iscrizione non trovata
+          description: Change request not found / Rettifica iscrizione non trovata
         '500':
           description: Internal server error / Errore interno del server 
       description: Allows you to retrieve the status of a registration adjustment request via its identifier / Permette di recuperare lo stato di una richiesta di rettifica iscrizione tramite il suo identificativo
@@ -179,7 +179,7 @@ paths:
       parameters: []
       responses:
         '200':
-          description: Registration correction request sent successfully / Richiesta rettifica inviata con successo
+          description: Change request sent successfully / Richiesta rettifica inviata con successo
           content:
             application/json:
               schema:
