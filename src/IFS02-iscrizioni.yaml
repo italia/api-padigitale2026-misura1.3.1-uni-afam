@@ -321,7 +321,7 @@ paths:
                         degree_class_code: MSLM32
                         degree_class_name: Ingegneria informatica
                         degree_course_duration_in_years_or_months: "3 anni"
-                        duration_ects_credits: 180
+                        degree_course_duration_ects_credit: 180
                         start_date_of_academic_year: 2020-10-13
                         end_date_of_academic_year: 2023-10-13
         '400':
@@ -764,7 +764,7 @@ components:
           description: Duration of study course / Durata del corso di studi          
           minLength: 1
           maxLength: 2048
-        duration_ects_credits:
+        degree_course_duration_ects_credit:
           type: integer
           format: int32
           description: Duration of study course in ECTS/ Durata del corso di studi in ECTS          

@@ -19,7 +19,7 @@
       "degree_class_code": "MSLM32",
       "degree_class_name": "Ingegneria informatica",
       "degree_course_duration_in_years_or_months": "3 anni",
-      "duration_ects_credits": 180,
+      "degree_course_duration_ects_credit": 180,
       "start_date_of_academic_year": {},
       "end_date_of_academic_year": {}
     }
