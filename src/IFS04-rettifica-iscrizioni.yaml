@@ -230,7 +230,7 @@ paths:
                     degree_class_code: MSLM32
                     academic_year: 2021/2022
                     degree_course_year: 3
-                    status: attivo
+                    status: active
                     issues:
                       - attribute_name: degree_course_code
                         issue_description: degree course code didn't find
@@ -480,9 +480,9 @@ components:
           minLength: 1
           maxLength: 20
           enum:
-            - attivo
-            - non attivo
-            - sospeso
+            - active
+            - inactive
+            - wait
         issues:
           additionalProperties: false
           type: array

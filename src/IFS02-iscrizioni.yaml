@@ -44,7 +44,7 @@ paths:
                         degree_class_code: MSLM32
                         academic_year: 2021/2022
                         degree_course_year: 3
-                        status: attivo
+                        status: active
                 Personal data taxCode/personID:
                   value:
                     personal_data:
@@ -58,7 +58,7 @@ paths:
                         degree_class_code: MSLM32
                         academic_year: 2021/2022
                         degree_course_year: 3
-                        status: attivo        
+                        status: active        
                 Personal data witout taxCode:
                   value:
                     personal_data:
@@ -74,7 +74,7 @@ paths:
                         degree_class_code: MSLM32
                         academic_year: 2021/2022
                         degree_course_year: 3
-                        status: attivo        
+                        status: active        
                 Enrollments with degree class code:
                   value:
                     personal_data:
@@ -87,7 +87,7 @@ paths:
                         degree_class_code: MSLM32
                         academic_year: 2021/2022
                         degree_course_year: 3
-                        status: attivo       
+                        status: active       
                 Enrollments without degree class code:
                   value:
                     personal_data:
@@ -100,7 +100,7 @@ paths:
                         degree_class_code: MSLM32
                         academic_year: 2021/2022
                         degree_course_year: 3
-                        status: attivo               
+                        status: active               
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
@@ -940,13 +940,13 @@ components:
         status:
           type: string
           description: Enrollment status / Stato dell'iscrizione
-          example: attivo          
+          example: active          
           minLength: 1
           maxLength: 20
           enum:
-            - attivo
-            - non attivo
-            - sospeso
+            - active
+            - inactive
+            - wait
       required:
         - status
         - degree_course_year
