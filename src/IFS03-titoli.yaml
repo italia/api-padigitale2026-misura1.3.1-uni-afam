@@ -347,7 +347,7 @@ paths:
                       administering_institute_name: Cagliari - Università degli studi
                       administering_institute_status: xx
                       qualification_institute_name: Cagliari - Università degli studi
-                      qualification_institute_status: xx
+                      qualification_institute_status: private
                       eqf_level: 6° livello
                       nqf_level: I ciclo QF-XXX
                       attended_learnings:
@@ -768,31 +768,27 @@ components:
         qualification_grade_value:
           type: string
           description: Grade / voto
-          example: '100'
-          
+          example: '100'          
           minLength: 1
           maxLength: 32
         qualification_grading_scale:
           type: string
           description: Rating scale / Scala di valutazione
-          example: '110'
-          
+          example: '110'          
           nullable: true
           minLength: 1
           maxLength: 32
         qualification_grading_scale_minimum_grade:
           type: string
           description: Rating scale minimum / Scala di valutazione minima
-          example: '66'
-          
+          example: '66'          
           nullable: true
           minLength: 1
           maxLength: 32
         qualification_grading_scale_maximum_grade:
           type: string
           description: Rating scale maximum / Scala di valutazione massima
-          example: '110'
-          
+          example: '110'          
           nullable: true
           minLength: 1
           maxLength: 32
@@ -800,50 +796,46 @@ components:
           type: string
           format: date
           description: Date of completion of studies / Data completamento studi
-          example: 2022-07-01
-          
+          example: 2022-07-01          
           minLength: 10
           maxLength: 10
         access_to_regulated_profession:
           type: string
           description: Rating scale maximum / Scala di valutazione massima
-          example: 'Non applicabile'
-          
+          example: 'Non applicabile'          
           minLength: 1
           maxLength: 32
         administering_institute_name:
           type: string
           description: Administering institute name / Nome dell'Istituto Amministratrice
-          example: 'Cagliari - Università degli studi'
-          
+          example: 'Cagliari - Università degli studi'          
           minLength: 1
           maxLength: 2048
         administering_institute_status:
           type: string
           description: Administering institute status / Stato dell'Istituto Amministratrice
-          example: 'xx'
-          
+          example: 'xx'          
           minLength: 1
           maxLength: 2048
         qualification_institute_name:
           type: string
           description: Qualiification institute name / Nome dell'Istituto di qualificazione
-          example: 'Cagliari - Università degli studi'
-          
+          example: 'Cagliari - Università degli studi'          
           minLength: 1
           maxLength: 2048
         qualification_institute_status:
           type: string
           description: Qualiification institute status / Stato dell'Istituto di qualificazione
-          example: 'xx'
-          
+          example: 'private'          
           minLength: 1
           maxLength: 2048
+          enum:
+            - private
+            - public
         eqf_level:
           type: string
           description: EQF level / Livello EQF
-          example: '6° livello'
-          
+          example: '6° livello'          
           minLength: 1
           maxLength: 2048
         nqf_level:
