@@ -1,6 +1,6 @@
 {
    "programme_type_code":"LT",
-   "programme_access":"Libero",
+   "programme_access":"free",
    "course_location":"Milano Bovisa",
    "remote_mode": "on-site", /*full-remote, on-site, hybrid, not-available*/
    "course_area":"Ingegneria industriale",
@@ -149,7 +149,7 @@
 
 {
    "programme_type_code":"MS",
-   "programme_access":"Libero",
+   "programme_access":"free",
    "course_location":"Milano, Settimo Milanese",
    //"remote_course_activities":true, /*Può prevedere corsi da remoto? da verificare nome attributo */   
    //"is_full_remote":false, /*è full remote? da verificare nome attributo */   

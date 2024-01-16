@@ -952,15 +952,13 @@ components:
         learning_grade_value:
           type: string
           description: Exam vote / Voto d'esame
-          example: '30/30, Idoneo'
-          
+          example: '30/30, Idoneo'          
           minLength: 1
           maxLength: 2048
         learning_name:
           type: string
           description: Exam name / Nome d'esame
-          example: 'Esame 1, Esame 2'
-          
+          example: 'Esame 1, Esame 2'          
           minLength: 1
           maxLength: 2048
         learning_start_date:          
