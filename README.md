@@ -205,6 +205,11 @@ In questo paragrafo sono descritte le seguenti API:
 
 La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
 
+Suggeriamo infine di fare riferimento sempre alla sezione 
+[Risorse utili](#risorse-utili) che verrà implementata periodicamente.
+
+
+
 <hr>
 
 ### IFS01 Offerta Formativa
@@ -329,7 +334,7 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 >      * "institute_name": "Milano - Politecnico",
 >      * "programme_type_code": "MS",
 >      * "degree_course_code": "1573960",
->        "degree_class_code": "LM-32",
+>        "degree_class_code": "MSLM32",
 >      * "academic_year": "2021/2022",
 >      * "degree_course_year": 3,
 >      * "status": "attivo"
@@ -392,6 +397,13 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 
 > :bulb: **Importante:**    
 > * Si preaga di vedere le regole di obbligatorietà output presenti su [IFS02.1]
+
+
+
+
+
+
+
 
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
@@ -507,6 +519,7 @@ Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi s
 3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'erorre 404 (vedi esempio nel file YAML)
 
 
+[Risorse utili](#risorse-utili)
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
@@ -771,6 +784,22 @@ Work in progress
 * Convertitore di Json in Json-ld https://json-ld.org/playground/
 
 <img src="doc/05_gallery/scenario.png" width="400" />
+
+<hr>
+
+## Risorse utili:
+
+#### FILE Masterdata:
+
+Per la defnizione dei campi degree_class_code e programme_type_code si prega di fare riferimento al seguente documento link -> [masterdata](doc/03_analysis/masterdata/masterdata.xlsx) 
+
+contenente la definizione dei:
+* programme-type-vocabulary
+* degree-class-vocabulary
+* degree-class-vocabulary
+
+
+
 
 <hr>
 
