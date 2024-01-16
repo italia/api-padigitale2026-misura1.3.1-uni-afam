@@ -23,6 +23,7 @@
                "learnings":[
                   {
                      "learning_ssd":"MAT/03",
+                     "learning_ssa":"",
                      "learning_name":"ANALISI E GEOMETRIA 1",
                      "learning_code":"081360",
                      "learning_cfu":10,
@@ -33,6 +34,7 @@
                   },
                   {
                      "learning_ssd":"CHIM/07",
+                     "learning_ssa":"",
                      "learning_name":"FONDAMENTI DI CHIMICA",
                      "learning_code":"081374",
                      "learning_cfu":7,
@@ -47,6 +49,7 @@
                "learnings":[
                   {
                      "learning_ssd":"ING-IND/14",
+                     "learning_ssa":"",
                      "learning_name":"COSTRUZIONE DI MACCHINE 1",
                      "learning_code":"050834422782",
                      "learning_cfu":10,
@@ -56,6 +59,7 @@
                   },
                   {
                      "learning_ssd":"ING-IND/13",
+                     "learning_ssa":"",
                      "learning_name":"MECCANICA APPLICATA ALLE MACCHINE",
                      "learning_code":"054828",
                      "learning_cfu":10,
@@ -77,6 +81,7 @@
                "learnings":[
                   {
                      "learning_ssd":"ICAR/01",
+                     "learning_ssa":"",
                      "learning_name":"MECCANICA DEI FLUIDI",
                      "learning_code":"083503",
                      "learning_cfu":7,
@@ -86,6 +91,7 @@
                   },
                   {
                      "learning_ssd":"ING-IND/21",
+                     "learning_ssa":"",
                      "learning_name":"TECNOLOGIE METALLURGICHE",
                      "learning_code":"086509",
                      "learning_cfu":8,
@@ -108,6 +114,7 @@
                "learnings":[
                   {
                      "learning_ssd":"ING-IND/17",
+                     "learning_ssa":"",
                      "learning_name":"IMPIANTI MECCANICI",
                      "learning_code":"086468",
                      "learning_cfu":7,
@@ -117,6 +124,7 @@
                   },
                   {
                      "learning_ssd":"ING-IND/14",
+                     "learning_ssa":"",
                      "learning_name":"TEORIA E TECNICA DEI VEICOLI TERRESTRI",
                      "learning_code":"086512",
                      "learning_cfu":5,
@@ -180,6 +188,7 @@
                "learnings":[
                   {
                      "learning_ssd":"ING-IND/06",
+                     "learning_ssa":"",
                      "learning_name":"AERODINAMICA",
                      "learning_code":"081066",
                      "learning_cfu":10,
@@ -190,6 +199,7 @@
                   },
                   {
                      "learning_ssd":"ING-IND/04",
+                     "learning_ssa":"",
                      "learning_name":"STRUTTURE AEROSPAZIALI",
                      "learning_code":"083768",
                      "learning_cfu":10,
@@ -204,6 +214,7 @@
                "learnings":[
                   {
                      "learning_ssd":"ING-IND/07",
+                     "learning_ssa":"",
                      "learning_name":"LAUNCH SYSTEMS",
                      "learning_code":"052782",
                      "learning_cfu":8,
@@ -213,6 +224,7 @@
                   },
                   {
                      "learning_ssd":"ING-INF/04",
+                     "learning_ssa":"",
                      "learning_name":"TECNOLOGIE DEI SISTEMI DI CONTROLLO PER L'AERONAUTICA",
                      "learning_code":"091263",
                      "learning_cfu":8,
@@ -234,6 +246,7 @@
                "learnings":[
                   {
                      "learning_ssd":"ING-IND/06",
+                     "learning_ssa":"",
                      "learning_name":"AERODINAMICA",
                      "learning_code":"081066",
                      "learning_cfu":10,
@@ -243,6 +256,7 @@
                   },
                   {
                      "learning_ssd":"ING-IND/04",
+                     "learning_ssa":"",
                      "learning_name":"STRUTTURE AEROSPAZIALI",
                      "learning_code":"083768",
                      "learning_cfu":10,
@@ -257,6 +271,7 @@
                "learnings":[
                   {
                      "learning_ssd":"ING-IND/07",
+                     "learning_ssa":"",
                      "learning_name":"LAUNCH SYSTEMS",
                      "learning_code":"052782",
                      "learning_cfu":8,
@@ -266,6 +281,7 @@
                   },
                   {
                      "learning_ssd":"ING-INF/04",
+                     "learning_ssa":"",
                      "learning_name":"TECNOLOGIE DEI SISTEMI DI CONTROLLO PER L'AERONAUTICA",
                      "learning_code":"091263",
                      "learning_cfu":8,
