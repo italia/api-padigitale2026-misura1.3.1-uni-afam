@@ -799,8 +799,6 @@ contenente la definizione dei:
 * degree-class-vocabulary
 
 
-
-
 <hr>
 
 ## Per maggiori informazioni:

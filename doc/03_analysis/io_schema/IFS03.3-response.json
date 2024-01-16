@@ -9,8 +9,7 @@
    "birth_place": null
   },
   "proof_qualifications_level": {
-    "qualification_name": "Laurea in Scienze Aziendali",
-    "study_programme_duration_years_or_months": "3 anni a tempo pieno",
+    "qualification_name": "Laurea in Scienze Aziendali",    
     "institute_code": "16",
     "institute_name": "Milano - Politecnico",
     "academic_qualification_date": {},
@@ -18,6 +17,7 @@
     "eqf_level": "6° livello",
     "nqf_level": "I ciclo QF-EHEA",
     "has_parent_relation": false,
+    "degree_course_duration_in_years_or_months": "3 anni a tempo pieno",
     "degree_course_duration_ects_credit": 180,
     "ects_courses": [
       {

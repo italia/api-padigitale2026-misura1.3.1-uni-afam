@@ -255,7 +255,7 @@ paths:
                       family_name: null
                     proof_qualifications_level:
                       qualification_name: Laurea in Scienze Aziendali
-                      study_programme_duration_years_or_months: 3 anni a tempo pieno
+                      degree_course_duration_years_or_months: 3 anni a tempo pieno
                       institute_code: '16'
                       institute_name: Milano - Politecnico
                       academic_qualification_date: 2022-07-01
@@ -873,7 +873,7 @@ components:
           
           minLength: 1
           maxLength: 2048
-        study_programme_duration_years_or_months:
+        degree_course_duration_in_years_or_months:
           type: string
           description: Duration of study programme in years or months / Durata programma di studio in anni o mesi
           example: '3 anni a tempo pieno'
