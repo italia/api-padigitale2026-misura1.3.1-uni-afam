@@ -41,7 +41,7 @@ paths:
                         institute_name: Milano - Politecnico
                         programme_type_code: MS
                         degree_course_code: '1573960'
-                        degree_class_code: LM-32
+                        degree_class_code: MSLM32
                         academic_year: 2021/2022
                         degree_course_year: 3
                         status: attivo
@@ -55,7 +55,7 @@ paths:
                         institute_name: Milano - Politecnico
                         programme_type_code: MS
                         degree_course_code: '1573960'
-                        degree_class_code: LM-32
+                        degree_class_code: MSLM32
                         academic_year: 2021/2022
                         degree_course_year: 3
                         status: attivo        
@@ -71,7 +71,7 @@ paths:
                         institute_name: Milano - Politecnico
                         programme_type_code: MS
                         degree_course_code: '1573960'
-                        degree_class_code: LM-32
+                        degree_class_code: MSLM32
                         academic_year: 2021/2022
                         degree_course_year: 3
                         status: attivo        
@@ -84,7 +84,7 @@ paths:
                         institute_name: Milano - Politecnico
                         programme_type_code: MS
                         degree_course_code: '1573960'
-                        degree_class_code: LM-32
+                        degree_class_code: MSLM32
                         academic_year: 2021/2022
                         degree_course_year: 3
                         status: attivo       
@@ -97,7 +97,7 @@ paths:
                         institute_name: Milano - Politecnico
                         programme_type_code: MS
                         degree_course_code: '1573960'
-                        degree_class_code: null
+                        degree_class_code: MSLM32
                         academic_year: 2021/2022
                         degree_course_year: 3
                         status: attivo               
@@ -174,7 +174,7 @@ paths:
                         programme_type_name: Laurea Magistrale (DM 270/04)
                         degree_course_code: '1573960'
                         degree_course_name: Ingegneria informatica
-                        degree_class_code: LM-32
+                        degree_class_code: MSLM32
                         degree_class_name: Ingegneria informatica
                         institute_code: '16'
                         institute_name: Milano - Politecnico
@@ -245,7 +245,7 @@ paths:
                       programme_type_name: Laurea Magistrale (DM 270/04)
                       degree_course_code: '1573960'
                       degree_course_name: Ingegneria informatica
-                      degree_class_code: LM-32
+                      degree_class_code: MSLM32
                       degree_class_name: Ingegneria informatica
                       institute_code: '16'
                       institute_name: Milano - Politecnico
@@ -326,7 +326,7 @@ paths:
                         programme_type_name: Laurea Magistrale (DM 270/04)
                         degree_course_code: '1573960'
                         degree_course_name: Ingegneria informatica
-                        degree_class_code: LM-32
+                        degree_class_code: MSLM32
                         degree_class_name: Ingegneria informatica
                         degree_course_duration_in_years_or_months: "3 anni"
                         duration_ects_credits: 180
@@ -550,7 +550,7 @@ components:
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: L-8          
+          example: MSLM32
           minLength: 1
           maxLength: 20
         degree_class_name:
@@ -634,7 +634,7 @@ components:
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: L-8          
+          example: MSLM32
           minLength: 1
           maxLength: 20
         degree_class_name:
@@ -757,7 +757,7 @@ components:
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: L-8          
+          example: MSLM32
           minLength: 1
           maxLength: 20
         degree_class_name:
@@ -918,7 +918,7 @@ components:
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: L-8          
+          example: MSLM32
           nullable: true
           minLength: 1
           maxLength: 20

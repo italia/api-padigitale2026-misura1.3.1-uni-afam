@@ -40,7 +40,7 @@ paths:
                         qualification_name: Dottore magistrale
                         programme_type_code: MS
                         degree_course_code: '1573960'
-                        degree_class_code: LM-32
+                        degree_class_code: MSLM32
                         academic_qualification_date: '2022-07-01'
                         qualification_grade_value: '110'
                         qualification_grading_scale: '110'
@@ -57,7 +57,7 @@ paths:
                         qualification_name: Dottore magistrale
                         programme_type_code: MS
                         degree_course_code: '1573960'
-                        degree_class_code: LM-32
+                        degree_class_code: MSLM32
                         academic_qualification_date: '2022-07-01'
                         qualification_grade_value: '110'
                         qualification_grading_scale: '110'
@@ -76,7 +76,7 @@ paths:
                         qualification_name: Dottore magistrale
                         programme_type_code: MS
                         degree_course_code: '1573960'
-                        degree_class_code: LM-32
+                        degree_class_code: MSLM32
                         academic_qualification_date: '2022-07-01'
                         qualification_grade_value: '110'
                         qualification_grading_scale: '110'
@@ -95,7 +95,7 @@ paths:
                         qualification_name: Dottore magistrale
                         programme_type_code: MS
                         degree_course_code: '1573960'
-                        degree_class_code: LM-32
+                        degree_class_code: MSLM32
                         academic_qualification_date: '2022-07-01'
                         qualification_grade_value: '110'
                         qualification_grading_scale: '110'
@@ -114,7 +114,7 @@ paths:
                         qualification_name: Dottore magistrale
                         programme_type_code: MS
                         degree_course_code: '1573960'
-                        degree_class_code: null
+                        degree_class_code: MSLM32
                         academic_qualification_date: '2022-07-01'
                         qualification_grade_value: Idoneo
                         qualification_grading_scale: null
@@ -186,7 +186,7 @@ paths:
                         programme_type_name: Laurea Magistrale (DM 270/04)
                         degree_course_code: '1573960'
                         degree_course_name: Ingegneria
-                        degree_class_code: LM-32
+                        degree_class_code: MSLM32
                         degree_class_name: Ingegneria informatica
                         academic_qualification_date: 2022-07-01
                         qualification_grade_value: '110'
@@ -335,7 +335,7 @@ paths:
                       programme_type_name: Laurea Magistrale (DM 270/04)
                       degree_course_code: '455'
                       degree_course_name: Ingegneria informatica
-                      degree_class_code: LM-32
+                      degree_class_code: MSLM32
                       degree_class_name: Ingegneria informatica
                       degree_course_duration_in_years_or_months: 3 anni a tempo pieno
                       qualification_grade_value: '100'
@@ -498,7 +498,7 @@ components:
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: L-8          
+          example: MSLM32
           nullable: true
           minLength: 1
           maxLength: 20
@@ -606,7 +606,7 @@ components:
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: L-8
+          example: MSLM32
           
           nullable: true
           minLength: 1
@@ -746,7 +746,7 @@ components:
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: LM-32
+          example: MSLM32
           
           nullable: true
           minLength: 1

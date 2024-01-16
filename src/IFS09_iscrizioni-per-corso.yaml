@@ -34,12 +34,12 @@ paths:
                     count_academic_enrollment:
                       - programme_type_code: MS
                         degree_course_code: '469'
-                        degree_class_code: LM-11
+                        degree_class_code: MSLM32
                         female_enrollment_count: 15000
                         male_enrollment_count: null                        
                       - programme_type_code: MS
                         degree_course_code: '355'
-                        degree_class_code: LM-7
+                        degree_class_code: MSLM20
                         female_enrollment_count: 10000  
                         male_enrollment_count: 5600  
                         
@@ -160,7 +160,7 @@ components:
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: L-8
+          example: MSLM32
           
           minLength: 1
           maxLength: 20

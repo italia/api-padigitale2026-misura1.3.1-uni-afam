@@ -1,10 +1,10 @@
 {
-   "programme_type_code":"L2",
+   "programme_type_code":"LT",
    "programme_access":"Libero",
    "course_location":"Milano Bovisa",
    "remote_mode": "on-site", /*full-remote, on-site, hybrid, not-available*/
    "course_area":"Ingegneria industriale",
-   "degree_class_code":"L-9",
+   "degree_class_code":"LT10",
    "degree_course_language":"IT",
    "degree_course_period_years":3,
    "degree_course_code":"353",
@@ -146,8 +146,8 @@
    //"remote_course_activities":true, /*Può prevedere corsi da remoto? da verificare nome attributo */   
    //"is_full_remote":false, /*è full remote? da verificare nome attributo */   
    "remote_mode": "on-site", /*full-remote, on-site, hybrid, not-available*/
-   "course_area":"Ingegneria",
-   "degree_class_code":"LM-20",
+   "course_area":"Ingegneria aerospaziale e astronautica",
+   "degree_class_code":"MSLM20",
    "degree_course_language":"EN",
    "degree_course_period_years":2, 
    "degree_course_code":"469",
