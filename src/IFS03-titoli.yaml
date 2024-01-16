@@ -347,7 +347,7 @@ paths:
                       administering_institute_name: Cagliari - Università degli studi
                       administering_institute_status: xx
                       qualification_institute_name: Cagliari - Università degli studi
-                      qualification_institute_status: private
+                      qualification_institute_status: public
                       eqf_level: 6° livello
                       nqf_level: I ciclo QF-XXX
                       attended_learnings:
@@ -826,7 +826,7 @@ components:
         qualification_institute_status:
           type: string
           description: Qualiification institute status / Stato dell'Istituto di qualificazione
-          example: 'private'          
+          example: 'public'          
           minLength: 1
           maxLength: 2048
           enum:
