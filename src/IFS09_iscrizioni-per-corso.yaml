@@ -68,7 +68,10 @@ paths:
               Example post 1:
                 value:
                   academic_year: '2023/2024'
-                  degree_course_code: '465'
+              Example post 2:
+                value:
+                  academic_year: '2023/2024'
+                  degree_course_code: '465'    
           application/xml:
             schema:
               type: object
@@ -147,21 +150,18 @@ components:
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
-          example: 'LM'
-          
+          example: 'LM'          
           minLength: 1
           maxLength: 2
         degree_course_code:
           type: string
-          description: Course code / Codice del corso
-          
+          description: Course code / Codice del corso          
           minLength: 1
           maxLength: 20
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: MSLM32
-          
+          example: MSLM32          
           minLength: 1
           maxLength: 20
         female_enrollment_count:
@@ -169,8 +169,7 @@ components:
           format: int32
           description: number of enrollment/numero di iscritti (female)
           example: 30000
-          nullable: true
-          
+          nullable: true          
           minimum: 1
           maximum: 9999999
         male_enrollment_count:
@@ -178,8 +177,7 @@ components:
           format: int32
           description: number of enrollment/numero di iscritti (male)
           example: 30000
-          nullable: true
-          
+          nullable: true          
           minimum: 1
           maximum: 9999999  
       required:
@@ -208,8 +206,6 @@ components:
           maxLength: 20
       required:
         - academic_year      
-        - degree_course_code
-
   requestBodies: {}
   responses: {}
   securitySchemes:
