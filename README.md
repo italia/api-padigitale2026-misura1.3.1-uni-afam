@@ -205,7 +205,7 @@ In questo paragrafo sono descritte le seguenti API:
 
 La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
 
-> :bulb: **Importante:**    
+> :warning: **Importante:**    
 > Si ricorda che in fase di pubblicazione degli e-service sulla piattaforma PDND, il nome dovrà corrispondere a quello presente nella colonna denominata "e-service" nella tabella 1
 
 
