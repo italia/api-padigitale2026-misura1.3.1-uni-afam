@@ -569,7 +569,7 @@ Richiesta di annullamento di una richiesta di rettifica di una iscrizione accade
 " /> Esempio IFS04.3 [Response](doc/03_analysis/io_schema/IFS04.3-response.json)
 
 > :bulb: **Importante:**    
-> * TODO
+> * Valorizzare in input almeno un campo tra tax_code e person_id
 
 
 #### :globe_with_meridians: IFS04.4 - enrollments-issues
@@ -583,7 +583,8 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 " /> Esempio IFS04.4 [Response](doc/03_analysis/io_schema/IFS04.4-response.json)
 
 > :bulb: **Importante:**    
-> * TODO
+> * Valorizzare in input almeno un campo tra tax_code e person_id
+> * nel caso in cui in input gli attributi tax_code/person_id non siano valorizzabili, compilare i parametri given_name/family_name/birth_date/birth_place
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
@@ -685,7 +686,7 @@ Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle stude
 #### Esempio: 
 Scenario operativo di acquisizione delle variazioni delle iscrizioni fra l'anagrafe ANIS e un Istituto di istruzione superiore
 
-<img src="doc/05_gallery/ifs06-ANIS update process.drawio.png"  /> 
+<img src="doc/05_gallery/ifs06-ANIS update process.drawio.png"/> 
 
 N.B. Si prega di visionare anche la sezione IFS02
 
@@ -783,13 +784,13 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 
 Work in progress
 
-#### Risorse utili
+#### Risorse
 
 * Visualizzatore OpenApi.yaml in formato Swagger:  https://editor.swagger.io/
 * Convertitore di x-jsonle-context in json: https://yml2json.com/
 * Convertitore di Json in Json-ld https://json-ld.org/playground/
 
-<img src="doc/05_gallery/scenario.png" width="400" />
+<img src="doc/05_gallery/scenario.png" />
 
 <hr>
 
