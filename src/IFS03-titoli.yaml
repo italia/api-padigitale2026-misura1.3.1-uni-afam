@@ -353,14 +353,23 @@ paths:
                       nqf_level: I ciclo QF-XXX
                       attended_learnings:
                         - learning_grade_value: 30/30
+                          learning_grading_scale: 30
+                          learning_grading_scale_min: 18
+                          learning_grading_scale_max: 30
                           learning_name: Esame 1
                           learning_start_date: '2018-12-01'
                           learning_end_date: '2019-03-01'
                         - learning_grade_value: 22/30
+                          earning_grading_scale: 30
+                          learning_grading_scale_min: 18
+                          learning_grading_scale_max: 30
                           learning_name: Esame 2
                           learning_start_date: '2018-06-01'
                           learning_end_date: '2018-10-01'
                         - learning_grade_value: Idoneo
+                          learning_grading_scale: null
+                          learning_grading_scale_min: null
+                          learning_grading_scale_max: null
                           learning_name: Esame 3
                           learning_start_date: '2018-07-01'
                           learning_end_date: '2019-07-01'
@@ -950,6 +959,27 @@ components:
           example: '30/30, Idoneo'          
           minLength: 1
           maxLength: 2048
+        learning_grading_scale:
+          type: string
+          description: Exam vote scale/ scala Voto d'esame
+          example: '30'          
+          minLength: 1
+          maxLength: 128  
+          nullable: true
+        learning_grading_scale_min:
+          type: string
+          description: minimun Exam vote / Voto d'esame minimo
+          example: '18'          
+          minLength: 1
+          maxLength: 128    
+          nullable: true
+        learning_grading_scale_max:
+          type: string
+          description: Exam vote / Voto d'esame massimo
+          example: '30, 30 e lode'          
+          minLength: 1
+          maxLength: 128
+          nullable: true
         learning_name:
           type: string
           description: Exam name / Nome d'esame
@@ -959,16 +989,14 @@ components:
         learning_start_date:          
           type: string
           description: Course start date / Data inizio corso
-          example: 2018-12-01
-          
+          example: 2018-12-01          
           minLength: 10
           maxLength: 10
         learning_end_date:          
           type: string
           format: date
           description: Course end date / Data fine corso
-          example: 2019-03-01
-          
+          example: 2019-03-01          
           minLength: 10
           maxLength: 10
     ects_courses:
@@ -980,8 +1008,7 @@ components:
           type: integer
           format: int32
           description: Course in ECTS / Corso in ECTS
-          example: 180
-          
+          example: 180          
           maximum: 999
           minimum: 1
     personal_data:
