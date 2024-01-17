@@ -148,8 +148,9 @@ paths:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
-                  institute_code: AA
-                  key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
+              Example post 2:
+                value:
+                  key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535    
           application/xml:
             schema:
               type: object
@@ -222,7 +223,7 @@ paths:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
-                  institute_code: AA
+                  institute_code: null
           application/xml:
             schema:
               type: object
@@ -296,7 +297,7 @@ paths:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
-                  institute_code: AA
+                  institute_code: null
           application/xml:
             schema:
               type: object
@@ -391,7 +392,7 @@ paths:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: AB123456C
-                  institute_code: AA
+                  institute_code: null
           application/xml:
             schema:
               type: object
@@ -474,6 +475,7 @@ components:
           description: Institute identification code / Codice identificativo dell'istituto          
           minLength: 2
           maxLength: 2
+          nullable: true
         institute_name:
           type: string
           description: Name of institution / Nome dell'istituto          
@@ -564,6 +566,7 @@ components:
           example: '16'          
           minLength: 2
           maxLength: 2
+          nullable: true
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
@@ -711,10 +714,10 @@ components:
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: '04'
-          
+          example: '04'          
           minLength: 2
           maxLength: 2
+          nullable: true
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
@@ -875,10 +878,10 @@ components:
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: '16'
-          
+          example: '16'          
           minLength: 2
           maxLength: 2
+          nullable: true
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
@@ -1069,9 +1072,9 @@ components:
           example: AA1
           minLength: 1
           maxLength: 256
+          nullable: true
       required:
         - tax_code      
-        - institute_code
     eu_qualification_request:
       type: object
       additionalProperties: false      
@@ -1096,6 +1099,7 @@ components:
           example: AA1
           minLength: 1
           maxLength: 256
+          nullable: true
   requestBodies: {}
   responses: {}
   securitySchemes:
