@@ -712,7 +712,11 @@ Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fi
 " /> Esempio IFS07.1 [Response](doc/03_analysis/io_schema/IFS07.1-response.json)
 
 > :bulb: **Importante:**    
-> * TODO
+> * Si ricorda prevedere di NON valorizzare il campo "cursor" nell'esecuzione della prima chiamata.
+> * Qualora nella response fosse presente il campo "cursor" valorizzato, prevedere la sua valorizzazione nelle chiamate successive.
+> * Prevedere, tramite l'attributo "cursor", una strategia di paginazione dei risultati restituiti dalla API. Qualora l'attributo fosse restituito NULLO (o non presente), nessuna chiamata successiva deve essere effettuata dal client.
+
+
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
