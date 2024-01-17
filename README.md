@@ -302,6 +302,7 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 >
 >ESEMPIO 3: 
 >
+>```
 >"personal_data": {
 >    "given_name": Mario,
 >    "family_name": Rossi,
@@ -812,7 +813,7 @@ contenente la definizione dei:
 
 ## Ultima Modifica 🔬
 
-21/12/2023
+17/01/2024
 
 ## Authors 🚶
 
