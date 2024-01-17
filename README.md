@@ -218,7 +218,7 @@ Suggeriamo infine di fare riferimento sempre alla sezione
 <img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS01-offerta-formativa.yaml)  
 
-#### :globe_with_meridians: IFS01.1
+#### :globe_with_meridians: IFS01.1 - educational-offering-list
 
 Acquisizione della lista dei corsi di studio offerti da un Istituto di formazione superiore in un dato anno accademico
 
@@ -237,7 +237,7 @@ Acquisizione della lista dei corsi di studio offerti da un Istituto di formazion
 >>1. Per le invocazioni successive alla prima si valorizza il campo cursor con il valore ottenuto nell'ultima response
 > * E' lasciata allo sviluppatore dell'API la gestione della paginazione e quindi della valorizzazione del cursor sulla response
 
-#### :globe_with_meridians: IFS01.2
+#### :globe_with_meridians: IFS01.2 - educational-offering-detail
 
 Acquisizione del dettaglio di un corso di studio offerto da un Istituto di formazione superiore
 
@@ -265,7 +265,7 @@ Fornisce le informazioni di dettaglio riguardanti le iscrizioni di una studentes
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS02-iscrizioni.yaml)
 
-#### :globe_with_meridians: IFS02.1
+#### :globe_with_meridians: IFS02.1 - academic-enrollments 
 
 Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accademici di una studentessa o di uno studente
 
@@ -343,7 +343,7 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 >```
 
 
-#### :globe_with_meridians: IFS02.2
+#### :globe_with_meridians: IFS02.2 - proof-tertiary-education-enrollments
 
 Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terziaria di una studentessa/studente
 
@@ -356,7 +356,7 @@ Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terzi
 > :bulb: **Importante:**    
 > * Si preaga di vedere le regole di [obbligatorietà output](#ifs02-Iscrizioni) presenti su [IFS02.1]
 
-##### IFS02.3
+#### :globe_with_meridians: IFS02.3 - proof-tertiary-education-courses
 
 Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può riferirsi a studi completati o in corso
 
@@ -370,7 +370,7 @@ Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenu
 > * Si preaga di vedere le regole di obbligatorietà output presenti su [IFS02.1]
 
 
-#### :globe_with_meridians: IFS02.4
+#### :globe_with_meridians: IFS02.4 - proof-tertiary-education-admission
 
 Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione terziaria di una studentessa/studente;
 
@@ -385,7 +385,7 @@ Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione terzi
 
 
 
-#### :globe_with_meridians: IFS02.5
+#### :globe_with_meridians: IFS02.5 - proof-mobility-periods
 
 Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio diploma
 
@@ -401,11 +401,6 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 
 
 
-
-
-
-
-
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
 <hr>
@@ -416,7 +411,7 @@ Restituisce l'elenco dei titoli conseguiti da una studentessa o uno studente
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS03-titoli.yaml)
 
-#### :globe_with_meridians: IFS03.1
+#### :globe_with_meridians: IFS03.1 - academic-qualifications
 
 Acquisizione del dettaglio dei titoli accademici conseguiti da una studentessa/uno studente
 
@@ -463,7 +458,7 @@ Qualora fosse presente solamente una qualifica e nel caso in cui quest'ultima no
 
 
 
-#### :globe_with_meridians: IFS03.2
+#### :globe_with_meridians: IFS03.2 - proof-tertiary-education-qualifications
 
 Acquisizione delle prove riguardanti il completamento degli studi di istruzione terziaria 
 
@@ -481,7 +476,7 @@ Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi s
 2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
 3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'erorre 404 (vedi esempio nel file YAML)
 
-#### :globe_with_meridians: IFS03.3
+#### :globe_with_meridians: IFS03.3 - proof-tertiary-education-qualifications-level
 
 Acquisizione delle prove riguardanti il livello di qualifica degli studi di istruzione terziaria
 
@@ -500,7 +495,7 @@ Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi s
 3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'erorre 404 (vedi esempio nel file YAML)
 
 
-#### :globe_with_meridians: IFS03.4
+#### :globe_with_meridians: IFS03.4 - proof-tertiary-education-qualifications-diploma-supplement
 
 Acquisizione delle prove relative allo strumento "Diploma Supplement"
 
@@ -534,7 +529,7 @@ Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una 
 " /> Definizione [OpenApi.yaml](src/IFS04-rettifica-iscrizioni.yaml)
 
 
-#### :globe_with_meridians: IFS04.1
+#### :globe_with_meridians: IFS04.1 - academic-enrollment-change-request
 
 Richiesta di rettifica  di un'iscrizione accademica di una studentessa/uno studente all'Istituto di formazione superiore
 
@@ -549,7 +544,7 @@ Richiesta di rettifica  di un'iscrizione accademica di una studentessa/uno stude
 > * TODO
 
 
-#### :globe_with_meridians: IFS04.2
+#### :globe_with_meridians: IFS04.2 - academic-enrollment-change-request-status
 
 Acquisizione dello stato delle richieste di rettifica delle iscrizioni accademiche di una studentessa/uno studente all'Istituto di istruzione superiore
 
@@ -562,7 +557,7 @@ Acquisizione dello stato delle richieste di rettifica delle iscrizioni accademic
 > :bulb: **Importante:**    
 > * TODO
 
-#### :globe_with_meridians: IFS04.3
+#### :globe_with_meridians: IFS04.3 - academic-enrollment-change-request-cancellation
 
 Richiesta di annullamento di una richiesta di rettifica di una iscrizione accademica di una studentessa/uno studente all'Istituto di istruzione superiore
 
@@ -576,7 +571,7 @@ Richiesta di annullamento di una richiesta di rettifica di una iscrizione accade
 > * TODO
 
 
-#### :globe_with_meridians: IFS04.4
+#### :globe_with_meridians: IFS04.4 - enrollments-issues
 
 Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare eventuali anomalie sui dati delle iscrizioni accademiche
 
@@ -601,7 +596,7 @@ Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una 
 
 
 
-#### :globe_with_meridians: IFS05.1
+#### :globe_with_meridians: IFS05.1 - academic-qualification-change-request
 
 Richiesta di rettifica  di un titolo accademico di una studentessa/uno studente all'Istituto di formazione superiore
 
@@ -615,7 +610,7 @@ Richiesta di rettifica  di un titolo accademico di una studentessa/uno studente 
 > * TODO
 
 
-#### :globe_with_meridians: IFS05.2
+#### :globe_with_meridians: IFS05.2 - academic-qualification-change-request-status
 
 Acquisizione dello stato delle richieste di rettifica dei titoli accademici di una studentessa/uno studente all'Istituto di istruzione superiore
 
@@ -629,7 +624,7 @@ Acquisizione dello stato delle richieste di rettifica dei titoli accademici di u
 > * TODO
 
 
-#### :globe_with_meridians: IFS05.3
+#### :globe_with_meridians: IFS05.3 - academic-qualification-change-request-cancellation
 
 Richiesta di annullamento di una richiesta di rettifica di un titolo accademico di una studentessa/uno studente all'Istituto di istruzione superiore
 
@@ -643,7 +638,7 @@ Richiesta di annullamento di una richiesta di rettifica di un titolo accademico 
 > * TODO
 
 
-#### :globe_with_meridians: IFS05.4
+#### :globe_with_meridians: IFS05.4 - academic-qualifications-issues
 
 Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare eventuali anomalie sui dati dei titoli accademici
 
@@ -668,7 +663,7 @@ Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli u
 " /> Definizione [OpenApi.yaml](src/IFS06-variazioni-iscrizioni.yaml)
 
 
-#### :globe_with_meridians: IFS06.1
+#### :globe_with_meridians: IFS06.1 - student-enrollments-changes 
 
 Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle studentesse/degli studenti negli ultimi tre anni accademici al fine di identificarne le variazioni dal punto di vista del fruitore
 
@@ -691,7 +686,7 @@ Scenario operativo di acquisizione delle variazioni delle iscrizioni fra l'anagr
 
 <img src="doc/05_gallery/ifs06-ANIS update process.drawio.png"  /> 
 
-N.B. Si prega di fare riferimento anche alla sezione IFS02
+N.B. Si prega di visionare anche la sezione IFS02
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
@@ -706,7 +701,7 @@ Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli u
 " /> Definizione [OpenApi.yaml](src/IFS07-variazioni-titoli.yaml)
 
 
-#### :globe_with_meridians: IFS07.1
+#### :globe_with_meridians: IFS07.1 - student-qualifications-changes
 
 Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fine di identificarne le variazioni dal punto di vista del fruitore
 
@@ -733,7 +728,7 @@ Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accadem
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS08-iscrizioni-per-fasce-ISEE.yaml)
 
-#### :globe_with_meridians: IFS08.1
+#### :globe_with_meridians: IFS08.1 - count_academic_enrollments_by_isee_ranges
 
 Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno accademico
 
@@ -764,7 +759,7 @@ Ottiene il numero di studentesse e di studenti iscritti ad un IFS.
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS09-iscrizioni-per-corso.yaml)
 
-#### :globe_with_meridians: IFS09.1 
+#### :globe_with_meridians: IFS09.1 - count_academic_enrollments_by_degree_courses
 
 Acquisizione del numero di studentesse e studenti iscritti a un corso di studi per anno accademico
 
