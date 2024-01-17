@@ -740,7 +740,7 @@ Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno acca
 " /> Esempio IFS08.1 [Response](doc/03_analysis/io_schema/IFS08.1-response.json)
 
 > :bulb: **Importante:**    
-> * TODO
+> * TODO (da valutare regola per la non restituzione delle informazioni nei casi in cui l'isee superi una certa seoglia e nei casi in cui il numero totale degli iscritti non sia superiore a xx) 
 
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
@@ -767,7 +767,8 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 
 
 > :bulb: **Importante:**    
-> * TODO
+> * vedere gli input/output di esempio sopra riportati
+> * nel caso in cui i parametri male_enrollment_count o female_enrollment_count non siano valorizzabili -> restituire un valore nullo
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
