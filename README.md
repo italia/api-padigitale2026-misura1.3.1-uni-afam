@@ -785,7 +785,7 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 
 ## Scenario di utilizzo JSON-LD:
 
-Work in progress
+:construction: Work in progress
 
 #### Risorse
 
