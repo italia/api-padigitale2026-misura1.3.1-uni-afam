@@ -398,6 +398,12 @@ components:
           example: on-site          
           minLength: 1
           maxLength: 99
+          enum:
+            - full-remote
+            - on-site
+            - hybrid
+            - not-available
+            - other  
         course_area:
           type: string
           description: Course area / Area del corso
