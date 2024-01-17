@@ -680,13 +680,18 @@ Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle stude
 
 
 > :bulb: **Importante:**    
-> * TODO
+> * Si ricorda prevedere di NON valorizzare il campo "cursor" nell'esecuzione della prima chiamata.
+> * Qualora nella response fosse presente il campo "cursor" valorizzato, prevedere la sua valorizzazione nelle chiamate successive.
+> * Prevedere, tramite l'attributo "cursor", una strategia di paginazione dei risultati restituiti dalla API. Qualora l'attributo fosse restituito NULLO (o non presente), nessuna chiamata successiva deve essere effettuata dal client.
+
 
 
 #### Esempio: 
 Scenario operativo di acquisizione delle variazioni delle iscrizioni fra l'anagrafe ANIS e un Istituto di istruzione superiore
 
 <img src="doc/05_gallery/ifs06-ANIS update process.drawio.png"  /> 
+
+N.B. Si prega di fare riferimento anche alla sezione IFS02
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
