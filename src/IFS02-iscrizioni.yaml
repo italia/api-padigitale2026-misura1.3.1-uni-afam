@@ -247,11 +247,17 @@ paths:
                           start_date: 2020-10-13
                           end_date: 2023-10-13
                           grade_value: '30'
+                          grading_scale: '30'
+                          grading_scale_min: '18'
+                          grading_scale_max: '30'
                           ects_credits_received: 6
                         - attended_learning_name: Esame 2
                           start_date: 2020-10-13
                           end_date: 2023-10-13
                           grade_value: '30'
+                          grading_scale: '30'
+                          grading_scale_min: '18'
+                          grading_scale_max: '30'
                           ects_credits_received: 6
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
@@ -682,7 +688,25 @@ components:
           
         grade_value:
           type: string
-          description: Grade / voto
+          description: Grade / Voto
+          example: '30'          
+          minLength: 1
+          maxLength: 64
+        grading_scale:
+          type: string
+          description: Rating scale / Scala di valutazione
+          example: '30'          
+          minLength: 1
+          maxLength: 64
+        grading_scale_min:
+          type: string
+          description: Minimum course grade / Voto minimo del corso
+          example: '18'          
+          minLength: 1
+          maxLength: 64
+        grading_scale_max:
+          type: string
+          description: Highest course grade / Voto massimo del corso
           example: '30'          
           minLength: 1
           maxLength: 64
