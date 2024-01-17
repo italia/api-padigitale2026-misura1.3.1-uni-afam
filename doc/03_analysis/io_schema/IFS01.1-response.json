@@ -28,6 +28,6 @@
     ,
     "meta":
     {
-        "cursor":""
+        "cursor":"" /*Non valorizzato o non presente nel caso in cui non siano presenti ulteriori paginazioni*/
     }
 }
