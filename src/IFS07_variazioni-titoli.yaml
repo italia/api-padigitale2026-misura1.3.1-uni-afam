@@ -173,10 +173,10 @@ components:
       properties:
         institute_code:
           type: string
-          description: Institutional identification code / Codice identificativo dell’istituto
+          description: Institute identification code / Codice identificativo dell’istituto
           example: 'C3'          
-          minLength: 2
-          maxLength: 2
+          minLength: 1
+          maxLength: 256
           nullable: true
         last_update:
           type: string

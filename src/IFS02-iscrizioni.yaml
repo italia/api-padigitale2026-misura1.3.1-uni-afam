@@ -555,10 +555,10 @@ components:
           maxLength: 2048
         institute_code:
           type: string
-          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: 'AA'          
-          minLength: 2
-          maxLength: 2
+          minLength: 1
+          maxLength: 256
           nullable: true
         institute_name:
           type: string
@@ -648,10 +648,10 @@ components:
           maxLength: 2048
         institute_code:
           type: string
-          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: 'AA'          
-          minLength: 2
-          maxLength: 2
+          minLength: 1
+          maxLength: 256
           nullable: true
         institute_name:
           type: string
@@ -740,10 +740,10 @@ components:
       properties:
         institute_code:
           type: string
-          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: 'AA'          
-          minLength: 2
-          maxLength: 2
+          minLength: 1
+          maxLength: 256
           nullable: true
         institute_name:
           type: string
@@ -911,10 +911,10 @@ components:
       properties:
         institute_code:
           type: string
-          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: 'AA'          
-          minLength: 2
-          maxLength: 2
+          minLength: 1
+          maxLength: 256
           nullable: true
         institute_name:
           type: string
@@ -1052,10 +1052,10 @@ components:
           maxLength: 64          
         institute_code:
           type: string
-          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: AA
-          minLength: 2
-          maxLength: 2       
+          minLength: 1
+          maxLength: 256       
           nullable: true   
     eu_enrollment_request:
       type: object
@@ -1079,10 +1079,10 @@ components:
           nullable: true
         institute_code:
           type: string
-          description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
           example: AA
-          minLength: 2
-          maxLength: 2
+          minLength: 1
+          maxLength: 256
           nullable: true
   requestBodies: {}
   responses: {}
