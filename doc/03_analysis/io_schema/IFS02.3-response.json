@@ -20,8 +20,8 @@
     "learnings": [
       {
         "attended_learning_name": "Esame 1",
-        "start_date": {},
-        "end_date": {},
+        "start_date": "2020-10-13",
+        "end_date": "2023-10-13",
         "grade_value": "30",
         "grading_scale": "30",
         "grading_scale_min": "18",
@@ -30,8 +30,8 @@
       },
       {
         "attended_learning_name": "Esame 2",
-        "start_date": {},
-        "end_date": {},
+        "start_date": "2020-10-13",
+        "end_date": "2023-10-13",
         "grade_value": "30",
         "grading_scale": "30",
         "grading_scale_min": "18",

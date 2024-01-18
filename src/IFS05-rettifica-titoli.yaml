@@ -217,20 +217,20 @@ paths:
                     birth_date: null
                     birth_place: null
                     issues:
-                      - attribute_name: degree_course_code
-                        issue_description: degree course code didn't find
                       - attribute_name: tax_code
                         issue_description: tax code didn't find on ANPR Master Data
-                      - attribute_name: degree_course_year
-                        issue_description: degree course can be only a numeric value
+                      - attribute_name: birth_date
+                        issue_description: the correct birth date format is 1990-05-17
+                      - attribute_name: null
+                        issue_description: description note
                   qualifications:
-                    institute_code: '26'
-                    institute_name: Università degli Studi di Roma 'La Sapienza'
+                    institute_code: '16'
+                    institute_name: Milano - Politecnico
                     qualification_name: Dottore magistrale
                     programme_type_code: MS
                     degree_course_code: '1573960'
                     degree_class_code: MSLM32
-                    academic_qualification_date: '2022-07-01'
+                    academic_qualification_date: 2022-07-01
                     qualification_grade_value: '110'
                     qualification_grading_scale: '110'
                     qualification_grading_scale_minimum_grade: '66'
@@ -238,10 +238,53 @@ paths:
                     issues:
                       - attribute_name: degree_course_code
                         issue_description: degree course code didn't find on the controlled vocabulary
+                      - attribute_name: academic_qualification_date
+                        issue_description: academic qualification date is not well formed on the base of the Open API defined on PDND platform for the service IFS03.1
+                      - attribute_name: qualification_grading_scale
+                        issue_description: degree grading scale cannot be null or emtpy if the grading value is valued with a numbe
+                      - attribute_name: null
+                        issue_description: description note
+              Example post 2: 
+                value:
+                  subscriber_id: "1234"
+                  subscriber_name: ANIS
+                  subscriber_message: It wasn't possible to load all the academic qualifcations of this student
+                  data_request_timestamp: 2019-10-12T07:20:50.52Z
+                  personal_data:
+                    tax_code: RSSMRA80A01F205D
+                    person_id: AB123456C
+                    given_name: null
+                    family_name: null
+                    birth_date: null
+                    birth_place: null
+                    issues:
                       - attribute_name: tax_code
                         issue_description: tax code didn't find on ANPR Master Data
-                      - attribute_name: degree_course_year
-                        issue_description: degree course can be only a numeric value
+                      - attribute_name: birth_date
+                        issue_description: the correct birth date format is 1990-05-17
+                      - attribute_name: null
+                        issue_description: description note
+                  qualifications:
+                    institute_code: '16'
+                    institute_name: Milano - Politecnico
+                    qualification_name: Dottore magistrale
+                    programme_type_code: MS
+                    degree_course_code: '1573960'
+                    degree_class_code: MSLM32
+                    academic_qualification_date: 2022-07-01
+                    qualification_grade_value: '110'
+                    qualification_grading_scale: null
+                    qualification_grading_scale_minimum_grade: null
+                    qualification_grading_scale_maximum_grade: null
+                    issues:
+                      - attribute_name: degree_course_code
+                        issue_description: degree course code didn't find on the controlled vocabulary
+                      - attribute_name: academic_qualification_date
+                        issue_description: academic qualification date is not well formed on the base of the Open API defined on PDND platform for the service IFS03.1
+                      - attribute_name: qualification_grading_scale
+                        issue_description: degree grading scale cannot be null or emtpy if the grading value is valued with a numbe
+                      - attribute_name: null
+                        issue_description: description note
           application/xml:
             schema:
               type: object
@@ -387,6 +430,7 @@ components:
       properties:
         attribute_name:
           type: string
+          nullable: true
           description: Attribute name to be changed  / Nome attributo da variare in fase di rettifica titolo
           minLength: 1
           maxLength: 256   
@@ -401,7 +445,6 @@ components:
           minLength: 1
           maxLength: 256 
       required:
-        - attribute_name
         - current
         - suggested
     academic_qualification_change_request:
@@ -584,12 +627,14 @@ components:
           example: '110'
         qualification_grading_scale:
           type: string
+          nullable: true
           minLength: 1
           maxLength: 32
           example: '110'
           description: Rating scale / Scala di valutazione
         qualification_grading_scale_minimum_grade:
           type: string
+          nullable: true
           format: int32
           minLength: 1
           maxLength: 32
@@ -597,6 +642,7 @@ components:
           description: Minimum course grade / Voto minimo del corso
         qualification_grading_scale_maximum_grade:
           type: string
+          nullable: true
           minLength: 1
           maxLength: 32
           example: '110'
@@ -617,17 +663,15 @@ components:
         attribute_name:
           type: string
           description: Attribute name to be changed  / Nome attributo da variare in fase di rettifica iscrizione
-          
+          nullable: true
           minLength: 1
           maxLength: 256
         issue_description:
           type: string
           description: New value to be rectified / Nuovo valore da rettificare
-          
           minLength: 1
           maxLength: 256 
       required:
-        - attribute_name
         - issue_description
     issue_detail:
       additionalProperties: false
