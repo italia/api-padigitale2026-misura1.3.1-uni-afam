@@ -819,8 +819,7 @@ Al link -> [schema masterdata](doc/03_analysis/masterdata/masterdata.xlsx) è pr
 ## Per maggiori informazioni:
 * [Interoperabilità e PDND su Developers Italia](https://developers.italia.it/it/interoperabilita/)
 * [Avvisi di PAdigitale 2026](https://areariservata.padigitale2026.gov.it/Pa_digitale2026_avvisi)
-* [Modello Diploma Supplement](https://www.unimi.it/sites/default/files/2021-03/Modello%20diploma%20supplement%202021.pdf)
-
+* [Diploma Supplement](https://www.miur.gov.it/-/nuovo-supplemento-al-diploma-con-4-allegati-relativi-alla-compilazione-e-alle-linee-guida-nazionali-per-la-digitalizzazione)
 ## Ultima Modifica 🔬
 
 17/01/2024
