@@ -799,15 +799,20 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 
 ## Risorse utili:
 
-#### FILE Masterdata:
+#### Masterdata pubblicato dal MUR
 
-Per la defnizione dei campi degree_class_code e programme_type_code si prega di fare riferimento al seguente documento link -> [masterdata](doc/03_analysis/masterdata/masterdata.xlsx) 
+Per la valorizzazione dei campi  institude_code, programme_type_code, degree_course_code, degree_class_code si prega di fare riferimento al Master data pubblicato dal MUR con i seguenti dataset 
 
-contenente la definizione dei:
-* programme-type-vocabulary
-* degree-class-vocabulary
-* degree-class-vocabulary
+* institute
+* programme-type
+* degree-class
+* degree-course
 
+Al link -> [schema masterdata](doc/03_analysis/masterdata/masterdata.xlsx) è presente un esempio dello schema del "Master data"
+
+> :bulb: **Importante:**  
+> ### Sono ancora in fase di definizione i canali di pubblicazione del"Master data" e il relativo schema. Al più presto sarà fornita la versione definitiva. E' comunque consigliato definire una "cache" nei sistemi locali di tale Master data da aggiornare periodicamente ###
+> Per qualsiasi richeiesta di chiarimento potete aprire una issue su questo repository GitHub
 
 <hr>
 

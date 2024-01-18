@@ -211,7 +211,7 @@ paths:
             examples:
               Example post 1:
                 value:
-                  degree_class_code: 'LM-20'
+                  degree_class_code: 'MSLM20'
                   degree_course_code: '465'
           application/xml:
             schema:

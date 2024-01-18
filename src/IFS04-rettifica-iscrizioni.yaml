@@ -556,8 +556,7 @@ components:
       properties:
         file_status:
           type: string
-          description: Status of an academic change request for a student / Stato di una rettifica per una studentessa o uno studente
-          
+          description: Status of an academic change request for a student / Stato di una rettifica per una studentessa o uno studente          
           minLength: 1
           maxLength: 256
           enum:
@@ -566,14 +565,12 @@ components:
             - acquired
         file_code:
           type: string
-          description: Change request code/ Codice rettifica 
-          
+          description: Change request code/ Codice rettifica          
           minLength: 1
           maxLength: 256    
         message:
           type: string
-          description: Change request message output / Messaggio esito richiesta rettifica
-          
+          description: Change request message output / Messaggio esito richiesta rettifica         
           minLength: 1
           maxLength: 256 
       required:
