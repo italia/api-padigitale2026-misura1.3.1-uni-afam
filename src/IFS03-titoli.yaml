@@ -18,7 +18,7 @@ paths:
     post:
       summary: Retrieve of the details of academic titles obtained by a female/male student. / Acquisizione del dettaglio dei titoli accademici conseguiti da una studentessa/uno studente
       tags:
-        - academic-qualifications
+        - IFS03.1 - academic-qualifications
       security:
         - bearerAuth: []
       parameters: []
@@ -161,7 +161,7 @@ paths:
     post:
       summary: Retrieve of evidence regarding the completion of tertiary education studies. / Acquisizione delle prove riguardanti il completamento degli studi di istruzione terziaria
       tags:
-        - proof-tertiary-education-qualifications
+        - IFS03.2 - proof-tertiary-education-qualifications
       security:
         - bearerAuth: []
       responses:
@@ -236,7 +236,7 @@ paths:
     post:
       summary: Retrieve of evidence regarding the qualification level of tertiary education studies. / Acquisizione delle prove riguardanti il livello di qualifica degli studi di istruzione terziaria
       tags:
-        - proof-tertiary-education-qualifications-level
+        - IFS03.3 - proof-tertiary-education-qualifications-level
       security:
         - bearerAuth: []
       responses:
@@ -257,7 +257,7 @@ paths:
                     proof_qualifications_level:
                       qualification_name: Laurea in Scienze Aziendali
                       degree_course_duration_years_or_months: 3 anni a tempo pieno
-                      institute_code: '16'
+                      institute_code: 'AA'
                       institute_name: Milano - Politecnico
                       academic_qualification_date: 2022-07-01
                       total_ects: 180
@@ -310,7 +310,7 @@ paths:
     post:
       summary: Retrieve of evidence related to the "Diploma Supplement" tool. / Acquisizione delle prove relative allo strumento "Diploma Supplement"
       tags:
-        - proof-tertiary-education-qualifications-diploma-supplement
+        - IFS03.4 - proof-tertiary-education-qualifications-diploma-supplement
       security:
         - bearerAuth: []
       responses:
@@ -1032,8 +1032,7 @@ components:
           maxLength: 9
           minLength: 9
           pattern: "^[A-Z0-9]{9}$"
-          example: AB123456C
-          
+          example: AB123456C          
           nullable: true
         given_name:
           type: string
@@ -1083,10 +1082,12 @@ components:
           maxLength: 16
         person_id:
           type: string
-          description: National unique identifier / Identificativo unico nazionale
-          example: 12345678A
-          minLength: 9
+          description: ANPR Identifier / Identificativo ANPR 
           maxLength: 9
+          minLength: 9
+          pattern: "^[A-Z0-9]{9}$"
+          example: AB123456C
+          nullable: true
         key:
           type: string
           description: Hash tax code / Hash del codice fiscale
@@ -1096,9 +1097,9 @@ components:
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: AA1
-          minLength: 1
-          maxLength: 256
+          example: AA
+          minLength: 2
+          maxLength: 2
           nullable: true
       required:
         - tax_code      
@@ -1119,13 +1120,15 @@ components:
           description: ANPR Identifier / Identificativo ANPR 
           maxLength: 9
           minLength: 9
-          example: AB123456C    
+          pattern: "^[A-Z0-9]{9}$"
+          example: AB123456C
+          nullable: true
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: AA1
-          minLength: 1
-          maxLength: 256
+          example: AA
+          minLength: 2
+          maxLength: 2
           nullable: true
   requestBodies: {}
   responses: {}
@@ -1138,8 +1141,8 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: academic-qualifications
-  - name: proof-tertiary-education-qualifications
-  - name: proof-tertiary-education-qualifications-level
-  - name: proof-tertiary-education-qualifications-diploma-supplement
+  - name: IFS03.1 - academic-qualifications
+  - name: IFS03.2 - proof-tertiary-education-qualifications
+  - name: IFS03.3 - proof-tertiary-education-qualifications-level
+  - name: IFS03.4 - proof-tertiary-education-qualifications-diploma-supplement
   - name: health-check
