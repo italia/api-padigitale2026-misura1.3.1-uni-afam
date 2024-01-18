@@ -51,7 +51,7 @@ paths:
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
-          description: No enrollments were found for the student at this institution / Non sono state trovate iscrizioni per la studentessa o lo studente in questo istituto
+          description: No items were found to return / Non sono state trovate entità da restituire 
           content:
             application/problem+json:
               schema:

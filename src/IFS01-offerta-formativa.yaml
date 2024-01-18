@@ -57,7 +57,7 @@ paths:
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
-          description: No enrollments were found at this institution / Non sono state trovate iscrizioni in questo istituto
+          description: No items were found to return/ Non sono state trovate entità da restituire
         '500':
           description: Internal server error / Errore interno del server 
       
@@ -198,7 +198,7 @@ paths:
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
-          description: No enrollments were found at this institution / Non sono state trovate iscrizioni in questo istituto
+          description: No items were found to return / Non sono state trovate entità da restituire
         '500':
           description: Internal server error / Errore interno del server 
       

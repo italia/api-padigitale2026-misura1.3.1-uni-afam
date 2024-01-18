@@ -440,7 +440,7 @@ components:
           nullable: true
         institute_name:
           type: string
-          description: Institution name / Denominazione dell’istituto
+          description: Institute's name / Denominazione dell’istituto
           example: 'Milano - Politecnico'
           minLength: 1
           maxLength: 2048

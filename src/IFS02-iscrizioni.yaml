@@ -104,7 +104,7 @@ paths:
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
-          description: No enrollments were found for the student at this institution / Non sono state trovate iscrizioni per la studentessa o lo studente in questo istituto
+          description: No items were found to return / Non sono state trovate entità da restituire
           content:
             application/problem+json:
               schema:
@@ -178,7 +178,7 @@ paths:
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
-          description: No enrollments were found for the student at this institution / Non sono state trovate iscrizioni per la studentessa o lo studente in questo istituto
+          description: No items were found to return / Non sono state trovate entità da restituire
           content:
             application/problem+json:
               schema:
@@ -262,7 +262,7 @@ paths:
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
-          description: No examinations were found for the student at this institution. / Non sono state trovati esami per la studentessa o lo studente in questo istituto.
+          description: No items were found to return / Non sono state trovate entità da restituire
           content:
             application/problem+json:
               schema:
@@ -333,7 +333,7 @@ paths:
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
-          description: No certificates of admission to tertiary education institutions were found / Non sono stati trovati certificati di ammissione a istituti di istruzione terziaria
+          description: No items were found to return / Non sono state trovate entità da restituire
           content:
             application/problem+json:
               schema:
@@ -372,7 +372,7 @@ paths:
   '/proof-mobility-periods':
     post:
       summary: |
-        Retrieves the evidences related to learning activities conducted outside the tertiary education institution from which a female/male student obtained their diploma. / 
+        Retrieves the evidences related to learning activities conducted outside the tertiary education institution from which a student obtained their diploma. / 
         Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio diploma.
       tags:
         - IFS02.5 - proof-mobility-periods
@@ -407,7 +407,7 @@ paths:
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
-          description: No evidence was found for learning activities outside the institution. / Non sono stati trovate prove alle attività di apprendimento al di fuori dell'istituzione.
+          description: No items were found to return / Non sono stati trovati elementi da restituire
           content:
             application/problem+json:
               schema:
@@ -420,7 +420,11 @@ paths:
         '500':
           description: Internal server error / Errore interno del server 
       operationId: proof-mobility-periods
-      description: <ul> <li>Retrieves the evidences related to learning activities carried out outside the tertiary education institution from which a person obtained their diploma</li><li>Acuisisce le prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una persona ha ottenuto il proprio diploma.</li></ul>
+      description: |
+         <ul> <li>Retrieves the evidences related to learning activities that the student have done outside the 
+         institute where her/he got the diploma</li><li>Fornisce le prove relative alle attività di 
+         apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una persona ha ottenuto 
+         il proprio diploma.</li></ul>
       requestBody:
         required: true
         content:
@@ -562,7 +566,7 @@ components:
           nullable: true
         institute_name:
           type: string
-          description: Institution name / Denominazione dell’istituto
+          description: Institute's name / Denominazione dell’istituto
           example: 'Milano - Politecnico'          
           minLength: 1
           maxLength: 2048
@@ -655,7 +659,7 @@ components:
           nullable: true
         institute_name:
           type: string
-          description: Institution name / Denominazione dell’istituto
+          description: Institute's name / Denominazione dell’istituto
           example: 'Milano - Politecnico'          
           minLength: 1
           maxLength: 2048
@@ -722,7 +726,7 @@ components:
     proof_tertiary_education_admission:
       additionalProperties: false
       type: object
-      description: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
+      description: Return the certificates of admission to tertiary education institute / Restituisce i certificati di ammissione a istituti di istruzione terziaria
       properties:
         personal_data:
           $ref: '#/components/schemas/personal_data'
@@ -747,7 +751,7 @@ components:
           nullable: true
         institute_name:
           type: string
-          description: Institution name / Denominazione dell’istituto
+          description: Institute's name / Denominazione dell’istituto
           example: 'Milano - Politecnico'          
           minLength: 1
           maxLength: 2048
@@ -814,7 +818,7 @@ components:
     proof_personal_mobility_periods:
       additionalProperties: false
       type: object
-      description: Returning certificates of admission to tertiary education institutions / Restituisce i certificati di ammissione a istituti di istruzione terziaria
+      description: Return the certificates of admission to tertiary education institutes / Restituisce i certificati di ammissione a istituti di istruzione terziaria
       properties:
         personal_data:
           $ref: '#/components/schemas/personal_data'
@@ -858,25 +862,25 @@ components:
           maxLength: 2048
         destination_institute_name:
           type: string
-          description: Name of destination institution / Nome dell'istituto di destinazione
+          description: Destination institute's name / Nome dell'istituto di destinazione
           example: Universidad Politecnica de Madrid          
           minLength: 1
           maxLength: 2048
         destination_erasmus_code:
           type: string
-          description: Code of destination institution / Codice dell'istituto di destinazione
+          description: Erasmus code of destination institute / Codice erasmus dell'istituto di destinazione
           example: VALENCI02          
           minLength: 1
           maxLength: 2048
         departure_institute_name:
           type: string
-          description: Name of departure institution / Nome dell'istituto di partenza
+          description: Name of departure institute / Nome dell'istituto di partenza
           example: Politecnico di Milano          
           minLength: 1
           maxLength: 2048
         departure_erasmus_code:
           type: string
-          description: Code of departure institution / Codice dell'istituto di partenza
+          description: Erasmus code of departure institute / Codice erasmus dell'istituto di partenza
           example: MILANO02          
           minLength: 1
           maxLength: 2048
@@ -918,7 +922,7 @@ components:
           nullable: true
         institute_name:
           type: string
-          description: Institution name / Denominazione dell’istituto
+          description: Institute's name / Denominazione dell’istituto
           example: 'Milano - Politecnico'          
           minLength: 1
           maxLength: 2048

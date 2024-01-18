@@ -198,7 +198,7 @@ paths:
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
-          description: No certificates of admission to tertiary education institutions were found / Non sono stati trovati certificati di ammissione a istituti di istruzione terziaria
+          description: No items were found to return / Non sono stati trovati elementi da restituire
           content:
             application/problem+json:
               schema:
@@ -487,7 +487,7 @@ components:
           nullable: true
         institute_name:
           type: string
-          description: Name of institution / Nome dell'istituto          
+          description: Institute's name / Nome dell'istituto          
           minLength: 1
           maxLength: 2048
         qualification_name:
@@ -578,7 +578,7 @@ components:
           nullable: true
         institute_name:
           type: string
-          description: Institution name / Denominazione dell’istituto
+          description:  Institute's name / Denominazione dell’istituto
           example: 'Milano - Politecnico'          
           minLength: 1
           maxLength: 2048
@@ -658,8 +658,7 @@ components:
           minLength: 1
           maxLength: 32
           example: '66'
-          description: Minimum course grade / Voto minimo del corso
-          
+          description: Minimum course grade / Voto minimo del corso        
           nullable: true
         qualification_grading_scale_maximum_grade:
           type: string
@@ -667,13 +666,11 @@ components:
           maxLength: 32
           example: '110'
           description: Highest course grade / Voto massimo del corso
-          
           nullable: true
         academic_qualification_country:
           type: string
-          description: Country of the academic institution / Paese dell'istituzione accademica
-          example: Italia
-          
+          description: Country where it has got the academic qualification / Paese dove è stato conseguito il titolo
+          example: Italia      
           minLength: 1
           maxLength: 2048
     proof_education_qualifications_diploma_supplement:
@@ -893,7 +890,7 @@ components:
           nullable: true
         institute_name:
           type: string
-          description: Institution name / Denominazione dell’istituto
+          description: Institute's name / Denominazione dell’istituto
           example: 'Milano - Politecnico'
           
           minLength: 1

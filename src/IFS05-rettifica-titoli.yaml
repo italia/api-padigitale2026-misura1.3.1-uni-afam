@@ -588,7 +588,7 @@ components:
           nullable: true
         institute_name:
           type: string
-          description: Name of institution / Nome dell'istituto
+          description: Institute's name / Nome dell'istituto
           minLength: 1
           maxLength: 2048
         qualification_name:

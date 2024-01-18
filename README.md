@@ -332,7 +332,7 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 >
 >```Di seguito l'obbligatorietà con "*"
 >
->   enrollments
+>   enrollment
 >      institute_code * 
 >      institute_name * 
 >      programme_type_code * 
