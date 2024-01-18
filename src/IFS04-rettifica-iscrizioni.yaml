@@ -437,6 +437,7 @@ components:
           example: '16'
           minLength: 2
           maxLength: 2
+          nullable: true
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto

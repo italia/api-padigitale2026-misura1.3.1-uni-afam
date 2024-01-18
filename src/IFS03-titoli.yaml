@@ -257,7 +257,7 @@ paths:
                     proof_qualifications_level:
                       qualification_name: Laurea in Scienze Aziendali
                       degree_course_duration_years_or_months: 3 anni a tempo pieno
-                      institute_code: '16'
+                      institute_code: 'AA'
                       institute_name: Milano - Politecnico
                       academic_qualification_date: 2022-07-01
                       total_ects: 180
@@ -1097,9 +1097,9 @@ components:
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: AA1
-          minLength: 1
-          maxLength: 256
+          example: AA
+          minLength: 2
+          maxLength: 2
           nullable: true
       required:
         - tax_code      
@@ -1126,9 +1126,9 @@ components:
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: AA1
-          minLength: 1
-          maxLength: 256
+          example: AA
+          minLength: 2
+          maxLength: 2
           nullable: true
   requestBodies: {}
   responses: {}

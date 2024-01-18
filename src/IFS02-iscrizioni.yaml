@@ -556,9 +556,10 @@ components:
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: '16'          
+          example: 'AA'          
           minLength: 2
           maxLength: 2
+          nullable: true
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
@@ -648,9 +649,10 @@ components:
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: '16'          
+          example: 'AA'          
           minLength: 2
           maxLength: 2
+          nullable: true
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
@@ -739,9 +741,10 @@ components:
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: '16'          
+          example: 'AA'          
           minLength: 2
           maxLength: 2
+          nullable: true
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
@@ -909,9 +912,10 @@ components:
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: '16'          
+          example: 'AA'          
           minLength: 2
           maxLength: 2
+          nullable: true
         institute_name:
           type: string
           description: Institution name / Denominazione dell’istituto
@@ -1049,9 +1053,10 @@ components:
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: AA1
-          minLength: 1
-          maxLength: 256          
+          example: AA
+          minLength: 2
+          maxLength: 2       
+          nullable: true   
     eu_enrollment_request:
       type: object
       additionalProperties: false      
@@ -1075,9 +1080,10 @@ components:
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: AA1
-          minLength: 1
-          maxLength: 256
+          example: AA
+          minLength: 2
+          maxLength: 2
+          nullable: true
   requestBodies: {}
   responses: {}
   securitySchemes:

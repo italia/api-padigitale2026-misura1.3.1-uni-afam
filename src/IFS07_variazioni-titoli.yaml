@@ -160,10 +160,10 @@ components:
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto
-          example: 'C3'
-          
+          example: 'C3'          
           minLength: 2
           maxLength: 2
+          nullable: true
         last_update:
           type: string
           format: date

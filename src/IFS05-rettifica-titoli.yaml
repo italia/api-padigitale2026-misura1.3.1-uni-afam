@@ -539,8 +539,10 @@ components:
         institute_code:
           type: string
           description: Institute identification code / Codice identificativo dell'istituto
+          example: AA
           minLength: 2
           maxLength: 2
+          nullable: true
         institute_name:
           type: string
           description: Name of institution / Nome dell'istituto
