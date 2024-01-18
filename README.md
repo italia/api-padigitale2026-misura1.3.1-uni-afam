@@ -332,18 +332,15 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 >
 >```Di seguito l'obbligatorietà con "*"
 >
->  "enrollments": [
->   {
->      "institute_code": "16" *,
->      "institute_name": "Milano - Politecnico" *,
->      "programme_type_code": "MS" *,
->      "degree_course_code": "1573960" *,
->      "degree_class_code": "MSLM32",
->      "academic_year": "2021/2022" *,
->      "degree_course_year": 3 *,
->      "status": "attivo" *
->    }
->  ]
+>   enrollments
+>      institute_code * 
+>      institute_name * 
+>      programme_type_code * 
+>      degree_course_code * 
+>      degree_class_code 
+>      academic_year * 
+>      degree_course_year * 
+>      status *
 >```
 
 
@@ -457,7 +454,7 @@ ESEMPIO:
 ```
 3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'erorre 404 (vedi esempio nel file YAML)
 3) nella struttura "qualifications" tutti i campi sono obbligatori tranne il degree_class_code. Nel caso in cui il degree_class_code non sia valorizzabile, è possibile passarlo con il valore NULL
-4) nella struttura "qualifications", qualora sia presente un attributo non valorizzabile (ad escluisone degli attributi degree_class_code/qualification_grading_scale_maximum_grade/qualification_grading_scale_minimum_grade/qualification_grading_scale/) non dovrà essere restituito Item. 
+4) nella struttura "qualifications", qualora sia presente un attributo non valorizzabile (ad escluisone degli attributi degree_class_code/qualification_grading_scale_maximum_grade/qualification_grading_scale_minimum_grade/qualification_grading_scale/) non dovrà essere restituito Item.  
 Qualora fosse presente solamente una qualifica e nel caso in cui quest'ultima non dovesse riportare i dati obbligatori, prevedere la restituzione dello status code 404 
 
 
