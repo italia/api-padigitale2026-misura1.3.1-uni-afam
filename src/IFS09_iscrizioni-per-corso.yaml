@@ -214,7 +214,7 @@ components:
       bearerFormat: PASETO 
 servers:
   - url: 'https://localhost:8080/api'
-    description: localhost
+    description: localhost        
 tags:
   - name: IFS09.1 - count-accademic-enrollments-by-degree-courses
   - name: health-check
