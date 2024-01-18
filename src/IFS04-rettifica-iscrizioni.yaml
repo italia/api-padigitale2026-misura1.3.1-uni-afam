@@ -216,12 +216,12 @@ paths:
                     birth_date: null
                     birth_place: null
                     issues:
-                      - attribute_name: degree_course_code
-                        issue_description: degree course code didn't find on the controlled vocabulary
                       - attribute_name: tax_code
                         issue_description: tax code didn't find on ANPR Master Data
-                      - attribute_name: degree_course_year
-                        issue_description: degree course can be only a numeric value
+                      - attribute_name: birth_date
+                        issue_description: the correct birth date format is 1990-05-17
+                      - attribute_name: null
+                        issue_description: description note
                   enrollments:
                     institute_code: '16'
                     institute_name: Milano - Politecnico
@@ -233,11 +233,11 @@ paths:
                     status: active
                     issues:
                       - attribute_name: degree_course_code
-                        issue_description: degree course code didn't find
-                      - attribute_name: tax_code
-                        issue_description: tax code didn't find on ANPR Master Data
+                        issue_description: degree course code didn't find on the controlled vocabulary
                       - attribute_name: degree_course_year
                         issue_description: degree course can be only a numeric value
+                      - attribute_name: null
+                        issue_description: description note
           application/xml:
             schema:
               type: object

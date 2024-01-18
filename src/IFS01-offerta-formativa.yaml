@@ -45,7 +45,7 @@ paths:
                       - programme_type_code: MS
                         programme_access: free
                         course_location: Milano, Settimo Milanese
-                        course_area: Ingegneria
+                        course_area: Ingegneria aerospaziale e astronautica
                         degree_class_code: MSLM20
                         degree_course_language: EN
                         degree_course_period_years: 2
@@ -211,7 +211,7 @@ paths:
             examples:
               Example post 1:
                 value:
-                  degree_class_code: 'LM-20'
+                  degree_class_code: 'MSLM20'
                   degree_course_code: '465'
           application/xml:
             schema:
@@ -586,7 +586,7 @@ components:
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
-          example: L-8
+          example: MSLM20
           minLength: 1
           maxLength: 20
         degree_course_code:
@@ -594,8 +594,6 @@ components:
           description: Course code / Codice del corso
           minLength: 1
           maxLength: 20
-      required:
-        - degree_course_code    
   requestBodies: {}
   responses: {}
   securitySchemes:
