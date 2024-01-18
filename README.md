@@ -334,14 +334,14 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 >
 >  "enrollments": [
 >   {
->     * "institute_code": "16",
->      * "institute_name": "Milano - Politecnico",
->      * "programme_type_code": "MS",
->      * "degree_course_code": "1573960",
->        "degree_class_code": "MSLM32",
->      * "academic_year": "2021/2022",
->      * "degree_course_year": 3,
->      * "status": "attivo"
+>      "institute_code": "16" *,
+>      "institute_name": "Milano - Politecnico" *,
+>      "programme_type_code": "MS" *,
+>      "degree_course_code": "1573960" *,
+>      "degree_class_code": "MSLM32",
+>      "academic_year": "2021/2022" *,
+>      "degree_course_year": 3 *,
+>      "status": "attivo" *
 >    }
 >  ]
 >```
@@ -819,7 +819,7 @@ Al link -> [schema masterdata](doc/03_analysis/masterdata/masterdata.xlsx) è pr
 ## Per maggiori informazioni:
 * [Interoperabilità e PDND su Developers Italia](https://developers.italia.it/it/interoperabilita/)
 * [Avvisi di PAdigitale 2026](https://areariservata.padigitale2026.gov.it/Pa_digitale2026_avvisi)
-* [Diploma Supplement](https://www.miur.gov.it/-/nuovo-supplemento-al-diploma-con-4-allegati-relativi-alla-compilazione-e-alle-linee-guida-nazionali-per-la-digitalizzazione)
+* [Normativa e modelli relativi al Diploma Supplement](https://www.miur.gov.it/-/nuovo-supplemento-al-diploma-con-4-allegati-relativi-alla-compilazione-e-alle-linee-guida-nazionali-per-la-digitalizzazione)
 ## Ultima Modifica 🔬
 
 17/01/2024
