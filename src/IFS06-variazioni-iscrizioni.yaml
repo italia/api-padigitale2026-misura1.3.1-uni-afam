@@ -46,7 +46,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/student-enrollments-changes'
               examples:
-                Example with cursor:
+                Exist a next page (cursor is valued) :
                   value:
                     data:
                       institute_code: C6
@@ -60,7 +60,7 @@ paths:
                           hash: 'df8340f834tr8f3j84fj48jf83fngooero45305jf30l04k0r43kfd043kdew34t'
                     meta:
                       cursor: '6eyJpZCI6M57'
-                Example without cursor:
+                The last page (cursor is not valued:
                   value:
                     data:
                       institute_code: C6
