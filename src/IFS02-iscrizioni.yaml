@@ -110,7 +110,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/enrollments'
               examples:
-                Example statuscode=404:
+                statuscode=404:
                   value:
                     personal_data: 
                     enrollments: []
@@ -126,11 +126,11 @@ paths:
             schema:
               $ref: '#/components/schemas/it_enrollment_request'
             examples:
-              Example taxcode/personId:
+              taxcode/personId:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A                 
-              Example key:
+              key:
                 value:
                   key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535      
            
@@ -158,7 +158,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/proof_education_enrollments'
               examples:
-                Example statuscode=200:
+                statuscode=200:
                   value:
                     personal_data:
                       tax_code: RSSMRA80A01F205D
@@ -184,7 +184,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/proof_education_enrollments'
               examples:
-                Example statuscode=404:
+                statuscode=404:
                   value:
                     personal_data: 
                     proof_enrollments: []
@@ -199,7 +199,7 @@ paths:
             schema:
               $ref: '#/components/schemas/eu_enrollment_request'
             examples:
-              Example post:
+              Example:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
@@ -228,7 +228,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/proof_education_courses'
               examples:
-                Example statuscode=200:
+                statuscode=200:
                   value:
                     personal_data:
                       tax_code: RSSMRA80A01F205D
@@ -268,7 +268,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/proof_education_courses'
               examples:
-                Example statuscode=404:
+                statuscode=404:
                   value:
                     personal_data: 
                     proof_education_course: null
@@ -283,7 +283,7 @@ paths:
             schema:
               $ref: '#/components/schemas/eu_enrollment_request'
             examples:
-              Example post:
+              Example:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
@@ -312,7 +312,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/proof_tertiary_education_admission'
               examples:
-                Example statuscode=200:
+                statuscode=200:
                   value:
                     personal_data:
                       tax_code: RSSMRA80A01F205D
@@ -339,7 +339,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/proof_tertiary_education_admission'
               examples:
-                Example statuscode=404:
+                statuscode=404:
                   value:
                     personal_data:
                     proof_admissions: []
@@ -357,7 +357,7 @@ paths:
             schema:
               $ref: '#/components/schemas/eu_enrollment_request'
             examples:
-              Example post:
+              Example:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: AB123456C
@@ -386,7 +386,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/proof_personal_mobility_periods'
               examples:
-                Example statuscode=200:
+                statuscode=200:
                   value:
                     personal_data:
                       tax_code: RSSMRA80A01F205D
@@ -413,7 +413,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/proof_personal_mobility_periods'
               examples:
-                Example statuscode=404:
+                statuscode=404:
                   value:
                     personal_data:
                     proof_mobility_periods: []
@@ -428,7 +428,7 @@ paths:
             schema:
               $ref: '#/components/schemas/eu_enrollment_request'
             examples:
-              Example post:
+              Example:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: A12345678A

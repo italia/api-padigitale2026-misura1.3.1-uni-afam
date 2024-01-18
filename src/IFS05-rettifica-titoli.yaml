@@ -32,7 +32,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/qualification_change_request_detail'
               examples:
-                Example res 1:
+                Example:
                   value:
                     file_status: acquired
                     file_code: 6d183bc572f6b200015a4167
@@ -49,7 +49,7 @@ paths:
             schema:
               $ref: '#/components/schemas/qualification_change_request'
             examples:
-              Example post 1:
+              Example:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
@@ -93,7 +93,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/qualifications_change_request'
               examples:
-                Example 1:
+                Example:
                   value: 
                     qualification_change_request:
                       - file_status: approved
@@ -115,7 +115,7 @@ paths:
             schema:
               $ref: '#/components/schemas/academic_qualification_change_request'
             examples:
-              Example post 1:
+              Example:
                 value:
                   tax_code: LNGDVD80L31B354S
                   person_id: 12345678A
@@ -142,7 +142,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/qualification_change_request_detail'
               examples:
-                Example 1:
+                Example:
                   value:
                     file_status: approved
                     file_code: 6d183bc572f6b200015a4167
@@ -157,7 +157,7 @@ paths:
             schema:
               $ref: '#/components/schemas/academic_qualification_change_request'
             examples:
-              Example post 1:
+              Example:
                 value:
                   tax_code: LNGDVD80L31B354S
                   person_id: 12345678A
@@ -186,7 +186,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/issue_detail'
               examples:
-                Example res 1:
+                Example:
                   value:
                     file_status: approved
                     file_code: 6d183bc572f6b200015a4167
@@ -203,7 +203,7 @@ paths:
             schema:
               $ref: '#/components/schemas/issue_request'
             examples:
-              Example post 1:
+              Example 1:
                 value:
                   subscriber_id: "1234"
                   subscriber_name: ANIS
@@ -244,7 +244,7 @@ paths:
                         issue_description: degree grading scale cannot be null or emtpy if the grading value is valued with a numbe
                       - attribute_name: null
                         issue_description: description note
-              Example post 2: 
+              Example 2: 
                 value:
                   subscriber_id: "1234"
                   subscriber_name: ANIS

@@ -29,7 +29,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/course_list'
               examples:
-                Example statuscode=200:
+                statuscode=200:
                   value:
                     degree_courses:
                       - programme_type_code: LT
@@ -68,10 +68,10 @@ paths:
             schema:
               $ref: '#/components/schemas/course_list_request'
             examples:
-              Example 1 - prima invocazione:
+              1 - prima invocazione:
                 value:
                   academic_year: 2023/2024              
-              Example 2 - invocazioni successive alla prima:
+              2 - invocazioni successive alla prima:
                 value:
                   academic_year: 2023/2024
                   cursor: "abc123456abc"      
@@ -100,7 +100,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/course_details'
               examples:
-                Example statuscode=200:
+                statuscode=200:
                   value:
                       programme_type_code: LT
                       programme_access: free
@@ -209,7 +209,7 @@ paths:
             schema:
               $ref: '#/components/schemas/course_detail_request'
             examples:
-              Example post 1:
+              Example:
                 value:
                   degree_class_code: 'MSLM20'
                   degree_course_code: '465'

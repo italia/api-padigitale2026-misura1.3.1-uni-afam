@@ -31,7 +31,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/change_request_detail'
               examples:
-                Example res 1:
+                Example:
                   value:
                     file_status: acquired
                     file_code: 6d183bc572f6b200015a4167
@@ -48,7 +48,7 @@ paths:
             schema:
               $ref: '#/components/schemas/change_request'
             examples:
-              Example post 1:
+              Example:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
@@ -93,7 +93,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/enrollments_change_request'
               examples:
-                Example 1:
+                Example:
                   value: 
                     enrollment_change_request:
                       - file_status: approved
@@ -114,7 +114,7 @@ paths:
             schema:
               $ref: '#/components/schemas/enrollment_change_request'
             examples:
-              Example post 1:
+              Example:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
@@ -141,7 +141,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/change_request_detail'
               examples:
-                Example 1:
+                Example:
                   value:
                     file_status: approved
                     file_code: 6d183bc572f6b200015a4167
@@ -157,7 +157,7 @@ paths:
             schema:
               $ref: '#/components/schemas/enrollment_change_request'
             examples:
-              Example post 1:
+              Example:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
@@ -185,7 +185,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/issue_detail'
               examples:
-                Example res 1:
+                Example:
                   value:
                     file_status: approved
                     file_code: 6d183bc572f6b200015a4167
@@ -202,7 +202,7 @@ paths:
             schema:
               $ref: '#/components/schemas/issue_request'
             examples:
-              Example post 1:
+              Example:
                 value:
                   subscriber_id: "1234"
                   subscriber_name: ANIS

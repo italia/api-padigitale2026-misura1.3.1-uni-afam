@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
-  title: IFS03 - Retrive degrees / Recupero titoli
+  title: IFS03 - Retrive qualification degrees / Recupero titoli di studio
   x-summary: This service returns the list of degrees earned by a student. / Questo servizio ritorna l'elenco dei titoli conseguiti da una studentessa o uno studente.
   version: 1.0.0
   description: |
-    Returns the list of degrees earned by a student / Restituisce l'elenco dei titoli conseguiti da una studentessa o uno studente
+    Returns the list of qualification degrees got by a student/ Restituisce l'elenco dei titoli conseguiti da una studentessa o uno studente
   contact:
     name: helpdesk
     email: helpdesk@mail.edu.it
@@ -30,7 +30,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/academic_qualifications'
               examples:
-                personal_data only taxCode:
+                Personal_data only taxCode:
                   value:
                     personal_data:
                       tax_code: RSSMRA80A01F205D
@@ -46,7 +46,7 @@ paths:
                         qualification_grading_scale: '110'
                         qualification_grading_scale_minimum_grade: '66'
                         qualification_grading_scale_maximum_grade: '110'
-                personal_data taxCode/personID:
+                Personal_data taxCode/personID:
                   value:
                     personal_data:
                       tax_code: RSSMRA80A01F205D
@@ -63,7 +63,7 @@ paths:
                         qualification_grading_scale: '110'
                         qualification_grading_scale_minimum_grade: '66'
                         qualification_grading_scale_maximum_grade: '110'
-                personal_data witout taxCode:
+                Personal_data witout taxCode:
                   value:
                     personal_data:
                       given_name: Mario
@@ -82,7 +82,7 @@ paths:
                         qualification_grading_scale: '110'
                         qualification_grading_scale_minimum_grade: '66'
                         qualification_grading_scale_maximum_grade: '110'
-                Example 1 - qualifications:
+                Qualification 1:
                   value:
                     personal_data:
                       given_name: Mario
@@ -101,7 +101,7 @@ paths:
                         qualification_grading_scale: '110'
                         qualification_grading_scale_minimum_grade: null
                         qualification_grading_scale_maximum_grade: null
-                Example 2 - qualifications:
+                Qualification 2:
                   value:
                     personal_data:
                       given_name: Mario
@@ -129,7 +129,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/academic_qualifications'
               examples:
-                Example statuscode=404:
+                Statuscode=404:
                   value:
                     personal_data: null
                     qualifications: []
@@ -144,11 +144,11 @@ paths:
             schema:
               $ref: '#/components/schemas/it_qualification_request'
             examples:
-              Example post 1:
+              With person:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
-              Example post 2:
+              With key:
                 value:
                   key: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535    
           application/xml:
@@ -172,7 +172,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/proof_education_qualifications'
               examples:
-                Example statuscode=200:
+                Statuscode=200:
                   value:
                     personal_data:
                       tax_code: RSSMRA80A01F205D
@@ -204,7 +204,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/proof_education_qualifications'
               examples:
-                Example statuscode=404:
+                Statuscode=404:
                   value:
                     personal_data:
                     proof_qualifications: []
@@ -219,7 +219,7 @@ paths:
             schema:
               $ref: '#/components/schemas/eu_qualification_request'
             examples:
-              Example post 1:
+              Example:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
@@ -247,7 +247,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/proof_education_qualifications_level'
               examples:
-                Example statuscode=200:
+                Statuscode=200:
                   value:
                     personal_data:
                       tax_code: RSSMRA80A01F205D
@@ -278,7 +278,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/proof_education_qualifications_level'
               examples:
-                Example statuscode=404:
+                Statuscode=404:
                   value:
                     personal_data: null
                     proof_qualifications_level: null
@@ -293,7 +293,7 @@ paths:
             schema:
               $ref: '#/components/schemas/eu_qualification_request'
             examples:
-              Example post 1:
+              Example:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
@@ -321,7 +321,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/proof_education_qualifications_diploma_supplement'
               examples:
-                Example statuscode=200:
+                Statuscode=200:
                   value:
                     personal_data:
                       tax_code: RSSMRA80A01F205D
@@ -383,7 +383,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/proof_education_qualifications_diploma_supplement'
               examples:
-                Example statuscode=404:
+                Statuscode=404:
                   value:
                     personal_data: null
                     proof_qualifications_diploma_supplement: null
@@ -397,7 +397,7 @@ paths:
             schema:
               $ref: '#/components/schemas/eu_qualification_request'
             examples:
-              Example post 1:
+              Example:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: AB123456C

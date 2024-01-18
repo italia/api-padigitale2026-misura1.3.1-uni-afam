@@ -83,7 +83,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/student-enrollments-changes'
               examples:
-                Example statuscode=404:
+                Statuscode=404:
                   value:
                     data: 
                       institute_code: C6
