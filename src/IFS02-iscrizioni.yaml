@@ -989,7 +989,7 @@ components:
           nullable: true
         person_id:
           type: string
-          description: ANPR Identifier / Identificativo ANPR 
+          description: Unique National Identifier (ANPR ID) / Identificativo unico nazionale (ID ANPR) 
           maxLength: 9
           minLength: 9
           example: AB123456C          
@@ -1038,7 +1038,7 @@ components:
           maxLength: 16          
         person_id:
           type: string
-          description: ANPR Identifier / Identificativo ANPR 
+          description: Unique National Identifier (ANPR ID) / Identificativo unico nazionale (ID ANPR) 
           maxLength: 9
           minLength: 9
           pattern: "^[A-Z0-9]{9}$"
@@ -1071,7 +1071,7 @@ components:
           maxLength: 16
         person_id:
           type: string
-          description: ANPR Identifier / Identificativo ANPR 
+          description: Unique National Identifier (ANPR ID) / Identificativo unico nazionale (ID ANPR) 
           maxLength: 9
           minLength: 9
           pattern: "^[A-Z0-9]{9}$"
