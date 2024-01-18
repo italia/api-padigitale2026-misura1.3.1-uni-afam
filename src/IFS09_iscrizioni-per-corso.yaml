@@ -185,8 +185,7 @@ components:
         - degree_course_code
         - degree_class_code
         - female_enrollment_count
-        - male_enrollment_count
-        
+        - male_enrollment_count        
     count_enrollment_request:
       type: object
       additionalProperties: false      
