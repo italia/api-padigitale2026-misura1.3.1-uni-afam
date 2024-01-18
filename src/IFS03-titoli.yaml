@@ -1032,8 +1032,7 @@ components:
           maxLength: 9
           minLength: 9
           pattern: "^[A-Z0-9]{9}$"
-          example: AB123456C
-          
+          example: AB123456C          
           nullable: true
         given_name:
           type: string
@@ -1083,10 +1082,12 @@ components:
           maxLength: 16
         person_id:
           type: string
-          description: National unique identifier / Identificativo unico nazionale
-          example: 12345678A
-          minLength: 9
+          description: ANPR Identifier / Identificativo ANPR 
           maxLength: 9
+          minLength: 9
+          pattern: "^[A-Z0-9]{9}$"
+          example: AB123456C
+          nullable: true
         key:
           type: string
           description: Hash tax code / Hash del codice fiscale
@@ -1119,7 +1120,9 @@ components:
           description: ANPR Identifier / Identificativo ANPR 
           maxLength: 9
           minLength: 9
-          example: AB123456C    
+          pattern: "^[A-Z0-9]{9}$"
+          example: AB123456C
+          nullable: true
         institute_code:
           type: string
           description: Institutional identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]

@@ -309,7 +309,9 @@ components:
           description: ANPR Identifier / Identificativo ANPR 
           maxLength: 9
           minLength: 9
+          pattern: "^[A-Z0-9]{9}$"
           example: AB123456C
+          nullable: true
         reason:
           type: string
           description: Modification description / Descrizione modifica
@@ -626,10 +628,12 @@ components:
           maxLength: 16
         person_id:
           type: string
-          description: National unique identifier / Identificativo unico nazionale
-          example: 12345678A
-          minLength: 9
+          description: ANPR Identifier / Identificativo ANPR 
           maxLength: 9
+          minLength: 9
+          pattern: "^[A-Z0-9]{9}$"
+          example: AB123456C
+          nullable: true
         file_code:
           type: string
           description: enrollment change request code/ Codice Rettifica iscrizioni
