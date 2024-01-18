@@ -18,7 +18,7 @@ paths:
     post:
       summary: Retrieve the list of study programs offered by a tertiary education institute in a given academic year. / Acquisizione della lista dei corsi di studio offerti da un Istituto di fomrazione superiore in un dato anno accademico.
       tags:
-        - educational-offering-list
+        - IFS01.1 - educational-offering-list
       security: 
         - bearerAuth: []
       responses:
@@ -89,7 +89,7 @@ paths:
     post:
       summary: Retrievethe details of a study program offered by a tertiary education institute. / Acquisizione del dettaglio di un corso di studio offerto da un Istituto di formazione superiore.
       tags:
-        - educational-offering-detail
+        - IFS01.2 - educational-offering-detail
       security: 
         - bearerAuth: []
       responses:
@@ -607,6 +607,6 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: educational-offering-list
-  - name: educational-offering-detail
+  - name: IFS01.1 - educational-offering-list
+  - name: IFS01.2 - educational-offering-detail
   - name: health-check

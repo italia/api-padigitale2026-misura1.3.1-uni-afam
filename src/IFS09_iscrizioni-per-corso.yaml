@@ -18,7 +18,7 @@ paths:
     post:
       summary: Retrieve of the number of female and male students enrolled in a study program per academic year. / Acquisizione del numero di studentesse e studenti iscritti a un corso di studi per anno accademico
       tags:
-        - count-accademic-enrollments-by-degree-courses
+        - IFS09.1 - count-accademic-enrollments-by-degree-courses
       security: 
         - bearerAuth: []
       responses:
@@ -217,5 +217,5 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: count-accademic-enrollments-by-degree-courses
+  - name: IFS09.1 - count-accademic-enrollments-by-degree-courses
   - name: health-check

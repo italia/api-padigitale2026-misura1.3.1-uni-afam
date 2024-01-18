@@ -20,7 +20,7 @@ paths:
       summary: Academic qualification change request / Richiesta di rettifica dei titoli conseguti
       operationId: academic-qualification-change-request
       tags:
-        - academic-qualification-change-request
+        - IFS05.1 - academic-qualification-change-request
       security:
         - bearerAuth: []
       parameters: []
@@ -81,7 +81,7 @@ paths:
     post:
       summary: Status of academic qualification change request / Stato della richiesta di rettifica di un titolo conseguito
       tags:
-        - academic-qualification-change-request-status
+        - IFS05.2 - academic-qualification-change-request-status
       parameters: []
       security:
         - bearerAuth: []
@@ -130,7 +130,7 @@ paths:
     post:
       summary: academic qualification change request cancellation / Richiesta di annullamento della richiesta di rettific di un titolo conseguito
       tags:
-        - academic-qualification-change-request-cancellation
+        - IFS05.3 - academic-qualification-change-request-cancellation
 
       security:
         - bearerAuth: []
@@ -174,7 +174,7 @@ paths:
     post:
       summary: Open the issues on academic qualifications data  / Apre le anomalie sui dati dei titoli accademici
       tags:
-        - academic-qualifications-issues
+        - IFS05.4 - academic-qualifications-issues
       security:
         - bearerAuth: []
       parameters: []
@@ -671,8 +671,8 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: academic-qualification-change-request
-  - name: academic-qualification-change-request-status
-  - name: academic-qualification-change-request-cancellation
-  - name: academic-qualifications-issues
+  - name: IFS05.1 - academic-qualification-change-request
+  - name: IFS05.2 - academic-qualification-change-request-status
+  - name: IFS05.3 - academic-qualification-change-request-cancellation
+  - name: IFS05.4 - academic-qualifications-issues
   - name: health-check

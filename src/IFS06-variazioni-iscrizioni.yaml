@@ -36,7 +36,7 @@ paths:
     get:
       summary: Retrieve of "fingerprints (hash codes)" for all student enrollments in the last three academic years to identify variations from the recipient's perspective. / Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle studentesse/degli studenti negli ultimi tre anni accademici al fine di identificarne le variazioni dal punto di vista del fruitore
       tags:
-        - student-enrollments-changes
+        - IFS06.1 - student-enrollments-changes
       security: [{}]
       responses:
         '200':
@@ -204,5 +204,5 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost
 tags:
-  - name: student-enrollments-changes
+  - name: IFS06.1 - student-enrollments-changes
   - name: health-check
