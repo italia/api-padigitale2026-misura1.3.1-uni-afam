@@ -1,24 +1,13 @@
 <p align="center">
-<a href="https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam">
     <img title="Star on GitHub" src="https://img.shields.io/github/stars/italia/api-padigitale2026-misura1.3.1-uni-afam.svg?style=social&label=Star">
-  </a>
-  <a href="https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/fork">
-    <img title="Fork on GitHub" src="https://img.shields.io/github/forks/italia/api-padigitale2026-misura1.3.1-uni-afam.svg?style=social&label=Fork">
-  </a>
+    <img title="Fork on GitHub" src="https://img.shields.io/github/forks/italia/api-padigitale2026-misura1.3.1-uni-afam.svg?style=social&label=Fork"> 
 </p>  
 
 <p align="center">
-    <a href="https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/graphs/contributors">
-      <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/italia/api-padigitale2026-misura1.3.1-uni-afam" />
-    </a>
-    <a href="https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues">
-      <img alt="Issues" src="https://img.shields.io/github/issues/italia/api-padigitale2026-misura1.3.1-uni-afam?color=0088ff" />
-    </a>
-    <a href="https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues-closed">
-      <img alt="Issues" src="https://img.shields.io/github/issues-closed/italia/api-padigitale2026-misura1.3.1-uni-afam?color=0088ff" />
-    </a>
-    <a href="https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/pulse" alt="Activity">
-        <img src="https://img.shields.io/github/commit-activity/m/italia/api-padigitale2026-misura1.3.1-uni-afam" /></a>        
+    <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/italia/api-padigitale2026-misura1.3.1-uni-afam" />
+    <img alt="Issues" src="https://img.shields.io/github/issues/italia/api-padigitale2026-misura1.3.1-uni-afam?color=0088ff" />
+    <img alt="Issues" src="https://img.shields.io/github/issues-closed/italia/api-padigitale2026-misura1.3.1-uni-afam?color=0088ff" />
+    <img src="https://img.shields.io/github/commit-activity/m/italia/api-padigitale2026-misura1.3.1-uni-afam" />    
   </p>
 
 
