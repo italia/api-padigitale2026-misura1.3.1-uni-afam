@@ -8,7 +8,7 @@
 </p>  
 
 <p align="center">
-    <a href="https://github.com/anuraghazra/github-readme-stats/graphs/contributors">
+    <a href="https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/graphs/contributors">
       <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/italia/api-padigitale2026-misura1.3.1-uni-afam" />
     </a>
     <a href="https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues">
@@ -28,7 +28,7 @@
 Questo repository contiene le specifiche delle API relative alla misura 1.3.1 per l'avviso dedicato a Università pubbliche e AFAM (Alta Formazione Artistica, Musicale e Coreutica) pubblici, nell'ambito di PAdigitale2026. 
 
 La tabella sottostante (Tabella 1) riporta il dettaglio del titolo e descrizione per tutte e nove le API (dalla IFS01 alla IFS09) che dovranno essere erogate dai Soggetti Attuatori in base alla fascia di appartenenza. 
-
+git status
 <table>
        <caption>Tabella 1 – Descrizione delle nove API assegnate alle cinque fasce di Università e AFAM</caption>
 
