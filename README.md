@@ -253,6 +253,11 @@ Acquisizione della lista dei corsi di studio offerti da un Istituto di formazion
 >>1. Per le invocazioni successive alla prima si valorizza il campo cursor con il valore ottenuto nell'ultima response
 > * E' lasciata allo sviluppatore dell'API la gestione della paginazione e quindi della valorizzazione del cursor sulla response
 
+> :warning: **AFAM vs Università**
+> * Nella response, Per gli AFAM compilare i campi learning_ssa e learinig_cfa
+> * Nella response, Per le università compilare i campi learning_ssd e learinig_cfu
+> * VEDERE GLI ESEMPI PRESENTI NELLO SWAGGER
+
 #### :globe_with_meridians: IFS01.2 - educational-offering-detail
 
 Acquisizione del dettaglio di un corso di studio offerto da un Istituto di formazione superiore
