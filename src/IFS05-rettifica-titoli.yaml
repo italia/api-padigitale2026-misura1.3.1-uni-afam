@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
-  title: IFS05 - Qualification Change request/ Rettifica titoli
-  x-summary: Requests the rectification of missing or excess entry data for a student who is attending or has attended. / Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
+  title: IFS05 - Academic qualifications change request/ Rettifica dei titoli accademici
+  x-summary: Data academic qualificatons change request / Richiede la rettifica dei titoli accademici
   version: 1.0.0
   description: |
-        Requests the rectification of missing or excess entry data for a student who is attending or has attended. / Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
+      Data academic qualificatons change request / Richiede la rettifica dei titoli accademici
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -17,7 +17,8 @@ security: [{}]
 paths:
   '/academic-qualification-change-request':
     post:
-      summary: Academic qualification change request / Richiesta di rettifica dei titoli conseguti
+      summary: | 
+        Academic qualification change request / Richiesta di rettifica dei titoli conseguti
       operationId: academic-qualification-change-request
       tags:
         - IFS05.1 - academic-qualification-change-request
@@ -79,7 +80,9 @@ paths:
   '/academic-qualification-change-request-status':
 
     post:
-      summary: Status of academic qualification change request / Stato della richiesta di rettifica di un titolo conseguito
+      summary: | 
+        Retrieve the status of academic qualification change request / 
+        Ottiene lo stato della richiesta di rettifica di un titolo accademico conseguito
       tags:
         - IFS05.2 - academic-qualification-change-request-status
       parameters: []
@@ -128,15 +131,18 @@ paths:
         description: 'Request di esempio'
   '/academic-qualification-change-request-cancellation':
     post:
-      summary: academic qualification change request cancellation / Richiesta di annullamento della richiesta di rettific di un titolo conseguito
+      summary: | 
+        Delete the academic qualification change request / 
+        Richiesta di annullamento della richiesta di rettific di un titolo conseguito
       tags:
         - IFS05.3 - academic-qualification-change-request-cancellation
-
       security:
         - bearerAuth: []
       responses:
         '200':
-          description: Cancellation of academic qualification change request completed successfully / Aannullamento della richiesta di rettifica del titolo eseguita con successo
+          description: |
+            Delete the academic qualification change request / 
+            Richiesta di annullamento della richiesta di rettific di un titolo conseguito
           content:
             application/json:
               schema:
@@ -172,7 +178,9 @@ paths:
     parameters: []
   '/academic-qualifications-issues':
     post:
-      summary: Open the issues on academic qualifications data  / Apre le anomalie sui dati dei titoli accademici
+      summary: | 
+        Open the issues on academic qualifications data  / 
+        Apre le anomalie sui dati dei titoli accademici
       tags:
         - IFS05.4 - academic-qualifications-issues
       security:

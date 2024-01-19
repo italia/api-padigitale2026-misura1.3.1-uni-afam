@@ -1,10 +1,11 @@
 openapi: 3.0.0
 info:
-  title: IFS09 - Iscritti a un corso per anno
-  x-summary: Acquisisce il numero di studentesse e studenti iscritti a uno specifico corso per anno accademico
+  title: IFS09 - Academic enrollments by degree course / Iscrizioni accademiche per corso di studi
+  x-summary: | 
+    Retrieve the number of academic enrollments by degree course / Ottiene il numero di iscrizioni accademiche per corso di studi
   version: 1.0.0
   description: |
-    Obtains the number of students enrolled in an IFS. / Ottiene il numero di studentesse e di studenti iscritti ad un IFS.
+    Retrieve the number of academic enrollments by degree course / Ottiene il numero di iscrizioni accademiche per corso di studi
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -16,7 +17,8 @@ info:
 paths:
   /count-accademic-enrollments-by-degree-courses:
     post:
-      summary: Retrieve of the number of female and male students enrolled in a study program per academic year. / Acquisizione del numero di studentesse e studenti iscritti a un corso di studi per anno accademico
+      summary: | 
+        Retrieve the number of academic enrollments by degree course / Ottiene il numero di iscrizioni accademiche per corso di studi
       tags:
         - IFS09.1 - count-accademic-enrollments-by-degree-courses
       security: 
@@ -84,7 +86,7 @@ paths:
               properties: {}
         description: ''
       operationId: iscritti-per-isee
-      description: 'Restituisce il numero di studentesse e di studenti iscritti. Valorizzando i queryParams opzionali (courseName e academicYear) è possibile filtrare i risultati. Non valorizzandoli il risultato ottenuto si riferirà all''IFS per intero.'
+      description: Retrieve the number of academic enrollments by degree course / Ottiene il numero di iscrizioni accademiche per corso di studi
 
   /status:
     get:
@@ -144,9 +146,6 @@ components:
           description: count academic student enrollments / numero iscrizioni per corso
           items:
             $ref: '#/components/schemas/count_academic_enrollment'
-
-
-
     count_academic_enrollment:
       type: object
       additionalProperties: false      

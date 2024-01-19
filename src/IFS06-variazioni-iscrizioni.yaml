@@ -1,10 +1,11 @@
 openapi: 3.0.0
 info:
-  title: IFS06 - List of enrollment changes / Elenco variazioni iscrizioni 
-  x-summary: Acquires the updated enrollment list for each student. / Acquisisce la lista delle iscrizioni aggiornate per ogni studente.
+  title: IFS06 - Changes in academic enrolments/ Variazioni nelle iscrizioni accademiche
+  x-summary: | 
+    Retrieve the changes in academic enrollments / Ottiene le variazioni delle iscrizioni accademiche
   version: 1.0.0
   description: |
-    Requires a list of the last active enrollment for each course of study in the last 10 academic years. / Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli ultimi 10 anni accademici.
+        Retrieve the changes in academic enrollments / Ottiene le variazioni delle iscrizioni accademiche
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -34,7 +35,9 @@ paths:
           minLength: 1
           description: Institute code / Codice istituto
     get:
-      summary: Retrieve of "fingerprints (hash codes)" for all student enrollments in the last three academic years to identify variations from the recipient's perspective. / Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle studentesse/degli studenti negli ultimi tre anni accademici al fine di identificarne le variazioni dal punto di vista del fruitore
+      summary: | 
+        Retrieve the "fingerprints (hash codes)" of all students' enrollments in the last three academic years to identify changes in the recipient's perspective. / 
+        Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle studentesse/degli studenti negli ultimi tre anni accademici al fine di identificarne le variazioni dal punto di vista del fruitore
       tags:
         - IFS06.1 - student-enrollments-changes
       security: [{}]

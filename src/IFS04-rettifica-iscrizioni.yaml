@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
-  title: IFS04 - Academic enrollment change request  / Rettifica iscrizioni accademiche
-  x-summary: Requests the rectification of missing or excess entry data for a student who is attending or has attended. / Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
+  title: IFS04 - Academic enrollments change request  / Rettifica iscrizioni accademiche
+  x-summary: Data academic enrollments change request / Richiede la rettifica dei dati delle iscrizioni accademiche
   version: 1.0.0
   description: |
-        Requests the rectification of missing or excess entry data for a student who is attending or has attended. / Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
+        Data academic enrollments change request / Richiede la rettifica dei dati delle iscrizioni accademiche
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -79,7 +79,9 @@ paths:
   '/academic-enrollment-change-request-status':
   
     post:
-      summary: Student enrollment change request detail / Dettaglio rettifica iscrizione studentessa o studente
+      summary: | 
+        Retrieve the status of the academic enrollment change request / 
+        Ottiene lo stato della richiesta di rettifica di una iscrizioni accademica
       tags:
         - IFS04.2 - academic-enrollment-change-request-status
       parameters: []
@@ -128,14 +130,15 @@ paths:
       operationId: academic-enrollment-change-request-statu
   '/academic-enrollment-change-request-cancellation':
     post:
-      summary: Cancellation of change request / Richiesta di annullamento rettifica
+      summary: | 
+        Delete the change request / Richiesta di annullamento rettifica
       tags:
         - IFS04.3 - academic-enrollment-change-request-cancellation
       security:
         - bearerAuth: []
       responses:
         '200':
-          description: Request for cancellation of rectification completed successfully / Richiesta annullamento rettifica eseguita con successo
+          description: Delete the change request / Richiesta di annullamento rettifica
           content:
             application/json:
               schema:
@@ -171,7 +174,8 @@ paths:
     parameters: []
   '/enrollments-issues':
     post:
-      summary: Open the issues on enrollments data  / Apre le anomalie sui dati delle iscrizioni
+      summary: | 
+        Open the issues on academic enrollments data  / Apre le anomalie sui dati delle iscrizioni
       tags:
         - IFS04.4 - enrollments-issues
       security:

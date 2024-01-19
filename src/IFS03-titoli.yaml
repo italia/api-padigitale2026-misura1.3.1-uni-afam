@@ -1,22 +1,28 @@
 openapi: 3.0.0
 info:
-  title: IFS03 - Retrive qualification degrees / Recupero titoli di studio
-  x-summary: This service returns the list of degrees earned by a student. / Questo servizio ritorna l'elenco dei titoli conseguiti da una studentessa o uno studente.
+  title: | 
+    IFS03 - Academic qualification degrees / Titoli accademici conseguiti
+  x-summary: |
+    Provides the detailed information regarding the academic qualification degrees got by the students at an university or AFAM / 
+    Fornisce le informazioni di dettaglio riguardanti i titoli conseguiti da una studentessa o uno studente all'università o AFAM
   version: 1.0.0
   description: |
-    Returns the list of qualification degrees got by a student/ Restituisce l'elenco dei titoli conseguiti da una studentessa o uno studente
+    Provides the detailed information regarding the academic qualification degrees got by the students at an university or AFAM / 
+    Fornisce le informazioni di dettaglio riguardanti i titoli conseguiti da una studentessa o uno studente all'università o AFAM
   contact:
     name: helpdesk
     email: helpdesk@mail.edu.it
   x-api-id: 00000000-0000-0000-0000-000000000000
-  termsOfService: 'http://swagger.io/terms/'
+  termsOfService: swagger.io/terms/'
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
   '/academic-qualifications':
     post:
-      summary: Retrieve of the details of academic titles obtained by a female/male student. / Acquisizione del dettaglio dei titoli accademici conseguiti da una studentessa/uno studente
+      summary: | 
+        Retrieve the details of academic qualifications got by a student. / 
+        Acquisizione del dettaglio dei titoli accademici conseguiti da una studentessa/uno studente
       tags:
         - IFS03.1 - academic-qualifications
       security:
@@ -159,7 +165,9 @@ paths:
         description: 'Request di esempio'
   '/proof-tertiary-education-qualifications':
     post:
-      summary: Retrieve of evidence regarding the completion of tertiary education studies. / Acquisizione delle prove riguardanti il completamento degli studi di istruzione terziaria
+      summary: | 
+        Retrieve the evidences of the completion of tertiary education studies. / 
+        Acquisizione delle prove riguardanti il completamento degli studi di istruzione terziaria
       tags:
         - IFS03.2 - proof-tertiary-education-qualifications
       security:
@@ -234,7 +242,9 @@ paths:
   '/proof-tertiary-education-qualifications-level':
 
     post:
-      summary: Retrieve of evidence regarding the qualification level of tertiary education studies. / Acquisizione delle prove riguardanti il livello di qualifica degli studi di istruzione terziaria
+      summary: | 
+        Retrieve the evidences of the qualification level of tertiary education studies. / 
+        Acquisizione delle prove riguardanti il livello di qualifica degli studi di istruzione terziaria
       tags:
         - IFS03.3 - proof-tertiary-education-qualifications-level
       security:
@@ -308,7 +318,9 @@ paths:
   '/proof-tertiary-education-qualifications-diploma-supplement':
 
     post:
-      summary: Retrieve of evidence related to the "Diploma Supplement" tool. / Acquisizione delle prove relative allo strumento "Diploma Supplement"
+      summary: | 
+        Retrieve the evidences of the "Diploma Supplement". / 
+        Acquisizione delle prove relative al "Diploma Supplement"
       tags:
         - IFS03.4 - proof-tertiary-education-qualifications-diploma-supplement
       security:

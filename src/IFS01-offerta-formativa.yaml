@@ -87,7 +87,7 @@ paths:
       parameters: []
   '/educational-offering-detail': 
     post:
-      summary: Retrievethe details of a study program offered by a tertiary education institute. / Acquisizione del dettaglio di un corso di studio offerto da un Istituto di formazione superiore.
+      summary: Retrieve the details of a study program offered by a tertiary education institute. / Acquisizione del dettaglio di un corso di studio offerto da un istituto di formazione superiore.
       tags:
         - IFS01.2 - educational-offering-detail
       security: 
@@ -225,7 +225,7 @@ paths:
       parameters: []
   /status:
     get:
-      summary: Verifica stato delle API (Health Check)
+      summary: Verifica dello stato delle API (Health Check)
       security: [{}]
       operationId: check-status
       description: Check the system's health status / Verificare lo stato di salute del sistema 

@@ -1,10 +1,11 @@
 openapi: 3.0.0
 info:
-  title: IFS08 - Students enrolled by ISEE bands / Iscritti per fasce ISEE
-  x-summary: Acquires the number of students by ISEE bands in an academic year / Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accademico
+  title: IFS08 - Academic enrollments by ISEE / Iscrizioni accademiche per fasce ISEE
+  x-summary: | 
+    Retrieve the number of academic enrollments by ISEE / Ottiene il numero di iscrizioni accademiche per fasce ISEE
   version: 1.0.0
   description: |
-   This API allows you to obtain the number of enrolled students divided by ISEE bands. / Questa API consente di ottenere il numero di studentesse e di studenti iscritti suddivisi per fasce ISEE.
+    Retrieve the number of academic enrollments by ISEE / Ottiene il numero di iscrizioni accademiche per fasce ISEE
   contact:
     name: helpdesk
     email: helpdesk@gmail.com
@@ -16,8 +17,9 @@ info:
 paths:
   /count-academic-enrollments-by-isee-ranges:
     post:
-      summary: Retrieve of the number of female and male students in predefined ISEE brackets in study programs for an academic year at the tertiary education Institute. / Acquisizione del numero di studentesse e studenti per fasce ISEE prestabilite nei corsi di studio per un anno accademico nell'Istituto di formazione superiore
-      tags:
+      summary: | 
+        Retrieve the number of academic enrollments by ISEE / Ottiene il numero di iscrizioni accademiche per fasce ISEE
+      tags: 
         - IFS08.1 - count-academic-enrollments-by-isee-ranges
       security:
        - bearerAuth: []
@@ -96,8 +98,7 @@ paths:
         description: ''
       
       operationId: Iscritti-per-isee
-      description: Returns the list of ISEE bands with the number of students enrolled by band. By valuing the optional Params queries (courseName and academicYear) you can filter the results. If they are not valued, the result obtained will refer to the IFS in full. / Restituisce l'elenco di fasce ISEE con il numero di studentesse e di studenti iscritti per fascia. Valorizzando i queryParams opzionali (courseName e academicYear) è possibile filtrare i risultati. Non valorizzandoli il risultato ottenuto si riferirà all'IFS per intero.
-
+      description: Retrieve the number of academic enrollments by ISEE / Ottiene il numero di iscrizioni accademiche per fasce ISEE
   /status:
     get:
       summary: Verifica stato delle API (Health Check)
