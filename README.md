@@ -277,10 +277,10 @@ Acquisizione del dettaglio di un corso di studio offerto da un Istituto di forma
 > * Vedere gli esempi presenti nello yaml/swagger e nella cartella doc/03_analysis/io_schema
 
 
+
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
 <hr>
-
 
 
 ### IFS02 Iscrizioni
