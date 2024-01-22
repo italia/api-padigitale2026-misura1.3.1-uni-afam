@@ -13,7 +13,7 @@ info:
     name: helpdesk
     email: helpdesk@mail.edu.it
   x-api-id: 00000000-0000-0000-0000-000000000000
-  termsOfService: swagger.io/terms/'
+  termsOfService: http://swagger.io/terms/'
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'

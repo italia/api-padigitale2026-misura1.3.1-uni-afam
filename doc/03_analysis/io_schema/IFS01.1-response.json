@@ -1,4 +1,4 @@
-/*Esempio Università*/
+/*Esempio ateneo universitario*/
 
 {
     "degree_courses": [
@@ -35,7 +35,7 @@
 }
 
 
-/*Esempio Conservatorio*/
+/*Esempio AFAM*/
 
 {
     "degree_courses": [
