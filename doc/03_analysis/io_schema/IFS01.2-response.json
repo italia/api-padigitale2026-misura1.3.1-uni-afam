@@ -24,7 +24,7 @@
                "learnings":[
                   {
                      "learning_ssd":"MAT/03",
-                     "learning_ssa":"",
+                     "learning_sad":"",
                      "learning_name":"ANALISI E GEOMETRIA 1",
                      "learning_code":"081360",
                      "learning_cfu":10,
@@ -35,7 +35,7 @@
                   },
                   {
                      "learning_ssd":"CHIM/07",
-                     "learning_ssa":"",
+                     "learning_sad":"",
                      "learning_name":"FONDAMENTI DI CHIMICA",
                      "learning_code":"081374",
                      "learning_cfu":7,
@@ -51,7 +51,7 @@
                "learnings":[
                   {
                      "learning_ssd":"ING-IND/14",
-                     "learning_ssa":"",
+                     "learning_sad":"",
                      "learning_name":"COSTRUZIONE DI MACCHINE 1",
                      "learning_code":"05083782",
                      "learning_cfu":10,
@@ -62,7 +62,7 @@
                   },
                   {
                      "learning_ssd":"ING-IND/13",
-                     "learning_ssa":"",
+                     "learning_sad":"",
                      "learning_name":"MECCANICA APPLICATA ALLE MACCHINE",
                      "learning_code":"54828",
                      "learning_cfu":10,
@@ -85,7 +85,7 @@
                "learnings":[
                   {
                      "learning_ssd":"ICAR/01",
-                     "learning_ssa":"",
+                     "learning_sad":"",
                      "learning_name":"MECCANICA DEI FLUIDI",
                      "learning_code":"83503",
                      "learning_cfu":7,
@@ -96,7 +96,7 @@
                   },
                   {
                      "learning_ssd":"ING-IND/21",
-                     "learning_ssa":"",
+                     "learning_sad":"",
                      "learning_name":"TECNOLOGIE METALLURGICHE",
                      "learning_code":"86509",
                      "learning_cfu":8,
@@ -120,7 +120,7 @@
                "learnings":[
                   {
                      "learning_ssd":"ING-IND/17",
-                     "learning_ssa":"",
+                     "learning_sad":"",
                      "learning_name":"IMPIANTI MECCANICI",
                      "learning_code":"86468",
                      "learning_cfu":7,
@@ -131,7 +131,7 @@
                   },
                   {
                      "learning_ssd":"ING-IND/14",
-                     "learning_ssa":"",
+                     "learning_sad":"",
                      "learning_name":"TEORIA E TECNICA DEI VEICOLI TERRESTRI",
                      "learning_code":"086509",
                      "learning_cfu":5,
@@ -196,7 +196,7 @@
                "learnings":[
                   {
                      "learning_ssd":"ING-IND/06",
-                     "learning_ssa":"",
+                     "learning_sad":"",
                      "learning_name":"AERODINAMICA",
                      "learning_code":"081066",
                      "learning_cfu":10,
@@ -207,7 +207,7 @@
                   },
                   {
                      "learning_ssd":"ING-IND/04",
-                     "learning_ssa":"",
+                     "learning_sad":"",
                      "learning_name":"STRUTTURE AEROSPAZIALI",
                      "learning_code":"083768",
                      "learning_cfu":10,
@@ -222,7 +222,7 @@
                "learnings":[
                   {
                      "learning_ssd":"ING-IND/07",
-                     "learning_ssa":"",
+                     "learning_sad":"",
                      "learning_name":"LAUNCH SYSTEMS",
                      "learning_code":"052782",
                      "learning_cfu":8,
@@ -232,7 +232,7 @@
                   },
                   {
                      "learning_ssd":"ING-INF/04",
-                     "learning_ssa":"",
+                     "learning_sad":"",
                      "learning_name":"TECNOLOGIE DEI SISTEMI DI CONTROLLO PER L'AERONAUTICA",
                      "learning_code":"091263",
                      "learning_cfu":8,
@@ -254,7 +254,7 @@
                "learnings":[
                   {
                      "learning_ssd":"ING-IND/06",
-                     "learning_ssa":"",
+                     "learning_sad":"",
                      "learning_name":"AERODINAMICA",
                      "learning_code":"081066",
                      "learning_cfu":10,
@@ -264,7 +264,7 @@
                   },
                   {
                      "learning_ssd":"ING-IND/04",
-                     "learning_ssa":"",
+                     "learning_sad":"",
                      "learning_name":"STRUTTURE AEROSPAZIALI",
                      "learning_code":"083768",
                      "learning_cfu":10,
@@ -279,7 +279,7 @@
                "learnings":[
                   {
                      "learning_ssd":"ING-IND/07",
-                     "learning_ssa":"",
+                     "learning_sad":"",
                      "learning_name":"LAUNCH SYSTEMS",
                      "learning_code":"052782",
                      "learning_cfu":8,
@@ -289,7 +289,7 @@
                   },
                   {
                      "learning_ssd":"ING-INF/04",
-                     "learning_ssa":"",
+                     "learning_sad":"",
                      "learning_name":"TECNOLOGIE DEI SISTEMI DI CONTROLLO PER L'AERONAUTICA",
                      "learning_code":"091263",
                      "learning_cfu":8,
@@ -337,7 +337,7 @@
                "learnings":[
                   {
                      "learning_ssd":"",
-                     "learning_ssa":"COTP/06",
+                     "learning_sad":"COTP/06",
                      "learning_name":"Ear training I", 
                      "learning_code":"081360", /*in attesa di dataset*/
                      "learning_cfu":null,
@@ -349,7 +349,7 @@
                   },
                   {
                      "learning_ssd":"",
-                     "learning_ssa":"COTP/01",
+                     "learning_sad":"COTP/01",
                      "learning_name":"Teorie e tecniche dell'armonia I",
                      "learning_code":"0489", /*in attesa di dataset*/
                      "learning_cfu":null,
@@ -365,7 +365,7 @@
                "learnings":[
                   {
                      "learning_ssd":"",
-                     "learning_ssa":"COTP/06",
+                     "learning_sad":"COTP/06",
                      "learning_name":"Ear training II", 
                      "learning_code":"081360", /*in attesa di dataset*/
                      "learning_cfu":null,
@@ -377,7 +377,7 @@
                   },
                   {
                      "learning_ssd":"",
-                     "learning_ssa":"COTP/01",
+                     "learning_sad":"COTP/01",
                      "learning_name":"Teorie e tecniche dell'armonia II",
                      "learning_code":"0489", /*in attesa di dataset*/
                      "learning_cfu":null,
@@ -393,7 +393,7 @@
                "learnings":[
                   {
                      "learning_ssd":"",
-                     "learning_ssa":"CODM/04",
+                     "learning_sad":"CODM/04",
                      "learning_name":"Storia e storiografia della musica III", 
                      "learning_code":"081220", /*in attesa di dataset*/
                      "learning_cfu":null,
@@ -404,7 +404,7 @@
                   },
                   {
                      "learning_ssd":"",
-                     "learning_ssa":"CODI/21",
+                     "learning_sad":"CODI/21",
                      "learning_name":"Prassi esecutive e repertori III",
                      "learning_code":"654654", /*in attesa di dataset*/
                      "learning_cfu":null,

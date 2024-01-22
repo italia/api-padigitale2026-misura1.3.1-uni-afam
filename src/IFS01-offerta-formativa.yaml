@@ -157,7 +157,7 @@ paths:
                           - degree_course_year: 1
                             learnings:
                             - learning_ssd: null
-                              learning_ssa: COTP/06
+                              learning_sad: COTP/06
                               learning_name: Ear training I
                               learning_code: '081360'
                               learning_cfu: null
@@ -166,7 +166,7 @@ paths:
                               learning_language: IT
                               learning_ref: http://....
                             - learning_ssd: null
-                              learning_ssa: COTP/01
+                              learning_sad: COTP/01
                               learning_name: Teorie e tecniche dell'armonia I
                               learning_code: '0489'
                               learning_cfu: null
@@ -177,7 +177,7 @@ paths:
                           - degree_course_year: 2
                             learnings:
                             - learning_ssd: null
-                              learning_ssa: COTP/06
+                              learning_sad: COTP/06
                               learning_name: Ear training II
                               learning_code: '05782'
                               learning_cfu: null
@@ -186,7 +186,7 @@ paths:
                               learning_language: IT
                               learning_ref: http://....
                             - learning_ssd: null
-                              learning_ssa: COTP/01
+                              learning_sad: COTP/01
                               learning_name: Teorie e tecniche dell'armonia II
                               learning_code: '0124'
                               learning_cfu: null
@@ -197,7 +197,7 @@ paths:
                           - degree_course_year: 2
                             learnings:
                             - learning_ssd: null
-                              learning_ssa: CODM/04
+                              learning_sad: CODM/04
                               learning_name: Storia e storiografia della musica III
                               learning_code: '055562'
                               learning_cfu: null
@@ -206,7 +206,7 @@ paths:
                               learning_language: IT
                               learning_ref: http://....
                             - learning_ssd: null
-                              learning_ssa: CODI/21
+                              learning_sad: CODI/21
                               learning_name: Prassi esecutive e repertori III
                               learning_code: '0124'
                               learning_cfu: null
@@ -236,7 +236,7 @@ paths:
                           - degree_course_year: 1
                             learnings:
                             - learning_ssd: MAT/03
-                              learning_ssa: null
+                              learning_sad: null
                               learning_name: ANALISI E GEOMETRIA 1
                               learning_code: '081360'
                               learning_cfu: 10
@@ -245,7 +245,7 @@ paths:
                               learning_language: IT
                               learning_ref: http://....
                             - learning_ssd: CHIM/07
-                              learning_ssa: null
+                              learning_sad: null
                               learning_name: FONDAMENTI DI CHIMICA
                               learning_code: '081374'
                               learning_cfu: 7
@@ -256,7 +256,7 @@ paths:
                           - degree_course_year: 2
                             learnings:
                             - learning_ssd: ING-IND/14
-                              learning_ssa: null
+                              learning_sad: null
                               learning_name: COSTRUZIONE DI MACCHINE 1
                               learning_code: '05083782'
                               learning_cfu: 10
@@ -265,7 +265,7 @@ paths:
                               learning_language: IT
                               learning_ref: http://....
                             - learning_ssd: ING-IND/13
-                              learning_ssa: null
+                              learning_sad: null
                               learning_name: MECCANICA APPLICATA ALLE MACCHINE
                               learning_code: '54828'
                               learning_cfu: 10
@@ -278,7 +278,7 @@ paths:
                           - degree_course_year: 3
                             learnings:
                             - learning_ssd: ICAR/01
-                              learning_ssa: null
+                              learning_sad: null
                               learning_name: MECCANICA DEI FLUIDI
                               learning_code: '83503'
                               learning_cfu: 7
@@ -287,7 +287,7 @@ paths:
                               learning_language: IT
                               learning_ref: http://....
                             - learning_ssd: ING-IND/21
-                              learning_ssa: null
+                              learning_sad: null
                               learning_name: TECNOLOGIE METALLURGICHE
                               learning_code: '86509'
                               learning_cfu: 8
@@ -300,7 +300,7 @@ paths:
                           - degree_course_year: 3
                             learnings:
                             - learning_ssd: ING-IND/17
-                              learning_ssa: null
+                              learning_sad: null
                               learning_name: IMPIANTI MECCANICI
                               learning_code: '86468'
                               learning_cfu: 7
@@ -309,7 +309,7 @@ paths:
                               learning_language: IT
                               learning_ref: http://....
                             - learning_ssd: ING-IND/14
-                              learning_ssa: null
+                              learning_sad: null
                               learning_name: TEORIA E TECNICA DEI VEICOLI TERRESTRI
                               learning_code: '086509'
                               learning_cfu: 5
@@ -637,7 +637,7 @@ components:
           minLength: 1
           maxLength: 256
           nullable: true
-        learning_ssa:
+        learning_sad:
           type: string
           description: Learning reference / Riferimento insegnamento
           example: 

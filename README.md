@@ -272,7 +272,7 @@ Acquisizione del dettaglio di un corso di studio offerto da un Istituto di forma
 ---------------------------------------------------
 
 > :warning: **AFAM vs Università**
-> * Nella response, Per gli AFAM compilare i campi learning_ssa e learinig_cfa
+> * Nella response, Per gli AFAM compilare i campi learning_sad e learinig_cfa
 > * Nella response, Per le università compilare i campi learning_ssd e learinig_cfu
 > * VEDERE GLI ESEMPI PRESENTI NELLO SWAGGER
 
