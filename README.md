@@ -282,7 +282,6 @@ Acquisizione del dettaglio di un corso di studio offerto da un Istituto di forma
 <hr>
 
 
-
 ### IFS02 Iscrizioni
 
 Acquisisce il dettaglio delle iscrizioni accademiche.

@@ -192,7 +192,7 @@ paths:
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Enrollments-education-of-student
-      description: <ul> <li>Retrieves the evidences regarding enrollment to tertiary education studies.</li><li>Acquisisce le prove riguardanti l'iscrizione agli studi di istruzione terziaria (livelli EQF 5/6/7/8) Vengono considerati solo gli studi di tipo generale (non professionalizzanti)</li></ul>
+      description: <ul> <li>Retrieves the evidences regarding enrollment to tertiary education studies.</li><li>Acquisisce le prove riguardanti l'iscrizione agli studi di istruzione terziaria (livelli EQF 5/6/7/8)</li></ul>
       requestBody:
         required: true
         content:
