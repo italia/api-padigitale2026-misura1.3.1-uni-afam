@@ -427,10 +427,13 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 ***
 
 > :pencil2: **Note compilazione campi**  
-> * birth_place: Dove possibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
-> il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
+> **birth_place**: 
+> * Dove possibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
+> * il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
+>
 > *Esempio: birth_place="Milano, MI, Italia"*
-> Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+> *Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+>
 > *Esempio: birth_place="Vienna, EE, Austria"*
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
@@ -552,10 +555,13 @@ Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi s
 ***
 
 > :pencil2: **Note compilazione campi**  
-> * birth_place: Dove possibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
-> il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
+> **birth_place**: 
+> * Dove possibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
+> * il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
+>
 > *Esempio: birth_place="Milano, MI, Italia"*
-> Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+> *Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+>
 > *Esempio: birth_place="Vienna, EE, Austria"*
 
 
@@ -632,10 +638,13 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 ***
 
 > :pencil2: **Note compilazione campi**  
-> * birth_place: Dove possibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
-> il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
+> **birth_place**: 
+> * Dove possibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
+> * il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
+>
 > *Esempio: birth_place="Milano, MI, Italia"*
-> Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+> *Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+>
 > *Esempio: birth_place="Vienna, EE, Austria"*
 
 
@@ -709,10 +718,13 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 ***
 
 > :pencil2: **Note compilazione campi**  
-> * birth_place: Dove possibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
-> il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
+> **birth_place**: 
+> * Dove possibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
+> * il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
+>
 > *Esempio: birth_place="Milano, MI, Italia"*
-> Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+> *Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+>
 > *Esempio: birth_place="Vienna, EE, Austria"*
 
 
