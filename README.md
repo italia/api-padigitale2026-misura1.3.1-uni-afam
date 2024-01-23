@@ -31,7 +31,7 @@ git status
   <tr>
       <td rowspan="2">Offerta formativa</td>
       <td rowspan="2">IFS01</td>
-      <td rowspan="2">ifs-offerta-formativa</td>
+      <td rowspan="2">```ifs-[codice istituto]-offerta-formativa```</td>
       <td>IFS01.1</td>
       <td>Acquisizione della lista dei corsi di studio offerti da un Istituto di
           formazione superiore in un dato anno accademico</td>
@@ -143,7 +143,7 @@ git status
   <tr>
       <td>Variazioni Iscrizioni</td>
       <td>IFS06</td>
-      <td>ifs-variazioni-iscrizioni</td>
+      <td>```ifs-variazioni-iscrizioni```</td>
       <td>IFS06.1</td>
       <td>Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle
           studentesse/degli studenti negli ultimi tre anni accademici al fine di identificarne le variazioni
@@ -208,6 +208,16 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 >1. [URIs, Addressability, and the use of HTTP GET and POST](https://www.w3.org/2001/tag/doc/whenToUseGet.html#:~:text=HTTP%20GET%20promotes%20URI%20addressability,(or%20of%20related%20resources).)
 >1. [w3shools-ref  Compare GET vs. POST chapter](https://www.w3schools.com/tags/ref_httpmethods.asp)
 
+3. La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
+
+4. :warning: **Importante:**    
+Si ricorda che in fase di pubblicazione degli e-service sulla piattaforma PDND, il nome deve rispettare il seguente pattern quello presente nella colonna denominata "e-service" nella tabella 1
+
+```ifs-<codice istituto>-<nome nella colonna denominata e-service della tabella 1>```
+
+
+Suggeriamo infine di fare riferimento sempre alla sezione 
+[Risorse utili](#risorse-utili) che verrà implementata periodicamente.
 
 ## Linee Guida e-service
 <p align="center">
@@ -228,16 +238,6 @@ In questo paragrafo sono descritte le seguenti API:
 7. [IFS07 variazione titoli](#ifs07-variazione-titoli)
 8. [IFS08 Iscrizioni per fasce ISEE](#ifs08-iscrizioni-per-fasce-isee)
 9. [IFS09 Iscrizioni per corso](#ifs09-iscrizioni-per-corso)
-
-
-La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
-
-> :warning: **Importante:**    
-> Si ricorda che in fase di pubblicazione degli e-service sulla piattaforma PDND, il nome dovrà corrispondere a quello presente nella colonna denominata "e-service" nella tabella 1
-
-
-Suggeriamo infine di fare riferimento sempre alla sezione 
-[Risorse utili](#risorse-utili) che verrà implementata periodicamente.
 
 
 <hr>
