@@ -912,7 +912,7 @@ Ai seguenti Links è possibile visionare una overview della possibile implementa
 * [Normativa e modelli relativi al Diploma Supplement](https://www.miur.gov.it/-/nuovo-supplemento-al-diploma-con-4-allegati-relativi-alla-compilazione-e-alle-linee-guida-nazionali-per-la-digitalizzazione)
 ## Ultima Modifica 🔬
 
-17/01/2024
+23/01/2024
 
 ## Authors 🚶
 
