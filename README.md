@@ -44,7 +44,7 @@ git status
   <tr>
       <td rowspan="5">Iscrizioni</td>
       <td rowspan="5">IFS02</td>
-      <td rowspan="5">ifs-[codice istituto]iscrizioni</td>
+      <td rowspan="5">ifs-[codice istituto]-iscrizioni</td>
       <td>IFS02.1</td>
       <td>Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni
           accademici di una studentessa o di uno studente</td>
@@ -75,7 +75,7 @@ git status
   <tr>
       <td rowspan="4">Titoli</td>
       <td rowspan="4">IFS03</td>
-      <td rowspan="4">ifs-[codice istituto]titoli</td>
+      <td rowspan="4">ifs-[codice istituto]-titoli</td>
       <td>IFS03.1</td>
       <td>Acquisizione del dettaglio dei titoli accademici conseguiti da una
           studentessa/uno studente</td>
@@ -97,7 +97,7 @@ git status
   <tr>
       <td rowspan="4">Rettifica iscrizioni</td>
       <td rowspan="4">IFS04</td>
-      <td rowspan="4">ifs-[codice istituto]rettifica-iscrizioni</td>
+      <td rowspan="4">ifs-[codice istituto]-rettifica-iscrizioni</td>
       <td>IFS04.1</td>
       <td>Richiesta di rettifica di un'iscrizione accademica di una studentessa/uno
           studente all'Istituto di formazione superiore</td>
@@ -120,7 +120,7 @@ git status
   <tr>
       <td rowspan="4">Rettifica titoli</td>
       <td rowspan="4">IFS05</td>
-      <td rowspan="4">ifs-[codice istituto]rettifica-titoli</td>
+      <td rowspan="4">ifs-[codice istituto]-rettifica-titoli</td>
       <td>IFS05.1</td>
       <td>Richiesta di rettifica di un titolo accademico di una studentessa/uno studente
           all'Istituto di formazione superiore</td>
@@ -143,7 +143,7 @@ git status
   <tr>
       <td>Variazioni Iscrizioni</td>
       <td>IFS06</td>
-      <td>ifs-variazioni-iscrizioni</td>
+      <td>ifs-[codice istituto]-variazioni-iscrizioni</td>
       <td>IFS06.1</td>
       <td>Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle
           studentesse/degli studenti negli ultimi tre anni accademici al fine di identificarne le variazioni
@@ -152,7 +152,7 @@ git status
   <tr>
       <td>Variazioni titoli</td>
       <td>IFS07</td>
-      <td>ifs-[codice istituto]variazioni-titoli</td>
+      <td>ifs-[codice istituto]-variazioni-titoli</td>
       <td>IFS07.1</td>
       <td>Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al
           fine di identificarne le variazioni dal punto di vista del fruitore</td>
@@ -160,7 +160,7 @@ git status
   <tr>
       <td>Iscritti per fasce ISEE</td>
       <td>IFS08</td>
-      <td>ifs-[codice istituto]iscrizioni-per-fasce-isee</td>
+      <td>ifs-[codice istituto]-iscrizioni-per-fasce-isee</td>
       <td>IFS08.1</td>
       <td>Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno
           accademico</td>
@@ -168,7 +168,7 @@ git status
   <tr>       
       <td>Iscritti a un corso per anno</td>
       <td>IFS09</td>
-      <td>ifs-[codice istituto]iscrizioni-per-corso</td>
+      <td>ifs-[codice istituto]-iscrizioni-per-corso</td>
       <td>IFS09.1</td>
       <td>Acquisizione del numero di studentesse e studenti iscritti a un corso di studi
           per anno accademico</td>
@@ -207,11 +207,17 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 **2** - La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
 
 **3** - :warning: **Nomi di pubblicazione degli e-service su PDND**</br>
-Si ricorda che in fase di pubblicazione degli e-service sulla piattaforma PDND, il nome deve rispettare quello nella colonna denominata e-service della tabella 1
+Si ricorda che in fase di pubblicazione degli e-service sulla piattaforma PDND, il nome deve rispettare quello nella colonna denominata e-service della tabella 1, ossia il seguente pattern:
+
+``` 
+    ifs-<codice istituto>-<nome e-service>
+    ifs-16-offerta-formativa
+```
 
 **4** - Perché abbiamo scelto di usare principalmente il metodo POST - [GET Method vs POST Method](https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues/91)
 >1. [URIs, Addressability, and the use of HTTP GET and POST](https://www.w3.org/2001/tag/doc/whenToUseGet.html#:~:text=HTTP%20GET%20promotes%20URI%20addressability,(or%20of%20related%20resources).)
 >1. [w3shools-ref  Compare GET vs. POST chapter](https://www.w3schools.com/tags/ref_httpmethods.asp)
+
 **5** - Suggeriamo infine di fare riferimento sempre alla sezione 
 [risorse utili](#risorse-utili) che è aggiornata periodicamente.
 
