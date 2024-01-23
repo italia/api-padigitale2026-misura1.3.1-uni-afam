@@ -31,7 +31,7 @@ git status
   <tr>
       <td rowspan="2">Offerta formativa</td>
       <td rowspan="2">IFS01</td>
-      <td rowspan="2">```ifs-[codice istituto]-offerta-formativa```</td>
+      <td rowspan="2">ifs-/<codice istituto/>-offerta-formativa</td>
       <td>IFS01.1</td>
       <td>Acquisizione della lista dei corsi di studio offerti da un Istituto di
           formazione superiore in un dato anno accademico</td>
