@@ -483,9 +483,6 @@ components:
           minItems: 0
           items:
             $ref: '#/components/schemas/qualifications'
-      required:
-        - personal_data
-        - qualifications
     qualifications:
       type: object
       additionalProperties: false
@@ -559,6 +556,13 @@ components:
           nullable: true
           example: '110'
           description: Highest course grade / Voto massimo del corso          
+      required:
+        - institute_code
+        - institute_name
+        - qualification_name
+        - programme_type_code
+        - degree_course_code
+        - academic_qualification_date
     proof_education_qualifications:
       additionalProperties: false
       type: object
@@ -1033,7 +1037,6 @@ components:
           pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
           minLength: 16
           maxLength: 16
-          
           nullable: true
         person_id:
           type: string
@@ -1048,7 +1051,6 @@ components:
           description: Name / Nome
           example: Mario
           pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
-          
           minLength: 1
           maxLength: 2048
           nullable: true
@@ -1057,7 +1059,6 @@ components:
           description: Surname / Cognome
           example: Rossi
           pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
-          
           minLength: 1
           maxLength: 2048
           nullable: true
@@ -1067,16 +1068,15 @@ components:
           example: '1990-05-17'
           pattern: '^\d{4}-\d{2}-\d{2}$'
           description: Date of birth / Data di nascita
-          
           nullable: true
         birth_place:
           type: string
           example: Rome, RM, Italia
           description: Place of birth / Luogo di nascita
-          
           minLength: 1
           maxLength: 2048
           nullable: true
+
     it_qualification_request:
       type: object
       additionalProperties: false      
