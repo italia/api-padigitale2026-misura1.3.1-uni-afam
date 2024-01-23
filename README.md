@@ -200,10 +200,9 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 >1. Corsi di studio (codice, descrizione)
 >1. Classi di laurea (codice, descrizione)
 >1. Istituti di formazione superiore (codice, descrizione)</br>
-:warning: **Importante**
-**I canali di pubblicazione di questi vettori di dati da parte del MUR sono ancora in fase di definizione**
+:warning: **I canali di pubblicazione di questi vettori di dati da parte del MUR sono ancora in fase di definizione**
 2. La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
-3. :warning: **Importante:** Nomi di pubblicazione degli e-service su PDND</br>
+3. :warning: **Nomi di pubblicazione degli e-service su PDND**</br>
 Si ricorda che in fase di pubblicazione degli e-service sulla piattaforma PDND, il nome deve rispettare quello nella colonna denominata e-service della tabella 1
 4. Perché abbiamo scelto di usare principalmente il metodo POST - [GET Method vs POST Method](https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues/91)
 >1. [URIs, Addressability, and the use of HTTP GET and POST](https://www.w3.org/2001/tag/doc/whenToUseGet.html#:~:text=HTTP%20GET%20promotes%20URI%20addressability,(or%20of%20related%20resources).)
