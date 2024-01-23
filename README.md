@@ -433,9 +433,12 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 > * il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
 >
 > *Esempio: birth_place="Milano, MI, Italia"*
-> * Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+> * Nel caso di comuni esteri, se non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
 >
 > *Esempio: birth_place="Vienna, EE, Austria"*
+>
+> * RegEx applicata: ^[a-zA-Z0-9-]+, [a-zA-Z0-9-]{2}, [a-zA-Z0-9-]+$
+
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
@@ -555,6 +558,7 @@ Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi s
 
 ***
 
+
 > :pencil2: **Note compilazione campi**  
 >
 > **birth_place**: 
@@ -562,10 +566,11 @@ Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi s
 > * il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
 >
 > *Esempio: birth_place="Milano, MI, Italia"*
-> * Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+> * Nel caso di comuni esteri, se non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
 >
 > *Esempio: birth_place="Vienna, EE, Austria"*
-
+>
+> * RegEx applicata: ^[a-zA-Z0-9-]+, [a-zA-Z0-9-]{2}, [a-zA-Z0-9-]+$
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
 <hr>
@@ -645,9 +650,11 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 > * il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
 >
 > *Esempio: birth_place="Milano, MI, Italia"*
-> * Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+> * Nel caso di comuni esteri, se non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
 >
 > *Esempio: birth_place="Vienna, EE, Austria"*
+>
+> * RegEx applicata: ^[a-zA-Z0-9-]+, [a-zA-Z0-9-]{2}, [a-zA-Z0-9-]+$
 
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
@@ -719,6 +726,7 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 
 ***
 
+
 > :pencil2: **Note compilazione campi**  
 >
 > **birth_place**: 
@@ -726,9 +734,11 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 > * il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
 >
 > *Esempio: birth_place="Milano, MI, Italia"*
-> * Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+> * Nel caso di comuni esteri, se non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
 >
-> *Esempio: birth_place="Vienna, EE, Austria"*ss
+> *Esempio: birth_place="Vienna, EE, Austria"*
+>
+> * RegEx applicata: ^[a-zA-Z0-9-]+, [a-zA-Z0-9-]{2}, [a-zA-Z0-9-]+$
 
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
