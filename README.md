@@ -194,7 +194,7 @@ Come indicato nella tabella sottostante (Tabella 2), gli Atenei e AFAM pubblici 
 
 Tabella 2 – Fasce di Università in base al numero di studentesse e studenti iscritti ed API da erogare per ogni fascia. 
 
-:warning: **Importante da sapere prima di iniziare a leggere le Linee Guida**
+## :warning: Da sapere prima di iniziare a leggere le Linee Guida
 
 1. Il Ministero dell'Università e della Ricerca (MUR) pubblica i seguenti vettori di dati come anagrafe condivisa a supporto dell'interoperabilità e dell'anagrafe ANIS
 >1. Tipi di corsi (codice, descrizione)
@@ -202,7 +202,7 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 >1. Classi di laurea (codice, descrizione)
 >1. Istituti di formazione superiore (codice, descrizione)
 
-**I canali di pubblicazione di questi vettori di dati da parte del MUR sono ancora in fase di definizione**
+:warning: **I canali di pubblicazione di questi vettori di dati da parte del MUR sono ancora in fase di definizione**
 
 2. [GET Method vs POST Method](https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues/91)
 >1. [URIs, Addressability, and the use of HTTP GET and POST](https://www.w3.org/2001/tag/doc/whenToUseGet.html#:~:text=HTTP%20GET%20promotes%20URI%20addressability,(or%20of%20related%20resources).)
