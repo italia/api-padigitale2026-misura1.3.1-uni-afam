@@ -333,7 +333,7 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 >    "given_name": Mario,
 >    "family_name": Rossi,
 >    "birth_date": 10-01-2022,
->    "birth_place": Roma
+>    "birth_place": Roma, RM, Italia
 >  }
 >```
 >
@@ -365,6 +365,7 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 >      degree_course_year * 
 >      status *
 >```
+
 
 
 #### :globe_with_meridians: IFS02.2 - proof-tertiary-education-enrollments
@@ -423,6 +424,18 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 > * Si preaga di vedere le regole di obbligatorietà output presenti su [IFS02.1]
 
 
+***
+
+> :pencil2: **Note compilazione campi **  
+> * birth_place: Dove pssibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
+>
+> il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
+>
+> *Esempio: birth_place="Milano, MI, Italia"*
+>
+> Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+>
+> *Esempio: birth_place="Vienna, EE, Austria"*
 
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
@@ -472,7 +485,7 @@ ESEMPIO:
     "given_name": Mario,
     "family_name": Rossi,
     "birth_date": 10-01-2022,
-    "birth_place": Roma
+    "birth_place": Roma, RM, Italia
   }
 ```
 3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'erorre 404 (vedi esempio nel file YAML)
@@ -539,6 +552,21 @@ Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi s
 
 
 [Risorse utili](#risorse-utili)
+
+
+***
+
+> :pencil2: **Note compilazione campi **  
+> * birth_place: Dove pssibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
+>
+> il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
+>
+> *Esempio: birth_place="Milano, MI, Italia"*
+>
+> Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+>
+> *Esempio: birth_place="Vienna, EE, Austria"*
+
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
@@ -609,6 +637,21 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 > * Valorizzare in input almeno un campo tra tax_code e person_id
 > * nel caso in cui in input gli attributi tax_code/person_id non siano valorizzabili, compilare i parametri given_name/family_name/birth_date/birth_place
 
+
+***
+
+> :pencil2: **Note compilazione campi **  
+> * birth_place: Dove pssibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
+>
+> il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
+>
+> *Esempio: birth_place="Milano, MI, Italia"*
+>
+> Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+>
+> *Esempio: birth_place="Vienna, EE, Austria"*
+
+
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
 <hr>
@@ -675,6 +718,20 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 
 > :bulb: **Importante:**    
 > * TODO
+
+***
+
+> :pencil2: **Note compilazione campi **  
+> * birth_place: Dove pssibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
+>
+> il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
+>
+> *Esempio: birth_place="Milano, MI, Italia"*
+>
+> Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+>
+> *Esempio: birth_place="Vienna, EE, Austria"*
+
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
@@ -833,6 +890,15 @@ Al link -> [schema masterdata](doc/03_analysis/masterdata/masterdata.xlsx) è pr
 > :bulb: **Importante:**  
 > ### Sono ancora in fase di definizione i canali di pubblicazione del"Master data" e il relativo schema. Al più presto sarà fornita la versione definitiva. E' comunque consigliato definire una "cache" nei sistemi locali di tale Master data da aggiornare periodicamente ###
 > Per qualsiasi richeiesta di chiarimento potete aprire una issue su questo repository GitHub
+
+
+#### Cursor pagination
+
+L'impaginazione basata sul cursore consente di recuperare in modo efficiente set di dati di grandi dimensioni da un database suddividendoli in "pagine" più piccole. 
+
+Questo metodo è particolarmente utile quando si lavora con set di dati di grandi dimensioni in cui il caricamento di tutti i dati contemporaneamente sarebbe poco efficente.
+
+Al seguente [Link](https://medium.com/@george_16060/cursor-based-pagination-with-arbitrary-ordering-b4af6d5e22db) è presente un caso d'uso
 
 <hr>
 

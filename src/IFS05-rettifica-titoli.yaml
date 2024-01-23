@@ -569,7 +569,7 @@ components:
           nullable: true
         birth_place:
           type: string
-          example: Rome
+          example: Rome, RM, Italia
           description: Place of birth / Luogo di nascita
           minLength: 1
           maxLength: 2048
