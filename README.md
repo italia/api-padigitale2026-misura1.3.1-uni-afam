@@ -556,15 +556,15 @@ Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi s
 ***
 
 > :pencil2: **Note compilazione campi**  
+>
 > **birth_place**: 
 > * Dove possibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
 > * il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
 >
 > *Esempio: birth_place="Milano, MI, Italia"*
-> *Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+> * Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
 >
 > *Esempio: birth_place="Vienna, EE, Austria"*
-
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
@@ -639,12 +639,13 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 ***
 
 > :pencil2: **Note compilazione campi**  
+>
 > **birth_place**: 
 > * Dove possibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
 > * il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
 >
 > *Esempio: birth_place="Milano, MI, Italia"*
-> *Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+> * Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
 >
 > *Esempio: birth_place="Vienna, EE, Austria"*
 
@@ -719,14 +720,15 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 ***
 
 > :pencil2: **Note compilazione campi**  
+>
 > **birth_place**: 
 > * Dove possibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
 > * il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
 >
 > *Esempio: birth_place="Milano, MI, Italia"*
-> *Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
+> * Nel caso ci comuni esteri, nel caso non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
 >
-> *Esempio: birth_place="Vienna, EE, Austria"*
+> *Esempio: birth_place="Vienna, EE, Austria"*ss
 
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
@@ -894,7 +896,13 @@ L'impaginazione basata sul cursore consente di recuperare in modo efficiente set
 
 Questo metodo è particolarmente utile quando si lavora con set di dati di grandi dimensioni in cui il caricamento di tutti i dati contemporaneamente sarebbe poco efficente.
 
-Al seguente [Link](https://medium.com/@george_16060/cursor-based-pagination-with-arbitrary-ordering-b4af6d5e22db) è presente un caso d'uso
+Ai seguenti Links è possibile visionare una overview della possibile implementazione e use cases:
+* [Cursor implementation Link 1](https://medium.com/@george_16060/cursor-based-pagination-with-arbitrary-ordering-b4af6d5e22db) 
+
+* [Cursor implementation Link 2](https://dev.to/pragativerma18/unlocking-the-power-of-api-pagination-best-practices-and-strategies-4b49)
+ 
+
+
 
 <hr>
 
