@@ -894,16 +894,6 @@ Al link -> [schema masterdata](doc/03_analysis/masterdata/masterdata.xlsx) è pr
 
 L'impaginazione basata sul cursore consente di recuperare in modo efficiente set di dati di grandi dimensioni da un database suddividendoli in "pagine" più piccole. 
 
-Questo metodo è particolarmente utile quando si lavora con set di dati di grandi dimensioni in cui il caricamento di tutti i dati contemporaneamente sarebbe poco efficente.
-
-Ai seguenti Links è possibile visionare una overview della possibile implementazione e use cases:
-* [Cursor implementation Link 1](https://medium.com/@george_16060/cursor-based-pagination-with-arbitrary-ordering-b4af6d5e22db) 
-
-* [Cursor implementation Link 2](https://dev.to/pragativerma18/unlocking-the-power-of-api-pagination-best-practices-and-strategies-4b49)
- 
-
-
-
 <hr>
 
 ## Per maggiori informazioni:
