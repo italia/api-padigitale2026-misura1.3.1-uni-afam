@@ -194,7 +194,7 @@ Come indicato nella tabella sottostante (Tabella 2), gli Atenei e AFAM pubblici 
 
 Tabella 2 – Fasce di Università in base al numero di studentesse e studenti iscritti ed API da erogare per ogni fascia. 
 
-## Importante da sapere prima di iniziare a leggere le Linee Guida
+:warning: **Importante da sapere prima di iniziare a leggere le Linee Guida**
 
 1. Il Ministero dell'Università e della Ricerca (MUR) pubblica i seguenti vettori di dati come anagrafe condivisa a supporto dell'interoperabilità e dell'anagrafe ANIS
 >1. Tipi di corsi (codice, descrizione)
