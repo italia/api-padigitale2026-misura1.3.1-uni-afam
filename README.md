@@ -204,6 +204,8 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 
 :warning: **I canali di pubblicazione di questi vettori di dati da parte del MUR sono ancora in fase di definizione**
 
+Lo schema dei dataset può essere approfondito nella sezione [risorse utili](#risorse-utili)
+
 **2** - La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
 
 **3** - :warning: **Nomi di pubblicazione degli e-service su PDND**</br>
@@ -909,10 +911,9 @@ Per la valorizzazione dei campi  institude_code, programme_type_code, degree_cou
 * degree-class
 * degree-course
 
-Al link -> [schema masterdata](doc/03_analysis/masterdata/masterdata.xlsx) è presente un esempio dello schema del "Master data"
-
-> :bulb: **Importante:**  
-> ### Sono ancora in fase di definizione i canali di pubblicazione del"Master data" e il relativo schema. Al più presto sarà fornita la versione definitiva. E' comunque consigliato definire una "cache" nei sistemi locali di tale Master data da aggiornare periodicamente ###
+Lo schema del master data pubblicato dal MUR può essere scaricato a questo [link](doc/03_analysis/masterdata/MUR-masterdata.xlsx)
+ 
+> ### :warning: Sono ancora in fase di definizione i canali di pubblicazione del"Master data" e il relativo schema. Al più presto sarà fornita la versione definitiva. E' comunque consigliato definire una "cache" nei sistemi locali di tale Master data da aggiornare periodicamente ###
 > Per qualsiasi richeiesta di chiarimento potete aprire una issue su questo repository GitHub
 
 
