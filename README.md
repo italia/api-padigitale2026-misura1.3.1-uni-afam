@@ -932,6 +932,6 @@ L'impaginazione basata sul cursore consente di recuperare in modo efficiente set
 
 ## Authors 🚶
 
-* Denis Marini
 * Lorenzo Doneda
+* Denis Marini
 * Davide Longo
