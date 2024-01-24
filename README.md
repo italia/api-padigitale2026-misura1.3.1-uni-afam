@@ -208,9 +208,10 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 
 **2** - La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
 
-**3** - :warning: **Nomi di pubblicazione degli e-service su PDND**</br>
+**3** -  **Nomi di pubblicazione degli e-service su PDND**</br>
 Si ricorda che in fase di pubblicazione degli e-service sulla piattaforma PDND, il nome deve rispettare quello nella colonna denominata e-service della tabella 1, ossia il seguente pattern:
 
+:warning:
 ``` 
     ifs-<codice istituto>-<nome e-service>
     ifs-16-offerta-formativa
