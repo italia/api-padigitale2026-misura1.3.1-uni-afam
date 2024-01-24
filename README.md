@@ -883,7 +883,7 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 
 <hr>
 
-## Risorse utili:
+## Risorse utili 
 
 #### Masterdata pubblicato dal Ministero dell'Università e della Ricerca
 
@@ -899,7 +899,7 @@ Lo schema del master data pubblicato dal MUR può essere scaricato a questo [lin
 > ### :warning: Sono ancora in fase di definizione i canali di pubblicazione del"Master data" e il relativo schema. Al più presto sarà fornita la versione definitiva. E' comunque consigliato definire una "cache" nei sistemi locali di tale Master data da aggiornare periodicamente ###
 > Informazioni, **solo a titolo puramente esemplificativo**, possono essere ottenute nei [metadati](https://dati-ustat.mur.gov.it/dataset/metadati) pubblicati dall'Ufficio di Statistica del Ministero dell'Università e della Riccerca (MUR).
 > 
-> Per qualsiasi richeiesta di chiarimento potete aprire una [issue](https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues) su questo repository GitHub
+> Per qualsiasi richeiesta di chiarimento potete [aprire una issue](https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues) su questo repository GitHub
 
 
 #### Cursor pagination
