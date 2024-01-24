@@ -911,7 +911,7 @@ Per la valorizzazione dei campi  institude_code, programme_type_code, degree_cou
 * degree-class
 * degree-course
 
-Al link -> [schema masterdata](doc/03_analysis/masterdata/MUR-masterdata.xlsx) è presente un esempio dello schema del "Master data"
+Lo schema del master data pubblicato dal MUR può essere scaricato a questo [link](doc/03_analysis/masterdata/MUR-masterdata.xlsx)
 
 > :bulb: **Importante:**  
 > ### Sono ancora in fase di definizione i canali di pubblicazione del"Master data" e il relativo schema. Al più presto sarà fornita la versione definitiva. E' comunque consigliato definire una "cache" nei sistemi locali di tale Master data da aggiornare periodicamente ###
