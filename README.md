@@ -918,6 +918,6 @@ L'impaginazione basata sul cursore consente di recuperare in modo efficiente set
 
 ## Authors 🚶
 
-* Lorenzo Doneda
 * Denis Marini
+* Lorenzo Doneda
 * Davide Longo
