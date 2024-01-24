@@ -204,6 +204,8 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 
 :warning: **I canali di pubblicazione di questi vettori di dati da parte del MUR sono ancora in fase di definizione**
 
+Lo schema dei dataset può essere ottenuto dalla sezione [risorse utili](#risorse-utili)
+
 **2** - La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
 
 **3** - :warning: **Nomi di pubblicazione degli e-service su PDND**</br>
