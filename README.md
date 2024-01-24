@@ -1,14 +1,14 @@
-<p align="center">
+<div align="center">
     <img title="Star on GitHub" src="https://img.shields.io/github/stars/italia/api-padigitale2026-misura1.3.1-uni-afam.svg?style=social&label=Star">
     <img title="Fork on GitHub" src="https://img.shields.io/github/forks/italia/api-padigitale2026-misura1.3.1-uni-afam.svg?style=social&label=Fork"> 
-</p>  
+</div>  
 
-<p align="center">
+<div align="center">
     <a href="https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/graphs/contributors"><img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/italia/api-padigitale2026-misura1.3.1-uni-afam" /></a>
     <a href="https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues"><img alt="Issues" src="https://img.shields.io/github/issues/italia/api-padigitale2026-misura1.3.1-uni-afam?color=0088ff" /></a>
     <a href="https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues?q=is%3Aissue+is%3Aclosed"><img alt="Issues" src="https://img.shields.io/github/issues-closed/italia/api-padigitale2026-misura1.3.1-uni-afam?color=0088ff" /></a>
     <a href="https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/pulse/monthly" alt="Activity"><img src="https://img.shields.io/github/commit-activity/m/italia/api-padigitale2026-misura1.3.1-uni-afam" /></a>        
-  </p>
+  </div>
 
 
 
