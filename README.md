@@ -883,7 +883,7 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 
 <hr>
 
-## :open_book: Risorse utili 
+## Risorse utili 
 
 #### Masterdata pubblicato dal Ministero dell'Università e della Ricerca
 
