@@ -14,13 +14,12 @@
 
 # API di PAdigitale2026 - Misura 1.3.1 - Avvisi per Università e AFAM pubblici
 
-Questo repository contiene le specifiche delle API relative alla misura 1.3.1 per l'avviso dedicato a Università pubbliche e AFAM (Alta Formazione Artistica, Musicale e Coreutica) pubblici, nell'ambito di PAdigitale2026. 
+Questo repository contiene le specifiche delle API relative alla misura 1.3.1 per l'avviso dedicato alle Università pubbliche e AFAM (Alta Formazione Artistica, Musicale e Coreutica) pubblici, nell'ambito di PAdigitale2026. 
 
 La tabella sottostante (Tabella 1) riporta il dettaglio del titolo e descrizione per tutte e nove le API (dalla IFS01 alla IFS09) che dovranno essere erogate dai Soggetti Attuatori in base alla fascia di appartenenza. 
 git status
 <table>
        <caption>Tabella 1 – Descrizione delle nove API assegnate alle cinque fasce di Università e AFAM</caption>
-
 
   <th>Use Case</th>
   <th>API-ID</th>
@@ -31,7 +30,7 @@ git status
   <tr>
       <td rowspan="2">Offerta formativa</td>
       <td rowspan="2">IFS01</td>
-      <td rowspan="2">ifs-[codice istituto]-offerta-formativa</td>
+      <td rowspan="2">ifs-&lt;codice istituto&gt;-offerta-formativa</td>
       <td>IFS01.1</td>
       <td>Acquisizione della lista dei corsi di studio offerti da un Istituto di
           formazione superiore in un dato anno accademico</td>
@@ -44,7 +43,7 @@ git status
   <tr>
       <td rowspan="5">Iscrizioni</td>
       <td rowspan="5">IFS02</td>
-      <td rowspan="5">ifs-[codice istituto]-iscrizioni</td>
+      <td rowspan="5">ifs-&lt;codice istituto&gt;-iscrizioni</td>
       <td>IFS02.1</td>
       <td>Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni
           accademici di una studentessa o di uno studente</td>
@@ -75,7 +74,7 @@ git status
   <tr>
       <td rowspan="4">Titoli</td>
       <td rowspan="4">IFS03</td>
-      <td rowspan="4">ifs-[codice istituto]-titoli</td>
+      <td rowspan="4">ifs-&lt;codice istituto&gt;-titoli</td>
       <td>IFS03.1</td>
       <td>Acquisizione del dettaglio dei titoli accademici conseguiti da una
           studentessa/uno studente</td>
@@ -97,7 +96,7 @@ git status
   <tr>
       <td rowspan="4">Rettifica iscrizioni</td>
       <td rowspan="4">IFS04</td>
-      <td rowspan="4">ifs-[codice istituto]-rettifica-iscrizioni</td>
+      <td rowspan="4">ifs-&lt;codice istituto&gt;-rettifica-iscrizioni</td>
       <td>IFS04.1</td>
       <td>Richiesta di rettifica di un'iscrizione accademica di una studentessa/uno
           studente all'Istituto di formazione superiore</td>
@@ -120,7 +119,7 @@ git status
   <tr>
       <td rowspan="4">Rettifica titoli</td>
       <td rowspan="4">IFS05</td>
-      <td rowspan="4">ifs-[codice istituto]-rettifica-titoli</td>
+      <td rowspan="4">ifs-&lt;codice istituto&gt;-rettifica-titoli</td>
       <td>IFS05.1</td>
       <td>Richiesta di rettifica di un titolo accademico di una studentessa/uno studente
           all'Istituto di formazione superiore</td>
@@ -143,7 +142,7 @@ git status
   <tr>
       <td>Variazioni Iscrizioni</td>
       <td>IFS06</td>
-      <td>ifs-[codice istituto]-variazioni-iscrizioni</td>
+      <td>ifs-&lt;codice istituto&gt;-variazioni-iscrizioni</td>
       <td>IFS06.1</td>
       <td>Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle
           studentesse/degli studenti negli ultimi tre anni accademici al fine di identificarne le variazioni
@@ -152,7 +151,7 @@ git status
   <tr>
       <td>Variazioni titoli</td>
       <td>IFS07</td>
-      <td>ifs-[codice istituto]-variazioni-titoli</td>
+      <td>ifs-&lt;codice istituto&gt;-variazioni-titoli</td>
       <td>IFS07.1</td>
       <td>Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al
           fine di identificarne le variazioni dal punto di vista del fruitore</td>
@@ -160,7 +159,7 @@ git status
   <tr>
       <td>Iscritti per fasce ISEE</td>
       <td>IFS08</td>
-      <td>ifs-[codice istituto]-iscrizioni-per-fasce-isee</td>
+      <td>ifs-&lt;codice istituto&gt;-iscrizioni-per-fasce-isee</td>
       <td>IFS08.1</td>
       <td>Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno
           accademico</td>
@@ -168,18 +167,12 @@ git status
   <tr>       
       <td>Iscritti a un corso per anno</td>
       <td>IFS09</td>
-      <td>ifs-[codice istituto]-iscrizioni-per-corso</td>
+      <td>ifs-&lt;codice istituto&gt;-iscrizioni-per-corso</td>
       <td>IFS09.1</td>
       <td>Acquisizione del numero di studentesse e studenti iscritti a un corso di studi
           per anno accademico</td>
-  </tr>
-    
+  </tr>    
 </table>
-
-
-
-
-
 
 Come indicato nella tabella sottostante (Tabella 2), gli Atenei e AFAM pubblici che possono aderire all’avviso sono divisi in fasce basate sul numero di iscritti, a cui corrisponde un numero preciso di API da erogare, dettagliate nella tabella 1. 
 
@@ -196,24 +189,24 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 
 ## <img src="doc/05_gallery/info.svg" width="36" /> Da conoscere prima di iniziare a leggere le Linee Guida
 
-**1** - Il Ministero dell'Università e della Ricerca (MUR) pubblica i seguenti vettori di dati come anagrafe condivisa a supporto dell'interoperabilità e dell'anagrafe ANIS
->1. Tipi di corsi (codice, descrizione)
->1. Corsi di studio (codice, descrizione)
->1. Classi di laurea (codice, descrizione)
->1. Istituti di formazione superiore (codice, descrizione)
+**1** - Il Ministero dell'Università e della Ricerca (MUR) pubblica i seguenti vettori di dati codificati come anagrafe condivisa a supporto dell'interoperabilità e dell'anagrafe ANIS
+>1. Tipi di corsi
+>1. Corsi di studio
+>1. Classi di laurea
+>1. Istituti di formazione superiore
 
 :warning: **I canali di pubblicazione di questi vettori di dati da parte del MUR sono ancora in fase di definizione**
 
 <img src="doc/05_gallery/info.svg" width="24" /> Lo schema dei dataset può essere approfondito nella sezione [risorse utili](#risorse-utili)
 
-**2** - La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
-
-**3** -  **Nomi di pubblicazione degli e-service su PDND**</br>
+**2** -  **Nomi di pubblicazione degli e-service su PDND**</br>
 :warning: Si ricorda che in fase di pubblicazione degli e-service sulla piattaforma PDND, il nome deve rispettare quello nella colonna denominata e-service della tabella 1, ossia il seguente pattern:
 ``` 
     ifs-<codice istituto>-<nome e-service>
     ifs-16-offerta-formativa
 ```
+
+**3** - La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
 
 **4** - Perché abbiamo scelto di usare principalmente il metodo POST - [GET Method vs POST Method](https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues/91)
 >1. [URIs, Addressability, and the use of HTTP GET and POST](https://www.w3.org/2001/tag/doc/whenToUseGet.html#:~:text=HTTP%20GET%20promotes%20URI%20addressability,(or%20of%20related%20resources).)
@@ -223,9 +216,7 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 [risorse utili](#risorse-utili) che è aggiornata periodicamente.
 
 ## Linee Guida e-service
-<p align="center">
-    <b>Work in progress</b>
-</p>
+
 <p align="center">
  <img src="doc/05_gallery/umarell.png" width="80"/>
 </p>
@@ -243,17 +234,16 @@ In questo paragrafo sono descritte le seguenti API:
 9. [IFS09 Iscrizioni per corso](#ifs09-iscrizioni-per-corso)
 
 
-<hr>
+***
 
-### IFS01 Offerta Formativa
-
+### IFS01 Offerta formativa
 
 <img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS01-offerta-formativa.yaml)  
 
 #### :globe_with_meridians: IFS01.1 - educational-offering-list
 
-Acquisizione della lista dei corsi di studio offerti da un Istituto di formazione superiore in un dato anno accademico
+Acquisizione della lista dei corsi di studio offerti da un istituto di formazione superiore in un dato anno accademico
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " />  Esempio IFS01.1 [Request](doc/03_analysis/io_schema/IFS01.1-request.json)
@@ -270,8 +260,6 @@ Acquisizione della lista dei corsi di studio offerti da un Istituto di formazion
 >>1. Se la response restituisce l'attributo cursor valorizzato, sarà necessario iterare le invocazioni per ottenere l'intero dataset 
 >>1. Per le invocazioni successive alla prima si valorizza il campo cursor con il valore ottenuto nell'ultima response
 > * E' lasciata allo sviluppatore dell'API la gestione della paginazione e quindi della valorizzazione del cursor sulla response
-
-
 
 #### :globe_with_meridians: IFS01.2 - educational-offering-detail
 
@@ -292,12 +280,9 @@ Acquisizione del dettaglio di un corso di studio offerto da un Istituto di forma
 > * Nella response per le **università** compilare i campi learning_ssd e learinig_cfu
 > * Vedere gli esempi presenti nello yaml/swagger e nella cartella doc/03_analysis/io_schema
 
-
-
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
-<hr>
-
+***
 
 ### IFS02 Iscrizioni
 
@@ -900,9 +885,9 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 
 ## Risorse utili:
 
-#### Masterdata pubblicato dal MUR
+#### Masterdata pubblicato dal Ministero dell'Università e della Ricerca
 
-Per la valorizzazione dei campi  institude_code, programme_type_code, degree_course_code, degree_class_code si prega di fare riferimento al Master data pubblicato dal MUR con i seguenti dataset 
+Per la valorizzazione dei campi  institude_code, programme_type_code, degree_course_code, degree_class_code si prega di fare riferimento al Master data pubblicato dal Ministero dell'Università e della Ricerca (MUR) con i seguenti dataset 
 
 * institute
 * programme-type
