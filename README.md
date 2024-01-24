@@ -397,7 +397,7 @@ Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terzi
 
 > <img src="doc/05_gallery/info.svg" width="25" />   
 >  
-> * Si preaga di vedere le regole di [obbligatorietà output](#ifs02-Iscrizioni) presenti su [IFS02.1]
+> * Si prega di vedere le regole di [obbligatorietà output](#ifs02-Iscrizioni) presenti su [IFS02.1]
 
 #### :globe_with_meridians: IFS02.3 - proof-tertiary-education-courses
 
@@ -411,7 +411,7 @@ Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenu
 
 > <img src="doc/05_gallery/info.svg" width="25" /> 
 >    
-> * Si preaga di vedere le regole di obbligatorietà output presenti su [IFS02.1]
+> * Si prega di vedere le regole di obbligatorietà output presenti su [IFS02.1]
 
 
 #### :globe_with_meridians: IFS02.4 - proof-tertiary-education-admission
@@ -426,7 +426,7 @@ Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione terzi
 
 > <img src="doc/05_gallery/info.svg" width="25" />   
 >  
-> * Si preaga di vedere le regole di obbligatorietà output presenti su [IFS02.1]
+> * Si prega di vedere le regole di obbligatorietà output presenti su [IFS02.1]
 
 
 
@@ -442,7 +442,7 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 
 > <img src="doc/05_gallery/info.svg" width="25" />    
 > 
-> * Si preaga di vedere le regole di obbligatorietà output presenti su [IFS02.1]
+> * Si prega di vedere le regole di obbligatorietà output presenti su [IFS02.1]
 
 > :pencil2: **Note compilazione campi**  
 >
@@ -653,9 +653,6 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 > 
 > * Valorizzare in input almeno un campo tra tax_code e person_id
 > * nel caso in cui in input gli attributi tax_code/person_id non siano valorizzabili, compilare i parametri given_name/family_name/birth_date/birth_place
-
-
-***
 
 > :pencil2: **Note compilazione campi**  
 >
