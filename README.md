@@ -187,7 +187,7 @@ Come indicato nella tabella sottostante (Tabella 2), gli Atenei e AFAM pubblici 
 
 Tabella 2 – Fasce di Università in base al numero di studentesse e studenti iscritti ed API da erogare per ogni fascia. 
 
-## <img src="doc/05_gallery/info.svg" width="36" /> Da sapere prima di iniziare a leggere le Linee Guida
+## <img src="doc/05_gallery/info.svg" width="16" /> Da sapere prima di iniziare a leggere le Linee Guida
 
 **1** - Il Ministero dell'Università e della Ricerca (MUR) pubblica i seguenti vettori di dati codificati come open data a supporto dell'interoperabilità e dell'anagrafe ANIS
 >1. Tipi di corsi
@@ -252,7 +252,7 @@ Acquisizione della lista dei corsi di studio offerti da un istituto di formazion
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " />  Esempio IFS01.1 [Response](doc/03_analysis/io_schema/IFS01.1-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**
 >
 > * La richiesta prevede l'obbligatorietà della compilazione del campo **_academic_year_**. 
 > * L'attributo  **_cursor_** è utile per la paginazione della risposta:
@@ -271,7 +271,7 @@ Acquisizione del dettaglio di un corso di studio offerto da un Istituto di forma
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS01.2 [Response](doc/03_analysis/io_schema/IFS01.2-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante** 
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante** 
 >
 > * Nella richiesta l'attributo **_degree_course_code_** è obbligatorio mentre l'attributo **_degree_class_code_** è obbligatorio solo quando il corso di studi ammette la classe
 
@@ -304,7 +304,7 @@ Acquisizione del dettaglio delle ultime iscrizioni attive degli ultimi tre anni 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.1 [Response](doc/03_analysis/io_schema/IFS02.1-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**  
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**  
 >
 > Regole di obbligatorietà input
 > * Nella request popolare almeno uno dei seguenti campi: tax_code o person_id. oppure il parametro key
@@ -380,7 +380,7 @@ Acquisizione delle prove riguardanti l'ultima iscrizione a ogni corso di studi d
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.2 [Response](doc/03_analysis/io_schema/IFS02.2-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**  
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**  
 >  
 > * Si prega di vedere le regole di [obbligatorietà output](#ifs02-Iscrizioni) presenti su [IFS02.1]
 
@@ -394,7 +394,7 @@ Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenu
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.3 [Response](doc/03_analysis/io_schema/IFS02.3-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**
 >    
 > * Si prega di vedere le regole di obbligatorietà output presenti su [IFS02.1]
 
@@ -410,7 +410,7 @@ Acquisizione delle prove riguardanti le ultime ammissioni ai corsi di studi di i
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.4 [Response](doc/03_analysis/io_schema/IFS02.4-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**  
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**  
 >  
 > * Si prega di vedere le regole di obbligatorietà output presenti su [IFS02.1]
 
@@ -426,7 +426,7 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.5 [Response](doc/03_analysis/io_schema/IFS02.5-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**   
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**   
 > 
 > * Si prega di vedere le regole di obbligatorietà output presenti su [IFS02.1]
 
@@ -464,7 +464,7 @@ Acquisizione del dettaglio dei titoli accademici conseguiti da una studentessa/u
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.1 [Response](doc/03_analysis/io_schema/IFS03.1-response.json)
 
-><img src="doc/05_gallery/info.svg" width="25" />  **Importante** 
+><img src="doc/05_gallery/info.svg" width="16" />  **Importante** 
 >   
 >Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
 >1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
@@ -510,7 +510,7 @@ Acquisizione delle prove riguardanti il completamento degli studi di istruzione 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.2 [Response](doc/03_analysis/io_schema/IFS03.2-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**    
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**    
 
 
 >Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
@@ -528,7 +528,7 @@ Acquisizione delle prove riguardanti il livello di qualifica degli studi di istr
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.3 [Response](doc/03_analysis/io_schema/IFS03.3-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**    
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**    
 
 
 >Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
@@ -547,7 +547,7 @@ Acquisizione delle prove relative allo strumento "Diploma Supplement"
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.4 [Response](doc/03_analysis/io_schema/IFS03.4-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**    
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**    
 
 >Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
 >1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
@@ -591,7 +591,7 @@ Richiesta di rettifica  di un'iscrizione accademica di una studentessa/uno stude
 " /> Esempio IFS04.1 [Response](doc/03_analysis/io_schema/IFS04.1-response.json)
 
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**    
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**    
 >
 > * TODO
 
@@ -606,7 +606,7 @@ Acquisizione dello stato delle richieste di rettifica delle iscrizioni accademic
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS04.2 [Response](doc/03_analysis/io_schema/IFS04.2-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**  
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**  
 >  
 > * TODO
 
@@ -620,7 +620,7 @@ Richiesta di annullamento di una richiesta di rettifica di una iscrizione accade
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS04.3 [Response](doc/03_analysis/io_schema/IFS04.3-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**    
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**    
 >
 > * Valorizzare in input almeno un campo tra tax_code e person_id
 
@@ -635,7 +635,7 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS04.4 [Response](doc/03_analysis/io_schema/IFS04.4-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**   
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**   
 > 
 > * Valorizzare in input almeno un campo tra tax_code e person_id
 > * nel caso in cui in input gli attributi tax_code/person_id non siano valorizzabili, compilare i parametri given_name/family_name/birth_date/birth_place
@@ -676,7 +676,7 @@ Richiesta di rettifica  di un titolo accademico di una studentessa/uno studente 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS05.1 [Response](doc/03_analysis/io_schema/IFS05.1-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante** 
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante** 
 >   
 > * TODO
 
@@ -691,7 +691,7 @@ Acquisizione dello stato delle richieste di rettifica dei titoli accademici di u
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS05.2 [Response](doc/03_analysis/io_schema/IFS05.2-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**   
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**   
 > 
 > * TODO
 
@@ -706,7 +706,7 @@ Richiesta di annullamento di una richiesta di rettifica di un titolo accademico 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS05.3 [Response](doc/03_analysis/io_schema/IFS05.3-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />
+> <img src="doc/05_gallery/info.svg" width="16" />
 >   
 > * TODO
 
@@ -721,7 +721,7 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS05.4 [Response](doc/03_analysis/io_schema/IFS05.4-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante** 
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante** 
 >   
 > * TODO
 
@@ -762,7 +762,7 @@ Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle stude
 " /> Esempio IFS06.1 [Response](doc/03_analysis/io_schema/IFS06.1-response.json)
 
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**
 >    
 > * Si ricorda prevedere di NON valorizzare il campo "cursor" nell'esecuzione della prima chiamata.
 > * Qualora nella response fosse presente il campo "cursor" valorizzato, prevedere la sua valorizzazione nelle chiamate successive.
@@ -800,7 +800,7 @@ Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fi
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS07.1 [Response](doc/03_analysis/io_schema/IFS07.1-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**
 >
 > * Si ricorda prevedere di NON valorizzare il campo "cursor" nell'esecuzione della prima chiamata.
 > * Qualora nella response fosse presente il campo "cursor" valorizzato, prevedere la sua valorizzazione nelle chiamate successive.
@@ -833,7 +833,7 @@ Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno acca
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS08.1 [Response](doc/03_analysis/io_schema/IFS08.1-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**    
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**    
 >
 > TODO (da valutare regola per la non restituzione delle informazioni nei casi in cui l'isee superi una certa seoglia e nei casi in cui il numero totale degli iscritti non sia superiore a xx) 
 
@@ -861,7 +861,7 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 " /> Esempio IFS09.1 [Response](doc/03_analysis/io_schema/IFS09.1-response.json)
 
 
-> <img src="doc/05_gallery/info.svg" width="25" />  **Importante**    
+> <img src="doc/05_gallery/info.svg" width="16" />  **Importante**    
 >
 > * vedere gli input/output di esempio sopra riportati
 > * nel caso in cui i parametri male_enrollment_count o female_enrollment_count non siano valorizzabili -> restituire un valore nullo
