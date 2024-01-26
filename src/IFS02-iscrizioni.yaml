@@ -560,7 +560,7 @@ components:
           maxLength: 2048
         institute_code:
           type: string
-          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institute identification code / Codice identificativo dell’istituto  
           example: 'AA'          
           minLength: 1
           maxLength: 256
@@ -653,7 +653,7 @@ components:
           maxLength: 2048
         institute_code:
           type: string
-          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institute identification code / Codice identificativo dell’istituto  
           example: 'AA'          
           minLength: 1
           maxLength: 256
@@ -692,7 +692,6 @@ components:
           format: date
           description: Course end date / Data fine corso
           example: 2023-10-13
-          
         grade_value:
           type: string
           description: Grade / Voto
@@ -745,7 +744,7 @@ components:
       properties:
         institute_code:
           type: string
-          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institute identification code / Codice identificativo dell’istituto  
           example: 'AA'          
           minLength: 1
           maxLength: 256
@@ -916,7 +915,7 @@ components:
       properties:
         institute_code:
           type: string
-          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institute identification code / Codice identificativo dell’istituto  
           example: 'AA'          
           minLength: 1
           maxLength: 256
@@ -1057,7 +1056,7 @@ components:
           maxLength: 64          
         institute_code:
           type: string
-          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institute identification code / Codice identificativo dell’istituto  
           example: AA
           minLength: 1
           maxLength: 256       
@@ -1084,7 +1083,7 @@ components:
           nullable: true
         institute_code:
           type: string
-          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institute identification code / Codice identificativo dell’istituto  
           example: AA
           minLength: 1
           maxLength: 256

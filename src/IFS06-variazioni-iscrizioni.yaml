@@ -186,7 +186,6 @@ components:
           format: date
           description: Date last updated / Data ultimo aggiornamento
           example: '2023-10-13'
-          
         enrollments_hash:
           type: array
           minItems: 0
@@ -202,14 +201,12 @@ components:
           type: string
           description: Hash tax code / Hash del codice fiscale
           example: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
-          
           minLength: 64
           maxLength: 64
         hash:
           type: string
           description: Enrollments hash code / Codice hash delle iscrizioni
           example: '9bc4e295f51d940db6d7a9ca01059ace00376d4feed10225c592e010a780a8d5'
-          
           minLength: 64
           maxLength: 64
       required:

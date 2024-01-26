@@ -437,7 +437,7 @@ components:
       properties:
         institute_code:
           type: string
-          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institute identification code / Codice identificativo dell’istituto  
           example: '16'
           minLength: 1
           maxLength: 256

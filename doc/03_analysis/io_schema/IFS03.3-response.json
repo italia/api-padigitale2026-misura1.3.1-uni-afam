@@ -16,18 +16,21 @@
     "total_ects": 180,
     "eqf_level": "6° livello",
     "nqf_level": "I ciclo QF-EHEA",
-    "has_parent_relation": false,
+    "has_parent_relation": null,
     "degree_course_duration_in_years_or_months": "3 anni a tempo pieno",
     "degree_course_duration_ects_credit": 180,
-    "ects_courses": [
+    "ects_learnings": [
       {
-        "ects_credits_received": 6
+        "learning_name" : "XXXX",
+        "ects_credits": 6
       },
       {
-        "ects_credits_received": 12
+        "learning_name" : "XXXX",
+        "ects_credits": 12
       },
       {
-        "ects_credits_received": 6
+        "learning_name" : "XXXX",
+        "ects_credits": 6
       }
     ]
   }

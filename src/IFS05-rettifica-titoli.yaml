@@ -495,21 +495,18 @@ components:
           example: '213521'
           minLength: 1
           maxLength: 2048
-          
         subscriber_name:
           type: string
           description: Applicant name / Nome richiedente
           example: ANIS
           minLength: 1
           maxLength: 2048
-          
         subscriber_message:
           type: string
           description: Applicant message / Messaggio richiedente
           example: It wasn't possible to load all the academic qualifications of this student
           minLength: 1
           maxLength: 2048
-          
         data_request:
           type: string
           format: date
@@ -517,7 +514,6 @@ components:
           example: 2019-10-12
           minLength: 1
           maxLength: 36
-          
         personal_data:
           $ref: '#/components/schemas/personal_data'
         qualifications:
@@ -700,13 +696,11 @@ components:
         file_code:
           type: string
           description: Change request code/ Codice rettifica 
-          
           minLength: 1
           maxLength: 256    
         message:
           type: string
           description: Change request message output / Messaggio esito richiesta rettifica
-          
           minLength: 1
           maxLength: 256 
       required:

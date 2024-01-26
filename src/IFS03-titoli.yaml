@@ -266,19 +266,22 @@ paths:
                       family_name: null
                     proof_qualifications_level:
                       qualification_name: Laurea in Scienze Aziendali
-                      degree_course_duration_years_or_months: 3 anni a tempo pieno
+                      degree_course_duration_in_years_or_months: 3 anni a tempo pieno
                       institute_code: 'AA'
                       institute_name: Milano - Politecnico
                       academic_qualification_date: 2022-07-01
                       total_ects: 180
                       eqf_level: 6° livello
                       nqf_level: I ciclo QF-EHEA
-                      has_parent_relation: false
+                      has_parent_relation: null
                       degree_course_duration_ects_credit: 180
-                      ects_courses: 
-                        - ects_credits_received: 6
-                        - ects_credits_received: 12
-                        - ects_credits_received: 6
+                      ects_learnings: 
+                        - learning_name: XXXXX
+                          ects_credits: 6
+                        - learning_name: YYYYY
+                          ects_credits: 12
+                        - learning_name: ZZZZZ
+                          ects_credits: 6
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
@@ -365,16 +368,16 @@ paths:
                       nqf_level: I ciclo QF-XXX
                       attended_learnings:
                         - learning_grade_value: 30/30
-                          learning_grading_scale: 30
-                          learning_grading_scale_min: 18
-                          learning_grading_scale_max: 30
+                          learning_grading_scale: '30'
+                          learning_grading_scale_min: '18'
+                          learning_grading_scale_max: '30'
                           learning_name: Esame 1
                           learning_start_date: '2018-12-01'
                           learning_end_date: '2019-03-01'
                         - learning_grade_value: 22/30
-                          earning_grading_scale: 30
-                          learning_grading_scale_min: 18
-                          learning_grading_scale_max: 30
+                          learning_grading_scale: '30'
+                          learning_grading_scale_min: '18'
+                          learning_grading_scale_max: '30'
                           learning_name: Esame 2
                           learning_start_date: '2018-06-01'
                           learning_end_date: '2018-10-01'
@@ -587,7 +590,7 @@ components:
       properties:
         institute_code:
           type: string
-          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institute identification code / Codice identificativo dell’istituto
           example: '16'          
           minLength: 1
           maxLength: 256
@@ -608,34 +611,29 @@ components:
           type: string
           description: Code of study program / codice del corso di studio
           example: 'LM'
-          
           minLength: 1
           maxLength: 2
         programme_type_name:
           type: string
           description: Type of course of study / Tipo di corso di studio
           example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
-          
           minLength: 1
           maxLength: 2048
         degree_course_code:
           type: string
           description: Course Code / Codice del corso
-          
           minLength: 1
           maxLength: 20
         degree_course_name:
           type: string
           description: Course name / Denominazione corso
           example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
-          
           minLength: 1
           maxLength: 2048
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: MSLM32
-          
           nullable: true
           minLength: 1
           maxLength: 20
@@ -643,7 +641,6 @@ components:
           type: string
           description: Name of the degree class / Denominazione della classe di laurea 
           example: 'Informatica, Meccanica, Elettronica, Civile'
-          
           minLength: 1
           maxLength: 2048
         academic_qualification_date:
@@ -651,7 +648,6 @@ components:
           format: date
           description: Date of completion of studies / Data completamento studi
           example: 2023-10-01
-          
           minLength: 10
           maxLength: 10
         qualification_grade_value:
@@ -660,14 +656,12 @@ components:
           minLength: 1
           maxLength: 32
           example: '110'
-          
         qualification_grading_scale:
           type: string
           minLength: 1
           maxLength: 32
           example: '110'
           description: Rating scale / Scala di valutazione
-          
           nullable: true
         qualification_grading_scale_minimum_grade:
           type: string
@@ -723,20 +717,18 @@ components:
           format: int32
           description: Credits recieved / Crediti ricevuti
           example: 180
-          
           maximum: 999
           minimum: 1
         institute_name: 
           type: string
           description: Institute name / Nome dell'istituto
           example: 'Cagliari - Università degli Studi'
-          
           minLength: 1
           maxLength: 2048
         institute_code:
           type: string
-          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: '04'          
+          description: Institute identification code / Codice identificativo dell’istituto
+          example: '04'
           minLength: 1
           maxLength: 256
           nullable: true
@@ -744,35 +736,30 @@ components:
           type: string
           description: Code of study program / codice del corso di studio
           example: 'MS'
-          
           minLength: 1
           maxLength: 2
         programme_type_name:
           type: string
           description: Type of course of study / Tipo di corso di studio
           example: 'Laurea Magistrale (DM 270/04)'
-          
           minLength: 1
           maxLength: 2048
         degree_course_code:
           type: string
           description: Course Code / Codice del corso
           example: '455'
-          
           minLength: 1
           maxLength: 20
         degree_course_name:
           type: string
           description: Course name / Denominazione corso
           example: 'Ingegneria informatica'
-          
           minLength: 1
           maxLength: 2048
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: MSLM32
-          
           nullable: true
           minLength: 1
           maxLength: 20
@@ -780,14 +767,12 @@ components:
           type: string
           description: Name of the degree class / Denominazione della classe di laurea 
           example: 'Ingegneria informatica'
-          
           minLength: 1
           maxLength: 2048
         degree_course_duration_in_years_or_months:
           type: string
           description: Duration of ccourse / Durata del corso
           example: '3 anni a tempo pieno'
-          
           minLength: 1
           maxLength: 2048
         qualification_grade_value:
@@ -867,7 +852,6 @@ components:
           type: string
           description: NQF level / Livello NQF
           example: 'I ciclo QF-XXX'
-          
           minLength: 1
           maxLength: 2048
         attended_learnings:
@@ -887,20 +871,18 @@ components:
           type: string
           description: Diploma name / Denominazione diploma
           example: 'Laurea in Scienze Aziendali'
-          
           minLength: 1
           maxLength: 2048
         degree_course_duration_in_years_or_months:
           type: string
           description: Duration of study programme in years or months / Durata programma di studio in anni o mesi
           example: '3 anni a tempo pieno'
-          
           minLength: 1
           maxLength: 2048
         institute_code:
           type: string
-          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
-          example: '16'          
+          description: Institute identification code / Codice identificativo dell’istituto
+          example: '16'
           minLength: 1
           maxLength: 256
           nullable: true
@@ -908,7 +890,6 @@ components:
           type: string
           description: Institute's name / Denominazione dell’istituto
           example: 'Milano - Politecnico'
-          
           minLength: 1
           maxLength: 2048
         academic_qualification_date:
@@ -916,7 +897,6 @@ components:
           format: date
           description: Date of graduation / Data ottenimento titolo
           example: 2022-07-01
-          
           minLength: 10
           maxLength: 10
         total_ects:
@@ -924,43 +904,39 @@ components:
           format: int32
           description: Total ECTS credits / Crediti totali ECTS
           example: 180
-          
           maximum: 999
           minimum: 1
         eqf_level:
           type: string
           description: EQF level / Livello EQF
           example: '6° livello'
-          
           minLength: 1
           maxLength: 2048
         nqf_level:
           type: string
           description: NQF level / Livello NQF
           example: 'I ciclo QF-EHEA'
-          
           minLength: 1
           maxLength: 2048
         has_parent_relation:
           type: boolean
+          nullable: true
           description: Parent relation / Relazione con i genitori
           example: true
-          
         degree_course_duration_ects_credit:
           type: integer
           format: int32
           description: Course duration in ECTS / Durata corso di studi in ECTS
           example: 180
-          
           maximum: 999
           minimum: 1
-        ects_courses:
+        ects_learnings:
           type: array
           maxItems: 256
           minItems: 0
           description: List of courses in ECTS / Elenco corsi in ECTS
           items:
-            $ref: '#/components/schemas/ects_courses'
+            $ref: '#/components/schemas/ects_learnings'
     attended_learnings:
       type: object
       additionalProperties: false
@@ -1012,16 +988,22 @@ components:
           example: 2019-03-01          
           minLength: 10
           maxLength: 10
-    ects_courses:
+    ects_learnings:
       type: object
       additionalProperties: false
       description: Detailed information on ECTS courses / Informazioni dettagliate sui corsi in ECTS
       properties:
-        ects_credits_received:
+        learning_name:
+          type: string
+          description: Learning name / Nome insegnamento
+          example: XXXXX
+          minLength: 1
+          maxLength: 2048
+        ects_credits:
           type: integer
           format: int32
           description: Course in ECTS / Corso in ECTS
-          example: 180          
+          example: 180
           maximum: 999
           minimum: 1
     personal_data:
@@ -1044,7 +1026,7 @@ components:
           maxLength: 9
           minLength: 9
           pattern: "^[A-Z0-9]{9}$"
-          example: AB123456C          
+          example: AB123456C
           nullable: true
         given_name:
           type: string
@@ -1105,7 +1087,7 @@ components:
           maxLength: 64
         institute_code:
           type: string
-          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institute identification code / Codice identificativo dell’istituto
           example: AA
           minLength: 1
           maxLength: 256
@@ -1134,7 +1116,7 @@ components:
           nullable: true
         institute_code:
           type: string
-          description: Institute identification code / Codice identificativo dell’istituto  [** DA DEFINIRE PATTERN CORRETTO **]
+          description: Institute identification code / Codice identificativo dell’istituto
           example: AA
           minLength: 1
           maxLength: 256
