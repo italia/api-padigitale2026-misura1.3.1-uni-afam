@@ -386,8 +386,6 @@ Acquisizione delle prove riguardanti l'ultima iscrizione a ogni corso di studi d
 
 #### :globe_with_meridians: IFS02.3 - proof-tertiary-education-courses
 
-Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può riferirsi a studi completati o in corso
-
 Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può riferirsi a studi completati o in corso negli ultimi 3 anni accademici
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
