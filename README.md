@@ -418,7 +418,7 @@ Acquisizione delle prove riguardanti le ultime ammissioni ai corsi di studi di i
 
 #### :globe_with_meridians: IFS02.5 - proof-mobility-periods
 
-Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio diploma
+Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio titolo accademico
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.5 [Request](doc/03_analysis/io_schema/IFS02.5-request.json)
@@ -915,7 +915,7 @@ L'impaginazione basata sul cursore consente di recuperare in modo efficiente set
 * [Normativa e modelli relativi al Diploma Supplement](https://www.miur.gov.it/-/nuovo-supplemento-al-diploma-con-4-allegati-relativi-alla-compilazione-e-alle-linee-guida-nazionali-per-la-digitalizzazione)
 ## Ultima Modifica 🔬
 
-23/01/2024
+26/01/2024
 
 ## Authors 🚶
 
