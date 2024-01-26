@@ -294,7 +294,7 @@ Fornisce le informazioni di dettaglio riguardanti le iscrizioni di una studentes
 
 #### :globe_with_meridians: IFS02.1 - academic-enrollments 
 
-Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accademici di una studentessa o di uno studente
+Acquisizione del dettaglio delle ultime iscrizioni attive degli ultimi tre anni accademici per ogni corso di una studentessa o di uno studente
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.1 [Request](doc/03_analysis/io_schema/IFS02.1-request.json)
@@ -372,7 +372,7 @@ Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accadem
 
 #### :globe_with_meridians: IFS02.2 - proof-tertiary-education-enrollments
 
-Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terziaria di una studentessa/studente
+Acquisizione delle prove riguardanti l'ultima iscrizione a ogni corso di studi di istruzione terziaria di una studentessa/studente negli ultimi 3 anni accademici
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.2 [Request](doc/03_analysis/io_schema/IFS02.2-request.json)
@@ -388,6 +388,8 @@ Acquisizione delle prove riguardanti l'iscrizione agli studi di istruzione terzi
 
 Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può riferirsi a studi completati o in corso
 
+Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può riferirsi a studi completati o in corso negli ultimi 3 anni accademici
+
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.3 [Request](doc/03_analysis/io_schema/IFS02.3-request.json)
 
@@ -401,7 +403,8 @@ Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenu
 
 #### :globe_with_meridians: IFS02.4 - proof-tertiary-education-admission
 
-Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione terziaria di una studentessa/studente;
+Acquisizione delle prove riguardanti le ultime ammissioni ai corsi di studi di istruzione terziaria di una studentessa/studente negli ultimi 3 anni accademici
+
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.4 [Request](doc/03_analysis/io_schema/IFS02.4-request.json)
