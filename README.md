@@ -897,8 +897,9 @@ Per la valorizzazione dei campi  institude_code, programme_type_code, degree_cou
 
 Lo schema del master data pubblicato dal MUR può essere scaricato a questo [link](doc/03_analysis/masterdata/MUR-masterdata.xlsx)
  
-> :warning: Sono ancora in fase di definizione i canali di pubblicazione del Master data e il relativo schema. E' comunque consigliato realizzare una "cache" del Master data nei sistemi locali da aggiornare periodicamente
-> Informazioni, **solo a titolo puramente esemplificativo**, possono essere ottenute nei [metadati](https://dati-ustat.mur.gov.it/dataset/metadati) pubblicati dall'Ufficio di Statistica del Ministero dell'Università e della Ricerca (MUR).
+> :warning: Sono ancora in fase di definizione i canali di pubblicazione del Master data e il relativo schema. E' comunque consigliato realizzare una "cache" del Master data nei sistemi locali da aggiornare periodicamente.
+>
+> **Solo a titolo meramente esemplificativo**, possono essere ottenute informazioni aggiuntive nei [metadati](https://dati-ustat.mur.gov.it/dataset/metadati) pubblicati dall'Ufficio di Statistica del Ministero dell'Università e della Ricerca (MUR).
 > 
 > Per qualsiasi richeiesta di chiarimento potete [aprire una issue](https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues/new) su questo repository GitHub
 
