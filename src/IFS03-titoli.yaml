@@ -60,7 +60,7 @@ paths:
                     qualifications:
                       - institute_code: '16'
                         institute_name: Milano - Politecnico
-                        qualification_name: Dottore magistrale
+                        qualification_name: Laurea in ingegneria informatica
                         programme_type_code: MS
                         degree_course_code: '1573960'
                         degree_class_code: MSLM32
@@ -79,7 +79,7 @@ paths:
                     qualifications:
                       - institute_code: '16'
                         institute_name: Milano - Politecnico
-                        qualification_name: Dottore magistrale
+                        qualification_name: Laurea in ingegneria informatica
                         programme_type_code: MS
                         degree_course_code: '1573960'
                         degree_class_code: MSLM32
@@ -98,7 +98,7 @@ paths:
                     qualifications:
                       - institute_code: '16'
                         institute_name: Milano - Politecnico
-                        qualification_name: Dottore magistrale
+                        qualification_name: Laurea in ingegneria informatica
                         programme_type_code: MS
                         degree_course_code: '1573960'
                         degree_class_code: MSLM32
@@ -117,7 +117,7 @@ paths:
                     qualifications:
                       - institute_code: '16'
                         institute_name: Milano - Politecnico
-                        qualification_name: Dottore magistrale
+                        qualification_name: Laurea in ingegneria informatica
                         programme_type_code: MS
                         degree_course_code: '1573960'
                         degree_class_code: MSLM32
