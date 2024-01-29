@@ -901,7 +901,7 @@ L'impaginazione basata sul cursore consente di recuperare in modo efficiente set
 * [Normativa e modelli relativi al Diploma Supplement](https://www.miur.gov.it/-/nuovo-supplemento-al-diploma-con-4-allegati-relativi-alla-compilazione-e-alle-linee-guida-nazionali-per-la-digitalizzazione)
 ## Ultima Modifica 🔬
 
-26/01/2024
+29/01/2024
 
 ## Authors 🚶
 
