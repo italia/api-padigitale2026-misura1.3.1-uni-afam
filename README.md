@@ -753,7 +753,7 @@ Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle stude
 
 > <img src="doc/05_gallery/info.svg" width="20" />  **Importante**
 >    
-> * Si ricorda prevedere di NON valorizzare il campo "cursor" nell'esecuzione della prima chiamata.
+> * Si ricorda di NON valorizzare il campo "cursor" nell'esecuzione della prima chiamata.
 > * Qualora nella response fosse presente il campo "cursor" valorizzato, prevedere la sua valorizzazione nelle chiamate successive.
 > * Prevedere, tramite l'attributo "cursor", una strategia di paginazione dei risultati restituiti dalla API. Qualora l'attributo fosse restituito NULLO (o non presente), nessuna chiamata successiva deve essere effettuata dal client.
 
