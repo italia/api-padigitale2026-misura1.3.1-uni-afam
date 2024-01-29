@@ -265,7 +265,7 @@ paths:
                       given_name: null
                       family_name: null
                     proof_qualifications_level:
-                      qualification_name: Laurea in Scienze Aziendali
+                      qualification_name: Laurea in Ingegneria gestionale
                       degree_course_duration_in_years_or_months: 3 anni a tempo pieno
                       institute_code: 'AA'
                       institute_name: Milano - Politecnico
@@ -276,12 +276,12 @@ paths:
                       has_parent_relation: null
                       degree_course_duration_ects_credit: 180
                       ects_learnings: 
-                        - learning_name: XXXXX
-                          ects_credits: 6
-                        - learning_name: YYYYY
-                          ects_credits: 12
-                        - learning_name: ZZZZZ
-                          ects_credits: 6
+                        - learning_name: Analisi matematica I e Geometria
+                          ects_credits: 10
+                        - learning_name: Fisica sperimentale
+                          ects_credits: 10
+                        - learning_name: Fisica tecnica
+                          ects_credits: 5
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
@@ -371,21 +371,21 @@ paths:
                           learning_grading_scale: '30'
                           learning_grading_scale_min: '18'
                           learning_grading_scale_max: '30'
-                          learning_name: Esame 1
+                          learning_name: Analisi matematica I e Geometria
                           learning_start_date: '2018-12-01'
                           learning_end_date: '2019-03-01'
                         - learning_grade_value: 22/30
                           learning_grading_scale: '30'
                           learning_grading_scale_min: '18'
                           learning_grading_scale_max: '30'
-                          learning_name: Esame 2
+                          learning_name: Fisica sperimentale
                           learning_start_date: '2018-06-01'
                           learning_end_date: '2018-10-01'
                         - learning_grade_value: Idoneo
                           learning_grading_scale: null
                           learning_grading_scale_min: null
                           learning_grading_scale_max: null
-                          learning_name: Esame 3
+                          learning_name: Fisica tecnica
                           learning_start_date: '2018-07-01'
                           learning_end_date: '2019-07-01'
                       
@@ -996,7 +996,7 @@ components:
         learning_name:
           type: string
           description: Learning name / Nome insegnamento
-          example: XXXXX
+          example: Fisica tecnica
           minLength: 1
           maxLength: 2048
         ects_credits:

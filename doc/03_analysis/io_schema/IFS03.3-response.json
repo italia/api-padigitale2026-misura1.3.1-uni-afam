@@ -21,16 +21,16 @@
     "degree_course_duration_ects_credit": 180,
     "ects_learnings": [
       {
-        "learning_name" : "XXXX",
-        "ects_credits": 6
+        "learning_name" : "Analisi matematica I e Geometria",
+        "ects_credits": 10
       },
       {
-        "learning_name" : "XXXX",
-        "ects_credits": 12
+        "learning_name" : "Fisica sperimentale",
+        "ects_credits": 10
       },
       {
-        "learning_name" : "XXXX",
-        "ects_credits": 6
+        "learning_name" : "Fisica tecnica",
+        "ects_credits": 5
       }
     ]
   }
