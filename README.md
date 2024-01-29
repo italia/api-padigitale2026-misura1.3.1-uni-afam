@@ -234,7 +234,7 @@ In questo paragrafo sono descritte le seguenti API:
 9. [IFS09 Iscrizioni per corso](#ifs09-iscrizioni-per-corso)
 
 
-***
+
 
 ### IFS01 Offerta formativa
 
@@ -282,7 +282,7 @@ Acquisizione del dettaglio di un corso di studio offerto da un Istituto di forma
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
-***
+
 
 ### IFS02 Iscrizioni
 
@@ -446,7 +446,6 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
-<hr>
 
 ### IFS03 Titoli
 Restituisce l'elenco dei titoli conseguiti da una studentessa o uno studente
@@ -511,8 +510,6 @@ Acquisizione delle prove riguardanti il completamento degli studi di istruzione 
 " /> Esempio IFS03.2 [Response](doc/03_analysis/io_schema/IFS03.2-response.json)
 
 > <img src="doc/05_gallery/info.svg" width="20" />  **Importante**    
-
-
 >Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
 >1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
 >2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
@@ -566,8 +563,6 @@ Acquisizione delle prove relative allo strumento "Diploma Supplement"
 >
 > * RegEx applicata: ^[a-zA-Z0-9-]+, [a-zA-Z0-9-]{2}, [a-zA-Z0-9-]+$
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
-
-<hr>
 
 ### IFS04 Rettifica iscrizioni
 
@@ -653,7 +648,6 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
-<hr>
 
 ### IFS05 Rettifica titoli
 Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
@@ -738,7 +732,6 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
-<hr>
 
 ### IFS06 Variazioni Iscrizioni
 
@@ -776,7 +769,6 @@ N.B. Si prega di visionare anche la sezione IFS02
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
-<hr>
 
 ### IFS07 Variazione titoli
 Richiede la lista degli ultimi titoli attivi per ogni corso di studi negli ultimi 10 anni accademici.
@@ -807,7 +799,6 @@ Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fi
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
-<hr>
 
 ### IFS08 Iscrizioni per fasce ISEE
 Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accademico
@@ -837,7 +828,6 @@ Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno acca
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
-<hr>
 
 
 
@@ -865,7 +855,6 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
-<hr>
 
 ## Scenario di utilizzo JSON-LD:
 
@@ -879,7 +868,7 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 
 <img src="doc/05_gallery/scenario.png" />
 
-<hr>
+
 
 ## Risorse utili 
 
@@ -905,7 +894,6 @@ Lo schema del master data pubblicato dal MUR può essere scaricato a questo [lin
 
 L'impaginazione basata sul cursore consente di recuperare in modo efficiente set di dati di grandi dimensioni da un database suddividendoli in "pagine" più piccole. 
 
-<hr>
 
 ## Per maggiori informazioni:
 * [Interoperabilità e PDND su Developers Italia](https://developers.italia.it/it/interoperabilita/)
