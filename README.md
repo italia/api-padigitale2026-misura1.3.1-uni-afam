@@ -433,15 +433,15 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 > :pencil2: **Note compilazione campi**  
 >
 > **birth_place**: 
-> * Dove possibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
-> * il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
+> * Dove possibile il campo deve contenere le informazioni concatenate del Nazione/Provincia/Comune. 
+> * il formato previsto prevede la seguente forma: **TO DO**
 >
-> *Esempio: birth_place="Milano, MI, Italia"*
+> *Esempio: birth_place= **TO DO**
 > * Nel caso di comuni esteri, se non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
 >
-> *Esempio: birth_place="Vienna, EE, Austria"*
+> *Esempio: birth_place= **TO DO**
 >
-> * RegEx applicata: ^[a-zA-Z0-9-]+, [a-zA-Z0-9-]{2}, [a-zA-Z0-9-]+$
+> * RegEx applicata: **TO DO**
 
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
