@@ -188,7 +188,6 @@ Come indicato nella tabella sottostante (Tabella 2), gli Atenei e AFAM pubblici 
 Tabella 2 – Fasce di Università in base al numero di studentesse e studenti iscritti ed API da erogare per ogni fascia. 
 
 ## Da sapere prima di iniziare a leggere le Linee Guida
-
 **1** - Il Ministero dell'Università e della Ricerca (MUR) pubblica i seguenti vettori di dati codificati come open data a supporto dell'interoperabilità e dell'anagrafe ANIS
 >1. Tipi di corsi
 >1. Corsi di studio
@@ -891,9 +890,10 @@ Lo schema del master data pubblicato dal MUR può essere scaricato a questo [lin
 
 
 #### Cursor pagination
-
 L'impaginazione basata sul cursore consente di recuperare in modo efficiente set di dati di grandi dimensioni da un database suddividendoli in "pagine" più piccole. 
 
+#### Business canvas
+Il [business canvas](https://docs.google.com/spreadsheets/d/1-H3R9vLX_Y3_7NxGN1I6WzSD8EdPJy4N/edit#gid=857294954) è il documento utilizzato dal gruppo di lavoro per la collaborazione e per la modellazione delle specifiche Open API.
 
 ## Per maggiori informazioni:
 * [Interoperabilità e PDND su Developers Italia](https://developers.italia.it/it/interoperabilita/)
