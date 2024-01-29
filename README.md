@@ -255,10 +255,10 @@ Acquisizione della lista dei corsi di studio offerti da un istituto di formazion
 > <img src="doc/05_gallery/info.svg" width="20" />  **Importante**
 >
 > * La richiesta prevede l'obbligatorietà della compilazione del campo **_academic_year_**. 
-> * L'attributo  **_cursor_** è utile per la paginazione della risposta:
->>1. Alla prima invocazione non si valorizza l'attributo cursor
->>1. Se la response restituisce l'attributo cursor valorizzato, sarà necessario iterare le invocazioni per ottenere l'intero dataset 
->>1. Per le invocazioni successive alla prima si valorizza il campo cursor con il valore ottenuto nell'ultima response
+> * L'attributo  **_cursor_** è utile per la paginazione della risposta: </br>
+&emsp;1. Alla prima invocazione non si valorizza l'attributo cursor </br>
+&emsp;2. Se la response restituisce l'attributo cursor valorizzato, sarà necessario iterare le invocazioni per ottenere l'intero dataset </br>
+&emsp;3. Per le invocazioni successive alla prima si valorizza il campo cursor con il valore ottenuto nell'ultima response
 > * E' lasciata allo sviluppatore dell'API la gestione della paginazione e quindi della valorizzazione del cursor sulla response
 
 #### :globe_with_meridians: IFS01.2 - educational-offering-detail
@@ -529,8 +529,6 @@ Acquisizione delle prove riguardanti il livello di qualifica degli studi di istr
 " /> Esempio IFS03.3 [Response](doc/03_analysis/io_schema/IFS03.3-response.json)
 
 > <img src="doc/05_gallery/info.svg" width="20" />  **Importante**    
-
-
 >Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
 >1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
 >2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
@@ -548,7 +546,6 @@ Acquisizione delle prove relative allo strumento "Diploma Supplement"
 " /> Esempio IFS03.4 [Response](doc/03_analysis/io_schema/IFS03.4-response.json)
 
 > <img src="doc/05_gallery/info.svg" width="20" />  **Importante**    
-
 >Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
 >1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
 >2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
@@ -706,8 +703,8 @@ Richiesta di annullamento di una richiesta di rettifica di un titolo accademico 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS05.3 [Response](doc/03_analysis/io_schema/IFS05.3-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />
->   
+> <img src="doc/05_gallery/info.svg" width="20" />**Importante**
+>
 > * TODO
 
 
