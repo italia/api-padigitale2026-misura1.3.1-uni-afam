@@ -75,7 +75,7 @@ paths:
                       given_name: Mario
                       family_name: Rossi
                       birth_date: 1980-01-01
-                      birth_place: Roma, RM, Italia       
+                      birth_place: Italia,RM,Roma
                     qualifications:
                       - institute_code: '16'
                         institute_name: Milano - Politecnico
@@ -94,7 +94,7 @@ paths:
                       given_name: Mario
                       family_name: Rossi
                       birth_date: 1980-01-01
-                      birth_place: Roma, RM, Italia   
+                      birth_place: Italia,RM,Roma
                     qualifications:
                       - institute_code: '16'
                         institute_name: Milano - Politecnico
@@ -113,7 +113,7 @@ paths:
                       given_name: Mario
                       family_name: Rossi
                       birth_date: 1980-01-01
-                      birth_place: Roma, RM, Italia       
+                      birth_place: Italia,RM,Roma
                     qualifications:
                       - institute_code: '16'
                         institute_name: Milano - Politecnico
@@ -1053,11 +1053,12 @@ components:
           nullable: true
         birth_place:
           type: string
-          example: Rome, RM, Italia
+          example: Italia,RM,Roma
           description: Place of birth / Luogo di nascita
           minLength: 1
           maxLength: 2048
           nullable: true
+          pattern: .,[a-zA-Z],[a-zA-Z]*
 
     it_qualification_request:
       type: object
