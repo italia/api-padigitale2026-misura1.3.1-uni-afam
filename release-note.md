@@ -2,7 +2,8 @@
 
 ## Version 2.0.3
 
-- removed degree_class_code attribute from IFS01 and corrected the example in the issue services IF04 and IFS05
+- Removed the degree_class_code attribute from IFS01 and corrected the example in the issue services IF04 and IFS05
+- It was added the release note file
 
 :warning: todo the release
 
