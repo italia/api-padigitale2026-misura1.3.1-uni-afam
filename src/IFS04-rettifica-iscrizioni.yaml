@@ -210,7 +210,7 @@ paths:
                 value:
                   subscriber_id: "1234"
                   subscriber_name: ANIS
-                  subscriber_message: It wasn't possible to load all the enrollments of this student
+                  subscriber_message: Warning on some academic enrollments
                   data_request : 2019-10-12
                   personal_data:
                     tax_code: RSSMRA80A01F205D
@@ -356,7 +356,7 @@ components:
         subscriber_message:
           type: string
           description: Applicant message / Messaggio richiedente
-          example: It wasn't possible to load all the enrollments of this student
+          example: Warning on some academic enrollments
           minLength: 1
           maxLength: 2048
         data_request :

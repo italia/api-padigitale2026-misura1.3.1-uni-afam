@@ -215,7 +215,7 @@ paths:
                 value:
                   subscriber_id: "1234"
                   subscriber_name: ANIS
-                  subscriber_message: It wasn't possible to load all the academic qualifcations of this student
+                  subscriber_message: Warning on some academic qualifcations
                   data_request: 2019-10-12
                   personal_data:
                     tax_code: RSSMRA80A01F205D
@@ -256,7 +256,7 @@ paths:
                 value:
                   subscriber_id: "1234"
                   subscriber_name: ANIS
-                  subscriber_message: It wasn't possible to load all the academic qualifcations of this student
+                  subscriber_message: Warning on some academic qualifications
                   data_request: 2019-10-12
                   personal_data:
                     tax_code: RSSMRA80A01F205D

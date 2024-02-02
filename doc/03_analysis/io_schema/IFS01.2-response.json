@@ -5,7 +5,6 @@
    "course_location":"Milano Bovisa",
    "remote_mode": "on-site", /*full-remote, on-site, hybrid, not-available*/
    "course_area":"Ingegneria industriale",
-   "degree_class_code":"LT10",
    "degree_course_language":"IT",
    "degree_course_period_years":3,
    "degree_course_code":"353",
