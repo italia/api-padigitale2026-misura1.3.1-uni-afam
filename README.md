@@ -19,8 +19,9 @@ Questo repository contiene le specifiche delle API relative alla misura 1.3.1 pe
 La tabella sottostante (Tabella 1) riporta il dettaglio del titolo e descrizione per tutte e nove le API (dalla IFS01 alla IFS09) che dovranno essere erogate dai Soggetti Attuatori in base alla fascia di appartenenza. 
 git status
 
-:rocket: Link rapido alle [linee guida all'implementazione degli e-service](#linee-guida-e-service)
-:rocket: Link rapido alle [Release note](/release-note.md)
+:rocket: Link rapido alle [linee guida d'implementazione degli e-service](#linee-guida-e-service)
+
+:rocket: Link rapido alla [release note](/release-note.md)
 
 <table>
        <caption>Tabella 1 – Descrizione delle nove API assegnate alle cinque fasce di Università e AFAM</caption>
