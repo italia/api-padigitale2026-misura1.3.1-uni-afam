@@ -1,4 +1,4 @@
-# Release Note
+# Release note
 
 ## Version 2.0.3
 
