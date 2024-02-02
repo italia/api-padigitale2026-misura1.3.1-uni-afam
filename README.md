@@ -20,6 +20,7 @@ La tabella sottostante (Tabella 1) riporta il dettaglio del titolo e descrizione
 git status
 
 :rocket: Link rapido alle [linee guida all'implementazione degli e-service](#linee-guida-e-service)
+:rocket: Link rapido alle [Release note](/release-note.md)
 
 <table>
        <caption>Tabella 1 – Descrizione delle nove API assegnate alle cinque fasce di Università e AFAM</caption>
