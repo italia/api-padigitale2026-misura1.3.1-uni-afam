@@ -874,7 +874,6 @@ Si riportano di seguito la proposta di ripartizione degli scaglioni corente con 
 | Classe di ampiezza 10.000 da 60.001-100.000 |
 | >100.000 |
 | ISEE non presentato |
-| |
 
 
 - <b><i> E' di libero arbitrio degli istituti la scelta di definire una soglia minima di studenti entro la quale mostrare la fascia di reddito.</i></b>
