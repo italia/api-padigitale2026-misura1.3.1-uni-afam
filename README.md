@@ -865,8 +865,8 @@ Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno acca
 - la API deve essere organizzata secondo la ripartizione degli scaglioni coerenti con i provvedimenti normativi in vigore relativamente alla tassazione universitaria (No-tax area e progressività) per gli Atenei statali e gli istituti AFAM statali (L. 232/2016, DM 1014/2021, DM 1016/2021). 
 Si riportano di seguito la proposta di ripartizione degli scaglioni corente con la normativa vigente e con maggiore dettaglio per finalità amministrative di analisi:
 
-
-| Coerenza con la normativa vigente (scaglioni ISEE) |
+| scaglioni ISEE |
+|----------------------------------------------------------------|
 | <=13.000 |
 | 13.001-16.000 |
 | Classe di ampiezza 2.000 da 16.001-40.000 |
@@ -874,6 +874,7 @@ Si riportano di seguito la proposta di ripartizione degli scaglioni corente con 
 | Classe di ampiezza 10.000 da 60.001-100.000 |
 | >100.000 |
 | ISEE non presentato |
+| |
 
 
 - <b><i> E' di libero arbitrio degli istituti la scelta di definire una soglia minima di studenti entro la quale mostrare la fascia di reddito.</i></b>
