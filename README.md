@@ -862,20 +862,6 @@ Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accadem
 Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno accademico
 
 
-- La API deve essere organizzata secondo la ripartizione degli scaglioni coerenti con i provvedimenti normativi in vigore relativamente alla tassazione universitaria (No-tax area e progressività) per gli Atenei statali e gli istituti AFAM statali (L. 232/2016, DM 1014/2021, DM 1016/2021). 
-Si riportano di seguito la proposta di ripartizione degli scaglioni corente con la normativa vigente e con maggiore dettaglio per finalità amministrative di analisi
-- <b><i> E' di libero arbitrio degli istituti la scelta di definire una soglia minima di studenti entro la quale mostrare la fascia di reddito.</i></b>
-
-| scaglioni ISEE |
-|----------------------------------------------------------------|
-| <=13.000 |
-| 13.001-16.000 |
-| Classe di ampiezza 2.000 da 16.001-40.000 |
-| Classe di ampiezza 5.000 da 40.001-60.000 |
-| Classe di ampiezza 10.000 da 60.001-100.000 |
-| >100.000 |
-| ISEE non presentato |
-
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS08.1 [Request](doc/03_analysis/io_schema/IFS08.1-request.json)
@@ -885,7 +871,19 @@ Si riportano di seguito la proposta di ripartizione degli scaglioni corente con 
 
 > <img src="doc/05_gallery/info.svg" width="20" />  **Importante**    
 >
-> TODO (da valutare regola per la non restituzione delle informazioni nei casi in cui l'isee superi una certa seoglia e nei casi in cui il numero totale degli iscritti non sia superiore a xx) 
+> 
+> - La API deve essere organizzata secondo la ripartizione degli scaglioni coerenti con i provvedimenti normativi in vigore relativamente alla tassazione universitaria (No-tax area e progressività) per gli Atenei statali e gli istituti AFAM statali (L. 232/2016, DM 1014/2021, DM 1016/2021). Si riportano di seguito la proposta di ripartizione degli scaglioni corente con la normativa vigente e con maggiore dettaglio per finalità amministrative di analisi
+> - <b><i> E' di libero arbitrio degli istituti la scelta di definire una soglia minima di studenti entro la quale mostrare la fascia di reddito.</i></b>
+>
+>| scaglioni ISEE |
+>|----------------------------------------------------------------|
+>| <=13.000 |
+>| 13.001-16.000 |
+>| Classe di ampiezza 2.000 da 16.001-40.000 |
+>| Classe di ampiezza 5.000 da 40.001-60.000 |
+>| Classe di ampiezza 10.000 da 60.001-100.000 |
+>| >100.000 |
+>| ISEE non presentato |
 
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
