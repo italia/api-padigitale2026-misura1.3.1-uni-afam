@@ -4,6 +4,10 @@
 
 - Removed the degree_class_code attribute from IFS01 and corrected the example in the issue services IF04 and IFS05
 - It was added the release note file
+- Have been added the examples of use cases in readme.md file
+- Changed the requests body of API for SDG use cases
+- Have been added the ISEE bands for API IFS08 on the readme.md file
+
 
 :warning: todo the release
 
