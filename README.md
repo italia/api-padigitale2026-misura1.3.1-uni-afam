@@ -247,7 +247,7 @@ In questo paragrafo sono descritte le seguenti API:
 
 #### :globe_with_meridians: IFS01.1 - educational-offering-list
 
-:jigsaw: :jigsaw: **caso d'uso tipico**: Alimentazione portale Universitaly
+:jigsaw: **caso d'uso tipico**: Alimentazione portale Universitaly
 
 Acquisizione della lista dei corsi di studio offerti da un istituto di formazione superiore in un dato anno accademico
 
@@ -269,7 +269,7 @@ Acquisizione della lista dei corsi di studio offerti da un istituto di formazion
 
 #### :globe_with_meridians: IFS01.2 - educational-offering-detail
 
-:jigsaw: :jigsaw: **caso d'uso tipico**: Alimentazione portale universitaly
+:jigsaw: **caso d'uso tipico**: Alimentazione portale universitaly
 
 Acquisizione del dettaglio di un corso di studio offerto da un Istituto di formazione superiore
 
@@ -302,7 +302,7 @@ Fornisce le informazioni di dettaglio riguardanti le iscrizioni di una studentes
 
 #### :globe_with_meridians: IFS02.1 - academic-enrollments 
 
-:jigsaw: :jigsaw: **caso d'uso tipico**: Alimentazione anagrafe ANIS
+:jigsaw: **caso d'uso tipico**: Alimentazione anagrafe ANIS
 
 Acquisizione del dettaglio delle ultime iscrizioni attive degli ultimi tre anni accademici per ogni corso di una studentessa o di uno studente
 
@@ -382,7 +382,7 @@ Acquisizione del dettaglio delle ultime iscrizioni attive degli ultimi tre anni 
 
 #### :globe_with_meridians: IFS02.2 - proof-tertiary-education-enrollments
 
-:jigsaw: :jigsaw: **caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
+:jigsaw: **caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
 
 Acquisizione delle prove riguardanti l'ultima iscrizione a ogni corso di studi di istruzione terziaria di una studentessa/studente negli ultimi 3 anni accademici
 
@@ -396,7 +396,7 @@ Acquisizione delle prove riguardanti l'ultima iscrizione a ogni corso di studi d
 >  
 > * Si prega di vedere le regole di [obbligatorietà output](#ifs02-Iscrizioni) presenti su [IFS02.1]
 
-:jigsaw: :jigsaw: **caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
+:jigsaw: **caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
 
 
 #### :globe_with_meridians: IFS02.3 - proof-tertiary-education-courses
@@ -863,6 +863,19 @@ Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno acca
 
 
 - la API deve essere organizzata secondo la ripartizione degli scaglioni coerenti con i provvedimenti normativi in vigore relativamente alla tassazione universitaria (No-tax area e progressività) per gli Atenei statali e gli istituti AFAM statali (L. 232/2016, DM 1014/2021, DM 1016/2021). 
+Si riportano di seguito la proposta di ripartizione degli scaglioni corente con la normativa vigente e con maggiore dettaglio per finalità amministrative di analisi:
+
+
+| Coerenza con la normativa vigente (scaglioni ISEE) |
+| <=13.000 |
+| 13.001-16.000 |
+| Classe di ampiezza 2.000 da 16.001-40.000 |
+| Classe di ampiezza 5.000 da 40.001-60.000 |
+| Classe di ampiezza 10.000 da 60.001-100.000 |
+| >100.000 |
+| ISEE non presentato |
+
+
 - <b><i> E' di libero arbitrio degli istituti la scelta di definire una soglia minima di studenti entro la quale mostrare la fascia di reddito.</i></b>
 
 
