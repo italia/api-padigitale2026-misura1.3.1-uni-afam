@@ -1,12 +1,12 @@
+/* Il person_id è prioritario rispetto al tax_code*/
+
 /*ESEMPIO 1*/
 {
   "tax_code": "RSSMRA80A01F205D",
-  "person_id": "",
-  "institute_code": "AA" /*Facoltativo*/
+  "person_id": "12345678A"
 }
 
-/*ESEMPIO 2*/
+/*ESEMPIO 2 API IFS06*/
 {
-  "tax_code": "",
   "key": "8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535"
 }

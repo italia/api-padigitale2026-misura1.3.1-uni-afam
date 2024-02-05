@@ -1,6 +1,4 @@
 /* Con file_code - restituisce solamente il singolo item*/
-
-
 {
   "enrollment_change_request": [
     {
@@ -12,7 +10,6 @@
 }
 
 /* Senza file_code - restituisce tutto*/
-
 {
   "enrollment_change_request": [
     {

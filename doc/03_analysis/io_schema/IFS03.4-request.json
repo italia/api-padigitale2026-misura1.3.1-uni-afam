@@ -1,5 +1,5 @@
+/* Il person_id è prioritario rispetto al tax_code*/
 {
-    "tax_code": "RSSMRA80A01F205D",
-    "person_id": "",
-    "institute_code": "AA" /*Facoltativo*/
-  }
+  "tax_code": "RSSMRA80A01F205D",
+  "person_id": "12345678A"
+}
