@@ -247,6 +247,8 @@ In questo paragrafo sono descritte le seguenti API:
 
 #### :globe_with_meridians: IFS01.1 - educational-offering-list
 
+**Caso d'uso tipico**: Alimentazione portale Universitaly
+
 Acquisizione della lista dei corsi di studio offerti da un istituto di formazione superiore in un dato anno accademico
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
@@ -266,6 +268,8 @@ Acquisizione della lista dei corsi di studio offerti da un istituto di formazion
 > * E' lasciata allo sviluppatore dell'API la gestione della paginazione e quindi della valorizzazione del cursor sulla response
 
 #### :globe_with_meridians: IFS01.2 - educational-offering-detail
+
+**Caso d'uso tipico**: Alimentazione portale universitaly
 
 Acquisizione del dettaglio di un corso di studio offerto da un Istituto di formazione superiore
 
@@ -297,6 +301,8 @@ Fornisce le informazioni di dettaglio riguardanti le iscrizioni di una studentes
 " /> Definizione [OpenApi.yaml](src/IFS02-iscrizioni.yaml)
 
 #### :globe_with_meridians: IFS02.1 - academic-enrollments 
+
+**Caso d'uso tipico**: Alimentazione anagrafe ANIS
 
 Acquisizione del dettaglio delle ultime iscrizioni attive degli ultimi tre anni accademici per ogni corso di una studentessa o di uno studente
 
@@ -376,6 +382,8 @@ Acquisizione del dettaglio delle ultime iscrizioni attive degli ultimi tre anni 
 
 #### :globe_with_meridians: IFS02.2 - proof-tertiary-education-enrollments
 
+**Caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
+
 Acquisizione delle prove riguardanti l'ultima iscrizione a ogni corso di studi di istruzione terziaria di una studentessa/studente negli ultimi 3 anni accademici
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
@@ -387,6 +395,9 @@ Acquisizione delle prove riguardanti l'ultima iscrizione a ogni corso di studi d
 > <img src="doc/05_gallery/info.svg" width="20" />  **Importante**  
 >  
 > * Si prega di vedere le regole di [obbligatorietà output](#ifs02-Iscrizioni) presenti su [IFS02.1]
+
+**Caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
+
 
 #### :globe_with_meridians: IFS02.3 - proof-tertiary-education-courses
 
@@ -405,6 +416,8 @@ Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenu
 
 #### :globe_with_meridians: IFS02.4 - proof-tertiary-education-admission
 
+**Caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
+
 Acquisizione delle prove riguardanti le ultime ammissioni ai corsi di studi di istruzione terziaria di una studentessa/studente negli ultimi 3 anni accademici
 
 
@@ -421,6 +434,8 @@ Acquisizione delle prove riguardanti le ultime ammissioni ai corsi di studi di i
 
 
 #### :globe_with_meridians: IFS02.5 - proof-mobility-periods
+
+**Caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
 
 Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio titolo accademico
 
@@ -458,6 +473,8 @@ Restituisce l'elenco dei titoli conseguiti da una studentessa o uno studente
 " /> Definizione [OpenApi.yaml](src/IFS03-titoli.yaml)
 
 #### :globe_with_meridians: IFS03.1 - academic-qualifications
+
+**Caso d'uso tipico**: Alimentazione anagrafe ANIS
 
 Acquisizione del dettaglio dei titoli accademici conseguiti da una studentessa/uno studente
 
@@ -505,6 +522,8 @@ Qualora fosse presente solamente una qualifica e nel caso in cui quest'ultima no
 
 #### :globe_with_meridians: IFS03.2 - proof-tertiary-education-qualifications
 
+**Caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
+
 Acquisizione delle prove riguardanti il completamento degli studi di istruzione terziaria 
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
@@ -520,6 +539,8 @@ Acquisizione delle prove riguardanti il completamento degli studi di istruzione 
 >3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'erorre 404 (vedi esempio nel file YAML)
 
 #### :globe_with_meridians: IFS03.3 - proof-tertiary-education-qualifications-level
+
+**Caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
 
 Acquisizione delle prove riguardanti il livello di qualifica degli studi di istruzione terziaria
 
@@ -537,6 +558,8 @@ Acquisizione delle prove riguardanti il livello di qualifica degli studi di istr
 
 
 #### :globe_with_meridians: IFS03.4 - proof-tertiary-education-qualifications-diploma-supplement
+
+ **Caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
 
 Acquisizione delle prove relative allo strumento "Diploma Supplement"
 
@@ -570,6 +593,8 @@ Acquisizione delle prove relative allo strumento "Diploma Supplement"
 
 ### IFS04 Rettifica iscrizioni
 
+**Caso d'uso tipico**: Interazione con anagrafe ANIS
+
 Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una studentessa o uno studente che stia frequentando o abbia frequentato.
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
@@ -577,6 +602,8 @@ Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una 
 
 
 #### :globe_with_meridians: IFS04.1 - academic-enrollment-change-request
+
+**Caso d'uso tipico**: Interazione con anagrafe ANIS
 
 Richiesta di rettifica  di un'iscrizione accademica di una studentessa/uno studente all'Istituto di formazione superiore
 
@@ -594,6 +621,8 @@ Richiesta di rettifica  di un'iscrizione accademica di una studentessa/uno stude
 
 #### :globe_with_meridians: IFS04.2 - academic-enrollment-change-request-status
 
+**Caso d'uso tipico**: Interazione con anagrafe ANIS
+
 Acquisizione dello stato delle richieste di rettifica delle iscrizioni accademiche di una studentessa/uno studente all'Istituto di istruzione superiore
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
@@ -607,6 +636,8 @@ Acquisizione dello stato delle richieste di rettifica delle iscrizioni accademic
 > * TODO
 
 #### :globe_with_meridians: IFS04.3 - academic-enrollment-change-request-cancellation
+
+**Caso d'uso tipico**: Interazione con anagrafe ANIS
 
 Richiesta di annullamento di una richiesta di rettifica di una iscrizione accademica di una studentessa/uno studente all'Istituto di istruzione superiore
 
@@ -622,6 +653,8 @@ Richiesta di annullamento di una richiesta di rettifica di una iscrizione accade
 
 
 #### :globe_with_meridians: IFS04.4 - enrollments-issues
+
+**Caso d'uso tipico**: Interazione con anagrafe ANIS
 
 Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare eventuali anomalie sui dati delle iscrizioni accademiche
 
@@ -663,6 +696,8 @@ Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una 
 
 #### :globe_with_meridians: IFS05.1 - academic-qualification-change-request
 
+**Caso d'uso tipico**: Interazione con anagrafe ANIS
+
 Richiesta di rettifica  di un titolo accademico di una studentessa/uno studente all'Istituto di formazione superiore
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
@@ -677,6 +712,8 @@ Richiesta di rettifica  di un titolo accademico di una studentessa/uno studente 
 
 
 #### :globe_with_meridians: IFS05.2 - academic-qualification-change-request-status
+
+**Caso d'uso tipico**: Interazione con anagrafe ANIS
 
 Acquisizione dello stato delle richieste di rettifica dei titoli accademici di una studentessa/uno studente all'Istituto di istruzione superiore
 
@@ -693,6 +730,8 @@ Acquisizione dello stato delle richieste di rettifica dei titoli accademici di u
 
 #### :globe_with_meridians: IFS05.3 - academic-qualification-change-request-cancellation
 
+**Caso d'uso tipico**: Interazione con anagrafe ANIS
+
 Richiesta di annullamento di una richiesta di rettifica di un titolo accademico di una studentessa/uno studente all'Istituto di istruzione superiore
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
@@ -707,6 +746,8 @@ Richiesta di annullamento di una richiesta di rettifica di un titolo accademico 
 
 
 #### :globe_with_meridians: IFS05.4 - academic-qualifications-issues
+
+**Caso d'uso tipico**: Interazione con anagrafe ANIS
 
 Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare eventuali anomalie sui dati dei titoli accademici
 
@@ -739,6 +780,8 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 
 ### IFS06 Variazioni Iscrizioni
 
+**Caso d'uso tipico**: Interazione con anagrafe ANIS
+
 Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli ultimi 10 anni accademici.
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
@@ -746,6 +789,8 @@ Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli u
 
 
 #### :globe_with_meridians: IFS06.1 - student-enrollments-changes 
+
+**Caso d'uso tipico**: Interazione con anagrafe ANIS
 
 Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle studentesse/degli studenti negli ultimi tre anni accademici al fine di identificarne le variazioni dal punto di vista del fruitore
 
@@ -784,6 +829,8 @@ Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli u
 
 
 #### :globe_with_meridians: IFS07.1 - student-qualifications-changes
+
+**Caso d'uso tipico**: Interazione con anagrafe ANIS
 
 Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fine di identificarne le variazioni dal punto di vista del fruitore
 
