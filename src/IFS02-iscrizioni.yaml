@@ -171,6 +171,7 @@ paths:
                         degree_course_name: Ingegneria informatica
                         degree_class_code: MSLM32
                         degree_class_name: Ingegneria informatica
+                        institute_code: '16'
                         institute_name: Milano - Politecnico
                         country_of_academic_institution: Italia
                         expected_graduation_date: 2023-10-01
@@ -240,6 +241,7 @@ paths:
                       degree_course_name: Ingegneria informatica
                       degree_class_code: MSLM32
                       degree_class_name: Ingegneria informatica
+                      institute_code: '16'
                       institute_name: Milano - Politecnico
                       learnings: 
                         - attended_learning_name: Esame 1
@@ -317,7 +319,8 @@ paths:
                       tax_code: RSSMRA80A01F205D
                       person_id: AB123456C
                     proof_admissions:
-                      - institute_name: Milano - Politecnico
+                      - institute_code: '16'
+                        institute_name: Milano - Politecnico
                         programme_type_code: MS
                         programme_type_name: Laurea Magistrale (DM 270/04)
                         degree_course_code: '1573960'
@@ -555,6 +558,13 @@ components:
           example: 'Ingegneria informatica, Scienze giuridiche'          
           minLength: 1
           maxLength: 2048
+        institute_code:
+          type: string
+          description: Institute identification code / Codice identificativo dell’istituto  
+          example: 'AA'          
+          minLength: 1
+          maxLength: 256
+          nullable: true
         institute_name:
           type: string
           description: Institute's name / Denominazione dell’istituto
@@ -585,6 +595,7 @@ components:
         - expected_graduation_date
         - country_of_academic_institution
         - institute_name
+        - institute_code
         - degree_class_code
         - degree_course_name
         - degree_course_code
@@ -640,6 +651,13 @@ components:
           example: 'Ingegneria informatica, Scienze giuridiche'          
           minLength: 1
           maxLength: 2048
+        institute_code:
+          type: string
+          description: Institute identification code / Codice identificativo dell’istituto  
+          example: 'AA'          
+          minLength: 1
+          maxLength: 256
+          nullable: true
         institute_name:
           type: string
           description: Institute's name / Denominazione dell’istituto
@@ -724,6 +742,13 @@ components:
       additionalProperties: false
       description: Detailed information on admission certification / Informazioni dettagliate sulla certificazione di ammissione
       properties:
+        institute_code:
+          type: string
+          description: Institute identification code / Codice identificativo dell’istituto  
+          example: 'AA'          
+          minLength: 1
+          maxLength: 256
+          nullable: true
         institute_name:
           type: string
           description: Institute's name / Denominazione dell’istituto
@@ -1030,6 +1055,13 @@ components:
           example: 8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535
           minLength: 64
           maxLength: 64          
+        institute_code:
+          type: string
+          description: Institute identification code / Codice identificativo dell’istituto  
+          example: AA
+          minLength: 1
+          maxLength: 256       
+          nullable: true   
     eu_enrollment_request:
       type: object
       additionalProperties: false      

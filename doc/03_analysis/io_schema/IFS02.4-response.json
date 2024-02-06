@@ -6,6 +6,7 @@
   },
   "proof_admissions": [
     {
+      "institute_code": "16",
       "institute_name": "Milano - Politecnico",
       "programme_type_code": "MS",
       "programme_type_name": "Laurea Magistrale (DM 270/04)",

@@ -186,7 +186,8 @@ paths:
                       tax_code: RSSMRA80A01F205D
                       person_id: AB123456C
                     proof_qualifications:
-                      - institute_name: Milano - Politecnico
+                      - institute_code: '16'
+                        institute_name: Milano - Politecnico
                         qualification_name: Laurea in ingegneria informatica
                         programme_type_code: MS
                         programme_type_name: Laurea Magistrale (DM 270/04)
@@ -261,6 +262,7 @@ paths:
                     proof_qualifications_level:
                       qualification_name: Laurea in Ingegneria gestionale
                       degree_course_duration_in_years_or_months: 3 anni a tempo pieno
+                      institute_code: '16'
                       institute_name: Milano - Politecnico
                       academic_qualification_date: 2022-07-01
                       total_ects: 180
@@ -336,6 +338,7 @@ paths:
                     proof_qualifications_diploma_supplement:
                       ects_credits_received: 180
                       institute_name: Cagliari - Università degli Studi
+                      institute_code: '04'
                       programme_type_code: MS
                       programme_type_name: Laurea Magistrale (DM 270/04)
                       degree_course_code: '455'
@@ -576,6 +579,13 @@ components:
       additionalProperties: false
       description: Detailed qualification information / Informazioni dettagliate sul titolo
       properties:
+        institute_code:
+          type: string
+          description: Institute identification code / Codice identificativo dell’istituto
+          example: '16'          
+          minLength: 1
+          maxLength: 256
+          nullable: true
         institute_name:
           type: string
           description:  Institute's name / Denominazione dell’istituto
@@ -706,6 +716,13 @@ components:
           example: 'Cagliari - Università degli Studi'
           minLength: 1
           maxLength: 2048
+        institute_code:
+          type: string
+          description: Institute identification code / Codice identificativo dell’istituto
+          example: '04'
+          minLength: 1
+          maxLength: 256
+          nullable: true
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
@@ -853,6 +870,13 @@ components:
           example: '3 anni a tempo pieno'
           minLength: 1
           maxLength: 2048
+        institute_code:
+          type: string
+          description: Institute identification code / Codice identificativo dell’istituto
+          example: '16'
+          minLength: 1
+          maxLength: 256
+          nullable: true
         institute_name:
           type: string
           description: Institute's name / Denominazione dell’istituto
