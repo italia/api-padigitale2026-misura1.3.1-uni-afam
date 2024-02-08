@@ -36,7 +36,8 @@
                   "learning_grading_scale_max": 30,
                   "learning_name": "Esame 1",
                   "learning_start_date": "2018-12-01",
-                  "learning_end_date": "2019-03-01"
+                  "learning_end_date": "2019-03-01",
+                  "learning_cfu": "6"
                 },
                 {
                   "learning_grade_value": "22/30",
@@ -45,7 +46,8 @@
                   "learning_grading_scale_max": 30,
                   "learning_name": "Esame 2",
                   "learning_start_date": "2018-06-01",
-                  "learning_end_date": "2018-10-01"
+                  "learning_end_date": "2018-10-01",
+                  "learning_cfu": "6"
                 },
                 {
                   "learning_grade_value": "Idoneo",
@@ -54,7 +56,8 @@
                   "learning_grading_scale_max": null,
                   "learning_name": "Esame 3",
                   "learning_start_date": "2018-07-01",
-                  "learning_end_date": "2019-07-01"
+                  "learning_end_date": "2019-07-01",
+                  "learning_cfu": "6"
                 }
              ]
           }

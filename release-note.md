@@ -8,6 +8,7 @@
 - Changed the requests body of API for SDG use cases
 - Have been added the ISEE bands for API IFS08 on the readme.md file
 - Removed the institute_code attribute from IFS02-IFS03 SDG Methods 
+- Added "learning_cfu" Attribute in IFS03.4 Response 
 
 
 :warning: todo the release

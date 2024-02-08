@@ -366,6 +366,7 @@ paths:
                           learning_name: Analisi matematica I e Geometria
                           learning_start_date: '2018-12-01'
                           learning_end_date: '2019-03-01'
+                          learning_cfu: 6
                         - learning_grade_value: 22/30
                           learning_grading_scale: '30'
                           learning_grading_scale_min: '18'
@@ -373,6 +374,7 @@ paths:
                           learning_name: Fisica sperimentale
                           learning_start_date: '2018-06-01'
                           learning_end_date: '2018-10-01'
+                          learning_cfu: 6
                         - learning_grade_value: Idoneo
                           learning_grading_scale: null
                           learning_grading_scale_min: null
@@ -380,6 +382,7 @@ paths:
                           learning_name: Fisica tecnica
                           learning_start_date: '2018-07-01'
                           learning_end_date: '2019-07-01'
+                          learning_cfu: 6
                       
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
@@ -933,6 +936,13 @@ components:
       additionalProperties: false
       description: Detailed information on completed courses / Informazioni dettagliate sui corsi completati
       properties:
+        learning_cfu:
+          type: string
+          description: exam cfu / cfu esame
+          example: '6'
+          minLength: 0
+          maxLength: 64
+          nullable: true
         learning_grade_value:
           type: string
           description: Exam vote / Voto d'esame
