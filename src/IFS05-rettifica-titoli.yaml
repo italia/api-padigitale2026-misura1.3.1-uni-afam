@@ -686,13 +686,13 @@ components:
         file_status:
           type: string
           description: Status of an academic change request for a student / Stato di una rettifica per una studentessa o uno studente
-          
           minLength: 1
           maxLength: 256
           enum:
             - approved
             - rejected
             - acquired
+            - cancelled
         file_code:
           type: string
           description: Change request code/ Codice rettifica 

@@ -138,7 +138,11 @@ paths:
         - bearerAuth: []
       responses:
         '200':
-          description: Delete the change request / Richiesta di annullamento rettifica
+          description: > 
+            Delete the change request / Richiesta di annullamento rettifica 
+            1) status Approved= Richiesta di rettifica Cancellata   
+            2) status Rejected= Richiesta di rettifica non cancellata ed ancora attivata 
+          
           content:
             application/json:
               schema:
@@ -544,6 +548,7 @@ components:
             - approved 
             - rejected
             - acquired
+            - cancelled
         file_code:
           type: string
           description: enrollment change request code/ Codice Rettifica iscrizioni
