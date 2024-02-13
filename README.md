@@ -50,7 +50,7 @@ git status
       <td rowspan="5">IFS02</td>
       <td rowspan="5">ifs-&lt;codice istituto&gt;-iscrizioni</td>
       <td>IFS02.1</td>
-      <td>Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni
+      <td>Acquisizione del dettaglio delle ultime iscrizioni per corso di studi negli ultimi tre anni
           accademici di una studentessa o di uno studente</td>
   </tr>
   <tr>
@@ -304,7 +304,7 @@ Fornisce le informazioni di dettaglio riguardanti le iscrizioni di una studentes
 
 :jigsaw: **caso d'uso tipico**: Alimentazione anagrafe ANIS
 
-Acquisizione del dettaglio delle ultime iscrizioni attive degli ultimi tre anni accademici per ogni corso di una studentessa o di uno studente
+Acquisizione del dettaglio delle ultime iscrizioni per corso di studi negli ultimi tre anni accademici di una studentessa o di uno studente
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.1 [Request](doc/03_analysis/io_schema/IFS02.1-request.json)
@@ -782,7 +782,7 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 
 :jigsaw: **caso d'uso tipico**: Interazione con anagrafe ANIS
 
-Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli ultimi 10 anni accademici.
+Richiede la lista delle ultime iscrizioni per ogni corso di studi negli ultimi 10 anni accademici.
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS06-variazioni-iscrizioni.yaml)
@@ -820,9 +820,7 @@ N.B. Si prega di visionare anche la sezione IFS02
 
 
 ### IFS07 Variazione titoli
-Richiede la lista degli ultimi titoli attivi per ogni corso di studi negli ultimi 10 anni accademici.
-
-Richiede la lista delle ultime iscrizioni attive per ogni corso di studi negli ultimi 10 anni accademici.
+Richiede la lista dei titoli conseguiti negli ultimi 10 anni accademici
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS07-variazioni-titoli.yaml)

@@ -19,8 +19,8 @@ paths:
 
     post:
       summary: |
-        Retrieve the details of the active enrollments in the last three academic years of a student. / 
-        Acquisizione del dettaglio delle iscrizioni attive negli ultimi tre anni accademici di una studentessa o di uno studente
+        Retrieve the details of the enrollments in the last three academic years of a student. / 
+        Acquisizione del dettaglio delle iscrizioni per corso di studi negli ultimi tre anni accademici di una studentessa o di uno studente
       tags:
         - IFS02.1 - academic-enrollments
       security:
