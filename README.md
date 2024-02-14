@@ -206,7 +206,10 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 :warning: Si ricorda che in fase di pubblicazione degli e-service sulla piattaforma PDND, il nome deve rispettare quello nella colonna denominata e-service della tabella 1, ossia il seguente pattern:
 ``` 
     ifs-<codice istituto>-<nome e-service>
-    ifs-16-offerta-formativa dove 16 è il codice dell'istituto Politecnico di Milano nel dataset Istituti di formazione superiore al punto menzionato al punto 1
+    ifs-16-offerta-formativa 
+    
+    dove (16) è il codice dell'istituto del Politecnico di Milano 
+    nel dataset Istituti di formazione superiore menzionato al punto 1
 ```
 
 **3** - La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
