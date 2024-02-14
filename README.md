@@ -208,13 +208,13 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
     ifs-<codice istituto>-<nome e-service>
     ifs-16-offerta-formativa 
     
-    dove (16) è il codice dell'istituto del Politecnico di Milano 
+    Dove (16) è il codice dell'istituto del Politecnico di Milano 
     nel dataset Istituti di formazione superiore menzionato al punto 1
 ```
 
 **3** - La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
 
-**4** - Perché abbiamo scelto di usare principalmente il metodo POST - [GET Method vs POST Method](https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues/91)
+**4** - Perché abbiamo scelto di usare principalmente il metodo POST: [GET Method vs POST Method](https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues/91)
 >1. [URIs, Addressability, and the use of HTTP GET and POST](https://www.w3.org/2001/tag/doc/whenToUseGet.html#:~:text=HTTP%20GET%20promotes%20URI%20addressability,(or%20of%20related%20resources).)
 >1. [w3shools-ref  Compare GET vs. POST chapter](https://www.w3schools.com/tags/ref_httpmethods.asp)
 
@@ -283,7 +283,7 @@ Acquisizione del dettaglio di un corso di studio offerto da un Istituto di forma
 
 > <img src="doc/05_gallery/info.svg" width="20" />  **Importante** 
 >
-> * Nella richiesta l'attributo **_degree_course_code_** è obbligatorio mentre l'attributo **_degree_class_code_** è obbligatorio solo quando il corso di studi ammette la classe
+> * Nella richiesta l'attributo **_degree_course_code_** è obbligatorio
 
 > :warning: **AFAM vs Università**
 > * Nella response per gli **AFAM** compilare i campi learning_ssa e learinig_cfa
