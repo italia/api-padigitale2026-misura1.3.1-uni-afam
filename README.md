@@ -17,7 +17,6 @@
 Questo repository contiene le specifiche delle API relative alla misura 1.3.1 per l'avviso dedicato alle Università pubbliche e AFAM (Alta Formazione Artistica, Musicale e Coreutica) pubblici, nell'ambito di PAdigitale2026. 
 
 La tabella sottostante (Tabella 1) riporta il dettaglio del titolo e descrizione per tutte e nove le API (dalla IFS01 alla IFS09) che dovranno essere erogate dai Soggetti Attuatori in base alla fascia di appartenenza. 
-git status
 
 :rocket: Link rapido alle [linee guida d'implementazione degli e-service](#linee-guida-e-service)
 
@@ -67,7 +66,7 @@ git status
   <tr>
       <td>IFS02.4</td>
       <td>Acquisizione delle prove riguardanti l'ammissione agli studi di istruzione
-          terziaria di una studentessa/studente;</td>
+          terziaria di una studentessa/studente</td>
 
   </tr>
   <tr>
@@ -192,7 +191,7 @@ Come indicato nella tabella sottostante (Tabella 2), gli Atenei e AFAM pubblici 
 
 Tabella 2 – Fasce di Università in base al numero di studentesse e studenti iscritti ed API da erogare per ogni fascia. 
 
-## Da sapere prima di iniziare a leggere le Linee Guida
+## Da sapere prima di iniziare a leggere le linee guida agli e-service
 **1** - Il Ministero dell'Università e della Ricerca (MUR) pubblica i seguenti vettori di dati codificati come open data a supporto dell'interoperabilità e dell'anagrafe ANIS
 >1. Tipi di corsi
 >1. Corsi di studio
@@ -207,7 +206,7 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 :warning: Si ricorda che in fase di pubblicazione degli e-service sulla piattaforma PDND, il nome deve rispettare quello nella colonna denominata e-service della tabella 1, ossia il seguente pattern:
 ``` 
     ifs-<codice istituto>-<nome e-service>
-    ifs-16-offerta-formativa
+    ifs-16-offerta-formativa dove 16 è il codice dell'istituto Politecnico di Milano nel dataset Istituti di formazione superiore al punto menzionato al punto 1
 ```
 
 **3** - La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
@@ -219,7 +218,7 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 **5** - Suggeriamo infine di fare riferimento sempre alla sezione 
 [risorse utili](#risorse-utili) che è aggiornata periodicamente.
 
-## Linee Guida e-service
+## Linee guida agli e-service
 
 <p align="center">
  <img src="doc/05_gallery/umarell.png" width="80"/>
