@@ -284,10 +284,10 @@ Acquisizione del dettaglio di un corso di studio offerto da un Istituto di forma
 > <img src="doc/05_gallery/info.svg" width="20" />  **Importante** 
 >
 > * Nella richiesta l'attributo **_degree_course_code_** è obbligatorio
-
-> :warning: **AFAM vs Università**
-> * Nella response per gli **AFAM** compilare i campi learning_ssa e learinig_cfa
+>
+> **AFAM vs Università**
 > * Nella response per le **università** compilare i campi learning_ssd e learinig_cfu
+> * Nella response per gli **AFAM** compilare i campi learning_sad e learinig_cfa
 > * Vedere gli esempi presenti nello yaml/swagger e nella cartella doc/03_analysis/io_schema
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
@@ -299,8 +299,7 @@ Acquisizione del dettaglio di un corso di studio offerto da un Istituto di forma
 Acquisisce il dettaglio delle iscrizioni accademiche.
 Fornisce le informazioni di dettaglio riguardanti le iscrizioni di una studentessa o uno studente all'università o AFAM
 
-&emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
-" /> Definizione [OpenApi.yaml](src/IFS02-iscrizioni.yaml)
+&emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18" /> Definizione [OpenApi.yaml](src/IFS02-iscrizioni.yaml)
 
 #### :globe_with_meridians: IFS02.1 - academic-enrollments 
 
@@ -310,8 +309,6 @@ Acquisizione del dettaglio delle ultime iscrizioni per corso di studi negli ulti
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.1 [Request](doc/03_analysis/io_schema/IFS02.1-request.json)
-
-
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.1 [Response](doc/03_analysis/io_schema/IFS02.1-response.json)
@@ -471,8 +468,7 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 ### IFS03 Titoli
 Restituisce l'elenco dei titoli conseguiti da una studentessa o uno studente
 
-&emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
-" /> Definizione [OpenApi.yaml](src/IFS03-titoli.yaml)
+<img src="doc/05_gallery/swagger.svg" width="18" /> Definizione [OpenApi.yaml](src/IFS03-titoli.yaml)
 
 #### :globe_with_meridians: IFS03.1 - academic-qualifications
 
