@@ -1,4 +1,3 @@
-/* Il person_id è prioritario rispetto al tax_code*/
 {
   "personal_data": {
     "tax_code": "RSSMRA80A01F205D",

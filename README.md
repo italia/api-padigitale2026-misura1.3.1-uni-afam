@@ -316,10 +316,9 @@ Acquisizione del dettaglio delle ultime iscrizioni per corso di studi negli ulti
 > <img src="doc/05_gallery/info.svg" width="20" />  **Importante**  
 >
 > Regole di obbligatorietà input
-> * Nella request popolare almeno uno dei seguenti campi: tax_code o person_id. oppure il parametro key
-> * Parametro key facoltativo
+> * Nella request popolare almeno il person_id o il tax_code dando priorità al person_id oppure il parametro key nel caso dello scenario descritto nell'API IFS06 per l'acquisizione delle variazioni
 >
-> Regole di obbligatorietà output (si prega di verificare gli esempi sul file openapi):
+> Le regole di obbligatorietà di output  
 > 1. Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
 >```
 >ESEMPIO 1: 
@@ -335,7 +334,7 @@ Acquisizione del dettaglio delle ultime iscrizioni per corso di studi negli ulti
 >    "person_id": "AB123456C"
 >  }
 >```
-> 2. Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
+> 2. Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place. Questa tipologia di response ha senso solo con l'invocazone dell'API che utilizza il parametro key, relativamente allo scenario descritto in IFS06
 >
 >ESEMPIO 3: 
 >
@@ -362,7 +361,7 @@ Acquisizione del dettaglio delle ultime iscrizioni per corso di studi negli ulti
 >```
 >
 > 4. Nella struttura "enrollments" tutti i campi sono obbligatori tranne il degree_class_code. Nel caso in cui il degree_class_code non sia valorizzabile, è possibile passarlo con il valore NULL
-> 5. nella struttura "enrollments", qualora sia presente un attributo non valorizzabile (ad escluisone del attirubuto degree_class_code) l'istanza dell'iscrizione non deve essere restituita. In questa casistica, qualora sia presente solamente una iscrizione, prevedere la restituzione dello status code 404 
+> 5. Nella struttura "enrollments", qualora sia presente un attributo non valorizzabile (ad escluisone del attirubuto degree_class_code) l'istanza dell'iscrizione non deve essere restituita. In questa casistica, qualora sia presente solamente una iscrizione, prevedere la restituzione dello status code 404 
 >
 >```Di seguito l'obbligatorietà con "*"
 >
@@ -376,8 +375,6 @@ Acquisizione del dettaglio delle ultime iscrizioni per corso di studi negli ulti
 >      degree_course_year * 
 >      status *
 >```
-
-
 
 #### :globe_with_meridians: IFS02.2 - proof-tertiary-education-enrollments
 
