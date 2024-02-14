@@ -378,7 +378,7 @@ Acquisizione del dettaglio delle ultime iscrizioni per corso di studi negli ulti
 
 #### :globe_with_meridians: IFS02.2 - proof-tertiary-education-enrollments
 
-:jigsaw: **caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
+:jigsaw: **caso d'uso tipico**: Acquisizione prove Single Digital Gateway (SDG)
 
 Acquisizione delle prove riguardanti l'ultima iscrizione a ogni corso di studi di istruzione terziaria di una studentessa/studente negli ultimi 3 anni accademici
 
@@ -392,7 +392,7 @@ Acquisizione delle prove riguardanti l'ultima iscrizione a ogni corso di studi d
 >  
 > * Si prega di vedere le regole di [obbligatorietà output](#ifs02-Iscrizioni) presenti su [IFS02.1] per la quota parte di personal_data nel payload di risposta
 
-:jigsaw: **caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
+:jigsaw: **caso d'uso tipico**: Acquisizione prove Single Digital Gateway (SDG)
 
 
 #### :globe_with_meridians: IFS02.3 - proof-tertiary-education-courses
@@ -412,7 +412,7 @@ Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenu
 
 #### :globe_with_meridians: IFS02.4 - proof-tertiary-education-admission
 
-:jigsaw: **caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
+:jigsaw: **caso d'uso tipico**: Acquisizione prove Single Digital Gateway (SDG)
 
 Acquisizione delle prove riguardanti le ultime ammissioni ai corsi di studi di istruzione terziaria di una studentessa/studente negli ultimi 3 anni accademici
 
@@ -431,7 +431,7 @@ Acquisizione delle prove riguardanti le ultime ammissioni ai corsi di studi di i
 
 #### :globe_with_meridians: IFS02.5 - proof-mobility-periods
 
-:jigsaw: **caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
+:jigsaw: **caso d'uso tipico**: Acquisizione prove Single Digital Gateway (SDG)
 
 Acquisizione delle prove relative alle attività di apprendimento svolte al di fuori dell'istituzione di istruzione terziaria dalla quale una studentessa/studente ha ottenuto il proprio titolo accademico
 
@@ -517,7 +517,7 @@ Qualora fosse presente solamente una qualifica e nel caso in cui quest'ultima no
 
 #### :globe_with_meridians: IFS03.2 - proof-tertiary-education-qualifications
 
-:jigsaw: **caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
+:jigsaw: **caso d'uso tipico**: Acquisizione prove Single Digital Gateway (SDG)
 
 Acquisizione delle prove riguardanti il completamento degli studi di istruzione terziaria 
 
@@ -535,7 +535,7 @@ Acquisizione delle prove riguardanti il completamento degli studi di istruzione 
 
 #### :globe_with_meridians: IFS03.3 - proof-tertiary-education-qualifications-level
 
-:jigsaw: **caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
+:jigsaw: **caso d'uso tipico**: Acquisizione prove Single Digital Gateway (SDG)
 
 Acquisizione delle prove riguardanti il livello di qualifica degli studi di istruzione terziaria
 
@@ -554,7 +554,7 @@ Acquisizione delle prove riguardanti il livello di qualifica degli studi di istr
 
 #### :globe_with_meridians: IFS03.4 - proof-tertiary-education-qualifications-diploma-supplement
 
- :jigsaw: **caso d'uso tipico**: Acquisizione evidence Single Digital Gateway (SDG)
+ :jigsaw: **caso d'uso tipico**: Acquisizione prove Single Digital Gateway (SDG)
 
 Acquisizione delle prove relative allo strumento "Diploma Supplement"
 
