@@ -407,7 +407,7 @@ Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenu
 
 > <img src="doc/05_gallery/info.svg" width="20" />  **Importante**
 >    
-> * Si prega di vedere le regole di obbligatorietà output presenti su [IFS02.1] per la quota parte di personal_data nel payload di risposta
+> * Si prega di vedere le regole di  [obbligatorietà output](#ifs02-Iscrizioni) presenti su [IFS02.1] per la quota parte di personal_data nel payload di risposta
 
 
 #### :globe_with_meridians: IFS02.4 - proof-tertiary-education-admission
@@ -425,7 +425,7 @@ Acquisizione delle prove riguardanti le ultime ammissioni ai corsi di studi di i
 
 > <img src="doc/05_gallery/info.svg" width="20" />  **Importante**  
 >  
-> * Si prega di vedere le regole di obbligatorietà output presenti su [IFS02.1] per la quota parte di personal_data nel payload di risposta
+> * Si prega di vedere le regole di  [obbligatorietà output](#ifs02-Iscrizioni) presenti su [IFS02.1] per la quota parte di personal_data nel payload di risposta
 
 
 
@@ -443,7 +443,7 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 
 > <img src="doc/05_gallery/info.svg" width="20" />  **Importante**   
 > 
-> * Si prega di vedere le regole di obbligatorietà output presenti su [IFS02.1] per la quota parte di personal_data nel payload di risposta
+> * Si prega di vedere le regole di  [obbligatorietà output](#ifs02-Iscrizioni) presenti su [IFS02.1] per la quota parte di personal_data nel payload di risposta
 
 > :pencil2: **Note compilazione campi**  
 >
