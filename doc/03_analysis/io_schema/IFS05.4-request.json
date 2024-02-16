@@ -37,7 +37,6 @@
             "degree_class_code": "MSLM32",
             "academic_qualification_date": "2022-07-01",
             "qualification_grade_value": "110",
-            "qualification_grading_scale": null,
             "qualification_grading_scale_minimum_grade": null,
             "qualification_grading_scale_maximum_grade": null,
             "issues": [
@@ -48,10 +47,6 @@
                 {
                     "attribute_name":"academic_qualification_date",
                     "issue_description": "academic qualification date is not well formed on the base of the Open API defined on PDND platform for the service IFS03.1"
-                },
-                {
-                    "attribute_name":"qualification_grading_scale",
-                    "issue_description": "degree grading scale cannot be null or emtpy if the grading value is valued with a number"
                 },
                 {
                     "attribute_name":null,

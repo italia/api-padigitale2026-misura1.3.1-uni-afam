@@ -16,7 +16,6 @@
              "degree_class_name":"Ingegneria informatica",
              "degree_course_duration_in_years_or_months":"3 anni a tempo pieno",
              "qualification_grade_value":100,
-             "qualification_grading_scale":110,
              "qualification_grading_scale_minimum_grade":66,
              "qualification_grading_scale_maximum_grade":110,
              "qualification_date":"2022-07-01",
@@ -29,8 +28,7 @@
              "nqf_level":"I ciclo QF-XXX",
              "attended_learnings":[
                {
-                  "learning_grade_value": "30/30",
-                  "learning_grading_scale": 30,
+                  "learning_grade_value": "28",
                   "learning_grading_scale_min": 18,
                   "learning_grading_scale_max": 30,
                   "learning_name": "Esame 1",
@@ -39,8 +37,7 @@
                   "learning_cfu": "6"
                 },
                 {
-                  "learning_grade_value": "22/30",
-                  "earning_grading_scale": 30,
+                  "learning_grade_value": "22",
                   "learning_grading_scale_min": 18,
                   "learning_grading_scale_max": 30,
                   "learning_name": "Esame 2",
@@ -50,7 +47,6 @@
                 },
                 {
                   "learning_grade_value": "Idoneo",
-                  "learning_grading_scale": null,
                   "learning_grading_scale_min": null,
                   "learning_grading_scale_max": null,
                   "learning_name": "Esame 3",

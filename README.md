@@ -510,7 +510,7 @@ Acquisizione del dettaglio dei titoli accademici conseguiti da una studentessa/u
 >```
 >3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'erorre 404 (vedi esempio nel file YAML)
 >3) nella struttura "qualifications" tutti i campi sono obbligatori tranne il degree_class_code. Nel caso in cui il degree_class_code non sia valorizzabile, è possibile passarlo con il valore NULL
->4) nella struttura "qualifications", qualora sia presente un attributo non valorizzabile (ad escluisone degli attributi degree_class_code/qualification_grading_scale_maximum_grade/qualification_grading_scale_minimum_grade/qualification_grading_scale/) non dovrà essere restituito Item.  
+>4) nella struttura "qualifications", qualora sia presente un attributo non valorizzabile (ad escluisone degli attributi degree_class_code/qualification_grading_scale_maximum_grade/qualification_grading_scale_minimum_grade/) non dovrà essere restituito Item.  
 Qualora fosse presente solamente una qualifica e nel caso in cui quest'ultima non dovesse riportare i dati obbligatori, prevedere la restituzione dello status code 404 
 
 

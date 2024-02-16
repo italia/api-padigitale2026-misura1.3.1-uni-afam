@@ -247,16 +247,14 @@ paths:
                         - attended_learning_name: Esame 1
                           start_date: 2020-10-13
                           end_date: 2023-10-13
-                          grade_value: '30'
-                          grading_scale: '30'
+                          grade_value: '28'
                           grading_scale_min: '18'
                           grading_scale_max: '30'
                           ects_credits_received: 6
                         - attended_learning_name: Esame 2
                           start_date: 2020-10-13
                           end_date: 2023-10-13
-                          grade_value: '30'
-                          grading_scale: '30'
+                          grade_value: '29'
                           grading_scale_min: '18'
                           grading_scale_max: '30'
                           ects_credits_received: 6
@@ -698,12 +696,8 @@ components:
           example: '30'          
           minLength: 1
           maxLength: 64
-        grading_scale:
-          type: string
-          description: Rating scale / Scala di valutazione
-          example: '30'          
-          minLength: 1
-          maxLength: 64
+          pattern: ^(\d{1,3}|(\d{1,3}[L]?+)|\bQUALIFIED\b)$
+          nullable: true
         grading_scale_min:
           type: string
           description: Minimum course grade / Voto minimo del corso

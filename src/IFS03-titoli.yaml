@@ -49,7 +49,6 @@ paths:
                         degree_class_code: MSLM32
                         academic_qualification_date: '2022-07-01'
                         qualification_grade_value: '110'
-                        qualification_grading_scale: '110'
                         qualification_grading_scale_minimum_grade: '66'
                         qualification_grading_scale_maximum_grade: '110'
                 Personal_data taxCode/personID:
@@ -66,7 +65,6 @@ paths:
                         degree_class_code: MSLM32
                         academic_qualification_date: '2022-07-01'
                         qualification_grade_value: '110'
-                        qualification_grading_scale: '110'
                         qualification_grading_scale_minimum_grade: '66'
                         qualification_grading_scale_maximum_grade: '110'
                 Personal_data witout taxCode:
@@ -85,7 +83,6 @@ paths:
                         degree_class_code: MSLM32
                         academic_qualification_date: '2022-07-01'
                         qualification_grade_value: '110'
-                        qualification_grading_scale: '110'
                         qualification_grading_scale_minimum_grade: '66'
                         qualification_grading_scale_maximum_grade: '110'
                 Qualification 1:
@@ -104,7 +101,6 @@ paths:
                         degree_class_code: MSLM32
                         academic_qualification_date: '2022-07-01'
                         qualification_grade_value: '110'
-                        qualification_grading_scale: '110'
                         qualification_grading_scale_minimum_grade: null
                         qualification_grading_scale_maximum_grade: null
                 Qualification 2:
@@ -123,7 +119,6 @@ paths:
                         degree_class_code: MSLM32
                         academic_qualification_date: '2022-07-01'
                         qualification_grade_value: Idoneo
-                        qualification_grading_scale: null
                         qualification_grading_scale_minimum_grade: null
                         qualification_grading_scale_maximum_grade: null        
         '400':
@@ -197,7 +192,6 @@ paths:
                         degree_class_name: Ingegneria informatica
                         academic_qualification_date: 2022-07-01
                         qualification_grade_value: '110'
-                        qualification_grading_scale: '110'
                         qualification_grading_scale_minimum_grade: '66'
                         qualification_grading_scale_maximum_grade: '110'
                         academic_qualification_country: Italia
@@ -347,7 +341,6 @@ paths:
                       degree_class_name: Ingegneria informatica
                       degree_course_duration_in_years_or_months: 3 anni a tempo pieno
                       qualification_grade_value: '100'
-                      qualification_grading_scale: '110'
                       qualification_grading_scale_minimum_grade: '66'
                       qualification_grading_scale_maximum_grade: '110'
                       qualification_date: 2022-07-01
@@ -359,16 +352,14 @@ paths:
                       eqf_level: 6° livello
                       nqf_level: I ciclo QF-XXX
                       attended_learnings:
-                        - learning_grade_value: 30/30
-                          learning_grading_scale: '30'
+                        - learning_grade_value: '28'
                           learning_grading_scale_min: '18'
                           learning_grading_scale_max: '30'
                           learning_name: Analisi matematica I e Geometria
                           learning_start_date: '2018-12-01'
                           learning_end_date: '2019-03-01'
                           learning_cfu: 6
-                        - learning_grade_value: 22/30
-                          learning_grading_scale: '30'
+                        - learning_grade_value: '22'
                           learning_grading_scale_min: '18'
                           learning_grading_scale_max: '30'
                           learning_name: Fisica sperimentale
@@ -376,7 +367,6 @@ paths:
                           learning_end_date: '2018-10-01'
                           learning_cfu: 6
                         - learning_grade_value: Idoneo
-                          learning_grading_scale: null
                           learning_grading_scale_min: null
                           learning_grading_scale_max: null
                           learning_name: Fisica tecnica
@@ -530,13 +520,8 @@ components:
           description: Grade obtained upon graduation / Voto ottenuto al conseguimento del titolo di studio
           minLength: 1
           maxLength: 32
-          example: '110'          
-        qualification_grading_scale:
-          type: string
-          minLength: 1
-          maxLength: 32
           example: '110'
-          description: Rating scale / Scala di valutazione          
+          pattern: ^(\d{1,3}|(\d{1,3}[L]?+)|\bQUALIFIED\b)
           nullable: true
         qualification_grading_scale_minimum_grade:
           type: string
@@ -650,12 +635,7 @@ components:
           minLength: 1
           maxLength: 32
           example: '110'
-        qualification_grading_scale:
-          type: string
-          minLength: 1
-          maxLength: 32
-          example: '110'
-          description: Rating scale / Scala di valutazione
+          pattern: ^(\d{1,3}|(\d{1,3}[L]?+)|\bQUALIFIED\b)
           nullable: true
         qualification_grading_scale_minimum_grade:
           type: string
@@ -775,13 +755,8 @@ components:
           example: '100'          
           minLength: 1
           maxLength: 32
-        qualification_grading_scale:
-          type: string
-          description: Rating scale / Scala di valutazione
-          example: '110'          
+          pattern: ^(\d{1,3}|(\d{1,3}[L]?+)|\bQUALIFIED\b)
           nullable: true
-          minLength: 1
-          maxLength: 32
         qualification_grading_scale_minimum_grade:
           type: string
           description: Rating scale minimum / Scala di valutazione minima
@@ -949,12 +924,7 @@ components:
           example: '30/30, Idoneo'          
           minLength: 1
           maxLength: 2048
-        learning_grading_scale:
-          type: string
-          description: Exam vote scale/ scala Voto d'esame
-          example: '30'          
-          minLength: 1
-          maxLength: 128  
+          pattern: ^(\d{1,3}|(\d{1,3}[L]?+)|\bQUALIFIED\b)$
           nullable: true
         learning_grading_scale_min:
           type: string
