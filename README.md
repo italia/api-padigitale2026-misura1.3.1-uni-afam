@@ -388,9 +388,7 @@ Acquisizione delle prove riguardanti l'ultima iscrizione a ogni corso di studi d
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.2 [Response](doc/03_analysis/io_schema/IFS02.2-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**  
->  
-> * Si prega di vedere le regole di [obbligatorietà output](#ifs02-Iscrizioni) presenti su [IFS02.1] per la quota parte di personal_data nel payload di risposta
+
 
 :jigsaw: **caso d'uso tipico**: Acquisizione prove Single Digital Gateway (SDG)
 
@@ -405,9 +403,6 @@ Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenu
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.3 [Response](doc/03_analysis/io_schema/IFS02.3-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**
->    
-> * Si prega di vedere le regole di  [obbligatorietà output](#ifs02-Iscrizioni) presenti su [IFS02.1] per la quota parte di personal_data nel payload di risposta
 
 
 #### :globe_with_meridians: IFS02.4 - proof-tertiary-education-admission
@@ -423,9 +418,7 @@ Acquisizione delle prove riguardanti le ultime ammissioni ai corsi di studi di i
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.4 [Response](doc/03_analysis/io_schema/IFS02.4-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**  
->  
-> * Si prega di vedere le regole di  [obbligatorietà output](#ifs02-Iscrizioni) presenti su [IFS02.1] per la quota parte di personal_data nel payload di risposta
+
 
 
 
@@ -441,9 +434,7 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.5 [Response](doc/03_analysis/io_schema/IFS02.5-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**   
-> 
-> * Si prega di vedere le regole di  [obbligatorietà output](#ifs02-Iscrizioni) presenti su [IFS02.1] per la quota parte di personal_data nel payload di risposta
+
 
 > :pencil2: **Note compilazione campi**  
 >
