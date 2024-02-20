@@ -440,14 +440,14 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 >
 > **birth_place**: 
 > * Dove possibile il campo deve contenere le informazioni concatenate del Nazione/Provincia/Comune. 
-> * il formato previsto prevede la seguente forma: **TO DO**
+> * il formato previsto prevede la seguente forma: *<nome_nazione>,<codice_provincia>,<nome_comune>, *
 >
-> *Esempio: birth_place= **TO DO**
+> *Esempio: birth_place="Italia,MI,Milano"*
 > * Nel caso di comuni esteri, se non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
 >
-> *Esempio: birth_place= **TO DO**
+> *Esempio: birth_place="Austria,EE,Vienna"*
 >
-> * RegEx applicata: **TO DO**
+> * RegEx applicata: .*,[a-zA-Z]*,[a-zA-Z]*
 
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
@@ -501,7 +501,7 @@ Acquisizione del dettaglio dei titoli accademici conseguiti da una studentessa/u
 >```
 >3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'erorre 404 (vedi esempio nel file YAML)
 >3) nella struttura "qualifications" tutti i campi sono obbligatori tranne il degree_class_code. Nel caso in cui il degree_class_code non sia valorizzabile, è possibile passarlo con il valore NULL
->4) nella struttura "qualifications", qualora sia presente un attributo non valorizzabile (ad escluisone degli attributi degree_class_code/qualification_grading_scale_maximum_grade/qualification_grading_scale_minimum_grade/qualification_grading_scale/) non dovrà essere restituito Item.  
+>4) nella struttura "qualifications", qualora sia presente un attributo non valorizzabile (ad escluisone degli attributi degree_class_code/qualification_grading_scale_maximum_grade/qualification_grading_scale_minimum_grade/) non dovrà essere restituito Item.  
 Qualora fosse presente solamente una qualifica e nel caso in cui quest'ultima non dovesse riportare i dati obbligatori, prevedere la restituzione dello status code 404 
 
 
@@ -566,15 +566,16 @@ Acquisizione delle prove relative allo strumento "Diploma Supplement"
 > :pencil2: **Note compilazione campi**  
 >
 > **birth_place**: 
-> * Dove possibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
-> * il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
+> * Dove possibile il campo deve contenere le informazioni concatenate del Nazione/Provincia/Comune. 
+> * il formato previsto prevede la seguente forma: *<nome_nazione>,<codice_provincia>,<nome_comune>, *
 >
-> *Esempio: birth_place="Milano, MI, Italia"*
+> *Esempio: birth_place="Italia,MI,Milano"*
 > * Nel caso di comuni esteri, se non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
 >
-> *Esempio: birth_place="Vienna, EE, Austria"*
+> *Esempio: birth_place="Austria,EE,Vienna"*
 >
-> * RegEx applicata: ^[a-zA-Z0-9-]+, [a-zA-Z0-9-]{2}, [a-zA-Z0-9-]+$
+> * RegEx applicata: .*,[a-zA-Z]*,[a-zA-Z]*
+
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
 ### IFS04 Rettifica iscrizioni
@@ -658,15 +659,16 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 > :pencil2: **Note compilazione campi**  
 >
 > **birth_place**: 
-> * Dove possibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
-> * il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
+> * Dove possibile il campo deve contenere le informazioni concatenate del Nazione/Provincia/Comune. 
+> * il formato previsto prevede la seguente forma: *<nome_nazione>,<codice_provincia>,<nome_comune>, *
 >
-> *Esempio: birth_place="Milano, MI, Italia"*
+> *Esempio: birth_place="Italia,MI,Milano"*
 > * Nel caso di comuni esteri, se non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
 >
-> *Esempio: birth_place="Vienna, EE, Austria"*
+> *Esempio: birth_place="Austria,EE,Vienna"*
 >
-> * RegEx applicata: ^[a-zA-Z0-9-]+, [a-zA-Z0-9-]{2}, [a-zA-Z0-9-]+$
+> * RegEx applicata: .*,[a-zA-Z]*,[a-zA-Z]*
+
 
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
@@ -750,15 +752,16 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 > :pencil2: **Note compilazione campi**  
 >
 > **birth_place**: 
-> * Dove possibile il campo deve contenere le informazioni concatenate del Comune/Provincia/Nazione. 
-> * il formato previsto prevede la seguente forma: *<nome_comune>, <codice_provincia>, <nome_nazione>*
+> * Dove possibile il campo deve contenere le informazioni concatenate del Nazione/Provincia/Comune. 
+> * il formato previsto prevede la seguente forma: *<nome_nazione>,<codice_provincia>,<nome_comune>, *
 >
-> *Esempio: birth_place="Milano, MI, Italia"*
+> *Esempio: birth_place="Italia,MI,Milano"*
 > * Nel caso di comuni esteri, se non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
 >
-> *Esempio: birth_place="Vienna, EE, Austria"*
+> *Esempio: birth_place="Austria,EE,Vienna"*
 >
-> * RegEx applicata: ^[a-zA-Z0-9-]+, [a-zA-Z0-9-]{2}, [a-zA-Z0-9-]+$
+> * RegEx applicata: .*,[a-zA-Z]*,[a-zA-Z]*
+
 
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)

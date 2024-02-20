@@ -240,16 +240,13 @@ paths:
                     degree_class_code: MSLM32
                     academic_qualification_date: 2022-07-01
                     qualification_grade_value: '110'
-                    qualification_grading_scale: '110'
                     qualification_grading_scale_minimum_grade: '66'
                     qualification_grading_scale_maximum_grade: '110'
                     issues:
                       - attribute_name: degree_course_code
                         issue_description: degree course code didn't find on the controlled vocabulary
                       - attribute_name: academic_qualification_date
-                        issue_description: academic qualification date is not well formed on the base of the Open API defined on PDND platform for the service IFS03.1
-                      - attribute_name: qualification_grading_scale
-                        issue_description: degree grading scale cannot be null or emtpy if the grading value is valued with a numbe
+                        issue_description: academic qualification date is not well formed on the base of the Open API defined on PDND platform for the service IFS0
                       - attribute_name: null
                         issue_description: description note
               Example 2: 
@@ -281,7 +278,6 @@ paths:
                     degree_class_code: MSLM32
                     academic_qualification_date: 2022-07-01
                     qualification_grade_value: '110'
-                    qualification_grading_scale: null
                     qualification_grading_scale_minimum_grade: null
                     qualification_grading_scale_maximum_grade: null
                     issues:
@@ -289,8 +285,6 @@ paths:
                         issue_description: degree course code didn't find on the controlled vocabulary
                       - attribute_name: academic_qualification_date
                         issue_description: academic qualification date is not well formed on the base of the Open API defined on PDND platform for the service IFS03.1
-                      - attribute_name: qualification_grading_scale
-                        issue_description: degree grading scale cannot be null or emtpy if the grading value is valued with a numbe
                       - attribute_name: null
                         issue_description: description note
           application/xml:
@@ -630,13 +624,8 @@ components:
           minLength: 1
           maxLength: 32
           example: '110'
-        qualification_grading_scale:
-          type: string
+          pattern: ^(\d{1,3}|(\d{1,3}[L]?+)|\bQUALIFIED\b)
           nullable: true
-          minLength: 1
-          maxLength: 32
-          example: '110'
-          description: Rating scale / Scala di valutazione
         qualification_grading_scale_minimum_grade:
           type: string
           nullable: true
