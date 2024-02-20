@@ -246,7 +246,7 @@ paths:
                       - attribute_name: degree_course_code
                         issue_description: degree course code didn't find on the controlled vocabulary
                       - attribute_name: academic_qualification_date
-                        issue_description: academic qualification date is not well formed on the base of the Open API defined on PDND platform for the service IFS0
+                        issue_description: academic qualification date is not well formed on the base of the Open API defined on PDND platform for the service IFS03.1
                       - attribute_name: null
                         issue_description: description note
               Example 2: 
