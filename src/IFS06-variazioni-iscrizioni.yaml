@@ -53,7 +53,7 @@ paths:
                   value:
                     data:
                       institute_code: C6
-                      last_update: '2023-10-13'
+                      last_update: '2023-10-13T17:32:28Z'
                       enrollments_hash:
                         - key: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
                           hash: '56c3880bfcc4df0e35780c805d9ec942bbb8b4e237c1b63c6f2688cb58ef0a3a'
@@ -67,7 +67,7 @@ paths:
                   value:
                     data:
                       institute_code: C6
-                      last_update: '2023-10-13'
+                      last_update: '2023-10-13T17:32:28Z'
                       enrollments_hash:
                         - key: '8e44f796d7478a135c226598939d56a5b0d9405210235d4845ed158a7fec7535'
                           hash: '56c3880bfcc4df0e35780c805d9ec942bbb8b4e237c1b63c6f2688cb58ef0a3a'
@@ -90,7 +90,7 @@ paths:
                   value:
                     data: 
                       institute_code: C6
-                      last_update: '2023-10-13'
+                      last_update: '2023-10-13T17:32:28Z'
                       enrollments_hash: []
                     meta: 
         '500':
@@ -183,9 +183,10 @@ components:
           nullable: true
         last_update:
           type: string
-          format: date
-          description: Date last updated / Data ultimo aggiornamento
-          example: '2023-10-13'
+          format: date-time
+          description: Timestamp of last update / Data ultimo aggiornamento
+          example: '2023-10-13T17:32:28Z'
+
         enrollments_hash:
           type: array
           minItems: 0
