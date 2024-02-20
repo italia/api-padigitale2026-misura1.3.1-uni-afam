@@ -812,7 +812,7 @@ N.B. Si prega di visionare anche la sezione IFS02
 Richiede la lista dei titoli conseguiti negli ultimi 10 anni accademici
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
-" /> Definizione [OpenApi.yaml](src/IFS07-variazioni-titoli.yaml)
+" /> Definizione [OpenApi.yaml](src/IFS07_variazioni-titoli.yaml)
 
 
 #### :globe_with_meridians: IFS07.1 - student-qualifications-changes
