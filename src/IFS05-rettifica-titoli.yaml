@@ -624,7 +624,7 @@ components:
           minLength: 1
           maxLength: 32
           example: '110'
-          pattern: ^(\d{1,3}|(\d{1,3}[L]?+)|\bQUALIFIED\b)
+          pattern: ^(\d{1,3}|(\d{1,3}[L]?)|\bQUALIFIED\b)$
           nullable: true
         qualification_grading_scale_minimum_grade:
           type: string
