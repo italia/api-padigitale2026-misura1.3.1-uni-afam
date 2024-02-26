@@ -1,5 +1,12 @@
 # Release note
 
+## Version 2.0.4
+
+- 
+- 
+
+:warning: todo the release
+
 ## Version 2.0.3
 
 - Removed the degree_class_code attribute from IFS01 and corrected the example in the issue services IF04 and IFS05
@@ -9,9 +16,9 @@
 - Have been added the ISEE bands for API IFS08 on the readme.md file
 - Removed the institute_code attribute from IFS02-IFS03 SDG Methods 
 - Added "learning_cfu" Attribute in IFS03.4 Response 
+- Added the vote value rule: ^(\d{1,3}|(\d{1,3}[L]?)|\bQUALIFIED\b)$
 
-
-:warning: todo the release
+https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/releases/tag/2.0.3
 
 ## Version 2.0.2
 
