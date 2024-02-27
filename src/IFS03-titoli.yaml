@@ -541,10 +541,10 @@ components:
       required:
         - institute_code
         - institute_name
-        - qualification_name
         - programme_type_code
         - degree_course_code
         - academic_qualification_date
+        - qualification_grade_value
     proof_education_qualifications:
       additionalProperties: false
       type: object
