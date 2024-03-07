@@ -286,8 +286,8 @@ Acquisizione del dettaglio di un corso di studio offerto da un Istituto di forma
 > * Nella richiesta l'attributo **_degree_course_code_** è obbligatorio
 >
 > **AFAM vs Università**
-> * Nella response per le **università** compilare i campi learning_sad e learinig_ssd (vedi esempio json response)
-> * Nella response per gli **AFAM** compilare i campi learning_sad e learinig_ssd (vedi esempio json response)
+> * Nella response per le **università** compilare i campi learning_ssd e learinig_cfu
+> * Nella response per gli **AFAM** compilare i campi learning_sad e learinig_cfa
 > * Vedere gli esempi presenti nello yaml/swagger e nella cartella doc/03_analysis/io_schema
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
