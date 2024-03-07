@@ -950,7 +950,7 @@ components:
           format: int32
           description: Last year in which enrollment in the student's course is recorded / Ultimo anno in cui risulta l'iscrizione al corso della studentessa o dello studente
           example: 3
-          pattern: ^\d{2}$          
+          pattern: ^\d{1,2}$          
           minimum: 1
           maximum: 99
         status:
