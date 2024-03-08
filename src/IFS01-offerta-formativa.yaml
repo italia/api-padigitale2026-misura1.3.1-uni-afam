@@ -207,7 +207,7 @@ paths:
                               learning_hour: 48
                               learning_language: IT
                               learning_ref: http://....    
-                Example Università:
+                Università:
                   value:
                       programme_type_code: LT
                       programme_access: free

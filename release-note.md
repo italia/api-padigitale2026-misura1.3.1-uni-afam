@@ -4,6 +4,8 @@
 
 - [IFS03.1] Removed the required condition on the attribute qualification_name in the response
 - [IFS03.1] Added the required to the qualification_grade_value
+- [IFS04] Added the response_code attribute in the response of the methods IFS04.1 and IFS04.3
+- [IFS05] Added the response_code attribute in the response of the methods IFS05.1 and IFS04.3
 
 :warning: todo the release
 

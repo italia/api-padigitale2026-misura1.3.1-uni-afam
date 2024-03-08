@@ -35,6 +35,7 @@ paths:
               examples:
                 Example:
                   value:
+                    response_code: approved
                     file_status: acquired
                     file_code: 6d183bc572f6b200015a4167
                     message: Richiesta di rettifica del titolo conseguito acquisita con successo
@@ -150,6 +151,7 @@ paths:
               examples:
                 Example:
                   value:
+                    response_code: approved
                     file_status: approved
                     file_code: 6d183bc572f6b200015a4167
                     message: messaggio di testo
@@ -398,6 +400,14 @@ components:
       type: object
       description: Status of an qualification change request for a student / Stato di una rettifica titolo per una studentessa o uno studente
       properties:
+        response_code: 
+          type: string
+          description: response code / codice della risposta
+          minLength: 1
+          maxLength: 256
+          enum:
+            - approved 
+            - rejected
         file_status:
           type: string
           description: Status of an academic qualification change request for a student / Stato di una rettifica Titolo per una studentessa o uno studente
@@ -414,6 +424,7 @@ components:
           minLength: 1
           maxLength: 256 
       required:
+        - response_code
         - file_status
         - file_code
         - message
