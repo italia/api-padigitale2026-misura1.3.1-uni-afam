@@ -1,0 +1,27 @@
+{
+    "personal_data": {
+      "tax_code": "RSSMRA80A01F205D"
+    },
+    "enrollments": [
+      {
+        "institute_code": "16",
+        "institute_name": "Milano - Politecnico",
+        "programme_type_code": "MS",
+        "degree_course_code": "1573960",
+        "degree_class_code": "MSLM32",
+        "academic_year": "2021/2022",
+        "degree_course_year": 3,
+        "status": "active"
+      },
+      {
+        "institute_code": "16",
+        "institute_name": "Milano - Politecnico",
+        "programme_type_code": "MS",
+        "degree_course_code": "1573961",
+        "degree_class_code": "MSLM32",
+        "academic_year": "2019/2020",
+        "degree_course_year": 2,
+        "status": "active"
+      }
+    ]
+  }

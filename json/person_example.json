@@ -1,0 +1,34 @@
+{
+     "@context": {
+        "CPV": "https://w3id.org/italia/onto/CPV/",
+        "SM": "https://w3id.org/italia/onto/SM/",
+        "nome": "CPV:givenName",
+        "cognome": "CPV:familyName",
+        "CF": "CPV:taxCode",
+        "data_nascita": "CPV:birthDate",
+        "comune_nascita": {
+            "@type": "@id",
+            "@id": "CPV:hasBirthPlace",
+            "@context": {
+                "@base": "https://w3id.org/italia/controlled-vocabulary/territorial-classifications/cities/"
+            }
+     },
+        "email": "SM:emailAddress"
+     },
+     "@type": "CPV:Person",
+     "@id": "https://w3id.org/italia/data/CPV/Person/taxCode/RSSMRA75L01H501A",
+     "nome": "Mario",
+     "cognome": "Rossi",
+     "comune_nascita": "Roma",
+     "CF": "RSSMRA75L01H501A",
+     "data_nascita": "1975-12-01",
+     "SM:hasContactPoint": {
+        "SM:hasOnlineContactPoint": {
+            "SM:hasEmail": {
+            "@type": "SM:Email",
+            "@id": "https://w3id.org/italia/data/SM/Email/emailAddress/mariorossi75@miaemail.it",
+            "email": "mariorossi75@miaemail.it"
+            }
+        }
+     }
+}

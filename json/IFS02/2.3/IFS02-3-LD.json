@@ -1,0 +1,66 @@
+{
+    "@context": {
+       "LEA": "https://w3id.org/italia/onto/Learning/",
+       "CPV": "https://w3id.org/italia/onto/CPV/",
+       "owl": "http://www.w3.org/2002/07/owl#"
+    },
+    "@graph" : [
+{    
+    "@type": "CPV:Person",
+    "@id": "https://w3id.org/italia/data/CPV/Person/personId/AB123456C",
+    "owl:sameAs": "https://w3id.org/italia/data/CPV/Person/taxCode/RSSMRA80A01F205D",
+    "CPV:taxCode": "RSSMRA80A01F205D",
+    "CPV:persondId": "AB123456C",
+    "LEA:hasEnrolment":{
+        "@type": "LEA:Enrolment",
+        "@id": "https://w3id.org/italia/data/Learning/Enrolment/RSSMRA80A01F205D-???",
+        "LEA:atInstitute": {
+            "@type": "LEA:Institute",
+            "@id": "https://w3id.org/italia/data/Learning/Institute/instituteCode/16",
+            "LEA:instituteCode": "16",
+            "LEA:instituteName": "Milano - Politecnico"
+        },
+        "LEA:hasDegreeCourse":{
+            "@type": "LEA:DegreeCourse",
+            "@id": "https://w3id.org/italia/data/Learning/DegreeCourse/16-1573960",
+            "LEA:DegreeCourseCode" : "1573960",
+            "LEA:hasDegreeClass":{
+                "@type": "LEA:DegreeClass",
+                "@id": "https://w3id.org/italia/data/Learning/DegreeClass/MSLM32",
+                "LEA:DegreeClassCode" : "MSLM32",
+                "LEA:hasProgrammeType": "https://w3id.org/italia/data/Learning/ProgrammeType/MS"
+        },
+        "LEA:enablesLearning": {
+            "LEA:includesExamination":{
+                "@type": "LEA:Examination",
+                "@id": "https://w3id.org/italia/data/Learning/Enrolment/Examination/Esame-1",
+                "Examination": "Esame 1",
+                "LEA:hasGrade":{
+                    "@type": "LEA:Grade",
+                    "@id": "https://w3id.org/italia/data/Learning/Enrolment/Examination/Esame-1/28",
+                    "LEA:gradeValue": "28",
+                    "LEA:hasGradingScale":{
+                        "@type": "LEA:GradingScale",
+                        "@id": "https://w3id.org/italia/data/Learning/Enrolment/Examination/Esame-1/GradeScale",
+                        "hasMaximumGrade": {
+                            "@type": "LEA:Grade",
+                            "@id": "https://w3id.org/italia/data/Learning/Enrolment/Examination/Esame-1/GradeScale/GradeMax/30",
+                            "LEA:gradeValue": "30"
+                        },
+                        "hasMinimumGrade": {
+                            "@type": "LEA:Grade",
+                            "@id": "https://w3id.org/italia/data/Learning/Enrolment/Examination/Esame-1/GradeScale/GradeMin/18",
+                            "LEA:gradeValue": "18"
+                        }
+                    }
+                },
+                "start_date": "???",
+                "end_date": "???",
+                "ects_credits_received": "???"
+            }
+        }
+        }
+    }
+}
+]
+}

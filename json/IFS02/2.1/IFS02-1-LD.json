@@ -1,0 +1,66 @@
+{
+    "@context": {
+       "LEA": "https://w3id.org/italia/onto/Learning/",
+       "CPV": "https://w3id.org/italia/onto/CPV/"
+    },
+    "@graph" : [
+{    
+    "@type": "CPV:Person",
+    "@id": "https://w3id.org/italia/data/CPV/Person/taxCode/RSSMRA80A01F205D",
+    "CPV:taxCode": "RSSMRA80A01F205D",
+    "LEA:hasEnrolment":{
+        "@type": "LEA:Enrolment",
+        "@id": "https://w3id.org/italia/data/Learning/Enrolment/RSSMRA80A01F205D-???",
+        "LEA:atInstitute": {
+            "@type": "LEA:Institute",
+            "@id": "https://w3id.org/italia/data/Learning/Institute/instituteCode/16",
+            "LEA:instituteCode": "16",
+            "LEA:instituteName": "Milano - Politecnico"
+        },
+        "LEA:hasEnrolmentStatus": "LEA:Active",
+        "LEA:hasDegreeCourse":{
+            "@type": "LEA:DegreeCourse",
+            "@id": "https://w3id.org/italia/data/Learning/DegreeCourse/16-1573960",
+            "LEA:DegreeCourseCode" : "1573960",
+            "LEA:hasDegreeClass":{
+                "@type": "LEA:DegreeClass",
+                "@id": "https://w3id.org/italia/data/Learning/DegreeClass/MSLM32",
+                "LEA:DegreeClassCode" : "MSLM32",
+                "LEA:hasProgrammeType": "https://w3id.org/italia/data/Learning/ProgrammeType/MS"
+            },
+            "LEA:hasAcademicYear": "https://w3id.org/italia/data/Learning/AcademicYear/2021%2F2022",
+            "LEA:courseYear": "3"
+        }
+    }
+},
+{    
+    "@type": "CPV:Person",
+    "@id": "https://w3id.org/italia/data/CPV/Person/taxCode/RSSMRA80A01F205D",
+    "CPV:taxCode": "RSSMRA80A01F205D",
+    "LEA:hasEnrolment":{
+        "@type": "LEA:Enrolment",
+        "@id": "https://w3id.org/italia/data/Learning/Enrolment/RSSMRA80A01F205D-2???",
+        "LEA:atInstitute": {
+            "@type": "LEA:Institute",
+            "@id": "https://w3id.org/italia/data/Learning/Institute/instituteCode/16",
+            "LEA:instituteCode": "16",
+            "LEA:instituteName": "Milano - Politecnico"
+        },
+        "LEA:hasEnrolmentStatus": "LEA:Active",
+        "LEA:hasDegreeCourse":{
+            "@type": "LEA:DegreeCourse",
+            "@id": "https://w3id.org/italia/data/Learning/DegreeCourse/16-1573961",
+            "LEA:DegreeCourseCode" : "1573961",
+            "LEA:hasDegreeClass":{
+                "@type": "LEA:DegreeClass",
+                "@id": "https://w3id.org/italia/data/Learning/DegreeClass/MSLM32",
+                "LEA:DegreeClassCode" : "MSLM32",
+                "LEA:hasProgrammeType": "https://w3id.org/italia/data/Learning/ProgrammeType/MS"
+            },
+        "LEA:hasAcademicYear": "https://w3id.org/italia/data/Learning/AcademicYear/2019%2F2020",
+        "LEA:courseYear": "2"
+        }
+    }
+}
+]
+}
