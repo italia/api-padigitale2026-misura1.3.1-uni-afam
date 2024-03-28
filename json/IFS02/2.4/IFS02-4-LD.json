@@ -32,37 +32,12 @@
                 "degree_class_name": "???",
                 "LEA:hasProgrammeType": "https://w3id.org/italia/data/Learning/ProgrammeType/MS",
                 "programme_type_name": "???"
-            },
-        "LEA:enablesLearning": {
-            "LEA:includesExamination":{
-                "@type": "LEA:Examination",
-                "@id": "https://w3id.org/italia/data/Learning/Enrolment/Examination/Esame-1",
-                "Examination": "Esame 1",
-                "LEA:hasGrade":{
-                    "@type": "LEA:Grade",
-                    "@id": "https://w3id.org/italia/data/Learning/Enrolment/Examination/Esame-1/28",
-                    "LEA:gradeValue": "28",
-                    "LEA:hasGradingScale":{
-                        "@type": "LEA:GradingScale",
-                        "@id": "https://w3id.org/italia/data/Learning/Enrolment/Examination/Esame-1/GradeScale",
-                        "hasMaximumGrade": {
-                            "@type": "LEA:Grade",
-                            "@id": "https://w3id.org/italia/data/Learning/Enrolment/Examination/Esame-1/GradeScale/GradeMax/30",
-                            "LEA:gradeValue": "30"
-                        },
-                        "hasMinimumGrade": {
-                            "@type": "LEA:Grade",
-                            "@id": "https://w3id.org/italia/data/Learning/Enrolment/Examination/Esame-1/GradeScale/GradeMin/18",
-                            "LEA:gradeValue": "18"
-                        }
-                    }
-                },
-                "start_date": "???",
-                "end_date": "???",
-                "ects_credits_received": "???"
             }
-        }
-        }
+        },
+        "degree_course_duration_in_years_or_months": "???",
+        "degree_course_duration_ects_credit": "???",
+        "start_date_of_academic_year": "???",
+        "end_date_of_academic_year": "???"
     }
 }
 ]

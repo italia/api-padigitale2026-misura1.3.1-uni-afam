@@ -23,12 +23,15 @@
         "LEA:hasDegreeCourse":{
             "@type": "LEA:DegreeCourse",
             "@id": "https://w3id.org/italia/data/Learning/DegreeCourse/16-1573960",
-            "LEA:DegreeCourseCode" : "1573960",
+            "LEA:DegreeCourse" : "1573960",
+            "degree_course_name": "???",
             "LEA:hasDegreeClass":{
                 "@type": "LEA:DegreeClass",
                 "@id": "https://w3id.org/italia/data/Learning/DegreeClass/MSLM32",
-                "LEA:DegreeClassCode" : "MSLM32",
-                "LEA:hasProgrammeType": "https://w3id.org/italia/data/Learning/ProgrammeType/MS"
+                "LEA:DegreeClass" : "MSLM32",
+                "degree_class_name": "???",
+                "LEA:hasProgrammeType": "https://w3id.org/italia/data/Learning/ProgrammeType/MS",
+                "programme_type_name": "???"
         },
         "country_of_academic_institution": "???",
         "expected_graduation_date": "???",

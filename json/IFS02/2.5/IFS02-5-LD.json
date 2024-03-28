@@ -1,0 +1,30 @@
+{
+    "@context": {
+       "LEA": "https://w3id.org/italia/onto/Learning/",
+       "CPV": "https://w3id.org/italia/onto/CPV/",
+       "owl": "http://www.w3.org/2002/07/owl#"
+    },
+    "@graph" : [
+{    
+    "@type": "CPV:Person",
+    "@id": "https://w3id.org/italia/data/CPV/Person/personId/AB123456C",
+    "owl:sameAs": "https://w3id.org/italia/data/CPV/Person/taxCode/RSSMRA80A01F205D",
+    "CPV:taxCode": "RSSMRA80A01F205D",
+    "CPV:persondId": "AB123456C",
+    "proof_mobility_periods":{
+        "eqf_level": "???",
+        "mobility_start_date": "???",
+        "mobility_end_date": "???",
+        "mobility_period_type": "???",
+        "destination_institute_name": "???",
+        "destination_erasmus_code": "???",
+        "departure_institute_name": "???",
+        "departure_erasmus_code": "???",
+        "destination_department": "???",
+        "departure_department": "???",
+        "destination_country": "???",
+        "departure_country": "???"
+    }
+}
+]
+}

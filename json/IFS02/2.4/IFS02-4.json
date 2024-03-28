@@ -1,0 +1,22 @@
+{
+  "personal_data": {
+    "tax_code": "RSSMRA80A01F205D",
+    "person_id": "AB123456C"
+  },
+  "proof_admissions": [
+    {
+      "institute_code": "16",
+      "institute_name": "Milano - Politecnico",
+      "programme_type_code": "MS",
+      "programme_type_name": "Laurea Magistrale (DM 270/04)",
+      "degree_course_code": "1573960",
+      "degree_course_name": "Ingegneria informatica",
+      "degree_class_code": "MSLM32",
+      "degree_class_name": "Ingegneria informatica",
+      "degree_course_duration_in_years_or_months": "3 anni",
+      "degree_course_duration_ects_credit": 180,
+      "start_date_of_academic_year": "2020-10-13",
+      "end_date_of_academic_year": "2023-10-13"
+    }
+  ]
+}
