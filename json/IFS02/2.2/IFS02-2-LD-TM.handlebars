@@ -1,0 +1,46 @@
+{
+   "@context": {
+       "LEA": "https://w3id.org/italia/onto/Learning/",
+       "CPV": "https://w3id.org/italia/onto/CPV/",
+       "owl": "http://www.w3.org/2002/07/owl#"
+    },
+    "@graph" : [
+        {{#each proof_enrollments}}
+{    
+    "@type": "CPV:Person",
+    "@id": "https://w3id.org/italia/data/CPV/Person/personId/{{../personal_data.person_id}}",
+    "owl:sameAs": "https://w3id.org/italia/data/CPV/Person/taxCode/{{../personal_data.tax_code}}",
+    "CPV:taxCode": "{{../personal_data.tax_code}}",
+    "CPV:persondId": "{{../personal_data.person_id}}",
+    "LEA:hasEnrolment":{
+        "@type": "LEA:Enrolment",
+        "@id": "https://w3id.org/italia/data/Learning/Enrolment/{{../personal_data.tax_code}}-???",
+        "LEA:atInstitute": {
+            "@type": "LEA:Institute",
+            "@id": "https://w3id.org/italia/data/Learning/Institute/instituteCode/{{institute_code}}",
+            "LEA:instituteCode": "{{institute_code}}",
+            "LEA:instituteName": "{{institute_name}}"
+        },
+        "LEA:hasDegreeCourse":{
+            "@type": "LEA:DegreeCourse",
+            "@id": "https://w3id.org/italia/data/Learning/DegreeCourse/{{institute_code}}-{{degree_course_code}}",
+            "LEA:DegreeCourse" : "{{degree_course_code}}",
+            "degree_course_name": "???",
+            "LEA:hasDegreeClass":{
+                "@type": "LEA:DegreeClass",
+                "@id": "https://w3id.org/italia/data/Learning/DegreeClass/{{degree_class_code}}",
+                "LEA:DegreeClass" : "{{degree_class_code}}",
+                "degree_class_name": "???",
+                "LEA:hasProgrammeType": "https://w3id.org/italia/data/Learning/ProgrammeType/{{programme_type_code}}",
+                "programme_type_name": "???"
+        },
+        "country_of_academic_institution": "???",
+        "expected_graduation_date": "???",
+        "enrollment_date": "???"
+        }
+    }
+}
+{{#unless @last}},{{/unless}}
+{{/each}}
+]
+}
