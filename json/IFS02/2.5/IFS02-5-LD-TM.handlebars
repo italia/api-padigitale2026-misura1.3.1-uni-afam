@@ -1,0 +1,31 @@
+{
+    "@context": {
+       "LEA": "https://w3id.org/italia/onto/Learning/",
+       "CPV": "https://w3id.org/italia/onto/CPV/",
+       "owl": "http://www.w3.org/2002/07/owl#"
+    },
+    "@graph" : [
+    	{{#each proof_mobility_periods}}
+{    
+    "@type": "CPV:Person",
+    "@id": "https://w3id.org/italia/data/CPV/Person/personId/{{../personal_data.person_id}}",
+    "owl:sameAs": "https://w3id.org/italia/data/CPV/Person/taxCode/{{../personal_data.tax_code}}",
+    "CPV:taxCode": "{{../personal_data.tax_code}}",
+    "CPV:persondId": "{{../personal_data.person_id}}",
+    "eqf_level": "???",
+    "mobility_start_date": "???",
+    "mobility_end_date": "???",
+    "mobility_period_type": "???",
+    "destination_institute_name": "???",
+    "destination_erasmus_code": "???",
+    "departure_institute_name": "???",
+    "departure_erasmus_code": "???",
+    "destination_department": "???",
+    "departure_department": "???",
+    "destination_country": "???",
+    "departure_country": "???"
+    }
+{{#unless @last}},{{/unless}}
+{{/each}}
+]
+}
