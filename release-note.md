@@ -7,6 +7,7 @@
 - [IFS04] Added the response_code attribute in the response of the methods IFS04.1 and IFS04.3
 - [IFS05] Added the response_code attribute in the response of the methods IFS05.1 and IFS04.3
 - [IFS0X] It was updated the max length of type_programme_code and cursor attributes
+- [Readme] It was fixed the ref to the IFS08 yaml in the readme.md file
 
 :warning: todo the release
 

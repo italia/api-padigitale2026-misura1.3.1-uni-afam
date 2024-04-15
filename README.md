@@ -842,7 +842,7 @@ Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fi
 Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accademico
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
-" /> Definizione [OpenApi.yaml](src/IFS08-iscrizioni-per-fasce-ISEE.yaml)
+" /> Definizione [OpenApi.yaml](src/IFS08_iscrizioni-per-fasce-ISEE.yaml)
 
 #### :globe_with_meridians: IFS08.1 - count_academic_enrollments_by_isee_ranges
 
