@@ -167,7 +167,7 @@ components:
           description: Cursor / Cursore
           example: 'fowfio543s'          
           minLength: 1
-          maxLength: 100
+          maxLength: 512
           nullable: true
     data:
       type: object
@@ -178,8 +178,8 @@ components:
           type: string
           description: Institute identification code / Codice identificativo dell’istituto
           example: 'C3'          
-          minLength: 2
-          maxLength: 2
+          minLength: 1
+          maxLength: 256
           nullable: true
         last_update:
           type: string

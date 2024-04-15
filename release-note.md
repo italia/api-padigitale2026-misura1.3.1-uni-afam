@@ -6,6 +6,7 @@
 - [IFS03.1] Added the required to the qualification_grade_value
 - [IFS04] Added the response_code attribute in the response of the methods IFS04.1 and IFS04.3
 - [IFS05] Added the response_code attribute in the response of the methods IFS05.1 and IFS04.3
+- [IFS0X] It was updated the max length of type_programme_code and cursor attributes
 
 :warning: todo the release
 

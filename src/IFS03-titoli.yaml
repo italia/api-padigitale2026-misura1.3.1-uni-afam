@@ -496,7 +496,7 @@ components:
           description: Code of study program / codice del corso di studio
           example: 'LM'          
           minLength: 1
-          maxLength: 2
+          maxLength: 256
         degree_course_code:
           type: string
           description: Course Code / Codice del corso          
@@ -591,7 +591,7 @@ components:
           description: Code of study program / codice del corso di studio
           example: 'LM'
           minLength: 1
-          maxLength: 2
+          maxLength: 256
         programme_type_name:
           type: string
           description: Type of course of study / Tipo di corso di studio
@@ -711,7 +711,7 @@ components:
           description: Code of study program / codice del corso di studio
           example: 'MS'
           minLength: 1
-          maxLength: 2
+          maxLength: 256
         programme_type_name:
           type: string
           description: Type of course of study / Tipo di corso di studio

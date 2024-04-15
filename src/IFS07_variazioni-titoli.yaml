@@ -167,7 +167,7 @@ components:
           description: Cursor / Cursore
           example: 'fowfio543s'          
           minLength: 1
-          maxLength: 100
+          maxLength: 512
           nullable: true
     data:
       type: object
