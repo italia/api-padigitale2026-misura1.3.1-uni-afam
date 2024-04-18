@@ -7,7 +7,12 @@
 - [IFS04] Added the response_code attribute in the response of the methods IFS04.1 and IFS04.3
 - [IFS05] Added the response_code attribute in the response of the methods IFS05.1 and IFS04.3
 - [IFS0X] It was updated the max length of type_programme_code and cursor attributes
-- [Readme] It was fixed the ref to the IFS08 yaml in the readme.md file
+- [Readme.md] It was fixed the ref to the IFS08 yaml in the readme.md file
+- [IFS01] It was fiexed the examples in the yaml file
+- [Readme.md] It was updated the IFS01 descriptions
+- [IFS01.2] It was added the cursor pagination even for the detail educational offering detail
+- [Readme.md, IFS01, IFS02, IFS03] Severals updates with feedbacks required by the work group 1.3.1 Università and AFAM 
+
 
 :warning: todo the release
 

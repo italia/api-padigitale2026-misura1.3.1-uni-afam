@@ -12,7 +12,7 @@
     "eqf_level": "6° livello",
     "nqf_level": "I ciclo QF-EHEA",
     "has_parent_relation": null,
-    "degree_course_duration_in_years_or_months": "3 anni a tempo pieno",
+    "degree_course_duration_in_months": 36,
     "degree_course_duration_ects_credit": 180,
     "ects_learnings": [
       {

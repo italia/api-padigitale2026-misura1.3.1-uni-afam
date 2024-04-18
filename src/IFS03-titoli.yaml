@@ -255,7 +255,7 @@ paths:
                       person_id: AB123456C
                     proof_qualifications_level:
                       qualification_name: Laurea in Ingegneria gestionale
-                      degree_course_duration_in_years_or_months: 3 anni a tempo pieno
+                      degree_course_duration_in_months: 36
                       institute_code: '16'
                       institute_name: Milano - Politecnico
                       academic_qualification_date: 2022-07-01
@@ -339,7 +339,7 @@ paths:
                       degree_course_name: Ingegneria informatica
                       degree_class_code: MSLM32
                       degree_class_name: Ingegneria informatica
-                      degree_course_duration_in_years_or_months: 3 anni a tempo pieno
+                      degree_course_duration_in_months: 36
                       qualification_grade_value: '100'
                       qualification_grading_scale_minimum_grade: '66'
                       qualification_grading_scale_maximum_grade: '110'
@@ -743,12 +743,13 @@ components:
           example: 'Ingegneria informatica'
           minLength: 1
           maxLength: 2048
-        degree_course_duration_in_years_or_months:
-          type: string
+        degree_course_duration_in_months:
+          type: integer
+          format: int32
           description: Duration of ccourse / Durata del corso
-          example: '3 anni a tempo pieno'
-          minLength: 1
-          maxLength: 2048
+          example: 36
+          minimum: 0
+          maximum: 999
         qualification_grade_value:
           type: string
           description: Grade / voto
@@ -842,12 +843,13 @@ components:
           example: 'Laurea in Scienze Aziendali'
           minLength: 1
           maxLength: 2048
-        degree_course_duration_in_years_or_months:
-          type: string
-          description: Duration of study programme in years or months / Durata programma di studio in anni o mesi
-          example: '3 anni a tempo pieno'
-          minLength: 1
-          maxLength: 2048
+        degree_course_duration_in_months:
+          type: integer
+          format: int32
+          description: Duration of study programme in months / Durata programma di studio in mesi
+          example: 36
+          minimum: 0
+          maximum: 999
         institute_code:
           type: string
           description: Institute identification code / Codice identificativo dell’istituto

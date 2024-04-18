@@ -325,7 +325,7 @@ paths:
                         degree_course_name: Ingegneria informatica
                         degree_class_code: MSLM32
                         degree_class_name: Ingegneria informatica
-                        degree_course_duration_in_years_or_months: "3 anni"
+                        degree_course_duration_in_months: 36
                         degree_course_duration_ects_credit: 180
                         start_date_of_academic_year: 2020-10-13
                         end_date_of_academic_year: 2023-10-13
@@ -368,7 +368,7 @@ paths:
               properties: {}
         description: ''
       parameters: []
-  '/proof-mobility-periods':
+  '/proof-ifs02.1s':
     post:
       summary: |
         Retrieves the evidences of the learning activities conducted outside the tertiary education institution which a student obtained her/his diploma. / 
@@ -394,7 +394,7 @@ paths:
                       - eqf_level: Livello 7
                         mobility_start_date: 2020-05-17
                         mobility_end_date: 2021-05-17
-                        mobility_period_type: Lungo termine
+                        mobility_period_type: lungo_termine
                         destination_institute_name: Universidad Politecnica de Madrid
                         destination_erasmus_code: VALENCI02
                         departure_institute_name: Politecnico di Milano
@@ -784,11 +784,12 @@ components:
           example: 'Ingegneria informatica, Scienze giuridiche'          
           minLength: 1
           maxLength: 2048
-        degree_course_duration_in_years_or_months:
-          type: string
+        degree_course_duration_in_months:
+          type: integer
+          format: int32
           description: Duration of study course / Durata del corso di studi          
-          minLength: 1
-          maxLength: 2048
+          minimum: 0
+          maximum: 999
         degree_course_duration_ects_credit:
           type: integer
           format: int32
@@ -851,9 +852,15 @@ components:
         mobility_period_type:
           type: string
           description: Type of mobility period / Tipo del periodo di mobilità
-          example: Lungo termine          
+          example: lungo_termine         
           minLength: 1
           maxLength: 2048
+          enum:
+            - trimestrale
+            - semestrale
+            - annuale
+            - breve_termine
+            - lungo_termine
         destination_institute_name:
           type: string
           description: Destination institute's name / Nome dell'istituto di destinazione

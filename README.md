@@ -214,11 +214,13 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 
 **3** - La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
 
-**4** - Perché abbiamo scelto di usare principalmente il metodo POST: [GET Method vs POST Method](https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues/91)
+**4** - Il **_person_id_** riportato nella specifica delle API far riferimento all’identificativo univoco ANPR (Anagrafe Nazionale della Popolazione Residente). 
+
+**5** - Perché abbiamo scelto di usare principalmente il metodo POST: [GET Method vs POST Method](https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues/91)
 >1. [URIs, Addressability, and the use of HTTP GET and POST](https://www.w3.org/2001/tag/doc/whenToUseGet.html#:~:text=HTTP%20GET%20promotes%20URI%20addressability,(or%20of%20related%20resources).)
 >1. [w3shools-ref  Compare GET vs. POST chapter](https://www.w3schools.com/tags/ref_httpmethods.asp)
 
-**5** - Suggeriamo infine di fare riferimento sempre alla sezione 
+**6** - Suggeriamo infine di fare riferimento sempre alla sezione 
 [risorse utili](#risorse-utili) che è aggiornata periodicamente.
 
 ## Linee guida agli e-service
@@ -260,9 +262,15 @@ Acquisizione della lista dei corsi di studio offerti da un istituto di formazion
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " />  Esempio IFS01.1 [Response](doc/03_analysis/io_schema/IFS01.1-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni**
 >
 > * La richiesta prevede l'obbligatorietà della compilazione del campo **_academic_year_**. 
+> * Nella risposta indicare solo corsi per i quali si può attivare una nuova coorte nell’anno accademico indicato. Includere corsi di Laurea, Dottorato, Diploma di specializzazione e Master.
+> *  Nella risposta il **_degree_course_code_** si riferisce al codice identificativo indicato nel relativo dataset pubblicato dal MUR sul repository "Codifiche MUR" https://github.com/MIPA-CINECA/codifiche-mur.
+> * Nella risposta per il **_course_area_** indicare la denominazione della Classe di Laurea
+> * Per il **_course_location_** indicare il codice ISTAT del comune della sede del corso.
+> * Nel caso di corsi associabili a molteplici classi di Laurea, ciascuna combinazione corso/classe è individuata da
+degree_course_code differenti.
 > * L'attributo  **_cursor_** è utile per la paginazione della risposta: </br>
 &emsp;1. Alla prima invocazione non si valorizza l'attributo cursor </br>
 &emsp;2. Se la response restituisce l'attributo cursor valorizzato, sarà necessario iterare le invocazioni per ottenere l'intero dataset </br>
@@ -281,11 +289,13 @@ Acquisizione del dettaglio di un corso di studio offerto da un Istituto di forma
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS01.2 [Response](doc/03_analysis/io_schema/IFS01.2-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante** 
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni** 
 >
-> * Nella richiesta l'attributo **_degree_course_code_** è obbligatorio
+> * Nella richiesta l'attributo **_degree_course_code_** è obbligatorio e si riferisce al codice identificativo di ANS, che individua in modo univoco la combinazione: Corso, Classe, anno accademico della coorte, sede
+> * Nella risposta è sufficente includere il solo primo anno di corso dell’offerta formativa disponibile per la coorte identificata dal codice corso inviato come parametro di ingresso nella richiesta
 >
 > **AFAM vs Università**
+> * Nelle AFAM il **_degree_course_code_** è lo stesso per tutti gli anni accademici della coorte 
 > * Nella response per le **università** compilare i campi learning_ssd e learning_cfu
 > * Nella response per gli **AFAM** compilare i campi learning_sad e learning_cfa
 > * Vedere gli esempi presenti nello yaml/swagger e nella cartella doc/03_analysis/io_schema
@@ -313,7 +323,7 @@ Acquisizione del dettaglio delle ultime iscrizioni per corso di studi negli ulti
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.1 [Response](doc/03_analysis/io_schema/IFS02.1-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**  
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni**  
 >
 > Regole di obbligatorietà input
 > * Nella request popolare almeno il person_id o il tax_code dando priorità al person_id oppure il parametro key nel caso dello scenario descritto nell'API IFS06 per l'acquisizione delle variazioni
@@ -388,7 +398,12 @@ Acquisizione delle prove riguardanti l'ultima iscrizione a ogni corso di studi d
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.2 [Response](doc/03_analysis/io_schema/IFS02.2-response.json)
 
-
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni**    
+> * **_expected_graduation_date_** 
+Indicare convenzionalmente 31/12/(anno immat + durata normale del corso)
+es. immatricolato Laurea Triennale 01/10/20 => expected_graduation_date = 31/12/2023
+> * **_enrollment_date_**
+Indicare convenzionalmente la data di inizio (es 01/10/xxxx) dell’anno accademico cui si riferisce l’ultima iscrizione attiva per il corso individuato dal degree_course_code
 
 :jigsaw: **caso d'uso tipico**: Acquisizione prove Single Digital Gateway (SDG)
 
@@ -403,7 +418,12 @@ Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenu
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.3 [Response](doc/03_analysis/io_schema/IFS02.3-response.json)
 
-
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni** 
+> * Vanno considerate solo gli elementi del Piano degli Studi approvato con insegnamenti in posizione di effettivo (solo esclusi quelli in soprannumero) con esame sostenuto o convalidato
+> * **_attended_learning_name_** Il nome dell’insegnamento va indicato nella lingua di erogazione dell’insegnamento stesso.
+> * **_start_date/end_date_** Indicare date convenzionali in base all’anno accademico ed al semestre
+> * **_grade_value_** Espressione regolare del tipo \<Voto numerico\>  o \<Voto numerico\> + 'L' o 'QUALIFIED' o null <br>
+```30L o 30 o QUALIFIED o null ```
 
 #### :globe_with_meridians: IFS02.4 - proof-tertiary-education-admission
 
@@ -418,8 +438,8 @@ Acquisizione delle prove riguardanti le ultime ammissioni ai corsi di studi di i
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.4 [Response](doc/03_analysis/io_schema/IFS02.4-response.json)
 
-
-
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni** 
+> * **_start_date_of_academic_year/end_date_of_academic_year_** Indicare date convenzionali di inizio/ fine anno accademico
 
 
 #### :globe_with_meridians: IFS02.5 - proof-mobility-periods
@@ -434,21 +454,22 @@ Acquisizione delle prove relative alle attività di apprendimento svolte al di f
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.5 [Response](doc/03_analysis/io_schema/IFS02.5-response.json)
 
-
-
-> :pencil2: **Note compilazione campi**  
->
-> **birth_place**: 
-> * Dove possibile il campo deve contenere le informazioni concatenate del Nazione/Provincia/Comune. 
-> * il formato previsto prevede la seguente forma: *<nome_nazione>,<codice_provincia>,<nome_comune>, *
->
-> *Esempio: birth_place="Italia,MI,Milano"*
-> * Nel caso di comuni esteri, se non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE
->
-> *Esempio: birth_place="Austria,EE,Vienna"*
->
-> * RegEx applicata: .*,[a-zA-Z]*,[a-zA-Z]*
-
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni**
+> * e-service ancora non completamente consolidato, è in corso l’analisi con il partner EU per il suo raffinamento. Nella versione corrente sembra riferito solo al Learning Agreement, che descrive le condizioni di avvio del programma di scambio e non comprende il consuntivo degli esami sostenuti, definito dal Trascript of Records. Da chiarire se sono di interesse anche gli scambi nazionali, per i quali non è previsto un Learning Agreement.
+> * **_mobility_period_type_** Valore enumerato come di segutio <br>
+ ```trimestrale, semestrale, annuale, breve_termine, lungo_termine```
+> * **_destination_erasmus_code_**
+L'informazione non è sempre disponibile => parametro opzionale
+> * **_destination_institute_name_** 
+La destinazione di uno scambio potrebbe non essere un Ateneo => parametro opzionale
+> * **_destination_department_** L'informazione non è sempre disponibile => parametro opzionale
+> * **_departure_department_**
+L'informazione non è sempre disponibile => parametro opzionale
+> * **birth_place** Dove possibile il campo deve contenere le informazioni concatenate della Nazione/Provincia/Comune. Il formato previsto prevede la seguente espressione regolare <br>
+```.*,[a-zA-Z]*,[a-zA-Z]``` <br>
+```<nome_nazione>,<codice_provincia>,<nome_comune> Esempio: birth_place="Italia,MI,Milano"```<br>
+> Nel caso di comuni esteri, se non fosse possibile recuperare il codice_provincia, si potrà inserire la codifica EE<br>
+> ```Esempio: birth_place="Austria,EE,Vienna" ```
 
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
@@ -470,9 +491,13 @@ Acquisizione del dettaglio dei titoli accademici conseguiti da una studentessa/u
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.1 [Response](doc/03_analysis/io_schema/IFS03.1-response.json)
 
-><img src="doc/05_gallery/info.svg" width="20" />  **Importante** 
->   
->Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
+><img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni** 
+> * Passare tutti i dati disponibili e la profondità storica dipende dagli istituti di formazione superiore. 
+> * Includere tutti coloro che hanno conseguito un titolo di Laurea, Dottorato, Diploma di specializzazione o Master
+> * In caso di Laurea congiunta esiste un unico titolo, sulla cui pergamena sono riportati entrambi gli Atenei e che è gestito dal solo Ateneo di riferimento (l’unico che comunica i dati della carriera ad ANSU).
+> * **_qualification_grade_value_**: Espressione regolare del tipo \<Voto numerico\>  o \<Voto numerico\> + 'L' o 'QUALIFIED' o null <br>
+```30L o 30 o QUALIFIED o null ``` 
+> * Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
 >1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
 >
 >```
@@ -518,8 +543,11 @@ Acquisizione delle prove riguardanti il completamento degli studi di istruzione 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.2 [Response](doc/03_analysis/io_schema/IFS03.2-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**    
->Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni**    
+> * Passare tutti i dati disponibili, la profondità storica dipende dagli atenei.
+Includere tutti coloro che hanno conseguito un titolo di Laurea, Dottorato, Diploma di specializzazione o Master. In caso di Laurea congiunta esiste un unico titolo, sulla cui pergamena sono riportati entrambi gli Atenei, e che è gestito
+dal solo Ateneo di riferimento (l’unico che comunica i dati della carriera ad ANSU).
+>* Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
 >1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
 >2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
 >3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'errore 404 (vedi esempio nel file YAML)
@@ -536,8 +564,11 @@ Acquisizione delle prove riguardanti il livello di qualifica degli studi di istr
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.3 [Response](doc/03_analysis/io_schema/IFS03.3-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**    
->Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni**  
+> * **_has_parent_relation_** Si riferisce al legame di genitorialità (biologica o adottiva) tra un genitore e la persona di riferimento (richiedente). Se non calcolabile => null
+> * **_degree_course_duration_in_months_**
+Durata normale del corso espresso in mesi per gestire corsi di master di durata inferiore all’anno  
+> * Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi): 
 >1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
 >2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
 >3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'errore 404 (vedi esempio nel file YAML)
@@ -555,8 +586,13 @@ Acquisizione delle prove relative allo strumento "Diploma Supplement"
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.4 [Response](doc/03_analysis/io_schema/IFS03.4-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**    
->Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni**    
+> * **_access_to_regulated_profession_**
+Fare riferimento al punto 5.2 del Diploma Supplement “accesso ad una professione regolamentata” che elenca le
+professioni per le quali è possibile ottenere l’abilitazione all’esercizio tramite il superamento di un Esame di Stato.
+> * **_learning_start_date/ learning_end_date_**
+Indicare date convenzionali in base all’anno accademico ed al semestre
+> * Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
 >1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
 >2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
 >3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'errore 404 (vedi esempio nel file YAML)
@@ -601,10 +637,6 @@ Richiesta di rettifica  di un'iscrizione accademica di una studentessa/uno stude
 " /> Esempio IFS04.1 [Response](doc/03_analysis/io_schema/IFS04.1-response.json)
 
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**    
->
-> * TODO
-
 
 #### :globe_with_meridians: IFS04.2 - academic-enrollment-change-request-status
 
@@ -618,9 +650,6 @@ Acquisizione dello stato delle richieste di rettifica delle iscrizioni accademic
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS04.2 [Response](doc/03_analysis/io_schema/IFS04.2-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**  
->  
-> * TODO
 
 #### :globe_with_meridians: IFS04.3 - academic-enrollment-change-request-cancellation
 
@@ -634,7 +663,7 @@ Richiesta di annullamento di una richiesta di rettifica di una iscrizione accade
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS04.3 [Response](doc/03_analysis/io_schema/IFS04.3-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**    
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni**    
 >
 > * Valorizzare in input almeno un campo tra tax_code e person_id
 
@@ -651,7 +680,7 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS04.4 [Response](doc/03_analysis/io_schema/IFS04.4-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**   
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni**   
 > 
 > * Valorizzare in input almeno un campo tra tax_code e person_id
 > * nel caso in cui in input gli attributi tax_code/person_id non siano valorizzabili, compilare i parametri given_name/family_name/birth_date/birth_place
@@ -694,9 +723,6 @@ Richiesta di rettifica  di un titolo accademico di una studentessa/uno studente 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS05.1 [Response](doc/03_analysis/io_schema/IFS05.1-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante** 
->   
-> * TODO
 
 
 #### :globe_with_meridians: IFS05.2 - academic-qualification-change-request-status
@@ -711,9 +737,6 @@ Acquisizione dello stato delle richieste di rettifica dei titoli accademici di u
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS05.2 [Response](doc/03_analysis/io_schema/IFS05.2-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**   
-> 
-> * TODO
 
 
 #### :globe_with_meridians: IFS05.3 - academic-qualification-change-request-cancellation
@@ -728,10 +751,6 @@ Richiesta di annullamento di una richiesta di rettifica di un titolo accademico 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS05.3 [Response](doc/03_analysis/io_schema/IFS05.3-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />**Importante**
->
-> * TODO
-
 
 #### :globe_with_meridians: IFS05.4 - academic-qualifications-issues
 
@@ -745,9 +764,6 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS05.4 [Response](doc/03_analysis/io_schema/IFS05.4-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante** 
->   
-> * TODO
 
 > :pencil2: **Note compilazione campi**  
 >
@@ -790,7 +806,7 @@ Acquisizione delle "impronte (codifica hash)" di tutte le iscrizioni delle stude
 " /> Esempio IFS06.1 [Response](doc/03_analysis/io_schema/IFS06.1-response.json)
 
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni**
 >    
 > * Si ricorda di NON valorizzare il campo "cursor" nell'esecuzione della prima chiamata.
 > * Qualora nella response fosse presente il campo "cursor" valorizzato, prevedere la sua valorizzazione nelle chiamate successive.
@@ -827,7 +843,7 @@ Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fi
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS07.1 [Response](doc/03_analysis/io_schema/IFS07.1-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni**
 >
 > * Si ricorda prevedere di NON valorizzare il campo "cursor" nell'esecuzione della prima chiamata.
 > * Qualora nella response fosse presente il campo "cursor" valorizzato, prevedere la sua valorizzazione nelle chiamate successive.
@@ -856,9 +872,8 @@ Acquisizione del numero di studentesse e studenti per fasce ISEE in un anno acca
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS08.1 [Response](doc/03_analysis/io_schema/IFS08.1-response.json)
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**    
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni**    
 >
-> 
 > - La API deve essere organizzata secondo la ripartizione degli scaglioni coerenti con i provvedimenti normativi in vigore relativamente alla tassazione universitaria (No-tax area e progressività) per gli Atenei statali e gli istituti AFAM statali (L. 232/2016, DM 1014/2021, DM 1016/2021). Si riportano di seguito la proposta di ripartizione degli scaglioni corente con la normativa vigente e con maggiore dettaglio per finalità amministrative di analisi
 > - <b><i> E' di libero arbitrio degli istituti la scelta di definire una soglia minima di studenti entro la quale mostrare la fascia di reddito.</i></b>
 >
@@ -895,8 +910,13 @@ Acquisizione del numero di studentesse e studenti iscritti a un corso di studi p
 " /> Esempio IFS09.1 [Response](doc/03_analysis/io_schema/IFS09.1-response.json)
 
 
-> <img src="doc/05_gallery/info.svg" width="20" />  **Importante**    
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni**    
 >
+> * Il dato può cambiare nel corso dell’anno a causa di:
+> 1. immatricolazioni al secondo semestre
+> 1. immatricolazioni di dottorandi scaglionate su diverse finestre di ingresso
+> 1. ricongiunzioni
+> 1. avvio di nuove edizioni di Corsi di Master in qualsiasi mese dell’anno
 > * vedere gli input/output di esempio sopra riportati
 > * nel caso in cui i parametri male_enrollment_count o female_enrollment_count non siano valorizzabili -> restituire un valore nullo
 

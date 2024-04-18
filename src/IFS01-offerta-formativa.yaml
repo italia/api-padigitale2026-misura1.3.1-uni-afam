@@ -116,7 +116,12 @@ paths:
       parameters: []
   '/educational-offering-detail': 
     post:
-      summary: Retrieve the details of a study program offered by a tertiary education institute. / Acquisizione del dettaglio di un corso di studio offerto da un istituto di formazione superiore.
+      summary: |
+        Retrieve the details of a study program offered by a tertiary education institute. 
+        It's enough to reply with only the first year course of the study program refered by the 
+        course degree input parameter / Acquisizione del dettaglio di un corso di studio offerto da un istituto 
+        di formazione superiore. E' sufficente includere il solo primo anno di corso dell’offerta disponibile 
+        per la coorte relativa al codice corso inviato come parametro di ingresso nella richiesta
       tags:
         - IFS01.2 - educational-offering-detail
       security: 
@@ -166,47 +171,7 @@ paths:
                               learning_cfa: 7
                               learning_hour: 36
                               learning_language: IT
-                              learning_ref: http://....
-                          - degree_course_year: 2
-                            learnings:
-                            - learning_ssd: null
-                              learning_sad: COTP/06
-                              learning_name: Ear training II
-                              learning_code: '05782'
-                              learning_cfu: null
-                              learning_cfa: 10
-                              learning_hour: 40
-                              learning_language: IT
-                              learning_ref: http://....
-                            - learning_ssd: null
-                              learning_sad: COTP/01
-                              learning_name: Teorie e tecniche dell'armonia II
-                              learning_code: '0124'
-                              learning_cfu: null
-                              learning_cfa: 10
-                              learning_hour: 48
-                              learning_language: IT
-                              learning_ref: http://....
-                          - degree_course_year: 2
-                            learnings:
-                            - learning_ssd: null
-                              learning_sad: CODM/04
-                              learning_name: Storia e storiografia della musica III
-                              learning_code: '055562'
-                              learning_cfu: null
-                              learning_cfa: 10
-                              learning_hour: 40
-                              learning_language: IT
-                              learning_ref: http://....
-                            - learning_ssd: null
-                              learning_sad: CODI/21
-                              learning_name: Prassi esecutive e repertori III
-                              learning_code: '0124'
-                              learning_cfu: null
-                              learning_cfa: 20
-                              learning_hour: 48
-                              learning_language: IT
-                              learning_ref: http://....    
+                              learning_ref: http://....  
                 Università:
                   value:
                       programme_type_code: LT
@@ -244,71 +209,7 @@ paths:
                               learning_cfa: null
                               learning_hour: 36
                               learning_language: IT
-                              learning_ref: http://....
-                          - degree_course_year: 2
-                            learnings:
-                            - learning_ssd: ING-IND/14
-                              learning_sad: null
-                              learning_name: COSTRUZIONE DI MACCHINE 1
-                              learning_code: '05083782'
-                              learning_cfu: 10
-                              learning_cfa: null
-                              learning_hour: 40
-                              learning_language: IT
-                              learning_ref: http://....
-                            - learning_ssd: ING-IND/13
-                              learning_sad: null
-                              learning_name: MECCANICA APPLICATA ALLE MACCHINE
-                              learning_code: '54828'
-                              learning_cfu: 10
-                              learning_cfa: null
-                              learning_hour: 48
-                              learning_language: IT
-                              learning_ref: http://....
-                        - curriculum_name: Processi tecnologici
-                          curriculum_learnings: 
-                          - degree_course_year: 3
-                            learnings:
-                            - learning_ssd: ICAR/01
-                              learning_sad: null
-                              learning_name: MECCANICA DEI FLUIDI
-                              learning_code: '83503'
-                              learning_cfu: 7
-                              learning_cfa: null
-                              learning_hour: 36
-                              learning_language: IT
-                              learning_ref: http://....
-                            - learning_ssd: ING-IND/21
-                              learning_sad: null
-                              learning_name: TECNOLOGIE METALLURGICHE
-                              learning_code: '86509'
-                              learning_cfu: 8
-                              learning_cfa: null
-                              learning_hour: 48
-                              learning_language: IT
-                              learning_ref: http://....
-                        - curriculum_name: Veicoli
-                          curriculum_learnings: 
-                          - degree_course_year: 3
-                            learnings:
-                            - learning_ssd: ING-IND/17
-                              learning_sad: null
-                              learning_name: IMPIANTI MECCANICI
-                              learning_code: '86468'
-                              learning_cfu: 7
-                              learning_cfa: null
-                              learning_hour: 36
-                              learning_language: IT
-                              learning_ref: http://....
-                            - learning_ssd: ING-IND/14
-                              learning_sad: null
-                              learning_name: TEORIA E TECNICA DEI VEICOLI TERRESTRI
-                              learning_code: '086509'
-                              learning_cfu: 5
-                              learning_cfa: null
-                              learning_hour: 25
-                              learning_language: IT
-                              learning_ref: http://....         
+                              learning_ref: http://....      
         '400':
           description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
         '404':
@@ -323,9 +224,13 @@ paths:
             schema:
               $ref: '#/components/schemas/course_detail_request'
             examples:
-              Example:
+              1 - prima invocazione:
                 value:
                   degree_course_code: '465'
+              2 - invocazioni successive alla prima:
+                value:
+                  degree_course_code: '465'
+                  cursor: "abc123456abc"      
           application/xml:
             schema:
               type: object
@@ -700,6 +605,13 @@ components:
           description: Course code / Codice del corso
           minLength: 1
           maxLength: 20
+        cursor:
+          type: string
+          description: Cursor / Cursore
+          example: 'fowfio543s'
+          nullable: true
+          minLength: 1
+          maxLength: 512
   requestBodies: {}
   responses: {}
   securitySchemes:

@@ -1,254 +1,164 @@
 /*Esempio ateneo universitario*/
 {
-   "programme_type_code":"LT",
-   "programme_access":"free",
-   "course_location":"Milano Bovisa",
+   "programme_type_code": "LT",
+   "programme_access": "free",
+   "course_location": "Milano Bovisa",
    "remote_mode": "on-site", /*full-remote, on-site, hybrid, not-available*/
-   "course_area":"Ingegneria industriale",
-   "degree_course_language":"IT",
-   "degree_course_period_years":3,
-   "degree_course_code":"353",
-   "total_credits":180,
-   "academic_year":"2023/2024",
-   "first_year_activation_course":"2010/2011",/* Facoltativo*/
-   "website_university":"http://www.ingindinf.polimi.it",
-   "website_course":"",
-   
-   "curriculum_list":[  
+   "course_area": "Ingegneria industriale",
+   "degree_course_language": "IT",
+   "degree_course_period_years": 3,
+   "degree_course_code": "353",
+   "total_credits": 180,
+   "academic_year": "2023/2024",
+   "first_year_activation_course": "2010/2011", /* Facoltativo*/
+   "website_university": "http://www.ingindinf.polimi.it",
+   "website_course": "",
+   "curriculum_list": [
       {
-         "curriculum_name":"NON DIFFERENZIATO", /*indirizzo, percorso, specializzazione filone formativo*/
-         "curriculum_learnings":[
+         "curriculum_name": "NON DIFFERENZIATO", /*indirizzo, percorso, specializzazione filone formativo*/
+         "curriculum_learnings": [
             {
-               "degree_course_year":1,
-               "learnings":[
+               "degree_course_year": 1,
+               "learnings": [
                   {
-                     "learning_ssd":"MAT/03",
-                     "learning_sad":"",
-                     "learning_name":"ANALISI E GEOMETRIA 1",
-                     "learning_code":"081360",
-                     "learning_cfu":10,
-                     "learning_cfa":null,                     
-                     "learning_hour":48,
-                     "learning_language":"IT",
-                     "learning_ref":"http://...." /*perma link*/					 
+                     "learning_ssd": "MAT/03",
+                     "learning_sad": "",
+                     "learning_name": "ANALISI E GEOMETRIA 1",
+                     "learning_code": "081360",
+                     "learning_cfu": 10,
+                     "learning_cfa": null,
+                     "learning_hour": 48,
+                     "learning_language": "IT",
+                     "learning_ref": "http://...." /*perma link*/
                   },
                   {
-                     "learning_ssd":"CHIM/07",
-                     "learning_sad":"",
-                     "learning_name":"FONDAMENTI DI CHIMICA",
-                     "learning_code":"081374",
-                     "learning_cfu":7,
-                     "learning_cfa":null,     
-                     "learning_hour":36,
-                     "learning_language":"IT",
-                     "learning_ref":"http://...."
+                     "learning_ssd": "CHIM/07",
+                     "learning_sad": "",
+                     "learning_name": "FONDAMENTI DI CHIMICA",
+                     "learning_code": "081374",
+                     "learning_cfu": 7,
+                     "learning_cfa": null,
+                     "learning_hour": 36,
+                     "learning_language": "IT",
+                     "learning_ref": "http://...."
                   }
                ]
-            },
-            {
-               "degree_course_year":2,
-               "learnings":[
-                  {
-                     "learning_ssd":"ING-IND/14",
-                     "learning_sad":"",
-                     "learning_name":"COSTRUZIONE DI MACCHINE 1",
-                     "learning_code":"05083782",
-                     "learning_cfu":10,
-                     "learning_cfa":null,     
-                     "learning_hour":40,
-                     "learning_language":"IT",
-                     "learning_ref":"http://...."
-                  },
-                  {
-                     "learning_ssd":"ING-IND/13",
-                     "learning_sad":"",
-                     "learning_name":"MECCANICA APPLICATA ALLE MACCHINE",
-                     "learning_code":"54828",
-                     "learning_cfu":10,
-                     "learning_cfa":null,     
-                     "learning_hour":48,
-                     "learning_language":"IT",
-                     "learning_ref":"http://...."
-                  }
-               ]
-            }			
+            }
          ]
       },
-	  {
-		 "curriculum_name":"Processi tecnologici",
-         "curriculum_learnings":[
+      {
+         "curriculum_name": "Processi tecnologici",
+         "curriculum_learnings": [
             {
-               "degree_course_year":3,
-               "learnings":[
+               "degree_course_year": 1,
+               "learnings": [
                   {
-                     "learning_ssd":"ICAR/01",
-                     "learning_sad":"",
-                     "learning_name":"MECCANICA DEI FLUIDI",
-                     "learning_code":"83503",
-                     "learning_cfu":7,
-                     "learning_cfa":null,     
-                     "learning_hour":36,
-                     "learning_language":"IT",
-                     "learning_ref":"http://...." /*perma link*/
+                     "learning_ssd": "ICAR/01",
+                     "learning_sad": "",
+                     "learning_name": "MECCANICA DEI FLUIDI",
+                     "learning_code": "83503",
+                     "learning_cfu": 7,
+                     "learning_cfa": null,
+                     "learning_hour": 36,
+                     "learning_language": "IT",
+                     "learning_ref": "http://...." /*perma link*/
                   },
                   {
-                     "learning_ssd":"ING-IND/21",
-                     "learning_sad":"",
-                     "learning_name":"TECNOLOGIE METALLURGICHE",
-                     "learning_code":"86509",
-                     "learning_cfu":8,
-                     "learning_cfa":null,     
-                     "learning_hour":48,
-                     "learning_language":"IT",
-                     "learning_ref":"http://...."
+                     "learning_ssd": "ING-IND/21",
+                     "learning_sad": "",
+                     "learning_name": "TECNOLOGIE METALLURGICHE",
+                     "learning_code": "86509",
+                     "learning_cfu": 8,
+                     "learning_cfa": null,
+                     "learning_hour": 48,
+                     "learning_language": "IT",
+                     "learning_ref": "http://...."
                   }
                ]
             }
-         ]	  
-	  }
-     ,
-	  {
-		 "curriculum_name":"Veicoli",
-         "curriculum_learnings":[
+         ]
+      },
+      {
+         "curriculum_name": "Veicoli",
+         "curriculum_learnings": [
             {
-               "degree_course_year":3,
-               "learnings":[
+               "degree_course_year": 1,
+               "learnings": [
                   {
-                     "learning_ssd":"ING-IND/17",
-                     "learning_sad":"",
-                     "learning_name":"IMPIANTI MECCANICI",
-                     "learning_code":"86468",
-                     "learning_cfu":7,
-                     "learning_cfa":null,     
-                     "learning_hour":36,
-                     "learning_language":"IT",
-                     "learning_ref":"http://...." /*perma link*/
+                     "learning_ssd": "ING-IND/17",
+                     "learning_sad": "",
+                     "learning_name": "IMPIANTI MECCANICI",
+                     "learning_code": "86468",
+                     "learning_cfu": 7,
+                     "learning_cfa": null,
+                     "learning_hour": 36,
+                     "learning_language": "IT",
+                     "learning_ref": "http://...." /*perma link*/
                   },
                   {
-                     "learning_ssd":"ING-IND/14",
-                     "learning_sad":"",
-                     "learning_name":"TEORIA E TECNICA DEI VEICOLI TERRESTRI",
-                     "learning_code":"086509",
-                     "learning_cfu":5,
-                     "learning_cfa":null,     
-                     "learning_hour":25,
-                     "learning_language":"IT",
-                     "learning_ref":"http://...."
+                     "learning_ssd": "ING-IND/14",
+                     "learning_sad": "",
+                     "learning_name": "TEORIA E TECNICA DEI VEICOLI TERRESTRI",
+                     "learning_code": "086509",
+                     "learning_cfu": 5,
+                     "learning_cfa": null,
+                     "learning_hour": 25,
+                     "learning_language": "IT",
+                     "learning_ref": "http://...."
                   }
                ]
             }
-         ]	  
-	  }
+         ]
+      }
    ]
 }
-
 /*Esempio Conservatorio*/
 {
-   "programme_type_code":"LT",
-   "programme_access":"free",
-   "course_location":"Roma",
+   "programme_type_code": "LT",
+   "programme_access": "free",
+   "course_location": "Roma",
    "remote_mode": "on-site", /*full-remote, on-site, hybrid, not-available*/
-   "course_area":"DISCIPLINE INTERPRETATIVE",
-   "degree_course_language":"IT",
-   "degree_course_period_years":3,
-   "degree_course_code":"1234", /*in attesa di dataset*/
-   "total_credits":180,
-   "academic_year":"2023/2024",
-   "first_year_activation_course":"2010/2011",/* Facoltativo*/
-   "website_university":"http://www.nomeconservatorio.it",
-   "website_course":"http://...",
-   
-   "curriculum_list":[  
+   "course_area": "DISCIPLINE INTERPRETATIVE",
+   "degree_course_language": "IT",
+   "degree_course_period_years": 3,
+   "degree_course_code": "1234", /*in attesa di dataset*/
+   "total_credits": 180,
+   "academic_year": "2023/2024",
+   "first_year_activation_course": "2010/2011", /* Facoltativo*/
+   "website_university": "http://www.nomeconservatorio.it",
+   "website_course": "http://...",
+   "curriculum_list": [
       {
-         "curriculum_name":"NON DIFFERENZIATO", /*indirizzo, percorso, specializzazione filone formativo*/
-         "curriculum_learnings":[
+         "curriculum_name": "NON DIFFERENZIATO", /*indirizzo, percorso, specializzazione filone formativo*/
+         "curriculum_learnings": [
             {
-               "degree_course_year":1,
-               "learnings":[
+               "degree_course_year": 1,
+               "learnings": [
                   {
-                     "learning_ssd":"",
-                     "learning_sad":"COTP/06",
-                     "learning_name":"Ear training I", 
-                     "learning_code":"081360", /*in attesa di dataset*/
-                     "learning_cfu":null,
-                     "learning_cfa":10,
-                     "learning_hour":48,
-                     "learning_language":"IT",
-                     "learning_ref":"http://...." /*perma link*/
-					 
+                     "learning_ssd": "",
+                     "learning_sad": "COTP/06",
+                     "learning_name": "Ear training I",
+                     "learning_code": "081360", /*in attesa di dataset*/
+                     "learning_cfu": null,
+                     "learning_cfa": 10,
+                     "learning_hour": 48,
+                     "learning_language": "IT",
+                     "learning_ref": "http://...." /*perma link*/
                   },
                   {
-                     "learning_ssd":"",
-                     "learning_sad":"COTP/01",
-                     "learning_name":"Teorie e tecniche dell'armonia I",
-                     "learning_code":"0489", /*in attesa di dataset*/
-                     "learning_cfu":null,
-                     "learning_cfa":7,
-                     "learning_hour":36,
-                     "learning_language":"IT",
-                     "learning_ref":"http://...."
+                     "learning_ssd": "",
+                     "learning_sad": "COTP/01",
+                     "learning_name": "Teorie e tecniche dell'armonia I",
+                     "learning_code": "0489", /*in attesa di dataset*/
+                     "learning_cfu": null,
+                     "learning_cfa": 7,
+                     "learning_hour": 36,
+                     "learning_language": "IT",
+                     "learning_ref": "http://...."
                   }
                ]
-            },
-            {
-               "degree_course_year":2,
-               "learnings":[
-                  {
-                     "learning_ssd":"",
-                     "learning_sad":"COTP/06",
-                     "learning_name":"Ear training II", 
-                     "learning_code":"081360", /*in attesa di dataset*/
-                     "learning_cfu":null,
-                     "learning_cfa":10,
-                     "learning_hour":48,
-                     "learning_language":"IT",
-                     "learning_ref":"http://...." /*perma link*/
-					 
-                  },
-                  {
-                     "learning_ssd":"",
-                     "learning_sad":"COTP/01",
-                     "learning_name":"Teorie e tecniche dell'armonia II",
-                     "learning_code":"0489", /*in attesa di dataset*/
-                     "learning_cfu":null,
-                     "learning_cfa":7,
-                     "learning_hour":36,
-                     "learning_language":"IT",
-                     "learning_ref":"http://...."
-                  }
-               ]
-            },
-            {
-               "degree_course_year":3,
-               "learnings":[
-                  {
-                     "learning_ssd":"",
-                     "learning_sad":"CODM/04",
-                     "learning_name":"Storia e storiografia della musica III", 
-                     "learning_code":"081220", /*in attesa di dataset*/
-                     "learning_cfu":null,
-                     "learning_cfa":10,
-                     "learning_hour":48,
-                     "learning_language":"IT",
-                     "learning_ref":"http://...." /*perma link*/					 
-                  },
-                  {
-                     "learning_ssd":"",
-                     "learning_sad":"CODI/21",
-                     "learning_name":"Prassi esecutive e repertori III",
-                     "learning_code":"654654", /*in attesa di dataset*/
-                     "learning_cfu":null,
-                     "learning_cfa":20,
-                     "learning_hour":40,
-                     "learning_language":"IT",
-                     "learning_ref":"http://...."
-                  }
-               ]
-            }						
-			
+            }
          ]
-      }  
-
+      }
    ]
 }
-
