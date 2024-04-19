@@ -1,6 +1,6 @@
 # Release note
 
-## Version 2.0.4
+## Version 2.0.4 Stable version
 
 - [IFS03.1] Removed the required condition on the attribute qualification_name in the response
 - [IFS03.1] Added the required to the qualification_grade_value
@@ -12,9 +12,6 @@
 - [Readme.md] It was updated the IFS01 descriptions
 - [IFS01.2] It was added the cursor pagination even for the detail educational offering detail
 - [Readme.md, IFS01, IFS02, IFS03] Severals updates with feedbacks required by the work group 1.3.1 Università and AFAM 
-
-
-:warning: todo the release
 
 ## Version 2.0.3
 
