@@ -13,6 +13,8 @@
 - [IFS01.2] It was added the cursor pagination even for the detail educational offering detail
 - [Readme.md, IFS01, IFS02, IFS03] Severals updates with feedbacks required by the work group 1.3.1 Università and AFAM 
 
+https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/releases/tag/2.0.4
+
 ## Version 2.0.3
 
 - Removed the degree_class_code attribute from IFS01 and corrected the example in the issue services IF04 and IFS05
