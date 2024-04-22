@@ -151,6 +151,7 @@ paths:
                       website_course: http://....
                       curriculum_list:
                         - curriculum_name: NON DIFFERENZIATO
+                        - curriculum_description: relativamente agli insegnamenti a scelta si invita a consultare il riferimento del corso sul portale istituzionale
                           curriculum_learnings: 
                           - degree_course_year: 1
                             learnings:
@@ -189,6 +190,7 @@ paths:
                       website_course: http://....
                       curriculum_list:
                         - curriculum_name: NON DIFFERENZIATO
+                          curriculum_description: relativamente agli insegnamenti a scelta si invita a consultare il riferimento del corso sul portale istituzionale
                           curriculum_learnings: 
                           - degree_course_year: 1
                             learnings:
@@ -485,6 +487,12 @@ components:
           example: NON DIFFERENZIATO          
           minLength: 1
           maxLength: 100
+        curriculum_description:
+          type: string
+          description: Curriculum details about the learnings and how to interpretate the follow learnings list / Descrizione della lista degli insegnamenti e come interpretarla in ottica di manifesto         
+          example: 'relativamente agli insegnamenti a scelta si invita a consultare il riferimento del corso sul portale istituzionale'
+          minLength: 1
+          maxLength: 4096
         curriculum_learnings:
           type: array
           minItems: 0

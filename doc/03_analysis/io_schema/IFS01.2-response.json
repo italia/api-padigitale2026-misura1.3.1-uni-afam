@@ -16,6 +16,7 @@
    "curriculum_list": [
       {
          "curriculum_name": "NON DIFFERENZIATO", /*indirizzo, percorso, specializzazione filone formativo*/
+         "curriculum_description": "relativamente agli insegnamenti a scelta si invita a consultare il riferimento del corso sul portale istituzionale",
          "curriculum_learnings": [
             {
                "degree_course_year": 1,
@@ -48,6 +49,7 @@
       },
       {
          "curriculum_name": "Processi tecnologici",
+         "curriculum_description": "relativamente agli insegnamenti a scelta si invita a consultare il riferimento del corso sul portale istituzionale",
          "curriculum_learnings": [
             {
                "degree_course_year": 1,
@@ -80,6 +82,7 @@
       },
       {
          "curriculum_name": "Veicoli",
+         "curriculum_description": "relativamente agli insegnamenti a scelta si invita a consultare il riferimento del corso sul portale istituzionale",
          "curriculum_learnings": [
             {
                "degree_course_year": 1,
@@ -130,6 +133,7 @@
    "curriculum_list": [
       {
          "curriculum_name": "NON DIFFERENZIATO", /*indirizzo, percorso, specializzazione filone formativo*/
+         "curriculum_description": "relativamente agli insegnamenti a scelta si invita a consultare il riferimento del corso sul portale istituzionale",  
          "curriculum_learnings": [
             {
                "degree_course_year": 1,
