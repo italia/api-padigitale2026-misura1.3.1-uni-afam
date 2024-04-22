@@ -1,5 +1,7 @@
 # Release note
 
+- [IFS01.2] It was added the curriculum description of the learnings list
+
 ## Version 2.0.4 Stable version
 
 - [IFS03.1] Removed the required condition on the attribute qualification_name in the response
