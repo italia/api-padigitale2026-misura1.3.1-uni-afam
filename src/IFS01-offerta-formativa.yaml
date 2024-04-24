@@ -226,13 +226,9 @@ paths:
             schema:
               $ref: '#/components/schemas/course_detail_request'
             examples:
-              1 - prima invocazione:
+              Esempio:
                 value:
-                  degree_course_code: '465'
-              2 - invocazioni successive alla prima:
-                value:
-                  degree_course_code: '465'
-                  cursor: "abc123456abc"      
+                  degree_course_code: '465'    
           application/xml:
             schema:
               type: object
@@ -613,13 +609,6 @@ components:
           description: Course code / Codice del corso
           minLength: 1
           maxLength: 20
-        cursor:
-          type: string
-          description: Cursor / Cursore
-          example: 'fowfio543s'
-          nullable: true
-          minLength: 1
-          maxLength: 512
   requestBodies: {}
   responses: {}
   securitySchemes:

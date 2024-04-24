@@ -121,14 +121,13 @@ paths:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
-                  file_code: 6d183bc572f6b200015a4167
           application/xml:
             schema:
               type: object
               additionalProperties: false
               properties: {}
         description: 'Esempio richiesta'
-      operationId: academic-enrollment-change-request-statu
+      operationId: academic-enrollment-change-request-status
   '/academic-enrollment-change-request-cancellation':
     post:
       summary: | 
@@ -158,13 +157,13 @@ paths:
         '500':
           description: Internal server error / Errore interno del server 
       operationId: rectification-cancellation
-      description: Rectification cancellation request / Effettua la richiesta di annullamento rettifica 
+      description: Cancellation enrollment change request / Effettua la richiesta di annullamento rettifica 
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/enrollment_change_request'
+              $ref: '#/components/schemas/enrollment_change_request_cancellation'
             examples:
               Example:
                 value:
@@ -662,8 +661,36 @@ components:
           minLength: 1
           maxLength: 64
       required:
-        - tax_code     
-        - file_code
+        - tax_code
+    enrollment_change_request_cancellation:
+      type: object
+      additionalProperties: false      
+      description: Request of a student's enrollment / Richiesta iscrizione di una studentessa o uno studente
+      properties:
+        tax_code:
+          type: string
+          description: Tax Identification Number / Codice fiscale
+          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          example: RSSMRA80A01F205D
+          minLength: 16
+          maxLength: 16
+        person_id:
+          type: string
+          description: Unique National Identifier (ANPR ID) / Identificativo unico nazionale (ID ANPR) 
+          maxLength: 9
+          minLength: 9
+          pattern: "^[A-Z0-9]{9}$"
+          example: AB123456C
+          nullable: true
+        file_code:
+          type: string
+          description: enrollment change request code/ Codice Rettifica iscrizioni
+          example: 6d183bc572f6b200015a4167
+          minLength: 1
+          maxLength: 64
+      required:
+        - tax_code    
+        - file_code 
   requestBodies: {}
   responses: {}
   securitySchemes:

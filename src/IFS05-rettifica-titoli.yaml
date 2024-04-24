@@ -142,7 +142,7 @@ paths:
       responses:
         '200':
           description: |
-            Delete the academic qualification change request / 
+            Cancellation academic qualification change request / 
             Richiesta di annullamento della richiesta di rettific di un titolo conseguito
           content:
             application/json:
@@ -163,7 +163,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/academic_qualification_change_request'
+              $ref: '#/components/schemas/academic_qualification_change_request_cancellation'
             examples:
               Example:
                 value:
@@ -488,7 +488,35 @@ components:
           maxLength: 64
       required:
         - tax_code     
-        - file_code    
+    academic_qualification_change_request_cancellation:
+      type: object
+      additionalProperties: false      
+      description: Request qualification of a student's qualification / Richiesta Titolo di una studentessa o uno studente
+      properties:
+        tax_code:
+          type: string
+          description: Tax Identification Number / Codice fiscale
+          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          example: RSSMRA80A01F205D
+          minLength: 16
+          maxLength: 16
+        person_id:
+          type: string
+          description: Unique National Identifier (ANPR ID) / Identificativo unico nazionale (ID ANPR) 
+          maxLength: 9
+          minLength: 9
+          pattern: "^[A-Z0-9]{9}$"
+          example: AB123456C
+          nullable: true
+        file_code:
+          type: string
+          description: qualification change request code/ Codice Rettifica titolo
+          example: 6d183bc572f6b200015a4167
+          minLength: 1
+          maxLength: 64
+      required:
+        - tax_code     
+        - file_code
     issue_request:
       type: object
       additionalProperties: false      
