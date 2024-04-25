@@ -344,7 +344,7 @@ components:
     issue_request:
       type: object
       additionalProperties: false      
-      description: Academic change request / Richiesta di rettifica di una studentessa o uno studente
+      description: Issue on enrollments data / Anomalie sui dati delle iscrizioni
       properties:
         subscriber_id:
           type: string
