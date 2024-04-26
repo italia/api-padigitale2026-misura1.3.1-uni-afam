@@ -232,21 +232,21 @@ paths:
                       - attribute_name: null
                         issue_description: description note
                   enrollments:
-                    institute_code: '16'
-                    institute_name: Milano - Politecnico
-                    programme_type_code: MS
-                    degree_course_code: '1573960'
-                    degree_class_code: MSLM32
-                    academic_year: 2021/2022
-                    degree_course_year: 3
-                    status: active
-                    issues:
-                      - attribute_name: degree_course_code
-                        issue_description: degree course code didn't find on the controlled vocabulary
-                      - attribute_name: degree_course_year
-                        issue_description: degree course can be only a numeric value
-                      - attribute_name: null
-                        issue_description: description note
+                    - institute_code: '16'
+                      institute_name: Milano - Politecnico
+                      programme_type_code: MS
+                      degree_course_code: '1573960'
+                      degree_class_code: MSLM32
+                      academic_year: 2021/2022
+                      degree_course_year: 3
+                      status: active
+                      issues:
+                        - attribute_name: degree_course_code
+                          issue_description: degree course code didn't find on the controlled vocabulary
+                        - attribute_name: degree_course_year
+                          issue_description: degree course can be only a numeric value
+                        - attribute_name: null
+                          issue_description: description note
           application/xml:
             schema:
               type: object
@@ -437,7 +437,7 @@ components:
           items:
             $ref: '#/components/schemas/issue'
     enrollments:
-      type: object
+      type: array
       additionalProperties: false
       description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
       properties:
