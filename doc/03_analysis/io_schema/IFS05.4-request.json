@@ -2,7 +2,7 @@
     "subscriber_id": "1234",
     "subscriber_name": "ANIS",
     "subscriber_message": "Warning on some academic qualifications",
-    "data_request_timestamp": "2023-12-04 01:00:00",
+    "data_request": "2023-12-04",
 
     "personal_data": {
         "tax_code": "RSSMRA80A01F205D",
