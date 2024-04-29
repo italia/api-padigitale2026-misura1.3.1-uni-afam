@@ -2,7 +2,7 @@
 {
    "programme_type_code": "LT",
    "programme_access": "free",
-   "course_location": "Milano Bovisa",
+   "course_location": "015146,015211",
    "remote_mode": "on-site", /*full-remote, on-site, hybrid, not-available*/
    "course_area": "Ingegneria industriale",
    "degree_course_language": "IT",
@@ -119,7 +119,7 @@
 {
    "programme_type_code": "LT",
    "programme_access": "free",
-   "course_location": "Roma",
+   "course_location": "058091",
    "remote_mode": "on-site", /*full-remote, on-site, hybrid, not-available*/
    "course_area": "DISCIPLINE INTERPRETATIVE",
    "degree_course_language": "IT",

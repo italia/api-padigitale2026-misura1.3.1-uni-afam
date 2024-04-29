@@ -34,7 +34,7 @@ paths:
                     degree_courses:
                       - programme_type_code: LT
                         programme_access: free
-                        course_location: Milano Bovisa
+                        course_location: 015146
                         course_area: Ingegneria industriale
                         degree_course_language: IT
                         degree_course_period_years: 3
@@ -43,7 +43,7 @@ paths:
                         academic_year: 2023/2024
                       - programme_type_code: MS
                         programme_access: free
-                        course_location: Milano, Settimo Milanese
+                        course_location: 015146,015211
                         course_area: Ingegneria aerospaziale e astronautica
                         degree_course_language: EN
                         degree_course_period_years: 2
@@ -57,7 +57,7 @@ paths:
                     degree_courses:
                       - programme_type_code: LT
                         programme_access: free
-                        course_location: Roma
+                        course_location: 058091
                         course_area: DISCIPLINE INTERPRETATIVE
                         degree_course_language: IT
                         degree_course_period_years: 3
@@ -66,7 +66,7 @@ paths:
                         academic_year: 2023/2024
                       - programme_type_code: XX
                         programme_access: free
-                        course_location: Roma, Ostia
+                        course_location: 058091,058039
                         course_area: DISCIPLINE INTERPRETATIVE
                         degree_course_language: EN
                         degree_course_period_years: 2
@@ -75,7 +75,7 @@ paths:
                         academic_year: 2023/2024
                       - programme_type_code: YY
                         programme_access: free
-                        course_location: Roma, Ostia
+                        course_location: 058091,058039
                         course_area: Discipline interpretative del jazz, delle musiche improvvisate e audiotattili
                         degree_course_language: EN
                         degree_course_period_years: 2
@@ -138,7 +138,7 @@ paths:
                   value:
                       programme_type_code: LT
                       programme_access: free
-                      course_location: Roma
+                      course_location: 058091
                       remote_mode: on-site
                       course_area: DISCIPLINE INTERPRETATIVE
                       degree_course_language: IT
@@ -177,7 +177,7 @@ paths:
                   value:
                       programme_type_code: LT
                       programme_access: free
-                      course_location: Milano Bovisa
+                      course_location: 015146
                       remote_mode: on-site
                       course_area: Ingegneria industriale
                       degree_course_language: IT

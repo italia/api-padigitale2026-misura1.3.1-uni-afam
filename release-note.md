@@ -6,6 +6,8 @@
 - [IFS05.4] Issue #170 - It was fixed the example request.json on the data_request, it was removed the timestamp in the data_request_timestamp exactly how it was in the yaml
 - [IFS04.4] Issue #168 - Enrollments from Object to  Array in yaml IFS04 + and the examples have been updated
 - [IFS05.4] Issue #169 - Qualifications from Object to Array in yaml IFS05 and the examples have been updated
+- [IFS01] Issue #171 The examples with the municipality's name has changed with ISTAT code
+
 
 
 ## Version 2.0.4 Stable version
