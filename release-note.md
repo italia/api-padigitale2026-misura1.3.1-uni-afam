@@ -7,7 +7,7 @@
 - [IFS04.4] Issue #168 - Enrollments from Object to  Array in yaml IFS04 + and the examples have been updated
 - [IFS05.4] Issue #169 - Qualifications from Object to Array in yaml IFS05 and the examples have been updated
 - [IFS01] Issue #171 The examples with the municipality's name has changed with ISTAT code
-
+- [IFS09] Issue #173 Fixed the endpoint name in count-academic-enrollments-by-degree-courses
 
 
 ## Version 2.0.4 Stable version
