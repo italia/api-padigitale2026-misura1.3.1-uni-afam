@@ -15,12 +15,12 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
-  /count-accademic-enrollments-by-degree-courses:
+  /count-academic-enrollments-by-degree-courses:
     post:
       summary: | 
         Retrieve the number of academic enrollments by degree course / Ottiene il numero di iscrizioni accademiche per corso di studi
       tags:
-        - IFS09.1 - count-accademic-enrollments-by-degree-courses
+        - IFS09.1 - count-academic-enrollments-by-degree-courses
       security: 
         - bearerAuth: []
       responses:
@@ -85,7 +85,7 @@ paths:
               additionalProperties: false
               properties: {}
         description: ''
-      operationId: iscritti-per-isee
+      operationId: iscritti-per-corso
       description: Retrieve the number of academic enrollments by degree course / Ottiene il numero di iscrizioni accademiche per corso di studi
 
   /status:
@@ -220,5 +220,5 @@ servers:
   - url: 'https://localhost:8080/api'
     description: localhost        
 tags:
-  - name: IFS09.1 - count-accademic-enrollments-by-degree-courses
+  - name: IFS09.1 - count-academic-enrollments-by-degree-courses
   - name: health-check
