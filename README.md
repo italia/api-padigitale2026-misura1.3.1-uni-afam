@@ -828,7 +828,7 @@ N.B. Si prega di visionare anche la sezione IFS02
 Richiede la lista dei titoli conseguiti negli ultimi 10 anni accademici
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
-" /> Definizione [OpenApi.yaml](src/IFS07_variazioni-titoli.yaml)
+" /> Definizione [OpenApi.yaml](src/IFS07-variazioni-titoli.yaml)
 
 
 #### :globe_with_meridians: IFS07.1 - student-qualifications-changes
@@ -858,7 +858,7 @@ Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fi
 Acquisisce il numero di studentesse e studenti per fasce ISEE in un anno accademico
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
-" /> Definizione [OpenApi.yaml](src/IFS08_iscrizioni-per-fasce-isee.yaml)
+" /> Definizione [OpenApi.yaml](src/IFS08-iscrizioni-per-fasce-isee.yaml)
 
 #### :globe_with_meridians: IFS08.1 - count_academic_enrollments_by_isee_ranges
 
