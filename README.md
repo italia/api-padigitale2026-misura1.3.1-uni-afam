@@ -18,7 +18,7 @@ Questo repository contiene le specifiche delle API relative alla misura 1.3.1 pe
 
 La tabella sottostante (Tabella 1) riporta il dettaglio del titolo e descrizione per tutte e nove le API (dalla IFS01 alla IFS09) che dovranno essere erogate dai Soggetti Attuatori in base alla fascia di appartenenza. 
 
-:rocket: Link rapido alle [linee guida d'implementazione degli e-service](#linee-guida-e-service)
+:rocket: Link rapido alle [linee guida d'implementazione degli e-service](#linee-guida-agli-e-service)
 
 :rocket: Link rapido alla [release note](/release-note.md)
 
@@ -787,7 +787,7 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 
 :jigsaw: **caso d'uso tipico**: Interazione con anagrafe ANIS
 
-Richiede la lista delle ultime iscrizioni per ogni corso di studi negli ultimi 10 anni accademici.
+Richiede la lista delle ultime iscrizioni per ogni corso di studi negli ultimi 3 anni accademici.
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS06-variazioni-iscrizioni.yaml)
