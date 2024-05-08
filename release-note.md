@@ -8,6 +8,7 @@
 - [IFS05.4] Issue #169 - Qualifications from Object to Array in yaml IFS05 and the examples have been updated
 - [IFS01] Issue #171 The examples with the municipality's name has changed with ISTAT code
 - [IFS09] Issue #173 Fixed the endpoint name in count-academic-enrollments-by-degree-courses
+- [IFS0X] The definition of the http status 400 (bad request) has been updated for each YAML
 
 
 ## Version 2.0.4 Stable version
