@@ -78,7 +78,12 @@ paths:
                     meta:
                       cursor: null      
         '400':
-          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+          description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
+            <br> - Richiesta non valida
+            <br> - Sintassi errata
+            <br> - Parametro mancante
+            <br> - Richiesta incompleta
+            <br> - ...
         '404':
           description: No items were found to return / Non sono stati trovati entità da restituire
           content:
@@ -107,6 +112,8 @@ paths:
       tags:
         - health-check
       responses:
+        '400':
+          description: Bad Request
         '204':
           description: The service is running correctly / Il servizio è in esecuzione correttamente
         '500':

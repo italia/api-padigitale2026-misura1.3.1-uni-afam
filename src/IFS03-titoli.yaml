@@ -122,7 +122,12 @@ paths:
                         qualification_grading_scale_minimum_grade: null
                         qualification_grading_scale_maximum_grade: null        
         '400':
-          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input                    
+          description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
+            <br> - Richiesta non valida
+            <br> - Sintassi errata
+            <br> - Parametro mancante
+            <br> - Richiesta incompleta
+            <br> - ...               
         '404':
           description: No degrees were found to have been earned for the student / Non sono stati trovati titoli conseguiti per la studentessa o lo studente
           content:
@@ -196,7 +201,12 @@ paths:
                         qualification_grading_scale_maximum_grade: '110'
                         academic_qualification_country: Italia
         '400':
-          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+          description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
+            <br> - Richiesta non valida
+            <br> - Sintassi errata
+            <br> - Parametro mancante
+            <br> - Richiesta incompleta
+            <br> - ...
         '404':
           description: No items were found to return / Non sono stati trovati elementi da restituire
           content:
@@ -272,7 +282,12 @@ paths:
                         - learning_name: Fisica tecnica
                           ects_credits: 5
         '400':
-          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+          description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
+            <br> - Richiesta non valida
+            <br> - Sintassi errata
+            <br> - Parametro mancante
+            <br> - Richiesta incompleta
+            <br> - ...
         '404':
           description: No qualification were found for the student. / Non sono stati trovati titoli per la studentessa o lo studente.
           content:
@@ -375,7 +390,12 @@ paths:
                           learning_cfu: '6'
                       
         '400':
-          description: One of the input fields appears to be missing / Risulta mancante uno dei campi di input
+          description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
+            <br> - Richiesta non valida
+            <br> - Sintassi errata
+            <br> - Parametro mancante
+            <br> - Richiesta incompleta
+            <br> - ...
         '404':
           description: No qualification were found for the student. / Non sono stati trovati titoli per la studentessa o lo studente.
           content:
@@ -419,6 +439,8 @@ paths:
       tags:
         - health-check
       responses:
+        '400':
+          description: Bad Request
         '204':
           description: The service is running correctly / Il servizio è in esecuzione correttamente
         '500':

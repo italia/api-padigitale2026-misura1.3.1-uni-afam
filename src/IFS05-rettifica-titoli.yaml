@@ -39,6 +39,13 @@ paths:
                     file_status: acquired
                     file_code: 6d183bc572f6b200015a4167
                     message: Richiesta di rettifica del titolo conseguito acquisita con successo
+        '400':
+          description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
+            <br> - Richiesta non valida
+            <br> - Sintassi errata
+            <br> - Parametro mancante
+            <br> - Richiesta incompleta
+            <br> - ...
         '404':
           description: Student not found / Studente non trovato
         '500':
@@ -106,6 +113,13 @@ paths:
                       - file_status: rejected
                         file_code: 6d183b54654127dfhh15a4167
                         message: testo messaggio  
+        '400':
+          description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
+            <br> - Richiesta non valida
+            <br> - Sintassi errata
+            <br> - Parametro mancante
+            <br> - Richiesta incompleta
+            <br> - ...
         '404':
           description: Registration correction not found / Rettifica iscrizione non trovata
         '500':
@@ -155,6 +169,13 @@ paths:
                     file_status: approved
                     file_code: 6d183bc572f6b200015a4167
                     message: messaggio di testo
+        '400':
+          description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
+            <br> - Richiesta non valida
+            <br> - Sintassi errata
+            <br> - Parametro mancante
+            <br> - Richiesta incompleta
+            <br> - ...
         '500':
           description: Internal server error / Errore interno del server 
       description: cancellation change request / Effettua la richiesta di annullamento rettifica 
@@ -201,6 +222,13 @@ paths:
                     file_status: approved
                     file_code: 6d183bc572f6b200015a4167
                     message: Testo messaggio
+        '400':
+          description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
+            <br> - Richiesta non valida
+            <br> - Sintassi errata
+            <br> - Parametro mancante
+            <br> - Richiesta incompleta
+            <br> - ...
         '404':
           description: Student not found / Studente non trovato
         '500':
@@ -306,6 +334,8 @@ paths:
         - health-check
       security: [{}]
       responses:
+        '400':
+          description: Bad Request
         '204':
           description: il servizio è in esecuzione correttamente.
         '500':
