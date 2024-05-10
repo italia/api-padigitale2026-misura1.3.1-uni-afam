@@ -1087,9 +1087,7 @@ components:
           example: AA
           minLength: 1
           maxLength: 256
-          nullable: true
-      required:
-        - tax_code      
+          nullable: true   
     eu_qualification_request:
       type: object
       additionalProperties: false      
