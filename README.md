@@ -825,7 +825,8 @@ N.B. Si prega di visionare anche la sezione IFS02
 
 
 ### IFS07 Variazione titoli
-Richiede la lista dei titoli conseguiti negli ultimi 10 anni accademici
+Richiede la lista di tutti i titoli conseguiti
+**N.B. La spifica di questo servizio sarà soggetto a modifica e verranno aggiunti dei filtri per abilitare anche l'incrementale con il rispetto di alcuni vincoli**
 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS07-variazioni-titoli.yaml)
