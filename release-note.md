@@ -13,7 +13,7 @@
 - [IFS07] Filter parameters have been added 
         1. new/old University System (university_system_type)
         2. full or the incremental mode (syncmode)
-- [IFS02.3] The structure of the proof_education_course object has been changed from an object to an array
+- [IFS02.3] Issue #175 The structure of the proof_education_course object has been changed from an object to an array
 
 
 ## Version 2.0.4 Stable version
