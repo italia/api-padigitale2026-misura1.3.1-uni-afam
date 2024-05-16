@@ -245,29 +245,52 @@ paths:
                       tax_code: RSSMRA80A01F205D
                       person_id: AB123456C
                     proof_education_course:
-                      programme_type_code: MS
-                      programme_type_name: Laurea Magistrale (DM 270/04)
-                      degree_course_code: '1573960'
-                      degree_course_name: Ingegneria informatica
-                      degree_class_code: MSLM32
-                      degree_class_name: Ingegneria informatica
-                      institute_code: '16'
-                      institute_name: Milano - Politecnico
-                      learnings: 
-                        - attended_learning_name: Esame 1
-                          start_date: 2020-10-13
-                          end_date: 2023-10-13
-                          grade_value: '28'
-                          grading_scale_min: '18'
-                          grading_scale_max: '30'
-                          ects_credits_received: 6
-                        - attended_learning_name: Esame 2
-                          start_date: 2020-10-13
-                          end_date: 2023-10-13
-                          grade_value: '29'
-                          grading_scale_min: '18'
-                          grading_scale_max: '30'
-                          ects_credits_received: 6
+                        - programme_type_code: MT
+                          programme_type_name: Laurea Triennale (DM 270/04)
+                          degree_course_code: 1573961
+                          degree_course_name: Ingegneria informatica
+                          degree_class_code: MSLT32
+                          degree_class_name: Ingegneria informatica
+                          institute_code: 16
+                          institute_name: Milano - Politecnico
+                          learnings:
+                            - attended_learning_name: Esame 3
+                              start_date: 2020-10-13
+                              end_date: 2023-10-13
+                              grade_value: 30
+                              grading_scale_min: 18
+                              grading_scale_max: 30
+                              ects_credits_received: 6
+                            - attended_learning_name: Esame 4
+                              start_date: 2020-10-13
+                              end_date: 2023-10-13
+                              grade_value: 30
+                              grading_scale_min: 18
+                              grading_scale_max: 30
+                              ects_credits_received: 6
+                        - programme_type_code: MS
+                          programme_type_name: Laurea Magistrale (DM 270/04)
+                          degree_course_code: 1573960
+                          degree_course_name: Ingegneria informatica
+                          degree_class_code: MSLM32
+                          degree_class_name: Ingegneria informatica
+                          institute_code: 16
+                          institute_name: Milano - Politecnico
+                          learnings:
+                            - attended_learning_name: Esame 1
+                              start_date: 2020-10-13
+                              end_date: 2023-10-13
+                              grade_value: 30
+                              grading_scale_min: 18
+                              grading_scale_max: 30
+                              ects_credits_received: 6
+                            - attended_learning_name: Esame 2
+                              start_date: 2020-10-13
+                              end_date: 2023-10-13
+                              grade_value: 30
+                              grading_scale_min: 18
+                              grading_scale_max: 30
+                              ects_credits_received: 6
         '400':
           description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
             <br> - Richiesta non valida
@@ -636,7 +659,7 @@ components:
         proof_education_course:
           $ref: '#/components/schemas/proof_education_course'
     proof_education_course:
-      type: object
+      type: array
       nullable: true
       additionalProperties: false
       description: Examinations taken by the student / Esami sostenuti della studentessa o dello studente

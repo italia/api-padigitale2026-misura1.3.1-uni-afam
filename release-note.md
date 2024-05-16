@@ -10,6 +10,10 @@
 - [IFS09] Issue #173 Fixed the endpoint name in count-academic-enrollments-by-degree-courses
 - [IFS0X] The definition of the http status 400 (bad request) has been updated for each YAML
 - [IFS03.1] Removed the required attribute to the tax_code parameter
+- [IFS07] Filter parameters have been added 
+        1. new/old University System (university_system_type)
+        2. full or the incremental mode (syncmode)
+- [IFS02.3] The structure of the proof_education_course object has been changed from an object to an array
 
 
 ## Version 2.0.4 Stable version
