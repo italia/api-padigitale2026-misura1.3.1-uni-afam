@@ -14,6 +14,7 @@
         1. new/old University System (university_system_type)
         2. full or the incremental mode (syncmode)
 - [IFS02.3] Issue #175 The structure of the proof_education_course object has been changed from an object to an array
+- [IFS02, IFS03] The API was updated to make the tax_code mandatory in the request, while the person_id is recommended
 
 
 ## Version 2.0.4 Stable version

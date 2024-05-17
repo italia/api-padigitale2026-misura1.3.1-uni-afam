@@ -139,7 +139,7 @@ paths:
             schema:
               $ref: '#/components/schemas/it_qualification_request'
             examples:
-              With person:
+              With tax_code/person_id:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
@@ -151,7 +151,7 @@ paths:
               type: object
               additionalProperties: false
               properties: {}
-        description: 'Request di esempio'
+        description: 'Request di esempio, si rimanda al readme.md per le regole di obbligatorietà'
   '/proof-tertiary-education-qualifications':
     post:
       summary: | 
@@ -1064,6 +1064,8 @@ components:
           pattern: "^[A-Z0-9]{9}$"
           example: AB123456C
           nullable: true
+      required:
+        - tax_code
   requestBodies: {}
   responses: {}
   securitySchemes:

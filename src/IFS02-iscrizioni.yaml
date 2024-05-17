@@ -98,7 +98,7 @@ paths:
                         institute_name: Milano - Politecnico
                         programme_type_code: MS
                         degree_course_code: '1573960'
-                        degree_class_code: MSLM32
+                        degree_class_code: null
                         academic_year: 2021/2022
                         degree_course_year: 3
                         status: active               
@@ -1078,6 +1078,8 @@ components:
           pattern: "^[A-Z0-9]{9}$"
           example: AB123456C
           nullable: true
+      required:
+        - tax_code
   requestBodies: {}
   responses: {}
   securitySchemes:

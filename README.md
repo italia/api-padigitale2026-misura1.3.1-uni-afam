@@ -326,7 +326,7 @@ Acquisizione del dettaglio delle ultime iscrizioni per corso di studi negli ulti
 > <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni**  
 >
 > Regole di obbligatorietà input
-> * Nella request popolare almeno il person_id o il tax_code dando priorità al person_id oppure il parametro key nel caso dello scenario descritto nell'API IFS06 per l'acquisizione delle variazioni
+> * Nella request è obbligatorio il tax_code ed è desiderato anche il person_id per il futuro, oppure è obbligatorio il parametro key nel caso dello scenario descritto nell'API IFS06 per l'acquisizione delle variazioni
 >
 > Le regole di obbligatorietà di output  
 > 1. Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
@@ -356,22 +356,8 @@ Acquisizione del dettaglio delle ultime iscrizioni per corso di studi negli ulti
 >    "birth_place": Roma, RM, Italia
 >  }
 >```
->
-> 3. Nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'errore 404 (vedi esempio nel file YAML)
->
->```
->ESEMPIO 4: 
->
->status code=404
->
->{
-> "personal_data": null,
->  "enrollments": []
->}
->```
->
-> 4. Nella struttura "enrollments" tutti i campi sono obbligatori tranne il degree_class_code. Nel caso in cui il degree_class_code non sia valorizzabile, è possibile passarlo con il valore NULL
-> 5. Nella struttura "enrollments", qualora sia presente un attributo non valorizzabile (ad esclusione del attirubuto degree_class_code) l'istanza dell'iscrizione non deve essere restituita. In questa casistica, qualora sia presente solamente una iscrizione, prevedere la restituzione dello status code 404 
+> 3. Nella struttura "enrollments" tutti i campi sono obbligatori tranne il degree_class_code. Nel caso in cui il degree_class_code non sia valorizzabile, è possibile passarlo con il valore NULL
+> 4. Nella struttura "enrollments", qualora sia presente un attributo non valorizzabile (ad esclusione del attirubuto degree_class_code) l'istanza dell'iscrizione non deve essere restituita.
 >
 >```Di seguito l'obbligatorietà con "*"
 >
@@ -524,11 +510,9 @@ Acquisizione del dettaglio dei titoli accademici conseguiti da una studentessa/u
 >    "birth_place": Roma, RM, Italia
 >  }
 >```
->3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'errore 404 (vedi esempio nel file YAML)
->3) nella struttura "qualifications" tutti i campi sono obbligatori tranne il degree_class_code. Nel caso in cui il degree_class_code non sia valorizzabile, è possibile passarlo con il valore NULL
->4) nella struttura "qualifications", qualora sia presente un attributo non valorizzabile (ad esclusione degli attributi degree_class_code/qualification_grading_scale_maximum_grade/qualification_grading_scale_minimum_grade/) non dovrà essere restituito Item.  
-Qualora fosse presente solamente una qualifica e nel caso in cui quest'ultima non dovesse riportare i dati obbligatori, prevedere la restituzione dello status code 404 
-
+>3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione
+>4) nella struttura "qualifications" tutti i campi sono obbligatori tranne il degree_class_code. Nel caso in cui il degree_class_code non sia valorizzabile, è possibile passarlo con il valore NULL
+>5) nella struttura "qualifications", qualora sia presente un attributo non valorizzabile (ad esclusione degli attributi degree_class_code/qualification_grading_scale_maximum_grade/qualification_grading_scale_minimum_grade/) non dovrà essere restituito Item.  
 
 
 #### :globe_with_meridians: IFS03.2 - proof-tertiary-education-qualifications
@@ -550,7 +534,7 @@ dal solo Ateneo di riferimento (l’unico che comunica i dati della carriera ad 
 >* Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
 >1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
 >2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
->3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'errore 404 (vedi esempio nel file YAML)
+
 
 #### :globe_with_meridians: IFS03.3 - proof-tertiary-education-qualifications-level
 
@@ -571,7 +555,7 @@ Durata normale del corso espresso in mesi per gestire corsi di master di durata 
 > * Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi): 
 >1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
 >2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
->3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'errore 404 (vedi esempio nel file YAML)
+
 
 
 #### :globe_with_meridians: IFS03.4 - proof-tertiary-education-qualifications-diploma-supplement
@@ -595,7 +579,7 @@ Indicare date convenzionali in base all’anno accademico ed al semestre
 > * Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
 >1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
 >2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
->3) nel caso in cui uno dei valori presenti al punto 2 non sia possibile valorizzarlo, è necessario NON restituire l'istanza dell'iscrizione e rimandare all'errore 404 (vedi esempio nel file YAML)
+
 
 [Risorse utili](#risorse-utili)
 
