@@ -853,7 +853,7 @@ Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fi
 > 1. Il valore 'old' si riferisce a tutti i titoli accademici ottenuti prima del nuovo ordinamento Universitario/AFAM regolato dai decreti legislativi 509/99 per l'Università e 508/99 per l'AFAM.
 > 1. Il valore 'new' si riferisce ai titoli accademici ottenuti a partire dal nuovo oridnamento Universitario/AFAM regolato dai decreti legislativi 509/99 per l'Università e 508/99 per l'AFAM.
 > 1. Se questo parametro non è specificato, l'API restituisce i titoli accademici sia del vecchio che del nuovo ordinamento.
-> * ***sync_mode*** di seguito la descriione delle codifiche disponibili per il campo:
+> * ***sync_mode***, di seguito la descrizione delle codifiche disponibili per il campo:
 > 1. Il valore 'full' rappresenta tutti i titoli accademici
 > 1. Il valore 'incremental' rappresenta:
 > a) Ogni qualifica accademica ottenuta dallo studente negli ultimi 2 anni solari (basata sulla data di conseguimento del titolo).
