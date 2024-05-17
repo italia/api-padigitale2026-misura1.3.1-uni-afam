@@ -128,17 +128,6 @@ paths:
             <br> - Parametro mancante
             <br> - Richiesta incompleta
             <br> - ...               
-        '404':
-          description: No degrees were found to have been earned for the student / Non sono stati trovati titoli conseguiti per la studentessa o lo studente
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/academic_qualifications'
-              examples:
-                Statuscode=404:
-                  value:
-                    personal_data: null
-                    qualifications: []
         '500':
           description: Internal server error / Errore interno del server 
       operationId: titoli-studente
@@ -207,17 +196,6 @@ paths:
             <br> - Parametro mancante
             <br> - Richiesta incompleta
             <br> - ...
-        '404':
-          description: No items were found to return / Non sono stati trovati elementi da restituire
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/proof_education_qualifications'
-              examples:
-                Statuscode=404:
-                  value:
-                    personal_data:
-                    proof_qualifications: []
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Qualifications-education-of-student
@@ -288,17 +266,6 @@ paths:
             <br> - Parametro mancante
             <br> - Richiesta incompleta
             <br> - ...
-        '404':
-          description: No qualification were found for the student. / Non sono stati trovati titoli per la studentessa o lo studente.
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/proof_education_qualifications_level'
-              examples:
-                Statuscode=404:
-                  value:
-                    personal_data: null
-                    proof_qualifications_level: null
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Proof-tertiary-education-qualifications-level
@@ -396,17 +363,6 @@ paths:
             <br> - Parametro mancante
             <br> - Richiesta incompleta
             <br> - ...
-        '404':
-          description: No qualification were found for the student. / Non sono stati trovati titoli per la studentessa o lo studente.
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/proof_education_qualifications_diploma_supplement'
-              examples:
-                Statuscode=404:
-                  value:
-                    personal_data: null
-                    proof_qualifications_diploma_supplement: null
         '500':
           description: Internal server error / Errore interno del server 
       description:  <ul> <li>Retrieves evidence relating to the "Diploma Supplement" developed jointly by the Council of Europe, the European Commission and UNESCO, and its updated version, adopted by the Lisbon Convention Committee in 2007</li><li>Recupera le prove relative allo strumento "Diploma Supplement," sviluppato congiuntamente dal Consiglio d'Europa, dalla Commissione Europea e dall'UNESCO, e della sua versione aggiornata, adottata dal Comitato della Convenzione di Lisbona nel 2007.</li></ul>

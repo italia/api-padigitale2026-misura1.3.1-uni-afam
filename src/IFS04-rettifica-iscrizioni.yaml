@@ -44,8 +44,6 @@ paths:
             <br> - Parametro mancante
             <br> - Richiesta incompleta
             <br> - ...
-        '404':
-          description: Student not found / Studente non trovato
         '500':
           description: Internal server error / Errore interno del server 
       description: Create an enrollment change request / Crea una richiesta di rettifica dei dati relativi alle iscrizioni di una studentessa o uno studente.
@@ -119,8 +117,6 @@ paths:
             <br> - Parametro mancante
             <br> - Richiesta incompleta
             <br> - ...
-        '404':
-          description: Change request not found / Rettifica iscrizione non trovata
         '500':
           description: Internal server error / Errore interno del server 
       description: Retrieve the status of enrollmet change request / Recupera lo stato di una richiesta di rettifica iscrizione tramite il suo identificativo
@@ -227,8 +223,6 @@ paths:
             <br> - Parametro mancante
             <br> - Richiesta incompleta
             <br> - ...
-        '404':
-          description: Student not found / Studente non trovato
         '500':
           description: Internal server error / Errore interno del server 
       description: Report issue on enrollments data  / Permette di segnalare le anomalie sui dati delle iscrizioni

@@ -109,17 +109,6 @@ paths:
             <br> - Parametro mancante
             <br> - Richiesta incompleta
             <br> - ...
-        '404':
-          description: No items were found to return / Non sono state trovate entità da restituire
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/enrollments'
-              examples:
-                statuscode=404:
-                  value:
-                    personal_data: 
-                    enrollments: []
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Enrollments-of-student
@@ -188,17 +177,6 @@ paths:
             <br> - Parametro mancante
             <br> - Richiesta incompleta
             <br> - ...
-        '404':
-          description: No items were found to return / Non sono state trovate entità da restituire
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/proof_education_enrollments'
-              examples:
-                statuscode=404:
-                  value:
-                    personal_data: 
-                    proof_enrollments: []
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Enrollments-education-of-student
@@ -298,17 +276,6 @@ paths:
             <br> - Parametro mancante
             <br> - Richiesta incompleta
             <br> - ...
-        '404':
-          description: No items were found to return / Non sono state trovate entità da restituire
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/proof_education_courses'
-              examples:
-                statuscode=404:
-                  value:
-                    personal_data: 
-                    proof_education_course: null
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Qualifications-education-of-student
@@ -374,17 +341,6 @@ paths:
             <br> - Parametro mancante
             <br> - Richiesta incompleta
             <br> - ...
-        '404':
-          description: No items were found to return / Non sono state trovate entità da restituire
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/proof_tertiary_education_admission'
-              examples:
-                statuscode=404:
-                  value:
-                    personal_data:
-                    proof_admissions: []
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Tertiary-education-of-student
@@ -453,17 +409,6 @@ paths:
             <br> - Parametro mancante
             <br> - Richiesta incompleta
             <br> - ...
-        '404':
-          description: No items were found to return / Non sono stati trovati elementi da restituire
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/proof_personal_mobility_periods'
-              examples:
-                statuscode=404:
-                  value:
-                    personal_data:
-                    proof_mobility_periods: []
         '500':
           description: Internal server error / Errore interno del server 
       operationId: proof-mobility-periods

@@ -46,8 +46,6 @@ paths:
             <br> - Parametro mancante
             <br> - Richiesta incompleta
             <br> - ...
-        '404':
-          description: Student not found / Studente non trovato
         '500':
           description: Internal server error / Errore interno del server 
       description: Create an academic qualification change request / Crea una richiesta di rettifica del titolo conseguito
@@ -120,8 +118,6 @@ paths:
             <br> - Parametro mancante
             <br> - Richiesta incompleta
             <br> - ...
-        '404':
-          description: Registration correction not found / Rettifica iscrizione non trovata
         '500':
           description: Internal server error / Errore interno del server 
       operationId: status-academic-qualification-change-request
@@ -229,8 +225,6 @@ paths:
             <br> - Parametro mancante
             <br> - Richiesta incompleta
             <br> - ...
-        '404':
-          description: Student not found / Studente non trovato
         '500':
           description: Internal server error / Errore interno del server 
       description: Report issues on academic qualifcations data  / Permette di segnalare le anomalie sui dati dei titoli accademici

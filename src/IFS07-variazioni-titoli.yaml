@@ -125,20 +125,6 @@ paths:
             <br> - Parametro mancante
             <br> - Richiesta incompleta
             <br> - ...
-        '404':
-          description: No items were found to return / Non sono state trovate entità da restituire
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/student-qualifications-changes'
-              examples:
-                Statuscode=404:
-                  value:
-                    data: 
-                      institute_code: C6
-                      last_update: '2023-10-13T17:32:28Z'
-                      qualifications_hash: []
-                    meta:
         '500':
           description: Internal server error / Errore interno del server 
       operationId: Enrollments-of-student
