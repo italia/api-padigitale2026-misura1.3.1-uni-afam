@@ -849,6 +849,16 @@ Acquisizione delle "impronte (codifica hash)" di tutti i titoli accademici al fi
 > * Si ricorda prevedere di NON valorizzare il campo "cursor" nell'esecuzione della prima chiamata.
 > * Qualora nella response fosse presente il campo "cursor" valorizzato, prevedere la sua valorizzazione nelle chiamate successive.
 > * Prevedere, tramite l'attributo "cursor", una strategia di paginazione dei risultati restituiti dalla API. Qualora l'attributo fosse restituito NULLO (o non presente), nessuna chiamata successiva deve essere effettuata dal client.
+> * **university_system_type**, di seguito la descriione delle codifiche disponibili per il campo: 
+> 1. Il valore 'old' si riferisce a tutti i titoli accademici ottenuti prima del nuovo ordinamento Universitario/AFAM regolato dai decreti legislativi 509/99 per l'Università e 508/99 per l'AFAM.
+> 1. Il valore 'new' si riferisce ai titoli accademici ottenuti a partire dal nuovo oridnamento Universitario/AFAM regolato dai decreti legislativi 509/99 per l'Università e 508/99 per l'AFAM.
+> 1. Se questo parametro non è specificato, l'API restituisce i titoli accademici sia del vecchio che del nuovo ordinamento.
+> * ***sync_mode*** di seguito la descriione delle codifiche disponibili per il campo:
+> 1. Il valore 'full' rappresenta tutti i titoli accademici
+> 1. Il valore 'incremental' rappresenta:
+> a) Ogni qualifica accademica ottenuta dallo studente negli ultimi 2 anni solari (basata sulla data di conseguimento del titolo).
+> b) Qualsiasi titolo accademico rettificato negli ultimi 2 anni solari (basato sulla data di rettifica del titolo). Se uno studente non ha più alcun titolo accademico perché è stato eliminato, l'API restituisce null o un hash di un'entità null.
+> 1. Se questo parametro non è valorizzato, il valore predefinito è **full**
 
 
 
