@@ -39,11 +39,11 @@ paths:
         required: false
         description: | 
           1. The value 'old' refers to all academic degrees obtained before the University/AFAM system regulated by law decree 509/99 for the University and 508/99 for the AFAM. 
-          2. The value 'new' refers to academic degrees obtained under the University/AFAM system regulated by law decree 509/99 for the University and 508/99 for the AFAM.
+          2. The value 'new' refers to academic degrees obtained since the University/AFAM system regulated by law decree 509/99 for the University and 508/99 for the AFAM.
           3. If this parameter is not specified, the API returns academic degrees from both the old and new University systems.
           > 
-          1. Il valore 'old' si riferisce a tutti i titoli accademici ottenuti con il nuovo ordinamento Universitario/AFAM regolato dai decreti legislativi 509/99 per l'Università e 508/99 per l'AFAM.
-          2. Il valore 'new' si riferisce ai titoli accademici ottenuti con il vecchio oridnamento Universitario/AFAM regolato dai decreti legislativi 509/99 per l'Università e 508/99 per l'AFAM.
+          1. Il valore 'old' si riferisce a tutti i titoli accademici ottenuti prima del nuovo ordinamento Universitario/AFAM regolato dai decreti legislativi 509/99 per l'Università e 508/99 per l'AFAM.
+          2. Il valore 'new' si riferisce ai titoli accademici ottenuti a partire dal nuovo oridnamento Universitario/AFAM regolato dai decreti legislativi 509/99 per l'Università e 508/99 per l'AFAM.
           3. Se questo parametro non è specificato, l'API restituisce i titoli accademici sia del vecchio che del nuovo ordinamento.
         
         schema:
@@ -59,14 +59,14 @@ paths:
         description: | 
           1.	The value 'full' represents all academic degrees
           2.	The value 'incremental' represents:
-            a) Every academic qualification obtained by the student in the past year (based on the qualification date).
-            b) Any academic degree modified in the past year (based on the degree change date). If a student no longer has any academic degree because it was deleted, the API returns either null or a hash of a null entity.
+            a) Every academic qualification obtained by the student in the past 2 calendar years  (based on the qualification date).
+            b) Any academic degree modified in the past 2 calendar years (based on the degree change date). If a student no longer has any academic degree because it was deleted, the API returns either null or a hash of a null entity.
           3.  If this parameter isn't valorized the default value is **full**
           >
           1. Il valore 'full' rappresenta tutti i titoli accademici
           2. Il valore 'incremental' rappresenta:
-            a) Ogni qualifica accademica ottenuta dallo studente nell'ultimo anno (basata sulla data di conseguimento del titolo).
-            b) Qualsiasi titolo accademico rettificato nell'ultimo anno (basato sulla data di rettifica del titolo). Se uno studente non ha più alcun titolo accademico perché è stato eliminato, l'API restituisce null o un hash di un'entità null.
+            a) Ogni qualifica accademica ottenuta dallo studente negli ultimi 2 anni solari (basata sulla data di conseguimento del titolo).
+            b) Qualsiasi titolo accademico rettificato negli ultimi 2 anni solari (basato sulla data di rettifica del titolo). Se uno studente non ha più alcun titolo accademico perché è stato eliminato, l'API restituisce null o un hash di un'entità null.
           3. Se questo parametro non è valorizzato, il valore predefinito è **full**
         schema:
           type: string
