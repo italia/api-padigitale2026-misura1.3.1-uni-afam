@@ -1,5 +1,7 @@
 # Release note
 
+## Version 2.0.5 Beta
+
 - [IFS01.2] It was added the curriculum description of the learnings list
 - [IFS01.2] It was fixed the issue https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues/163#issue-2253399298, the file_code request parameter isn't mandatory in the API IFS04.2 and IFS05l.2
 - [IFS04.4] Issue #167 - It was fixed the example request.json on the data_request, it was removed the timestamp in the data_request_timestamp exactly how it was in the yaml
