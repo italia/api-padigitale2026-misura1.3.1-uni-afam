@@ -291,7 +291,7 @@ Acquisizione del dettaglio di un corso di studio offerto da un Istituto di forma
 
 > <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni** 
 >
-> * Nella richiesta l'attributo **_degree_course_code_** è obbligatorio e si riferisce al codice identificativo di ANS, che individua in modo univoco la combinazione: Corso, Classe, anno accademico della coorte, sede
+> * Nella richiesta l'attributo **_degree_course_code_** è obbligatorio ed individua in modo univoco la combinazione: Corso, Classe, anno accademico della coorte, sede
 > * Nella risposta è sufficente includere il solo primo anno di corso dell’offerta formativa disponibile per la coorte identificata dal codice corso inviato come parametro di ingresso nella richiesta
 >
 > **AFAM vs Università**
