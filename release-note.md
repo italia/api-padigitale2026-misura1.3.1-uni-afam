@@ -17,7 +17,10 @@
         2. full or the incremental mode (syncmode)
 - [IFS02.3] Issue #175 The structure of the proof_education_course object has been changed from an object to an array
 - [IFS02, IFS03] The API was updated to make the tax_code mandatory in the request, while the person_id is recommended
-- [IFS03.4] Issue #176 it was adde enum for the field administering_institute_status
+- [IFS03.4] Issue #176 it was added enum for the field administering_institute_status
+- [IFS03.4] Issue #179 it was fixed the YAML definition schema from object to array ("proof_qualifications_diploma_supplement")
+- [IFS03.3] Issue #178 The structure of the proof_qualifications_level object has been changed from an object to an array
+
 
 
 ## Version 2.0.4 Stable version
