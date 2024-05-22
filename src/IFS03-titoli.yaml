@@ -312,49 +312,49 @@ paths:
                       tax_code: RSSMRA80A01F205D
                       person_id: AB123456C
                     proof_qualifications_diploma_supplement:
-                      ects_credits_received: 180
-                      institute_name: Cagliari - Università degli Studi
-                      institute_code: '04'
-                      programme_type_code: MS
-                      programme_type_name: Laurea Magistrale (DM 270/04)
-                      degree_course_code: '455'
-                      degree_course_name: Ingegneria informatica
-                      degree_class_code: MSLM32
-                      degree_class_name: Ingegneria informatica
-                      degree_course_duration_in_months: 36
-                      qualification_grade_value: '100'
-                      qualification_grading_scale_minimum_grade: '66'
-                      qualification_grading_scale_maximum_grade: '110'
-                      qualification_date: 2022-07-01
-                      access_to_regulated_profession: Non applicabile
-                      administering_institute_name: Cagliari - Università degli studi
-                      administering_institute_status: public
-                      qualification_institute_name: Cagliari - Università degli studi
-                      qualification_institute_status: public
-                      eqf_level: 6° livello
-                      nqf_level: I ciclo QF-XXX
-                      attended_learnings:
-                        - learning_grade_value: '28'
-                          learning_grading_scale_min: '18'
-                          learning_grading_scale_max: '30'
-                          learning_name: Analisi matematica I e Geometria
-                          learning_start_date: '2018-12-01'
-                          learning_end_date: '2019-03-01'
-                          learning_cfu: '6'
-                        - learning_grade_value: '22'
-                          learning_grading_scale_min: '18'
-                          learning_grading_scale_max: '30'
-                          learning_name: Fisica sperimentale
-                          learning_start_date: '2018-06-01'
-                          learning_end_date: '2018-10-01'
-                          learning_cfu: '6'
-                        - learning_grade_value: QUALIFIED
-                          learning_grading_scale_min: null
-                          learning_grading_scale_max: null
-                          learning_name: Fisica tecnica
-                          learning_start_date: '2018-07-01'
-                          learning_end_date: '2019-07-01'
-                          learning_cfu: '6'
+                      - ects_credits_received: 180
+                        institute_name: Cagliari - Università degli Studi
+                        institute_code: '04'
+                        programme_type_code: MS
+                        programme_type_name: Laurea Magistrale (DM 270/04)
+                        degree_course_code: '455'
+                        degree_course_name: Ingegneria informatica
+                        degree_class_code: MSLM32
+                        degree_class_name: Ingegneria informatica
+                        degree_course_duration_in_months: 36
+                        qualification_grade_value: '100'
+                        qualification_grading_scale_minimum_grade: '66'
+                        qualification_grading_scale_maximum_grade: '110'
+                        qualification_date: 2022-07-01
+                        access_to_regulated_profession: Non applicabile
+                        administering_institute_name: Cagliari - Università degli studi
+                        administering_institute_status: public
+                        qualification_institute_name: Cagliari - Università degli studi
+                        qualification_institute_status: public
+                        eqf_level: 6° livello
+                        nqf_level: I ciclo QF-XXX
+                        attended_learnings:
+                          - learning_grade_value: '28'
+                            learning_grading_scale_min: '18'
+                            learning_grading_scale_max: '30'
+                            learning_name: Analisi matematica I e Geometria
+                            learning_start_date: '2018-12-01'
+                            learning_end_date: '2019-03-01'
+                            learning_cfu: '6'
+                          - learning_grade_value: '22'
+                            learning_grading_scale_min: '18'
+                            learning_grading_scale_max: '30'
+                            learning_name: Fisica sperimentale
+                            learning_start_date: '2018-06-01'
+                            learning_end_date: '2018-10-01'
+                            learning_cfu: '6'
+                          - learning_grade_value: QUALIFIED
+                            learning_grading_scale_min: null
+                            learning_grading_scale_max: null
+                            learning_name: Fisica tecnica
+                            learning_start_date: '2018-07-01'
+                            learning_end_date: '2019-07-01'
+                            learning_cfu: '6'
                       
         '400':
           description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
@@ -660,7 +660,7 @@ components:
         - personal_data
         - proof_qualifications_level
     proof_qualifications_diploma_supplement:
-      type: object
+      type: array
       nullable: true
       additionalProperties: false
       description: Simplified supplment diplomas in SDG format / Diplomi supplment semplificati in formato SDG
@@ -772,7 +772,7 @@ components:
         administering_institute_status:
           type: string
           description: Administering institute status / Stato dell'Istituto Amministratrice
-          example: 'xx'          
+          example: 'public'          
           minLength: 1
           maxLength: 2048
           enum: 
