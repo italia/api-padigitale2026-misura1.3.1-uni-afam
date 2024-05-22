@@ -1,32 +1,99 @@
 {
-  "personal_data": {
-    "tax_code": "RSSMRA80A01F205D",
-    "person_id": "AB123456C"
+  "personal_data":{
+     "tax_code":"RSSMRA80A01F205D",
+     "person_id":"AB123456C"
   },
-  "proof_qualifications_level": {
-    "qualification_name": "Laurea in Scienze Aziendali",    
-    "institute_code": "16",
-    "institute_name": "Milano - Politecnico",
-    "academic_qualification_date": "2022-07-01",
-    "total_ects": 180,
-    "eqf_level": "6° livello",
-    "nqf_level": "I ciclo QF-EHEA",
-    "has_parent_relation": null,
-    "degree_course_duration_in_months": 36,
-    "degree_course_duration_ects_credit": 180,
-    "ects_learnings": [
-      {
-        "learning_name" : "Analisi matematica I e Geometria",
-        "ects_credits": 10
-      },
-      {
-        "learning_name" : "Fisica sperimentale",
-        "ects_credits": 10
-      },
-      {
-        "learning_name" : "Fisica tecnica",
-        "ects_credits": 5
-      }
-    ]
-  }
+  "proof_qualifications_level":[
+     {
+        "qualification_name":"Laurea in Scienze Aziendali",
+        "institute_code":"16",
+        "institute_name":"Milano - Politecnico",
+        "academic_qualification_date":"2022-07-01",
+        "total_ects":180,
+        "eqf_level":"6° livello",
+        "nqf_level":"I ciclo QF-EHEA",
+        "has_parent_relation":null,
+        "degree_course_duration_in_months":36,
+        "degree_course_duration_ects_credit":180,
+        "ects_learnings":[
+           {
+              "learning_name":"Analisi matematica I e Geometria",
+              "ects_credits":10
+           },
+           {
+              "learning_name":"Fisica sperimentale",
+              "ects_credits":10
+           },
+           {
+              "learning_name":"Fisica tecnica",
+              "ects_credits":5
+           }
+        ]
+     }
+  ]
+}
+
+
+
+/*Esempio 2*/
+
+{
+  "personal_data":{
+     "tax_code":"RSSMRA80A01F205D",
+     "person_id":"AB123456C"
+  },
+  "proof_qualifications_level":[
+     {
+        "qualification_name":"Laurea in Scienze Aziendali",
+        "institute_code":"16",
+        "institute_name":"Milano - Politecnico",
+        "academic_qualification_date":"2022-07-01",
+        "total_ects":180,
+        "eqf_level":"6° livello",
+        "nqf_level":"I ciclo QF-EHEA",
+        "has_parent_relation":null,
+        "degree_course_duration_in_months":36,
+        "degree_course_duration_ects_credit":180,
+        "ects_learnings":[
+           {
+              "learning_name":"Analisi matematica I e Geometria",
+              "ects_credits":10
+           },
+           {
+              "learning_name":"Fisica sperimentale",
+              "ects_credits":10
+           },
+           {
+              "learning_name":"Fisica tecnica",
+              "ects_credits":5
+           }
+        ]
+     },
+     {
+        "qualification_name":"Laurea Magistrale in Scienze Aziendali",
+        "institute_code":"16",
+        "institute_name":"Milano - Politecnico",
+        "academic_qualification_date":"2024-03-01",
+        "total_ects":120,
+        "eqf_level":"7° livello",
+        "nqf_level":"II ciclo QF-EHEA",
+        "has_parent_relation":null,
+        "degree_course_duration_in_months":24,
+        "degree_course_duration_ects_credit":120,
+        "ects_learnings":[
+           {
+              "learning_name":"Analisi matematica II e Geometria",
+              "ects_credits":10
+           },
+           {
+              "learning_name":"Fisica sperimentale II",
+              "ects_credits":10
+           },
+           {
+              "learning_name":"Fisica tecnica II",
+              "ects_credits":5
+           }
+        ]
+     }
+  ]
 }

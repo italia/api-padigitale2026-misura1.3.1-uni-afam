@@ -242,23 +242,23 @@ paths:
                       tax_code: RSSMRA80A01F205D
                       person_id: AB123456C
                     proof_qualifications_level:
-                      qualification_name: Laurea in Ingegneria gestionale
-                      degree_course_duration_in_months: 36
-                      institute_code: '16'
-                      institute_name: Milano - Politecnico
-                      academic_qualification_date: 2022-07-01
-                      total_ects: 180
-                      eqf_level: 6° livello
-                      nqf_level: I ciclo QF-EHEA
-                      has_parent_relation: null
-                      degree_course_duration_ects_credit: 180
-                      ects_learnings: 
-                        - learning_name: Analisi matematica I e Geometria
-                          ects_credits: 10
-                        - learning_name: Fisica sperimentale
-                          ects_credits: 10
-                        - learning_name: Fisica tecnica
-                          ects_credits: 5
+                      - qualification_name: Laurea in Ingegneria gestionale
+                        degree_course_duration_in_months: 36
+                        institute_code: '16'
+                        institute_name: Milano - Politecnico
+                        academic_qualification_date: 2022-07-01
+                        total_ects: 180
+                        eqf_level: 6° livello
+                        nqf_level: I ciclo QF-EHEA
+                        has_parent_relation: null
+                        degree_course_duration_ects_credit: 180
+                        ects_learnings: 
+                          - learning_name: Analisi matematica I e Geometria
+                            ects_credits: 10
+                          - learning_name: Fisica sperimentale
+                            ects_credits: 10
+                          - learning_name: Fisica tecnica
+                            ects_credits: 5
         '400':
           description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
             <br> - Richiesta non valida
@@ -813,7 +813,7 @@ components:
           items:
             $ref: '#/components/schemas/attended_learnings'
     proof_qualifications_level:
-      type: object
+      type: array
       nullable: true
       additionalProperties: false
       description: Simplified supplment diplomas in SDG format / Diplomi supplment semplificati in formato SDG
