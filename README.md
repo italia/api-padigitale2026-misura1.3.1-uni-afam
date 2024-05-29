@@ -59,7 +59,7 @@ La tabella sottostante (Tabella 1) riporta il dettaglio del titolo e descrizione
   </tr>
   <tr>
       <td>IFS02.3</td>
-      <td>Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti
+      <td>Acquisizione delle prove riguardanti la trascrizione (insegnamenti conseguiti, voti
           ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può
           riferirsi a studi completati o in corso</td>
   </tr>
@@ -396,7 +396,8 @@ Indicare convenzionalmente la data di inizio (es 01/10/xxxx) dell’anno accadem
 
 #### :globe_with_meridians: IFS02.3 - proof-tertiary-education-courses
 
-Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può riferirsi a studi completati o in corso negli ultimi 3 anni accademici
+Acquisizione delle prove riguardanti la trascrizione (insegnamenti conseguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente, sono quindi le attività che lo studente ha già sostenuto durante il percorso formativo. La trascrizione può riferirsi a studi completati o in corso negli ultimi 3 anni accademici. Si fa riferimento ad attività superate o convalidate dallo studente, attività presenti a piano di studio approvato ed
+attività non sovrannumerarie
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS02.3 [Request](doc/03_analysis/io_schema/IFS02.3-request.json)
@@ -540,7 +541,9 @@ dal solo Ateneo di riferimento (l’unico che comunica i dati della carriera ad 
 
 :jigsaw: **caso d'uso tipico**: Acquisizione prove Single Digital Gateway (SDG)
 
-Acquisizione delle prove riguardanti il livello di qualifica degli studi di istruzione terziaria
+Acquisizione delle prove riguardanti il livello di qualifica degli studi di istruzione terziaria. Si fa riferimento ad attività superate o convalidate dallo studente, attività presenti a piano di studio approvato ed
+attività non sovrannumerarie
+
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.3 [Request](doc/03_analysis/io_schema/IFS03.3-request.json)
@@ -552,6 +555,7 @@ Acquisizione delle prove riguardanti il livello di qualifica degli studi di istr
 > * **_has_parent_relation_** Si riferisce al legame di genitorialità (biologica o adottiva) tra un genitore e la persona di riferimento (richiedente). Se non calcolabile => null
 > * **_degree_course_duration_in_months_**
 Durata normale del corso espresso in mesi per gestire corsi di master di durata inferiore all’anno  
+> * **_ects_learnings_** fanno riferimento agli insegnamenti conseguiti, ossia già sostenuti dallo studente
 > * Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi): 
 >1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
 >2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place
@@ -562,7 +566,7 @@ Durata normale del corso espresso in mesi per gestire corsi di master di durata 
 
  :jigsaw: **caso d'uso tipico**: Acquisizione prove Single Digital Gateway (SDG)
 
-Acquisizione delle prove relative allo strumento "Diploma Supplement"
+Acquisizione delle prove relative allo strumento "Diploma Supplement". Si fa riferimento ad attività superate o convalidate dallo studente, attività presenti a piano di studio approvato ed attività non sovrannumerarie
 
 &emsp;&emsp;<img src="doc/05_gallery/json.png" width="20
 " /> Esempio IFS03.4 [Request](doc/03_analysis/io_schema/IFS03.4-request.json)
@@ -576,6 +580,7 @@ Fare riferimento al punto 5.2 del Diploma Supplement “accesso ad una professio
 professioni per le quali è possibile ottenere l’abilitazione all’esercizio tramite il superamento di un Esame di Stato.
 > * **_learning_start_date/ learning_end_date_**
 Indicare date convenzionali in base all’anno accademico ed al semestre
+> * **_attended_learnings_** Si fa riferimento agli insegnamenti conseguiti, ossia che lo studente ha già sostenuto
 > * Regole di [obbligatorietà output](#output) (si prega di verificare gli esempi sul file openapi):
 >1) Nella struttura "Personal Data" è necessario prevedere la restituizione delle informazioni relative al codice fiscale e/o codice fiscale + personID
 >2) Nella struttura "Personal Data" se il codice fiscale e/o il personID non sono presenti, restituire le informazioni given_name/family_name/birth_date/birth_place

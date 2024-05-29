@@ -203,8 +203,8 @@ paths:
 
     post:
       summary: | 
-        Retrieves the evidence of the transcript (courses taken, grades obtained, etc.) of tertiary education studies of a student. The transcript may pertain to completed or ongoing studies. / 
-        Acquisizione delle prove riguardanti la trascrizione (corsi seguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può riferirsi a studi completati o in corso
+        Retrieves the evidence of the transcript (attended learnings, grades obtained, etc.) of tertiary education studies of a student. The transcript may pertain to completed or ongoing studies. / 
+        Acquisizione delle prove riguardanti la trascrizione (insegnamenti conseguiti, voti ottenuti, ecc.) degli studi di istruzione terziaria di una studentessa/studente. La trascrizione può riferirsi a studi completati o in corso
       tags:
         - IFS02.3 - proof-tertiary-education-courses
       security:
