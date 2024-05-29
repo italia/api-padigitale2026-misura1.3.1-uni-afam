@@ -292,7 +292,7 @@ Acquisizione del dettaglio di un corso di studio offerto da un Istituto di forma
 > <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni** 
 >
 > * Nella richiesta l'attributo **_degree_course_code_** è obbligatorio ed individua in modo univoco la combinazione: Corso, Classe, anno accademico della coorte, sede
-> * **_degree_course_year_** - I corsi a scelta possono essere ristituiti valorizzando l'anno di corso a 0 e opzionalmente si possono indicare il numero degli insegnamenti a scelta  all'interno di ogni anno come insegnamenti generici con la relativa descrizione nel _learning_name_
+> * **_degree_course_year_** - I corsi a scelta possono essere restituiti valorizzando l'anno di corso a 0 e opzionalmente si possono indicare il numero degli insegnamenti a scelta  all'interno di ogni anno come insegnamenti generici con la relativa descrizione nel _learning_name_
 > * Nella risposta è sufficente includere il solo primo anno di corso dell’offerta formativa disponibile per la coorte identificata dal codice corso inviato come parametro di ingresso nella richiesta
 >
 > **AFAM vs Università**
