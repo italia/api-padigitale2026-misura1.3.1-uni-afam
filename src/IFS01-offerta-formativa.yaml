@@ -16,7 +16,9 @@ info:
 paths:
   '/educational-offering-list': 
     post:
-      summary: Retrieve the list of study programs offered by a tertiary education institute in a given academic year. / Acquisizione della lista dei corsi di studio offerti da un Istituto di fomrazione superiore in un dato anno accademico.
+      summary: > 
+        Retrieve the list of study programs offered by a tertiary education institute in a given academic year. / 
+        Acquisizione della lista dei corsi di studio offerti da un Istituto di fomrazione superiore in un dato anno accademico.
       tags:
         - IFS01.1 - educational-offering-list
       security: 
@@ -124,7 +126,7 @@ paths:
         It's enough to reply with only the first year course of the study program refered by the 
         course degree input parameter / Acquisizione del dettaglio di un corso di studio offerto da un istituto 
         di formazione superiore. E' sufficente includere il solo primo anno di corso dell’offerta disponibile 
-        per la coorte relativa al codice corso inviato come parametro di ingresso nella richiesta
+        per la coorte relativa al codice corso inviato come parametro di ingresso nella richiesta.
       tags:
         - IFS01.2 - educational-offering-detail
       security: 

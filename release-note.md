@@ -22,6 +22,7 @@
 - [IFS03.4] Issue #179 it was fixed the YAML definition schema from object to array ("proof_qualifications_diploma_supplement")
 - [IFS03.3] Issue #178 The structure of the proof_qualifications_level object has been changed from an object to an array
 - [IFS02.3, IFS03.3, IFS03.4] Issue #180 was addressed by updating the README based on the proposed changes.
+- [FIS01.2] Provide instructions in the README on how to manage optional courses in the educational offer
 
 
 
