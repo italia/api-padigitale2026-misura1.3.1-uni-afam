@@ -3,7 +3,7 @@
 ## Version 2.0.5 Beta
 
 - [IFS01.2] It was added the curriculum description of the learnings list
-- [IFS01.2] It was fixed the issue https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues/163#issue-2253399298, the file_code request parameter isn't mandatory in the API IFS04.2 and IFS05l.2
+- [IFS04.2, IFS03.5] issue #163 - It was fixed the the file_code request parameter, it isn't mandatory in the API IFS04.2 and IFS05.2
 - [IFS04.4] Issue #167 - It was fixed the example request.json on the data_request, it was removed the timestamp in the data_request_timestamp exactly how it was in the yaml
 - [IFS05.4] Issue #170 - It was fixed the example request.json on the data_request, it was removed the timestamp in the data_request_timestamp exactly how it was in the yaml
 - [IFS04.4] Issue #168 - Enrollments from Object to  Array in yaml IFS04 + and the examples have been updated
@@ -11,7 +11,7 @@
 - [IFS01] Issue #171 The examples with the municipality's name has changed with ISTAT code
 - [IFS09] Issue #173 Fixed the endpoint name in count-academic-enrollments-by-degree-courses
 - [IFS0X] The definition of the http status 400 (bad request) has been updated for each YAML
-- [IFS0X] The definition of the HTTP status 404 (missing resource) has been removed from each YAML file.
+- [IFS0X] The definition of the http status 404 (missing resource) has been removed from each YAML file.
 - [IFS03.1] Removed the required attribute to the tax_code parameter
 - [IFS07] Filter parameters have been added 
         1. new/old University System (university_system_type)
@@ -21,9 +21,8 @@
 - [IFS03.4] Issue #176 it was added enum for the field administering_institute_status
 - [IFS03.4] Issue #179 it was fixed the YAML definition schema from object to array ("proof_qualifications_diploma_supplement")
 - [IFS03.3] Issue #178 The structure of the proof_qualifications_level object has been changed from an object to an array
-- [IFS02.3, IFS03.3, IFS03.4] Issue #180 was addressed by updating the README based on the proposed changes.
+- [IFS02.3, IFS03.3, IFS03.4] It has fixed issue #180 by updating the README with the proposed changes
 - [FIS01.2] Provide instructions in the README on how to manage optional courses in the educational offer
-
 
 
 ## Version 2.0.4 Stable version
