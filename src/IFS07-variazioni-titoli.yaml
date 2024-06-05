@@ -16,66 +16,7 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
   '/student-qualifications-changes':
-    parameters:
-      - name: cursor
-        in: query
-        description: "Indica il valore del cursore restituito dalla chiamata GET.\n  * Da NON valorizzare durante la prima invocazione;\n\ * Da valorizzare nelle invocazioni successive (laddove presente);"
-        required: false
-        schema:
-          type: string
-          description: Cursor / Cursore
-          maxLength: 100
-          minLength: 1
-      - name: institute_code
-        in: query
-        required: false
-        schema:
-          type: string
-          maxLength: 32
-          minLength: 1
-          description: Institute code / Codice istituto
-      - name: university_system_type
-        in: query
-        required: false
-        description: | 
-          1. The value 'old' refers to all academic degrees obtained before the University/AFAM system regulated by law decree 509/99 for the University and 508/99 for the AFAM. 
-          2. The value 'new' refers to academic degrees obtained since the University/AFAM system regulated by law decree 509/99 for the University and 508/99 for the AFAM.
-          3. If this parameter is not specified, the API returns academic degrees from both the old and new University systems.
-          > 
-          1. Il valore 'old' si riferisce a tutti i titoli accademici ottenuti prima del nuovo ordinamento Universitario/AFAM regolato dai decreti legislativi 509/99 per l'Università e 508/99 per l'AFAM.
-          2. Il valore 'new' si riferisce ai titoli accademici ottenuti a partire dal nuovo oridnamento Universitario/AFAM regolato dai decreti legislativi 509/99 per l'Università e 508/99 per l'AFAM.
-          3. Se questo parametro non è specificato, l'API restituisce i titoli accademici sia del vecchio che del nuovo ordinamento.
-        
-        schema:
-          type: string
-          maxLength: 32
-          minLength: 1
-          enum:
-            - old
-            - new
-      - name: sync_mode
-        in: query
-        required: false
-        description: | 
-          1.	The value 'full' represents all academic degrees
-          2.	The value 'incremental' represents:
-            a) Every academic qualification obtained by the student in the past 2 calendar years  (based on the qualification date).
-            b) Any academic degree modified in the past 2 calendar years (based on the degree change date). If a student no longer has any academic degree because it was deleted, the API returns either null or a hash of a null entity.
-          3.  If this parameter isn't valorized the default value is **full**
-          >
-          1. Il valore 'full' rappresenta tutti i titoli accademici
-          2. Il valore 'incremental' rappresenta:
-            a) Ogni qualifica accademica ottenuta dallo studente negli ultimi 2 anni solari (basata sulla data di conseguimento del titolo).
-            b) Qualsiasi titolo accademico rettificato negli ultimi 2 anni solari (basato sulla data di rettifica del titolo). Se uno studente non ha più alcun titolo accademico perché è stato eliminato, l'API restituisce null o un hash di un'entità null.
-          3. Se questo parametro non è valorizzato, il valore predefinito è **full**
-        schema:
-          type: string
-          maxLength: 32
-          minLength: 1
-          enum:
-            - incremental
-            - full
-    get:
+    post:
       summary: | 
         Retrieve the "fingerprints (hash codes)" of all students' academic qualifications to identify the changes from the recipient's perspective. / 
         Acquisizione delle "impronte (codifica hash)" dei titoli accademici di tutti gli studenti al fine di identificarne le variazioni dal punto di vista del fruitore
@@ -127,7 +68,25 @@ paths:
             <br> - ...
         '500':
           description: Internal server error / Errore interno del server 
-      operationId: Enrollments-of-student
+      
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/student_qualifications_changes_request'
+            examples:
+              call with cursor:
+                value:
+                  cursor: fowfio543s
+                  institute_code: AA     
+                  university_system_type: new
+                  sync_mode: full
+          application/xml:
+            schema:
+              type: object
+              additionalProperties: false
+              properties: {}
       description: Returning the information reduced to a 'hash (SHA256)' for each student in the form (key, value), where the key is the hash of the student's social security number and the value is the hash of the student's qualifications. / Restituisce le informazioni ridotte in "hash (SHA256)" per ogni studente/studentessa nella forma (chiave, valore), dove la chiave è l'hash del codice fiscale dello studente e il valore è l'hash dei suoi titoli.
       parameters: []
   /status:
@@ -178,6 +137,72 @@ components:
         minimum: 0
         type: integer
   schemas:
+    student_qualifications_changes_request:
+      type: object
+      additionalProperties: false
+      description: ''
+      properties:
+        cursor:
+          type: string
+          description: |
+            Cursor / Cursore
+            Indica il valore del cursore restituito dalla chiamata.
+            * Da NON valorizzare durante la prima invocazione;
+            * Da valorizzare nelle invocazioni successive (laddove presente))
+          example: 'fowfio543s'
+          nullable: true
+          minLength: 1
+          maxLength: 512
+        institute_code:
+          type: string
+          description: Institute identification code / Codice identificativo dell’istituto  
+          example: 'AA'          
+          minLength: 1
+          maxLength: 256
+          nullable: true
+        university_system_type:
+          type: string
+          description: |
+            1. The value 'old' refers to all academic degrees obtained before the University/AFAM system regulated by law decree 509/99 for the University and 508/99 for the AFAM. 
+            2. The value 'new' refers to academic degrees obtained since the University/AFAM system regulated by law decree 509/99 for the University and 508/99 for the AFAM.
+            3. If this parameter is not specified, the API returns academic degrees from both the old and new University systems.
+            > 
+            1. Il valore 'old' si riferisce a tutti i titoli accademici ottenuti prima del nuovo ordinamento Universitario/AFAM regolato dai decreti legislativi 509/99 per l'Università e 508/99 per l'AFAM.
+            2. Il valore 'new' si riferisce ai titoli accademici ottenuti a partire dal nuovo oridnamento Universitario/AFAM regolato dai decreti legislativi 509/99 per l'Università e 508/99 per l'AFAM.
+            3. Se questo parametro non è specificato, l'API restituisce i titoli accademici sia del vecchio che del nuovo ordinamento.
+          example: 'new'          
+          minLength: 1
+          maxLength: 256
+          nullable: false
+          enum:
+            - old
+            - new
+        sync_mode:
+          type: string
+          description: | 
+            1.	The value 'full' represents all academic degrees
+            2.	The value 'incremental' represents:
+              a) Every academic qualification obtained by the student in the past 2 calendar years  (based on the qualification date).
+              b) Any academic degree modified in the past 2 calendar years (based on the degree change date). If a student no longer has any academic degree because it was deleted, the API returns either null or a hash of a null entity.
+            3.  If this parameter isn't valorized the default value is **full**
+            >
+            1. Il valore 'full' rappresenta tutti i titoli accademici
+            2. Il valore 'incremental' rappresenta:
+              a) Ogni qualifica accademica ottenuta dallo studente negli ultimi 2 anni solari (basata sulla data di conseguimento del titolo).
+              b) Qualsiasi titolo accademico rettificato negli ultimi 2 anni solari (basato sulla data di rettifica del titolo). Se uno studente non ha più alcun titolo accademico perché è stato eliminato, l'API restituisce null o un hash di un'entità null.
+            3. Se questo parametro non è valorizzato, il valore predefinito è **full**
+          example: 'full'          
+          minLength: 1
+          maxLength: 256
+          nullable: true  
+          enum:
+            - incremental
+            - full
+      required:
+        - cursor
+        - institute_code
+        - university_system_type
+        - sync_mode
     student-qualifications-changes:
       additionalProperties: false
       type: object
