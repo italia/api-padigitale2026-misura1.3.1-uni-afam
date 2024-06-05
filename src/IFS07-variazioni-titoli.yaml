@@ -76,7 +76,7 @@ paths:
             schema:
               $ref: '#/components/schemas/student_qualifications_changes_request'
             examples:
-              call with cursor:
+              example:
                 value:
                   cursor: fowfio543s
                   institute_code: AA     
