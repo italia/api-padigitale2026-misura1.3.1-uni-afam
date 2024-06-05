@@ -38,8 +38,7 @@ paths:
                     personal_data:
                       tax_code: RSSMRA80A01F205D                      
                     enrollments:
-                      - institute_code: '16'
-                        institute_name: Milano - Politecnico
+                      - institute_code: '16'                       
                         programme_type_code: MS
                         degree_course_code: '1573960'
                         degree_class_code: MSLM32
@@ -52,8 +51,7 @@ paths:
                       tax_code: RSSMRA80A01F205D
                       person_id: AB123456C                      
                     enrollments:
-                      - institute_code: '16'
-                        institute_name: Milano - Politecnico
+                      - institute_code: '16'                        
                         programme_type_code: MS
                         degree_course_code: '1573960'
                         degree_class_code: MSLM32
@@ -68,8 +66,7 @@ paths:
                       birth_date: 1980-12-10
                       birth_place: Italia,RM,Roma
                     enrollments:
-                      - institute_code: '16'
-                        institute_name: Milano - Politecnico
+                      - institute_code: '16'                       
                         programme_type_code: MS
                         degree_course_code: '1573960'
                         degree_class_code: MSLM32
@@ -81,8 +78,7 @@ paths:
                     personal_data:
                       tax_code: RSSMRA80A01F205D                      
                     enrollments:
-                      - institute_code: '16'
-                        institute_name: Milano - Politecnico
+                      - institute_code: '16'                       
                         programme_type_code: MS
                         degree_course_code: '1573960'
                         degree_class_code: MSLM32
@@ -94,8 +90,7 @@ paths:
                     personal_data:
                       tax_code: RSSMRA80A01F205D                      
                     enrollments:
-                      - institute_code: '16'
-                        institute_name: Milano - Politecnico
+                      - institute_code: '16'                        
                         programme_type_code: MS
                         degree_course_code: '1573960'
                         degree_class_code: null
@@ -367,7 +362,7 @@ paths:
               properties: {}
         description: ''
       parameters: []
-  '/proof-ifs02.1s':
+  '/proof-mobility-periods':
     post:
       summary: |
         Retrieves the evidences of the learning activities conducted outside the tertiary education institution which a student obtained her/his diploma. / 
@@ -916,12 +911,6 @@ components:
           minLength: 1
           maxLength: 256
           nullable: true
-        institute_name:
-          type: string
-          description: Institute's name / Denominazione dell’istituto
-          example: 'Milano - Politecnico'          
-          minLength: 1
-          maxLength: 2048
         programme_type_code:
           type: string
           description: Code of study program / Codice del corso di studio
@@ -971,7 +960,6 @@ components:
         - academic_year
         - degree_course_code
         - programme_type_code
-        - institute_name
         - institute_code
     personal_data:
       type: object
