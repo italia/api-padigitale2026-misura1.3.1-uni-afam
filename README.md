@@ -974,7 +974,7 @@ Il [business canvas](https://docs.google.com/spreadsheets/d/1-H3R9vLX_Y3_7NxGN1I
 * [Normativa e modelli relativi al Diploma Supplement](https://www.miur.gov.it/-/nuovo-supplemento-al-diploma-con-4-allegati-relativi-alla-compilazione-e-alle-linee-guida-nazionali-per-la-digitalizzazione)
 ## Ultima Modifica 🔬
 
-29/05/2024
+06/06/2024
 
 ## Authors 🚶
 
