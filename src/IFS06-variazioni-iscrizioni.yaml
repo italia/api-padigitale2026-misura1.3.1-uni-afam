@@ -162,9 +162,6 @@ components:
           minLength: 1
           maxLength: 256
           nullable: true
-      required:
-        - cursor
-        - institute_code
     student-enrollments-changes:
       additionalProperties: false
       type: object
