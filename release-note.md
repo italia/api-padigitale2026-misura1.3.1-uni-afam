@@ -1,6 +1,6 @@
 # Release note
 
-## Version 2.0.5 Beta
+## Version 2.0.5
 
 - [IFS01.2] It was added the curriculum description of the learnings list
 - [IFS04.2, IFS03.5] issue #163 - It was fixed the the file_code request parameter, it isn't mandatory in the API IFS04.2 and IFS05.2
