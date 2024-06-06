@@ -80,7 +80,7 @@ paths:
                 value:
                   cursor: fowfio543s
                   institute_code: AA     
-                  university_system_type: new
+                  academic_system: new
                   sync_mode: full
           application/xml:
             schema:
@@ -160,7 +160,7 @@ components:
           minLength: 1
           maxLength: 256
           nullable: true
-        university_system_type:
+        academic_system:
           type: string
           description: |
             1. The value 'old' refers to all academic degrees obtained before the University/AFAM system regulated by law decree 509/99 for the University and 508/99 for the AFAM. 
@@ -201,7 +201,7 @@ components:
       required:
         - cursor
         - institute_code
-        - university_system_type
+        - academic_system
         - sync_mode
     student-qualifications-changes:
       additionalProperties: false
