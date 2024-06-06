@@ -23,11 +23,11 @@
 - [IFS03.3] Issue #178 The structure of the proof_qualifications_level object has been changed from an object to an array
 - [IFS02.3, IFS03.3, IFS03.4] It has fixed issue #180 by updating the README with the proposed changes
 - [FIS01.2] Provide instructions in the README on how to manage optional courses in the educational offer
-- [FIS02.1] Removed attribute Institute_Name in the response message
-- [FIS03.1] Removed attribute Institute_Name in the response message
-- [FIS06.1] Converted the GET request in POST
-- [FIS07.1] Converted the GET request in POST
-- [FIS07.1] renamed attribute univerity_system_type in academic_system in the response message
+- [FIS02.1] Removed attribute Institute_Name in the response message (06/06/2024)
+- [FIS03.1] Removed attribute Institute_Name in the response message (06/06/2024)
+- [FIS06.1] Converted the GET request in POST (06/06/2024)
+- [FIS07.1] Converted the GET request in POST (06/06/2024)
+- [FIS07.1] renamed attribute univerity_system_type in academic_system in the response message (06/06/2024)
 
 
 ## Version 2.0.4 Stable version
