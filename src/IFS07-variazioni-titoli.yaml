@@ -169,7 +169,7 @@ components:
             > 
             1. Il valore 'old' si riferisce a tutti i titoli accademici ottenuti prima del nuovo ordinamento Universitario/AFAM regolato dai decreti legislativi 509/99 per l'Università e 508/99 per l'AFAM.
             2. Il valore 'new' si riferisce ai titoli accademici ottenuti a partire dal nuovo oridnamento Universitario/AFAM regolato dai decreti legislativi 509/99 per l'Università e 508/99 per l'AFAM.
-            3. Se questo parametro non è specificato, l'API restituisce i titoli accademici sia del vecchio che del nuovo ordinamento.
+            3. Se questo parametro non è specificato, l'API si riferisce ai i titoli accademici sia del vecchio che del nuovo ordinamento.
           example: 'new'          
           minLength: 1
           maxLength: 256
