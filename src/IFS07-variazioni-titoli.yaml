@@ -198,11 +198,6 @@ components:
           enum:
             - incremental
             - full
-      required:
-        - cursor
-        - institute_code
-        - academic_system
-        - sync_mode
     student-qualifications-changes:
       additionalProperties: false
       type: object
