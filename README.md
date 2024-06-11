@@ -179,7 +179,7 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 <img src="doc/05_gallery/info.svg" width="20" /> Lo schema dei dataset può essere approfondito nella sezione [risorse utili](#risorse-utili)
 
 **2** -  **Pubblicazione degli e-service su PDND**</br>
-:warning: Si ricorda che in fase di pubblicazione degli e-service sulla piattaforma PDND, il nome deve rispettare quello nella colonna denominata "Nome" della tabella 1, ossia il seguente pattern e comunque seguire la [guida alla pubbligazione degli e-serivce]()
+:warning: Si ricorda che in fase di pubblicazione degli e-service sulla piattaforma PDND, il nome deve rispettare quello nella colonna denominata "Nome" della tabella 1, ossia il seguente pattern e comunque seguire la [guida alla pubbligazione degli e-serivce](doc/06_deployment/Guida_erogazione_e-service_Università_e_AFAM.pdf)
 
 **3** - La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
 
@@ -943,7 +943,7 @@ Il [business canvas](https://docs.google.com/spreadsheets/d/1-H3R9vLX_Y3_7NxGN1I
 * [Normativa e modelli relativi al Diploma Supplement](https://www.miur.gov.it/-/nuovo-supplemento-al-diploma-con-4-allegati-relativi-alla-compilazione-e-alle-linee-guida-nazionali-per-la-digitalizzazione)
 ## Ultima Modifica 🔬
 
-06/06/2024
+11/06/2024
 
 ## Authors 🚶
 

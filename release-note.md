@@ -1,5 +1,8 @@
 # Release note
 
+# Version 2.0.6
+- [GUIDE] updated the readme.md file with the new e-services' names and uploaded the guide for publishing the e-services
+
 ## Version 2.0.5
 
 - [IFS01.2] It was added the curriculum description of the learnings list
@@ -27,7 +30,7 @@
 - [FIS03.1] Removed attribute Institute_Name in the response message (06/06/2024)
 - [FIS06.1] Converted the GET request in POST (06/06/2024)
 - [FIS07.1] Converted the GET request in POST (06/06/2024)
-- [FIS07.1] renamed attribute univerity_system_type in academic_system in the response message (06/06/2024)
+- [FIS07.1] Renamed attribute univerity_system_type in academic_system in the response message (06/06/2024)
 
 
 ## Version 2.0.4 Stable version
