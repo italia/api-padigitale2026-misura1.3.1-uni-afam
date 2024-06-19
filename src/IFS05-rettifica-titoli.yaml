@@ -60,6 +60,7 @@ paths:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
+                  degree_course_code: '1573960'
                   reason: Modifica iscrizione xxx
                   attributes:
                       - attribute_name: institute_Name
@@ -387,6 +388,11 @@ components:
           pattern: "^[A-Z0-9]{9}$"
           example: AB123456C
           nullable: true
+        degree_course_code:
+          type: string
+          description: Course code / Codice del corso
+          minLength: 1
+          maxLength: 20  
         reason:
           type: string
           description: change request description / Descrizione richiesta di rettifica
@@ -574,7 +580,10 @@ components:
         personal_data:
           $ref: '#/components/schemas/personal_data'
         qualifications:
-          $ref: '#/components/schemas/qualifications'
+          type: array
+          minItems: 0        
+          items:
+            $ref: '#/components/schemas/qualifications'
     personal_data:
       type: object
       nullable: true
@@ -637,7 +646,7 @@ components:
           items:
             $ref: '#/components/schemas/issue'
     qualifications:
-      type: array
+      type: object
       additionalProperties: false
       description: Degree detail / Dettaglio titolo
       properties:

@@ -58,6 +58,7 @@ paths:
                 value:
                   tax_code: RSSMRA80A01F205D
                   person_id: 12345678A
+                  degree_course_code: '1573960'
                   reason: Modifica iscrizione xxx
                   attributes:
                       - attribute_name: institute_Name
@@ -345,6 +346,11 @@ components:
           pattern: "^[A-Z0-9]{9}$"
           example: AB123456C
           nullable: true
+        degree_course_code:
+          type: string
+          description: Course code / Codice del corso          
+          minLength: 1
+          maxLength: 20  
         reason:
           type: string
           description: change request description / Descrizione della richiesta di rettifica
@@ -398,7 +404,11 @@ components:
         personal_data:
           $ref: '#/components/schemas/personal_data'
         enrollments:
-          $ref: '#/components/schemas/enrollments'
+          type: array
+          minItems: 0
+          description: List of enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
+          items:
+            $ref: '#/components/schemas/enrollments'
     personal_data:
       type: object
       nullable: true
@@ -461,7 +471,7 @@ components:
           items:
             $ref: '#/components/schemas/issue'
     enrollments:
-      type: array
+      type: object
       additionalProperties: false
       description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
       properties:
@@ -474,7 +484,7 @@ components:
           nullable: true
         institute_name:
           type: string
-          description: Institute's name / Denominazione dell’istituto
+          description: Institute's name / Denominazione dell'istituto
           example: 'Milano - Politecnico'
           minLength: 1
           maxLength: 2048
