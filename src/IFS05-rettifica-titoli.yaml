@@ -389,7 +389,7 @@ components:
           nullable: true
         reason:
           type: string
-          description: Modification description / Descrizione modifica
+          description: change request description / Descrizione richiesta di rettifica
           example: Modifica iscrizione xxx
           minLength: 1
           maxLength: 256
@@ -397,7 +397,7 @@ components:
           $ref: '#/components/schemas/attributes'
         request:
           type: string
-          description: qualification  chacge request Text / Testo con la richiesta di rettifica
+          description: description change request / Descrizione della richiesta di rettifica
           minLength: 1
           maxLength: 5000
         note:
@@ -457,7 +457,7 @@ components:
           type: array
           maxItems: 256
           minItems: 0
-          description: List of attributes to be varied / Lista di attributi da variare
+          description: List of attributes to be changed / Lista di attributi da variare
           items:
             $ref: '#/components/schemas/attribute'
     attribute:
@@ -633,7 +633,7 @@ components:
           type: array
           maxItems: 256
           minItems: 0
-          description: List of issues to be varied / Lista di attributi da variare
+          description: List of issues to be changed / Lista di attributi da variare
           items:
             $ref: '#/components/schemas/issue'
     qualifications:
@@ -709,7 +709,7 @@ components:
           type: array
           maxItems: 256
           minItems: 0
-          description: List of issues to be varied / Lista di attributi da variare
+          description: List of issues to be changed / Lista di attributi da variare
           items:
             $ref: '#/components/schemas/issue'
     issue:
