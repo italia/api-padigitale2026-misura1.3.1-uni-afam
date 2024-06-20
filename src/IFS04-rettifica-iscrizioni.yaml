@@ -408,7 +408,7 @@ components:
           minItems: 0
           description: List of enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
           items:
-            $ref: '#/components/schemas/enrollments'
+            $ref: '#/components/schemas/enrollment'
     personal_data:
       type: object
       nullable: true
@@ -470,7 +470,7 @@ components:
           description: List of issues / Lista di anomalie 
           items:
             $ref: '#/components/schemas/issue'
-    enrollments:
+    enrollment:
       type: object
       additionalProperties: false
       description: Detailed enrollment information / Informazioni dettagliate sull'iscrizione
@@ -566,7 +566,7 @@ components:
           type: array
           minItems: 0
           maxItems: 256
-          description: List of academic enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
+          description: List of tudent academic enrollments / Elenco iscrizioni accademiche
           items:
             $ref: '#/components/schemas/change_request_detail'
     change_request_detail:
