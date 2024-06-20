@@ -1,8 +1,8 @@
 # Release note
 
-# Version 2.0.6
+# Version 2.0.6 - Release Candidate
 - [GUIDE] updated the readme.md file with the new e-services' names and uploaded the guide for publishing the e-services
-- [IFS04.1, IFS05.1] Added in the request the field degree_course_code
+- [IFS04.1, IFS05.1] The field 'degree_course_code' has been added to the request to specify the enrollment or qualification referenced by the change request
 - [IFS04.4, IFS05.4] Fix swagger
 
 ## Version 2.0.5
