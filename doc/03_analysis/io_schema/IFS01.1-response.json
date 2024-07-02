@@ -6,8 +6,7 @@
             "programme_type_code":"LT",
             "programme_access":"free",
             "course_location":"015146",
-            "course_area":"Ingegneria industriale",
-            "degree_class_code":"LT10",
+            "course_area":"Ingegneria industriale",           
             "degree_course_language":"IT",
             "degree_course_period_years":3,
             "degree_course_code":"353",
@@ -18,8 +17,7 @@
             "programme_type_code":"MS",
             "programme_access":"free",
             "course_location":"015146,015211",
-            "course_area":"Ingegneria aerospaziale e astronautica",
-            "degree_class_code":"MSLM20",
+            "course_area":"Ingegneria aerospaziale e astronautica",          
             "degree_course_language":"EN",
             "degree_course_period_years":2,
             "degree_course_code":"469",
@@ -43,8 +41,7 @@
             "programme_type_code":"XX", /*in attesa di dataset*/
             "programme_access":"free",
             "course_location":"058091,058039",
-            "course_area":"DISCIPLINE INTERPRETATIVE",
-            "degree_class_code":"XXZZ", /*in attesa di dataset*/
+            "course_area":"DISCIPLINE INTERPRETATIVE",         
             "degree_course_language":"IT",
             "degree_course_period_years":3,
             "degree_course_code":"1234", /*in attesa di dataset*/
@@ -55,8 +52,7 @@
             "programme_type_code":"YY", /*in attesa di dataset*/
             "programme_access":"free",
             "course_location":"058091,058039",
-            "course_area":"DISCIPLINE INTERPRETATIVE",
-            "degree_class_code":"YYKK",  /*in attesa di dataset*/
+            "course_area":"DISCIPLINE INTERPRETATIVE",         
             "degree_course_language":"IT,EN",
             "degree_course_period_years":2,
             "degree_course_code":"5678", /*in attesa di dataset*/
@@ -68,7 +64,7 @@
             "programme_access":"free",
             "course_location":"058091,058039",
             "course_area":"Discipline interpretative del jazz, delle musiche improvvisate e audiotattili",
-            "degree_class_code":"ZZHH",  /*in attesa di dataset*/
+         
             "degree_course_language":"IT,EN",
             "degree_course_period_years":2,
             "degree_course_code":"9823", /*in attesa di dataset*/
