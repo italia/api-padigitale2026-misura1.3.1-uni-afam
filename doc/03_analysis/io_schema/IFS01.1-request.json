@@ -1,7 +1,6 @@
 /*Esempio: prima invocazione*/
 {
-    "academic_year":"2023/2024",
-    "cursor":"" /*da non valorizzare o da non riportare nella request*/
+    "academic_year":"2023/2024"   
 }
 
 /*Esempio: invocazioni successive*/
