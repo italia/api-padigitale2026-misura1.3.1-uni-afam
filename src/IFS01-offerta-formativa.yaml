@@ -371,8 +371,9 @@ components:
         academic_year:
           type: string
           description: Academic year / Anno accademico          
-          minLength: 1
-          maxLength: 20
+          minLength: 9
+          maxLength: 9
+          pattern: '^\d{4}/\d{4}$'
     meta:
       nullable: true
       type: object
@@ -458,8 +459,9 @@ components:
         academic_year:
           type: string
           description: Academic year / Anno accademico          
-          minLength: 1
-          maxLength: 20
+          minLength: 9
+          maxLength: 9
+          pattern: '^\d{4}/\d{4}$'
         first_year_activation_course:
           type: string
           description: First year of course activation / Primo anno di attivazione del corso          
@@ -598,8 +600,9 @@ components:
           type: string
           description: Academic year / Anno accademico
           example: 2023/2024         
-          minLength: 1
-          maxLength: 20
+          minLength: 9
+          maxLength: 9
+          pattern: '^\d{4}/\d{4}$'
         cursor:
           type: string
           description: Cursor / Cursore
