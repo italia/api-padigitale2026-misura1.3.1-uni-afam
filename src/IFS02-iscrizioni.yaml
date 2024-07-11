@@ -584,7 +584,6 @@ components:
         - country_of_academic_institution
         - institute_name
         - institute_code
-        - degree_class_code
         - degree_course_name
         - degree_course_code
         - programme_type_name

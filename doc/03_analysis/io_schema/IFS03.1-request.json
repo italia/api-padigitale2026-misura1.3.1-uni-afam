@@ -1,5 +1,5 @@
 
-/* ESEMPIO 1 Il person_id è prioritario rispetto al tax_code*/
+/* ESEMPIO 1*/
 {
   "tax_code": "RSSMRA80A01F205D",
   "person_id": "12345678A"
