@@ -21,7 +21,6 @@
                 "issue_description": "the correct birth date format is 1990-05-17"
             },
             {
-                "attribute_name":null,
                 "issue_description": "description note"                
             }
         ]
@@ -46,7 +45,6 @@
                     "issue_description": "degree course can be only a numeric value"
                 },
                 {
-                    "attribute_name":null,
                     "issue_description": "description note"                
                 }
             ]

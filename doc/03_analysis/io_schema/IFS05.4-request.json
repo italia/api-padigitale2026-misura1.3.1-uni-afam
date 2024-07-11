@@ -22,7 +22,6 @@
                 "issue_description": "the correct birth date format is 1990-05-17"
             },
             {
-                "attribute_name":null,
                 "issue_description": "description note"                
             }
         ]
@@ -49,7 +48,6 @@
                     "issue_description": "academic qualification date is not well formed on the base of the Open API defined on PDND platform for the service IFS03.1"
                 },
                 {
-                    "attribute_name":null,
                     "issue_description": "description note"                
                 }
             ]
