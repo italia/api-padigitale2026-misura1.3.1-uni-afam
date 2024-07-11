@@ -4,7 +4,8 @@
 - [GUIDE] updated the readme.md file with the new e-services' names and uploaded the guide for publishing the e-services
 - [IFS04.1, IFS05.1] The field 'degree_course_code' has been added to the request to specify the enrollment or qualification referenced by the change request
 - [IFS04.4, IFS05.4] Fix swagger
-- [IFS02] Removed the required property for the degree_class_code attribute in the proof_enrollment object
+- [IFS02] Removed the 'required' constraint from the degree_class_code attribute in the proof_enrollment object
+- [IFS04.4, IFS05.4] Removed the 'required' constraint from the attribute_name of the issue
 
 ## Version 2.0.5
 

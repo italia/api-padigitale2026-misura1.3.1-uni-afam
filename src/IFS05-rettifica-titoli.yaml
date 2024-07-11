@@ -254,8 +254,7 @@ paths:
                         issue_description: tax code didn't find on ANPR Master Data
                       - attribute_name: birth_date
                         issue_description: the correct birth date format is 1990-05-17
-                      - attribute_name: null
-                        issue_description: description note
+                      - issue_description: description note
                   qualifications:
                     - institute_code: '16'
                       institute_name: Milano - Politecnico
@@ -272,8 +271,7 @@ paths:
                           issue_description: degree course code didn't find on the controlled vocabulary
                         - attribute_name: academic_qualification_date
                           issue_description: academic qualification date is not well formed on the base of the Open API defined on PDND platform for the service IFS03.1
-                        - attribute_name: null
-                          issue_description: description note
+                        - issue_description: description note
               Example 2: 
                 value:
                   subscriber_id: "1234"
@@ -292,8 +290,7 @@ paths:
                         issue_description: tax code didn't find on ANPR Master Data
                       - attribute_name: birth_date
                         issue_description: the correct birth date format is 1990-05-17
-                      - attribute_name: null
-                        issue_description: description note
+                      - issue_description: description note
                   qualifications:
                     - institute_code: '16'
                       institute_name: Milano - Politecnico
@@ -310,8 +307,7 @@ paths:
                           issue_description: degree course code didn't find on the controlled vocabulary
                         - attribute_name: academic_qualification_date
                           issue_description: academic qualification date is not well formed on the base of the Open API defined on PDND platform for the service IFS03.1
-                        - attribute_name: null
-                          issue_description: description note
+                        - issue_description: description note
           application/xml:
             schema:
               type: object
@@ -488,6 +484,7 @@ components:
           minLength: 1
           maxLength: 256 
       required:
+        - attribute_name
         - current
         - suggested
     academic_qualification_change_request:

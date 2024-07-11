@@ -252,8 +252,7 @@ paths:
                         issue_description: tax code didn't find on ANPR Master Data
                       - attribute_name: birth_date
                         issue_description: the correct birth date format is 1990-05-17
-                      - attribute_name: null
-                        issue_description: description note
+                      - issue_description: description note
                   enrollments:
                     - institute_code: '16'
                       institute_name: Milano - Politecnico
@@ -268,8 +267,7 @@ paths:
                           issue_description: degree course code didn't find on the controlled vocabulary
                         - attribute_name: degree_course_year
                           issue_description: degree course can be only a numeric value
-                        - attribute_name: null
-                          issue_description: description note
+                        - issue_description: description note
           application/xml:
             schema:
               type: object
@@ -555,7 +553,6 @@ components:
           minLength: 1
           maxLength: 256 
       required:
-        - attribute_name
         - issue_description
     enrollments_change_request:
       type: object
