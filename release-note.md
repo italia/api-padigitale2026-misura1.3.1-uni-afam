@@ -6,9 +6,12 @@
 - [IFS04.4, IFS05.4] Fix swagger
 - [IFS02] Removed the 'required' constraint from the degree_class_code attribute in the proof_enrollment object
 - [IFS04.4, IFS05.4] Removed the 'required' constraint from the attribute_name of the issue
+- [IFS02] issue #189, fixed yaml file the proof_education_course strcture 
+- [IFS03] issue #189 - fixed yaml file the  proof_qualifications_level + proof_qualifications_diploma_supplement
+
+
 
 ## Version 2.0.5
-
 - [IFS01.2] It was added the curriculum description of the learnings list
 - [IFS04.2, IFS03.5] issue #163 - It was fixed the the file_code request parameter, it isn't mandatory in the API IFS04.2 and IFS05.2
 - [IFS04.4] Issue #167 - It was fixed the example request.json on the data_request, it was removed the timestamp in the data_request_timestamp exactly how it was in the yaml
