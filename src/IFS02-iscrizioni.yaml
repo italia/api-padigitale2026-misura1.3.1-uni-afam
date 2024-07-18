@@ -596,9 +596,12 @@ components:
         personal_data:
           $ref: '#/components/schemas/personal_data'
         proof_education_course:
-          $ref: '#/components/schemas/proof_education_course'
+          type: array
+          minItems: 0
+          items:
+            $ref: '#/components/schemas/proof_education_course'
     proof_education_course:
-      type: array
+      type: object
       nullable: true
       additionalProperties: false
       description: Examinations taken by the student / Esami sostenuti della studentessa o dello studente
