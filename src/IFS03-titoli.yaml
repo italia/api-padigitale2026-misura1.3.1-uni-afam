@@ -631,7 +631,10 @@ components:
         personal_data:
           $ref: '#/components/schemas/personal_data'
         proof_qualifications_diploma_supplement:
-          $ref: '#/components/schemas/proof_qualifications_diploma_supplement'
+          type: array
+          minItems: 0
+          items:
+            $ref: '#/components/schemas/proof_qualifications_diploma_supplement'
       required:
         - personal_data
         - proof_qualifications_diploma_supplement
@@ -643,12 +646,15 @@ components:
         personal_data:
           $ref: '#/components/schemas/personal_data'
         proof_qualifications_level:
-          $ref: '#/components/schemas/proof_qualifications_level'
+          type: array
+          minItems: 0
+          items:
+            $ref: '#/components/schemas/proof_qualifications_level'
       required:
         - personal_data
         - proof_qualifications_level
     proof_qualifications_diploma_supplement:
-      type: array
+      type: object
       nullable: true
       additionalProperties: false
       description: Simplified supplment diplomas in SDG format / Diplomi supplment semplificati in formato SDG
@@ -801,7 +807,7 @@ components:
           items:
             $ref: '#/components/schemas/attended_learnings'
     proof_qualifications_level:
-      type: array
+      type: object
       nullable: true
       additionalProperties: false
       description: Simplified supplment diplomas in SDG format / Diplomi supplment semplificati in formato SDG
