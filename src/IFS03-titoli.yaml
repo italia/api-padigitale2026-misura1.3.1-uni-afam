@@ -634,10 +634,10 @@ components:
           type: array
           minItems: 0
           items:
-            $ref: '#/components/schemas/proof_qualifications_diploma_supplement'
+            $ref: '#/components/schemas/proof_qualification_diploma_supplement'
       required:
         - personal_data
-        - proof_qualifications_diploma_supplement
+        - proof_qualification_diploma_supplement
     proof_education_qualifications_level:
       additionalProperties: false
       type: object
@@ -649,11 +649,11 @@ components:
           type: array
           minItems: 0
           items:
-            $ref: '#/components/schemas/proof_qualifications_level'
+            $ref: '#/components/schemas/proof_qualification_level'
       required:
         - personal_data
-        - proof_qualifications_level
-    proof_qualifications_diploma_supplement:
+        - proof_qualification_level
+    proof_qualification_diploma_supplement:
       type: object
       nullable: true
       additionalProperties: false
@@ -806,7 +806,7 @@ components:
           description: List of attended learnings / Elenco corsi frequentati
           items:
             $ref: '#/components/schemas/attended_learnings'
-    proof_qualifications_level:
+    proof_qualification_level:
       type: object
       nullable: true
       additionalProperties: false
