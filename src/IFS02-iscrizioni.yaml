@@ -988,7 +988,7 @@ components:
           type: string
           description: Name / Nome
           example: Mario
-          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$          
+          pattern: ^[p{L}} ,.'\s''-Ӑ]+$          
           minLength: 1
           maxLength: 2048
           nullable: true
@@ -996,7 +996,7 @@ components:
           type: string
           description: Surname / Cognome
           example: Rossi
-          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$          
+          pattern: ^[p{L}} ,.'\s''-Ӑ]+$          
           minLength: 1
           maxLength: 2048
           nullable: true
