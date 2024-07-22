@@ -652,7 +652,7 @@ components:
             $ref: '#/components/schemas/proof_qualification_level'
       required:
         - personal_data
-        - proof_qualification_level
+        - proof_qualifications_level
     proof_qualification_diploma_supplement:
       type: object
       nullable: true
