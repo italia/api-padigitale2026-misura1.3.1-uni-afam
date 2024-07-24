@@ -2,6 +2,7 @@
 {
   "enrollment_change_request": [
     {
+      "response_code": "approved",
       "file_status": "approved",
       "file_code": "6d183bc572f6b200015a4167",
       "message": "testo messaggio"
@@ -13,11 +14,13 @@
 {
   "enrollment_change_request": [
     {
+      "response_code": "approved",
       "file_status": "approved",
       "file_code": "6d183bc572f6b200015a4167",
       "message": "testo messaggio"
     },
     {
+      "response_code": "approved",
       "file_status": "rejected",
       "file_code": "6d183b54654127dfhh15a4167",
       "message": "testo messaggio"
