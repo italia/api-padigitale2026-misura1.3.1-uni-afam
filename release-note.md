@@ -8,7 +8,7 @@
 - [IFS04.4, IFS05.4] Removed the 'required' constraint from the attribute_name of the issue
 - [IFS02] issue #189, fixed yaml file the proof_education_course strcture 
 - [IFS03] issue #189 - fixed yaml file the  proof_qualifications_level + proof_qualifications_diploma_supplement
-
+- [IFS02][IFS03][IFS04][IFS05] issue #200 - fixed regex for family_name and given_name 
 
 
 ## Version 2.0.5
