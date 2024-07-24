@@ -9,8 +9,8 @@
 - [IFS02] issue #189, fixed yaml file the proof_education_course strcture 
 - [IFS03] issue #189 - fixed yaml file the  proof_qualifications_level + proof_qualifications_diploma_supplement
 - [IFS02][IFS03][IFS04][IFS05] issue #200 - fixed regex for family_name and given_name 
-- [IFS02][IFS03][IFS04][IFS05] issue #199- fixed regex for tax_code
-- [IFS03] issue #197 #198- fixed yaml file for required fileds
+- [IFS02][IFS03][IFS04][IFS05] issue #199 - fixed regex for tax_code
+- [IFS03] issue #197 #198 - fixed yaml file for required fields naming "proof_qualifications_level" and "proof_qualifications_diploma_supplement"
 
 
 ## Version 2.0.5
