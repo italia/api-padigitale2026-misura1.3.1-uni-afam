@@ -959,6 +959,12 @@ Per la valorizzazione dei campi  institude_code, programme_type_code, degree_cou
 Lo schema del master data pubblicato dal MUR può essere scaricato a questo [link](doc/03_analysis/masterdata/MUR-masterdata.xlsx) e i dataset sono disponibili nel  seguente [Repo](https://github.com/MIPA-CINECA/codifiche-mur/tree/main)
  
 
+#### API Gateway Open Source per PDND
+API Gateway Open Source condiviso nel portale web Developers.it, che implementa già il protocollo di autenticazione con la piattaforma PDND: link al [software su Developers Italia]( https://developers.italia.it/it/software/link-it-govway-7218c1.html) e [sito ufficiale di GovWay](https://govway.org/).
+ 
+
+
+
 #### Cursor pagination
 L'impaginazione basata sul cursore consente di recuperare in modo efficiente set di dati di grandi dimensioni da un database suddividendoli in "pagine" più piccole. 
 
