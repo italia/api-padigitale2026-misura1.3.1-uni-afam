@@ -101,7 +101,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/qualifications_change_request'
+                $ref: '#/components/schemas/change_request_status'
               examples:
                 Example:
                   value: 
@@ -160,12 +160,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/qualification_change_request_detail'
               examples:
-                Example:
+                Example approved:
                   value:
                     response_code: approved
                     file_status: approved
                     file_code: 6d183bc572f6b200015a4167
                     message: messaggio di testo
+                Example rejected:
+                  value:
+                    response_code: rejected
+                    file_status: approved
+                    file_code: 6d183bc572f6b200015a4167
+                    message: richiesta rifiutata perchè ...     
         '400':
           description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
             <br> - Richiesta non valida
@@ -372,7 +378,7 @@ components:
         tax_code:
           type: string
           description: Tax Identification Number / Codice fiscale
-          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          pattern: '^(?:[A-Z][AEIOU][AEIOUX]|[B-DF-HJ-NP-TV-Z]{2}[A-Z]){2}(?:[\dLMNP-V]{2}(?:A-EHLMPR-T|[DHPS][37PT][0L]|[ACELMRT][37PT][01LM]|[AC-EHLMPR-T][26NS][9V])|(?:[02468LNQSU][048LQU]|[13579MPRTV][26NS])B[26NS][9V])(?:[A-MZ][1-9MNP-V][\dLMNP-V]{2}|[A-M]0L)[A-Z]$'
           example: RSSMRA80A01F205D
           minLength: 16
           maxLength: 16
@@ -421,6 +427,30 @@ components:
           description: List of qualifications change request for student / Elenco variazioni titoli di una studentessa o di uno studente
           items:
             $ref: '#/components/schemas/qualification_change_request_detail'
+    change_request_status:
+      additionalProperties: false
+      type: object
+      description: Status of an qualification change request for a student / Stato di una rettifica titolo per una studentessa o uno studente
+      properties:
+        file_status:
+          type: string
+          description: Status of an academic qualification change request for a student / Stato di una rettifica Titolo per una studentessa o uno studente (Rappresenta lo stato del processo relativo alla richiesta di rettifica)
+          minLength: 1
+          maxLength: 256   
+        file_code:
+          type: string
+          description: change request qualification code/ Codice Rettifica titolo
+          minLength: 1
+          maxLength: 256    
+        message:
+          type: string
+          description: Change request message output / Messaggio esito richiesta rettifica
+          minLength: 1
+          maxLength: 256 
+      required:
+        - file_status
+        - file_code
+        - message            
     qualification_change_request_detail:
       additionalProperties: false
       type: object
@@ -428,7 +458,7 @@ components:
       properties:
         response_code: 
           type: string
-          description: response code / codice della risposta
+          description: response code / codice della risposta. Indica il codice di risposta generato dall'invocazione dell'API per le operazioni di inserimento o eliminazione (insert, delete). Questo codice riflette l'esito della validazione del payload in ingresso, determinando se la transazione è approvata o rifiutata in base alla correttezza dei dati ricevuti
           minLength: 1
           maxLength: 256
           enum:
@@ -436,7 +466,7 @@ components:
             - rejected
         file_status:
           type: string
-          description: Status of an academic qualification change request for a student / Stato di una rettifica Titolo per una studentessa o uno studente
+          description: Status of an academic qualification change request for a student / Stato di una rettifica Titolo per una studentessa o uno studente (Rappresenta lo stato del processo relativo alla richiesta di rettifica)
           minLength: 1
           maxLength: 256   
         file_code:
@@ -495,7 +525,7 @@ components:
         tax_code:
           type: string
           description: Tax Identification Number / Codice fiscale
-          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          pattern: '^(?:[A-Z][AEIOU][AEIOUX]|[B-DF-HJ-NP-TV-Z]{2}[A-Z]){2}(?:[\dLMNP-V]{2}(?:A-EHLMPR-T|[DHPS][37PT][0L]|[ACELMRT][37PT][01LM]|[AC-EHLMPR-T][26NS][9V])|(?:[02468LNQSU][048LQU]|[13579MPRTV][26NS])B[26NS][9V])(?:[A-MZ][1-9MNP-V][\dLMNP-V]{2}|[A-M]0L)[A-Z]$'
           example: RSSMRA80A01F205D
           minLength: 16
           maxLength: 16
@@ -523,7 +553,7 @@ components:
         tax_code:
           type: string
           description: Tax Identification Number / Codice fiscale
-          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          pattern: '^(?:[A-Z][AEIOU][AEIOUX]|[B-DF-HJ-NP-TV-Z]{2}[A-Z]){2}(?:[\dLMNP-V]{2}(?:A-EHLMPR-T|[DHPS][37PT][0L]|[ACELMRT][37PT][01LM]|[AC-EHLMPR-T][26NS][9V])|(?:[02468LNQSU][048LQU]|[13579MPRTV][26NS])B[26NS][9V])(?:[A-MZ][1-9MNP-V][\dLMNP-V]{2}|[A-M]0L)[A-Z]$'
           example: RSSMRA80A01F205D
           minLength: 16
           maxLength: 16
@@ -591,7 +621,7 @@ components:
           type: string
           description: Tax Identification Number / Codice Fiscale
           example: RSSMRA80A01F205D
-          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          pattern: '^(?:[A-Z][AEIOU][AEIOUX]|[B-DF-HJ-NP-TV-Z]{2}[A-Z]){2}(?:[\dLMNP-V]{2}(?:A-EHLMPR-T|[DHPS][37PT][0L]|[ACELMRT][37PT][01LM]|[AC-EHLMPR-T][26NS][9V])|(?:[02468LNQSU][048LQU]|[13579MPRTV][26NS])B[26NS][9V])(?:[A-MZ][1-9MNP-V][\dLMNP-V]{2}|[A-M]0L)[A-Z]$'
           minLength: 16
           maxLength: 16
           nullable: true
@@ -607,7 +637,7 @@ components:
           type: string
           description: Name / Nome
           example: Mario
-          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
+          pattern: ^[\p{L}\p{M}'’\- ]+$
           minLength: 1
           maxLength: 2048
           nullable: true
@@ -615,7 +645,7 @@ components:
           type: string
           description: Surname / Cognome
           example: Rossi
-          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$
+          pattern: ^[\p{L}\p{M}'’\- ]+$
           minLength: 1
           maxLength: 2048
           nullable: true

@@ -973,7 +973,7 @@ components:
           type: string
           description: Tax Identification Number / Codice Fiscale
           example: RSSMRA80A01F205D
-          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          pattern: '^(?:[A-Z][AEIOU][AEIOUX]|[B-DF-HJ-NP-TV-Z]{2}[A-Z]){2}(?:[\dLMNP-V]{2}(?:A-EHLMPR-T|[DHPS][37PT][0L]|[ACELMRT][37PT][01LM]|[AC-EHLMPR-T][26NS][9V])|(?:[02468LNQSU][048LQU]|[13579MPRTV][26NS])B[26NS][9V])(?:[A-MZ][1-9MNP-V][\dLMNP-V]{2}|[A-M]0L)[A-Z]$'
           minLength: 16
           maxLength: 16          
           nullable: true
@@ -988,7 +988,7 @@ components:
           type: string
           description: Name / Nome
           example: Mario
-          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$          
+          pattern: ^[\p{L}\p{M}'’\- ]+$    
           minLength: 1
           maxLength: 2048
           nullable: true
@@ -996,7 +996,7 @@ components:
           type: string
           description: Surname / Cognome
           example: Rossi
-          pattern: ^[p{L}} ,.'-\s''-Ӑ]+$          
+          pattern: ^^[\p{L}\p{M}'’\- ]+$    
           minLength: 1
           maxLength: 2048
           nullable: true
@@ -1023,7 +1023,7 @@ components:
         tax_code:
           type: string
           description: Tax Identification Number / Codice fiscale
-          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          pattern: '^(?:[A-Z][AEIOU][AEIOUX]|[B-DF-HJ-NP-TV-Z]{2}[A-Z]){2}(?:[\dLMNP-V]{2}(?:A-EHLMPR-T|[DHPS][37PT][0L]|[ACELMRT][37PT][01LM]|[AC-EHLMPR-T][26NS][9V])|(?:[02468LNQSU][048LQU]|[13579MPRTV][26NS])B[26NS][9V])(?:[A-MZ][1-9MNP-V][\dLMNP-V]{2}|[A-M]0L)[A-Z]$'
           example: RSSMRA80A01F205D
           minLength: 16
           maxLength: 16          
@@ -1056,7 +1056,7 @@ components:
         tax_code:
           type: string
           description: Tax Identification Number / Codice fiscale
-          pattern: '^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$'
+          pattern: '^(?:[A-Z][AEIOU][AEIOUX]|[B-DF-HJ-NP-TV-Z]{2}[A-Z]){2}(?:[\dLMNP-V]{2}(?:A-EHLMPR-T|[DHPS][37PT][0L]|[ACELMRT][37PT][01LM]|[AC-EHLMPR-T][26NS][9V])|(?:[02468LNQSU][048LQU]|[13579MPRTV][26NS])B[26NS][9V])(?:[A-MZ][1-9MNP-V][\dLMNP-V]{2}|[A-M]0L)[A-Z]$'
           example: RSSMRA80A01F205D
           minLength: 16
           maxLength: 16

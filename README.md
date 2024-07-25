@@ -583,6 +583,26 @@ Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una 
 " /> Definizione [OpenApi.yaml](src/IFS04-rettifica-iscrizioni.yaml)
 
 
+
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni**    
+>
+> * **response_code**:
+> Indica il codice di risposta generato dall'invocazione dell'API per le operazioni di inserimento o canecllazione della richiesta. Questo codice riflette l'esito della validazione semantica dei dati in ingresso, determinando se la transazione è approvata o rifiutata in base alla correttezza dei dati ricevuti
+> Qualora uno o piu campi obbligatori previsti per la Request non siano valorizzati o compilati in modo errato (es. attributo obbligatorio mancante, attributo che non rispetta un'espressione regolare, ecc.), è possibile restituire un **HTTP 400 Bad Request**
+>nel caso in cui i campi in input siano invece correttamente valorizzati ma i dati inviati nella Request non siano semanticamente corretti per il caso d'uso, è possibile restituire un **HTTP Stutus 200** con response_code in output valorizzato a "*rejected*"
+>
+>
+> * **file_status**:
+> Stato del processo di una richiesta di rettifica di iscrizione  per una studentessa o uno studente.
+>
+
+
+
+
+
+
+
+
 #### :globe_with_meridians: IFS04.1 - academic-enrollment-change-request
 
 :jigsaw: **caso d'uso tipico**: Interazione con anagrafe ANIS
@@ -659,6 +679,7 @@ Invio di una segnalazione dall'ente fruitore all'ente erogatore per comunicare e
 
 
 
+
 :arrow_double_up:	 [Back to top ](#linee-guida-e-service)
 
 
@@ -668,6 +689,19 @@ Richiede la rettifica dei dati di un’iscrizione mancante o in eccesso per una 
 &emsp;&emsp;<img src="doc/05_gallery/swagger.svg" width="18
 " /> Definizione [OpenApi.yaml](src/IFS05-rettifica-titoli.yaml)
 
+
+
+> <img src="doc/05_gallery/info.svg" width="20" />  **Osservazioni**    
+>
+> * **response_code**:
+> Indica il codice di risposta generato dall'invocazione dell'API per le operazioni di inserimento o canecllazione della richiesta. Questo codice riflette l'esito della validazione semantica dei dati in ingresso, determinando se la transazione è approvata o rifiutata in base alla correttezza dei dati ricevuti
+> Qualora uno o piu campi obbligatori previsti per la Request non siano valorizzati o compilati in modo errato (es. attributo obbligatorio mancante, attributo che non rispetta un'espressione regolare, ecc.), è possibile restituire un **HTTP 400 Bad Request**
+>nel caso in cui i campi in input siano invece correttamente valorizzati ma i dati inviati nella Request non siano semanticamente corretti per il caso d'uso, è possibile restituire un **HTTP Stutus 200** con response_code in output valorizzato a "*rejected*"
+>
+>
+> * **file_status**:
+> Stato del processo di una richiesta di rettifica di iscrizione  per una studentessa o uno studente.
+>
 
 
 #### :globe_with_meridians: IFS05.1 - academic-qualification-change-request
@@ -925,6 +959,12 @@ Per la valorizzazione dei campi  institude_code, programme_type_code, degree_cou
 Lo schema del master data pubblicato dal MUR può essere scaricato a questo [link](doc/03_analysis/masterdata/MUR-masterdata.xlsx) e i dataset sono disponibili nel  seguente [Repo](https://github.com/MIPA-CINECA/codifiche-mur/tree/main)
  
 
+#### API Gateway Open Source per PDND
+API Gateway Open Source condiviso nel portale web Developers.it, che implementa già il protocollo di autenticazione con la piattaforma PDND: link al [software su Developers Italia]( https://developers.italia.it/it/software/link-it-govway-7218c1.html) e [sito ufficiale di GovWay](https://govway.org/).
+ 
+
+
+
 #### Cursor pagination
 L'impaginazione basata sul cursore consente di recuperare in modo efficiente set di dati di grandi dimensioni da un database suddividendoli in "pagine" più piccole. 
 
@@ -937,7 +977,7 @@ Il [business canvas](https://docs.google.com/spreadsheets/d/1-H3R9vLX_Y3_7NxGN1I
 * [Normativa e modelli relativi al Diploma Supplement](https://www.miur.gov.it/-/nuovo-supplemento-al-diploma-con-4-allegati-relativi-alla-compilazione-e-alle-linee-guida-nazionali-per-la-digitalizzazione)
 ## Ultima Modifica 🔬
 
-18/07/2024
+25/07/2024
 
 ## Authors 🚶
 
