@@ -12,6 +12,8 @@
 - [IFS02][IFS03][IFS04][IFS05] issue #199 - fixed regex for tax_code
 - [IFS03] issue #197 #198 - fixed yaml file for required fields naming "proof_qualifications_level" and "proof_qualifications_diploma_supplement"
 - [IFS09] issue #193 - set minimum for fields female_enrollment_count and  male_enrollment_count set to 0
+- [IFS04.2][IFS05.2] issue #191 - Update output response message
+- [GUIDE] issue #191 - updated the readme.md file with details about response_code and file_status for IFS04/05
 
 
 ## Version 2.0.5
