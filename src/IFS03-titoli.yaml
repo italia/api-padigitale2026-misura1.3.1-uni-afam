@@ -488,7 +488,7 @@ components:
           minLength: 1
           maxLength: 32
           example: '110'
-          pattern: ^(\d{1,3}|(\d{1,3}[L]?)|\bQUALIFIED\b)$
+          pattern: ^(\d+(.\d{1,2})?|\d+L|QUALIFIED)$
           nullable: true
         qualification_grading_scale_minimum_grade:
           type: string
@@ -601,7 +601,7 @@ components:
           minLength: 1
           maxLength: 32
           example: '110'
-          pattern: ^(\d{1,3}|(\d{1,3}[L]?)|\bQUALIFIED\b)$
+          pattern: ^(\d+(.\d{1,2})?|\d+L|QUALIFIED)$
           nullable: true
         qualification_grading_scale_minimum_grade:
           type: string
@@ -728,7 +728,7 @@ components:
           example: '100'          
           minLength: 1
           maxLength: 32
-          pattern: ^(\d{1,3}|(\d{1,3}[L]?)|\bQUALIFIED\b)$
+          pattern: ^(\d+(.\d{1,2})?|\d+L|QUALIFIED)$
           nullable: true
         qualification_grading_scale_minimum_grade:
           type: string
@@ -901,7 +901,7 @@ components:
           example: '30'          
           minLength: 1
           maxLength: 2048
-          pattern: ^(\d{1,3}|(\d{1,3}[L]?)|\bQUALIFIED\b)$
+          pattern: ^(\d+(.\d{1,2})?|\d+L|QUALIFIED)$
           nullable: true
         learning_grading_scale_min:
           type: string
@@ -980,7 +980,7 @@ components:
           type: string
           description: Name / Nome
           example: Mario
-          pattern: ^[\p{L}\p{M}'’\- ]+$
+          pattern: ^[\p{L}'’\- ]+$
           minLength: 1
           maxLength: 2048
           nullable: true
@@ -988,7 +988,7 @@ components:
           type: string
           description: Surname / Cognome
           example: Rossi
-          pattern: ^[\p{L}\p{M}'’\- ]+$
+          pattern: ^[\p{L}'’\- ]+$
           minLength: 1
           maxLength: 2048
           nullable: true
