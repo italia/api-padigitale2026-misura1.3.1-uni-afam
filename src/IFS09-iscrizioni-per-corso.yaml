@@ -152,12 +152,14 @@ components:
           description: Course code / Codice del corso          
           minLength: 1
           maxLength: 20
+          nullable: true
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
           example: MSLM32          
           minLength: 1
           maxLength: 20
+          nullable: true
         female_enrollment_count:
           type: integer
           format: int32
@@ -177,7 +179,6 @@ components:
       required:
         - programme_type_code
         - degree_course_code
-        - degree_class_code
         - female_enrollment_count
         - male_enrollment_count        
     count_enrollment_request:
