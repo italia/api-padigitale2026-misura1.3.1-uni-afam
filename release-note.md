@@ -14,6 +14,8 @@
 - [IFS09] issue #193 - set minimum for fields female_enrollment_count and  male_enrollment_count set to 0
 - [IFS04.2][IFS05.2] issue #191 - Update output response message
 - [GUIDE] issue #191 - updated the readme.md file with details about response_code and file_status for IFS04/05
+- [IFSX] issue #203 - Added the grade value expressed in floating point
+- [IFS09] issue #195 - Removed the requirement for degree_class_code and we are making degree_course_code nullable, so you can consolidate all counts into an item without degree_course_code (as indicated by the MUR in the CINECA repository) with a null value."
 
 
 ## Version 2.0.5
