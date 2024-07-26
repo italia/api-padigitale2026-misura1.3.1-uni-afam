@@ -996,7 +996,7 @@ components:
           type: string
           description: Surname / Cognome
           example: Rossi
-          pattern: ^^[\p{L}'’\- ]+$    
+          pattern: ^[\p{L}'’\- ]+$    
           minLength: 1
           maxLength: 2048
           nullable: true
