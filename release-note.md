@@ -16,6 +16,7 @@
 - [GUIDE] issue #191 - updated the readme.md file with details about response_code and file_status for IFS04/05
 - [IFSX] issue #203 - Added the grade value expressed in floating point
 - [IFS09] issue #195 - Removed the requirement for degree_class_code and we are making degree_course_code nullable, so you can consolidate all counts into an item without degree_course_code (as indicated by the MUR in the CINECA repository) with a null value."
+- [IFS01] issue #125: updated learning hours from 1 to 0"
 
 
 ## Version 2.0.5
