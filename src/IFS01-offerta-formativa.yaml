@@ -577,7 +577,7 @@ components:
           format: int32
           description: Learning hours / Ore insegnamento
           example: 48          
-          minimum: 1
+          minimum: 0
           maximum: 999
         learning_language:
           type: string
