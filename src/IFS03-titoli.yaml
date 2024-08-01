@@ -492,7 +492,6 @@ components:
           nullable: true
         qualification_grading_scale_minimum_grade:
           type: string
-          format: int32
           minLength: 1
           maxLength: 32
           example: '66'
@@ -661,6 +660,7 @@ components:
       properties:
         ects_credits_received:
           format: int32
+          type: integer
           description: Credits recieved / Crediti ricevuti
           example: 180
           maximum: 999

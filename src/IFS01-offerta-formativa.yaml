@@ -357,8 +357,7 @@ components:
           maximum: 99
         degree_course_code:
           type: string
-          description: Course code / Codice del corso
-          
+          description: Course code / Codice del corso          
           minLength: 1
           maxLength: 20
         total_credits:

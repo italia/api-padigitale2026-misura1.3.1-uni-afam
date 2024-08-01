@@ -728,7 +728,6 @@ components:
         qualification_grading_scale_minimum_grade:
           type: string
           nullable: true
-          format: int32
           minLength: 1
           maxLength: 32
           example: '66'
