@@ -270,8 +270,8 @@ paths:
                       degree_class_code: MSLM32
                       academic_qualification_date: 2022-07-01
                       qualification_grade_value: '110'
-                      qualification_grading_scale_minimum_grade: '66'
-                      qualification_grading_scale_maximum_grade: '110'
+                      qualification_grading_scale_minimum_grade: 66
+                      qualification_grading_scale_maximum_grade: 110
                       issues:
                         - attribute_name: degree_course_code
                           issue_description: degree course code didn't find on the controlled vocabulary
@@ -726,18 +726,20 @@ components:
           pattern: ^(\d+(.\d{1,2})?|\d+L|QUALIFIED)$
           nullable: true
         qualification_grading_scale_minimum_grade:
-          type: string
+          type: number
+          format: float
+          minimum: 0
+          maximum: 9999
           nullable: true
-          minLength: 1
-          maxLength: 32
-          example: '66'
+          example: 66
           description: Minimum course grade / Voto minimo del corso
         qualification_grading_scale_maximum_grade:
-          type: string
+          type: number
+          format: float
+          minimum: 0
+          maximum: 9999
           nullable: true
-          minLength: 1
-          maxLength: 32
-          example: '110'
+          example: 110
           description: Highest course grade / Voto massimo del corso
         issues:
           additionalProperties: false

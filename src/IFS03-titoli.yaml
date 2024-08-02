@@ -48,8 +48,8 @@ paths:
                         degree_class_code: MSLM32
                         academic_qualification_date: '2022-07-01'
                         qualification_grade_value: '110'
-                        qualification_grading_scale_minimum_grade: '66'
-                        qualification_grading_scale_maximum_grade: '110'
+                        qualification_grading_scale_minimum_grade: 66
+                        qualification_grading_scale_maximum_grade: 110
                 Personal_data taxCode/personID:
                   value:
                     personal_data:
@@ -63,8 +63,8 @@ paths:
                         degree_class_code: MSLM32
                         academic_qualification_date: '2022-07-01'
                         qualification_grade_value: '110'
-                        qualification_grading_scale_minimum_grade: '66'
-                        qualification_grading_scale_maximum_grade: '110'
+                        qualification_grading_scale_minimum_grade: 66
+                        qualification_grading_scale_maximum_grade: 110
                 Personal_data witout taxCode:
                   value:
                     personal_data:
@@ -80,8 +80,8 @@ paths:
                         degree_class_code: MSLM32
                         academic_qualification_date: '2022-07-01'
                         qualification_grade_value: '110'
-                        qualification_grading_scale_minimum_grade: '66'
-                        qualification_grading_scale_maximum_grade: '110'
+                        qualification_grading_scale_minimum_grade: 66
+                        qualification_grading_scale_maximum_grade: 110
                 Qualification 1:
                   value:
                     personal_data:
@@ -180,8 +180,8 @@ paths:
                         degree_class_name: Ingegneria informatica
                         academic_qualification_date: 2022-07-01
                         qualification_grade_value: '110'
-                        qualification_grading_scale_minimum_grade: '66'
-                        qualification_grading_scale_maximum_grade: '110'
+                        qualification_grading_scale_minimum_grade: 66
+                        qualification_grading_scale_maximum_grade: 110
                         academic_qualification_country: Italia
         '400':
           description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
@@ -317,8 +317,8 @@ paths:
                         degree_class_name: Ingegneria informatica
                         degree_course_duration_in_months: 36
                         qualification_grade_value: '100'
-                        qualification_grading_scale_minimum_grade: '66'
-                        qualification_grading_scale_maximum_grade: '110'
+                        qualification_grading_scale_minimum_grade: 66
+                        qualification_grading_scale_maximum_grade: 110
                         qualification_date: 2022-07-01
                         access_to_regulated_profession: Non applicabile
                         administering_institute_name: Cagliari - Università degli studi
@@ -329,15 +329,15 @@ paths:
                         nqf_level: I ciclo QF-XXX
                         attended_learnings:
                           - learning_grade_value: '28'
-                            learning_grading_scale_min: '18'
-                            learning_grading_scale_max: '30'
+                            learning_grading_scale_min: 18
+                            learning_grading_scale_max: 30
                             learning_name: Analisi matematica I e Geometria
                             learning_start_date: '2018-12-01'
                             learning_end_date: '2019-03-01'
                             learning_cfu: '6'
                           - learning_grade_value: '22'
-                            learning_grading_scale_min: '18'
-                            learning_grading_scale_max: '30'
+                            learning_grading_scale_min: 18
+                            learning_grading_scale_max: 30
                             learning_name: Fisica sperimentale
                             learning_start_date: '2018-06-01'
                             learning_end_date: '2018-10-01'
@@ -458,6 +458,7 @@ components:
           description: Title of the degree / Denominazione del titolo di studio          
           minLength: 1
           maxLength: 2048
+          nullable: true
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
@@ -491,18 +492,20 @@ components:
           pattern: ^(\d+(.\d{1,2})?|\d+L|QUALIFIED)$
           nullable: true
         qualification_grading_scale_minimum_grade:
-          type: string
-          minLength: 1
-          maxLength: 32
-          example: '66'
+          type: number
+          format: float
+          minimum: 0
+          maximum: 9999
+          example: 66
           description: Minimum course grade / Voto minimo del corso          
           nullable: true
         qualification_grading_scale_maximum_grade:
-          type: string
-          minLength: 1
-          maxLength: 32
+          type: number
+          format: float
+          minimum: 0
+          maximum: 9999
           nullable: true
-          example: '110'
+          example: 110
           description: Highest course grade / Voto massimo del corso          
       required:
         - institute_code
@@ -545,35 +548,41 @@ components:
           example: 'Milano - Politecnico'          
           minLength: 1
           maxLength: 2048
+          nullable: true
         qualification_name:
           type: string
           description: Name qualification achieved / Nome titolo ottenuto
           example: 'Laurea in ingegneria informatica'          
           minLength: 1
           maxLength: 2048
+          nullable: true
         programme_type_code:
           type: string
           description: Code of study program / codice del corso di studio
           example: 'LM'
           minLength: 1
           maxLength: 256
+          nullable: true
         programme_type_name:
           type: string
           description: Type of course of study / Tipo di corso di studio
           example: 'Laurea Specialistica (DM 509/99), Laurea Magistrale (DM 270/04), Laurea Triennale (DM 509/99)'
           minLength: 1
           maxLength: 2048
+          nullable: true
         degree_course_code:
           type: string
           description: Course Code / Codice del corso
           minLength: 1
           maxLength: 20
+          nullable: true
         degree_course_name:
           type: string
           description: Course name / Denominazione corso
           example: 'ingegneria, economia, giurisprudenza, medicina, scienze umanistiche, scienze sociali, informatica, arte e design'
           minLength: 1
           maxLength: 2048
+          nullable: true
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
@@ -587,6 +596,7 @@ components:
           example: 'Informatica, Meccanica, Elettronica, Civile'
           minLength: 1
           maxLength: 2048
+          nullable: true
         academic_qualification_date:
           type: string
           format: date
@@ -594,6 +604,7 @@ components:
           example: 2023-10-01
           minLength: 10
           maxLength: 10
+          nullable: true
         qualification_grade_value:
           type: string
           description: Grade / voto
@@ -603,17 +614,19 @@ components:
           pattern: ^(\d+(.\d{1,2})?|\d+L|QUALIFIED)$
           nullable: true
         qualification_grading_scale_minimum_grade:
-          type: string
-          minLength: 1
-          maxLength: 32
-          example: '66'
+          type: number
+          format: float
+          minimum: 0
+          maximum: 9999
+          example: 66
           description: Minimum course grade / Voto minimo del corso        
           nullable: true
         qualification_grading_scale_maximum_grade:
-          type: string
-          minLength: 1
-          maxLength: 32
-          example: '110'
+          type: number
+          format: float
+          minimum: 0
+          maximum: 9999
+          example: 110
           description: Highest course grade / Voto massimo del corso
           nullable: true
         academic_qualification_country:
@@ -622,6 +635,7 @@ components:
           example: Italia      
           minLength: 1
           maxLength: 2048
+          nullable: true
     proof_education_qualifications_diploma_supplement:
       additionalProperties: false
       type: object
@@ -654,7 +668,6 @@ components:
         - proof_qualifications_level
     proof_qualification_diploma_supplement:
       type: object
-      nullable: true
       additionalProperties: false
       description: Simplified supplment diplomas in SDG format / Diplomi supplment semplificati in formato SDG
       properties:
@@ -665,12 +678,14 @@ components:
           example: 180
           maximum: 999
           minimum: 1
+          nullable: true
         institute_name: 
           type: string
           description: Institute name / Nome dell'istituto
           example: 'Cagliari - Università degli Studi'
           minLength: 1
           maxLength: 2048
+          nullable: true
         institute_code:
           type: string
           description: Institute identification code / Codice identificativo dell’istituto
@@ -684,24 +699,28 @@ components:
           example: 'MS'
           minLength: 1
           maxLength: 256
+          nullable: true
         programme_type_name:
           type: string
           description: Type of course of study / Tipo di corso di studio
           example: 'Laurea Magistrale (DM 270/04)'
           minLength: 1
           maxLength: 2048
+          nullable: true
         degree_course_code:
           type: string
           description: Course Code / Codice del corso
           example: '455'
           minLength: 1
           maxLength: 20
+          nullable: true
         degree_course_name:
           type: string
           description: Course name / Denominazione corso
           example: 'Ingegneria informatica'
           minLength: 1
           maxLength: 2048
+          nullable: true
         degree_class_code:
           type: string
           description: Identification code of the degree class / Codice identificativo della classe di laurea
@@ -715,6 +734,7 @@ components:
           example: 'Ingegneria informatica'
           minLength: 1
           maxLength: 2048
+          nullable: true
         degree_course_duration_in_months:
           type: integer
           format: int32
@@ -722,6 +742,7 @@ components:
           example: 36
           minimum: 0
           maximum: 999
+          nullable: true
         qualification_grade_value:
           type: string
           description: Grade / voto
@@ -731,19 +752,21 @@ components:
           pattern: ^(\d+(.\d{1,2})?|\d+L|QUALIFIED)$
           nullable: true
         qualification_grading_scale_minimum_grade:
-          type: string
+          type: number
+          format: float
+          minimum: 0
+          maximum: 9999
           description: Rating scale minimum / Scala di valutazione minima
-          example: '66'          
+          example: 66         
           nullable: true
-          minLength: 1
-          maxLength: 32
         qualification_grading_scale_maximum_grade:
-          type: string
+          type: number
+          format: float
+          minimum: 0
+          maximum: 9999
           description: Rating scale maximum / Scala di valutazione massima
-          example: '110'          
+          example: 110          
           nullable: true
-          minLength: 1
-          maxLength: 32
         qualification_date:
           type: string
           format: date
@@ -751,18 +774,21 @@ components:
           example: 2022-07-01          
           minLength: 10
           maxLength: 10
+          nullable: true
         access_to_regulated_profession:
           type: string
           description: Rating scale maximum / Scala di valutazione massima
           example: 'Non applicabile'          
           minLength: 1
           maxLength: 32
+          nullable: true
         administering_institute_name:
           type: string
           description: Administering institute name / Nome dell'Istituto Amministratrice
           example: 'Cagliari - Università degli studi'          
           minLength: 1
           maxLength: 2048
+          nullable: true
         administering_institute_status:
           type: string
           description: Administering institute status / Stato dell'Istituto Amministratrice
@@ -772,12 +798,14 @@ components:
           enum: 
             - public
             - private
+          nullable: true
         qualification_institute_name:
           type: string
           description: Qualiification institute name / Nome dell'Istituto di qualificazione
           example: 'Cagliari - Università degli studi'          
           minLength: 1
           maxLength: 2048
+          nullable: true
         qualification_institute_status:
           type: string
           description: Qualiification institute status / Stato dell'Istituto di qualificazione
@@ -787,18 +815,21 @@ components:
           enum:
             - private
             - public
+          nullable: true
         eqf_level:
           type: string
           description: EQF level / Livello EQF
           example: '6° livello'          
           minLength: 1
           maxLength: 2048
+          nullable: true
         nqf_level:
           type: string
           description: NQF level / Livello NQF
           example: 'I ciclo QF-XXX'
           minLength: 1
           maxLength: 2048
+          nullable: true
         attended_learnings:
           type: array
           maxItems: 256
@@ -806,9 +837,9 @@ components:
           description: List of attended learnings / Elenco corsi frequentati
           items:
             $ref: '#/components/schemas/attended_learnings'
+          nullable: true
     proof_qualification_level:
       type: object
-      nullable: true
       additionalProperties: false
       description: Simplified supplment diplomas in SDG format / Diplomi supplment semplificati in formato SDG
       properties:
@@ -818,6 +849,7 @@ components:
           example: 'Laurea in Scienze Aziendali'
           minLength: 1
           maxLength: 2048
+          nullable: true
         degree_course_duration_in_months:
           type: integer
           format: int32
@@ -825,6 +857,7 @@ components:
           example: 36
           minimum: 0
           maximum: 999
+          nullable: true
         institute_code:
           type: string
           description: Institute identification code / Codice identificativo dell’istituto
@@ -838,6 +871,7 @@ components:
           example: 'Milano - Politecnico'
           minLength: 1
           maxLength: 2048
+          nullable: true
         academic_qualification_date:
           type: string
           format: date
@@ -845,6 +879,7 @@ components:
           example: 2022-07-01
           minLength: 10
           maxLength: 10
+          nullable: true
         total_ects:
           type: integer
           format: int32
@@ -852,18 +887,21 @@ components:
           example: 180
           maximum: 999
           minimum: 1
+          nullable: true
         eqf_level:
           type: string
           description: EQF level / Livello EQF
           example: '6° livello'
           minLength: 1
           maxLength: 2048
+          nullable: true
         nqf_level:
           type: string
           description: NQF level / Livello NQF
           example: 'I ciclo QF-EHEA'
           minLength: 1
           maxLength: 2048
+          nullable: true
         has_parent_relation:
           type: boolean
           nullable: true
@@ -876,8 +914,10 @@ components:
           example: 180
           maximum: 999
           minimum: 1
+          nullable: true
         ects_learnings:
           type: array
+          nullable: true
           maxItems: 256
           minItems: 0
           description: List of courses in ECTS / Elenco corsi in ECTS
@@ -904,18 +944,20 @@ components:
           pattern: ^(\d+(.\d{1,2})?|\d+L|QUALIFIED)$
           nullable: true
         learning_grading_scale_min:
-          type: string
+          type: number
+          format: float
+          minimum: 0
+          maximum: 9999
           description: minimun Exam vote / Voto d'esame minimo
-          example: '18'          
-          minLength: 1
-          maxLength: 128    
+          example: 18            
           nullable: true
         learning_grading_scale_max:
-          type: string
+          type: number
+          format: float
+          minimum: 0
+          maximum: 9999
           description: Exam vote / Voto d'esame massimo
-          example: '30'          
-          minLength: 1
-          maxLength: 128
+          example: 30
           nullable: true
         learning_name:
           type: string
@@ -923,12 +965,14 @@ components:
           example: 'Esame 1, Esame 2'          
           minLength: 1
           maxLength: 2048
+          nullable: true
         learning_start_date:          
           type: string
           description: Course start date / Data inizio corso
           example: 2018-12-01          
           minLength: 10
           maxLength: 10
+          nullable: true
         learning_end_date:          
           type: string
           format: date
@@ -936,6 +980,7 @@ components:
           example: 2019-03-01          
           minLength: 10
           maxLength: 10
+          nullable: true
     ects_learnings:
       type: object
       additionalProperties: false
@@ -954,9 +999,11 @@ components:
           example: 180
           maximum: 999
           minimum: 1
+      required:
+        - learning_name
+        - ects_credits 
     personal_data:
       type: object
-      nullable: true
       additionalProperties: false
       description: Personal data of the student / Dati personali della studentessa o dello studente
       properties:
