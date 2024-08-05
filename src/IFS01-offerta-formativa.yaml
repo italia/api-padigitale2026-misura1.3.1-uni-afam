@@ -36,7 +36,7 @@ paths:
                     degree_courses:
                       - programme_type_code: LT
                         programme_access: free
-                        course_location: 015146
+                        course_location: '015146'
                         course_area: Ingegneria industriale
                         degree_course_language: IT
                         degree_course_period_years: 3
@@ -59,7 +59,7 @@ paths:
                     degree_courses:
                       - programme_type_code: LT
                         programme_access: free
-                        course_location: 058091
+                        course_location: '058091'
                         course_area: DISCIPLINE INTERPRETATIVE
                         degree_course_language: IT
                         degree_course_period_years: 3
@@ -143,7 +143,7 @@ paths:
                   value:
                       programme_type_code: LT
                       programme_access: free
-                      course_location: 058091
+                      course_location: '058091'
                       remote_mode: on-site
                       course_area: DISCIPLINE INTERPRETATIVE
                       degree_course_language: IT
@@ -182,7 +182,7 @@ paths:
                   value:
                       programme_type_code: LT
                       programme_access: free
-                      course_location: 015146
+                      course_location: '015146'
                       remote_mode: on-site
                       course_area: Ingegneria industriale
                       degree_course_language: IT

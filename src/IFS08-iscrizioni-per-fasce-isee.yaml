@@ -141,12 +141,14 @@ components:
       properties:
         isee_min_value:
           type: integer
+          format: int64
           description: Minimum value of the ISEE reference band / Valore minimo della fascia ISEE di riferimento 
           minimum: 0
           maximum: 9999999    
           nullable: true       
         isee_max_value:
           type: integer
+          format: int64
           description: Maximum value of the ISEE reference band / Valore massimo della fascia ISEE di riferimento
           minimum: 0
           maximum: 9999999  

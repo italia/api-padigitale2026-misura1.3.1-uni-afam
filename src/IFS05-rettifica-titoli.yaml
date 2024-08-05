@@ -101,11 +101,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/change_request_status'
+                $ref: '#/components/schemas/change_requests_status'
               examples:
                 Example:
                   value: 
-                    qualification_change_request:
                       - file_status: approved
                         file_code: 6d183bc572f6b200015a4167
                         message: testo messaggio
@@ -427,6 +426,10 @@ components:
           description: List of qualifications change request for student / Elenco variazioni titoli di una studentessa o di uno studente
           items:
             $ref: '#/components/schemas/qualification_change_request_detail'
+    change_requests_status:
+      type: array
+      items:
+            $ref: '#/components/schemas/change_request_status'
     change_request_status:
       additionalProperties: false
       type: object

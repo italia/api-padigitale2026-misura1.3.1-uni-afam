@@ -33,7 +33,6 @@ paths:
               examples:
                 Statuscode=200:
                   value:
-                    count_academic_enrollments_by_degree_courses:
                       - programme_type_code: MS
                         degree_course_code: '469'
                         degree_class_code: MSLM32
