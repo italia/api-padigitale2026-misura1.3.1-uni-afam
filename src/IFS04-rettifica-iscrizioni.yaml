@@ -603,7 +603,6 @@ components:
             - rejected
             - acquired
             - cancelled
-            - null
         file_code:
           type: string
           description: enrollment change request code/ Codice Rettifica iscrizioni
