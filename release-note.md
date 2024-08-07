@@ -18,6 +18,7 @@
 - [IFS09] issue #195 - Removed the requirement for degree_class_code and we are making degree_course_code nullable, so you can consolidate all counts into an item without degree_course_code (as indicated by the MUR in the CINECA repository) with a null value."
 - [IFS01] issue #125: updated learning hours from 1 to 0"
 - [IFS0X] issues  #196, #207 fixed isee_min and max type and grading_scale min and max type, set nullable any attribute for the APIs SDG
+- [IFS05] issue #211, fixed change_requests_status from object to array
 
 
 ## Version 2.0.5
