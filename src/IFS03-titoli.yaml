@@ -5,7 +5,7 @@ info:
   x-summary: |
     Provides the detailed information regarding the academic qualification degrees got by the students at an university or AFAM / 
     Fornisce le informazioni di dettaglio riguardanti i titoli conseguiti da una studentessa o uno studente all'università o AFAM
-  version: 1.0.0
+  version: 2.0.6-rc
   description: |
     Provides the detailed information regarding the academic qualification degrees got by the students at an university or AFAM / 
     Fornisce le informazioni di dettaglio riguardanti i titoli conseguiti da una studentessa o uno studente all'università o AFAM

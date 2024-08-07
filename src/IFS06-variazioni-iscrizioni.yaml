@@ -3,7 +3,7 @@ info:
   title: IFS06 - Changes in academic enrolments/ Variazioni nelle iscrizioni accademiche
   x-summary: | 
     Retrieve the changes in academic enrollments / Ottiene le variazioni delle iscrizioni accademiche
-  version: 1.0.0
+  version: 2.0.6-rc
   description: |
         Retrieve the changes in academic enrollments / Ottiene le variazioni delle iscrizioni accademiche
   contact:

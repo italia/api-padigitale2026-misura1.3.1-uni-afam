@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: IFS04 - Academic enrollments change request  / Rettifica iscrizioni accademiche
   x-summary: Data academic enrollments change request / Richiede la rettifica dei dati delle iscrizioni accademiche
-  version: 1.0.0
+  version: 2.0.6-rc
   description: |
         Data academic enrollments change request / Richiede la rettifica dei dati delle iscrizioni accademiche
   contact:
