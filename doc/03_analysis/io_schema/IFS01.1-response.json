@@ -28,7 +28,7 @@
     ,
     "meta":
     {
-        "cursor":"" /*Non valorizzato o non presente nel caso in cui non siano presenti ulteriori paginazioni - Vedere esempi nello YAML*/
+        "cursor":"" 
     }
 }
 
@@ -38,36 +38,24 @@
 {
     "degree_courses": [
         {
-            "programme_type_code":"XX", /*in attesa di dataset*/
+            "programme_type_code":"PL",
             "programme_access":"free",
             "course_location":"058091,058039",
-            "course_area":"DISCIPLINE INTERPRETATIVE",         
+            "course_area":"musica strumentale",         
             "degree_course_language":"IT",
             "degree_course_period_years":3,
-            "degree_course_code":"1234", /*in attesa di dataset*/
+            "degree_course_code":"100116",
             "total_credits":180,
             "academic_year":"2023/2024"
         },
         {
-            "programme_type_code":"YY", /*in attesa di dataset*/
+            "programme_type_code":"SL", 
             "programme_access":"free",
             "course_location":"058091,058039",
-            "course_area":"DISCIPLINE INTERPRETATIVE",         
+            "course_area":"PROGETTAZIONE GRAFICA ED EDITORIALE",         
             "degree_course_language":"IT,EN",
             "degree_course_period_years":2,
-            "degree_course_code":"5678", /*in attesa di dataset*/
-            "total_credits":120,
-            "academic_year":"2023/2024"
-        },
-        {
-            "programme_type_code":"ZZ", /*in attesa di dataset*/
-            "programme_access":"free",
-            "course_location":"058091,058039",
-            "course_area":"Discipline interpretative del jazz, delle musiche improvvisate e audiotattili",
-         
-            "degree_course_language":"IT,EN",
-            "degree_course_period_years":2,
-            "degree_course_code":"9823", /*in attesa di dataset*/
+            "degree_course_code":"101073", 
             "total_credits":120,
             "academic_year":"2023/2024"
         }
@@ -75,7 +63,7 @@
     ,
     "meta":
     {
-        "cursor":"" /*Non valorizzato o non presente nel caso in cui non siano presenti ulteriori paginazioni - Vedere esempi nello YAML*/
+        "cursor":"" 
     }
 }
 

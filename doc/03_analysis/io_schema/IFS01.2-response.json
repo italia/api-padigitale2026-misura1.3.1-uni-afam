@@ -124,7 +124,7 @@
    "course_area": "DISCIPLINE INTERPRETATIVE",
    "degree_course_language": "IT",
    "degree_course_period_years": 3,
-   "degree_course_code": "1234", /*in attesa di dataset*/
+   "degree_course_code": "1234", 
    "total_credits": 180,
    "academic_year": "2023/2024",
    "first_year_activation_course": "2010/2011", /* Facoltativo*/
@@ -142,8 +142,7 @@
                      "learning_ssd": "",
                      "learning_sad": "COTP/06",
                      "learning_name": "Ear training I",
-                     "learning_code": "081360", /*in attesa di dataset*/
-                     "learning_cfu": null,
+                     "learning_code": "081360",
                      "learning_cfa": 10,
                      "learning_hour": 48,
                      "learning_language": "IT",
@@ -153,7 +152,7 @@
                      "learning_ssd": "",
                      "learning_sad": "COTP/01",
                      "learning_name": "Teorie e tecniche dell'armonia I",
-                     "learning_code": "0489", /*in attesa di dataset*/
+                     "learning_code": "0489",
                      "learning_cfu": null,
                      "learning_cfa": 7,
                      "learning_hour": 36,
