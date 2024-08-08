@@ -19,6 +19,7 @@
 - [IFS01] issue #125: updated learning hours from 1 to 0"
 - [IFS0X] issues  #196, #207 fixed isee_min and max type and grading_scale min and max type, set nullable any attribute for the APIs SDG
 - [IFS05] issue #211, fixed change_requests_status from object to array
+- [Readme.md] aggiunto il riferimento al profilo di sicurezza, secondo le linee di guida di Interoperabilità AgID, da utilizzare nell'implementazione degli e-service - issue #212
 
 
 ## Version 2.0.5

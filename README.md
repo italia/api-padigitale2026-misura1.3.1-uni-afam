@@ -174,22 +174,23 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 >1. Classi di laurea
 >1. Istituti di formazione superiore
 
-:warning: **I canali di pubblicazione di questi vettori di dati da parte del MUR sono ancora in fase di definizione**
 
-<img src="doc/05_gallery/info.svg" width="20" /> Lo schema dei dataset può essere approfondito nella sezione [risorse utili](#risorse-utili)
+<img src="doc/05_gallery/info.svg" width="20" /> Approfondimento nella sezione [risorse utili](#risorse-utili)
 
-**2** -  **Pubblicazione degli e-service su PDND**</br>
-:warning: Si ricorda che in fase di pubblicazione degli e-service sulla piattaforma PDND, il nome deve rispettare quello nella colonna denominata "Nome" della tabella 1, ossia il seguente pattern e comunque seguire la [guida alla pubbligazione degli e-serivce](doc/06_deployment/Guida_erogazione_e-service_Università_e_AFAM.pdf)
+**2** -  **Pubblicazione degli e-service su PDND**</br> Si ricorda che in fase di pubblicazione degli e-service sulla piattaforma PDND, il nome deve rispettare quello nella colonna denominata "Nome" della tabella 1, ossia il seguente pattern e comunque seguire la [guida alla pubbligazione degli e-serivce](doc/06_deployment/Guida_erogazione_e-service_Università_e_AFAM.pdf)
 
-**3** - La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
+**3** -  **Linee Guida interoperabilità e Pattern di sicurezza AgID**</br> 
+L'implementazione degli e-service devono rispettare il profilo **[ID_AUTH_REST_01] Direct Trust con certificato X.509 REST** definito sulle [LG interoperabilità e Pattern di sicurezza](https://www.retedigitale.gov.it/documenti/documenti/view?id=137)
 
-**4** - Il **_person_id_** riportato nella specifica delle API far riferimento all’identificativo univoco ANPR (Anagrafe Nazionale della Popolazione Residente). 
+**4** - La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
 
-**5** - Perché abbiamo scelto di usare principalmente il metodo POST: [GET Method vs POST Method](https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues/91)
+**5** - Il **_person_id_** riportato nella specifica delle API far riferimento all’identificativo univoco ANPR (Anagrafe Nazionale della Popolazione Residente). 
+
+**6** - Perché abbiamo scelto di usare principalmente il metodo POST: [GET Method vs POST Method](https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues/91)
 >1. [URIs, Addressability, and the use of HTTP GET and POST](https://www.w3.org/2001/tag/doc/whenToUseGet.html#:~:text=HTTP%20GET%20promotes%20URI%20addressability,(or%20of%20related%20resources).)
 >1. [w3shools-ref  Compare GET vs. POST chapter](https://www.w3schools.com/tags/ref_httpmethods.asp)
 
-**6** - Suggeriamo infine di fare riferimento sempre alla sezione 
+**7** - Suggeriamo infine di fare riferimento sempre alla sezione 
 [risorse utili](#risorse-utili) che è aggiornata periodicamente.
 
 ## Linee guida agli e-service
