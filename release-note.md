@@ -19,7 +19,7 @@
 - [IFS01] issue #125: updated learning hours from 1 to 0"
 - [IFS0X] issues  #196, #207 fixed isee_min and max type and grading_scale min and max type, set nullable any attribute for the APIs SDG
 - [IFS05] issue #211, fixed change_requests_status from object to array
-- [Readme.md] Added a reference to the security profile in accordance with the AgID Interoperability guidelines for the implementation of e-services - Issue #212
+- [Readme.md]  Issue #212: Added on the documentation a reference to the security profile in accordance with the AgID Interoperability guidelines for the implementation of e-service.Avoid to activate the Audit profile when you publish the e-service https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues/212
 
 
 ## Version 2.0.5
