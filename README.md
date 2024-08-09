@@ -180,7 +180,10 @@ Tabella 2 – Fasce di Università in base al numero di studentesse e studenti i
 **2** -  **Pubblicazione degli e-service su PDND**</br> Si ricorda che in fase di pubblicazione degli e-service sulla piattaforma PDND, il nome deve rispettare quello nella colonna denominata "Nome" della tabella 1, ossia il seguente pattern e comunque seguire la [guida alla pubbligazione degli e-serivce](doc/06_deployment/Guida_erogazione_e-service_Università_e_AFAM.pdf)
 
 **3** -  **Linee Guida interoperabilità e Pattern di sicurezza AgID**</br> 
-L'implementazione degli e-service devono rispettare il profilo **[ID_AUTH_REST_01] Direct Trust con certificato X.509 REST** definito sulle [LG interoperabilità e Pattern di sicurezza](https://www.agid.gov.it/it/agenzia/stampa-e-comunicazione/notizie/2023/05/23/aggiornati-i-pattern-sicurezza-linee-guida-sullinteroperabilita-tecnica-pa)
+L'implementazione degli e-service devono rispettare il profilo **[ID_AUTH_REST_01] Direct Trust con certificato X.509 REST** definito sulle [LG interoperabilità e Pattern di sicurezza](https://www.agid.gov.it/it/agenzia/stampa-e-comunicazione/notizie/2023/05/23/aggiornati-i-pattern-sicurezza-linee-guida-sullinteroperabilita-tecnica-pa). Di conseguenza **NON abilitare il profilo Informazioni Audit con l'apposita check durante la pubblicazione dell'e-service**. Per chi è interessato è possibile approfondire sulla [issue](https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues/212#issue-2445801828) 
+
+<img src="doc/05_gallery/esempio_audit_profile_on_pdnd.png" width="200" />
+
 
 **4** - La visualizzazione della specifica Open API e dei relativi esempi può essere ottenuta utlizzando [l'editor swagger](https://editor-next.swagger.io/) e copiando il contenuto dei file di tipo yaml che verranno forniti via via nella seguente trattazione di dettaglio.
 
