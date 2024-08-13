@@ -20,7 +20,7 @@
 - [IFS0X] issues  #196, #207 fixed isee_min and max type and grading_scale min and max type, set nullable any attribute for the APIs SDG
 - [IFS05] issue #211, fixed change_requests_status from object to array
 - [Readme.md]  Issue #212: Added on the documentation a reference to the security profile in accordance with the AgID Interoperability guidelines for the implementation of e-service.Avoid to activate the Audit profile when you publish the e-service https://github.com/italia/api-padigitale2026-misura1.3.1-uni-afam/issues/212
-- [IFS06] issue #124: fixed operationId value of the path '/student-enrollments-changes'  
+- [IFS06] issue #214: fixed operationId value of the path '/student-enrollments-changes'  
 - [IFS07] Issue #215: Updated the definitions for academic_system and sync_mode by removing the min and max constraints and making these fields nullable
 
 ## Version 2.0.5
