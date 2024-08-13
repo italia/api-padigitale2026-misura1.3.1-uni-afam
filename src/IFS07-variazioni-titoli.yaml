@@ -171,9 +171,7 @@ components:
             2. Il valore 'new' si riferisce ai titoli accademici ottenuti a partire dal nuovo oridnamento Universitario/AFAM regolato dai decreti legislativi 509/99 per l'Università e 508/99 per l'AFAM.
             3. Se questo parametro non è specificato, l'API si riferisce ai i titoli accademici sia del vecchio che del nuovo ordinamento.
           example: 'new'          
-          minLength: 1
-          maxLength: 256
-          nullable: false
+          nullable: true
           enum:
             - old
             - new
@@ -192,8 +190,6 @@ components:
               b) Qualsiasi titolo accademico rettificato negli ultimi 2 anni solari (basato sulla data di rettifica del titolo). Se uno studente non ha più alcun titolo accademico perché è stato eliminato, l'API restituisce null o un hash di un'entità null.
             3. Se questo parametro non è valorizzato, il valore predefinito è **full**
           example: 'full'          
-          minLength: 1
-          maxLength: 256
           nullable: true  
           enum:
             - incremental
