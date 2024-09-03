@@ -598,6 +598,7 @@ components:
         proof_education_course:
           type: array
           minItems: 0
+          maxItems: 256
           items:
             $ref: '#/components/schemas/proof_education_course'
     proof_education_course:
