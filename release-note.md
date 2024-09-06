@@ -24,6 +24,7 @@
 - [IFS07] Issue #215: Updated the definitions for academic_system and sync_mode by removing the min and max constraints and making these fields nullable
 - [IFS02.3] 03.09.2024 issue #217
 - [IFS04.2] 03.09.2024 issue #216
+- [IFS01,IFS06,IFS07] 06.09.2024 fixed examples with the cursor
 
 
 ## Version 2.0.5

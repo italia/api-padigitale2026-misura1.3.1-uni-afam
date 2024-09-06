@@ -3,8 +3,8 @@
     "academic_year":"2023/2024"   
 }
 
-/*Esempio: invocazioni successive*/
+/*Esempio: invocazioni successive (paginazione)*/
 {
-    "academic_year":"2023/2024",
+    "academic_year":null
     "cursor":"abc123456abc"
 }

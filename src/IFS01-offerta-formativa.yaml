@@ -105,16 +105,18 @@ paths:
               1 - prima invocazione:
                 value:
                   academic_year: 2023/2024              
-              2 - invocazioni successive alla prima:
+              2 - invocazioni successive alla prima (paginazione):
                 value:
-                  academic_year: 2023/2024
+                  academic_year: null
                   cursor: "abc123456abc"      
           application/xml:
             schema:
               type: object
               additionalProperties: false
               properties: {}
-        description: "PUNTO DI ATTENZIONE:\n  * NON valorizzare l'attributo cursor durante la prima invocazione;\n\ * Valorizzare l'attributo cursor nelle invocazioni successive (laddove presente nella precedente Response);"
+        description: | 
+          "PUNTO DI ATTENZIONE:\n  * NON valorizzare l'attributo cursor durante la prima invocazione;\n\ * Valorizzare l'attributo cursor nelle invocazioni successive (laddove presente nella precedente Response). 
+          L'attributo academic_year non è considerato nelle invocazioni successive alla prima, ossia quando è valorizzato il cursor "
       
       operationId: educational-offering-list
       description: <ul> <li>Request the list of active courses offered by the Institute in an academic year. </li><li>Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico.</li></ul>
@@ -602,6 +604,7 @@ components:
           minLength: 9
           maxLength: 9
           pattern: '^\d{4}/\d{4}$'
+          nullable: true
         cursor:
           type: string
           description: Cursor / Cursore

@@ -1,6 +1,12 @@
+//Prima invocazione
 {
-    "cursor": "fowfio543s",
-    "institute_code": "AA",
     "academic_system": "new",
     "sync_mode": "full"
+}
+
+//Invocazioni successive alla prima (Paginazione)
+{
+    "cursor": "fowfio543s",
+    "academic_system": null,
+    "sync_mode": null
 }

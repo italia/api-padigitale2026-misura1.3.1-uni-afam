@@ -76,12 +76,13 @@ paths:
             schema:
               $ref: '#/components/schemas/student_qualifications_changes_request'
             examples:
-              example:
+              Prima invocazione:
                 value:
-                  cursor: fowfio543s
-                  institute_code: AA     
                   academic_system: new
                   sync_mode: full
+              Invocazioni successive alla prima (paginazione):
+                value:
+                  cursor: fowfio543s
           application/xml:
             schema:
               type: object
