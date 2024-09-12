@@ -327,8 +327,6 @@ components:
           type: string
           description: Access to the course / Accesso al corso
           example: free          
-          minLength: 1
-          maxLength: 99
           enum:
             - free
             - limited
@@ -403,8 +401,6 @@ components:
           type: string
           description: Access to the course / Accesso al corso
           example: free          
-          minLength: 1
-          maxLength: 99
           enum:
             - free
             - limited
@@ -418,8 +414,6 @@ components:
           type: string
           description: Remote instruction method / Metodo istruzione remota
           example: on-site          
-          minLength: 1
-          maxLength: 99
           enum:
             - full-remote
             - on-site

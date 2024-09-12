@@ -25,6 +25,7 @@
 - [IFS02.3] 03.09.2024 issue #217
 - [IFS04.2] 03.09.2024 issue #216
 - [IFS01,IFS06,IFS07] 06.09.2024 fixed examples with the cursor
+- [IFS0X] 12.09.2024 issue #221 Removed min and max for enum types
 
 
 ## Version 2.0.5

@@ -793,8 +793,6 @@ components:
           type: string
           description: Administering institute status / Stato dell'Istituto Amministratrice
           example: 'public'          
-          minLength: 1
-          maxLength: 2048
           enum: 
             - public
             - private
@@ -810,8 +808,6 @@ components:
           type: string
           description: Qualiification institute status / Stato dell'Istituto di qualificazione
           example: 'public'          
-          minLength: 1
-          maxLength: 2048
           enum:
             - private
             - public

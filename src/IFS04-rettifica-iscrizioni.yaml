@@ -534,8 +534,6 @@ components:
           type: string
           description: Enrollment status / Stato dell'iscrizione
           example: active
-          minLength: 1
-          maxLength: 20
           enum:
             - active
             - inactive
@@ -587,16 +585,12 @@ components:
         response_code:
           type: string
           description: response code / codice della risposta. Indica il codice di risposta generato dall'invocazione dell'API per le operazioni di inserimento o eliminazione (insert, delete). Questo codice riflette l'esito della validazione del payload in ingresso, determinando se la transazione è approvata o rifiutata in base alla correttezza dei dati ricevuti
-          minLength: 1
-          maxLength: 256
           enum:
             - approved 
             - rejected
         file_status:
           type: string
           description: Status of an academic enrollment change request for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
-          minLength: 1
-          maxLength: 256
           nullable: true
           enum:
             - approved 
@@ -627,8 +621,6 @@ components:
         file_status:
           type: string
           description: Status of an academic enrollment change request for a student / Stato di una rettifica iscrizione per una studentessa o uno studente (Rappresenta lo stato del processo relativo alla richiesta di rettifica)
-          minLength: 1
-          maxLength: 256
           enum:
             - approved 
             - rejected
@@ -656,8 +648,6 @@ components:
         file_status:
           type: string
           description: Status of an academic change request for a student / Stato di una rettifica per una studentessa o uno studente          
-          minLength: 1
-          maxLength: 256
           enum:
             - approved
             - rejected

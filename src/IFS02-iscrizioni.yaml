@@ -875,8 +875,6 @@ components:
           nullable: true
           description: Type of mobility period / Tipo del periodo di mobilità
           example: lungo_termine         
-          minLength: 1
-          maxLength: 2048
           enum:
             - trimestrale
             - semestrale
@@ -988,8 +986,6 @@ components:
           type: string
           description: Enrollment status / Stato dell'iscrizione
           example: active          
-          minLength: 1
-          maxLength: 20
           enum:
             - active
             - inactive
