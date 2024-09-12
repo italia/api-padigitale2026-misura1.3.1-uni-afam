@@ -602,8 +602,6 @@ components:
           format: date
           description: Date of completion of studies / Data completamento studi
           example: 2023-10-01
-          minLength: 10
-          maxLength: 10
           nullable: true
         qualification_grade_value:
           type: string
@@ -772,8 +770,6 @@ components:
           format: date
           description: Date of completion of studies / Data completamento studi
           example: 2022-07-01          
-          minLength: 10
-          maxLength: 10
           nullable: true
         access_to_regulated_profession:
           type: string
@@ -873,8 +869,6 @@ components:
           format: date
           description: Date of graduation / Data ottenimento titolo
           example: 2022-07-01
-          minLength: 10
-          maxLength: 10
           nullable: true
         total_ects:
           type: integer
@@ -974,8 +968,6 @@ components:
           format: date
           description: Course end date / Data fine corso
           example: 2019-03-01          
-          minLength: 10
-          maxLength: 10
           nullable: true
     ects_learnings:
       type: object

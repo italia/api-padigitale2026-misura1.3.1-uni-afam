@@ -409,8 +409,6 @@ components:
           format: date
           description: Date request / Data richiesta
           example: 2019-10-12
-          minLength: 1
-          maxLength: 36
         personal_data:
           $ref: '#/components/schemas/personal_data'
         enrollments:

@@ -577,16 +577,12 @@ components:
           format: date
           description: Date of completion of studies / Data completamento studi
           example: 2023-10-01          
-          minLength: 10
-          maxLength: 10
           nullable: true
         enrollment_date:
           type: string
           format: date
           description: Enrollment date / Data iscrizione
           example: 2020-10-01          
-          minLength: 10
-          maxLength: 10
           nullable: true
     proof_education_courses:
       additionalProperties: false
@@ -817,16 +813,12 @@ components:
           format: date
           description: Academic year start date / Data inzio anno accademico
           example: 2023-10-01          
-          minLength: 10
-          maxLength: 10
           nullable: true
         end_date_of_academic_year:
           type: string
           format: date
           description: Academic year end date / Data fine anno accademico
           example: 2020-10-01          
-          minLength: 10
-          maxLength: 10
           nullable: true
     proof_personal_mobility_periods:
       additionalProperties: false
@@ -859,16 +851,12 @@ components:
           format: date
           description: Erasmus start date / Data inzio anno erasmus
           example: 2020-05-17          
-          minLength: 10
-          maxLength: 10
           nullable: true
         mobility_end_date:
           type: string
           format: date
           description: Erasmus end date / Data fine anno erasmus
           example: 2021-05-17          
-          minLength: 10
-          maxLength: 10
           nullable: true
         mobility_period_type:
           type: string
