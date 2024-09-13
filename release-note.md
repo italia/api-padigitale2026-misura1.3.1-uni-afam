@@ -27,7 +27,7 @@
 - [IFS01,IFS06,IFS07] 06.09.2024 fixed examples with the cursor
 - [IFS0X] 12.09.2024 issue #221 Removed min and max for enum types
 - [IFS0X] 12.09.2024 issue #220 Removed min and max for date types
-
+- [IFS0X] 13.09.2024 issue #218 Modified the scale of values assigned to the SDG cases by enabling the possibility of entering greading with 'letters' (Example: from A to D).
 
 ## Version 2.0.5
 - [IFS01.2] It was added the curriculum description of the learnings list

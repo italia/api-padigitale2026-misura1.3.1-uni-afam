@@ -180,8 +180,8 @@ paths:
                         degree_class_name: Ingegneria informatica
                         academic_qualification_date: 2022-07-01
                         qualification_grade_value: '110'
-                        qualification_grading_scale_minimum_grade: 66
-                        qualification_grading_scale_maximum_grade: 110
+                        qualification_grading_scale_minimum_grade: '66'
+                        qualification_grading_scale_maximum_grade: '110'
                         academic_qualification_country: Italia
         '400':
           description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
@@ -329,15 +329,15 @@ paths:
                         nqf_level: I ciclo QF-XXX
                         attended_learnings:
                           - learning_grade_value: '28'
-                            learning_grading_scale_min: 18
-                            learning_grading_scale_max: 30
+                            learning_grading_scale_min: '18'
+                            learning_grading_scale_max: '30'
                             learning_name: Analisi matematica I e Geometria
                             learning_start_date: '2018-12-01'
                             learning_end_date: '2019-03-01'
                             learning_cfu: '6'
                           - learning_grade_value: '22'
-                            learning_grading_scale_min: 18
-                            learning_grading_scale_max: 30
+                            learning_grading_scale_min: '18'
+                            learning_grading_scale_max: '30'
                             learning_name: Fisica sperimentale
                             learning_start_date: '2018-06-01'
                             learning_end_date: '2018-10-01'
@@ -497,7 +497,7 @@ components:
           minimum: 0
           maximum: 9999
           example: 66
-          description: Minimum course grade / Voto minimo del corso          
+          description: Minimum course grade / Voto minimo del corso
           nullable: true
         qualification_grading_scale_maximum_grade:
           type: number
@@ -506,7 +506,7 @@ components:
           maximum: 9999
           nullable: true
           example: 110
-          description: Highest course grade / Voto massimo del corso          
+          description: Highest course grade / Voto massimo del corso
       required:
         - institute_code
         - programme_type_code
@@ -609,23 +609,19 @@ components:
           minLength: 1
           maxLength: 32
           example: '110'
-          pattern: ^(\d+(.\d{1,2})?|\d+L|QUALIFIED)$
+          pattern: ^(\d+(.\d{1,2})?|\d+L|QUALIFIED|[A-Z])$
           nullable: true
         qualification_grading_scale_minimum_grade:
-          type: number
-          format: float
-          minimum: 0
-          maximum: 9999
-          example: 66
-          description: Minimum course grade / Voto minimo del corso        
+          type: string
+          example: '66'
+          description: Minimum course grade / Voto minimo del corso    
+          pattern: ^(\d+(.\d{1,2})?|[A-Z])$
           nullable: true
         qualification_grading_scale_maximum_grade:
-          type: number
-          format: float
-          minimum: 0
-          maximum: 9999
-          example: 110
+          type: string
+          example: '110'
           description: Highest course grade / Voto massimo del corso
+          pattern: ^(\d+(.\d{1,2})?|[A-Z])$
           nullable: true
         academic_qualification_country:
           type: string
@@ -929,25 +925,19 @@ components:
           type: string
           description: Exam vote / Voto d'esame
           example: '30'          
-          minLength: 1
-          maxLength: 2048
-          pattern: ^(\d+(.\d{1,2})?|\d+L|QUALIFIED)$
+          pattern: ^(\d+(.\d{1,2})?|\d+L|QUALIFIED|[A-Z])$
           nullable: true
         learning_grading_scale_min:
-          type: number
-          format: float
-          minimum: 0
-          maximum: 9999
+          type: string
           description: minimun Exam vote / Voto d'esame minimo
-          example: 18            
+          example: '18'
+          pattern: ^(\d+(.\d{1,2})?|[A-Z])$             
           nullable: true
         learning_grading_scale_max:
-          type: number
-          format: float
-          minimum: 0
-          maximum: 9999
+          type: string
           description: Exam vote / Voto d'esame massimo
-          example: 30
+          example: '30'
+          pattern: ^(\d+(.\d{1,2})?|[A-Z])$     
           nullable: true
         learning_name:
           type: string
