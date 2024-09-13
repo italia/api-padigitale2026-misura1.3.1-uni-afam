@@ -224,7 +224,7 @@ paths:
                           degree_course_name: Ingegneria informatica
                           degree_class_code: MSLT32
                           degree_class_name: Ingegneria informatica
-                          institute_code: 16
+                          institute_code: '16'
                           institute_name: Milano - Politecnico
                           learnings:
                             - attended_learning_name: Esame 3
@@ -243,11 +243,11 @@ paths:
                               ects_credits_received: 6
                         - programme_type_code: MS
                           programme_type_name: Laurea Magistrale (DM 270/04)
-                          degree_course_code: 1573960
+                          degree_course_code: '1573960'
                           degree_course_name: Ingegneria informatica
                           degree_class_code: MSLM32
                           degree_class_name: Ingegneria informatica
-                          institute_code: 16
+                          institute_code: '16'
                           institute_name: Milano - Politecnico
                           learnings:
                             - attended_learning_name: Esame 1
