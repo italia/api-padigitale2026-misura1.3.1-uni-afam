@@ -28,6 +28,7 @@
 - [IFS0X] 12.09.2024 issue #221 Removed min and max for enum types
 - [IFS0X] 12.09.2024 issue #220 Removed min and max for date types
 - [IFS0X] 13.09.2024 issue #218 Modified the scale of values assigned to the SDG cases by enabling the possibility of entering greading with 'letters' (Example: from A to D).
+- [IFS01, IFS06, IFS07] 17.09.2024 issue #222 Restored the management of the cursor with the filter parameters sent also in subsequent invocations
 
 ## Version 2.0.5
 - [IFS01.2] It was added the curriculum description of the learnings list

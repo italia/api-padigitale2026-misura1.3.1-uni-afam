@@ -7,6 +7,6 @@
 //Invocazioni successive alla prima (Paginazione)
 {
     "cursor": "fowfio543s",
-    "academic_system": null,
-    "sync_mode": null
+    "academic_system": "new",
+    "sync_mode": "full"
 }

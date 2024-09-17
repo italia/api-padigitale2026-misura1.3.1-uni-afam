@@ -107,7 +107,7 @@ paths:
                   academic_year: 2023/2024              
               2 - invocazioni successive alla prima (paginazione):
                 value:
-                  academic_year: null
+                  academic_year: 2023/2024
                   cursor: "abc123456abc"      
           application/xml:
             schema:

@@ -82,6 +82,8 @@ paths:
                   sync_mode: full
               Invocazioni successive alla prima (paginazione):
                 value:
+                  academic_system: new
+                  sync_mode: full
                   cursor: fowfio543s
           application/xml:
             schema:
