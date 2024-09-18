@@ -115,9 +115,7 @@ paths:
               additionalProperties: false
               properties: {}
         description: | 
-          "PUNTO DI ATTENZIONE:\n  * NON valorizzare l'attributo cursor durante la prima invocazione;\n\ * Valorizzare l'attributo cursor nelle invocazioni successive (laddove presente nella precedente Response). 
-          L'attributo academic_year non è considerato nelle invocazioni successive alla prima, ossia quando è valorizzato il cursor "
-      
+          "PUNTO DI ATTENZIONE:\n  * NON valorizzare l'attributo cursor durante la prima invocazione;\n\ * Valorizzare l'attributo cursor nelle invocazioni successive (laddove presente nella precedente Response).  
       operationId: educational-offering-list
       description: <ul> <li>Request the list of active courses offered by the Institute in an academic year. </li><li>Richiedi la lista dei corsi attivi offerti dall'Istituto in un anno accademico.</li></ul>
       parameters: []
