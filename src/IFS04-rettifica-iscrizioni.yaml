@@ -227,7 +227,6 @@ paths:
                 Example:
                   value:
                     file_status: approved
-                    file_code: 6d183bc572f6b200015a4167
                     message: Testo messaggio
         '400':
           description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
@@ -647,14 +646,8 @@ components:
           type: string
           description: Status of an academic change request for a student / Stato di una rettifica per una studentessa o uno studente          
           enum:
-            - approved
             - rejected
-            - acquired
-        file_code:
-          type: string
-          description: Change request code/ Codice rettifica          
-          minLength: 1
-          maxLength: 256    
+            - acquired 
         message:
           type: string
           description: Change request message output / Messaggio esito richiesta rettifica         
@@ -662,8 +655,6 @@ components:
           maxLength: 256 
       required:
         - file_status
-        - file_code
-        - message
     attributes:
           additionalProperties: false
           type: array
