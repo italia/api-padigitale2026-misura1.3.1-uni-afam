@@ -222,7 +222,7 @@ paths:
               examples:
                 Example:
                   value:
-                    file_status: approved
+                    file_status: acquired
                     message: Testo messaggio
         '400':
           description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
@@ -605,6 +605,10 @@ components:
           minItems: 0        
           items:
             $ref: '#/components/schemas/qualification'
+      required:
+        - subscriber_id
+        - subscriber_name
+        - subscriber_message
     personal_data:
       type: object
       nullable: true

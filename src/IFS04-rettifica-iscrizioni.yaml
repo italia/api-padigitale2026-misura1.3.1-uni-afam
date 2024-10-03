@@ -226,7 +226,7 @@ paths:
               examples:
                 Example:
                   value:
-                    file_status: approved
+                    file_status: acquired
                     message: Testo messaggio
         '400':
           description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
@@ -416,6 +416,10 @@ components:
           description: List of enrollments for student / Elenco iscrizioni di una studentessa o di uno studente
           items:
             $ref: '#/components/schemas/enrollment'
+      required:
+        - subscriber_id
+        - subscriber_name
+        - subscriber_message
     personal_data:
       type: object
       nullable: true
