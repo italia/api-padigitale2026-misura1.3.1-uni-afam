@@ -670,7 +670,6 @@ components:
       properties:
         attribute_name:
           type: string
-          nullable: true
           description: Attribute name to be changed  / Nome attributo da variare in fase di rettifica iscrizione
           minLength: 1
           maxLength: 256   
