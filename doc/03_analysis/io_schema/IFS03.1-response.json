@@ -17,8 +17,8 @@
       "degree_class_code": "MSLM32",
       "academic_qualification_date": "2022-07-01",
       "qualification_grade_value": "110",
-      "qualification_grading_scale_minimum_grade": "66",
-      "qualification_grading_scale_maximum_grade": "110"
+      "qualification_grading_scale_minimum_grade": 66,
+      "qualification_grading_scale_maximum_grade": 110
     }
   ]
 }

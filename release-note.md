@@ -32,6 +32,7 @@
 - [IFS04.4, IFS05.4] 03.10.2024 fixed the response of ifs04.4 and ifs05.4 
 - [IFS04.1] 03.0.2024 issue #224 Removed the nullable property from the attribute_name parameter
 - [IFS04.4, IFS05.4] 03.10.2024 issue #225 fixed the required attributes in the requests for ifs04.4 and ifs05.4.
+- [IFS03, IFS05] 04.10.2024 corrected a typo in the qualification_grading_scale fields, changing its type from string to number
 
 
 ## Version 2.0.5

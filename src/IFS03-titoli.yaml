@@ -180,8 +180,8 @@ paths:
                         degree_class_name: Ingegneria informatica
                         academic_qualification_date: 2022-07-01
                         qualification_grade_value: '110'
-                        qualification_grading_scale_minimum_grade: '66'
-                        qualification_grading_scale_maximum_grade: '110'
+                        qualification_grading_scale_minimum_grade: 66
+                        qualification_grading_scale_maximum_grade: 110
                         academic_qualification_country: Italia
         '400':
           description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
@@ -612,17 +612,21 @@ components:
           pattern: ^(\d+(.\d{1,2})?|\d+L|QUALIFIED|[A-Z])$
           nullable: true
         qualification_grading_scale_minimum_grade:
-          type: string
-          example: '66'
+          type: number
+          format: float
+          minimum: 0
+          maximum: 9999
+          nullable: true
+          example: 66
           description: Minimum course grade / Voto minimo del corso    
-          pattern: ^(\d+(.\d{1,2})?|[A-Z])$
-          nullable: true
         qualification_grading_scale_maximum_grade:
-          type: string
-          example: '110'
-          description: Highest course grade / Voto massimo del corso
-          pattern: ^(\d+(.\d{1,2})?|[A-Z])$
+          type: number
+          format: float
+          minimum: 0
+          maximum: 9999
           nullable: true
+          example: 110
+          description: Highest course grade / Voto massimo del corso
         academic_qualification_country:
           type: string
           description: Country where it has got the academic qualification / Paese dove è stato conseguito il titolo
