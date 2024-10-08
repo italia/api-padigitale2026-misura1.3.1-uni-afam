@@ -30,9 +30,10 @@
 - [IFS0X] 13.09.2024 issue #218 Modified the scale of values assigned to the SDG cases by enabling the possibility of entering greading with 'letters' (Example: from A to D).
 - [IFS01, IFS06, IFS07] 17.09.2024 issue #222 Restored the management of the cursor with the filter parameters sent also in subsequent invocations
 - [IFS04.4, IFS05.4] 03.10.2024 fixed the response of ifs04.4 and ifs05.4 
-- [IFS04.1] 03.0.2024 issue #224 Removed the nullable property from the attribute_name parameter
+- [IFS04.1] 03.10.2024 issue #224 Removed the nullable property from the attribute_name parameter in IFS04.1
 - [IFS04.4, IFS05.4] 03.10.2024 issue #225 fixed the required attributes in the requests for ifs04.4 and ifs05.4.
 - [IFS03, IFS05] 04.10.2024 corrected a typo in the qualification_grading_scale fields, changing its type from string to number
+- [IFS05.1] 08.10.2024 issue #224 Removed the nullable property from the attribute_name parameter in IFS05.1
 
 
 ## Version 2.0.5
