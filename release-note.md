@@ -34,7 +34,7 @@
 - [IFS04.4, IFS05.4] 03.10.2024 issue #225 fixed the required attributes in the requests for ifs04.4 and ifs05.4.
 - [IFS03, IFS05] 04.10.2024 corrected a typo in the qualification_grading_scale fields, changing its type from string to number
 - [IFS05.1] 08.10.2024 issue #224 Removed the nullable property from the attribute_name parameter in IFS05.1
-
+- [IFS03, IFS08, IFS09] 10.10.2024 issue #227 Renamed the OperationID from Italian to English for consistency and clarity in the codebase
 
 ## Version 2.0.5
 - [IFS01.2] It was added the curriculum description of the learnings list
@@ -58,11 +58,11 @@
 - [IFS03.3] Issue #178 The structure of the proof_qualifications_level object has been changed from an object to an array
 - [IFS02.3, IFS03.3, IFS03.4] It has fixed issue #180 by updating the README with the proposed changes
 - [FIS01.2] Provide instructions in the README on how to manage optional courses in the educational offer
-- [FIS02.1] Removed attribute Institute_Name in the response message (06/06/2024)
-- [FIS03.1] Removed attribute Institute_Name in the response message (06/06/2024)
-- [FIS06.1] Converted the GET request in POST (06/06/2024)
-- [FIS07.1] Converted the GET request in POST (06/06/2024)
-- [FIS07.1] Renamed attribute univerity_system_type in academic_system in the response message (06/06/2024)
+- [IFS02.1] Removed attribute Institute_Name in the response message (06/06/2024)
+- [IFS03.1] Removed attribute Institute_Name in the response message (06/06/2024)
+- [IFS06.1] Converted the GET request in POST (06/06/2024)
+- [IFS07.1] Converted the GET request in POST (06/06/2024)
+- [IFS07.1] Renamed attribute univerity_system_type in academic_system in the response message (06/06/2024)
 
 
 ## Version 2.0.4 Stable version

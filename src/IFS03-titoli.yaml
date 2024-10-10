@@ -125,7 +125,7 @@ paths:
             <br> - ...               
         '500':
           description: Internal server error / Errore interno del server 
-      operationId: titoli-studente
+      operationId: academic-qualifications-of-student
       description: Returns the list of degrees earned by a student / Restituisce la lista dei titoli conseguiti da una studentessa o uno studente
       requestBody:
         required: true

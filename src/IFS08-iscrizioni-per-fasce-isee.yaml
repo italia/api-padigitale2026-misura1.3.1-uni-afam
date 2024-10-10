@@ -85,7 +85,7 @@ paths:
               properties: {}
         description: ''
       
-      operationId: Iscritti-per-isee
+      operationId: enrollments-per-isee
       description: Retrieve the number of academic enrollments by ISEE / Ottiene il numero di iscrizioni accademiche per fasce ISEE
   /status:
     get:

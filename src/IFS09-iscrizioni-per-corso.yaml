@@ -78,7 +78,7 @@ paths:
               additionalProperties: false
               properties: {}
         description: ''
-      operationId: iscritti-per-corso
+      operationId: enrollments-per-degree-course
       description: Retrieve the number of academic enrollments by degree course / Ottiene il numero di iscrizioni accademiche per corso di studi
 
   /status:
