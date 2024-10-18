@@ -35,6 +35,7 @@
 - [IFS03, IFS05] 04.10.2024 corrected a typo in the qualification_grading_scale fields, changing its type from string to number
 - [IFS05.1] 08.10.2024 issue #224 Removed the nullable property from the attribute_name parameter in IFS05.1
 - [IFS03, IFS08, IFS09] 10.10.2024 issue #227 Renamed the OperationID from Italian to English for consistency and clarity in the codebase
+- [IFS04] 18.10.2024 fixed the null value definition in the enum file_status
 
 ## Version 2.0.5
 - [IFS01.2] It was added the curriculum description of the learnings list
@@ -63,6 +64,7 @@
 - [IFS06.1] Converted the GET request in POST (06/06/2024)
 - [IFS07.1] Converted the GET request in POST (06/06/2024)
 - [IFS07.1] Renamed attribute univerity_system_type in academic_system in the response message (06/06/2024)
+
 
 
 ## Version 2.0.4 Stable version
