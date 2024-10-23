@@ -12,9 +12,9 @@
 
 
 
-# API di PAdigitale2026 - Misura 1.3.1 - Avvisi per Università e AFAM pubblici
+# API di PA digitale 2026 - Misura 1.3.1 - Avvisi per Università e AFAM pubblici
 
-Questo repository contiene le specifiche delle API relative alla misura 1.3.1 per l'avviso dedicato alle Università pubbliche e AFAM (Alta Formazione Artistica, Musicale e Coreutica) pubblici, nell'ambito di PAdigitale2026. 
+Questo repository contiene le specifiche delle API relative alla misura 1.3.1 per l'avviso dedicato alle Università pubbliche e AFAM (Alta Formazione Artistica, Musicale e Coreutica) pubblici, nell'ambito di PA digitale 2026. 
 
 La tabella sottostante (Tabella 1) riporta il dettaglio del titolo e descrizione per tutte e nove le API (dalla IFS01 alla IFS09) che dovranno essere erogate dai Soggetti Attuatori in base alla fascia di appartenenza. 
 
@@ -974,7 +974,7 @@ Il [business canvas](https://docs.google.com/spreadsheets/d/1-H3R9vLX_Y3_7NxGN1I
 
 ## Per maggiori informazioni:
 * [Interoperabilità e PDND su Developers Italia](https://developers.italia.it/it/interoperabilita/)
-* [Avvisi di PAdigitale 2026](https://areariservata.padigitale2026.gov.it/Pa_digitale2026_avvisi)
+* [Avvisi di PA digitale 2026](https://areariservata.padigitale2026.gov.it/Pa_digitale2026_avvisi)
 * [Normativa e modelli relativi al Diploma Supplement](https://www.miur.gov.it/-/nuovo-supplemento-al-diploma-con-4-allegati-relativi-alla-compilazione-e-alle-linee-guida-nazionali-per-la-digitalizzazione)
 ## Ultima Modifica 🔬
 
