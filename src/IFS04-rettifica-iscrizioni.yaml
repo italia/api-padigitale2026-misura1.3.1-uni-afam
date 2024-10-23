@@ -592,6 +592,7 @@ components:
         file_status:
           type: string
           description: Status of an academic enrollment change request for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
+          nullable: true
           enum:
             - approved 
             - rejected
