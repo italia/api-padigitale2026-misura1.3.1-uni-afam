@@ -334,21 +334,21 @@ paths:
                             learning_name: Analisi matematica I e Geometria
                             learning_start_date: '2018-12-01'
                             learning_end_date: '2019-03-01'
-                            learning_cfu: '6'
+                            learning_cfu: 6
                           - learning_grade_value: '22'
                             learning_grading_scale_min: '18'
                             learning_grading_scale_max: '30'
                             learning_name: Fisica sperimentale
                             learning_start_date: '2018-06-01'
                             learning_end_date: '2018-10-01'
-                            learning_cfu: '6'
+                            learning_cfu: 6
                           - learning_grade_value: QUALIFIED
                             learning_grading_scale_min: null
                             learning_grading_scale_max: null
                             learning_name: Fisica tecnica
                             learning_start_date: '2018-07-01'
                             learning_end_date: '2019-07-01'
-                            learning_cfu: '6'
+                            learning_cfu: 6
                       
         '400':
           description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
@@ -919,11 +919,12 @@ components:
       description: Detailed information on completed courses / Informazioni dettagliate sui corsi completati
       properties:
         learning_cfu:
-          type: string
-          description: exam cfu / cfu esame
-          example: '6'
-          minLength: 0
-          maxLength: 64
+          type: integer
+          format: int32
+          description: Learning CFU / CFU insegnamento
+          example: 10          
+          minimum: 1
+          maximum: 999
           nullable: true
         learning_grade_value:
           type: string

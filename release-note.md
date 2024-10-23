@@ -37,6 +37,7 @@
 - [IFS03, IFS08, IFS09] 10.10.2024 issue #227 Renamed the OperationID from Italian to English for consistency and clarity in the codebase
 - [IFS04] 18.10.2024 fixed the null value definition in the enum file_status
 - [IFS04] 23.10.2024 issue #232 fixed the null value definition in the enum file_status
+- [IFS03] 23.10.2024 issue #230 fixed learning_cfu from string to number
 
 ## Version 2.0.5
 - [IFS01.2] It was added the curriculum description of the learnings list
