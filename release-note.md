@@ -38,6 +38,8 @@
 - [IFS04] 18.10.2024 fixed the null value definition in the enum file_status
 - [IFS04] 23.10.2024 issue #232 fixed the null value definition in the enum file_status
 - [IFS03] 23.10.2024 issue #230 fixed learning_cfu from string to number
+- [IFS04, IFS05] 24.10.2024 Corrections to the specifications for adjustments to be discussed with ANIS, file status and examples, reorganized the position of the methods for symmetry between IFS04 and IFS05
+
 
 ## Version 2.0.5
 - [IFS01.2] It was added the curriculum description of the learnings list

@@ -36,7 +36,7 @@ paths:
                     response_code: approved
                     file_status: acquired
                     file_code: 6d183bc572f6b200015a4167
-                    message: Richiesta rettifica iscrizione acquisita
+                    message: Richiesta rettifica iscrizione acquisita con successo
                 Example rejected:
                   value:
                     response_code: rejected
@@ -126,7 +126,7 @@ paths:
             <br> - ...
         '500':
           description: Internal server error / Errore interno del server 
-      description: Retrieve the status of enrollmet change request / Recupera lo stato di una richiesta di rettifica iscrizione tramite il suo identificativo
+      description: Retrieve the status of enrollmet change request / Recupera lo stato di una richiesta di rettifica
       requestBody:
         required: true
         content:
@@ -168,7 +168,7 @@ paths:
                 Example approved:
                   value:
                     response_code: approved
-                    file_status: approved
+                    file_status: cancelled
                     file_code: 6d183bc572f6b200015a4167
                     message: messaggio di testo
                 Example rejected:

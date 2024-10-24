@@ -33,12 +33,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/qualification_change_request_detail'
               examples:
-                Example:
+                Example approved:
                   value:
                     response_code: approved
                     file_status: acquired
                     file_code: 6d183bc572f6b200015a4167
                     message: Richiesta di rettifica del titolo conseguito acquisita con successo
+                Example rejected:
+                  value:
+                    response_code: rejected
+                    file_status: null
+                    file_code: null
+                    message: richiesta rifiutata perchè ...  
         '400':
           description: <b>Bad Request</b> - il server non può elaborare la richiesta del client a causa di una sintassi errata o di una richiesta non valida. <br> Esempi di cause
             <br> - Richiesta non valida
@@ -122,7 +128,7 @@ paths:
         '500':
           description: Internal server error / Errore interno del server 
       operationId: status-academic-qualification-change-request
-      description: Retrieve the status of the academic qualification change request satus / Permette di recuperare lo stato di una richiesta di rettifica del titolo conseguito
+      description: Retrieve the status of the academic qualification change request satus / Permette di recuperare lo stato di una richiesta di rettifica
       requestBody:
         required: true
         content:
@@ -134,7 +140,6 @@ paths:
                 value:
                   tax_code: LNGDVD80L31B354S
                   person_id: 12345678A
-                  file_code: 6d183bc572f6b200015a4167
           application/xml:
             schema:
               type: object
@@ -152,9 +157,10 @@ paths:
         - bearerAuth: []
       responses:
         '200':
-          description: |
-            Cancellation academic qualification change request / 
-            Richiesta di annullamento della richiesta di rettific di un titolo conseguito
+          description: > 
+            Delete the change request / Richiesta di annullamento rettifica 
+            1) status Approved= Richiesta di rettifica Cancellata   
+            2) status Rejected= Richiesta di rettifica non cancellata ed ancora attivata 
           content:
             application/json:
               schema:
@@ -163,7 +169,7 @@ paths:
                 Example approved:
                   value:
                     response_code: approved
-                    file_status: approved
+                    file_status: cancelled
                     file_code: 6d183bc572f6b200015a4167
                     message: messaggio di testo
                 Example rejected:
@@ -372,7 +378,7 @@ components:
     qualification_change_request:
       type: object
       additionalProperties: false      
-      description: qualification change request of a student's qualification / Richiesta creazione rettifica titolo di una studentessa o uno studente
+      description: change request of a student's qualification / Richiesta creazione rettifica titolo di una studentessa o uno studente
       properties:
         tax_code:
           type: string
@@ -414,161 +420,7 @@ components:
           maxLength: 5000
       required:
         - tax_code
-    qualifications_change_request:
-      type: object
-      additionalProperties: false
-      description: Qualification change request information status / Stati richiesta modifica titoli della studentessa o dello studente
-      properties:
-        change_requests_status:
-          type: array
-          minItems: 0
-          maxItems: 256
-          items:
-                $ref: '#/components/schemas/change_request_status'
-    change_request_status:
-      additionalProperties: false
-      type: object
-      description: Status of an qualification change request for a student / Stato di una rettifica titolo per una studentessa o uno studente
-      properties:
-        file_status:
-          type: string
-          description: Status of an academic qualification change request for a student / Stato di una rettifica Titolo per una studentessa o uno studente (Rappresenta lo stato del processo relativo alla richiesta di rettifica)
-          minLength: 1
-          maxLength: 256   
-        file_code:
-          type: string
-          description: change request qualification code/ Codice Rettifica titolo
-          minLength: 1
-          maxLength: 256    
-        message:
-          type: string
-          description: Change request message output / Messaggio esito richiesta rettifica
-          minLength: 1
-          maxLength: 256 
-      required:
-        - file_status
-        - file_code
-        - message            
-    qualification_change_request_detail:
-      additionalProperties: false
-      type: object
-      description: Status of an qualification change request for a student / Stato di una rettifica titolo per una studentessa o uno studente
-      properties:
-        response_code: 
-          type: string
-          description: response code / codice della risposta. Indica il codice di risposta generato dall'invocazione dell'API per le operazioni di inserimento o eliminazione (insert, delete). Questo codice riflette l'esito della validazione del payload in ingresso, determinando se la transazione è approvata o rifiutata in base alla correttezza dei dati ricevuti
-          enum:
-            - approved 
-            - rejected
-        file_status:
-          type: string
-          description: Status of an academic qualification change request for a student / Stato di una rettifica Titolo per una studentessa o uno studente (Rappresenta lo stato del processo relativo alla richiesta di rettifica)
-          minLength: 1
-          maxLength: 256   
-        file_code:
-          type: string
-          description: change request qualification code/ Codice Rettifica titolo
-          minLength: 1
-          maxLength: 256    
-        message:
-          type: string
-          description: Change request message output / Messaggio esito richiesta rettifica
-          minLength: 1
-          maxLength: 256 
-      required:
-        - response_code
-        - file_status
-        - file_code
-        - message
-    attributes:
-          additionalProperties: false
-          type: array
-          maxItems: 256
-          minItems: 0
-          description: List of attributes to be changed / Lista di attributi da variare
-          items:
-            $ref: '#/components/schemas/attribute'
-    attribute:
-      additionalProperties: false
-      type: object
-      description: attribute to modify / attributo da variare
-      properties:
-        attribute_name:
-          type: string
-          description: Attribute name to be changed  / Nome attributo da variare in fase di rettifica titolo
-          minLength: 1
-          maxLength: 256   
-        current:
-          type: string
-          description: Current value to be rectified / Valore corrente da rettificare
-          minLength: 1
-          maxLength: 256    
-        suggested:
-          type: string
-          description: New value to be rectified / Nuovo valore da rettificare
-          minLength: 1
-          maxLength: 256 
-      required:
-        - attribute_name
-        - current
-        - suggested
-    academic_qualification_change_request:
-      type: object
-      additionalProperties: false      
-      description: Request qualification of a student's qualification / Richiesta Titolo di una studentessa o uno studente
-      properties:
-        tax_code:
-          type: string
-          description: Tax Identification Number / Codice fiscale
-          pattern: '^(?:^(?:[A-Z][AEIOU][AEIOUX]|[B-DF-HJ-NP-TV-Z]{2}[A-Z]){2}(?:[\dLMNP-V]{2}(?:[A-EHLMPR-T](?:[04LQ][1-9MNP-V]|[15MR][\dLMNP-V]|[26NS][0-8LMNP-U])|[DHPS][37PT][0L]|[ACELMRT][37PT][01LM]|[AC-EHLMPR-T][26NS][9V])|(?:[02468LNQSU][048LQU]|[13579MPRTV][26NS])B[26NS][9V])(?:[A-MZ][1-9MNP-V][\dLMNP-V]{2}|[A-M][0L](?:[1-9MNP-V][\dLMNP-V]|[0L][1-9MNP-V]))[A-Z]$)'
-          example: RSSMRA80A01F205D
-          minLength: 16
-          maxLength: 16
-        person_id:
-          type: string
-          description: Unique National Identifier (ANPR ID) / Identificativo unico nazionale (ID ANPR) 
-          maxLength: 9
-          minLength: 9
-          pattern: "^[A-Z0-9]{9}$"
-          example: AB123456C
-          nullable: true
-        file_code:
-          type: string
-          description: qualification change request code/ Codice Rettifica titolo
-          example: 6d183bc572f6b200015a4167
-          minLength: 1
-          maxLength: 64
-      required:
-        - tax_code     
-    academic_qualification_change_request_cancellation:
-      type: object
-      additionalProperties: false      
-      description: Request qualification of a student's qualification / Richiesta Titolo di una studentessa o uno studente
-      properties:
-        tax_code:
-          type: string
-          description: Tax Identification Number / Codice fiscale
-          pattern: '^(?:^(?:[A-Z][AEIOU][AEIOUX]|[B-DF-HJ-NP-TV-Z]{2}[A-Z]){2}(?:[\dLMNP-V]{2}(?:[A-EHLMPR-T](?:[04LQ][1-9MNP-V]|[15MR][\dLMNP-V]|[26NS][0-8LMNP-U])|[DHPS][37PT][0L]|[ACELMRT][37PT][01LM]|[AC-EHLMPR-T][26NS][9V])|(?:[02468LNQSU][048LQU]|[13579MPRTV][26NS])B[26NS][9V])(?:[A-MZ][1-9MNP-V][\dLMNP-V]{2}|[A-M][0L](?:[1-9MNP-V][\dLMNP-V]|[0L][1-9MNP-V]))[A-Z]$)'
-          example: RSSMRA80A01F205D
-          minLength: 16
-          maxLength: 16
-        person_id:
-          type: string
-          description: Unique National Identifier (ANPR ID) / Identificativo unico nazionale (ID ANPR) 
-          maxLength: 9
-          minLength: 9
-          pattern: "^[A-Z0-9]{9}$"
-          example: AB123456C
-          nullable: true
-        file_code:
-          type: string
-          description: qualification change request code/ Codice Rettifica titolo
-          example: 6d183bc572f6b200015a4167
-          minLength: 1
-          maxLength: 64
-      required:
-        - tax_code     
-        - file_code
+    
     issue_request:
       type: object
       additionalProperties: false      
@@ -762,6 +614,83 @@ components:
           maxLength: 256 
       required:
         - issue_description
+    qualifications_change_request:
+      type: object
+      additionalProperties: false
+      description: Qualification change request information status / Stati richiesta modifica titoli della studentessa o dello studente
+      properties:
+        change_requests_status:
+          type: array
+          minItems: 0
+          maxItems: 256
+          items:
+                $ref: '#/components/schemas/change_request_status'
+    change_request_status:
+      additionalProperties: false
+      type: object
+      description: Status of an qualification change request for a student / Stato di una rettifica titolo per una studentessa o uno studente
+      properties:
+        response_code:
+          type: string
+          description: response code / codice della risposta. Indica il codice di risposta generato dall'invocazione dell'API per le operazioni di inserimento o eliminazione (insert, delete). Questo codice riflette l'esito della validazione del payload in ingresso, determinando se la transazione è approvata o rifiutata in base alla correttezza dei dati ricevuti
+          enum:
+            - approved 
+            - rejected
+        file_status:
+          type: string
+          description: | 
+            Status of an academic qualification change request for a student /
+            Stato di una rettifica iscrizione per una studentessa o uno studente
+          nullable: true
+          enum:
+            - approved 
+            - rejected
+            - acquired
+            - cancelled
+            - null        
+        file_code:
+          type: string
+          description: change request qualification code/ Codice Rettifica titolo
+          minLength: 1
+          maxLength: 256   
+          nullable: true 
+        message:
+          type: string
+          description: Change request message output / Messaggio esito richiesta rettifica
+          minLength: 1
+          maxLength: 256 
+      required:
+        - response_code
+        - file_status
+        - file_code
+        - message            
+    qualification_change_request_detail:
+      additionalProperties: false
+      type: object
+      description: Status of an qualification change request for a student / Stato di una rettifica titolo per una studentessa o uno studente
+      properties:
+        file_status:
+          type: string
+          description: Status of an academic qualification change request for a student / Stato di una rettifica Titolo per una studentessa o uno studente (Rappresenta lo stato del processo relativo alla richiesta di rettifica)
+          enum:
+            - approved 
+            - rejected
+            - acquired
+            - cancelled
+        file_code:
+          type: string
+          description: change request qualification code/ Codice Rettifica titolo
+          minLength: 1
+          maxLength: 256    
+        message:
+          type: string
+          description: Change request message output / Messaggio esito richiesta rettifica
+          minLength: 1
+          maxLength: 256 
+      required:
+        - file_status
+        - file_code
+        - message
     issue_detail:
       additionalProperties: false
       type: object
@@ -780,6 +709,95 @@ components:
           maxLength: 256 
       required:
         - file_status
+    attributes:
+          additionalProperties: false
+          type: array
+          maxItems: 256
+          minItems: 0
+          description: List of attributes to be changed / Lista di attributi da variare
+          items:
+            $ref: '#/components/schemas/attribute'
+    attribute:
+      additionalProperties: false
+      type: object
+      description: attribute to modify / attributo da variare
+      properties:
+        attribute_name:
+          type: string
+          description: Attribute name to be changed  / Nome attributo da variare in fase di rettifica titolo
+          minLength: 1
+          maxLength: 256   
+        current:
+          type: string
+          description: Current value to be rectified / Valore corrente da rettificare
+          minLength: 1
+          maxLength: 256    
+        suggested:
+          type: string
+          description: New value to be rectified / Nuovo valore da rettificare
+          minLength: 1
+          maxLength: 256 
+      required:
+        - attribute_name
+        - current
+        - suggested
+    academic_qualification_change_request:
+      type: object
+      additionalProperties: false      
+      description: Request qualification of a student's qualification / Richiesta Titolo di una studentessa o uno studente
+      properties:
+        tax_code:
+          type: string
+          description: Tax Identification Number / Codice fiscale
+          pattern: '^(?:^(?:[A-Z][AEIOU][AEIOUX]|[B-DF-HJ-NP-TV-Z]{2}[A-Z]){2}(?:[\dLMNP-V]{2}(?:[A-EHLMPR-T](?:[04LQ][1-9MNP-V]|[15MR][\dLMNP-V]|[26NS][0-8LMNP-U])|[DHPS][37PT][0L]|[ACELMRT][37PT][01LM]|[AC-EHLMPR-T][26NS][9V])|(?:[02468LNQSU][048LQU]|[13579MPRTV][26NS])B[26NS][9V])(?:[A-MZ][1-9MNP-V][\dLMNP-V]{2}|[A-M][0L](?:[1-9MNP-V][\dLMNP-V]|[0L][1-9MNP-V]))[A-Z]$)'
+          example: RSSMRA80A01F205D
+          minLength: 16
+          maxLength: 16
+        person_id:
+          type: string
+          description: Unique National Identifier (ANPR ID) / Identificativo unico nazionale (ID ANPR) 
+          maxLength: 9
+          minLength: 9
+          pattern: "^[A-Z0-9]{9}$"
+          example: AB123456C
+          nullable: true
+        file_code:
+          type: string
+          description: qualification change request code/ Codice Rettifica titolo
+          example: 6d183bc572f6b200015a4167
+          minLength: 1
+          maxLength: 64
+      required:
+        - tax_code     
+    academic_qualification_change_request_cancellation:
+      type: object
+      additionalProperties: false      
+      description: Request qualification of a student's qualification / Richiesta Titolo di una studentessa o uno studente
+      properties:
+        tax_code:
+          type: string
+          description: Tax Identification Number / Codice fiscale
+          pattern: '^(?:^(?:[A-Z][AEIOU][AEIOUX]|[B-DF-HJ-NP-TV-Z]{2}[A-Z]){2}(?:[\dLMNP-V]{2}(?:[A-EHLMPR-T](?:[04LQ][1-9MNP-V]|[15MR][\dLMNP-V]|[26NS][0-8LMNP-U])|[DHPS][37PT][0L]|[ACELMRT][37PT][01LM]|[AC-EHLMPR-T][26NS][9V])|(?:[02468LNQSU][048LQU]|[13579MPRTV][26NS])B[26NS][9V])(?:[A-MZ][1-9MNP-V][\dLMNP-V]{2}|[A-M][0L](?:[1-9MNP-V][\dLMNP-V]|[0L][1-9MNP-V]))[A-Z]$)'
+          example: RSSMRA80A01F205D
+          minLength: 16
+          maxLength: 16
+        person_id:
+          type: string
+          description: Unique National Identifier (ANPR ID) / Identificativo unico nazionale (ID ANPR) 
+          maxLength: 9
+          minLength: 9
+          pattern: "^[A-Z0-9]{9}$"
+          example: AB123456C
+          nullable: true
+        file_code:
+          type: string
+          description: qualification change request code/ Codice Rettifica titolo
+          example: 6d183bc572f6b200015a4167
+          minLength: 1
+          maxLength: 64
+      required:
+        - tax_code     
+        - file_code
   requestBodies: {}
   responses: {}
   securitySchemes:
