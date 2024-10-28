@@ -71,7 +71,7 @@
 
 
 
-## Version 2.0.4 Stable version
+## Version 2.0.4 
 
 - [IFS03.1] Removed the required condition on the attribute qualification_name in the response
 - [IFS03.1] Added the required to the qualification_grade_value
