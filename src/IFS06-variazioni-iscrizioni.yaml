@@ -3,12 +3,12 @@ info:
   title: IFS06 - Changes in academic enrolments/ Variazioni nelle iscrizioni accademiche
   x-summary: | 
     Retrieve the changes in academic enrollments / Ottiene le variazioni delle iscrizioni accademiche
-  version: 2.0.6-rc
+  version: 2.0.6
   description: |
         Retrieve the changes in academic enrollments / Ottiene le variazioni delle iscrizioni accademiche
   contact:
-    name: helpdesk
-    email: helpdesk@gmail.com
+    name: Institute name
+    email: formal.institute@email.it
   x-api-id: 00000000-0000-0000-0000-000000000000
   termsOfService: 'http://swagger.io/terms/'
   license:

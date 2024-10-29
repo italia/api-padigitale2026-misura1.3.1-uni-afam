@@ -3,12 +3,12 @@ info:
   title: IFS08 - Academic enrollments by ISEE / Iscrizioni accademiche per fasce ISEE
   x-summary: | 
     Retrieve the number of academic enrollments by ISEE / Ottiene il numero di iscrizioni accademiche per fasce ISEE
-  version: 2.0.6-rc
+  version: 2.0.6
   description: |
     Retrieve the number of academic enrollments by ISEE / Ottiene il numero di iscrizioni accademiche per fasce ISEE
   contact:
-    name: helpdesk
-    email: helpdesk@gmail.com
+    name: Institute name
+    email: formal.institute@email.it
   x-api-id: 00000000-0000-0000-0000-000000000000
   termsOfService: 'http://swagger.io/terms/'
   license:

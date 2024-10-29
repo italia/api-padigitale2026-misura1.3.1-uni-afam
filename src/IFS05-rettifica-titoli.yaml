@@ -2,12 +2,12 @@ openapi: 3.0.0
 info:
   title: IFS05 - Academic qualifications change request/ Rettifica dei titoli accademici
   x-summary: Data academic qualificatons change request / Richiede la rettifica dei titoli accademici
-  version: 2.0.6-rc
+  version: 2.0.6
   description: |
       Data academic qualificatons change request / Richiede la rettifica dei titoli accademici
   contact:
-    name: helpdesk
-    email: helpdesk@gmail.com
+    name: Institute name
+    email: formal.institute@email.it
   x-api-id: 00000000-0000-0000-0000-000000000000
   termsOfService: 'http://swagger.io/terms/'
   license:
@@ -630,24 +630,53 @@ components:
       type: object
       description: Status of an qualification change request for a student / Stato di una rettifica titolo per una studentessa o uno studente
       properties:
-        response_code:
-          type: string
-          description: response code / codice della risposta. Indica il codice di risposta generato dall'invocazione dell'API per le operazioni di inserimento o eliminazione (insert, delete). Questo codice riflette l'esito della validazione del payload in ingresso, determinando se la transazione è approvata o rifiutata in base alla correttezza dei dati ricevuti
-          enum:
-            - approved 
-            - rejected
         file_status:
           type: string
           description: | 
             Status of an academic qualification change request for a student /
             Stato di una rettifica iscrizione per una studentessa o uno studente
+          enum:
+            - approved 
+            - rejected
+            - acquired
+            - cancelled       
+        file_code:
+          type: string
+          description: change request qualification code/ Codice Rettifica titolo
+          minLength: 1
+          maxLength: 256   
+        message:
+          type: string
+          description: Change request message output / Messaggio esito richiesta rettifica
+          minLength: 1
+          maxLength: 256 
+      required:
+        - file_status
+        - file_code
+        - message            
+    qualification_change_request_detail:
+      additionalProperties: false
+      type: object
+      description: Status of an qualification change request for a student / Stato di una rettifica titolo per una studentessa o uno studente
+      properties:
+        response_code:
+          type: string
+          description: |
+            response code / codice della risposta. Indica il codice di risposta generato dall'invocazione dell'API per le operazioni di inserimento o eliminazione (insert, delete). 
+            Questo codice riflette l'esito della validazione del payload in ingresso, determinando se la transazione è approvata o rifiutata in base alla correttezza dei dati ricevuti
+          enum:
+            - approved 
+            - rejected
+        file_status:
+          type: string
+          description: Status of an academic qualification change request for a student / Stato di una rettifica Titolo per una studentessa o uno studente (Rappresenta lo stato del processo relativo alla richiesta di rettifica)
           nullable: true
           enum:
             - approved 
             - rejected
             - acquired
             - cancelled
-            - null        
+            - null
         file_code:
           type: string
           description: change request qualification code/ Codice Rettifica titolo
@@ -661,33 +690,6 @@ components:
           maxLength: 256 
       required:
         - response_code
-        - file_status
-        - file_code
-        - message            
-    qualification_change_request_detail:
-      additionalProperties: false
-      type: object
-      description: Status of an qualification change request for a student / Stato di una rettifica titolo per una studentessa o uno studente
-      properties:
-        file_status:
-          type: string
-          description: Status of an academic qualification change request for a student / Stato di una rettifica Titolo per una studentessa o uno studente (Rappresenta lo stato del processo relativo alla richiesta di rettifica)
-          enum:
-            - approved 
-            - rejected
-            - acquired
-            - cancelled
-        file_code:
-          type: string
-          description: change request qualification code/ Codice Rettifica titolo
-          minLength: 1
-          maxLength: 256    
-        message:
-          type: string
-          description: Change request message output / Messaggio esito richiesta rettifica
-          minLength: 1
-          maxLength: 256 
-      required:
         - file_status
         - file_code
         - message

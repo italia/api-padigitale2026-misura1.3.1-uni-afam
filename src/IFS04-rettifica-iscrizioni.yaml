@@ -2,12 +2,12 @@ openapi: 3.0.0
 info:
   title: IFS04 - Academic enrollments change request  / Rettifica iscrizioni accademiche
   x-summary: Data academic enrollments change request / Richiede la rettifica dei dati delle iscrizioni accademiche
-  version: 2.0.6-rc
+  version: 2.0.6
   description: |
         Data academic enrollments change request / Richiede la rettifica dei dati delle iscrizioni accademiche
   contact:
-    name: helpdesk
-    email: helpdesk@gmail.com
+    name: Institute name
+    email: formal.institute@email.it
   x-api-id: 00000000-0000-0000-0000-000000000000
   termsOfService: 'http://swagger.io/terms/'
   license:
@@ -578,6 +578,35 @@ components:
           description: List of tudent academic enrollments / Elenco iscrizioni accademiche
           items:
             $ref: '#/components/schemas/change_request_status'
+    change_request_status:
+      additionalProperties: false
+      type: object
+      description: Status of an academic enrollment change request for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
+      properties:
+        file_status:
+          type: string
+          description: |
+            Status of an academic enrollment change request for a student / 
+            Stato di una rettifica iscrizione per una studentessa o uno studente (Rappresenta lo stato del processo relativo alla richiesta di rettifica) 
+          enum:
+            - approved 
+            - rejected
+            - acquired
+            - cancelled
+        file_code:
+          type: string
+          description: enrollment change request code/ Codice Rettifica iscrizioni
+          minLength: 1
+          maxLength: 256    
+        message:
+          type: string
+          description: Change request message output / Messaggio esito richiesta rettifica
+          minLength: 1
+          maxLength: 256 
+      required:
+        - file_status
+        - file_code
+        - message    
     change_request_detail:
       additionalProperties: false
       type: object
@@ -585,7 +614,9 @@ components:
       properties:
         response_code:
           type: string
-          description: response code / codice della risposta. Indica il codice di risposta generato dall'invocazione dell'API per le operazioni di inserimento o eliminazione (insert, delete). Questo codice riflette l'esito della validazione del payload in ingresso, determinando se la transazione è approvata o rifiutata in base alla correttezza dei dati ricevuti
+          description: |
+            response code / codice della risposta. Indica il codice di risposta generato dall'invocazione dell'API per le operazioni di inserimento o eliminazione (insert, delete). 
+            Questo codice riflette l'esito della validazione del payload in ingresso, determinando se la transazione è approvata o rifiutata in base alla correttezza dei dati ricevuti
           enum:
             - approved 
             - rejected
@@ -615,33 +646,6 @@ components:
         - file_status
         - file_code
         - message
-    change_request_status:
-      additionalProperties: false
-      type: object
-      description: Status of an academic enrollment change request for a student / Stato di una rettifica iscrizione per una studentessa o uno studente
-      properties:
-        file_status:
-          type: string
-          description: Status of an academic enrollment change request for a student / Stato di una rettifica iscrizione per una studentessa o uno studente (Rappresenta lo stato del processo relativo alla richiesta di rettifica)
-          enum:
-            - approved 
-            - rejected
-            - acquired
-            - cancelled
-        file_code:
-          type: string
-          description: enrollment change request code/ Codice Rettifica iscrizioni
-          minLength: 1
-          maxLength: 256    
-        message:
-          type: string
-          description: Change request message output / Messaggio esito richiesta rettifica
-          minLength: 1
-          maxLength: 256 
-      required:
-        - file_status
-        - file_code
-        - message    
     issue_detail:
       additionalProperties: false
       type: object

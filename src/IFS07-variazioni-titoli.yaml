@@ -3,12 +3,12 @@ info:
   title: IFS07 - Changes in academic qualifications / Variazioni nei titoli accademici
   x-summary: |
     Retrieve the changes in academic qualifications / Ottiene le variazioni dei titoli accademici
-  version: 2.0.6-rc
+  version: 2.0.6
   description: |
     Retrieve the changes in academic qualifications / Ottiene le variazioni dei titoli accademici
   contact:
-    name: helpdesk
-    email: helpdesk@gmail.com
+    name: Institute name
+    email: formal.institute@email.it
   x-api-id: 00000000-0000-0000-0000-000000000000
   termsOfService: 'http://swagger.io/terms/'
   license:

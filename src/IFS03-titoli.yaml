@@ -5,13 +5,13 @@ info:
   x-summary: |
     Provides the detailed information regarding the academic qualification degrees got by the students at an university or AFAM / 
     Fornisce le informazioni di dettaglio riguardanti i titoli conseguiti da una studentessa o uno studente all'università o AFAM
-  version: 2.0.6-rc
+  version: 2.0.6
   description: |
     Provides the detailed information regarding the academic qualification degrees got by the students at an university or AFAM / 
     Fornisce le informazioni di dettaglio riguardanti i titoli conseguiti da una studentessa o uno studente all'università o AFAM
   contact:
-    name: helpdesk
-    email: helpdesk@mail.edu.it
+    name: Institute name
+    email: formal.institute@email.it
   x-api-id: 00000000-0000-0000-0000-000000000000
   termsOfService: http://swagger.io/terms/'
   license:

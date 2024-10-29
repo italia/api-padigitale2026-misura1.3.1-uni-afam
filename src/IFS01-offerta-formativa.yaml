@@ -2,12 +2,12 @@ openapi: 3.0.0
 info:
   title: IFS01 - Educational offer / Offerta formativa 
   x-summary: Acquire data on the courses active and offered by an institute in a given academic year. / Vuole acquisire i dati dei corsi attivi ed offerti da un Istituto in un dato anno accademico.
-  version: 2.0.6-rc
+  version: 2.0.6
   description: |
     Obtains the list of courses provided by a public university or AFAM. The data returned includes information on the individual courses offered. / Ottiene l'elenco dei corsi erogati da un'università o AFAM pubblica. I dati restituiti includono informazioni sui singoli corsi offerti.
   contact:
-    name: helpdesk
-    email: helpdesk@gmail.com
+    name: Institute name
+    email: formal.institute@email.it
   x-api-id: 00000000-0000-0000-0000-000000000000
   termsOfService: http://swagger.io/terms/
   license:
