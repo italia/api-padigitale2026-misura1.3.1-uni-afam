@@ -1,5 +1,6 @@
 # Release note
 # Version 2.1.0
+Versione finale per l'asseverazione
 
 
 # Version 2.0.6 
