@@ -1,4 +1,6 @@
 # Release note
+# Version 2.1.0
+
 
 # Version 2.0.6 
 - [GUIDE] updated the readme.md file with the new e-services' names and uploaded the guide for publishing the e-services
