@@ -3,7 +3,7 @@ info:
   title: IFS08 - Academic enrollments by ISEE / Iscrizioni accademiche per fasce ISEE
   x-summary: | 
     Retrieve the number of academic enrollments by ISEE / Ottiene il numero di iscrizioni accademiche per fasce ISEE
-  version: 2.0.6
+  version: 2.1.0
   description: |
     Retrieve the number of academic enrollments by ISEE / Ottiene il numero di iscrizioni accademiche per fasce ISEE
   contact:

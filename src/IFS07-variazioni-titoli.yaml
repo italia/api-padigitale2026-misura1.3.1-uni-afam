@@ -3,7 +3,7 @@ info:
   title: IFS07 - Changes in academic qualifications / Variazioni nei titoli accademici
   x-summary: |
     Retrieve the changes in academic qualifications / Ottiene le variazioni dei titoli accademici
-  version: 2.0.6
+  version: 2.1.0
   description: |
     Retrieve the changes in academic qualifications / Ottiene le variazioni dei titoli accademici
   contact:

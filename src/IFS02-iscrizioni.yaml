@@ -3,7 +3,7 @@ info:
   title: | 
     IFS02 - Academic enrollments / Iscrizioni accademiche
   x-summary: Provides the detailed information regarding the enrollment of student at an university or AFAM / Fornisce le informazioni di dettaglio riguardanti le iscrizioni di una studentessa o uno studente all'università o AFAM
-  version: 2.0.6
+  version: 2.1.0
   description: |
       Provides the detailed information regarding the enrollment of student at an university or AFAM / Fornisce le informazioni di dettaglio riguardanti le iscrizioni di una studentessa o uno studente all'università o AFAM
   contact:
