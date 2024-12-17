@@ -195,10 +195,6 @@ L'implementazione degli e-service devono rispettare il profilo **[ID_AUTH_REST_0
 
 ## Linee guida agli e-service
 
-<p align="center">
- <img src="doc/05_gallery/umarell.png" width="80"/>
-</p>
-
 In questo paragrafo sono descritte le seguenti API:
 
 1. [IFS01 Offerta Formativa](#ifs01-offerta-formativa)
