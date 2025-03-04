@@ -1,29 +1,26 @@
-{
-   "count_academic_enrollments_by_degree_courses":
-      [
-         {
-            "programme_type_code":"MS",
-            "degree_course_code":"469",
-            "degree_class_code":"MSLM32",
-            "female_enrollment_count": 15000,
-            "male_enrollment_count": 10000
-            
-         },
-         {
-            "programme_type_code":"MS",
-            "degree_course_code":"355",
-            "degree_class_code":"MSLM20",
-            "female_enrollment_count": 2000,
-            "male_enrollment_count": 1500
-            
-         }
-         ,
-         {
-            "programme_type_code":"LT",
-            "degree_course_code":"245",
-            "degree_class_code":"LT10",
-            "female_enrollment_count": 5000,
-            "male_enrollment_count": 6000            
-         }
-      ]
-}
+[
+   {
+      "programme_type_code":"MS",
+      "degree_course_code":"469",
+      "degree_class_code":"MSLM32",
+      "female_enrollment_count": 15000,
+      "male_enrollment_count": 10000
+      
+   },
+   {
+      "programme_type_code":"MS",
+      "degree_course_code":"355",
+      "degree_class_code":"MSLM20",
+      "female_enrollment_count": 2000,
+      "male_enrollment_count": 1500
+      
+   }
+   ,
+   {
+      "programme_type_code":"LT",
+      "degree_course_code":"245",
+      "degree_class_code":"LT10",
+      "female_enrollment_count": 5000,
+      "male_enrollment_count": 6000
+   }
+]
